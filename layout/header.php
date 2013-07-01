@@ -1,8 +1,5 @@
 <div class="headertop">		
-    <a href="" title="Parando de Fumar"><img id="logo" src="pix/imgs/parando-de-fumar.png" alt="Logo do Parando de fumar "/></a>
-	<!--<div id="title">
-	   	<h1 class="headermain"><a href="index.php" title="Home">Parando <br />de Fumar</a></h1>
-    </div>-->    
+    <a href="" title="Viva sem Tabaco"><img id="logo" src="pix/imgs/viva-sem-tabaco.png" alt="Logomarca do viva sem tabaco "/></a>   
 </div>
     
 <div id="searchbar">

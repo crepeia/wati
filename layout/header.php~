@@ -10,7 +10,7 @@
   <div>
     <input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/>
     <input type="hidden" name="ie" value="UTF-8" />
-    <input type="text" name="q" size="27" />
+    <input type="text" name="q" size="15" />
     <input type="submit" name="sa" value="Buscar" />
   </div>
 </form>
