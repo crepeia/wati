@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>Parando de fumar | Programa gratuito para o tratamento do tabagismo</title>
+<title>Viva sem tabaco | Programa gratuito para o tratamento do tabagismo</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="O parando de fumar é um programa gratuito para quem deseja parar de fumar. Ele é desenvolvido por especialistas em tratamento do tabagismo utilizando evidências científicas" />
 <meta name="keywords" content="tabagismo, parar de fumar, tratamento tabagismo, como parar de fumar, deixar de fumar" />
@@ -25,7 +25,7 @@
       <div class="main">
 			<div class="topmenu">
 	      	<?php include('layout/topmenu.php'); ?>
-         </div>    
+         </div>   
             
 		   <div class="pagecontent">
         		<?php include('pages/index.php') ?>    

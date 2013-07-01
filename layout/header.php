@@ -3,12 +3,12 @@
 </div>
     
 <div id="searchbar">
-<form action="http://www.google.com/cse" id="cse-search-box">
+<form class="form-wrapper cf" action="http://www.google.com/cse" id="cse-search-box">
   <div>
     <input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/>
     <input type="hidden" name="ie" value="UTF-8" />
-    <input type="text" name="q" size="15" />
-    <input type="submit" name="sa" value="Buscar" />
+    <input type="text" placeholder="Pesquise aqui" name="q" size="15" />
+    <button type="submit">Buscar</button>
   </div>
 </form>
 <script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=pt;"></script>

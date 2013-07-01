@@ -26,7 +26,7 @@
     		<input type="password" placeholder="Senha" name="psw" size="30" />
     		<input type="password" placeholder="Repetir senha" name="psw" size="30" /><br />
     		<p>Sexo: <input type="radio" name="sex" value="masculino">Masculino <input type="radio" name="sex" value="feminino">Feminino</p>
-    		<p id="notes">Ao efetuar o cadastro, você concorda com os <a href="">termos de uso</a>.</p>
+    		<p id="notes">Ao efetuar o cadastro, você concorda com os termos de uso.</p>
     		<button type="submit">Registrar</button>
   			</div>
 		</form>
