@@ -47,7 +47,8 @@ body,h1,h2,h3,h4,h5,h6,p,ul,ol,dl,input,textarea {
 
 a {
 	color:#163f75;
-	text-decoration:none;	
+	text-decoration:none;
+	font-weight: bold;	
 }
 
 a:hover {
@@ -68,7 +69,7 @@ h2, h3{
 #header {
 	height:auto;
 	width:auto;
-	padding: 20px 0 20px 0;
+	padding: 20px 0 90px 0;
 }
 
 .headertop {
@@ -79,7 +80,7 @@ img#logo {
 	width:250px;
 	height:77px;
 	float:left;
-	padding:10px 20px 20px 10px;
+	padding:10px 20px 0 10px;
 	border: #fff 1px;
 }
 
@@ -91,7 +92,7 @@ img#logo {
 #searchbar {
 	float:right;
 	position:relative;
-	top:65px;
+	top: 50px;
 }
 
 /*Search bar*/
@@ -102,6 +103,7 @@ img#logo {
     padding: 10px 5px;
     border: 0;
     background: #eee;
+    float: left;
          
 }
 
@@ -329,14 +331,22 @@ INDEX***********************/
 	background: linear-gradient(top, #efefef 20%, #e0e0e0 100%);  
 	background: -moz-linear-gradient(top, #efefef 20%, #e0e0e0 100%); 
 	background: -webkit-linear-gradient(top, #efefef 20%, #e0e0e0 100%); 
-	height: 350px;
+	height: 380px;
 	box-shadow: 0 2px 3px 0px rgba(0,0,0,0.30);
 	padding: 0 5px;
 	border-radius: 4px;
 
 }
 
-.form-signup input{
+.form-signup {
+	padding-top: 15px;
+}
+
+.signuptext{
+	padding-bottom: 3px;
+}
+
+.signuptext input{
 	 margin-left: 8px;
     width: 420px;
     height: 20px;
@@ -346,23 +356,23 @@ INDEX***********************/
     font-size: 1.1em; 
 }
 
-.form-signup input {
+.signuptext input {
     outline: 1;
     background: #fff;
     box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
 }
 
-.form-signup input::-webkit-input-placeholder {
+.signuptext input::-webkit-input-placeholder {
    color: #999;
    font-weight: normal;
 }
  
-.form-signup input:-moz-placeholder {
+.signuptext input:-moz-placeholder {
     color: #999;
     font-weight: normal;
 }
  
-.form-signup input:-ms-input-placeholder {
+.signuptext input:-ms-input-placeholder {
     color: #999;
     font-weight: normal;
 } 
@@ -380,11 +390,11 @@ INDEX***********************/
     font: bold 15px;
     color: #fff;
     text-transform: uppercase;
+    font-weight: 500;
     background: #fbaf3e;
     border-radius: 4px;     
-    /* text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);*/
-}
 
+}
 
 .form-signup button:hover{    
     background: #fed499;
@@ -394,6 +404,10 @@ INDEX***********************/
 .form-signup button:focus{  
     background: #c42f2f;
     outline: 0;  
+}
+
+#signupsex {
+	padding: 5px 5px 0 0;
 }
 
 #notes {
