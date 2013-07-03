@@ -24,20 +24,33 @@
     		<div class="signuptext"><input type="text" placeholder="E-mail" name="email" size="30" /></div>
     		<div class="signuptext"><input type="password" placeholder="Senha" name="psw" size="30" /></div>
     		<div class="signuptext"><input type="password" placeholder="Repetir senha" name="psw" size="30" /></div>
+    		
     		<div id="signupbottom"> 
-    		<div id="signupsex">		
+			<div id="signupbirth">
+    		<label>Idade:</label>
+    		<select name="dia">
+				<option value="dia" selected>Dia</option><option value="dia">1</option><option value="2">2</option><option value="3">3</option>
+			</select>
+			<select name="Mês">
+				<option value="dia"selected >Mês</option><option value="01">Janeiro</option><option value="02">Fevereiro</option><option value="03">Março</option><option value="04">Abril</option><option value="05">Maio</option><option value="06">Junho</option><option value="07">Julho</option><option value="08">Agosto</option><option value="09">Setembro</option><option value="10">Outubro</option><option value="11">Novembro</option><option value="12">Dezembro</option>
+			</select>
+			<select name="ano">
+			<option value="ano" selected>Ano</option><option value="dia">1996</option>
+			</select>
+			</div>    		
+    		<div id="signupsex">
+    		<label>Sexo:</label>		
  				<input type="radio" id="sex-f" name="sex" value="feminino">
  				<label for="sex-f">Feminino</label>	
     			<input type="radio" id="sex-m" name="sex" value="masculino">
     			<label for="sex-m">Masculino</label>    
     		</div>
-    		<select name="cars">
-				<option value="volvo">Volvo</option><option value="saab">Saab</option><option value="fiat" selected>Fiat</option><option value="audi">Audi</option>
-			</select>		
-    			<p id="notes">Ao efetuar o cadastro, você concorda com os <a href="">termos de uso</a>.</p>
+    		<div id="signupsubmit">		
+    		<p>Ao efetuar o cadastro, você concorda com os <a href="">termos de uso</a>.</p>
     		<button type="submit">Registrar</button>
     		</div>
-		</form>
+    		</div>
+    	</form>	    		
 		</div>
 	</div>
 </div>
