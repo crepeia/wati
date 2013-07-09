@@ -12,20 +12,19 @@
 		<meta name="keywords" content="tabagismo, parar de fumar, tratamento tabagismo, como parar de fumar, deixar de fumar" />
 		<meta name="author" content="hpgomide" />
 		<link rel="shortcut icon" href="favicon.ico" />
-		<link type="text/css" rel="stylesheet" href="style/core.css" />
+		<h:outputStylesheet library="default" name="css/core.css" />
     </h:head>
     <h:body>
 		<div id="corpo"> 
 			<!-- header -->    
-			<div id="header">
-				<w:header />
-			</div>
+			<w:header />
 
 			<!--mainmenu-->         	
 			<div class="main">
+				<!-- tentar colocar as definicoes de class no componente -->
 				<div class="topmenu">
 					<w:topmenu />
-				</div>   
+				</div>
 
 				<div class="pagecontent">
 					
@@ -37,9 +36,7 @@
 		</div><!-- end.corpo --> 
 
 		<!--Footer -->
-		<div id="footer">
-			<w:footer />
-		</div> 
+		<w:footer />
 	</h:body>
 </html>
 
