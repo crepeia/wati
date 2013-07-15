@@ -73,15 +73,15 @@ h2, h3{
 }
 
 .headertop {
-	float:left;
+	float:left;	
 }
 
-img#logo {
-	width:250px;
-	height:77px;
+.headertop img {
 	float:left;
-	padding:10px 20px 20px 10px;
-	border: #fff 1px;
+        padding:10px 20px 20px 10px;
+        border: #fff 1px;
+        width:250px;
+	height:77px;
 }
 
 
