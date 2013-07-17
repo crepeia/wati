@@ -18,13 +18,13 @@
 		<div id="corpo"> 
 			<!-- header -->    
 			<w:header />
-                        
-                        <w:topmenu />
-                        
+
+			<w:topmenu />
+
 			<!--mainmenu-->         	
 			<div class="main">
 				<!-- tentar colocar as definicoes de class no componente -->
-				
+
 
 				<div class="pagecontent">
 					<div id="maintop">
@@ -46,40 +46,93 @@
 						<div id="mainright">
 							<div id="signup">
 								<h1>Cadastro</h1>
-								<form class="form-signup" action="" id="">
+								<h:form id="form" class="form-signup">
 									<div class="signuptext"><input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/></div>
 									<div class="signuptext"><input type="hidden" name="ie" value="UTF-8" /></div>
-									<div class="signuptext"><input type="text" placeholder="Nome completo" name="fullname" size="30" /></div>
-									<div class="signuptext"><input type="text" placeholder="E-mail" name="email" size="30" /></div>
-									<div class="signuptext"><input type="password" placeholder="Senha" name="psw" size="30" /></div>
-									<div class="signuptext"><input type="password" placeholder="Repetir senha" name="psw" size="30" /></div>
+									<div class="signuptext">
+										<p:inputText id="nameTxt" value="#{userController.user.name}" required="true" size="30" >
+											<!--<p:ajax update="loginMsg" event="blur" />-->
+											<f:validateLength maximum="100" />
+										</p:inputText>
+										<p:watermark for="nameTxt" value="Nome completo" />
+									</div>
+									<div class="signuptext">
+										<p:inputText id="emailTxt" value="#{userController.user.email}" required="true" size="30" >
+											<!--<p:ajax update="loginMsg" event="blur" />-->
+											<f:validateLength maximum="50" />
+										</p:inputText>
+										<p:watermark for="emailTxt" value="E-mail" />
+									</div>
+									<div class="signuptext">
+										<p:password id="passwordTxt" value="#{userController.password}" required="true" match="confirmPasswordTxt" redisplay="true" size="30">  
+											<f:validateLength maximum="16" />
+											<!--<p:ajax update="passwordMsg" event="blur" />-->
+										</p:password>
+										<p:watermark for="passwordTxt" value="Senha" />
+									</div>
+									<div class="signuptext">
+										<p:password id="confirmPasswordTxt" value="#{userController.password}" required="true" redisplay="true">  
+											<f:validateLength maximum="16" />
+											<!--<p:ajax update="passwordMsg" event="blur" />-->
+										</p:password>
+										<p:watermark for="confirmPasswordTxt" value="Repetir senha" />
+									</div>
 
-									<div id="signupbottom">
+									<div id="signupbottom">	
+										<p:panelGrid columns="4" id="nascimento">
+											<h:outputText value="Nascimento:"/>
+											<p:selectOneMenu id="day" value="#{userController.dia}">  
+												<f:selectItem itemLabel="Dia" itemValue="" />  
+												<f:selectItems value="#{userController.dias}" />  
+											</p:selectOneMenu>
+											<p:selectOneMenu id="month" value="#{userController.mes}">  
+												<f:selectItem itemLabel="Mês" itemValue="" />  
+												<f:selectItems value="#{userController.meses}" />  
+											</p:selectOneMenu>
+											<p:selectOneMenu id="year" value="#{userController.ano}">  
+												<f:selectItem itemLabel="Ano" itemValue="" />  
+												<f:selectItems value="#{userController.anos}" />  
+											</p:selectOneMenu>
+										</p:panelGrid>
+										<p:panelGrid columns="2" id="sexo">
+											<h:outputText value="Sexo:"/>
+											<p:selectOneRadio id="options" value="#{userController.user.gender}">  
+												<f:selectItem itemLabel="Feminino" itemValue="F" />  
+												<f:selectItem itemLabel="Masculino" itemValue="M" />  
+											</p:selectOneRadio> 
+										</p:panelGrid>
+
+										<!--
 										<div id="signupbirth">
-											<label>Idade:</label>
-											<select name="dia">
-												<option value="dia" selected="1">Dia</option><option value="dia">1</option><option value="2">2</option><option value="3">3</option>
-											</select>
-											<select name="Mês">
-												<option value="dia" selected="Janeiro">Mês</option><option value="01">Janeiro</option><option value="02">Fevereiro</option><option value="03">Março</option><option value="04">Abril</option><option value="05">Maio</option><option value="06">Junho</option><option value="07">Julho</option><option value="08">Agosto</option><option value="09">Setembro</option><option value="10">Outubro</option><option value="11">Novembro</option><option value="12">Dezembro</option>
-											</select>
-											<select name="ano">
-												<option value="ano" selected="1981">Ano</option><option value="dia">1996</option>
-											</select>
-										</div>    		
-										<div id="signupsex">
-											<label>Sexo:</label>		
-											<input type="radio" id="sex-f" name="sex" value="feminino" />
-											<label for="sex-f">Feminino</label>	
-											<input type="radio" id="sex-m" name="sex" value="masculino" />
-											<label for="sex-m">Masculino</label>    
+										<label>Idade:</label>
+										<select name="dia">
+											<option value="dia" selected="1">Dia</option><option value="dia">1</option><option value="2">2</option><option value="3">3</option>
+										</select>
+										<select name="Mês">
+											<option value="dia" selected="Janeiro">Mês</option><option value="01">Janeiro</option><option value="02">Fevereiro</option><option value="03">Março</option><option value="04">Abril</option><option value="05">Maio</option><option value="06">Junho</option><option value="07">Julho</option><option value="08">Agosto</option><option value="09">Setembro</option><option value="10">Outubro</option><option value="11">Novembro</option><option value="12">Dezembro</option>
+										</select>
+										<select name="ano">
+											<option value="ano" selected="1981">Ano</option><option value="dia">1996</option>
+										</select>
+										</div> 
+										<div id="signupsex"> 
+										<label>Sexo:</label>		
+										<input type="radio" id="sex-f" name="sex" value="feminino" />
+										<label for="sex-f">Feminino</label>	
+										<input type="radio" id="sex-m" name="sex" value="masculino" />
+										<label for="sex-m">Masculino</label>   
 										</div>
+										-->
 										<div id="signupsubmit">		
 											<p>Ao efetuar o cadastro, você concorda com os <a href="">termos de uso</a>.</p>
-											<button type="submit">Registrar</button>
+											<!--<button type="submit">Registrar</button>-->
+											<p:commandButton id="saveBtn" value="Registrar" update="@form" actionListener="#{userController.save}">
+												<f:attribute name="object" value="#{userController.user}" />
+												<f:attribute name="typeName" value="user" />
+											</p:commandButton>
 										</div>
 									</div>
-								</form>	    		
+								</h:form>	    		
 							</div>
 						</div>
 					</div>
