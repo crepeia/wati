@@ -1,6 +1,26 @@
 @charset "utf-8";
 /* CSS Document */
 
+/*PRIMEFACES*/
+.ui-inputfield.ui-state-focus, .ui-widget-content .ui-inputfield.ui-state-focus, .ui-widget-header .ui-inputfield.ui-state-focus {
+        box-shadow: 1px 0px 1px rgb(100, 100, 100) inset;
+
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+        border: 1px solid rgb(168, 168, 168);
+        background: -moz-linear-gradient(center top , rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0)) repeat scroll 0% 0% rgb(196, 196, 196);
+        font-weight: normal;
+        color: rgb(79, 79, 79);
+        text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.7);
+    
+}
+
+.ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
+        box-shadow: 0px 1px 1px rgb(250, 250, 250) inset;
+        color: rgb(49, 49, 49);
+}
+
 /*LAYOUT*/
 html, body {
 	height:100%;
@@ -27,6 +47,11 @@ html, body {
 
 .pagecontent {
 	height:100%;
+}
+
+.subpagecontent{
+	margin-left: 270px;
+	
 }
 	
 #footer {
@@ -66,22 +91,23 @@ h2, h3{
 
 /*HEADER*/
 
+
 #header {
 	height:auto;
 	width:auto;
-	padding: 20px 0 20px 0;
+	padding: 20px 0 90px 0;
 }
 
 .headertop {
-	float:left;	
+	float:left;
 }
 
 .headertop img {
-	float:left;
-        padding:10px 20px 20px 10px;
-        border: #fff 1px;
-        width:250px;
+	width:250px;
 	height:77px;
+	float:left;
+	padding:10px 20px 0 10px;
+	border: #fff 1px;
 }
 
 
@@ -91,18 +117,20 @@ h2, h3{
 
 #searchbar {
 	float:right;
-	position:relative;
-	top:65px;
+        position:relative;
+        top:50px;
+
 }
 
 /*Search bar*/
 
 .form-wrapper input {
-    width: 180px;
+    width: 170px;
     height: 20px;
     padding: 10px 5px;
     border: 0;
     background: #eee;
+    float: left;
          
 }
 
@@ -176,26 +204,26 @@ h2, h3{
         border-right-color: #fbaf3e;
 }     
  
-.form-wrapper button::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
+.form-wrapper button::-moz-focus-inner {/* remove extra button spacing for Mozilla Firefox */
     border: 0;
     padding: 0;
 }
 
 /*TOPMENU*/
 
-nav {	
+.topmenu nav {	
 	width: 100%;
 }
 
-nav ul ul {
+.topmenu nav ul ul {
 	display: none;
 }
 
-nav ul li:hover > ul {
+.topmenu nav ul li:hover > ul {
 	display: block;
 }
 
-nav ul {
+.topmenu nav ul {
 	background: #efefef; 
 	background: linear-gradient(top, #4375b4 0%, #4375b4 100%);  
 	background: -moz-linear-gradient(top, #4375b4 0%, #4375b4 100%); 
@@ -207,27 +235,29 @@ nav ul {
 	position: relative;
 }
 
-nav ul:after {
+.topmenu nav ul:after {
 		content: ""; 
 		clear: both;
 		display: block;
 	}
 
-nav ul li {
+.topmenu nav ul li {
 	float: left;
 }
-	nav ul li:hover {
+
+.topmenu nav ul li:hover {
 		background: #4375b4;
 		background: linear-gradient(top, #4375b4 0%, #3b68a0 40%);
 		background: -moz-linear-gradient(top, #4375b4 0%, #3b68a0 40%);
 		background: -webkit-linear-gradient(top, #4375b4 0%, #3b68a0 40%);
 	}
-		nav ul li:hover a {
+		
+.topmenu		nav ul li:hover a {
 			color: #fff;
 			text-decoration: none;
 		}
 	
-	nav ul li a {
+.topmenu	nav ul li a {
 		display: block; padding: 6px 20px;
 		color: #fff; text-decoration: none;
 	}
@@ -288,7 +318,8 @@ INDEX***********************/
 }
 
 #mainbottom{
-	padding: 5px 0 0 20px 0;
+        margin-top: 480px;
+	padding: 10px 0 0 20px 0;
 	clear: both;
 }
 
@@ -324,21 +355,60 @@ INDEX***********************/
 }
 
 
-/* Signup */
+/* Signin */
+
+#soucadastrado {
+    padding:0 15px 0 0;
+    position:relative;
+    top:16px;
+
+}
+
+#soucadastrado button {
+    overflow: visible;
+    float: right;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 40px;
+    width: 180px;
+    font: bold 15px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    background: #6ec21c;
+    border-radius: 4px;     
+
+}
+
+#soucadastrado button:hover{    
+    box-shadow: 0 0 5px rgba(0,0,0,.3) inset;
+} 
+
+
 #signup {
 	background: #efefef; 
-	background: linear-gradient(top, #efefef 20%, #e0e0e0 100%);  
-	background: -moz-linear-gradient(top, #efefef 20%, #e0e0e0 100%); 
-	background: -webkit-linear-gradient(top, #efefef 20%, #e0e0e0 100%); 
-	height: 350px;
+	height: 440px;
 	box-shadow: 0 2px 3px 0px rgba(0,0,0,0.30);
-	padding: 0 5px;
+	padding: 0 0 10px;
 	border-radius: 4px;
 
 }
 
-.form-signup input{
-	 margin-left: 8px;
+#signup h1{
+	padding-left: 5px; 
+}
+
+.form-signup {
+	padding-top: 15px;
+}
+
+.signuptext{
+	padding-bottom: 3px;
+}
+
+.signuptext input{
+    margin-left: 8px;
     width: 420px;
     height: 20px;
     padding: 12px 10px;
@@ -347,23 +417,23 @@ INDEX***********************/
     font-size: 1.1em; 
 }
 
-.form-signup input {
+.signuptext input {
     outline: 1;
     background: #fff;
     box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
 }
 
-.form-signup input::-webkit-input-placeholder {
+.signuptext input::-webkit-input-placeholder {
    color: #999;
    font-weight: normal;
 }
  
-.form-signup input:-moz-placeholder {
+.signuptext input:-moz-placeholder {
     color: #999;
     font-weight: normal;
 }
  
-.form-signup input:-ms-input-placeholder {
+.signuptext input:-ms-input-placeholder {
     color: #999;
     font-weight: normal;
 } 
@@ -381,14 +451,14 @@ INDEX***********************/
     font: bold 15px;
     color: #fff;
     text-transform: uppercase;
+    font-weight: 500;
     background: #fbaf3e;
     border-radius: 4px;     
-    /* text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);*/
+
 }
 
-
 .form-signup button:hover{    
-    background: #fed499;
+    box-shadow: 0 0 5px rgba(0,0,0,.3) inset;
 }  
    
 .form-signup button:active,
@@ -397,16 +467,50 @@ INDEX***********************/
     outline: 0;  
 }
 
-#notes {
+#signupbottom td{
+    border-width: 0;
+    padding-top: 5px;
+    border-style: none;
+    background: #efefef;
+}
+
+.ui-widget-content {
+    border:0;
+    
+}
+
+
+#signupsex {
+	padding: 8px 0 0 10px;
+}
+
+#signupsubmit {
+	clear:both;
+	padding:0 10px;
+	
+}
+
+#signupsubmit p{
 	float:left;
 	width: 250px;
 	position: relative;
-	left: 100px;
+	left: 70px;
 	font-size: .8em;
 	text-indent: 0;
 	text-align: right;
 }
 
+
+#signupsubmit button{
+	background-color: #6ec21c;
+        padding: 0 2px 0 2px;
+        width: auto;
+        float:right;
+        font-size: .9em;
+}
+
+
+/* Main bottom */
 
 .mainwhy img{
 	width: 80px;
@@ -420,191 +524,90 @@ INDEX***********************/
 }
 
 /****************************
-CURSOS***********************/
+LEFTMENUS***********************/
 
-#ldescription {
-	width:70%;
-	height:280px;
-}
+/*LEFTMENU-1*/
 
-#ldescription li {
-	list-style:url(../pix/images/arrow.gif);
-	font-weight:300;
-}
-
-.subscribe {
-	float:right;
-	background-color:#f8f8f8;
-	margin:10px 10px 10px 10px;
-	padding:0 10px 10px 10px;
-	border:#e0e0e0 1px solid;
-	position:relative;
-	top:0px;
-	width:250px;
-	height:auto;
-}
-
-.c1btn {
-	position:relative;
-	top:5px;
-}
-
-.loginfooter {
-	font-size:11pt;
-	padding-top:10px;
-}
-
-
-.subscribeform p{
-	text-indent:0;
-}
-
-.coursedescription {
-	border-top:#e0e0e0 1px dotted;
-}
-
-.coursedescription a {
-	color:#900;
-}
-
-
-#bdescription li {
-	list-style:none;
-}
-
-#bdescription {
-	border-bottom:1px dotted #e0e0e0;
-}
-
-
-#c4, #c3, #c2{
-	border-bottom:1px solid #e0e0e0;
-	padding:20px 0 20px 0;
-}
-
-#c4 a {
-	color:#900;
-	font-weight:bold;
-}
-
-#c3 a {
-	color:#005c5c;
-	font-weight:bold;
-}
-
-#c2 a {
-	color:#994550;
-	font-weight:bold;
-}
-
-#c1 a {
-	color:#007A00;
-	font-weight:bold;
-}
-
-.buttonsubscribe {
-	clear:both;
-	width:140px;
-	height:30px;
-}
-
-#course1 h3, #course1 h2{
-	color:#900;
-}
-
-#course2 h3, #course2 h2{
-	color:#005c5c;
-}
-
-#course3 h3, #course3 h2{
-	color:#994550;
-}
-
-#course4 h3, #course4 h2{
-	color:#007A00;
-}
-
-.goback a {
-	color:#900;
-}
-
-/****************************
-EQUIPE E LINKS***********************/
-
-
-.curriculum {
-	padding:10px 0 10px 0;
-	border-bottom:1px #e0e0e0 dotted;
-}
-
-.cphoto {
+.leftmenu1 {	
 	float:left;
-	width:200px;
-	height:95px;
-	text-align:center;
-	padding:20px 0 10px 0;
+	width: 250px;
 }
 
-.lphoto {
+
+.leftmenu1 nav ul {
+	background: #efefef; 
+	background: linear-gradient(top, #fcbb5b 0%, #fcbb5b 100%);  
+	background: -moz-linear-gradient(top, #fcbb5b 0%, #fcbb5b 100%); 
+	background: -webkit-linear-gradient(top, #fcbb5b 0%, #fcbb5b 100%); 
+	box-shadow: 1px 0px 8px rgba(0,0,0,0.15);
+	padding:0;
+	border-radius: 4px;  
+	list-style: none;
+	position: relative;
+}
+
+.leftmenu1 nav ul li {
+	clear: both;
+}
+
+.leftmenu1 nav ul li:hover {
+		background: #4375b4;
+		background: linear-gradient(top, #4375b4 0%, #3b68a0 40%);
+		background: -moz-linear-gradient(top, #4375b4 0%, #3b68a0 40%);
+		background: -webkit-linear-gradient(top, #4375b4 0%, #3b68a0 40%);
+		border-radius: 4px;
+	}
+		
+.leftmenu1 nav ul li:hover a {
+			color: #fff;
+			text-decoration: none;
+		}
+	
+.leftmenu1	nav ul li a {
+		display: block; padding: 6px 20px;
+		color: #fff; text-decoration: none;
+	}
+
+/*LEFTMENU-2*/
+
+.leftmenu2 {	
 	float:left;
-	width:200px;
-	height:60px;
-	text-align:center;
-	padding:20px 0 10px 0;
+	width: 250px;
 }
+
+
+.leftmenu2 nav ul {
+	background: #efefef; 
+	background: linear-gradient(top, #6ec21c 0%, #6ec21c 100%);  
+	background: -moz-linear-gradient(top, #6ec21c 0%, #6ec21c 100%); 
+	background: -webkit-linear-gradient(top, #6ec21c 0%, #6ec21c 100%); 
+	box-shadow: 1px 0px 8px rgba(0,0,0,0.15);
+	padding:0;
+	border-radius: 4px;  
+	list-style: none;
+	position: relative;
+}
+
+.leftmenu2 nav ul li {
+	clear: both;
+}
+
+.leftmenu2 nav ul li:hover {
+		background: #4375b4;
+		background: linear-gradient(top, #4375b4 0%, #3b68a0 40%);
+		background: -moz-linear-gradient(top, #4375b4 0%, #3b68a0 40%);
+		background: -webkit-linear-gradient(top, #4375b4 0%, #3b68a0 40%);
+		border-radius: 4px;
+	}
+		
+.leftmenu2 nav ul li:hover a {
+			color: #fff;
+			text-decoration: none;
+		}
 	
-.ctext {
-	margin-left:200px;
-	width:auto;
-}
+.leftmenu2	nav ul li a {
+		display: block; padding: 6px 20px;
+		color: #fff; text-decoration: none;
+	}
 
-.ctext h3, .ctext p{
-	text-indent:10px;
-	line-height:normal;
-}
-	
-.cimg {
-	width:85px;
-	height:72px;
-	border:1px #fff solid;
-}
-
-.limg {
-	width:auto;
-	height:auto;
-	border:1px #fff solid;
-}
-	
-/****************************
-QUEMSOMOS***********************/
-
-.quemsomos p {
-	text-align:justify;	
-}
-
-/****************************
-NOTICIAS***********************/
-
-.nnews p.ndata {
-	color:#999;
-	font-size:0.9em;
-	
-}
-
-.nnews {
-	border-bottom:1px #e0e0e0 dotted;
-}
-
-/****************************
-POLITICADOSITE & TERMOS DE USO*/
-
-#termos p, #privacypolicy p {
-	text-align:justify;
-}
-
-/****************************
-TEXTOS*/
-
-.textos p {
-	text-align:justify;
-}
+        

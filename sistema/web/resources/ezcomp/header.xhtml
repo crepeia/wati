@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:cc="http://java.sun.com/jsf/composite"
 	  xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:p="http://primefaces.org/ui">
+          xmlns:p="http://primefaces.org/ui"
+          xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
 	<!-- INTERFACE -->
 	<cc:interface>
@@ -11,20 +12,25 @@
 
 	<!-- IMPLEMENTATION -->
 	<cc:implementation>
-		<div class="headertop">		
-			<a href="" title="Viva sem Tabaco"><h:graphicImage url="viva-sem-tabaco.png" alt="Logomarca do viva sem tabaco " id="logo"/></a>   
-		</div>
+            
+		<div id="header">
+			<div class="headertop">
+				<h:outputLink value="." title="Viva sem Tabaco">
+					<h:graphicImage library="default" name="images/viva-sem-tabaco.png" alt="Logomarca do viva sem tabaco " id="logo"/>
+				</h:outputLink>
+			</div>
 
-		<div id="searchbar">
-			<form class="form-wrapper cf" action="http://www.google.com/cse" id="cse-search-box">
-				<div>
-					<input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/>
-					<input type="hidden" name="ie" value="UTF-8" />
-					<input type="text" placeholder="Pesquise aqui" name="q" size="15" />
-					<button type="submit">Buscar</button>
-				</div>
-			</form>
-			<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=pt;"></script>
+			<div id="searchbar">
+				<form class="form-wrapper cf" action="http://www.google.com/cse" id="cse-search-box">
+					<div>
+						<input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/>
+						<input type="hidden" name="ie" value="UTF-8" />
+						<input type="text" placeholder="Pesquise aqui" name="q" size="15" />
+						<button type="submit">Buscar</button>
+					</div>
+				</form>
+				<script type="text/javascript" src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=pt;"></script>
+			</div>
 		</div>
 	</cc:implementation>
 </html>

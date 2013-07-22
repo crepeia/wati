@@ -11,25 +11,22 @@
 		<meta name="description" content="O parando de fumar é um programa gratuito para quem deseja parar de fumar. Ele é desenvolvido por especialistas em tratamento do tabagismo utilizando evidências científicas" />
 		<meta name="keywords" content="tabagismo, parar de fumar, tratamento tabagismo, como parar de fumar, deixar de fumar" />
 		<meta name="author" content="hpgomide" />
-		<link rel="shortcut icon" href="favicon.ico" />
-		<link type="text/css" rel="stylesheet" href="style/core.css" />
+		<link href="#{resource['default:images/favicon.ico']}" rel="shortcut icon" type="image/x-icon" />
+		<h:outputStylesheet library="default" name="css/core.css" />
     </h:head>
     <h:body>
 		<div id="corpo"> 
 			<!-- header -->    
-			<div id="header">
-				<w:header />
-			</div>
+			<w:header />
+                        <w:topmenu />
 
 			<!--mainmenu-->         	
 			<div class="main">
-				<div class="topmenu">
-					<w:topmenu />
-				</div>   
+				
 
 				<div class="pagecontent">
 					
-					O programa
+					Programa
 					
 				</div>
 			</div>
@@ -37,9 +34,7 @@
 		</div><!-- end.corpo --> 
 
 		<!--Footer -->
-		<div id="footer">
-			<w:footer />
-		</div> 
+		<w:footer />
 	</h:body>
 </html>
 
