@@ -40,16 +40,13 @@ public abstract class BaseFormController<T> extends BaseController<T> {
 			
 			this.getDaoBase().delete( object, this.getEntityManager() );
 			
-			String message = 
-					PropertyResourceBundle.getBundle( "br.org.bssystem.utility.messages" ).getString( typeName ) +
-					" " +
-					PropertyResourceBundle.getBundle( "br.org.bssystem.utility.messages" ).getString( "deleted" );
+			String message = "Ocorreu um problema ao tentar apagar um registro.";
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
 			Logger.getLogger(BaseFormController.class.getName()).log(Level.INFO, message);
 			//Logger.getLogger(User.class.getName()).log(Level.INFO, object.toString());
 
 		} catch (SQLException ex) {
-			String message = PropertyResourceBundle.getBundle("br.org.bssystem.utility.messages").getString("database_error");
+			String message = "Problemas ao acessar banco de dados.";
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
 			Logger.getLogger(BaseFormController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
 			//Logger.getLogger(User.class.getName()).log(Level.SEVERE, object.toString());
@@ -65,17 +62,13 @@ public abstract class BaseFormController<T> extends BaseController<T> {
 		try {
 			
 			this.getDaoBase().insertOrUpdate( object, this.getEntityManager() );
-			
-			String message = 
-					PropertyResourceBundle.getBundle( "br.org.bssystem.utility.messages" ).getString( typeName ) +
-					" " +
-					PropertyResourceBundle.getBundle( "br.org.bssystem.utility.messages" ).getString( "saved" );
+			String message = "Ocorreu um erro ao tentar salvar um registro.";
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
 			Logger.getLogger(BaseFormController.class.getName()).log(Level.INFO, message);
 			//Logger.getLogger(User.class.getName()).log(Level.INFO, object.toString());
 
 		} catch (SQLException ex) {
-			String message = PropertyResourceBundle.getBundle("br.org.bssystem.utility.messages").getString("database_error");
+			String message = "Problemas ao acessar banco de dados.";
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
 			Logger.getLogger(BaseFormController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
 			//Logger.getLogger(User.class.getName()).log(Level.SEVERE, object.toString());

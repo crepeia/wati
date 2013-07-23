@@ -38,8 +38,7 @@ public abstract class BaseController<T> implements Serializable {
 		try {
 			this.daoBase = new GenericDAO<T>( cls );
 		} catch (NamingException ex) {
-			String message = 
-					PropertyResourceBundle.getBundle( "br.org.bssystem.utility.messages" ).getString( "unexpected_error_message" );
+			String message = "Ocorreu um erro inesperado.";
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
 			Logger.getLogger(BaseController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
 		}
