@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
+	  xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+    <h:head>
+        <title>Viva sem tabaco | Programa gratuito para o tratamento do tabagismo</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="description" content="O parando de fumar é um programa gratuito para quem deseja parar de fumar. Ele é desenvolvido por especialistas em tratamento do tabagismo utilizando evidências científicas" />
+		<meta name="keywords" content="tabagismo, parar de fumar, tratamento tabagismo, como parar de fumar, deixar de fumar" />
+		<meta name="author" content="hpgomide" />
+		<link href="#{resource['default:images/favicon.ico']}" rel="shortcut icon" type="image/x-icon" />
+		<h:outputStylesheet library="default" name="css/core.css" />
+    </h:head>
+    <h:body>
+		<div id="corpo"> 
+			<!-- header -->    
+			<w:header />
+			<w:topmenu />
+
+			<!--mainmenu-->         	
+			<div class="main">
+
+
+				<div class="pagecontent">
+
+					<h:form id="form" >
+
+						<p:panel id="panel" >  
+
+							<!--<p:messages id="messages" />-->
+
+							<p:growl id="growl" life="#{initParam['growlTime']}" />
+
+							<p:dataTable id="dataTable" widgetVar="dataTable" var="user" value="#{userListController.list}" rowKey="#{user.id}" sortMode="multiple" filteredValue="#{userListController.filteredList}" selection="#{userListController.selected}" selectionMode="single">
+
+								<p:ajax event="rowSelect" update=":form:panel" global="true" oncomplete="userDialog.show();" />  
+
+								<p:column id="idHeader" sortBy="#{user.id}" filterBy="#{user.id}" filterMatchMode="exact" >  
+									<f:facet name="header">  
+										<h:outputText value="id" />  
+									</f:facet>  
+									<h:outputText value="#{user.id}" />  
+								</p:column>  
+
+								<p:column sortBy="#{user.name}" filterBy="#{user.name}" filterMatchMode="contains">
+									<f:facet name="header">  
+										<h:outputText value="Nome" />  
+									</f:facet>  
+									<h:outputText value="#{user.name}" />  
+								</p:column>
+
+								<p:column sortBy="#{user.email}" filterBy="#{user.email}" filterMatchMode="contains">  
+									<f:facet name="header">  
+										<h:outputText value="E-mail" />  
+									</f:facet>  
+									<h:outputText value="#{user.email}" />  
+								</p:column>
+
+								<!--
+								<p:column>  
+									<p:commandButton id="selectBtn" update=":form:display" oncomplete="userDialog.show()" icon="ui-icon-search">  
+										<f:setPropertyActionListener value="#{user}" target="#{userListController.selected}" />  
+									</p:commandButton>  
+								</p:column>
+								-->
+
+								<f:facet name="footer">  
+									Número de registros: #{fn:length(userListController.list)}
+								</f:facet>
+							</p:dataTable>
+
+						</p:panel>
+
+					</h:form>  
+
+				</div>
+			</div>
+
+		</div><!-- end.corpo --> 
+
+		<!--Footer -->
+		<w:footer />
+	</h:body>
+</html>
+
