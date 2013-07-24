@@ -44,7 +44,6 @@
 							</div>
 						</div>
 						<div id="mainright">
-                                                    <div id="soucadastrado"><button type="submit">Já sou cadastrado</button></div>
 							<div id="signup">
                                                             <h1>Cadastro</h1>
 								<h:form id="form" class="form-signup">
@@ -124,9 +123,9 @@
 										<label for="sex-m">Masculino</label>   
 										</div>
 										-->
-										<div id="signupsubmit">		
-											<p>Ao efetuar o cadastro, você concorda com os <a href="">termos de uso</a>.</p>
+										<div id="signupsubmit">			
 											<!--<button type="submit">Registrar</button>-->
+                                                                                        <p>Ao efetuar o cadastro, você concorda com os <h:link>termos de uso</h:link>. Já tem cadastrado? <h:link>Entrar</h:link></p>
 											<p:commandButton id="saveBtn" value="Registrar" update="@form" actionListener="#{userController.save}">
 												<f:attribute name="object" value="#{userController.user}" />
 												<f:attribute name="typeName" value="user" />

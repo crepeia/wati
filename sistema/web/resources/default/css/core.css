@@ -115,10 +115,22 @@ h2, h3{
 	text-decoration:none;
 }
 
+#rightheader {
+        float:right;
+}
+
+#fastsignin {
+        position:relative;
+        top:20px;
+        text-align: right;
+        font-size: .9em;
+        color: #888;
+}
+
 #searchbar {
 	float:right;
         position:relative;
-        top:50px;
+        top:35px;
 
 }
 
@@ -135,7 +147,7 @@ h2, h3{
 }
 
 .form-wrapper input {
-    outline: 1;
+    /*outline: 1;*/
     background: #fff;
     box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
 }
@@ -167,7 +179,7 @@ h2, h3{
     cursor: pointer;
     height: 40px;
     width: 80px;
-    font: bold 15px;
+    font-size: bold 15px;
     color: #fff;
     text-transform: uppercase;
     background: #fbaf3e;
@@ -354,45 +366,12 @@ INDEX***********************/
 	text-indent: 0;
 }
 
-
-/* Signin */
-
-#soucadastrado {
-    padding:0 15px 0 0;
-    position:relative;
-    top:16px;
-
-}
-
-#soucadastrado button {
-    overflow: visible;
-    float: right;
-    border: 0;
-    padding: 0;
-    cursor: pointer;
-    height: 40px;
-    width: 180px;
-    font: bold 15px;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 500;
-    background: #6ec21c;
-    border-radius: 4px;     
-
-}
-
-#soucadastrado button:hover{    
-    box-shadow: 0 0 5px rgba(0,0,0,.3) inset;
-} 
-
-
 #signup {
 	background: #efefef; 
 	height: 440px;
 	box-shadow: 0 2px 3px 0px rgba(0,0,0,0.30);
 	padding: 0 0 10px;
 	border-radius: 4px;
-
 }
 
 #signup h1{
@@ -492,23 +471,27 @@ INDEX***********************/
 
 #signupsubmit p{
 	float:left;
-	width: 250px;
+	width: 280px;
 	position: relative;
-	left: 70px;
+	left: 30px;
 	font-size: .8em;
 	text-indent: 0;
 	text-align: right;
 }
 
-
 #signupsubmit button{
 	background-color: #6ec21c;
-        padding: 0 2px 0 2px;
+        padding-top: 2px;
+        border: 1px #6ec21c;
         width: auto;
+        height: 35px;
         float:right;
         font-size: .9em;
+        font-weight: 500;
+        line-height: 0;
+        text-shadow: none;
+        
 }
-
 
 /* Main bottom */
 
@@ -610,4 +593,57 @@ LEFTMENUS***********************/
 		color: #fff; text-decoration: none;
 	}
 
+
+/* LOGIN PAGE */
+
+#signin {
+        margin:5% 0 0 30%;
+	height: 350px;
+        width: 460px;
+	padding: 10px 0 10px;
+	border-radius: 20px;
+        border: 2px solid #e0e0e0;
+        background: #efefef;
+        background: linear-gradient(top, #efefef 20%, #e0e0e0 100%);  
+	background: -moz-linear-gradient(top, #efefef 20%, #e0e0e0 100%); 
+	background: -webkit-linear-gradient(top, #efefef 20%, #e0e0e0 100%); 
+}
+
+#signin h1{
+	padding-left: 10px; 
+}
+
+.form-signup {
+	padding-top: 30px;
+}
+
+#signinsubmit button{
+        position:relative;
+        left: 100px;
+	background-color: #6ec21c;
+        padding-top: 2px;
+        border: 1px #6ec21c;
+        width: auto;
+        height: 35px;
+        float:left;
+        font-size: .9em;
+        font-weight: 500;
+        line-height: 0;
+        text-shadow: none;
         
+}
+
+#signincheck {
+        position:relative;
+        left:100px;
+        top:20px;
+        float:left;
+        padding: 0 0 0 20px;  
+}
+
+#signinsubmit p{
+        padding-top: 20px;
+	float:left;
+	text-indent: 0;
+	text-align: right;
+}
