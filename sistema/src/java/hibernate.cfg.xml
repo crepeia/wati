@@ -6,7 +6,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/wati?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">wati</property>
-    <property name="hibernate.connection.password">wati1235</property>
+    <property name="hibernate.connection.password">wati1234</property>
 	<property key="hibernate.hbm2ddl.auto">update</property>
   </session-factory>
 </hibernate-configuration>
