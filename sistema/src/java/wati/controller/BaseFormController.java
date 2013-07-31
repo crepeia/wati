@@ -62,7 +62,7 @@ public abstract class BaseFormController<T> extends BaseController<T> {
 		try {
 			
 			this.getDaoBase().insertOrUpdate( object, this.getEntityManager() );
-			String message = "Ocorreu um erro ao tentar salvar um registro.";
+			String message = "Registro salvo com sucesso.";
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
 			Logger.getLogger(BaseFormController.class.getName()).log(Level.INFO, message);
 			//Logger.getLogger(User.class.getName()).log(Level.INFO, object.toString());

@@ -140,7 +140,7 @@ public class UserController extends BaseFormController<User> {
 			}
 			
 			super.save( actionEvent );
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));
+			//FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));
 
 		} catch (InvalidKeyException ex) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null ));
