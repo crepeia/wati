@@ -59,9 +59,10 @@
 										<p:watermark for="nameTxt" value="Nome completo" />
 									</div>
 									<div class="signuptext">
-										<p:inputText id="emailTxt" value="#{userController.user.email}" required="true" size="30" label="E-mail" >
+										<p:inputText id="emailTxt" value="#{userController.user.email}" required="true" size="30" label="E-mail" validatorMessage="E-mail com formato inválido" >
 											<!--<p:ajax update="loginMsg" event="blur" />-->
 											<f:validateLength maximum="50" />
+											<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
 										</p:inputText>
 										<p:watermark for="emailTxt" value="E-mail" />
 									</div>
@@ -98,7 +99,7 @@
 										</p:panelGrid>
 										<p:panelGrid columns="2" id="sexo">
 											<h:outputText value="Sexo"/>
-											<p:selectOneRadio id="options" value="#{userController.user.gender}">  
+											<p:selectOneRadio id="options" value="#{userController.user.gender}" required="true" label="Sexo">  
 												<f:selectItem itemLabel="Feminino" itemValue="F" />  
 												<f:selectItem itemLabel="Masculino" itemValue="M" />  
 											</p:selectOneRadio> 
