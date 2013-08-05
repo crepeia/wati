@@ -2,168 +2,174 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:p="http://primefaces.org/ui"
-	  xmlns:f="http://java.sun.com/jsf/core"
-	  xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
     <h:head>
         <title>Viva sem tabaco | Programa gratuito para o tratamento do tabagismo</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<meta name="description" content="O parando de fumar é um programa gratuito para quem deseja parar de fumar. Ele é desenvolvido por especialistas em tratamento do tabagismo utilizando evidências científicas" />
-		<meta name="keywords" content="tabagismo, parar de fumar, tratamento tabagismo, como parar de fumar, deixar de fumar" />
-		<meta name="author" content="hpgomide" />
-		<link href="#{resource['default:images/favicon.ico']}" rel="shortcut icon" type="image/x-icon" />
-		<h:outputStylesheet library="default" name="css/core.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="O parando de fumar é um programa gratuito para quem deseja parar de fumar. Ele é desenvolvido por especialistas em tratamento do tabagismo utilizando evidências científicas" />
+        <meta name="keywords" content="tabagismo, parar de fumar, tratamento tabagismo, como parar de fumar, deixar de fumar" />
+        <meta name="author" content="hpgomide" />
+        <link href="#{resource['default:images/favicon.ico']}" rel="shortcut icon" type="image/x-icon" />
+        <h:outputStylesheet library="default" name="css/core.css" />
     </h:head>
     <h:body>
-		<div id="corpo">
-                        <!-- header -->    
-			<w:header />
+        <div id="corpo">
+            <!-- header -->    
+            <w:header />
 
-			<w:topmenu />
+            <w:topmenu />
 
-			<!--mainmenu-->         	
-			<div class="main">
-				<!-- tentar colocar as definicoes de class no componente -->
+            <!--mainmenu-->         	
+            <div class="main">
+                <!-- tentar colocar as definicoes de class no componente -->
 
 
-				<div class="pagecontent">
-					<div id="maintop">
-						<div id="mainleft">
-							<h1>Parar de fumar online</h1>
-							<div class="maindescribe">
-								<h:graphicImage library="default" name="images/people.png" alt="Especialistas" />
-								<p>Este site é desenvolvido por especialistas em tabagismo da Universidade Federal de Juiz de Fora.</p>
-							</div>
-							<div class="maindescribe">
-								<h:graphicImage library="default" name="images/book.png" alt="Ciências" />
-								<p>Seu contéudo é baseado nas principais diretrizes de tratamento do tabagismo do Brasil e do mundo.</p>
-							</div>
-							<div class="maindescribe">
-								<h:graphicImage library="default" name="images/padlock.png" alt="Gratuito" />
-								<p>Ele é gratuito e sempre será!  Faça seu cadastro agora mesmo. </p>
-							</div>
-						</div>
-						<div id="mainright">
-							<div id="signup">
-                                                            <h1>Cadastro</h1>
-								<h:form id="form" class="form-signup">
-									<p:messages id="errorMessage" />
-									<p:growl id="errorGrowl" sticky="true" />  
-									<div class="signuptext"><input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/></div>
-									<div class="signuptext"><input type="hidden" name="ie" value="UTF-8" /></div>
-									<div class="signuptext">
-										<p:inputText id="nameTxt" value="#{userController.user.name}" required="true" size="30" label="Nome" >
-											<!--<p:ajax update="loginMsg" event="blur" />-->
-											<f:validateLength maximum="100" />
-										</p:inputText>
-										<p:watermark for="nameTxt" value="Nome completo" />
-									</div>
-									<div class="signuptext">
-										<p:inputText id="emailTxt" value="#{userController.user.email}" required="true" size="30" label="E-mail" validatorMessage="E-mail com formato inválido" >
-											<!--<p:ajax update="loginMsg" event="blur" />-->
-											<f:validateLength maximum="50" />
-											<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
-										</p:inputText>
-										<p:watermark for="emailTxt" value="E-mail" />
-									</div>
-									<div class="signuptext">
-										<p:password id="passwordTxt" value="#{userController.password}" required="true" match="confirmPasswordTxt" redisplay="true" size="30" label="Senha">  
-											<f:validateLength maximum="16" />
-											<!--<p:ajax update="passwordMsg" event="blur" />-->
-										</p:password>
-										<p:watermark for="passwordTxt" value="Senha" />
-									</div>
-									<div class="signuptext">
-										<p:password id="confirmPasswordTxt" value="#{userController.password}" required="true" redisplay="true" label="Repetir senha">  
-											<f:validateLength maximum="16" />
-											<!--<p:ajax update="passwordMsg" event="blur" />-->
-										</p:password>
-										<p:watermark for="confirmPasswordTxt" value="Repetir senha" />
-									</div>
+                <div class="pagecontent">
+                    <div id="maintop">
+                        <div id="mainleft">
+                            <h1>Parar de fumar online</h1>
+                            <div class="maindescribe">
+                                <h:graphicImage library="default" name="images/people.png" alt="Especialistas" />
+                                <p>Este site é desenvolvido por especialistas em tabagismo da Universidade Federal de Juiz de Fora.</p>
+                            </div>
+                            <div class="maindescribe">
+                                <h:graphicImage library="default" name="images/book.png" alt="Ciências" />
+                                <p>Seu contéudo é baseado nas principais diretrizes de tratamento do tabagismo do Brasil e do mundo.</p>
+                            </div>
+                            <div class="maindescribe">
+                                <h:graphicImage library="default" name="images/padlock.png" alt="Gratuito" />
+                                <p>Ele é gratuito e sempre será!  Faça seu cadastro agora mesmo. </p>
+                            </div>
+                        </div>
+                        <div id="mainright">
+                            <div id="signup">
+                                <h1>Cadastro</h1>
+                                <h:form id="form" class="form-signup">
+                                    <p:messages id="errorMessage" />
+                                    <p:growl id="errorGrowl" sticky="true" />  
+                                    <div class="signuptext"><input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/></div>
+                                    <div class="signuptext"><input type="hidden" name="ie" value="UTF-8" /></div>
+                                    <div class="signuptext">
+                                        <p:inputText id="nameTxt" value="#{userController.user.name}" required="true" size="30" label="Nome" >
+                                            <!--<p:ajax update="loginMsg" event="blur" />-->
+                                            <f:validateLength maximum="100" />
+                                        </p:inputText>
+                                        <p:watermark for="nameTxt" value="Nome completo" />
+                                    </div>
+                                    <div class="signuptext">
+                                        <p:inputText id="emailTxt" value="#{userController.user.email}" required="true" size="30" label="E-mail" validatorMessage="E-mail com formato inválido" >
+                                            <!--<p:ajax update="loginMsg" event="blur" />-->
+                                            <f:validateLength maximum="50" />
+                                            <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                                        </p:inputText>
+                                        <p:watermark for="emailTxt" value="E-mail" />
+                                    </div>
+                                    <div class="signuptext">
+                                        <p:password id="passwordTxt" value="#{userController.password}" required="true" match="confirmPasswordTxt" redisplay="true" size="30" label="Senha">  
+                                            <f:validateLength maximum="16" />
+                                            <!--<p:ajax update="passwordMsg" event="blur" />-->
+                                        </p:password>
+                                        <p:watermark for="passwordTxt" value="Senha" />
+                                    </div>
+                                    <div class="signuptext">
+                                        <p:password id="confirmPasswordTxt" value="#{userController.password}" required="true" redisplay="true" label="Repetir senha">  
+                                            <f:validateLength maximum="16" />
+                                            <!--<p:ajax update="passwordMsg" event="blur" />-->
+                                        </p:password>
+                                        <p:watermark for="confirmPasswordTxt" value="Repetir senha" />
+                                    </div>
 
-									<div id="signupbottom">	
-										<p:panelGrid columns="4" id="nascimento">
-											<h:outputText value="Idade"/>
-											<p:selectOneMenu id="day" value="#{userController.dia}">  
-												<f:selectItem itemLabel="Dia" itemValue="" />  
-												<f:selectItems value="#{userController.dias}" />  
-											</p:selectOneMenu>
-											<p:selectOneMenu id="month" value="#{userController.mes}">  
-												<f:selectItem itemLabel="Mês" itemValue="" />  
-												<f:selectItems value="#{userController.meses}" />  
-											</p:selectOneMenu>
-											<p:selectOneMenu id="year" value="#{userController.ano}">  
-												<f:selectItem itemLabel="Ano" itemValue="" />  
-												<f:selectItems value="#{userController.anos}" />  
-											</p:selectOneMenu>
-										</p:panelGrid>
-										<p:panelGrid columns="2" id="sexo">
-											<h:outputText value="Sexo"/>
-											<p:selectOneRadio id="options" value="#{userController.user.gender}" required="true" label="Sexo">  
-												<f:selectItem itemLabel="Feminino" itemValue="F" />  
-												<f:selectItem itemLabel="Masculino" itemValue="M" />  
-											</p:selectOneRadio> 
-										</p:panelGrid>
+                                    <div id="signupbottom">	
+                                        <p:panelGrid columns="4" id="nascimento">
+                                            <h:outputText value="Idade"/>
+                                            <p:selectOneMenu id="day" value="#{userController.dia}">  
+                                                <f:selectItem itemLabel="Dia" itemValue="" />  
+                                                <f:selectItems value="#{userController.dias}" />  
+                                            </p:selectOneMenu>
+                                            <p:selectOneMenu id="month" value="#{userController.mes}">  
+                                                <f:selectItem itemLabel="Mês" itemValue="" />  
+                                                <f:selectItems value="#{userController.meses}" />  
+                                            </p:selectOneMenu>
+                                            <p:selectOneMenu id="year" value="#{userController.ano}">  
+                                                <f:selectItem itemLabel="Ano" itemValue="" />  
+                                                <f:selectItems value="#{userController.anos}" />  
+                                            </p:selectOneMenu>
+                                        </p:panelGrid>
+                                        <p:panelGrid columns="2" id="sexo">
+                                            <h:outputText value="Sexo"/>
+                                            <p:selectOneRadio id="options" value="#{userController.user.gender}" required="true" label="Sexo">  
+                                                <f:selectItem itemLabel="Feminino" itemValue="F" />  
+                                                <f:selectItem itemLabel="Masculino" itemValue="M" />  
+                                            </p:selectOneRadio> 
+                                        </p:panelGrid>
 
-										<!--
-										<div id="signupbirth">
-										<label>Idade:</label>
-										<select name="dia">
-											<option value="dia" selected="1">Dia</option><option value="dia">1</option><option value="2">2</option><option value="3">3</option>
-										</select>
-										<select name="Mês">
-											<option value="dia" selected="Janeiro">Mês</option><option value="01">Janeiro</option><option value="02">Fevereiro</option><option value="03">Março</option><option value="04">Abril</option><option value="05">Maio</option><option value="06">Junho</option><option value="07">Julho</option><option value="08">Agosto</option><option value="09">Setembro</option><option value="10">Outubro</option><option value="11">Novembro</option><option value="12">Dezembro</option>
-										</select>
-										<select name="ano">
-											<option value="ano" selected="1981">Ano</option><option value="dia">1996</option>
-										</select>
-										</div> 
-										<div id="signupsex"> 
-										<label>Sexo:</label>		
-										<input type="radio" id="sex-f" name="sex" value="feminino" />
-										<label for="sex-f">Feminino</label>	
-										<input type="radio" id="sex-m" name="sex" value="masculino" />
-										<label for="sex-m">Masculino</label>   
-										</div>
-										-->
-										<div id="signupsubmit">			
-											<!--<button type="submit">Registrar</button>-->
-                                                                                        <p>Ao efetuar o cadastro, você concorda com os <h:link>termos de uso</h:link>. Já tem cadastrado? <h:link>Entrar</h:link></p>
-											<p:commandButton id="saveBtn" value="Registrar" update="@form" actionListener="#{userController.save}">
-												<f:attribute name="object" value="#{userController.user}" />
-												<f:attribute name="typeName" value="user" />
-											</p:commandButton>
-										</div>
-									</div>
-								</h:form>	    		
-							</div>
-						</div>
-					</div>
+                                        <!--
+                                        <div id="signupbirth">
+                                        <label>Idade:</label>
+                                        <select name="dia">
+                                                <option value="dia" selected="1">Dia</option><option value="dia">1</option><option value="2">2</option><option value="3">3</option>
+                                        </select>
+                                        <select name="Mês">
+                                                <option value="dia" selected="Janeiro">Mês</option><option value="01">Janeiro</option><option value="02">Fevereiro</option><option value="03">Março</option><option value="04">Abril</option><option value="05">Maio</option><option value="06">Junho</option><option value="07">Julho</option><option value="08">Agosto</option><option value="09">Setembro</option><option value="10">Outubro</option><option value="11">Novembro</option><option value="12">Dezembro</option>
+                                        </select>
+                                        <select name="ano">
+                                                <option value="ano" selected="1981">Ano</option><option value="dia">1996</option>
+                                        </select>
+                                        </div> 
+                                        <div id="signupsex"> 
+                                        <label>Sexo:</label>		
+                                        <input type="radio" id="sex-f" name="sex" value="feminino" />
+                                        <label for="sex-f">Feminino</label>	
+                                        <input type="radio" id="sex-m" name="sex" value="masculino" />
+                                        <label for="sex-m">Masculino</label>   
+                                        </div>
+                                        -->
+                                        <div id="signupsubmit">			
+                                            <!--<button type="submit">Registrar</button>-->
+                                            <p>Ao efetuar o cadastro, você concorda com os <h:link>termos de uso</h:link>. Já tem cadastrado? <h:link>Entrar</h:link></p>
+                                            <p:commandButton id="saveBtn" value="Registrar" update="@form" actionListener="#{userController.save}">
+                                                <f:attribute name="object" value="#{userController.user}" />
+                                                <f:attribute name="typeName" value="user" />
+                                            </p:commandButton>
+                                        </div>
+                                    </div>
+                                </h:form>	    		
+                            </div>
+                        </div>
+                    </div>
 
-					<div id="mainbottom">
-						<h1>Por que parar de fumar?</h1>
-						<div id="mainbottomleft">
-							<h2>Benefícios</h2>
-							<div class="mainwhy">
-								<h:graphicImage library="default" name="images/coracao.png" alt="Benefícios" />
-								<p>Após parar de fumar, melhoras no sistema circulatório e respiratório ja podem ser percebidas. <a href="">Saiba mais.</a></p>
-							</div>
-						</div>
-						<div id="mainbottomright">
-							<h2>Riscos</h2>
-							<div class="mainwhy">
-								<h:graphicImage library="default" name="images/menos.png" alt="Riscos" />
-								<p>Ao fumar, você tem maiores chances de ter doenças do coração e contrair diversos tipos de câncer. <a href="">Saiba mais.</a></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+                    <div id="mainbottom">
+                        <h1>Por que parar de fumar?</h1>
+                        <div id="mainbottomleft">
+                            <h2>Benefícios</h2>
+                            <div class="mainwhy">
+                                <h:graphicImage library="default" name="images/coracao.png" alt="Benefícios" />
+                                <p>Após parar de fumar, melhoras no sistema circulatório e respiratório ja podem ser percebidas. <a href="">Saiba mais.</a></p>
+                            </div>
+                        </div>
+                        <div id="mainbottomright">
+                            <h2>Riscos</h2>
+                            <div class="mainwhy">
+                                <h:graphicImage library="default" name="images/menos.png" alt="Riscos" />
+                                <p>Ao fumar, você tem maiores chances de ter doenças do coração e contrair diversos tipos de câncer. <a href="">Saiba mais.</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-		</div><!-- end.corpo --> 
+        </div><!-- end.corpo --> 
 
-		<!--Footer -->
-		<w:footer />
-	</h:body>
+        <!--Footer -->
+        <w:footer />
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+        <br />
+        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
+    </h:body>
 </html>
 
