@@ -149,6 +149,7 @@ public class GenericDAO<T> {
 			if (id > 0) {
 				entityManager.merge(object);
 			} else {
+                            System.out.println(entityManager.isOpen());
 				entityManager.persist(object);
 			}
 			this.transaction.commit();

@@ -8,8 +8,6 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,8 +16,10 @@ import java.util.logging.Logger;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import wati.model.User;
 import wati.utility.Encrypter;
@@ -140,16 +140,22 @@ public class UserController extends BaseFormController<User> {
 			}
 			
 			super.save( actionEvent );
+			//FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));
 
 		} catch (InvalidKeyException ex) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null ));
 			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
 		} catch (IllegalBlockSizeException ex) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null ));
 			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
 		} catch (BadPaddingException ex) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null ));
 			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
 		} catch (NoSuchAlgorithmException ex) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null ));
 			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
 		} catch (NoSuchPaddingException ex) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null ));
 			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
 		}
 		
