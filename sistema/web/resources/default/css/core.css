@@ -51,7 +51,6 @@ html, body {
 
 .subpagecontent{
 	margin-left: 270px;
-	
 }
 	
 #footer {
@@ -67,7 +66,12 @@ html, body {
 body,h1,h2,h3,h4,h5,h6,p,ul,ol,dl,input,textarea {
     font-family: arial, verdana, sans-serif;
     line-height: 1.5;
-    color:#333;
+    color:#444;
+}
+
+p, a, ul, ol {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
 }
 
 a {
@@ -81,6 +85,7 @@ a:hover {
 }
 
 h1,h2,h3,h4,h5,h6 {
+    font-family: 'Ubuntu', sans-serif;
     color: #163f75;
     font-weight:bold;
 }
@@ -290,10 +295,10 @@ h2, h3{
 /*FOOTER */
 
 #footer {
-	   border-top:1px solid #ddd;
-      background-color:#eee;
-		text-align:center;
-		font-size:0.9em;
+    border-top:1px solid #ddd;
+    background-color:#eee;
+    text-align:center;
+    font-size:0.9em;
 }
 
 #footer h4, h5 {
@@ -366,20 +371,44 @@ INDEX***********************/
 	text-indent: 0;
 }
 
-#signup {
-	background: #efefef; 
-	height: 440px;
-	box-shadow: 0 2px 3px 0px rgba(0,0,0,0.30);
-	padding: 0 0 10px;
-	border-radius: 4px;
+#mainright{
+    background: #efefef;
+    box-shadow: 0 2px 3px 0px rgba(0,0,0,0.30);
+    padding: 0 0 10px;
+    border-radius: 4px;
 }
+
+.mainlogos{
+    border: #fff;
+    margin: 0 5px 0 5px;
+    padding-right:20px;
+}
+
+#mainufjf {
+    height:85px;
+}
+
+#maincrepeia{
+    height:80px;
+}
+
+#maincsf {
+    height:75px;
+}
+
 
 #signup h1{
 	padding-left: 5px; 
 }
 
-.form-signup {
-	padding-top: 15px;
+.ui-messages-info-summary, .ui-messages-warn-summary, .ui-messages-error-summary, .ui-messages-fatal-summary, .ui-message-info-summary, .ui-message-warn-summary, .ui-message-error-summary, .ui-message-fatal-summary {
+    font-size: .7em;
+    line-height: 0;
+}    
+
+.ui-messages ul li{
+    display:inline;
+    
 }
 
 .signuptext{
@@ -418,10 +447,7 @@ INDEX***********************/
 } 
 
 .form-signup button {
-    overflow: visible;
     position: relative;
-    top: 12px;
-    float: right;
     border: 0;
     padding: 0;
     cursor: pointer;
@@ -448,32 +474,42 @@ INDEX***********************/
 
 #signupbottom td{
     border-width: 0;
-    padding-top: 5px;
     border-style: none;
     background: #efefef;
 }
 
-.ui-widget-content {
-    border:0;
-    
+.ui-widget {
+    font-size:1em;
 }
 
+.ui-widget-content {
+    border:0;
+}
+
+.ui-panelgrid td {
+    padding-top: 0;
+}
 
 #signupsex {
-	padding: 8px 0 0 10px;
+	padding: 20px 0 0 10px;
 }
 
 #signupsubmit {
-	clear:both;
 	padding:0 10px;
-	
+}
+
+#signupp{
+    float:left;
+    width: 320px;
+}
+
+#signupbtn{
+    float:right;
+    position:relative;
+    top:12px;
 }
 
 #signupsubmit p{
-	float:left;
-	width: 280px;
-	position: relative;
-	left: 30px;
 	font-size: .8em;
 	text-indent: 0;
 	text-align: right;
@@ -485,12 +521,10 @@ INDEX***********************/
         border: 1px #6ec21c;
         width: auto;
         height: 35px;
-        float:right;
         font-size: .9em;
         font-weight: 500;
         line-height: 0;
-        text-shadow: none;
-        
+        text-shadow: none; 
 }
 
 /* Main bottom */
@@ -613,9 +647,6 @@ LEFTMENUS***********************/
 	padding-left: 10px; 
 }
 
-.form-signup {
-	padding-top: 30px;
-}
 
 #signinsubmit button{
         position:relative;
@@ -646,4 +677,25 @@ LEFTMENUS***********************/
 	float:left;
 	text-indent: 0;
 	text-align: right;
+}
+
+
+/*O PROGRAMA*/
+
+img#artigotabaco{
+    border:1 ;
+    color: #e0e0e0;
+    float:right;
+    margin: 10px;
+    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.15);
+    
+    
+}
+
+#vstpaisagem {
+    display:block;
+    width:300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
 }

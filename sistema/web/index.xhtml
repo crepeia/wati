@@ -12,7 +12,9 @@
         <meta name="keywords" content="tabagismo, parar de fumar, tratamento tabagismo, como parar de fumar, deixar de fumar" />
         <meta name="author" content="hpgomide" />
         <link href="#{resource['default:images/favicon.ico']}" rel="shortcut icon" type="image/x-icon" />
-        <h:outputStylesheet library="default" name="css/core.css" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'/>
+        <h:outputStylesheet library="default" name="css/core.css" />       
     </h:head>
     <h:body>
         <div id="corpo">
@@ -32,23 +34,31 @@
                             <h1>Parar de fumar online</h1>
                             <div class="maindescribe">
                                 <h:graphicImage library="default" name="images/people.png" alt="Especialistas" />
-                                <p>Este site é desenvolvido por especialistas em tabagismo da Universidade Federal de Juiz de Fora.</p>
+                                <p>Este site é desenvolvido por ex-fumantes e especialistas no tratamento do tabagismo.</p>
                             </div>
                             <div class="maindescribe">
                                 <h:graphicImage library="default" name="images/book.png" alt="Ciências" />
-                                <p>Seu contéudo é baseado nas principais diretrizes de tratamento do tabagismo do Brasil e do mundo.</p>
+                                <p>Seu contéudo é criado a partir de guias de tratamento do tabagismo do Brasil e do mundo.</p>
                             </div>
                             <div class="maindescribe">
                                 <h:graphicImage library="default" name="images/padlock.png" alt="Gratuito" />
-                                <p>Ele é gratuito e sempre será!  Faça seu cadastro agora mesmo. </p>
+                                <p>Ele é gratuito e sempre será! Faça seu cadastro agora mesmo. </p>
                             </div>
+                            
+                            <h4>Realização</h4>
+                            <h:graphicImage library="default" name="images/ufjf.png" alt="Universidade Federal de Juiz de Fora" class="mainlogos" id="mainufjf"/>
+                            <h:graphicImage library="default" name="images/crepeia.png" alt="Universidade Federal de Juiz de Fora" class="mainlogos" id="maincrepeia" />
+                            <h:graphicImage library="default" name="images/csf.png" alt="Crepeia" class="mainlogos" id="maincsf"/>
+                            
                         </div>
                         <div id="mainright">
                             <div id="signup">
                                 <h1>Cadastro</h1>
                                 <h:form id="form" class="form-signup">
+                                    <div id="errormsg">
                                     <p:messages id="errorMessage" />
                                     <p:growl id="errorGrowl" sticky="true" />  
+                                    </div>
                                     <div class="signuptext"><input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/></div>
                                     <div class="signuptext"><input type="hidden" name="ie" value="UTF-8" /></div>
                                     <div class="signuptext">
@@ -128,11 +138,11 @@
                                         -->
                                         <div id="signupsubmit">			
                                             <!--<button type="submit">Registrar</button>-->
-                                            <p>Ao efetuar o cadastro, você concorda com os <h:link>termos de uso</h:link>. Já tem cadastrado? <h:link>Entrar</h:link></p>
-                                            <p:commandButton id="saveBtn" value="Registrar" update="@form" actionListener="#{userController.save}">
+                                            <div id="signupp"><p>Ao efetuar o cadastro, você concorda com os <h:link>termos de uso</h:link>. Já tem cadastrado? <h:link>Entrar</h:link></p></div>
+                                            <div id="signupbtn"><p:commandButton id="saveBtn" value="Registrar" update="@form" actionListener="#{userController.save}">
                                                 <f:attribute name="object" value="#{userController.user}" />
                                                 <f:attribute name="typeName" value="user" />
-                                            </p:commandButton>
+                                                </p:commandButton></div>
                                         </div>
                                     </div>
                                 </h:form>	    		
@@ -164,12 +174,6 @@
 
         <!--Footer -->
         <w:footer />
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
-        <br />
-        <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
     </h:body>
 </html>
 
