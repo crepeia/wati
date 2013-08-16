@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:p="http://primefaces.org/ui"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
+    <h:head>
+        <title>Viva sem tabaco | Programa gratuito para o tratamento do tabagismo</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="description" content="O parando de fumar é um programa gratuito para quem deseja parar de fumar. Ele é desenvolvido por especialistas em tratamento do tabagismo utilizando evidências científicas" />
+		<meta name="keywords" content="tabagismo, parar de fumar, tratamento tabagismo, como parar de fumar, deixar de fumar" />
+		<meta name="author" content="hpgomide" />
+		<link href="#{resource['default:images/favicon.ico']}" rel="shortcut icon" type="image/x-icon" />
+		<h:outputStylesheet library="default" name="css/core.css" />
+    </h:head>
+    <h:body>
+		<div id="corpo"> 
+			<!-- header -->    
+			<w:header />
+                        <w:topmenu />
+
+			<!--mainmenu-->         	
+			<div class="main">
+				
+
+				<div class="pagecontent">
+                                    <h:graphicImage library="default" name="images/vst-paisagem.png" alt="Viva sem tabaco" id="vstpaisagem" />	
+                                    <h1>Contato</h1>
+                                    <div id="contato">
+                                    <h4>E-mail: contato@vivasemtabaco.com.br</h4>
+                                    <h4>Twitter:@vivasemtabaco</h4>
+                                    <h2>Envio</h2>
+                                    <p:inputText id="sendEmail"></p:inputText>
+                                    <p:watermark for="sendEmail" value="E-mail" />
+                                    <h4>Mensagem</h4>
+                                    <p:inputTextarea rows="4" cols="60" autoResize="false" />
+                                    <div id="signinsubmit"><h:button value ="Enviar" outcome="./login.xhtml"  ></h:button></div>
+                                    
+				    </div>	
+				</div>
+			</div>
+
+		</div><!-- end.corpo --> 
+
+		<!--Footer -->
+		<w:footer />
+	</h:body>
+</html>
+

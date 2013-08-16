@@ -14,7 +14,7 @@
         <link href="#{resource['default:images/favicon.ico']}" rel="shortcut icon" type="image/x-icon" />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
         <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'/>
-        <h:outputStylesheet library="default" name="css/core.css" />       
+        <h:outputStylesheet library="default" name="css/core.css" />     
     </h:head>
     <h:body>
         <div id="corpo">
@@ -44,11 +44,10 @@
                                 <h:graphicImage library="default" name="images/padlock.png" alt="Gratuito" />
                                 <p>Ele é gratuito e sempre será! Faça seu cadastro agora mesmo. </p>
                             </div>
-                            
-                            <h4>Realização</h4>
+                                                        
                             <h:graphicImage library="default" name="images/ufjf.png" alt="Universidade Federal de Juiz de Fora" class="mainlogos" id="mainufjf"/>
-                            <h:graphicImage library="default" name="images/crepeia.png" alt="Universidade Federal de Juiz de Fora" class="mainlogos" id="maincrepeia" />
-                            <h:graphicImage library="default" name="images/csf.png" alt="Crepeia" class="mainlogos" id="maincsf"/>
+                            <h:graphicImage library="default" name="images/crepeia.png" alt="Universidade Federal de Juiz de Fora" class="mainlogos" id="maincrepeia" />                            
+                            <h:graphicImage library="default" name="images/csf.png" alt="Crepeia" class="mainlogos" id="maincsf"/>                            
                             
                         </div>
                         <div id="mainright">
@@ -93,7 +92,7 @@
 
                                     <div id="signupbottom">	
                                         <p:panelGrid columns="4" id="nascimento">
-                                            <h:outputText value="Idade"/>
+                                            <h:outputText value="Nascimento"/>
                                             <p:selectOneMenu id="day" value="#{userController.dia}">  
                                                 <f:selectItem itemLabel="Dia" itemValue="" />  
                                                 <f:selectItems value="#{userController.dias}" />  
@@ -114,30 +113,8 @@
                                                 <f:selectItem itemLabel="Masculino" itemValue="M" />  
                                             </p:selectOneRadio> 
                                         </p:panelGrid>
-
-                                        <!--
-                                        <div id="signupbirth">
-                                        <label>Idade:</label>
-                                        <select name="dia">
-                                                <option value="dia" selected="1">Dia</option><option value="dia">1</option><option value="2">2</option><option value="3">3</option>
-                                        </select>
-                                        <select name="Mês">
-                                                <option value="dia" selected="Janeiro">Mês</option><option value="01">Janeiro</option><option value="02">Fevereiro</option><option value="03">Março</option><option value="04">Abril</option><option value="05">Maio</option><option value="06">Junho</option><option value="07">Julho</option><option value="08">Agosto</option><option value="09">Setembro</option><option value="10">Outubro</option><option value="11">Novembro</option><option value="12">Dezembro</option>
-                                        </select>
-                                        <select name="ano">
-                                                <option value="ano" selected="1981">Ano</option><option value="dia">1996</option>
-                                        </select>
-                                        </div> 
-                                        <div id="signupsex"> 
-                                        <label>Sexo:</label>		
-                                        <input type="radio" id="sex-f" name="sex" value="feminino" />
-                                        <label for="sex-f">Feminino</label>	
-                                        <input type="radio" id="sex-m" name="sex" value="masculino" />
-                                        <label for="sex-m">Masculino</label>   
-                                        </div>
-                                        -->
-                                        <div id="signupsubmit">			
-                                            <!--<button type="submit">Registrar</button>-->
+                                      
+                                        <div id="signupsubmit">			                                            
                                             <div id="signupp"><p>Ao efetuar o cadastro, você concorda com os <h:outputLink value="./termosdeuso.xhtml">termos de uso</h:outputLink>. Já tem cadastrado? <h:link>Entrar</h:link></p></div>
                                             <div id="signupbtn"><p:commandButton id="saveBtn" value="Registrar" update="@form" actionListener="#{userController.save}">
                                                 <f:attribute name="object" value="#{userController.user}" />
