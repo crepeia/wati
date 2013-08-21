@@ -559,15 +559,12 @@ LEFTMENUS***********************/
 
 .leftmenu1 {	
 	float:left;
-	width: 250px;
+	width: 260px;
 }
 
 
 .leftmenu1 nav ul {
-	background: #efefef; 
-	background: linear-gradient(top, #fcbb5b 0%, #fcbb5b 100%);  
-	background: -moz-linear-gradient(top, #fcbb5b 0%, #fcbb5b 100%); 
-	background: -webkit-linear-gradient(top, #fcbb5b 0%, #fcbb5b 100%); 
+	background: #6ec21c;
 	box-shadow: 1px 0px 8px rgba(0,0,0,0.15);
 	padding:0;
 	border-radius: 4px;  
@@ -581,20 +578,20 @@ LEFTMENUS***********************/
 
 .leftmenu1 nav ul li:hover {
 		background: #4375b4;
-		background: linear-gradient(top, #4375b4 0%, #3b68a0 40%);
-		background: -moz-linear-gradient(top, #4375b4 0%, #3b68a0 40%);
-		background: -webkit-linear-gradient(top, #4375b4 0%, #3b68a0 40%);
+		background: linear-gradient(top, #f8f8f8 0%, #e0e0e0 100%);
+		background: -moz-linear-gradient(top, #f8f8f8 0%, #e0e0e0 100%);
+		background: -webkit-linear-gradient(top, #f8f8f8 0%, #e0e0e0 100%);
 		border-radius: 4px;
 	}
 		
 .leftmenu1 nav ul li:hover a {
-			color: #fff;
+			color: #6ec21c;
 			text-decoration: none;
 		}
 	
 .leftmenu1	nav ul li a {
-		display: block; padding: 6px 20px;
-		color: #fff; text-decoration: none;
+		display: block; padding: 6px 15px;
+		color: #f8f8f8; text-decoration: none;
 	}
 
 /*LEFTMENU-2*/
@@ -606,10 +603,7 @@ LEFTMENUS***********************/
 
 
 .leftmenu2 nav ul {
-	background: #efefef; 
-	background: linear-gradient(top, #6ec21c 0%, #6ec21c 100%);  
-	background: -moz-linear-gradient(top, #6ec21c 0%, #6ec21c 100%); 
-	background: -webkit-linear-gradient(top, #6ec21c 0%, #6ec21c 100%); 
+	background: #4375b4;  
 	box-shadow: 1px 0px 8px rgba(0,0,0,0.15);
 	padding:0;
 	border-radius: 4px;  
@@ -622,20 +616,59 @@ LEFTMENUS***********************/
 }
 
 .leftmenu2 nav ul li:hover {
-		background: #4375b4;
-		background: linear-gradient(top, #4375b4 0%, #3b68a0 40%);
-		background: -moz-linear-gradient(top, #4375b4 0%, #3b68a0 40%);
-		background: -webkit-linear-gradient(top, #4375b4 0%, #3b68a0 40%);
+		background: #e0e0e0;
+		background: linear-gradient(top, #f8f8f8 0%, #e0e0e0 100%);
+		background: -moz-linear-gradient(top, #f8f8f8 0%, #e0e0e0 100%);
+		background: -webkit-linear-gradient(top, #f8f8f8 0%, #e0e0e0 100%);
 		border-radius: 4px;
 	}
 		
 .leftmenu2 nav ul li:hover a {
-			color: #fff;
+		color: #4375b4;
+		text-decoration: none;
+	}
+	
+.leftmenu2	nav ul li a {
+		display: block; padding: 6px 15px;
+		color: #f8f8f8; text-decoration: none;
+	}
+        
+/*LEFTMENU-3*/
+
+.leftmenu3 {	
+	float:left;
+	width: 250px;
+}
+
+
+.leftmenu3 nav ul {
+	background: #fcbb5b; 
+	box-shadow: 1px 0px 8px rgba(0,0,0,0.15);
+	padding:0;
+	border-radius: 4px;  
+	list-style: none;
+	position: relative;
+}
+
+.leftmenu3 nav ul li {
+	clear: both;
+}
+
+.leftmenu3 nav ul li:hover {
+		background: #f8f8f8;
+		background: linear-gradient(top, #f8f8f8 0%, #e0e0e0 100%);
+		background: -moz-linear-gradient(top, #f8f8f8 0%, #e0e0e0 100%);
+		background: -webkit-linear-gradient(top, #f8f8f8 0%, #e0e0e0 100%);
+		border-radius: 4px;
+	}
+		
+.leftmenu3 nav ul li:hover a {
+			color: #fcbb5b;
 			text-decoration: none;
 		}
 	
-.leftmenu2	nav ul li a {
-		display: block; padding: 6px 20px;
+.leftmenu3	nav ul li a {
+		display: block; padding: 6px 15px;
 		color: #fff; text-decoration: none;
 	}
 
@@ -800,3 +833,8 @@ img#artigotabaco{
 }
 
 
+/*Páginas internas*/
+
+#pagecont {
+    margin-left:280px;
+}
