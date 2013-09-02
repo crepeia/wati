@@ -564,7 +564,7 @@ LEFTMENUS***********************/
 
 
 .leftmenu1 nav ul {
-	background: #6ec21c;
+	background: #38b394;
 	box-shadow: 1px 0px 8px rgba(0,0,0,0.15);
 	padding:0;
 	border-radius: 4px;  
@@ -585,7 +585,7 @@ LEFTMENUS***********************/
 	}
 		
 .leftmenu1 nav ul li:hover a {
-			color: #6ec21c;
+			color: #38b394;
 			text-decoration: none;
 		}
 	
@@ -642,7 +642,7 @@ LEFTMENUS***********************/
 
 
 .leftmenu3 nav ul {
-	background: #fcbb5b; 
+	background: #5a4cbc; 
 	box-shadow: 1px 0px 8px rgba(0,0,0,0.15);
 	padding:0;
 	border-radius: 4px;  
@@ -663,7 +663,7 @@ LEFTMENUS***********************/
 	}
 		
 .leftmenu3 nav ul li:hover a {
-			color: #fcbb5b;
+			color: #5a4cbc;
 			text-decoration: none;
 		}
 	
@@ -835,6 +835,81 @@ img#artigotabaco{
 
 /*Páginas internas*/
 
-#pagecont {
+#pagecont1, #pagecont2, #pagecont3{
     margin-left:280px;
 }
+
+/*Avaliar estagio */
+
+#opcoes-img {
+    float:left;
+    margin: 0;
+    padding:25px 10px 0 10px;
+}
+
+#topo-avaliar {
+    float:left;
+    padding-bottom: 30px;
+}
+
+.passos {
+    width:280px;
+    float:left;
+    margin:15px;
+    background-color: #f8f8f8;
+    border-radius: 20px;
+    border: solid #ddd 1px;
+    height: 420px;
+}
+
+.passos h2 {
+    padding-left:12px;
+    margin-left:auto;
+    margin-right:auto;
+    width:80%;
+
+}
+
+.passos-txt li{
+    margin-bottom:5px;
+    list-style: circle;  
+ 
+}
+
+.passos-img {
+    padding-left: 45px;
+}
+
+/* Menu Interno */
+#menu-mini {
+    float:right;
+}
+
+#preparando-img {
+    float:left;
+    width: 50px;
+    clear:both;
+}
+
+#parando-img {
+    float:left;
+    width: 50px;
+    padding: 0 5px 0 5px;
+}
+
+#acompanhamento-img {
+    float:left;
+    width: 50px;
+}
+
+/* Preparando para fumar */
+
+#pagecont1 h1, h2, h3, h4, h5 {
+        color: #38b394;
+        
+}
+
+/* Pronto para parar */
+
+/* Acompanhamento */
+
