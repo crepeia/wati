@@ -33,9 +33,7 @@ html, body {
 #corpo {
 	margin-left:auto;
 	margin-right:auto;
-	width:1000px;
-	min-height:100%;
-        
+	width:1000px;     
 }
 
 .main {
@@ -307,11 +305,10 @@ h2, h3{
     font-size:.85em;
 }
 
-#footer h4, h5 {
+#footer p{
 	line-height:.5em;
 	color:#999;
-	font-weight:normal;
-        font-size:1.5em;
+	font-size: 1.2em;
 }
 
 #footer .urls li {
@@ -570,11 +567,24 @@ LEFTMENUS***********************/
 	border-radius: 4px;  
 	list-style: none;
 	position: relative;
+        
 }
 
+.leftmenu1 li#blue-li {
+    background:#3b68a0;
+    border-radius: 4px;
+}
+
+
 .leftmenu1 nav ul li {
-	clear: both;
-        border: solid 1px #f8f8f8;
+	clear: both;             
+}
+
+.leftmenu1 li#blue-li:hover a{
+    color: #fff;
+    text-decoration: none;
+    background: #4375b4;
+    border-radius: 4px;
 }
 
 .leftmenu1 nav ul li:hover {
@@ -754,7 +764,7 @@ img#artigotabaco{
 /*IMGS */
 
 #logoscenter {
-    padding-top:50px;
+    padding:0 0 50px 0;
     margin-left: auto;
     margin-right: auto;
     width: 608px;
@@ -853,6 +863,13 @@ img#artigotabaco{
     padding-bottom: 30px;
 }
 
+#seta1-img {
+    clear:both;
+    position:absolute;
+    top:465px;
+    padding-left: 20px;
+}
+
 .passos {
     width:280px;
     float:left;
@@ -905,10 +922,10 @@ img#artigotabaco{
 
 /* Preparando para fumar */
 
-#pagecont1 h1, h2, h3, h4, h5 {
+/* #pagecont1 h1, h2, h3, h4, h5 {
         color: #38b394;
         
-}
+}*/
 
 /* Pronto para parar */
 
