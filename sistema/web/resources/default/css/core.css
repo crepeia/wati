@@ -383,29 +383,6 @@ INDEX***********************/
 }
 
 
-.mainlogos{
-    border: #fff;
-    margin: 0 5px 0 5px;
-    padding-right:15px;
-    padding-top:40px;
-}
-
-#mainufjf {
-    height:85px;
-}
-
-#maincrepeia{
-    height:80px;
-}
-
-#maincsf {
-    height:75px;
-}
-
-#mainfapemig {
-    height:85px;
-}
-
 #signup h1{
 	padding-left: 5px; 
 }
@@ -657,7 +634,7 @@ LEFTMENUS***********************/
 	box-shadow: 1px 0px 8px rgba(0,0,0,0.15);
 	padding:0;
 	border-radius: 4px;  
-	list-style: none;
+	list-style: disc;
 	position: relative;
 }
 
@@ -767,23 +744,13 @@ img#artigotabaco{
     padding:0 0 50px 0;
     margin-left: auto;
     margin-right: auto;
-    width: 608px;
+    width: 780px;
 }
 
-#crepeia{
-    float:left;
-    height: 80px;
+#logoscenter img {
+    padding: 0 10px 0 10px;
 }
 
-#ufjf {
-    float:left;
-    height:85px;
-}
-
-#csf{
-    float:left;
-    height: 80px;
-}
 
 #btngen {
     display:block;
@@ -806,8 +773,6 @@ img#artigotabaco{
 #btngen:hover {
    background: #3b68a0 ;
 }
-
-
 
 /*QUEM SOMOS*/
 .pesquisadores {
