@@ -39,13 +39,14 @@ Registrar resposta para adicionar na página relatório
 Data para parar
 #######################
 
-Questão em formato de <select><option> (dia e mês)
+Questão em formato de \<select\>\<option\> (dia, mês e ano)
 1. Escolha uma data para parar de fumar
 - predefinição - data do acesso
+- um botão para voltar nesta data atual
 
 
 Ação
-Registrar resposta para adicionar na página relatório
+Registrar resposta para adicionar na página relatório. Se a data for diferente da de acesso ao sistema, enviar um email com data.
 
 
 Como enfrentar a fissura
