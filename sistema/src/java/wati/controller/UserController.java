@@ -18,6 +18,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -39,6 +40,8 @@ public class UserController extends BaseFormController<User> {
 	private int dia;
 	private int mes;
 	private int ano;
+        
+        private boolean showErrorMessage;
 	
 	private Map<String,String> dias = new LinkedHashMap<String, String> ();
 	private Map<String,String> meses = new LinkedHashMap<String, String>();
@@ -51,6 +54,8 @@ public class UserController extends BaseFormController<User> {
 	public UserController() {
 		
 		super( User.class );
+                
+                this.showErrorMessage = false;
 		
 		for (int i = 1; i <= 31; i++) {
 			dias.put( String.valueOf(i) , String.valueOf(i) );
@@ -120,8 +125,9 @@ public class UserController extends BaseFormController<User> {
 	
 	@Override
 	public void save( ActionEvent actionEvent ) {
-		
-		this.user.setBirth( new GregorianCalendar(ano, mes, dia).getTime() );
+            
+            this.showErrorMessage = true;
+            this.user.setBirth( new GregorianCalendar(ano, mes, dia).getTime() );
 		
 		try {
 			
@@ -141,6 +147,7 @@ public class UserController extends BaseFormController<User> {
 			
 			super.save( actionEvent );
 			//FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));
+                        this.clear();
 
 		} catch (InvalidKeyException ex) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null ));
@@ -244,4 +251,26 @@ public class UserController extends BaseFormController<User> {
 	public void setAnos(Map<String,String> anos) {
 		this.anos = anos;
 	}
+
+    /**
+     * @return the showErrorMessage
+     */
+    public boolean isShowErrorMessage() {
+        return showErrorMessage;
+    }
+
+    /**
+     * @param showErrorMessage the showErrorMessage to set
+     */
+    public void setShowErrorMessage(boolean showErrorMessage) {
+        this.showErrorMessage = showErrorMessage;
+    }
+    
+    private void clear( ) {
+        this.ano = 0;
+        this.dia = 0;
+        this.mes = 0;
+        this.password = "";
+        this.user = new User();
+    }
 }
