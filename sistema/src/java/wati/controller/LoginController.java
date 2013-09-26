@@ -4,30 +4,28 @@
  */
 package wati.controller;
 
-import java.util.HashMap;
-import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import org.primefaces.context.RequestContext;
 import wati.model.User;
 
 @ManagedBean(name = "loginController")
 @SessionScoped
 public class LoginController extends BaseFormController<User> {
-    
-    private User user;
+
+    private User user = new User();
     private String password;
     
+    private boolean showName;
+
     /**
      * Creates a new instance of LoginController
      */
     public LoginController() {
-        
-        super( User.class );
-        
+
+        super(User.class);
+
         this.password = "";
-        this.user = new User();
-        
+
     }
 
     /**
@@ -57,16 +55,37 @@ public class LoginController extends BaseFormController<User> {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public void showPopup() {
+
+    public void loginDialog() {
         
-        Map<String,Object> options = new HashMap<String, Object>();  
-        options.put("modal", true);
-        options.put("draggable", false);
-        options.put("resizable", false);
-        options.put("contentHeight", 320);
-        //hint: available options are modal, draggable, resizable, width, height, contentWidth and contentHeight  
+        this.user.setId( 1 );
+        this.user.setName( "Usuário" );
+        
+        if ( this.user.getId() == 0 ) {
+            
+            this.showName = false;
+            
+        } else {
+            
+            this.showName = true;
+            
+        }
+        
+        System.out.println( this.user.getName() );
         
     }
-    
+
+    /**
+     * @return the showName
+     */
+    public boolean isShowName() {
+        return showName;
+    }
+
+    /**
+     * @param showName the showName to set
+     */
+    public void setShowName(boolean showName) {
+        this.showName = showName;
+    }
 }
