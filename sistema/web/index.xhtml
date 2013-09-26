@@ -38,100 +38,71 @@
                                 <p>Ele é gratuito e sempre será! Faça seu cadastro agora mesmo. </p>
                             </div>                                                                                                                                          
                         </div>
-                        <div id="mainright">
-                            <div id="signup">
-                                <h1>Cadastro</h1>
-                                <h:form id="form" class="form-signup">
-                                    <div id="errormsg">
-                                    <p:messages id="errorMessage" />
-                                    <p:growl id="errorGrowl" sticky="true" />  
-                                    </div>
-                                    <div class="signuptext"><input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/></div>
-                                    <div class="signuptext"><input type="hidden" name="ie" value="UTF-8" /></div>
-                                    <div class="signuptext">
-                                        <p:inputText id="nameTxt" value="#{userController.user.name}" required="true" size="30" label="Nome" >
-                                            <!--<p:ajax update="loginMsg" event="blur" />-->
-                                            <f:validateLength maximum="100" />
-                                        </p:inputText>
-                                        <p:watermark for="nameTxt" value="Nome completo" />
-                                    </div>
-                                    <div class="signuptext">
-                                        <p:inputText id="emailTxt" value="#{userController.user.email}" required="true" size="30" label="E-mail" validatorMessage="E-mail com formato inválido" >
-                                            <!--<p:ajax update="loginMsg" event="blur" />-->
-                                            <f:validateLength maximum="50" />
-                                            <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
-                                        </p:inputText>
-                                        <p:watermark for="emailTxt" value="E-mail" />
-                                    </div>
-                                    <div class="signuptext">
-                                        <p:password id="passwordTxt" value="#{userController.password}" required="true" match="confirmPasswordTxt" redisplay="true" size="30" label="Senha">  
-                                            <f:validateLength maximum="16" />
-                                            <!--<p:ajax update="passwordMsg" event="blur" />-->
-                                        </p:password>
-                                        <p:watermark for="passwordTxt" value="Senha" />
-                                    </div>
-                                    <div class="signuptext">
-                                        <p:password id="confirmPasswordTxt" value="#{userController.password}" required="true" redisplay="true" label="Repetir senha">  
-                                            <f:validateLength maximum="16" />
-                                            <!--<p:ajax update="passwordMsg" event="blur" />-->
-                                        </p:password>
-                                        <p:watermark for="confirmPasswordTxt" value="Repetir senha" />
-                                    </div>
-
-                                    <div id="signupbottom">	
-                                        <p:panelGrid columns="4" id="nascimento">
-                                            <h:outputText value="Nascimento"/>
-                                            <p:selectOneMenu id="day" value="#{userController.dia}">  
-                                                <f:selectItem itemLabel="Dia" itemValue="" />  
-                                                <f:selectItems value="#{userController.dias}" />  
-                                            </p:selectOneMenu>
-                                            <p:selectOneMenu id="month" value="#{userController.mes}">  
-                                                <f:selectItem itemLabel="Mês" itemValue="" />  
-                                                <f:selectItems value="#{userController.meses}" />  
-                                            </p:selectOneMenu>
-                                            <p:selectOneMenu id="year" value="#{userController.ano}">  
-                                                <f:selectItem itemLabel="Ano" itemValue="" />  
-                                                <f:selectItems value="#{userController.anos}" />  
-                                            </p:selectOneMenu>
-                                        </p:panelGrid>
-                                        <p:panelGrid columns="2" id="sexo">
-                                            <h:outputText value="Sexo"/>
-                                            <p:selectOneRadio id="options" value="#{userController.user.gender}" required="true" label="Sexo">  
-                                                <f:selectItem itemLabel="Feminino" itemValue="F" />  
-                                                <f:selectItem itemLabel="Masculino" itemValue="M" />  
-                                            </p:selectOneRadio> 
-                                        </p:panelGrid>
-                                      
-                                        <div id="signupsubmit">			                                            
-                                            <div id="signupp"><p>Ao efetuar o cadastro, você concorda com os<br /> <h:outputLink value="./termosdeuso.xhtml">termos de uso</h:outputLink>. Já tem cadastrado? <h:link>Entrar</h:link></p></div>
-                                            <div id="signupbtn"><p:commandButton id="saveBtn" value="Registrar" update="@form" actionListener="#{userController.save}">
-                                                <f:attribute name="object" value="#{userController.user}" />
-                                                <f:attribute name="typeName" value="user" />
-                                                </p:commandButton></div>
-                                        </div>
-                                    </div>
-                                </h:form>	    		
-                            </div>
-                        </div>
+                        <div id="mainright">                            
+                         <div id ="mainvideo">
+                            <iframe width="420" height="315" src="//www.youtube.com/embed/LjoH-8QXTFc" frameborder="0"></iframe>
+                         </div>
+                         </div>
                     </div>
 
-                    <!--<div id="mainbottom">
-                        <h1>Por que parar de fumar?</h1>
-                        <div id="mainbottomleft">
-                            <h2>Benefícios</h2>
-                            <div class="mainwhy">
-                                <h:graphicImage library="default" name="images/coracao.png" alt="Benefícios" />
-                                <p>Após parar de fumar, melhoras no sistema circulatório e respiratório ja podem ser percebidas. <a href="">Saiba mais.</a></p>
-                            </div>
-                        </div>
-                        <div id="mainbottomright">
-                            <h2>Riscos</h2>
-                            <div class="mainwhy">
-                                <h:graphicImage library="default" name="images/menos.png" alt="Riscos" />
-                                <p>Ao fumar, você tem maiores chances de ter doenças do coração e contrair diversos tipos de câncer. <a href="">Saiba mais.</a></p>
-                            </div>
-                        </div>
-                    </div>-->
+                    <div id="mainbottom">
+                        <h1>Nosso programa</h1>
+                        <h:graphicImage library="default" id="opcoes-img" name="images/opcoes.png" alt="Especialistas" />
+                                    <div id="topo-avaliar">
+                                    <ul>
+                                    <li>Para personalizar sua navegação durante o site, dividimos nosso programa em três passos.</li>                                     
+                                    <li>Escolha o que você achar melhor</li> 
+                                    <li>Você pode voltar e visualizar todos os outros passos quantas vezes achar necessário.</li>
+                                    </ul>
+                                    </div>
+                        <div class="passos">
+                                        <h2>Vale a pena parar?</h2>
+                                        <h:outputLink value="interno1.xhtml"><h:graphicImage library="default" class ="passos-img" name="images/preparando-parar.png" alt="Especialistas" /></h:outputLink>
+                                        <h:graphicImage library="default" id="seta1-img" name="images/seta.png" alt="Especialistas" />
+                                        <div class="passos-txt">
+                                               <ul>
+                                                   <li>Riscos do cigarro</li>
+                                                   <li>Benefícios de parar</li>                                      
+                                                   <li>Abstinência</li>
+                                                   <li>Ganho de peso</li>
+                                                   <li>Doenças Relacionadas</li>
+                                               </ul>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="passos">
+                                        <h2>Pronto para parar?</h2>
+                                        <h:outputLink value="interno2.xhtml"><h:graphicImage library="default" class ="passos-img" name="images/pronto-parar.png" alt="Especialistas" /></h:outputLink>
+                                        <h:graphicImage library="default" id="seta1-img" name="images/seta.png" alt="Especialistas" />
+                                        <div class="passos-txt">
+                                               <ul>
+                                                   <li>Plano personalizado</li>
+                                                   <li>Medicamentos</li>
+                                                   <li>Sintomas de abstinência</li>                                      
+                                                   <li>Lidando com ganho de peso</li>
+                                                   <li>Enfrentando a fissura</li>                                                   
+                                               </ul>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="passos">
+                                        <h2>Já parou?</h2>
+                                        <h:outputLink value="interno2.xhtml"><h:graphicImage library="default" class ="passos-img" name="images/acompanhamento.png" alt="Especialistas"/></h:outputLink>
+                                        
+                                        <div class="passos-txt">
+                                               <ul>
+                                                   <li>Para quem já parou de fumar</li>
+                                                   <li>Plano para lidar com recaídas</li>                                      
+                                                   <li>Recaídas e lapsos</li>
+                                                   <li>E-mails de acompanhamento</li>
+                                                   <li>Mensagens</li>
+                                               </ul>
+                                            
+                                        </div>
+                                    </div>
+                    </div>
                 </div>
             </div>
 
