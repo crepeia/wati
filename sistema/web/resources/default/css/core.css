@@ -139,8 +139,7 @@ h2, h3{
 #searchbar {
 	float:right;
         position:relative;
-        top:35px;
-
+        top:0px;
 }
 
 /*Search bar*/
