@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
+    <h:head>
+        <title>Viva sem tabaco | Programa gratuito para o tratamento do tabagismo</title>
+        <w:head_comum />
+    </h:head>
+    <h:body>
+        <div id="corpo">
+            <!-- header -->    
+            <w:header />
+
+            <w:topmenu />
+
+            <!--mainmenu-->         	
+            <div class="main">
+                <!-- tentar colocar as definicoes de class no componente -->
+
+
+                <div class="pagecontent">
+
+                    <h:form id="form">
+
+                        <h1>Calculadora</h1>
+                        <p:panelGrid id="calculadoraPnl" columns="2">
+                            <h:outputText value="Número de cigarros/dia" />
+                            <p:inputText id="numeroCigarrosDiaTxt" value="#{calculadoraController.numeroCigarrosDia}" />
+                            <h:outputText value="Custo do masso de cigarro" />
+                            <p:inputText id="custoMassoTxt" value="#{calculadoraController.custoMasso}" />
+                            <p:commandButton id="calcularBtn" value="Calcular" update="@form" actionListener="#{calculadoraController.calcular}" />
+                        </p:panelGrid>
+                        <p:panelGrid id="saidaPnl" columns="2">
+                            <h:outputText value="Gasto por semana" />
+                            <p:inputText id="gastoSemana" value="#{calculadoraController.custoSemana}" />
+                            <h:outputText value="Gasto por mês" />
+                            <p:inputText id="gastoMes" value="#{calculadoraController.custoMes}" />
+                            <h:outputText value="Gasto por ano" />
+                            <p:inputText id="gastoAno" value="#{calculadoraController.custoAno}" />
+                        </p:panelGrid>
+
+                    </h:form>
+
+                </div>
+            </div>
+
+        </div><!-- end.corpo --> 
+
+        <!--Footer -->
+        <w:footer />
+    </h:body>
+</html>
+
