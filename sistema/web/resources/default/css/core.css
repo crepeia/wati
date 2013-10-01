@@ -338,8 +338,7 @@ INDEX***********************/
 }
 
 #mainbottom{
-        margin-top: 480px;
-	padding: 10px 0 0 20px 0;
+	padding: 5px 0 0 0;
 	clear: both;
 }
 
@@ -383,13 +382,9 @@ INDEX***********************/
 	text-indent: 0;
 }
 
-#mainright{
-    background: #efefef;
-    box-shadow: 0 2px 3px 0px rgba(0,0,0,0.30);
-    padding: 0 0 10px;
-    border-radius: 4px;
+#mainvideo {
+    padding-left:40px;
 }
-
 
 #signup h1{
 	padding-left: 5px; 
@@ -832,13 +827,12 @@ img#artigotabaco{
 
 #topo-avaliar {
     float:left;
-    padding-bottom: 30px;
 }
 
 #seta1-img {
     clear:both;
     position:absolute;
-    top:465px;
+    top:770px;
     padding-left: 20px;
 }
 
@@ -849,7 +843,7 @@ img#artigotabaco{
     background-color: #f8f8f8;
     border-radius: 20px;
     border: solid #ddd 1px;
-    height: 420px;
+    height: 380px;
 }
 
 .passos h2 {
