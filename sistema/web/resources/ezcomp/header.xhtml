@@ -4,7 +4,8 @@
       xmlns:cc="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <!-- INTERFACE -->
     <cc:interface>
@@ -21,7 +22,35 @@
             </div>
 
             <div id="rightheader">
-                <div id="fastsignin"><h:outputLink value="user_cad.xhtml" >Cadastrar</h:outputLink> / <h:outputLink value="." title="Entrar">Entrar</h:outputLink></div>
+                <div id="fastsignin">
+                    <h:form id="loginForm">
+                        <p:panel id="groupPanel">
+                            <p:panel id="loginPanel" rendered="#{!loginController.showName}">
+                                <h:outputLink value="user_cad.xhtml" >Cadastrar</h:outputLink> / 
+                                <p:commandLink value="Entrar" id="entrarLink" /> 
+                            </p:panel>
+                            <p:panel id="userPanel" rendered="#{loginController.showName}">
+                                Olá <h:outputText value="#{loginController.user.name}" />
+                            </p:panel>
+                        </p:panel>
+                        <p:overlayPanel id="loginDialog" for="entrarLink" hideEffect="fade" showEffect="fade">  
+                            <p:panel id="loginInformationPanel" >
+                                <p:message for="emailTxt" />
+                                <p:message for="passwordTxt"/>
+                                <p:messages id="loginMessages" globalOnly="true" />
+                                <p:inputText id="emailTxt" value="#{loginController.user.email}" required="true" size="30" label="E-mail" >
+                                    <f:validateLength maximum="50" />
+                                </p:inputText>
+                                <p:watermark for="emailTxt" value="E-mail" />
+                                <p:password id="passwordTxt" value="#{loginController.password}" required="true" size="30" label="Senha">  
+                                    <f:validateLength maximum="16" />
+                                </p:password>
+                                <p:watermark for="passwordTxt" value="Senha" />
+                                <p:commandButton id="entrarBtn" value="Entrar" update="groupPanel loginInformationPanel" actionListener="#{loginController.loginDialog}" />
+                            </p:panel>
+                        </p:overlayPanel>
+                    </h:form>
+                </div>
                 <div id="searchbar">
                     <form class="form-wrapper cf" action="http://www.google.com/cse" id="cse-search-box">
                         <div>
