@@ -130,10 +130,16 @@ h2, h3{
 
 #fastsignin {
         position:relative;
-        top:20px;
+        top:10px;
+        left: 25px;
         text-align: right;
         font-size: .9em;
-        color: #888;
+        
+        
+}
+
+#fastsignin a {
+        color: #3b68a0;
 }
 
 #searchbar {
@@ -821,24 +827,24 @@ img#artigotabaco{
     clear:both;
     position:absolute;
     top:685px;
-    padding-left: 20px;
+    padding-left: 30px;
 }
 
 #seta2-img {
     clear:both;
     position:absolute;
     top:685px;
-    padding-left: 20px;
+    padding-left: 30px;
 }
 
 #passosbottom {
-    clear:both;
+    clear:both;   
 }
 
 .passos {
-    width:280px;
+    width:290px;
     float:left;
-    margin:15px;
+    margin:20px;
     background-color: #f8f8f8;
     border-radius: 20px;
     border: solid #ddd 1px;
@@ -884,15 +890,3 @@ img#artigotabaco{
     float:left;
     width: 50px;
 }
-
-/* Preparando para fumar */
-
-/* #pagecont1 h1, h2, h3, h4, h5 {
-        color: #38b394;
-        
-}*/
-
-/* Pronto para parar */
-
-/* Acompanhamento */
-
