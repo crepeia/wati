@@ -747,7 +747,7 @@ img#artigotabaco{
 }
 
 
-#btngen {
+.btngen {
     display:block;
     color: #900;
     overflow: visible;
@@ -765,7 +765,7 @@ img#artigotabaco{
     
 }
 
-#btngen:hover {
+.btngen:hover {
    background: #3b68a0 ;
 }
 
@@ -889,4 +889,28 @@ img#artigotabaco{
 #acompanhamento-img {
     float:left;
     width: 50px;
+}
+
+/*Páginas - parando de fumar*/
+
+.btnfloat {
+    float:right;
+    padding-top: 20px;
+}
+
+.referencias {
+    padding-top: 80px;
+}
+
+.referencias p{
+    color:#999;
+    font-size: .9em;
+    line-height: 1.2;
+    text-indent: 0;
+}
+
+/*Riscos de fumar*/
+#cartoonman {
+    width:240px;
+    float:right;
 }
