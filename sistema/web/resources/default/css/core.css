@@ -893,13 +893,34 @@ img#artigotabaco{
 
 /*Páginas - parando de fumar*/
 
-.btnfloat {
+.fotoframe{
     float:right;
-    padding-top: 20px;
+    border:1 ;
+    background: #fff;
+    float:right;
+    margin: 0 3px 40px 40px;
+    box-shadow: 1px 1px 2px 2px rgba(0,0,0,0.15);
+    padding: 5px; 
+}
+
+
+
+.txtproximopasso{    
+    float:left; 
+    width:580px;
+}
+
+.btnfloat {
+    float:left;
+    position:relative;
+    top:65px;
+    left:50px;
+   
 }
 
 .referencias {
-    padding-top: 80px;
+    padding-top:10px;
+    clear:both;
 }
 
 .referencias p{
@@ -914,3 +935,6 @@ img#artigotabaco{
     width:240px;
     float:right;
 }
+
+
+/*Calculadora*/
