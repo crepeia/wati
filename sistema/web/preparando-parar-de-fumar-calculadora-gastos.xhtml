@@ -26,26 +26,49 @@
                 <div class="pagecontent">
                     <div id="pagecont1"> 
 
-                        <h:form id="form">
 
-                            <h1>Calculadora</h1>
-                            <p:panelGrid id="calculadoraPnl" columns="2">
-                                <h:outputText value="Número de cigarros/dia" />
-                                <p:inputText id="numeroCigarrosDiaTxt" value="#{calculadoraController.numeroCigarrosDia}" />
-                                <h:outputText value="Custo do masso de cigarro" />
-                                <p:inputText id="custoMassoTxt" value="#{calculadoraController.custoMasso}" />
-                                <p:commandButton id="calcularBtn" value="Calcular" update="@form" actionListener="#{calculadoraController.calcular}" />
-                            </p:panelGrid>
-                            <p:panelGrid id="saidaPnl" columns="2">
-                                <h:outputText value="Gasto por semana" />
-                                <p:inputText id="gastoSemana" value="#{calculadoraController.custoSemana}" />
-                                <h:outputText value="Gasto por mês" />
-                                <p:inputText id="gastoMes" value="#{calculadoraController.custoMes}" />
-                                <h:outputText value="Gasto por ano" />
-                                <p:inputText id="gastoAno" value="#{calculadoraController.custoAno}" />
-                            </p:panelGrid>
+                        <h:graphicImage library="default" id="gastostabagismo" title="Gastos financeiros do tabagismo" name="images/gastos-tabagismo.png" alt="Gratuito" />
+
+                        <h1>Gastos financeiros</h1>                       
+                        <p>Você sabia que uma pessoa - que fuma um maço de cigarros de 6 reais - gasta em cinco anos R$10.950,00 com cigarros?</p>
+                        <h4>Calcule o quanto você gasta aqui:</h4>
+
+                        <h:form id="form">
+                            <div id="calculatortop">
+                                <p:panelGrid id="calculadoraPnl" columns="2">
+                                    <h:outputText value="Número de cigarros em um dia normal?" />
+                                    <p:inputText id="numeroCigarrosDiaTxt" value="#{calculadoraController.numeroCigarrosDia}" />
+                                    <h:outputText value="Custo do maço de cigarros:" />
+                                    <p:inputText id="custoMassoTxt" value="#{calculadoraController.custoMasso}" />                                    
+                                    <div id="calculatorbtn">    
+                                        <p:commandButton id="calcularBtn" styleClass="btngen" value="Calcular" update="@form" actionListener="#{calculadoraController.calcular}"/>                                    
+                                    </div>
+                                </p:panelGrid>
+                            </div>
+
+
+                            <div id="calculatorbottom">
+
+                                <h4>Seus gastos:</h4>
+                                <p:panelGrid id="saidaPnl" columns="2">
+                                    <h:outputText value="Gasto em reais por semana:" />
+                                    <p:inputText id="gastoSemana" value="#{calculadoraController.custoSemana}" />
+                                    <h:outputText value="Gasto em reais por mês:" />
+                                    <p:inputText id="gastoMes" value="#{calculadoraController.custoMes}" />
+                                    <h:outputText value="Gasto em reais por ano:" />
+                                    <p:inputText id="gastoAno" value="#{calculadoraController.custoAno}" />
+                                </p:panelGrid>
+                            </div>
 
                         </h:form>
+
+                        <div class="proximopasso">
+                            <div class="txtproximopasso">
+                                <h4>Próximo material</h4>
+                                <p>Ganho de peso, sintomas de abstinência e vontade de voltar a fumar.</p>
+                            </div>
+                            <div class="btnfloat"><h:button class="btngen" title="Riscos de fumar" value ="Próximo" outcome="./preparando-parar-de-fumar-como-vencer-medos.xhtml"></h:button></div>
+                        </div>                        
 
                     </div>
                 </div>
