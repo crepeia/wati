@@ -11,31 +11,33 @@
     <h:body>
         <h:form>
             <p:panel header="Avaliar comorbidades" id="questoes" >
-            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="10" id="questao1">
-                <f:facet name="header">  
-                    Você já foi diagnosticado com depressão por um profissional de saúde?  
-                </f:facet> 
-                <p:selectOneRadio id="options" value="" required="true">  
-                    <f:selectItem itemLabel="Sim" itemValue="1" />
-                    <f:selectItem itemLabel="Não" itemValue="0" /> 
-                </p:selectOneRadio> 
-            </h:panelGrid>
-            
-            <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="10" id="questao2">
-                <f:facet name="header">  
-                    Você já foi diagnosticado com ansiedade por um profissional de saúde?  
-                </f:facet> 
-                <p:selectOneRadio id="options2" value="" required="true">  
-                    <f:selectItem itemLabel="Sim" itemValue="1" />
-                    <f:selectItem itemLabel="Não" itemValue="0" /> 
-                </p:selectOneRadio> 
-            </h:panelGrid>
-                
-        </p:panel>
-            <div id="signupbtn" align="center"><p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
-                                                <f:attribute name="object" value="#{userController.user}" />
-                                                <f:attribute name="typeName" value="user" />
-                                                </p:commandButton></div>
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="10" id="questao1">
+                    <f:facet name="header">  
+                        Você já foi diagnosticado com depressão por um profissional de saúde?  
+                    </f:facet> 
+                    <p:selectOneRadio id="options" value="" required="true">  
+                        <f:selectItem itemLabel="Sim" itemValue="1" />
+                        <f:selectItem itemLabel="Não" itemValue="0" /> 
+                    </p:selectOneRadio> 
+                </h:panelGrid>
+
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="10" id="questao2">
+                    <f:facet name="header">  
+                        Você já foi diagnosticado com ansiedade por um profissional de saúde?  
+                    </f:facet> 
+                    <p:selectOneRadio id="options2" value="" required="true">  
+                        <f:selectItem itemLabel="Sim" itemValue="1" />
+                        <f:selectItem itemLabel="Não" itemValue="0" /> 
+                    </p:selectOneRadio> 
+                </h:panelGrid>                
+            </p:panel>
+            <h2>Olá mundo</h2>
+            <div id="signupbtn" align="center">
+                <p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
+                    <f:attribute name="object" value="#{userController.user}" />
+                    <f:attribute name="typeName" value="user" />
+                </p:commandButton>
+            </div>
         </h:form>
     </h:body>
 </html>

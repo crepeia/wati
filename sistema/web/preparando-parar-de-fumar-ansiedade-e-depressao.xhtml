@@ -2,62 +2,93 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-	  xmlns:p="http://primefaces.org/ui"
-	  xmlns:f="http://java.sun.com/jsf/core"
-          xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
-          xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
         <title>Ansiedade e depressão - Preparando para parar de fumar | Viva sem tabaco </title>
-		<w:head_comum />
+        <w:head_comum />
     </h:head>
     <h:body>
-		<div id="corpo"> 
-			<!-- header -->    
-			<w:header />
-                        <w:topmenu />
-			<!--mainmenu-->         	
-			<div class="main">
-				
+        <div id="corpo"> 
+            <!-- header -->    
+            <w:header />
+            <w:topmenu />
+            <!--mainmenu-->         	
+            <div class="main">
 
-				<w:leftmenu_1 cssClass="leftmenu1" />
 
-                                <div class="pagecontent">
-                                    <div id="pagecont1"> 
-                                        <div class="fotoframe">
-                                        <h:graphicImage library="default" title="Parar de fumar" name="images/deixar-cigarro.png" alt="Gratuito" />
-                                        </div>
-                                        <h1>Ansiedade de depressão</h1>
-                                        
-                                        <h2>Introdução</h2>
-                                        <ul>
-                                            <li>Tomar a decisão de parar de fumar é o primeiro passo,</li>
-                                            <li>Para ajudar você a tomar a decisão, preparamos este material</li>
-                                            <li>Você pode ver na ordem que quiser e quando estiver pronto para parar, clique em azul "Já estou pronto".</li>                                                                                        
-                                        </ul>
-                                        
-                                        <h4>Próximo material</h4>
-                                        <p>Você sabe quais as consequências de para sua saúde do uso do cigarro?</p>                                                                                                                        
-                                        
-                                        <div class="proximopasso">
-                                            <div class="txtproximopasso">
-                                                <h4>Próximo material</h4>
-                                                <p>Você sabia que seu organismo, ao parar de fumar, já apresenta melhoras logo nas primeiras semanas?</p>
-                                            </div>
-                                            <div class="btnfloat"><h:button class="btngen" title="Riscos de fumar" value ="Próximo" outcome="./preparando-parar-de-fumar-riscos-de-fumar.xhtml"  ></h:button></div>
-                                        </div>
-                                        
-                                    </div>
-                                        
-                                        
+                <w:leftmenu_1 cssClass="leftmenu1" />
 
-                                    </div>        
-                                </div>
-			
+                <div class="pagecontent">
+                    <div id="pagecont1"> 
+                        <div class="fotoframe">
+                            <h:graphicImage library="default" title="Sorrowing Old Man - Vincent van Gogh" name="images/tristeza-vangogh.png" alt="Gratuito" />
+                        </div>
+                        <h1>Ansiedade de depressão</h1>
 
-		</div><!-- end.corpo --> 
+                        <h2>Introdução</h2>
+                        <ul>
+                            <li>A depressão é mais comum nos fumantes que os não fumantes</li>
+                            <li>Transtornos de ansiedade também são mais comuns</li>                            
+                        </ul>
+                        
+                        <div id="avacomorbidades">
+                        <h3>Avaliação</h3>
 
-		<!--Footer -->
-		<w:footer />
-	</h:body>
+                        <h:form>
+                            <p:panel id="questoes" >
+                                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="10" id="questao1">
+                                    <f:facet name="header">  
+                                        Você já foi diagnosticado com depressão por um profissional de saúde?  
+                                    </f:facet> 
+                                    <p:selectOneRadio id="options" value="" required="true">  
+                                        <f:selectItem itemLabel="Sim" itemValue="1" />
+                                        <f:selectItem itemLabel="Não" itemValue="0" /> 
+                                    </p:selectOneRadio> 
+                                </h:panelGrid>
+
+                                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="10" id="questao2">
+                                    <f:facet name="header">  
+                                        Você já foi diagnosticado com ansiedade por um profissional de saúde?  
+                                    </f:facet> 
+                                    <p:selectOneRadio id="options2" value="" required="true">  
+                                        <f:selectItem itemLabel="Sim" itemValue="1" />
+                                        <f:selectItem itemLabel="Não" itemValue="0" /> 
+                                    </p:selectOneRadio> 
+                                </h:panelGrid>
+
+                            </p:panel>
+                            <div><p:commandButton id="saveBtn" styleClass="btngen" value="avaliar" update="@form" actionListener="#{userController.save}">
+                                    <f:attribute name="object" value="#{userController.user}" />
+                                    <f:attribute name="typeName" value="user" />
+                                </p:commandButton>                                
+                                
+                            </div>
+                        </h:form>
+                        </div>
+
+                        <div class="proximopasso">
+                            <div class="txtproximopasso">
+                                <h4>Próximo material</h4>
+                                <p>Muitos fumantes sentem que precisam parar mas não conseguem abandonar o prazer o cigarro. Saiba como lidar com esse sentimento.</p>
+                            </div>
+                            <div class="btnfloat"><h:button class="btngen" title="Riscos de fumar" value ="Próximo" outcome="./preparando-parar-de-fumar-riscos-de-fumar.xhtml"  ></h:button></div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>        
+            </div>
+
+
+        </div><!-- end.corpo --> 
+
+        <!--Footer -->
+        <w:footer />
+    </h:body>
 </html>
 
