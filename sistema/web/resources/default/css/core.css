@@ -960,4 +960,34 @@ img#artigotabaco{
     padding-top: 50px;
 }
 
-/* COMO SUBSTITUIR
+/* COMO SUBSTITUIR  */
+
+.buscarajuda{
+    clear:both;
+}
+
+.imgbuscarajuda img{
+    float:left;
+    width:100px;
+    height:100px;
+    margin-right:20px;
+}
+
+.pbuscarajuda{
+    float:left;
+    width:480px;
+    padding-bottom:25px;
+}
+
+.pbuscarajuda h4{
+    margin:0;
+}
+
+.pbuscarajuda p{
+    text-indent: 0;
+}
+
+.btnbuscarajuda{
+    float:right;
+    padding: 40px 5px 0 0;
+}
