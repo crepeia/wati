@@ -26,13 +26,14 @@
                     <h:form id="loginForm">
                         <p:panel id="groupPanel">
                             <p:panel id="loginPanel" rendered="#{!loginController.showName}">
-                                <h:outputLink value="user_cad.xhtml" >Cadastrar</h:outputLink> / 
+                                <h:outputLink value="cadastrar-nova-conta.xhtml" >Cadastrar</h:outputLink> / 
                                 <p:commandLink value="Entrar" id="entrarLink" /> 
                             </p:panel>
                             <p:panel id="userPanel" rendered="#{loginController.showName}">
                                 Olá <h:outputText value="#{loginController.user.name}" />
                             </p:panel>
                         </p:panel>
+                        <div id="fastlogin">
                         <p:overlayPanel id="loginDialog" for="entrarLink" hideEffect="fade" showEffect="fade">  
                             <p:panel id="loginInformationPanel" >
                                 <p:message for="emailTxt" />
@@ -46,9 +47,10 @@
                                     <f:validateLength maximum="16" />
                                 </p:password>
                                 <p:watermark for="passwordTxt" value="Senha" />
-                                <p:commandButton id="entrarBtn" value="Entrar" update="groupPanel loginInformationPanel" actionListener="#{loginController.loginDialog}" />
+                                <p:commandButton id="entrarBtn" value="Entrar" styleClass="btnlogin" update="groupPanel loginInformationPanel" actionListener="#{loginController.loginDialog}" />
                             </p:panel>
                         </p:overlayPanel>
+                        </div>    
                     </h:form>
                 </div>
                 <div id="searchbar">
