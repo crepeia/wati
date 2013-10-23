@@ -945,7 +945,7 @@ img#artigotabaco{
 
 .fotoframe{
     float:right;
-    border:1 ;
+    border:1 solid #fff;
     background: #fff;
     float:right;
     margin: 0 3px 40px 40px;
@@ -958,6 +958,11 @@ img#artigotabaco{
 .txtproximopasso{    
     float:left; 
     width:580px;
+    
+}
+
+.txtproximopasso p{
+    text-indent: 0;
 }
 
 .btnfloat {
@@ -1040,3 +1045,17 @@ img#artigotabaco{
     float:right;
     padding: 40px 5px 0 0;
 }
+
+
+/* PASSO 2 ********
+PRONTO PARA PARAR*/
+
+.fotoframeclean{
+    float:right;
+    border: 1 solid #fff;
+    margin: 0 3px 40px 40px;
+}
+
+/* medicamentos */
+
+
