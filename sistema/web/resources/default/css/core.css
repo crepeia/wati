@@ -63,7 +63,7 @@ html, body {
 
 /*GENERAL INFORMATION */
 
-body,h1,h2,h3,h4,h5,h6,p,ul,ol,dl,input,textarea {
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,dl,input,textarea, label {
     font-family: arial, verdana, sans-serif;
     line-height: 1.5;
     color:#444;
@@ -99,7 +99,7 @@ h2, h3{
 }
 
 img {
-    border: 1px solid #fff;
+    border: 0;
 }
 
 /*HEADER*/
@@ -1058,4 +1058,15 @@ PRONTO PARA PARAR*/
 
 /* medicamentos */
 
+/* Vencendo a fissura */
+
+.btnfloatspec {
+    float:left;
+    position:relative;
+    top:65px;
+    left:20px;
+   
+}
+
+/* Métodos de parar */
 
