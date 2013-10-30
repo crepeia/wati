@@ -37,9 +37,9 @@
                             <div id="calculatortop">
                                 <p:panelGrid id="calculadoraPnl" columns="2">
                                     <h:outputText value="Número de cigarros em um dia normal?" />
-                                    <p:inputText id="numeroCigarrosDiaTxt" value="#{calculadoraController.numeroCigarrosDia}" />
+                                    <p:inputMask id="numeroCigarrosDiaTxt" value="#{calculadoraController.numeroCigarrosDia}" mask="99?" />
                                     <h:outputText value="Custo do maço de cigarros:" />
-                                    <p:inputText id="custoMassoTxt" value="#{calculadoraController.custoMasso}" />                                    
+                                    <p:inputMask id="custoMassoTxt" value="#{calculadoraController.custoMasso}" mask="R$ 9,99" />                                    
                                     <div id="calculatorbtn">    
                                         <p:commandButton id="calcularBtn" styleClass="btngen" value="Calcular" update="@form" actionListener="#{calculadoraController.calcular}"/>                                    
                                     </div>

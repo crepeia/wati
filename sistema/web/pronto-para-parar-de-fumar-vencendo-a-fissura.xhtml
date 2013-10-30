@@ -37,11 +37,11 @@
                         <h:form>  
 
                             <p:panel id="questoes" >
-                                <p:selectManyCheckbox value="#{formBean.selectedOptions}" layout="pageDirection">  
-                                    <f:selectItem itemLabel="Beber um copo de água pausadamente" itemValue="Option 1" />                                      
-                                    <f:selectItem itemLabel="Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas) e balas e cicletes dietéticos" itemValue="Option 3" />  
-                                    <f:selectItem itemLabel="Exercício de relaxamento em áudio - MP3" itemValue="Option 4" />  
-                                    <f:selectItem itemLabel="Ler a lista de razões de ter parado de fumar." itemValue="Option 5" />                                      
+                                <p:selectManyCheckbox value="#{prontoParaPararController.vencendoAFissuraMarcados}" layout="pageDirection">  
+                                    <f:selectItem itemLabel="Beber um copo de água pausadamente" itemValue="1" />                                      
+                                    <f:selectItem itemLabel="Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas) e balas e cicletes dietéticos" itemValue="3" />  
+                                    <f:selectItem itemLabel="Exercício de relaxamento em áudio - MP3" itemValue="4" />  
+                                    <f:selectItem itemLabel="Ler a lista de razões de ter parado de fumar." itemValue="5" />                                      
                                 </p:selectManyCheckbox> 
                             </p:panel>
 
@@ -49,11 +49,8 @@
                                 <div class="txtproximopasso">
                                     <h4>Próximo material</h4>                                
                                     <p>Parar de uma vez ou aos poucos? Saiba mais qual a melhor forma.</p> 
-                                </div>                            
-                                <div class="btnfloatspec"><p:commandButton id="saveBtn" styleClass="btngen" value="Próximo" update="@form" actionListener="#{userController.save}" onclick="window.open('./pronto-para-parar-de-fumar-metodos-de-parar.xhtml', '_self');"><!-- potencial gambiarra aqui-->
-                                        <f:attribute name="object" value="#{userController.user}" />
-                                        <f:attribute name="typeName" value="user" />
-                                    </p:commandButton></div>
+                                </div>
+                                <div class="btnfloatspec"><h:commandButton id="saveBtn" styleClass="btngen" value="Próximo" update="@form" action="#{prontoParaPararController.fumarMetodosDeParar}"/></div>
                             </div>
 
                         </h:form>

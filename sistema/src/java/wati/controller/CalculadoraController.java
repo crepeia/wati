@@ -30,7 +30,7 @@ public class CalculadoraController implements Serializable {
     public void calcular( ActionEvent actionEvent ) {
         
         int numeroCigarrosDiaInt = Integer.valueOf( numeroCigarrosDia );
-        double custoMassoDbl = Double.valueOf( custoMasso );
+        double custoMassoDbl = Double.valueOf( custoMasso.replace("R$ ", "").replace(",", ".") );
         double numeroMassosDia = numeroCigarrosDiaInt / 20.0;
         
         double custoDia = numeroMassosDia * custoMassoDbl;
