@@ -204,3 +204,4 @@ war.ear.name=${war.name}
 war.name=wati.war
 web.docbase.dir=web
 webinf.dir=web/WEB-INF
+
