@@ -39,15 +39,15 @@
                             <p:panel id="questoes" >
                                 <p:selectManyCheckbox value="#{prontoParaPararController.vencendoAFissuraMarcados}" layout="pageDirection">  
                                     <f:selectItem itemLabel="Beber um copo de água pausadamente" itemValue="1" />                                      
-                                    <f:selectItem itemLabel="Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas) e balas e cicletes dietéticos" itemValue="3" />  
-                                    <f:selectItem itemLabel="Exercício de relaxamento em áudio - MP3" itemValue="4" />  
-                                    <f:selectItem itemLabel="Ler a lista de razões de ter parado de fumar." itemValue="5" />                                      
+                                    <f:selectItem itemLabel="Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas) e balas e chicletes dietéticos" itemValue="2" />  
+                                    <f:selectItem itemLabel="Exercício de relaxamento em áudio - MP3" itemValue="3" />  
+                                    <f:selectItem itemLabel="Ler a lista de razões de ter parado de fumar." itemValue="4" />                                      
                                 </p:selectManyCheckbox> 
                             </p:panel>
 
                             <div class="proximopasso">
                                 <div class="txtproximopasso">
-                                    <h4>Próximo material</h4>                                
+                                    <h2>Próximo material</h2>                                
                                     <p>Parar de uma vez ou aos poucos? Saiba mais qual a melhor forma.</p> 
                                 </div>
                                 <div class="btnfloatspec"><h:commandButton id="saveBtn" styleClass="btngen" value="Próximo" update="@form" action="#{prontoParaPararController.fumarMetodosDeParar}"/></div>

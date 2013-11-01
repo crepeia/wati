@@ -957,7 +957,7 @@ img#artigotabaco{
 
 .txtproximopasso{    
     float:left; 
-    width:580px;
+    width:580px;    
     
 }
 
@@ -1011,7 +1011,7 @@ img#artigotabaco{
 
 /* AVALIAÇÃO COMORBIDADES*/
 #avacomorbidades{
-    padding-top: 50px;
+    
 }
 
 /* COMO SUBSTITUIR  */
@@ -1068,5 +1068,13 @@ PRONTO PARA PARAR*/
    
 }
 
-/* Métodos de parar */
+/* Recaídas */
 
+#qrecaida p {
+    text-indent: 0;
+    font-weight: bold;
+}
+
+thead{
+    text-align: left;    
+}

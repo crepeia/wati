@@ -1,7 +1,17 @@
 A FAZER E MELHORAR
 =======================
 
-Gambiarra na página > /wati/pronto-para-parar-de-fumar-vencendo-a-fissura.xhtml
+/wati/pronto-para-parar-de-fumar-data-para-parar.xhtml
+Arrumar controlador na página.
+Adicionar data atual na página.
+
+
+
+
+
+Gambiarra na página > /wati/pronto-para-parar-de-fumar-vencendo-a-fissura.xhtml - corrigido
+
+
 
 
 
