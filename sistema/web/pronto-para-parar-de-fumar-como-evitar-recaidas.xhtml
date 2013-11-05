@@ -30,22 +30,22 @@
 
                         <h1>Como evitar recaídas</h1>                        
                         <p>Você já tentou parar de fumar outras vezes? </p>                                                                   
-        <h:form>
-            <p:panel id="qrecaida" >                
-                <h:panelGrid columns="2" style="margin-bottom:10px;" cellpadding="10" id="questao1">                                                    
-                <p:selectOneRadio id="options" value="" required="true">  
-                    <f:selectItem itemLabel="Sim" itemValue="1" />
-                    <f:selectItem itemLabel="Não" itemValue="0" /> 
-                </p:selectOneRadio> 
-            </h:panelGrid>
-        </p:panel>
-            <div id="signupbtn" align="center"><p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
-                                                <f:attribute name="object" value="#{userController.user}" />
-                                                <f:attribute name="typeName" value="user" />
-                                                </p:commandButton></div>
-        </h:form>                      
-                        
-                        
+                        <h:form>
+                            <p:panel id="qrecaida" >                
+                                <h:panelGrid columns="2" style="margin-bottom:10px;" cellpadding="10" id="questao1">                                                    
+                                    <p:selectOneRadio id="options" value="" required="true">  
+                                        <f:selectItem itemLabel="Sim" itemValue="1" />
+                                        <f:selectItem itemLabel="Não" itemValue="0" /> 
+                                    </p:selectOneRadio> 
+                                </h:panelGrid>
+                            </p:panel>
+                            <div id="signupbtn" align="center"><p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
+                                    <f:attribute name="object" value="#{userController.user}" />
+                                    <f:attribute name="typeName" value="user" />
+                                </p:commandButton></div>
+                        </h:form>                      
+
+
                         <div class="referencias">                            
                             <p>Atualizado em 31/10/2013</p>                            
                         </div>
