@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
+    <h:head>
+        <title>Recaída - identificar motivos e estratégias  | Viva sem tabaco</title>
+        <w:head_comum />
+    </h:head>
+    <h:body>
+        <div id="corpo"> 
+            <!-- header -->    
+            <w:header />
+            <w:topmenu />
+
+            <!--mainmenu-->         	
+            <div class="main">
+
+
+                <w:leftmenu_3-recaida cssClass="leftmenu3" />
+
+                <div class="pagecontent">
+
+                    <div id="pagecont2">
+                                               
+
+                        <h2>Motivos e estratégias</h2>
+                        <p>Lembre-se: é muito importante continuar tentanto.</p>
+                        <p>Identificar a situação, seus sentimentos e o número de cigarros pode ser útil para planejar uma próxima parada.</p>
+                        <h2>O que causou a recaída?</h2>
+
+                        <h:form>                            
+                            <p:panel id="questoes" >
+                                <h:panelGrid columns="1" style="margin-bottom:5px" id="questao1">
+                                    <f:facet name="header">  
+                                        <p>01. Que situação o fez acender o primeiro cigarro?</p>  
+                                    </f:facet> 
+                                    <p:inputTextarea rows="1" cols="70" id="q1campo1" />                                                                                                                        
+                                </h:panelGrid>
+                                
+                                <h:panelGrid columns="1" style="margin-bottom:5px" id="questao2">
+                                    <f:facet name="header">  
+                                        <p>02. O que você estava fazendo quando acendeu o primeiro cigarro da recaída?</p>  
+                                    </f:facet> 
+                                    <p:inputTextarea rows="1" cols="70" id="q1campo2" />                                                                                                                        
+                                </h:panelGrid>
+                                
+                                <h:panelGrid columns="1" style="margin-bottom:5px" id="questao3">
+                                    <f:facet name="header">  
+                                        <p>03. O que aconteceu depois?</p>  
+                                    </f:facet> 
+                                    <p:inputTextarea rows="1" cols="70" id="q1campo3" />                                                                                                                        
+                                </h:panelGrid>
+                                
+                                <h:panelGrid columns="1" style="margin-bottom:5px" id="questao4">
+                                    <f:facet name="header">  
+                                        <p>04. Quantos cigarros está fumando atualmente?</p>  
+                                    </f:facet> 
+                                    <p:inputTextarea rows="1" cols="70" id="q1campo4" />                                                                                                                        
+                                </h:panelGrid>
+                                
+                            </p:panel>
+
+
+
+
+                            <div id="signupbtn" align="center">
+                                <p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
+                                    <f:attribute name="object" value="#{userController.user}" />
+                                    <f:attribute name="typeName" value="user" />
+                                </p:commandButton>
+                            </div>
+                        </h:form>                      
+
+
+                        <div class="referencias">                            
+                            <p>Atualizado em 06/11/2013</p>                            
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!-- end.corpo --> 
+
+        <!--Footer -->
+        <w:footer />
+    </h:body>
+</html>
+
