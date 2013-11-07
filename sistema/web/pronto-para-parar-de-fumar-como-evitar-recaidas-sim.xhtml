@@ -30,25 +30,25 @@
 
                         <h1>Como evitar recaídas</h1>                        
                         <p>Aprender com os acertos e erros é fundamental no processo de parar de fumar.</p>
-                                
-        <h:form>
-            <p:panel id="questoes" >
-            <h:panelGrid columns="1"  cellpadding="5" id="questao1">
-                <f:facet name="header">  
-                    O que você fez em tentativas de parar anteriores que podem ajudá-lo desta vez?
-                </f:facet>
-                <p:inputTextarea rows="2" cols="30" id="campo1"/> 
-                <p:inputTextarea rows="2" cols="30" id="campo2"/> 
-                <p:inputTextarea rows="2" cols="30" id="campo3"/>                               
-            </h:panelGrid>
-            </p:panel>
-        <div id="signupbtn" align="left"><p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
-                                                <f:attribute name="object" value="#{userController.user}" />
-                                                <f:attribute name="typeName" value="user" />
-                                                </p:commandButton></div>
-        </h:form>                      
-                        
-                        
+
+                        <h:form>
+                            <p:panel id="questoes" >
+                                <h:panelGrid columns="1"  cellpadding="5" id="questao1">
+                                    <f:facet name="header">  
+                                        O que você fez em tentativas de parar anteriores que podem ajudá-lo desta vez?
+                                    </f:facet>
+                                    <p:inputTextarea rows="2" cols="30" id="campo1"/> 
+                                    <p:inputTextarea rows="2" cols="30" id="campo2"/> 
+                                    <p:inputTextarea rows="2" cols="30" id="campo3"/>                               
+                                </h:panelGrid>
+                            </p:panel>
+                            <div id="signupbtn" align="left"><p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
+                                    <f:attribute name="object" value="#{userController.user}" />
+                                    <f:attribute name="typeName" value="user" />
+                                </p:commandButton></div>
+                        </h:form>                      
+
+
                         <div class="referencias">                            
                             <p>Atualizado em 31/10/2013</p>                            
                         </div>

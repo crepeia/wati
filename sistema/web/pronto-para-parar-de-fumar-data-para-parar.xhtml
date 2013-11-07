@@ -32,30 +32,30 @@
                         <p>Caso você queira parar em outro dia, escolha no calendário. Enviaremos mensagens de e-mail para lembrá-lo.</p>                                                                                                                       
                         <p>Se você optou por <em>parar aos poucos</em>, escolha a data que vai fumar seu último cigarro.</p>
                         <p>Lembre-se que fumantes que decidem parar de uma vez têm <em>mais sucesso</em> em parar.</p>
-                        
+
                         <h:form>
-        <p:panelGrid columns="4" id="data_parar">
-            <h:outputText value="Escolher data"/>
-            <p:selectOneMenu id="day" value="#{userController.dia}">  
-                <f:selectItem itemLabel="Atual" itemValue="" />  
-                <f:selectItems value="#{userController.dias}" />  
-            </p:selectOneMenu>
-            <p:selectOneMenu id="month" value="#{userController.mes}">  
-                <f:selectItem itemLabel="Atual" itemValue="" />  
-                <f:selectItems value="#{userController.meses}" />  
-            </p:selectOneMenu>
-            <p:selectOneMenu id="year" value="#{userController.ano}">  
-                <f:selectItem itemLabel="Atual" itemValue="" />  
-                <f:selectItems value="#{userController.anos}" />  
-            </p:selectOneMenu>
-        </p:panelGrid>
-            
-            <div id="signupbtn" align="center"><p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
-                                                <f:attribute name="object" value="#{userController.user}" />
-                                                <f:attribute name="typeName" value="user" />
-                                                </p:commandButton></div>
-            
-            </h:form>
+                            <p:panelGrid columns="4" id="data_parar">
+                                <h:outputText value="Escolher data"/>
+                                <p:selectOneMenu id="day" value="#{userController.dia}">  
+                                    <f:selectItem itemLabel="Atual" itemValue="" />  
+                                    <f:selectItems value="#{userController.dias}" />  
+                                </p:selectOneMenu>
+                                <p:selectOneMenu id="month" value="#{userController.mes}">  
+                                    <f:selectItem itemLabel="Atual" itemValue="" />  
+                                    <f:selectItems value="#{userController.meses}" />  
+                                </p:selectOneMenu>
+                                <p:selectOneMenu id="year" value="#{userController.ano}">  
+                                    <f:selectItem itemLabel="Atual" itemValue="" />  
+                                    <f:selectItems value="#{userController.anos}" />  
+                                </p:selectOneMenu>
+                            </p:panelGrid>
+
+                            <div id="signupbtn" align="center"><p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
+                                    <f:attribute name="object" value="#{userController.user}" />
+                                    <f:attribute name="typeName" value="user" />
+                                </p:commandButton></div>
+
+                        </h:form>
 
                         <div class="proximopasso">
                             <div class="txtproximopasso">
