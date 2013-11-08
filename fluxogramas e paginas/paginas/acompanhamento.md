@@ -7,9 +7,9 @@ A sessão de acompanhamento pode ser divida em quatro etapas
 3. Semanal
 4. Mensal
 
-Esta sessão é composto por mensagens de e-mails. Nessas mensagens, há conteúdo baseado no tratamento além de um convite a fazer novo plano de parada ou ler os tópicos no site.
+Esta sessão é composta por mensagens de e-mails. Nessas mensagens, há conteúdo relacionado ao tratamento e um convite para voltar ao site para: fazer novo plano de parada e ler os tópicos no site.
 
-Abaixo a descrição das sessões e das mensagens
+Abaixo a descrição das sessões e das mensagens.
 
 
 Aqueles que marcaram outra data para parar
@@ -22,7 +22,7 @@ Os propósitos desta mensagem são:
 ### Mensagem #####
 
 #### Título
-Viva sem Tabaco - Hoje é o grande dia de parar de fumar
+Viva sem Tabaco - Hoje é o grande dia de parar de fumar!
 
 Olá @username,
 
@@ -30,7 +30,7 @@ De acordo com o informou em seu plano, chegou o grande dia de parar de fumar. Ab
 
 [inserir plano de parada]
 
-Caso ainda não esteja certo, você pode voltar ao nosso site para ler sobre as vantagens de parar e como vencer a abstinência, comum nestes primeiros dias [link para intervenção].
+Caso ainda esteja em dúvidas ou queira modificar o plano, você pode voltar ao nosso site para ler sobre as vantagens de parar e como vencer a abstinência, comum nestes primeiros dias. [link para intervenção].
 
 [inserir footer da mensagem]
 
@@ -45,7 +45,7 @@ Os propósito desta sessão são:
 ### Mensagem ####
 
 #### Título 
-Viva sem Tabaco - Queremos saber como foi sua primeira semana
+Viva sem Tabaco - Como foi sua primeira semana?
 
 #### Corpo da msg
 
@@ -67,18 +67,18 @@ Sabemos que o processo de parar de fumar é difícil. O importante é continuar 
 
 Semanal
 --------------------
-O plano semanal consiste em 3 mensagens com dicas sobre o processo de parar de fumar. Estas mensagens contém também informações para quem recaiu ou teve um lapso. Elas deverão ser enviadas 14, 21 e 28 dias após o início do plano.
+O plano semanal consiste em 3 mensagens com dicas sobre o processo de parar de fumar. Essas mensagens contém também informações para quem recaiu ou teve um lapso. Elas deverão ser enviadas 14, 21 e 28 dias após o início do plano.
 
 ### Mensagem - 14 dias ####
 #### Título 
-Viva sem Tabaco - Algumas dicas sobre abstinência e o medo do ganho de peso
+Viva sem Tabaco - Algumas dicas sobre abstinência e o ganho de peso
 
 #### Corpo da msg
 Olá @username,
 
 Parabéns! Fazem duas semanas que você decidiu parar. Nesta semana, gostaríamos de falar brevemente sobre dois temas: desejo intenso de fumar (fissura) e o medo do ganho de peso.
 
-A fissura, ou desejo intenso de fumar, costuma demorar apenas alguns minutos. Dicas para vencer a fissura:
+A fissura, ou desejo intenso de fumar, costuma demorar apenas alguns minutos. Veja abaixo algumas dicas para vencer a fissura:
 * Comer frutas, beber água podem ajudá-lo a vencer estes momentos. 
 * Separamos para você, um exercício de relaxamento preparado por especialistas em tabagismo. Você pode acessá-lo ou fazer o download aqui. [inserir link para mp3 mindfulness].
 
@@ -99,7 +99,7 @@ Viva sem Tabaco - Benefícios para o corpo
 
 Se você está há 3 semanas sem fumar. Parabéns! Você está superando um dos maiores desafios. E para comemorar, que tal comprar alguma coisa ou presentear alguém com o dinheiro economizado com o cigarro?
 
-Você já deve ter percebido melhoras no seu organismo como seu fôlego, auto-estima. Além disso a partir desta semana, o risco de ter um ataque cardíaco começa a reduzir e seus pulmões a funcionarem melhor*.
+Você já deve ter percebido melhoras no seu organismo como seu fôlego, auto-estima. Além disso a partir desta semana, o risco de ter um ataque cardíaco começa a reduzir. Seus pulmões começam a funcionar melhor*.
 
 Não conseguiu parar ainda? Teve uma recaída?
 Sabemos que o processo de parar de fumar é difícil. Temos algumas informações e exercícios que podem ajudá-lo em nosso site. [inserir link do site aqui]
@@ -116,7 +116,7 @@ Viva sem Tabaco - Lidando com situações de risco
 #### Corpo da msg
 Parabéns! Você já deve estar quase um mês sem fumar. A vontade de fumar já deve estar cada vez menor e você deve ter percebido mais melhoras no seu corpo e mente. Você está entrando na área mais importante do processo de parar de fumar, que chamamos de fase de manutenção.
 
-É muito comum, devido ao excesso de confiança, fumantes recaírem nesta fase. Separamos algumas estratégias usadas que você identificou no nosso site...
+É muito comum, devido ao excesso de confiança, fumantes recaírem nesta fase. Separamos algumas estratégias usadas que você identificou no nosso site.
 
 [inserir aqui estratégias do plano]
 
@@ -138,7 +138,7 @@ Viva sem tabaco - Mensagem mensal de acompanhamento
 #### Corpo da msg
 Olá @username,
 
-Parabéns por mais um mês sem cigarro! Caso tenha alguma dúvida sobre tabagismo, não deixe de entrar em nosso programa [link para programa]
+Hora do acompanhamento mensal! Caso tenha alguma dúvida sobre tabagismo, não deixe de entrar em nosso programa [link para programa]
 
 Nós temos uma página no [facebook](link para conta) e conta do [twitter](link para conta). Deixe um recado para gente ou para outras as pessoas que também estão tentando parar.
 
