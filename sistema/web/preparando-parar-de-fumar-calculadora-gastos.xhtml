@@ -8,6 +8,8 @@
     <h:head>
         <title>Gastos financeiros - Preparando para parar de fumar | Viva sem Tabaco</title>
         <w:head_comum />
+        <h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
+        <script src="resources/js/jquery.price_format.1.8.min.js" type="text/javascript"></script>
     </h:head>
     <h:body>
         <div id="corpo">
@@ -37,9 +39,16 @@
                             <div id="calculatortop">
                                 <p:panelGrid id="calculadoraPnl" columns="2">
                                     <h:outputText value="Número de cigarros em um dia normal?" />
-                                    <p:inputMask id="numeroCigarrosDiaTxt" value="#{calculadoraController.numeroCigarrosDia}" mask="99?" />
+                                    <p:inputText id="numeroCigarrosDiaTxt" value="#{calculadoraController.numeroCigarrosDia}" onkeyup="$(this).val($(this).val().replace(/[^0-9]/g, ''));" />
                                     <h:outputText value="Custo do maço de cigarros:" />
-                                    <p:inputMask id="custoMassoTxt" value="#{calculadoraController.custoMasso}" mask="R$ 9,99" />                                    
+                                    <p:inputText id="custoMassoTxt" value="#{calculadoraController.custoMasso}" styleClass="custoFormat" />
+                                    <script type="text/javascript">
+                                        $('.custoFormat').priceFormat({
+                                        prefix: 'R$ ',
+                                                centsSeparator: ',',
+                                                thousandsSeparator: '.'
+                                        });
+                                    </script> 
                                     <div id="calculatorbtn">    
                                         <p:commandButton id="calcularBtn" styleClass="btngen" value="Calcular" update="@form" actionListener="#{calculadoraController.calcular}"/>                                    
                                     </div>
@@ -52,11 +61,11 @@
                                 <h2>Seus gastos:</h2>
                                 <p:panelGrid id="saidaPnl" columns="2">
                                     <h:outputText value="Por semana:" />
-                                    <p:inputText id="gastoSemana" value="#{calculadoraController.custoSemana}" />
+                                    <p:inputText id="gastoSemana" value="#{calculadoraController.custoSemana}" styleClass="custoFormat" readonly="true" />
                                     <h:outputText value="Por mês:" />
-                                    <p:inputText id="gastoMes" value="#{calculadoraController.custoMes}" />
+                                    <p:inputText id="gastoMes" value="#{calculadoraController.custoMes}" styleClass="custoFormat" readonly="true"/>
                                     <h:outputText value="Por ano:" />
-                                    <p:inputText id="gastoAno" value="#{calculadoraController.custoAno}" />
+                                    <p:inputText id="gastoAno" value="#{calculadoraController.custoAno}" styleClass="custoFormat" readonly="true"/>
                                 </p:panelGrid>
                             </div>
 
@@ -69,7 +78,7 @@
                             </div>
                             <div class="btnfloat"><h:button class="btngen" title="Riscos de fumar" value ="Próximo" outcome="./preparando-parar-de-fumar-abstinencia-fissura.xhtml"></h:button></div>
                         </div>
-                        
+
                         <div class="referencias">                            
                             <p>Atualizado em 07/11/2013</p>
                         </div>

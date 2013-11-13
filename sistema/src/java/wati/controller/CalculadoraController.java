@@ -19,9 +19,9 @@ public class CalculadoraController implements Serializable {
     
     private String numeroCigarrosDia;
     private String custoMasso;
-    private double custoSemana;
-    private double custoMes;
-    private double custoAno;
+    private String custoSemana;
+    private String custoMes;
+    private String custoAno;
     
     public CalculadoraController() {
         
@@ -32,11 +32,11 @@ public class CalculadoraController implements Serializable {
         int numeroCigarrosDiaInt = Integer.valueOf( numeroCigarrosDia );
         double custoMassoDbl = Double.valueOf( custoMasso.replace("R$ ", "").replace(",", ".") );
         double numeroMassosDia = numeroCigarrosDiaInt / 20.0;
-        
+		
         double custoDia = numeroMassosDia * custoMassoDbl;
-        custoSemana = 7.0*custoDia;
-        custoMes = 30.0*custoDia;
-        custoAno = 365.0*custoDia;
+        custoSemana = String.format("%.2f", 7.0*custoDia);
+        custoMes = String.format("%.2f", 30.0*custoDia);
+        custoAno = String.format("%.2f", 365.0*custoDia);
         
     }
 
@@ -71,42 +71,42 @@ public class CalculadoraController implements Serializable {
     /**
      * @return the custoSemana
      */
-    public double getCustoSemana() {
+    public String getCustoSemana() {
         return custoSemana;
     }
 
     /**
      * @param custoSemana the custoSemana to set
      */
-    public void setCustoSemana(double custoSemana) {
+    public void setCustoSemana(String custoSemana) {
         this.custoSemana = custoSemana;
     }
 
     /**
      * @return the custoMes
      */
-    public double getCustoMes() {
+    public String getCustoMes() {
         return custoMes;
     }
 
     /**
      * @param custoMes the custoMes to set
      */
-    public void setCustoMes(double custoMes) {
+    public void setCustoMes(String custoMes) {
         this.custoMes = custoMes;
     }
 
     /**
      * @return the custoAno
      */
-    public double getCustoAno() {
+    public String getCustoAno() {
         return custoAno;
     }
 
     /**
      * @param custoAno the custoAno to set
      */
-    public void setCustoAno(double custoAno) {
+    public void setCustoAno(String custoAno) {
         this.custoAno = custoAno;
     }
     
