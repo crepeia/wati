@@ -27,39 +27,39 @@
                         <div class="fotoframe">
                             <h:graphicImage  library="default" title="Fissura" name="images/fissura.png" alt="Fissura" />
                         </div>
-                        <h1>Vencendo a fissura</h1>
 
+                        <h1>Vencendo a fissura</h1>
                         <p>A vontade de fumar - ou fissura - é muito comum nas pessoas que estão parando de fumar.</p>
-                        <p>Cada episódio não dura mais que 5 minutos, desaparecendo depois.</p>
-                        <p>Existem algumas técnicas que podem ajudá-lo a enfrentar a fissura.</p>
+                        <p>Cada episódio dura em média 5 minutos, diminuindo muito ou desaparecendo depois.</p>
+                        <p>Existem técnicas que podem ajudar você a enfrentar a fissura.</p>
 
                         <h3>Técnicas para enfrentar a fissura</h3>
-                        <p>As técnicas de enfretamento são simples. Escolha abaixo as que você vai usar:</p>
+                        <p>As técnicas abaixo apesar de simples, apresentam resultados. Escolha as que você preferir para montarmos o seu plano:</p>
                         <h:form>  
 
                             <p:panel id="questoes" >
                                 <p:selectManyCheckbox value="#{prontoParaPararController.vencendoAFissuraMarcados}" layout="pageDirection">  
-                                    <f:selectItem itemLabel="Beber um copo de água pausadamente" itemValue="1" />                                      
-                                    <f:selectItem itemLabel="Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas) e balas e chicletes dietéticos" itemValue="2" />  
-                                    <f:selectItem itemLabel="Exercício de relaxamento em áudio - MP3" itemValue="3" />  
-                                    <f:selectItem itemLabel="Ler a lista de razões de ter parado de fumar." itemValue="4" />                                      
+                                    <f:selectItem itemLabel="Beber um copo de água pausadamente." itemValue="1" />                                      
+                                    <f:selectItem itemLabel="Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas), balas dietéticas e chicletes dietéticos." itemValue="2" />  
+                                    <f:selectItem itemLabel="Fazer exercício de relaxamento - em áudio MP3 - link para download no plano de parar." itemValue="3" />  
+                                    <f:selectItem itemLabel="Ler um cartão com suas razões para ter parado de fumar." itemValue="4" />                                      
                                 </p:selectManyCheckbox> 
                             </p:panel>
 
                             <div class="proximopasso">
                                 <div class="txtproximopasso">
-                                    <h2>Próximo material</h2>                                
-                                    <p>Parar de uma vez ou aos poucos? Saiba mais qual a melhor forma.</p> 
+                                    <h2>Próximo passo</h2>                                
+                                    <p>O uso de medicamentos pode aumentar suas chances de parar? Saiba mais.</p> 
                                 </div>
-                                <div class="btnfloatspec"><h:commandButton id="saveBtn" styleClass="btngen" value="Próximo" update="@form" action="#{prontoParaPararController.fumarMetodosDeParar}"/></div>
-                            </div>
+                                <div class="btnfloat"><h:button class="btngen" title="Uso de medicamentos" value ="Próximo" outcome="./pronto-para-parar-de-fumar-medicamentos.xhtml"></h:button></div>
+                            </div>                                                        
 
                         </h:form>
 
                         <div class="referencias">
                             <p>Fonte: U.S Department of Health and Human Services (2008). Treating Tobacco Use and Dependence: 2008 Update: Clinical Practice Guideline. DIANE Publishing.</p>                            
                             <p>Crédito da foto: <h:outputLink value="http://www.flickr.com/photos/soldiersmediacenter/6999691421/">U.S Army</h:outputLink></p>
-                            <p>Atualizado em 07/11/2013</p>                            
+                            <p>Atualizado em 19/11/2013</p>                            
                         </div>
 
                     </div>
