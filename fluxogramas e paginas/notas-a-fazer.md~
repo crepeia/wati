@@ -13,15 +13,20 @@ pronto-para-parar-de-fumar-introducao.xhtml
 --------------------------
 * trocar imagem de cigarro quebrando por outra. Talvez por um relógio.
 
-
 já está pronto 
 -------------------------
 * inserir lógica. Se estiver no cadastro, ir direto para etapa 'pronto para parar'. Se não tiver entrado, ir para página de login e cadastro.
 
-
 pronto-para-parar-de-fumar-data-para-parar.xhtml
 -------------------------------------------------
 Colocar o ano da pesquisa e no futuro.
+
+pronto-para-parar-de-fumar-como-evitar-recaidas-completo.xhtml
+----------------------------------------------------------------
+
+pronto-para-parar-de-fumar-plano-personalizado.xhtml
+----------------------------------------------------
+inseri checkbox perguntando se o usuário gostaria de receber mensagens de acompanhamento.
 
 
 Geral

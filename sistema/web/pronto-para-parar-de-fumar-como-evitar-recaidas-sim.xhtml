@@ -29,17 +29,18 @@
                         </div>
 
                         <h1>Aprendendo com os erros</h1>                        
-                        <p>Aprender com os acertos e erros é fundamental no processo de parar de fumar.</p>
-
+                        <p>Que bom que você está tentando parar novamente. A maioria dos fumantes tenta parar de 4 a 5 vezes antes de abandonar o cigarro definitivamente.</p>
+                        <p>Aprender com os acertos e erros é fundamental no processo de parar de fumar. Valorizar os seus acertos é ainda mais importante.</p>
+                        
                         <h:form>
                             <p:panel id="questoes" >
                                 <h:panelGrid columns="1"  cellpadding="5" id="questao1">
                                     <f:facet name="header">  
-                                        O que você fez em tentativas de parar anteriores que podem ajudá-lo desta vez?
+                                        O que você fez em tentativas de parar anteriores que podem ajudar desta vez?
                                     </f:facet>
-                                    <p:inputTextarea rows="2" cols="30" id="campo1"/> 
-                                    <p:inputTextarea rows="2" cols="30" id="campo2"/> 
-                                    <p:inputTextarea rows="2" cols="30" id="campo3"/>                               
+                                    <p:inputTextarea rows="2" cols="70" value="Opção 1" id="campo1"/> 
+                                    <p:inputTextarea rows="2" cols="70" value="Opção 2" id="campo2"/> 
+                                    <p:inputTextarea rows="2" cols="70" value="Opção 3" id="campo3"/>                               
                                 </h:panelGrid>
                             </p:panel>
                             <div id="signupbtn" align="left"><p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
