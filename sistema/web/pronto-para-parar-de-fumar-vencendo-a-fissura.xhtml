@@ -51,7 +51,9 @@
                                     <h2>Próximo passo</h2>                                
                                     <p>O uso de medicamentos pode aumentar suas chances de parar? Saiba mais.</p> 
                                 </div>
-                                <div class="btnfloat"><h:button class="btngen" title="Uso de medicamentos" value ="Próximo" outcome="./pronto-para-parar-de-fumar-medicamentos.xhtml"></h:button></div>
+                                <div class="btnfloat">
+									<h:commandButton id="saveBtn" styleClass="btngen" value="Próximo" title="Uso de medicamentos" action="#{prontoParaPararController.vencendoAFissura}"/>
+								</div>
                             </div>                                                        
 
                         </h:form>

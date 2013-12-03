@@ -4,6 +4,7 @@
  */
 package wati.model;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -36,6 +38,10 @@ public class ProntoParaParar {
     
     @Column(name="enfrentar_fissura_ler_razoes")
     private boolean enfrentarFissuraLerRazoes;
+	
+	@Column(name = "dataParar")
+	@Temporal(javax.persistence.TemporalType.DATE)
+	private Date dataParar; 
     
 //    @Column(name="usuario")
 //    @OneToOne
@@ -120,5 +126,19 @@ public class ProntoParaParar {
         this.setEnfrentarFissuraLerRazoes(false);
         this.setEnfrentarFissuraRelaxamento(false);
     }    
+
+	/**
+	 * @return the dataParar
+	 */
+	public Date getDataParar() {
+		return dataParar;
+	}
+
+	/**
+	 * @param dataParar the dataParar to set
+	 */
+	public void setDataParar(Date dataParar) {
+		this.dataParar = dataParar;
+	}
     
 }

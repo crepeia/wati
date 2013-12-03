@@ -4,88 +4,159 @@
  */
 package wati.controller;
 
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.PropertyResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.naming.NamingException;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import wati.model.User;
+import wati.persistence.GenericDAO;
+import wati.utility.Encrypter;
 
 @ManagedBean(name = "loginController")
 @SessionScoped
 public class LoginController extends BaseFormController<User> {
 
-    private User user = new User();
-    private String password;
-    
-    private boolean showName;
+	private User user = new User();
+	private String password;
 
-    /**
-     * Creates a new instance of LoginController
-     */
-    public LoginController() {
+	private boolean showName;
 
-        super(User.class);
+	GenericDAO<User> userDAO;
 
-        this.password = "";
+	@PersistenceContext
+	private EntityManager entityManager = null;
 
-    }
+	/**
+	 * Creates a new instance of LoginController
+	 */
+	public LoginController() {
 
-    /**
-     * @return the user
-     */
-    public User getUser() {
-        return user;
-    }
+		super(User.class);
 
-    /**
-     * @param user the user to set
-     */
-    public void setUser(User user) {
-        this.user = user;
-    }
+		this.password = "";
 
-    /**
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
+		try {
+			userDAO = new GenericDAO<User>(User.class);
+		} catch (NamingException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		}
 
-    /**
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	}
 
-    public void loginDialog() {
-        
-        this.user.setId( 1 );
-        this.user.setName( "Usuário" );
-        
-        if ( this.user.getId() == 0 ) {
-            
-            this.showName = false;
-            
-        } else {
-            
-            this.showName = true;
-            
-        }
-        
-        System.out.println( this.user.getName() );
-        
-    }
+	/**
+	 * @return the user
+	 */
+	public User getUser() {
+		return user;
+	}
 
-    /**
-     * @return the showName
-     */
-    public boolean isShowName() {
-        return showName;
-    }
+	/**
+	 * @param user the user to set
+	 */
+	public void setUser(User user) {
+		this.user = user;
+	}
 
-    /**
-     * @param showName the showName to set
-     */
-    public void setShowName(boolean showName) {
-        this.showName = showName;
-    }
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void loginDialog() {
+
+		try {
+			List<User> userList = userDAO.list("email", this.user.getEmail(), this.entityManager);
+
+			if (userList.isEmpty() || !Encrypter.compare(this.password, userList.get(0).getPassword())) {
+				//log message
+				Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, "O usuário com o e-mail '" + this.getUser().getEmail() + "' não conseguiu logar.");
+				//message to the user
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "E-mail ou senha inválida.", null));
+
+			} else {
+
+				this.user = userList.get(0);
+
+//                              FacesContext facesContext = FacesContext.getCurrentInstance();
+//                              HttpSession session = (HttpSession) facesContext.getExternalContext().getSession( false );
+//                              session.setAttribute( "loggedUser" , userList.get( 0 ));
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", userList.get(0));
+
+				Logger.getLogger(LoginController.class.getName()).log(Level.INFO, "O usuário '" + this.getUser().getName() + "' logou no sistema.");
+
+			}
+
+		} catch (InvalidKeyException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (IllegalBlockSizeException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (BadPaddingException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (NoSuchAlgorithmException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (NoSuchPaddingException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (SQLException ex) {
+			String message = PropertyResourceBundle.getBundle("br.org.bssystem.utility.messages").getString("database_error");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+		}
+
+		if (this.user.getId() > 0) {
+			this.showName = true;
+		} else {
+			this.showName = false;
+		}
+
+	}
+
+	public String logout() {
+
+		Logger.getLogger(LoginController.class.getName()).log(Level.INFO, "O usuário '" + this.getUser().getName() + "' saiu no sistema.");
+		
+		this.user = new User();
+
+		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", this.user);
+
+		this.showName = false;
+		
+		return "";
+
+	}
+
+	/**
+	 * @return the showName
+	 */
+	public boolean isShowName() {
+		return showName;
+	}
+
+	/**
+	 * @param showName the showName to set
+	 */
+	public void setShowName(boolean showName) {
+		this.showName = showName;
+	}
 }

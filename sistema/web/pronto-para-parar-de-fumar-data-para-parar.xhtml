@@ -34,6 +34,7 @@
                         <p>Lembre-se que fumantes que decidem parar de uma vez têm <em>mais sucesso</em> em parar.</p>
 
                         <h:form>
+							<p:messages id="errorMessage" redisplay="true" globalOnly="true" />
                             <p:panelGrid columns="4" id="data_parar">
                                 <h:outputText value="Escolher data"/>
                                 <p:selectOneMenu id="day" value="#{userController.dia}">  
@@ -50,10 +51,12 @@
                                 </p:selectOneMenu>
                             </p:panelGrid>
 
-                            <div id="signupbtn" align="center"><p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
+                            <div id="signupbtn" align="center">
+								<p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
                                     <f:attribute name="object" value="#{userController.user}" />
                                     <f:attribute name="typeName" value="user" />
-                                </p:commandButton></div>
+                                </p:commandButton>
+							</div>
 
                         </h:form>
 
@@ -62,7 +65,7 @@
                                 <h2>Próximo material</h2>                                
                                 <p>Saiba como evitar recaídas.</p> 
                             </div>
-                            <div class="btnfloatspec"><h:commandButton id="saveBtn" styleClass="btngen" value="Próximo" update="@form" action="#{prontoParaPararController.fumarMetodosDeParar}"/></div>
+                            <div class="btnfloatspec"><h:commandButton id="saveBtn" styleClass="btngen" value="Próximo" action="#{prontoParaPararController.fumarMetodosDeParar}"/></div>
                         </div>
                         <div class="referencias">
                             <p>Fontes: U.S Department of Health and Human Services (2008). Treating Tobacco Use and Dependence: 2008 Update: Clinical Practice Guideline. DIANE Publishing.</p>                                                        

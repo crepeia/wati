@@ -34,52 +34,52 @@ import wati.utility.Encrypter;
 public class UserController extends BaseFormController<User> {
 
 	private User user;
-	
+
 	private String password;
-	
+
 	private int dia;
 	private int mes;
 	private int ano;
-        
-        private boolean showErrorMessage;
-	
-	private Map<String,String> dias = new LinkedHashMap<String, String> ();
-	private Map<String,String> meses = new LinkedHashMap<String, String>();
-	private Map<String,String> anos = new LinkedHashMap<String, String>();
+
+	private boolean showErrorMessage;
+
+	private Map<String, String> dias = new LinkedHashMap<String, String>();
+	private Map<String, String> meses = new LinkedHashMap<String, String>();
+	private Map<String, String> anos = new LinkedHashMap<String, String>();
 	private String[] nomeMeses = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
-	
+
 	/**
 	 * Creates a new instance of UserController
 	 */
 	public UserController() {
-		
-		super( User.class );
-                
-                this.showErrorMessage = false;
-		
+
+		super(User.class);
+
+		this.showErrorMessage = false;
+
 		for (int i = 1; i <= 31; i++) {
-			dias.put( String.valueOf(i) , String.valueOf(i) );
+			dias.put(String.valueOf(i), String.valueOf(i));
 		}
-		
+
 		for (int i = 0; i < this.nomeMeses.length; i++) {
-			meses.put( this.nomeMeses[ i ] , String.valueOf(i+1) );
+			meses.put(this.nomeMeses[ i], String.valueOf(i + 1));
 		}
-		
+
 		GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
-		int lastYear = gc.get( GregorianCalendar.YEAR ) - 1;
-		for( int i= lastYear; i>lastYear-100; i--) {
-			anos.put( String.valueOf(i) , String.valueOf(i) );
+		int lastYear = gc.get(GregorianCalendar.YEAR) - 1;
+		for (int i = lastYear; i > lastYear - 100; i--) {
+			anos.put(String.valueOf(i), String.valueOf(i));
 		}
-		
+
 	}
-	
+
 	/**
 	 * @return the user
 	 */
 	public User getUser() {
-		if ( user == null ) {
-			String id = this.getParameterMap().get( "id" );
-			if ( id == null || id.isEmpty() ) {
+		if (user == null) {
+			String id = this.getParameterMap().get("id");
+			if (id == null || id.isEmpty()) {
 				this.user = new User();
 			} else {
 				try {
@@ -87,7 +87,7 @@ public class UserController extends BaseFormController<User> {
 					if (list.isEmpty()) {
 						this.user = new User();
 					} else {
-						this.user = list.get( 0 );
+						this.user = list.get(0);
 					}
 				} catch (SQLException ex) {
 					Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
@@ -111,7 +111,7 @@ public class UserController extends BaseFormController<User> {
 	 */
 	public String getPassword() {
 		if (this.password == null) {
-			this.password = this.user == null || this.user.getPassword()==null? "": this.user.getPassword().toString();
+			this.password = this.user == null || this.user.getPassword() == null ? "" : this.user.getPassword().toString();
 		}
 		return this.password;
 	}
@@ -122,50 +122,50 @@ public class UserController extends BaseFormController<User> {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
 	@Override
-	public void save( ActionEvent actionEvent ) {
-            
-            this.showErrorMessage = true;
-            this.user.setBirth( new GregorianCalendar(ano, mes, dia).getTime() );
-		
+	public void save(ActionEvent actionEvent) {
+
+		this.showErrorMessage = true;
+		this.user.setBirth(new GregorianCalendar(ano, mes, dia).getTime());
+
 		try {
-			
+
 			if (user.getId() == 0) {
-				
+
 				//incluir criptografia da senha
-				this.user.setPassword( Encrypter.encrypt( this.password ) );
+				this.user.setPassword(Encrypter.encrypt(this.password));
 
 			} else {
-				
-				if ( !Encrypter.compare(this.password, this.user.getPassword()) ) {
+
+				if (!Encrypter.compare(this.password, this.user.getPassword())) {
 					//incluir criptografia da senha
-					this.user.setPassword( Encrypter.encrypt( this.password ) );
+					this.user.setPassword(Encrypter.encrypt(this.password));
 				}
-				
+
 			}
-			
-			super.save( actionEvent );
+
+			super.save(actionEvent);
 			//FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));
-                        this.clear();
+			this.clear();
 
 		} catch (InvalidKeyException ex) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null ));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
 			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
 		} catch (IllegalBlockSizeException ex) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null ));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
 			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
 		} catch (BadPaddingException ex) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null ));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
 			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
 		} catch (NoSuchAlgorithmException ex) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null ));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
 			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
 		} catch (NoSuchPaddingException ex) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null ));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
 			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
 		}
-		
+
 	}
 
 	/**
@@ -213,64 +213,64 @@ public class UserController extends BaseFormController<User> {
 	/**
 	 * @return the dias
 	 */
-	public Map<String,String> getDias() {
+	public Map<String, String> getDias() {
 		return dias;
 	}
 
 	/**
 	 * @param dias the dias to set
 	 */
-	public void setDias(Map<String,String> dias) {
+	public void setDias(Map<String, String> dias) {
 		this.dias = dias;
 	}
 
 	/**
 	 * @return the meses
 	 */
-	public Map<String,String> getMeses() {
+	public Map<String, String> getMeses() {
 		return meses;
 	}
 
 	/**
 	 * @param meses the meses to set
 	 */
-	public void setMeses(Map<String,String> meses) {
+	public void setMeses(Map<String, String> meses) {
 		this.meses = meses;
 	}
 
 	/**
 	 * @return the anos
 	 */
-	public Map<String,String> getAnos() {
+	public Map<String, String> getAnos() {
 		return anos;
 	}
 
 	/**
 	 * @param anos the anos to set
 	 */
-	public void setAnos(Map<String,String> anos) {
+	public void setAnos(Map<String, String> anos) {
 		this.anos = anos;
 	}
 
-    /**
-     * @return the showErrorMessage
-     */
-    public boolean isShowErrorMessage() {
-        return showErrorMessage;
-    }
+	/**
+	 * @return the showErrorMessage
+	 */
+	public boolean isShowErrorMessage() {
+		return showErrorMessage;
+	}
 
-    /**
-     * @param showErrorMessage the showErrorMessage to set
-     */
-    public void setShowErrorMessage(boolean showErrorMessage) {
-        this.showErrorMessage = showErrorMessage;
-    }
-    
-    private void clear( ) {
-        this.ano = 0;
-        this.dia = 0;
-        this.mes = 0;
-        this.password = "";
-        this.user = new User();
-    }
+	/**
+	 * @param showErrorMessage the showErrorMessage to set
+	 */
+	public void setShowErrorMessage(boolean showErrorMessage) {
+		this.showErrorMessage = showErrorMessage;
+	}
+
+	private void clear() {
+		this.ano = 0;
+		this.dia = 0;
+		this.mes = 0;
+		this.password = "";
+		this.user = new User();
+	}
 }

@@ -30,7 +30,8 @@
                                 <p:commandLink value="Entrar" id="entrarLink" /> 
                             </p:panel>
                             <p:panel id="userPanel" rendered="#{loginController.showName}">
-                                Olá <h:outputText value="#{loginController.user.name}" />
+                                Olá <h:outputText value="#{loginController.user.name}" />  ::  
+								<p:commandLink value="Sair(arrumar)" id="sairLink" action="#{loginController.logout}" ajax="false"/>
                             </p:panel>
                         </p:panel>
                         <div id="fastlogin">
