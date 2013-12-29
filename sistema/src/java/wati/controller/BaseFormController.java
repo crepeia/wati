@@ -20,6 +20,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
 
 /**
  *
@@ -31,14 +32,14 @@ public abstract class BaseFormController<T> extends BaseController<T> {
 		super( cls );
 	}
 	
-	public void delete( ActionEvent actionEvent ) {
+	public void delete( ActionEvent actionEvent, EntityManager entityManager ) {
 		
 		T object = ( T ) actionEvent.getComponent().getAttributes().get( "object" );
 		String typeName = ( String ) actionEvent.getComponent().getAttributes().get( "typeName" );
 		
 		try {
 			
-			this.getDaoBase().delete( object, this.getEntityManager() );
+			this.getDaoBase().delete( object, entityManager );
 			
 			String message = "Ocorreu um problema ao tentar apagar um registro.";
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
@@ -54,14 +55,14 @@ public abstract class BaseFormController<T> extends BaseController<T> {
 		
 	}
 	
-	public void save( ActionEvent actionEvent ) {
+	public void save( ActionEvent actionEvent, EntityManager entityManager ) {
 		
 		T object = ( T ) actionEvent.getComponent().getAttributes().get( "object" );
 		String typeName = ( String ) actionEvent.getComponent().getAttributes().get( "typeName" );
 		
 		try {
 			
-			this.getDaoBase().insertOrUpdate( object, this.getEntityManager() );
+			this.getDaoBase().insertOrUpdate( object, entityManager );
 			String message = "Registro salvo com sucesso.";
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
 			Logger.getLogger(BaseFormController.class.getName()).log(Level.INFO, message);

@@ -13,7 +13,7 @@
     <h:body>
         <div id="corpo"> 
             <!-- header -->    
-            <w:header />
+            <w:header loginRequired="true" />
             <w:topmenu />
 
             <!--mainmenu-->         	
@@ -38,15 +38,14 @@
                                     <f:facet name="header">  
                                         O que você fez em tentativas de parar anteriores que podem ajudar desta vez?
                                     </f:facet>
-                                    <p:inputTextarea rows="2" cols="70" value="Opção 1" id="campo1"/> 
-                                    <p:inputTextarea rows="2" cols="70" value="Opção 2" id="campo2"/> 
-                                    <p:inputTextarea rows="2" cols="70" value="Opção 3" id="campo3"/>                               
+                                    <p:inputTextarea rows="2" cols="70" value="#{prontoParaPararController.prontoParaParar.evitarRecaida1}" id="campo1"/> 
+                                    <p:inputTextarea rows="2" cols="70" value="#{prontoParaPararController.prontoParaParar.evitarRecaida2}" id="campo2"/> 
+                                    <p:inputTextarea rows="2" cols="70" value="#{prontoParaPararController.prontoParaParar.evitarRecaida3}" id="campo3"/>                               
                                 </h:panelGrid>
                             </p:panel>
-                            <div id="signupbtn" align="left"><p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
-                                    <f:attribute name="object" value="#{userController.user}" />
-                                    <f:attribute name="typeName" value="user" />
-                                </p:commandButton></div>
+                            <div class="proximopasso">
+								<div class="btnfloatspec"><h:commandButton id="saveBtn" styleClass="btngen" value="Próximo" action="#{prontoParaPararController.recaidasAjudar}"/></div>
+							</div>
                         </h:form>                      
 
 

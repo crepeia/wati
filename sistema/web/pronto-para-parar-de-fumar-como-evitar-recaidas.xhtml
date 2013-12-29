@@ -13,7 +13,7 @@
     <h:body>
         <div id="corpo"> 
             <!-- header -->    
-            <w:header />
+            <w:header loginRequired="true" />
             <w:topmenu />
 
             <!--mainmenu-->         	
@@ -33,16 +33,17 @@
                         <h:form>
                             <p:panel id="qrecaida" >                
                                 <h:panelGrid columns="2" style="margin-bottom:10px;" cellpadding="10" id="questao1">                                                    
-                                    <p:selectOneRadio id="options" value="" required="true">  
-                                        <f:selectItem itemLabel="Sim" itemValue="1" />
-                                        <f:selectItem itemLabel="Não" itemValue="0" /> 
+                                    <p:selectOneRadio id="options" value="#{prontoParaPararController.prontoParaParar.tentouParar}" required="true">  
+                                        <f:selectItem itemLabel="Sim" itemValue="true" />
+                                        <f:selectItem itemLabel="Não" itemValue="false" /> 
                                     </p:selectOneRadio> 
                                 </h:panelGrid>
                             </p:panel>
-                            <div id="signupbtn" align="center"><p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
-                                    <f:attribute name="object" value="#{userController.user}" />
-                                    <f:attribute name="typeName" value="user" />
-                                </p:commandButton></div>
+							<div class="proximopasso">
+								<div class="btnfloatspec">
+									<h:commandButton id="saveBtn" styleClass="btngen" value="Próximo" action="#{prontoParaPararController.recaidaTentouParar}"/>
+								</div>
+							</div>
                         </h:form>                      
 
 

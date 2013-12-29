@@ -4,6 +4,8 @@
  */
 package wati.persistence;
 
+import com.sun.xml.ws.developer.Stateful;
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.logging.Logger;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.UserTransaction;
 
@@ -19,7 +22,7 @@ import javax.transaction.UserTransaction;
  *
  * @author hedersb
  */
-public class GenericDAO<T> {
+public class GenericDAO<T> implements Serializable {
 
 	public final int E = 0, OU = 1;
 	protected Class<T> classe;
@@ -186,6 +189,7 @@ public class GenericDAO<T> {
 				query = entityManager.createQuery("select obj from " + classe.getSimpleName()
 						+ " obj where obj." + campoStr + " is Null");
 			}
+			System.out.println("OK");
 			query.setHint("toplink.refresh", "true");
 			return query.getResultList();
 		} catch (Exception erro) {

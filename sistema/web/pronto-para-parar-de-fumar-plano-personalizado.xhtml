@@ -13,7 +13,7 @@
     <h:body>
         <div id="corpo"> 
             <!-- header -->    
-            <w:header />
+            <w:header loginRequired="true" />
             <w:topmenu />
 
             <!--mainmenu-->         	
@@ -32,19 +32,36 @@
                         <p>Parabéns! Você terminou seu plano. Estas são as informações que separamos com base no que nos passou.</p>
                         <p>Guarde seu plano no e-mail ou imprima e deixe perto de você. Na bolsa, telefone (smartphone) ou carteira.</p>
                         <p>A partir de agora, entraremos em contato com você semanalmente por e-mail para sabermos como anda. Se você recair, daremos informações adicionais.</p>
-                                              
-                        
-                        <h2>Data de parada</h2>
-                        <!--inserir a data escolhida em "" -->
-                        <h2>Técnicas para fissura</h2>
-                        <!--inserir as estratégias escolhidas em "pronto-para-parar-de-fumar-vencendo-a-fissura.xhtml" -->
-                        <h2>Estratégias para resistir ao cigarro</h2>
-                        <!-- inserir as estratégias daqui pronto-para-parar-de-fumar-como-evitar-recaidas-estrategias.xhtml" -->
-                        <h2>O que deu certo da última vez que parei</h2>
-                        <!-- inserir inputs daqui pronto-para-parar-de-fumar-como-evitar-recaidas-sim.xhtml -->
-                        <h2>Salvar</h2>                                                
-                        <p>Ver versão para impressão.</p>
-                        <p>Enviar para e-mail</p>
+
+						<h:form id="form">
+							<p:panel id="plano">
+								<h2>Data de parada</h2>
+								<h:outputText value="#{prontoParaPararController.prontoParaParar.dataPararStr}"/>
+								<h2>Técnicas para fissura</h2>
+								<h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraStr}"/>
+								<!--inserir as estratégias escolhidas em "pronto-para-parar-de-fumar-vencendo-a-fissura.xhtml" -->
+								<h2>Estratégias para resistir ao cigarro</h2>
+								<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara1}"/>
+								<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara2}"/>
+								<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara3}"/>
+								<!-- inserir as estratégias daqui pronto-para-parar-de-fumar-como-evitar-recaidas-estrategias.xhtml" -->
+								<h2>O que deu certo da última vez que parei</h2>
+								<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida1}"/>
+								<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida2}"/>
+								<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida3}"/>
+								<!-- inserir inputs daqui pronto-para-parar-de-fumar-como-evitar-recaidas-sim.xhtml -->
+
+							</p:panel>
+							<h2>Salvar</h2>                                                
+							<p><h:outputLink target="_blank" value="pronto-para-parar-de-fumar-plano-personalizado-print.xhtml">Ver versão para impressão.</h:outputLink></p>
+							<p>Enviar para e-mail</p>
+
+							<!--
+							<p:commandLink value="Salvar" ajax="false">
+								<p:dataExporter target="plano" type="pdf" fileName="plano" />
+							</p:commandLink>
+							-->
+						</h:form>
 
                     </div>
                 </div>

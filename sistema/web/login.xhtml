@@ -24,17 +24,18 @@
 					<div id="signin">
 						<h1>Entrar</h1>
 						<h:form id="form" class="form-signup">
+							<p:messages />
 							<div class="signuptext"><input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/></div>
 							<div class="signuptext"><input type="hidden" name="ie" value="UTF-8" /></div>						
 							<div class="signuptext">
-								<p:inputText id="emailTxt" value="#{userController.user.email}" required="true" size="30" >
+								<p:inputText id="emailTxt" value="#{loginController.user.email}" required="true" size="30" >
 									<!--<p:ajax update="loginMsg" event="blur" />-->
 									<f:validateLength maximum="50" />
 								</p:inputText>
 								<p:watermark for="emailTxt" value="E-mail" />
 							</div>
 							<div class="signuptext">
-								<p:password id="passwordTxt" value="#{userController.password}" required="true" match="confirmPasswordTxt" redisplay="true" size="30">  
+								<p:password id="passwordTxt" value="#{loginController.password}" required="true" redisplay="true" size="30">  
 									<f:validateLength maximum="16" />
 									<!--<p:ajax update="passwordMsg" event="blur" />-->
 								</p:password>
@@ -44,10 +45,7 @@
 
 								<div id="signinsubmit">
 									<div id="signinbtn">
-										<p:commandButton id="saveBtn" value="Entrar" update="@form" actionListener="#{userController.save}">
-											<f:attribute name="object" value="#{userController.user}" />
-											<f:attribute name="typeName" value="user" />
-										</p:commandButton>
+										<p:commandButton id="entrarBtn" value="Entrar" update="@form" actionListener="#{loginController.login}" />
 									</div>
 
 									<div id="signincheck">

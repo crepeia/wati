@@ -13,7 +13,7 @@
     <h:body>
         <div id="corpo"> 
             <!-- header -->    
-            <w:header />
+            <w:header loginRequired="true" />
             <w:topmenu />
 
             <!--mainmenu-->         	
@@ -39,10 +39,10 @@
 
                             <p:panel id="questoes" >
                                 <p:selectManyCheckbox value="#{prontoParaPararController.vencendoAFissuraMarcados}" layout="pageDirection">  
-                                    <f:selectItem itemLabel="Beber um copo de água pausadamente." itemValue="1" />                                      
-                                    <f:selectItem itemLabel="Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas), balas dietéticas e chicletes dietéticos." itemValue="2" />  
-                                    <f:selectItem itemLabel="Fazer exercício de relaxamento - em áudio MP3 - link para download no plano de parar." itemValue="3" />  
-                                    <f:selectItem itemLabel="Ler um cartão com suas razões para ter parado de fumar." itemValue="4" />                                      
+                                    <f:selectItem itemLabel="Beber um copo de água pausadamente." itemValue="0" />                                      
+                                    <f:selectItem itemLabel="Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas), balas dietéticas e chicletes dietéticos." itemValue="1" />  
+                                    <f:selectItem itemLabel="Fazer exercício de relaxamento - em áudio MP3 - link para download no plano de parar." itemValue="2" />  
+                                    <f:selectItem itemLabel="Ler um cartão com suas razões para ter parado de fumar." itemValue="3" />                                      
                                 </p:selectManyCheckbox> 
                             </p:panel>
 

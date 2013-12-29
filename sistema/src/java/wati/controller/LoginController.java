@@ -4,11 +4,11 @@
  */
 package wati.controller;
 
+import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.PropertyResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.crypto.BadPaddingException;
@@ -18,11 +18,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.naming.NamingException;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import wati.model.User;
-import wati.persistence.GenericDAO;
 import wati.utility.Encrypter;
 
 @ManagedBean(name = "loginController")
@@ -31,13 +27,9 @@ public class LoginController extends BaseFormController<User> {
 
 	private User user = new User();
 	private String password;
-
 	private boolean showName;
-
-	GenericDAO<User> userDAO;
-
-	@PersistenceContext
-	private EntityManager entityManager = null;
+	
+	private String logout;
 
 	/**
 	 * Creates a new instance of LoginController
@@ -47,12 +39,6 @@ public class LoginController extends BaseFormController<User> {
 		super(User.class);
 
 		this.password = "";
-
-		try {
-			userDAO = new GenericDAO<User>(User.class);
-		} catch (NamingException ex) {
-			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-		}
 
 	}
 
@@ -87,7 +73,7 @@ public class LoginController extends BaseFormController<User> {
 	public void loginDialog() {
 
 		try {
-			List<User> userList = userDAO.list("email", this.user.getEmail(), this.entityManager);
+			List<User> userList = this.getDaoBase().list("email", this.user.getEmail(), this.getEntityManager());
 
 			if (userList.isEmpty() || !Encrypter.compare(this.password, userList.get(0).getPassword())) {
 				//log message
@@ -119,8 +105,7 @@ public class LoginController extends BaseFormController<User> {
 		} catch (NoSuchPaddingException ex) {
 			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
 		} catch (SQLException ex) {
-			String message = PropertyResourceBundle.getBundle("br.org.bssystem.utility.messages").getString("database_error");
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Problemas no acesso ao banco de dados.", null));
 			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
 		}
 
@@ -132,20 +117,87 @@ public class LoginController extends BaseFormController<User> {
 
 	}
 
-	public String logout() {
+	public void login() {
+
+		try {
+
+			List<User> userList = this.getDaoBase().list("email", this.user.getEmail(), this.getEntityManager());
+
+			if (userList.isEmpty() || !Encrypter.compare(this.password, userList.get(0).getPassword())) {
+				//log message
+				Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, "O usuário com o e-mail '" + this.getUser().getEmail() + "' não conseguiu logar.");
+				//message to the user
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "E-mail ou senha inválida.", null));
+
+			} else {
+
+				this.user = userList.get(0);
+
+//                              FacesContext facesContext = FacesContext.getCurrentInstance();
+//                              HttpSession session = (HttpSession) facesContext.getExternalContext().getSession( false );
+//                              session.setAttribute( "loggedUser" , userList.get( 0 ));
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", userList.get(0));
+
+				Logger.getLogger(LoginController.class.getName()).log(Level.INFO, "O usuário '" + this.getUser().getName() + "' logou no sistema.");
+
+				if (this.user.getId() > 0) {
+					this.showName = true;
+				} else {
+					this.showName = false;
+				}
+
+				Object object = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("url");
+				if (object != null) {
+					String url = (String) object;
+					try {
+						Logger.getLogger(LoginController.class.getName()).log(Level.INFO, url);
+						FacesContext.getCurrentInstance().getExternalContext().redirect(url);
+					} catch (IOException ex) {
+						Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+					}
+				}
+
+			}
+
+		} catch (InvalidKeyException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (IllegalBlockSizeException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (BadPaddingException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (NoSuchAlgorithmException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (NoSuchPaddingException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (SQLException ex) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Problemas no acesso ao banco de dados.", null));
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+		}
+
+	}
+
+	//TODO -- arrumar a funcionalidade de deslogar do sistema
+	public String getLogout() {
 
 		Logger.getLogger(LoginController.class.getName()).log(Level.INFO, "O usuário '" + this.getUser().getName() + "' saiu no sistema.");
-		
-		this.user = new User();
 
-		FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", this.user);
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+			
+			//this.user = new User();
 
-		this.showName = false;
+			//FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", this.user);
+
+			//this.showName = false;
+		} catch (IOException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		}
 		
 		return "";
 
 	}
-
+	
 	/**
 	 * @return the showName
 	 */

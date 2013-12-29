@@ -6,7 +6,6 @@ package wati.controller;
 
 import wati.persistence.GenericDAO;
 import java.io.Serializable;
-import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +25,7 @@ public abstract class BaseController<T> implements Serializable {
 	private EntityManager entityManager = null;
 
 	private GenericDAO<T> daoBase;
+	
 
 	public BaseController(Class<T> cls) {
 
@@ -39,19 +39,29 @@ public abstract class BaseController<T> implements Serializable {
 
 	}
 
-	/**
-	 * @return the entityManager
-	 */
-	public EntityManager getEntityManager() {
-		return entityManager;
-	}
-
-	/**
-	 * @param entityManager the entityManager to set
-	 */
-	public void setEntityManager(EntityManager entityManager) {
-		this.entityManager = entityManager;
-	}
+//	/**
+//	 * @return the entityManager
+//	 */
+//	public EntityManager getEntityManager() {
+//		try {
+//			if (this.entityManager == null) {
+//				this.entityManager = Persistence.createEntityManagerFactory("watiPU").createEntityManager();
+//				System.out.println("entity");
+//				System.out.println(this.entityManager);
+//			}
+//
+//		} catch (Exception e) {
+//			Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, e);
+//		}
+//		return this.entityManager;
+//	}
+//
+//	/**
+//	 * @param entityManager the entityManager to set
+//	 */
+//	public void setEntityManager(EntityManager entityManager) {
+//		this.entityManager = entityManager;
+//	}
 
 	/**
 	 * @return the daoBase
@@ -68,12 +78,26 @@ public abstract class BaseController<T> implements Serializable {
 		return (Map<String, String>) FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 	}
 
+//	/**
+//	 *
+//	 * @return Locale
+//	 */
+//	protected Locale getLocale() {
+//		return FacesContext.getCurrentInstance().getApplication().evaluateExpressionGet(FacesContext.getCurrentInstance(), "#{languageBean.language}", Locale.class);
+//	}
+
 	/**
-	 *
-	 * @return Locale
+	 * @return the entityManager
 	 */
-	protected Locale getLocale() {
-		return FacesContext.getCurrentInstance().getApplication().evaluateExpressionGet(FacesContext.getCurrentInstance(), "#{languageBean.language}", Locale.class);
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+
+	/**
+	 * @param entityManager the entityManager to set
+	 */
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
 	}
 
 }

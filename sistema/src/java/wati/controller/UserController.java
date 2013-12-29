@@ -22,6 +22,8 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import wati.model.User;
 import wati.utility.Encrypter;
 
@@ -48,6 +50,9 @@ public class UserController extends BaseFormController<User> {
 	private Map<String, String> anos = new LinkedHashMap<String, String>();
 	private String[] nomeMeses = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
 
+	@PersistenceContext
+	private EntityManager entityManager = null;
+	
 	/**
 	 * Creates a new instance of UserController
 	 */
@@ -62,7 +67,8 @@ public class UserController extends BaseFormController<User> {
 		}
 
 		for (int i = 0; i < this.nomeMeses.length; i++) {
-			meses.put(this.nomeMeses[ i], String.valueOf(i + 1));
+			//meses.put(this.nomeMeses[ i], String.valueOf(i + 1));
+			meses.put(this.nomeMeses[ i], String.valueOf(i));
 		}
 
 		GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
@@ -83,7 +89,7 @@ public class UserController extends BaseFormController<User> {
 				this.user = new User();
 			} else {
 				try {
-					List<User> list = this.getDaoBase().list("id", Long.parseLong(id), this.getEntityManager());
+					List<User> list = this.getDaoBase().list("id", Long.parseLong(id), this.entityManager);
 					if (list.isEmpty()) {
 						this.user = new User();
 					} else {
@@ -123,7 +129,6 @@ public class UserController extends BaseFormController<User> {
 		this.password = password;
 	}
 
-	@Override
 	public void save(ActionEvent actionEvent) {
 
 		this.showErrorMessage = true;
@@ -145,7 +150,7 @@ public class UserController extends BaseFormController<User> {
 
 			}
 
-			super.save(actionEvent);
+			super.save(actionEvent, entityManager);
 			//FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));
 			this.clear();
 

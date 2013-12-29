@@ -13,7 +13,7 @@
     <h:body>
         <div id="corpo"> 
             <!-- header -->    
-            <w:header />
+            <w:header loginRequired="true" />
             <w:topmenu />
 
             <!--mainmenu-->         	
@@ -27,28 +27,27 @@
                         <div class="fotoframeclean">
                             <h:graphicImage  library="default" title="Saiba dizer não" name="images/stop-smoking.jpg" alt="Saiba dizer não" />
                         </div>
-                        
+
                         <h1>Evitando situações de risco</h1>
                         <p>Aprender com os erros e acertos é fundamental no processo de parar de fumar.</p>
                         <p>É importante que você tenha em mente o vai fazer ou pensar na hora que sentir vontade de fumar.</p>                                                                               
-                                
-        <h:form>
-            <p:panel id="questoes" >
-            <h:panelGrid columns="1"  cellpadding="5" id="questao1">
-                <f:facet name="header">  
-                    Registre aqui as ações ou pensamentos que você usará na hora em que tiver vontade de voltar a fumar - Essas informações estarão disponíveis no seu plano de parar.</f:facet>
-                <p:inputTextarea rows="2" cols="72" value="Opção 1" id="campo1"/> 
-                <p:inputTextarea rows="2" cols="72" value="Opção 2" id="campo2"/> 
-                <p:inputTextarea rows="2" cols="72" value="Opção 3" id="campo3"/>                               
-            </h:panelGrid>
-            </p:panel>
-        <div id="signupbtn" align="left"><p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
-                                                <f:attribute name="object" value="#{userController.user}" />
-                                                <f:attribute name="typeName" value="user" />
-                                                </p:commandButton></div>
-        </h:form>                      
-                        
-                        
+
+						<h:form>
+							<p:panel id="questoes" >
+								<h:panelGrid columns="1"  cellpadding="5" id="questao1">
+									<f:facet name="header">  
+										Registre aqui as ações ou pensamentos que você usará na hora em que tiver vontade de voltar a fumar - Essas informações estarão disponíveis no seu plano de parar.</f:facet>
+									<p:inputTextarea rows="2" cols="72" value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara1}" id="campo1"/> 
+									<p:inputTextarea rows="2" cols="72" value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara2}" id="campo2"/> 
+									<p:inputTextarea rows="2" cols="72" value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara3}" id="campo3"/>                               
+								</h:panelGrid>
+							</p:panel>
+							<div class="proximopasso">
+								<div class="btnfloatspec"><h:commandButton id="saveBtn" styleClass="btngen" value="Próximo" action="#{prontoParaPararController.recaidasEvitar}"/></div>
+							</div>
+						</h:form>                      
+
+
                         <div class="referencias">                            
                             <p>Atualizado em 20/11/2013</p>                            
                         </div>
