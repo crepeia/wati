@@ -54,7 +54,8 @@
 							</p:panel>
 							<h2>Salvar</h2>                                                
 							<p><h:outputLink target="_blank" value="pronto-para-parar-de-fumar-plano-personalizado-print.xhtml">Ver versão para impressão.</h:outputLink></p>
-							<p>Enviar para e-mail</p>
+							<p><h:commandLink action="#{prontoParaPararController.enviarEmail}">Enviar para e-mail</h:commandLink></p>
+							<p><p:messages /></p>
 
 							<!--
 							<p:commandLink value="Salvar" ajax="false">

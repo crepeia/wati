@@ -19,6 +19,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import wati.model.ProntoParaParar;
 import wati.model.User;
+import wati.utility.EMailSSL;
 
 /**
  *
@@ -97,7 +98,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 //		if ( this.dia.equals("Atual") ) {
 //			this.dia = String.valueOf( new GregorianCalendar().get( GregorianCalendar.DAY_OF_MONTH ) );
 //		}
-		this.prontoParaParar.setDataParar( this.gregorianCalendar.getTime() );
+		this.prontoParaParar.setDataParar(this.gregorianCalendar.getTime());
 
 		try {
 			this.getDaoBase().insertOrUpdate(prontoParaParar, this.getEntityManager());
@@ -108,12 +109,12 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 		}
 		return null;
 	}
-	
+
 	public String recaidaTentouParar() {
 
 		try {
 			this.getDaoBase().insertOrUpdate(this.prontoParaParar, this.getEntityManager());
-			if ( this.prontoParaParar.isTentouParar() ) {
+			if (this.prontoParaParar.isTentouParar()) {
 				return "pronto-para-parar-de-fumar-como-evitar-recaidas-sim.xhtml";
 			} else {
 				return "pronto-para-parar-de-fumar-como-evitar-recaidas-completo.xhtml";
@@ -125,7 +126,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 		}
 		return null;
 	}
-	
+
 	public String recaidasAjudar() {
 
 		try {
@@ -138,7 +139,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 		}
 		return null;
 	}
-	
+
 	public String recaidasEvitar() {
 
 		try {
@@ -159,7 +160,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 		if (this.vencendoAFissuraMarcados == null) {
 
 			ProntoParaParar ppp = this.getProntoParaParar();
-			
+
 			int count = 0;
 			if (ppp.isEnfrentarFissuraBeberAgua()) {
 				count++;
@@ -205,65 +206,65 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 
 	public void save(ActionEvent actionEvent) {
 	}
-	
+
 	/**
 	 * @return the dia
 	 */
 	public int getDia() {
-		if ( this.gregorianCalendar == null ) {
+		if (this.gregorianCalendar == null) {
 			getProntoParaParar();
 		}
-		return this.gregorianCalendar.get( GregorianCalendar.DAY_OF_MONTH );
+		return this.gregorianCalendar.get(GregorianCalendar.DAY_OF_MONTH);
 	}
 
 	/**
 	 * @param dia the dia to set
 	 */
 	public void setDia(int dia) {
-		if ( this.gregorianCalendar == null ) {
+		if (this.gregorianCalendar == null) {
 			getProntoParaParar();
 		}
-		this.gregorianCalendar.set( GregorianCalendar.DAY_OF_MONTH , dia);
+		this.gregorianCalendar.set(GregorianCalendar.DAY_OF_MONTH, dia);
 	}
 
 	/**
 	 * @return the mes
 	 */
 	public int getMes() {
-		if ( this.gregorianCalendar == null ) {
+		if (this.gregorianCalendar == null) {
 			getProntoParaParar();
 		}
-		return this.gregorianCalendar.get( GregorianCalendar.MONTH );
+		return this.gregorianCalendar.get(GregorianCalendar.MONTH);
 	}
 
 	/**
 	 * @param mes the mes to set
 	 */
 	public void setMes(int mes) {
-		if ( this.gregorianCalendar == null ) {
+		if (this.gregorianCalendar == null) {
 			getProntoParaParar();
 		}
-		this.gregorianCalendar.set( GregorianCalendar.MONTH , mes);
+		this.gregorianCalendar.set(GregorianCalendar.MONTH, mes);
 	}
 
 	/**
 	 * @return the ano
 	 */
 	public int getAno() {
-		if ( this.gregorianCalendar == null ) {
+		if (this.gregorianCalendar == null) {
 			getProntoParaParar();
 		}
-		return this.gregorianCalendar.get( GregorianCalendar.YEAR );
+		return this.gregorianCalendar.get(GregorianCalendar.YEAR);
 	}
 
 	/**
 	 * @param ano the ano to set
 	 */
 	public void setAno(int ano) {
-		if ( this.gregorianCalendar == null ) {
+		if (this.gregorianCalendar == null) {
 			getProntoParaParar();
 		}
-		this.gregorianCalendar.set( GregorianCalendar.YEAR , ano);
+		this.gregorianCalendar.set(GregorianCalendar.YEAR, ano);
 	}
 
 	/**
@@ -280,10 +281,10 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 					List<ProntoParaParar> ppps = this.getDaoBase().list("usuario", object, this.getEntityManager());
 					if (ppps.size() > 0) {
 						this.prontoParaParar = ppps.get(0);
-						this.gregorianCalendar.setTime( this.prontoParaParar.getDataParar() );
+						this.gregorianCalendar.setTime(this.prontoParaParar.getDataParar());
 					} else {
 						this.prontoParaParar = new ProntoParaParar();
-						this.prontoParaParar.setDataParar( this.gregorianCalendar.getTime() );
+						this.prontoParaParar.setDataParar(this.gregorianCalendar.getTime());
 					}
 				} catch (SQLException ex) {
 					Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
@@ -317,10 +318,83 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 	public void setAnos(Map<String, String> anos) {
 		this.anos = anos;
 	}
-	
+
 	public List<ProntoParaParar> getProntoParaPararList() {
 		ArrayList<ProntoParaParar> arrayList = new ArrayList<ProntoParaParar>();
 		arrayList.add(prontoParaParar);
 		return arrayList;
+	}
+
+	public void enviarEmail() {
+
+
+
+		Object object = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loggedUser");
+
+		if (object == null) {
+
+			Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, "Usuário não logado no sistema requerendo plano.");
+			//message to the user
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Você deve estar logado no sistema para solitar o envio do e-mail.", null));
+
+		} else {
+
+
+
+			User user = (User) object;
+
+			try {
+				String from = "watiufjf";
+				String to = user.getEmail();
+				String subject = "Plano Personalizado -- Wati";
+				String message = "Prezado " + user.getName() + ",\n\n"
+						+ "Segue abaixo seu plano personalizado:\n\n"
+						+ "Data de parada:\n"
+						+ this.prontoParaParar.getDataPararStr()
+						+ "\nTécnicas para fissura:\n"
+						+ this.prontoParaParar.getFissuraStr()
+						+ "\nEstratégias para resistir ao cigarro:\n";
+				if (this.prontoParaParar.getEvitarRecaidaFara1() != null && !this.prontoParaParar.getEvitarRecaidaFara1().isEmpty()) {
+					message += this.prontoParaParar.getEvitarRecaidaFara1() + "\n";
+				}
+				if (this.prontoParaParar.getEvitarRecaidaFara2() != null && !this.prontoParaParar.getEvitarRecaidaFara2().isEmpty()) {
+					message += this.prontoParaParar.getEvitarRecaidaFara2() + "\n";
+				}
+				if (this.prontoParaParar.getEvitarRecaidaFara3() != null && !this.prontoParaParar.getEvitarRecaidaFara3().isEmpty()) {
+					message += this.prontoParaParar.getEvitarRecaidaFara3() + "\n";
+				}
+				message += "O que deu certo da última vez que parei:\n";
+				if (this.prontoParaParar.getEvitarRecaida1() != null && !this.prontoParaParar.getEvitarRecaida1().isEmpty()) {
+					message += this.prontoParaParar.getEvitarRecaida1() + "\n";
+				}
+				if (this.prontoParaParar.getEvitarRecaida2() != null && !this.prontoParaParar.getEvitarRecaida2().isEmpty()) {
+					message += this.prontoParaParar.getEvitarRecaida2() + "\n";
+				}
+				if (this.prontoParaParar.getEvitarRecaida3() != null && !this.prontoParaParar.getEvitarRecaida3().isEmpty()) {
+					message += this.prontoParaParar.getEvitarRecaida3() + "\n";
+				}
+				message += "\n\nAtenciosamente.\n";
+
+				EMailSSL eMailSSL = new EMailSSL();
+				eMailSSL.send(from, to, subject, message);
+
+				Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.INFO, "Plano personalizado enviado para o e-mail " + user.getEmail() + ".");
+				//message to the user
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "E-mail enviado com sucesso.", null));
+
+			} catch (Exception ex) {
+
+				Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, "Problemas ao enviar e-mail para " + user.getEmail() + ".");
+				//message to the user
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao enviar e-mail. Por favor, tente novamente mais tarde.", null));
+
+			}
+
+		}
+
+
+
+
+
 	}
 }
