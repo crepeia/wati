@@ -5,11 +5,13 @@
 package wati.model;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -38,6 +40,9 @@ public class User {
 	private char gender;
 	@OneToOne(mappedBy = "usuario")
 	private ProntoParaParar prontoParaParar;
+	
+	@OneToMany
+	private List<Acompanhamento> acompanhamentos;
 
 	/**
 	 * @return the id
@@ -140,5 +145,19 @@ public class User {
 	 */
 	public void setProntoParaParar(ProntoParaParar prontoParaParar) {
 		this.prontoParaParar = prontoParaParar;
+	}
+
+	/**
+	 * @return the acompanhamentos
+	 */
+	public List<Acompanhamento> getAcompanhamentos() {
+		return acompanhamentos;
+	}
+
+	/**
+	 * @param acompanhamentos the acompanhamentos to set
+	 */
+	public void setAcompanhamentos(List<Acompanhamento> acompanhamentos) {
+		this.acompanhamentos = acompanhamentos;
 	}
 }

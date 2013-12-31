@@ -8,6 +8,7 @@
     <h:head>
         <title>Recaída - identificar motivos e estratégias  | Viva sem tabaco</title>
         <w:head_comum />
+		<script src="resources/js/jquery.price_format.1.8.min.js" type="text/javascript"></script>
     </h:head>
     <h:body>
         <div id="corpo"> 
@@ -39,38 +40,37 @@
                                     <f:facet name="header">  
                                         <p>01. Qual situação fez você acender o primeiro cigarro?</p>  
                                     </f:facet> 
-                                    <p:inputTextarea rows="1" cols="70" id="q1campo1" />                                                                                                                        
+                                    <p:inputTextarea rows="1" cols="70" id="q1campo1" value="#{parouDeFumarController.acompanhamento.motivoRecaidaSituacao}" />
                                 </h:panelGrid>
                                 
                                 <h:panelGrid columns="1" style="margin-bottom:5px" id="questao2">
                                     <f:facet name="header">  
                                         <p>02. O que você estava fazendo quando acendeu o primeiro cigarro?</p>  
                                     </f:facet> 
-                                    <p:inputTextarea rows="1" cols="70" id="q1campo2" />                                                                                                                        
+                                    <p:inputTextarea rows="1" cols="70" id="q1campo2" value="#{parouDeFumarController.acompanhamento.motivoRecaidaFazendo}" />
                                 </h:panelGrid>
                                 
                                 <h:panelGrid columns="1" style="margin-bottom:5px" id="questao3">
                                     <f:facet name="header">  
                                         <p>03. O que aconteceu depois?</p>  
                                     </f:facet> 
-                                    <p:inputTextarea rows="1" cols="70" id="q1campo3" />                                                                                                                        
+                                    <p:inputTextarea rows="1" cols="70" id="q1campo3" value="#{parouDeFumarController.acompanhamento.motivoRecaidaDepois}" />
                                 </h:panelGrid>
                                 
                                 <h:panelGrid columns="1" style="margin-bottom:5px" id="questao4">
                                     <f:facet name="header">  
                                         <p>04. Quantos cigarros você está fumando atualmente?</p>  
                                     </f:facet> 
-                                    <p:inputTextarea rows="1" cols="70" id="q1campo4" />                                                                                                                        
+                                    <p:inputText id="q1campo4" onkeyup="$(this).val($(this).val().replace(/[^0-9]/g, ''));" value="#{parouDeFumarController.acompanhamento.motivoRecaidaCigarrosFuma}" />
                                 </h:panelGrid>
                                 
                             </p:panel>
 
-                            <div id="signupbtn" align="center">
-                                <p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
-                                    <f:attribute name="object" value="#{userController.user}" />
-                                    <f:attribute name="typeName" value="user" />
-                                </p:commandButton>
-                            </div>
+                            <div class="proximopasso">
+								<div class="btnfloat">
+									<p:commandButton class="btngen" value ="Avançar" action="#{parouDeFumarController.identificarMotivos}" />
+								</div>
+							</div>
                         </h:form>                      
 
 

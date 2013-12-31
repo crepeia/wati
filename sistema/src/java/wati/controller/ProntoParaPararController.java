@@ -344,7 +344,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 			User user = (User) object;
 
 			try {
-				String from = "watiufjf";
+				String from = "watiufjf@gmail.com";
 				String to = user.getEmail();
 				String subject = "Plano Personalizado -- Wati";
 				String message = "Prezado " + user.getName() + ",\n\n"

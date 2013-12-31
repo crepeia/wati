@@ -56,8 +56,12 @@ public class ProntoParaParar {
 	//@Column(name="usuario")
 	@OneToOne
 	private User usuario;
+	@Column(name = "data_inserido")
+	@Temporal(javax.persistence.TemporalType.DATE)
+	private Date dataInserido; 
 
 	public ProntoParaParar() {
+		this.dataInserido = ((GregorianCalendar) GregorianCalendar.getInstance()).getTime();
 	}
 
 	/**
@@ -284,5 +288,19 @@ public class ProntoParaParar {
 			s.append("Ler um cartão com suas razões para ter parado de fumar.\n");
 		}
 		return s.toString();
+	}
+
+	/**
+	 * @return the dataInserido
+	 */
+	public Date getDataInserido() {
+		return dataInserido;
+	}
+
+	/**
+	 * @param dataInserido the dataInserido to set
+	 */
+	public void setDataInserido(Date dataInserido) {
+		this.dataInserido = dataInserido;
 	}
 }

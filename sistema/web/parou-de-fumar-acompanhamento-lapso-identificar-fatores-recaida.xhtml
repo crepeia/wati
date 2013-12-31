@@ -46,9 +46,9 @@
                                         <f:facet name="header">  
                                             <h3>Situações de risco</h3>  
                                         </f:facet> 
-                                        <p:inputTextarea rows="2" cols="30" id="q1campo1" />   
-                                        <p:inputTextarea rows="2" cols="30" id="q1campo2" />   
-                                        <p:inputTextarea rows="2" cols="30" id="q1campo3" />                                                                              
+                                        <p:inputTextarea rows="2" cols="30" id="q1campo1" value="#{parouDeFumarController.acompanhamento.recaidaSituacao1}" />   
+                                        <p:inputTextarea rows="2" cols="30" id="q1campo2" value="#{parouDeFumarController.acompanhamento.recaidaSituacao2}" />   
+                                        <p:inputTextarea rows="2" cols="30" id="q1campo3" value="#{parouDeFumarController.acompanhamento.recaidaSituacao3}" />
                                     </h:panelGrid>
                                 </p:panel>
                             </div>
@@ -59,19 +59,18 @@
                                         <f:facet name="header">  
                                             <h3>Como vou lidar</h3>  
                                         </f:facet> 
-                                        <p:inputTextarea rows="2" cols="30" id="q2campo1" />   
-                                        <p:inputTextarea rows="2" cols="30" id="q2campo2" />   
-                                        <p:inputTextarea rows="2" cols="30" id="q2campo3" />                                                                                    
+                                        <p:inputTextarea rows="2" cols="30" id="q2campo1" value="#{parouDeFumarController.acompanhamento.recaidaLidar1}" />
+                                        <p:inputTextarea rows="2" cols="30" id="q2campo2" value="#{parouDeFumarController.acompanhamento.recaidaLidar2}" />
+                                        <p:inputTextarea rows="2" cols="30" id="q2campo3" value="#{parouDeFumarController.acompanhamento.recaidaLidar3}" />
                                     </h:panelGrid>
                                 </p:panel>
                             </div> 
         
-                            <div id="signupbtn" align="center">
-                                <p:commandButton id="saveBtn" value="Avançar" update="@form" actionListener="#{userController.save}">
-                                <f:attribute name="object" value="#{userController.user}" />
-                                <f:attribute name="typeName" value="user" />
-                                </p:commandButton>
-                            </div>
+                            <div class="proximopasso">
+								<div class="btnfloat">
+									<p:commandButton class="btngen" value ="Avançar" action="#{parouDeFumarController.identificarFatoresRecaida}" />
+								</div>
+							</div>
                             </h:form>                      
 
 
