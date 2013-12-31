@@ -20,7 +20,10 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.inject.Named;
+import javax.naming.NamingException;
 import javax.persistence.EntityManager;
+import wati.model.Acompanhamento;
+import wati.persistence.GenericDAO;
 
 /**
  *
@@ -29,7 +32,14 @@ import javax.persistence.EntityManager;
 public abstract class BaseFormController<T> extends BaseController<T> {
 	
 	public BaseFormController( Class<T> cls ) {
-		super( cls );
+		//super( cls );
+		try {
+			this.daoBase = new GenericDAO<T>( cls );
+		} catch (NamingException ex) {
+			String message = "Ocorreu um erro inesperado.";
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+			Logger.getLogger(BaseFormController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+		}
 	}
 	
 	public void delete( ActionEvent actionEvent, EntityManager entityManager ) {

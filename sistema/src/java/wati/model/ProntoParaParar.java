@@ -4,6 +4,7 @@
  */
 package wati.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.persistence.Column;
@@ -23,7 +24,7 @@ import org.hibernate.annotations.Type;
  */
 @Entity
 @Table(name = "tb_pronto_para_parar")
-public class ProntoParaParar {
+public class ProntoParaParar implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -13,9 +13,11 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.naming.NamingException;
 import wati.model.Acompanhamento;
 import wati.model.ProntoParaParar;
 import wati.model.User;
+import wati.persistence.GenericDAO;
 import wati.utility.EMailSSL;
 
 /**
@@ -34,7 +36,14 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
 	 * Creates a new instance of ParouDeFumarController
 	 */
 	public ParouDeFumarController() {
-		super(Acompanhamento.class);
+		//super(Acompanhamento.class);
+		try {
+			this.daoBase = new GenericDAO<Acompanhamento>(Acompanhamento.class);
+		} catch (NamingException ex) {
+			String message = "Ocorreu um erro inesperado.";
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+			Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+		}
 
 	}
 
@@ -43,60 +52,60 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
 		Acompanhamento a = this.getAcompanhamento();
 		a.setRecaida(this.recaida.equals("1"));
 		try {
-			
+
 			this.getDaoBase().insertOrUpdate(a, this.getEntityManager());
-			
-			if ( a.isRecaida() ) {
+
+			if (a.isRecaida()) {
 				return "parou-de-fumar-acompanhamento-recaidas-identificar-motivos.xhtml";
 			} else {
 				return "parou-de-fumar-acompanhamento-lapso-identificar-fatores-recaida.xhtml";
 			}
-			
-			
+
+
 		} catch (SQLException ex) {
 			Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
 		}
-		
+
 		return null;
 
 	}
-	
+
 	public String identificarMotivos() {
 
 		Acompanhamento a = this.getAcompanhamento();
-		
+
 		try {
-			
+
 			this.getDaoBase().insertOrUpdate(a, this.getEntityManager());
-			
+
 			return "parou-de-fumar-acompanhamento-lapso-identificar-fatores-recaida.xhtml";
-			
+
 		} catch (SQLException ex) {
 			Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
 		}
-		
+
 		return null;
 
 	}
-	
+
 	public String identificarFatoresRecaida() {
 
 		Acompanhamento a = this.getAcompanhamento();
-		
+
 		try {
-			
+
 			this.getDaoBase().insertOrUpdate(a, this.getEntityManager());
-			
+
 			return "parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida.xhtml";
-			
+
 		} catch (SQLException ex) {
 			Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
 		}
-		
+
 		return null;
 
 	}
-	
+
 	public void enviarEmail() {
 
 		Object object = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loggedUser");
@@ -152,7 +161,15 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
 	 * @return the recaida
 	 */
 	public String getRecaida() {
-		return recaida;
+
+		Acompanhamento a = this.getAcompanhamento();
+
+		if (a.isRecaida()) {
+			return "1";
+		} else {
+			return "0";
+		}
+
 	}
 
 	/**
@@ -164,38 +181,51 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
 
 	public Acompanhamento getAcompanhamento() {
 
-		GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
-		gc.add(GregorianCalendar.HOUR, ParouDeFumarController.LIMITE_IGUALDADE_HORAS);
-		Object object = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loggedUser");
-		if (object != null) {
-			try {
-				//System.out.println( "inject: " + this.loginController.getUser().toString() );
-				//List<ProntoParaParar> ppps = this.getDaoBase().list("usuario.id", ((User)object).getId(), this.getEntityManager());
-				List<Acompanhamento> as = this.getDaoBase().list("usuario", object, this.getEntityManager());
+		if (this.acompanhamento == null) {
 
-				for (Acompanhamento a : as) {
+			GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
+			gc.add(GregorianCalendar.HOUR, ParouDeFumarController.LIMITE_IGUALDADE_HORAS);
 
-					if (gc.before(a.getDataInserido())) {
-						this.acompanhamento = a;
+			//System.out.println("Dia: " + gc.get( GregorianCalendar.DAY_OF_MONTH ));
+			//System.out.println("Hora: " + gc.get( GregorianCalendar.HOUR_OF_DAY ));
+
+			Object object = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loggedUser");
+			if (object != null) {
+				try {
+					//System.out.println( "inject: " + this.loginController.getUser().toString() );
+					//List<ProntoParaParar> ppps = this.getDaoBase().list("usuario.id", ((User)object).getId(), this.getEntityManager());
+					List<Acompanhamento> as = this.getDaoBase().list("usuario", object, this.getEntityManager());
+
+					for (Acompanhamento a : as) {
+
+						//System.out.println("Verificando acompanhamento: " + a.getId());
+						GregorianCalendar calendar = new GregorianCalendar();
+						calendar.setTime(a.getDataInserido());
+						if (gc.after(calendar)) {
+							this.acompanhamento = a;
+							//System.out.println("Acompanhamento continua.");
+						}
+
 					}
 
+					if (this.acompanhamento == null) {
+
+						this.acompanhamento = new Acompanhamento();
+						this.acompanhamento.setUsuario((User) object);
+
+					}
+
+
+
+				} catch (SQLException ex) {
+					Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
 				}
 
-				if (this.acompanhamento == null) {
-
-					this.acompanhamento = new Acompanhamento();
-					this.acompanhamento.setUsuario((User) object);
-
-				}
-
-
-
-			} catch (SQLException ex) {
-				Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
+			} else {
+				Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, "Usuário não logado sendo acompanhado.");
+				this.acompanhamento = new Acompanhamento();
 			}
 
-		} else {
-			Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, "Usuário não logado sendo acompanhado.");
 		}
 
 		return this.acompanhamento;

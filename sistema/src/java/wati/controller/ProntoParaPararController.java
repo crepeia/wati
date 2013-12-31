@@ -17,8 +17,11 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.naming.NamingException;
+import wati.model.Acompanhamento;
 import wati.model.ProntoParaParar;
 import wati.model.User;
+import wati.persistence.GenericDAO;
 import wati.utility.EMailSSL;
 
 /**
@@ -39,7 +42,14 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 	private GregorianCalendar gregorianCalendar = null;
 
 	public ProntoParaPararController() {
-		super(ProntoParaParar.class);
+		//super(ProntoParaParar.class);
+		try {
+			this.daoBase = new GenericDAO<ProntoParaParar>( ProntoParaParar.class );
+		} catch (NamingException ex) {
+			String message = "Ocorreu um erro inesperado.";
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+			Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+		}
 
 		GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
 		int firstYear = gc.get(GregorianCalendar.YEAR);

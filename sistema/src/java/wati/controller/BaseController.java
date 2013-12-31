@@ -24,20 +24,22 @@ public abstract class BaseController<T> implements Serializable {
 	@PersistenceContext
 	private EntityManager entityManager = null;
 
-	private GenericDAO<T> daoBase;
-	
+	protected GenericDAO<T> daoBase;
 
-	public BaseController(Class<T> cls) {
-
-		try {
-			this.daoBase = new GenericDAO<T>(cls);
-		} catch (NamingException ex) {
-			String message = "Ocorreu um erro inesperado.";
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
-			Logger.getLogger(BaseController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
-		}
-
+	public BaseController() {
 	}
+
+//	public BaseController(Class<T> cls) {
+//
+//		try {
+//			this.daoBase = new GenericDAO<T>(cls);
+//		} catch (NamingException ex) {
+//			String message = "Ocorreu um erro inesperado.";
+//			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+//			Logger.getLogger(BaseController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+//		}
+//
+//	}
 
 //	/**
 //	 * @return the entityManager

@@ -152,7 +152,6 @@ public class GenericDAO<T> implements Serializable {
 			if (id > 0) {
 				entityManager.merge(object);
 			} else {
-                            System.out.println(entityManager.isOpen());
 				entityManager.persist(object);
 			}
 			this.transaction.commit();
@@ -189,7 +188,6 @@ public class GenericDAO<T> implements Serializable {
 				query = entityManager.createQuery("select obj from " + classe.getSimpleName()
 						+ " obj where obj." + campoStr + " is Null");
 			}
-			System.out.println("OK");
 			query.setHint("toplink.refresh", "true");
 			return query.getResultList();
 		} catch (Exception erro) {
