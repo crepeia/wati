@@ -40,7 +40,7 @@ html, body {
 .main {
     overflow:auto;
     clear:both;
-    padding-bottom: 100px;
+    padding-bottom:100px;
 }
 
 .pagecontent {
@@ -540,22 +540,21 @@ INDEX***********************/
 
 #signupsubmit {
     padding:0 10px;
+    width:440px;
 }
 
 #signupp{
     float:left;
 }
 
-#signupbtn{
+#signupbtn{      
+    padding-top:12px;    
     float:right;
-    position:relative;
-    top:12px;
 }
 
 #signupsubmit p{
     font-size: .8em;
-    text-indent: 0;
-    text-align: right;
+    text-indent: 0;    
 }
 
 #signupsubmit button{
@@ -625,6 +624,8 @@ LEFTMENUS***********************/
     display: block; padding: 6px 15px;
     color: #f8f8f8; text-decoration: none;
 }
+
+
 
 /*LEFTMENU-2*/
 
@@ -721,9 +722,12 @@ LEFTMENUS***********************/
 }
 
 #signin h1{
-    padding-left: 10px; 
+    padding-left:10px; 
 }
 
+#signinbtn {
+    padding-top: 10px;
+}
 
 #signinsubmit button{
     position:relative;
@@ -744,7 +748,7 @@ LEFTMENUS***********************/
 #signincheck {
     position:relative;
     left:100px;
-    top:20px;
+    top:8px;
     float:left;
     padding: 0 0 0 20px;  
 }
@@ -796,6 +800,29 @@ img#artigotabaco{
 }
 
 
+.btngen1 {
+    display:block!important;
+    color: #900!important;
+    overflow: visible!important;
+    border: 0!important;
+    padding: 0 5px 0 5px!important;
+    cursor: pointer!important;
+    height: 40px!important;
+    width: auto!important;
+    font-size:15px!important;
+    color: #fff!important;
+    text-transform: uppercase!important;
+    background: #38b394!important;
+    border-radius: 3px!important;     
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3)!important;
+
+}
+
+.btngen1:hover {
+    background: #12745c!important;
+}
+
+
 .btngen {
     display:block!important;
     color: #900!important;
@@ -817,6 +844,29 @@ img#artigotabaco{
 .btngen:hover {
     background: #3b68a0!important;
 }
+
+.btngen3 {
+    display:block!important;
+    color: #900!important;
+    overflow: visible!important;
+    border: 0!important;
+    padding: 0 5px 0 5px!important;
+    cursor: pointer!important;
+    height: 40px!important;
+    width: auto!important;
+    font-size:15px!important;
+    color: #fff!important;
+    text-transform: uppercase!important;
+    background: #5a4cbc!important;
+    border-radius: 3px!important;     
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3)!important;
+
+}
+
+.btngen3:hover {
+    background: #25197a!important;
+}
+
 
 /*QUEM SOMOS*/
 .pesquisadores {
@@ -972,6 +1022,11 @@ img#artigotabaco{
 
 }
 
+.btnfloat1 {
+    float:left;
+
+}
+
 .referencias {
     padding-top:10px;
     clear:both;
@@ -1076,4 +1131,29 @@ PRONTO PARA PARAR*/
 
 thead{
     text-align: left;    
+}
+
+
+/** Impressão plano **/
+
+.planoimg img {
+    border:0;
+}
+
+#planoimg1 {
+    float:left;
+}
+
+.planoimg p {
+    text-indent: 0;
+}
+
+#planoimg2 {
+    float:left;
+    padding-left: 50px;
+}
+
+#planoimg2 p {
+    position:relative;
+    left:12px;
 }

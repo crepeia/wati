@@ -1,44 +1,30 @@
 Pautas para reunião 14/11
 ==========================
 
-* Wati - Revisão do conteúdo, servidor, análise dos dados dos grupos focais;
 * Artigo Caloi - Terminar o artigo
 * Gwiaa - Cronograma de atividades
-* 10.000 de minas - Maiores detalhes
 
 
-Pendências WATI - Corrigir
+WATI
 ==========================
 
 Alta prioridade
 ----------------
-Sobre os autores - inserir links nos currículos com target = _blank
-Página de cadastro - linkar termos de uso.xhtml.
 Inserir botão 'voltar' na página de navegação.
-
-Preparando para fumar - ansiedade e depressão - Trocar o nome 'avaliar' por 'teste' fazer uma questão somente perguntado diagnosticado com depressão ou ansiedade. Se sim, indicar tratamento ou buscar ajuda por profissional para tentar parar de fumar. Retirar header 'introdução'. Inserir "Tanto a ansiedade e depressão são fatores importantes para o tratamento do tabagismo."
-
-Preparando para fumar - substituir o prazer do cigarro - Retirar header e deixar a última frase. Lembre-se do benefícios que você pode ter. 
-
-Média prioridade
-----------------
-
+Lembre-se do benefícios que você pode ter. 
 
 Baixa prioridade
 -----------------
-
-
-Página registrar - colocar botão de registro perto abaixo do texto.
-Logo da capes - corrigir url. Trocar ',' por ponto.
+cadastrar-nova-conta - arrumar mensagens de erro. Estão fora de lugar.
 
 
 
- 
-PENDÊNCIAS DO SOFTWARE
-=======================
+PROGRAMAÇÃO
+=============================
+login - criar página que envia senha para o usuário que esqueceu. Por enquanto, deixei link para formulário de contato.
 
-CSS
-======
+preparando-parar-de-fumar-ansiedade-e-depressao.xhtml - Avaliação não está funcionando.
+
 
 * otimizar
 * versão para impressão dos relatórios 
@@ -47,30 +33,5 @@ pautas reunião
 Referências
 =============
 
-JAVA - Como programar - How to program Deitel^2
 
 
-
-JAVA
-======
-
-* Implementar funcionalidades das páginas interativas 
-* mensagens de email - rever o conteúdo e enviar para luiz
-* Inserir página de login para os passos 2 e 3 - Luiz
-* Comentar classes de variáveis para facilitar identificação - Luiz
-
-
-HTML
-=======
-
-* melhorar o sistema de navegação das páginas de conteúdo estático - Henrique
-
-
-=====
-FORA
-
-* enviar email convite para especialistas - ok
-* servidor - ok
-* rever conteúdo - ok
-* refazer fluxogramas - Henrique
-* publicar o site experimentalmente - Heder

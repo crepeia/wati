@@ -52,9 +52,20 @@
 								<!-- inserir inputs daqui pronto-para-parar-de-fumar-como-evitar-recaidas-sim.xhtml -->
 
 							</p:panel>
-							<h2>Salvar</h2>                                                
-							<p><h:outputLink target="_blank" value="pronto-para-parar-de-fumar-plano-personalizado-print.xhtml">Ver versão para impressão.</h:outputLink></p>
-							<p><h:commandLink action="#{prontoParaPararController.enviarEmail}">Enviar para e-mail</h:commandLink></p>
+							<h2>Salvar</h2>
+                                                        <div id ="planoimg1">
+                                                        <div class="planoimg">                                                            
+                                                            <h:outputLink target="_blank" value="pronto-para-parar-de-fumar-plano-personalizado-print.xhtml"><h:graphicImage  library="default" title="Imprimir" name="images/impressao.png" alt="Imprimir" /></h:outputLink>                                                            
+                                                            <p><h:outputLink target="_blank" value="pronto-para-parar-de-fumar-plano-personalizado-print.xhtml">Imprimir</h:outputLink></p>
+                                                        </div>
+                                                        </div>
+                                                        
+                                                        <div id ="planoimg2">
+                                                        <div class="planoimg">
+                                                            <h:commandLink action="#{prontoParaPararController.enviarEmail}"><h:graphicImage  library="default" title="Imprimir" name="images/email.png" alt="E-mail" /></h:commandLink>
+							<p><h:commandLink action="#{prontoParaPararController.enviarEmail}">E-mail</h:commandLink></p>
+                                                        </div>
+                                                        </div>
 							<p><p:messages /></p>
 
 							<!--
