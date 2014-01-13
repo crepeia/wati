@@ -21,3 +21,8 @@ Esta versão deve ser utilizada como referência para a primeira versão da inte
 
 Os detalhes das páginas foram removidos nessa versão para facilitar o entendimento do fluxo do programa. O fluxograma foi adaptado de acordo com a dinâmica do programa.
 
+tabaco-dimensionamento-v4.1.dia
+---------------------------------------- 
+Esta versão deve ser utilizada como referência para a versão da intervenção lançada dia 15/01/2014.
+
+O fluxograma descreve o fluxo das páginas e etapas da intervenção. O arquivo em pdf contém a legenda e foi utilizado para envio do artigo.
