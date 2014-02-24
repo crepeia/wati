@@ -2,7 +2,7 @@ cadastrar-nova-conta.xhtml
 ---------------------------
 
 * Preencher o formulário utilizando o teclado somente não é intuitivo. Por exemplo, não se consegue inserir pelo teclado númerico, ao digitar '1987'.
-* Os campos de erro do formulário vão para parte inferior do form. E não na porção lateral. (http://screencloud.net/v/y20P)
+* Os campos de erro do formulário vão para parte inferior do form. E não na parte lateral. (http://screencloud.net/v/y20P)
 * Inserir ao lado de cadastrar, uma janela para entrar no sistema. Colocar como botão.
 
 pronto-para-parar-de-fumar-introducao.xhtml
@@ -16,10 +16,11 @@ inserir checkbox perguntando se o usuário gostaria de receber mensagens de acom
 O mês não está aparecendo corretamente.
 
 
-
 pronto-para-parar-de-fumar-como-evitar-recaidas-estrategias
 ------------------------------------------------------------
 A codificação dos caracteres não é válida.
+
+
 
 
 Geral
