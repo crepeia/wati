@@ -12,26 +12,39 @@
     </h:head>
     <h:body>
 		<h:form id="form">
-			<p:panel id="plano">
+			<!--<p:panel id="plano">
 				<h1>Plano personalizado</h1>  
 				<h2>Data de parada</h2>
 				<h:outputText value="#{prontoParaPararController.prontoParaParar.dataPararStr}"/>
 				<h2>Técnicas para fissura</h2>
 				<h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraStr}"/>
-				<!--inserir as estratégias escolhidas em "pronto-para-parar-de-fumar-vencendo-a-fissura.xhtml" -->
+				inserir as estratégias escolhidas em "pronto-para-parar-de-fumar-vencendo-a-fissura.xhtml" 
 				<h2>Estratégias para resistir ao cigarro</h2>
 				<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara1}"/>
 				<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara2}"/>
 				<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara3}"/>
-				<!-- inserir as estratégias daqui pronto-para-parar-de-fumar-como-evitar-recaidas-estrategias.xhtml" -->
+				inserir as estratégias daqui pronto-para-parar-de-fumar-como-evitar-recaidas-estrategias.xhtml" 
 				<h2>O que deu certo da última vez que parei</h2>
 				<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida1}"/>
 				<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida2}"/>
 				<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida3}"/>
-				<!-- inserir inputs daqui pronto-para-parar-de-fumar-como-evitar-recaidas-sim.xhtml -->
+				inserir inputs daqui pronto-para-parar-de-fumar-como-evitar-recaidas-sim.xhtml 
 
-			</p:panel>
-		</h:form>
+			</p:panel>--> 
+                </h:form>
+                
+    
+        
+    <p:media value="#{prontoParaPararController.planoPersonalizado}" width="100%" height="100%" player="pdf"/>  
+    
+   
+        
+       
+        
+        
     </h:body>
+    
+   
+
 </html>
 

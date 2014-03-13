@@ -1,9 +1,31 @@
 /*
  * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * and open the template in 
+the editor.
  */
 package wati.controller;
 
+import static com.itextpdf.text.Annotation.FILE;
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Font.FontFamily;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Color;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -18,6 +40,8 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.naming.NamingException;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 import wati.model.Acompanhamento;
 import wati.model.ProntoParaParar;
 import wati.model.User;
@@ -40,6 +64,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 	private static final int VENCENDO_FISSURA_LER_RAZOES = 3;
 	private Map<String, String> anos = new LinkedHashMap<String, String>();
 	private GregorianCalendar gregorianCalendar = null;
+        private StreamedContent planoPersonalizado;
 
 	public ProntoParaPararController() {
 		//super(ProntoParaParar.class);
@@ -407,4 +432,90 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 
 
 	}
+        
+        public ByteArrayOutputStream gerarPdf(){
+            try {
+                
+                ByteArrayOutputStream os = new ByteArrayOutputStream();
+                
+                Document document = new Document();
+                PdfWriter.getInstance(document, os);
+                document.open();
+
+                document.addTitle("Plano Persolanizado");
+                document.addAuthor("vivasemtabaco.com.br");
+                
+                Image img = Image.getInstance("viva-sem-tabaco-big.png");
+                img.setAlignment(Element.ALIGN_CENTER);
+                img.scaleToFit(300, 300);
+                document.add(img);
+                
+                Color color = Color.getHSBColor(214, 81, 46);
+                Font f1 = new Font(FontFamily.TIMES_ROMAN, 20, Font.BOLD, BaseColor.BLUE);
+                f1.setColor(22, 63, 117);
+                Font f2 = new Font(FontFamily.TIMES_ROMAN, 14, Font.BOLD,  BaseColor.BLUE);
+                f2.setColor(22, 63, 117);
+                Font f3 = new Font(FontFamily.TIMES_ROMAN, 12);
+                    
+                Paragraph paragraph = new Paragraph("Plano Personalizado",f1);
+                paragraph.setAlignment(Element.ALIGN_CENTER);
+                document.add(paragraph);
+                paragraph.add(new Paragraph(" "));
+                paragraph.add(new Paragraph(" "));
+
+                paragraph = new Paragraph("Data de parada",f2);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getDataPararStr(),f3);
+                document.add(paragraph);
+                paragraph.add(new Paragraph(" "));
+            
+                paragraph = new Paragraph("Técnicas para fissura",f2);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getFissuraStr(),f3);
+                document.add(paragraph);
+                paragraph.add(new Paragraph(" "));
+                
+                paragraph = new Paragraph("Estratégias para resistir ao cigarro",f2);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara1(),f3);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara2(),f3);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara3(),f3);
+                document.add(paragraph);
+                paragraph.add(new Paragraph(" "));
+                               
+                paragraph = new Paragraph("O que deu certo da última vez que parei",f2);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida1(),f3);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida2(),f3);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida3(),f3);
+                document.add(paragraph);
+                paragraph.add(new Paragraph(" "));
+
+                document.close();                
+
+                return os;
+               
+                
+              } catch (Exception e) {
+                return null;
+              }     
+            
+            
+        }
+        
+        
+        public StreamedContent getPlanoPersonalizado () {
+                
+                InputStream is = new ByteArrayInputStream(gerarPdf().toByteArray());
+
+                return new DefaultStreamedContent(is, "application/pdf", "plano.pdf");
+               
+            
+       }
+
+
 }
