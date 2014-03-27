@@ -5,27 +5,18 @@ the editor.
  */
 package wati.controller;
 
-import static com.itextpdf.text.Annotation.FILE;
-import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.Image;
-import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Color;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -42,7 +33,6 @@ import javax.faces.event.ActionEvent;
 import javax.naming.NamingException;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
-import wati.model.Acompanhamento;
 import wati.model.ProntoParaParar;
 import wati.model.User;
 import wati.persistence.GenericDAO;
@@ -411,7 +401,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 				message += "\n\nAtenciosamente.\n";
 
 				EMailSSL eMailSSL = new EMailSSL();
-				eMailSSL.send(from, to, subject, message);
+				eMailSSL.sendAttachment(from, to, subject, message, gerarPdf());
 
 				Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.INFO, "Plano personalizado enviado para o e-mail " + user.getEmail() + ".");
 				//message to the user
@@ -508,14 +498,14 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }
         
         
-        public StreamedContent getPlanoPersonalizado () {
-                
-                InputStream is = new ByteArrayInputStream(gerarPdf().toByteArray());
+    public StreamedContent getPlanoPersonalizado () {
 
-                return new DefaultStreamedContent(is, "application/pdf", "plano.pdf");
-               
-            
-       }
+            InputStream is = new ByteArrayInputStream(gerarPdf().toByteArray());
+
+            return new DefaultStreamedContent(is, "application/pdf", "plano.pdf");
+
+   }
 
 
+       
 }
