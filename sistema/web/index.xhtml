@@ -6,7 +6,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
     <h:head>
-        <title>Viva sem tabaco | Programa gratuito para o tratamento do tabagismo</title>
+        <title>#{messages['index.titlepage']}</title>
         <w:head_comum />
     </h:head>
     <h:body>
@@ -78,26 +78,26 @@
                                         <h:graphicImage library="default" id="seta2-img" name="images/seta.png" alt="#{messages['index.arrow']}" />
                                         <div class="passos-txt">
                                                <ul>
-                                                   <li>Plano personalizado</li>
-                                                   <li>Medicamentos</li>
-                                                   <li>Sintomas de abstinência</li>                                      
-                                                   <li>Ganho de peso</li>
-                                                   <li>Enfrentando a fissura</li>
+                                                   <li>#{messages['index.step2.li1']}</li>
+                                                   <li>#{messages['index.step2.li2']}</li>
+                                                   <li>#{messages['index.step2.li3']}</li>                                      
+                                                   <li>#{messages['index.step2.li4']}</li>
+                                                   <li>#{messages['index.step2.li5']}</li>
                                                </ul>
                                             
                                         </div>
                                     </div>
                                     
                                     <div class="passos">
-                                        <h2><h:outputLink value="parou-de-fumar-acompanhamento.xhtml">Já parou?</h:outputLink></h2>
-                                        <h:outputLink value="parou-de-fumar-acompanhamento.xhtml"><h:graphicImage library="default" class ="passos-img" name="images/acompanhamento.png" alt="Especialistas"/></h:outputLink>
+                                        <h2><h:outputLink value="parou-de-fumar-acompanhamento.xhtml">#{messages['index.step3.h']}</h:outputLink></h2>
+                                        <h:outputLink value="parou-de-fumar-acompanhamento.xhtml"><h:graphicImage library="default" class ="passos-img" name="images/acompanhamento.png" alt="#{messages['index.step3.h']}"/></h:outputLink>
                                         
                                         <div class="passos-txt">
                                                <ul>                                                                                                      
-                                                   <li>Plano para recaídas</li>
-                                                   <li>Recaídas e lapsos</li>                                      
-                                                   <li>E-mails de acompanhamento</li>
-                                                   <li>Mensagens</li>
+                                                   <li>#{messages['index.step3.li1']}</li>
+                                                   <li>#{messages['index.step3.li2']}</li>                                      
+                                                   <li>#{messages['index.step3.li3']}</li>
+                                                   <li>#{messages['index.step3.li4']}</li>
                                                </ul>
                                             
                                         </div>
