@@ -730,8 +730,8 @@ LEFTMENUS***********************/
 }
 
 #signinsubmit button{
-    position:relative;
-    left: 100px;
+    position: relative;
+    left: 10px;
     background-color: #6ec21c;
     padding-top: 2px;
     border: 1px #6ec21c;
@@ -783,7 +783,7 @@ img#artigotabaco{
 
 
 #btnprog {
-    padding: 30px 0 0 190px;
+    padding: 30px 0 0 0px;
 }
 
 /*IMGS */
