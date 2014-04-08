@@ -92,11 +92,13 @@
                                         <p:message for="options" />
 
                                         <div id="signupsubmit">			                                            
-                                            <div id="signupp"><p>#{messages['naccount.botton.p']}<h:outputLink value="./termos-de-uso.xhtml"> #{messages['naccount.already.userterms']}</h:outputLink>. #{messages['naccount.already.registered']} <h:outputLink value="login.xhtml">#{messages['signin']}</h:outputLink></p></div>
-                                            <div id="signupbtn"><p:commandButton id="saveBtn" value="#{messages['register']}" update="@form" actionListener="#{userController.save}">
+                                            <div id="signupp"><p>#{messages['naccount.p.botton']}<h:outputLink value="./termos-de-uso.xhtml"> #{messages['naccount.already.userterms']}</h:outputLink>. #{messages['naccount.already.registered']} <h:outputLink value="login.xhtml">#{messages['signin']}</h:outputLink></p></div>                                            
+                                            <div id="signupbtn">
+                                                <p:commandButton id="saveBtn" value="#{messages['register']}" update="@form" actionListener="#{userController.save}">
                                                     <f:attribute name="object" value="#{userController.user}" />
                                                     <f:attribute name="typeName" value="user" />
-                                                </p:commandButton></div>
+                                                </p:commandButton>
+                                            </div>
                                         </div>
                                     </div>
                                 </h:form>	    		

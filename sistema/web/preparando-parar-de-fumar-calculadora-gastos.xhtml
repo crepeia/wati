@@ -27,9 +27,12 @@
 
                 <div class="pagecontent">
                     <div id="pagecont1"> 
-
-
-                        <h:graphicImage library="default" id="gastostabagismo" title="Gastos financeiros do tabagismo" name="images/gastos-tabagismo.png" alt="Gratuito" />
+                        
+                        <div id="pagetop">
+                            <div class="fotoframeclean">                            
+                            <h:graphicImage library="default" id="gastostabagismo" title="Gastos financeiros do tabagismo" name="images/gastos-tabagismo.png" alt="Gratuito" />
+                            </div>
+                        </div>
 
                         <h1>Gastos financeiros</h1>                       
                         <p>Você sabia que uma pessoa - que fuma um maço de cigarros de 6 reais - gasta em cinco anos R$10.950,00 com cigarros? Isso sem contar os gastos com a saúde.</p>
@@ -76,7 +79,14 @@
                                 <h2>Próximo material</h2>
                                 <p>Saiba mais sobre os medos mais comuns dos fumantes ao tentarem parar.</p>
                             </div>
-                            <div class="btnfloat"><h:button class="btngen1" title="Abstinência e fissura" value ="Próximo" outcome="./preparando-parar-de-fumar-abstinencia-fissura.xhtml"></h:button></div>
+                            <div class="btnfloat">
+                                    <div class="btn1">
+                                        <h:button class="btnback" value ="Voltar" outcome="./preparando-parar-de-fumar-beneficios-de-parar.xhtml"></h:button>
+                                    </div>
+                                    <div class="btn2">
+                                        <h:button class="btngen1" title="Abstinência e fissura" value ="Próximo" outcome="./preparando-parar-de-fumar-abstinencia-fissura.xhtml"></h:button>                                
+                                    </div>
+                            </div>                             
                         </div>
 
                         <div class="referencias">                            

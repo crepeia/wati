@@ -7,7 +7,7 @@
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
-        <title>Plano personalizado de parar | Viva sem tabaco</title>
+        <title>Seu personalizado de parar de fumar| Viva sem tabaco</title>
         <w:head_comum />
     </h:head>
     <h:body>
@@ -24,56 +24,61 @@
 
                 <div class="pagecontent">
                     <div id="pagecont2">
-                        <div class="fotoframe">
-                            <h:graphicImage  library="default" title="Plano personalizado Viva sem Tabaco" name="images/viva-sem-tabaco-2.png" alt="Viva sem tabaco" />
-                        </div>
+                        <div id ="pagetop"> 
+                            <div id="progressbar">
 
-                        <h1>Plano personalizado</h1>                        
+                            </div>
+                            <div class="fotoframeclean">
+                                <h:graphicImage  library="default" title="Plano personalizado Viva sem Tabaco" name="images/viva-sem-tabaco-2.png" alt="Viva sem tabaco" />
+                            </div>
+                        </div>                                       
+
+                        <h1>Meu Plano de Parada</h1>                        
                         <p>Parabéns! Você terminou seu plano. Estas são as informações que separamos com base no que nos passou.</p>
                         <p>Guarde seu plano no e-mail ou imprima e deixe perto de você. Na bolsa, telefone (smartphone) ou carteira.</p>
-                        <p>A partir de agora, entraremos em contato com você semanalmente por e-mail para sabermos como anda. Se você recair, daremos informações adicionais.</p>
+                        <p>A partir de agora, entraremos em contato com você semanalmente por e-mail para sabermos como anda seu progresso.</p>
 
-						<h:form id="form">
-							<p:panel id="plano">
-								<h2>Data de parada</h2>
-								<h:outputText value="#{prontoParaPararController.prontoParaParar.dataPararStr}"/>
-								<h2>Técnicas para fissura</h2>
-								<h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraStr}"/>
-								<!--inserir as estratégias escolhidas em "pronto-para-parar-de-fumar-vencendo-a-fissura.xhtml" -->
-								<h2>Estratégias para resistir ao cigarro</h2>
-								<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara1}"/>
-								<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara2}"/>
-								<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara3}"/>
-								<!-- inserir as estratégias daqui pronto-para-parar-de-fumar-como-evitar-recaidas-estrategias.xhtml" -->
-								<h2>O que deu certo da última vez que parei</h2>
-								<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida1}"/>
-								<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida2}"/>
-								<h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida3}"/>
-								<!-- inserir inputs daqui pronto-para-parar-de-fumar-como-evitar-recaidas-sim.xhtml -->
+                        <h:form id="form">
+                            <p:panel id="plano">
+                                <h2>Data de parada</h2>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.dataPararStr}"/>
+                                <h2>Técnicas para fissura</h2>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraStr}"/>
+                                <!--inserir as estratégias escolhidas em "pronto-para-parar-de-fumar-vencendo-a-fissura.xhtml" -->
+                                <h2>Estratégias para resistir ao cigarro</h2>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara1}"/>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara2}"/>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara3}"/>
+                                <!-- inserir as estratégias daqui pronto-para-parar-de-fumar-como-evitar-recaidas-estrategias.xhtml" -->
+                                <h2>O que deu certo da última vez que parei</h2>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida1}"/>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida2}"/>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida3}"/>
+                                <!-- inserir inputs daqui pronto-para-parar-de-fumar-como-evitar-recaidas-sim.xhtml -->
 
-							</p:panel>
-							<h2>Salvar</h2>
-                                                        <div id ="planoimg1">
-                                                        <div class="planoimg">                                                            
-                                                            <h:outputLink target="_blank" value="pronto-para-parar-de-fumar-plano-personalizado-print.xhtml"><h:graphicImage  library="default" title="Imprimir" name="images/impressao.png" alt="Imprimir" /></h:outputLink>                                                            
-                                                            <p><h:outputLink target="_blank" value="pronto-para-parar-de-fumar-plano-personalizado-print.xhtml">Imprimir</h:outputLink></p>
-                                                        </div>
-                                                        </div>
-                                                        
-                                                        <div id ="planoimg2">
-                                                        <div class="planoimg">
-                                                            <h:commandLink action="#{prontoParaPararController.enviarEmail}"><h:graphicImage  library="default" title="Imprimir" name="images/email.png" alt="E-mail" /></h:commandLink>
-							<p><h:commandLink action="#{prontoParaPararController.enviarEmail}">E-mail</h:commandLink></p>
-                                                        </div>
-                                                        </div>
-							<p><p:messages /></p>
+                            </p:panel>
+                            <h2>Salvar</h2>
+                            <div id ="planoimg1">
+                                <div class="planoimg">                                                            
+                                    <h:outputLink target="_blank" value="pronto-para-parar-de-fumar-plano-personalizado-print.xhtml"><h:graphicImage  library="default" title="Imprimir" name="images/impressao.png" alt="Imprimir" /></h:outputLink>                                                            
+                                    <p><h:outputLink target="_blank" value="pronto-para-parar-de-fumar-plano-personalizado-print.xhtml">Imprimir</h:outputLink></p>
+                                </div>
+                            </div>
 
-							<!--
-							<p:commandLink value="Salvar" ajax="false">
-								<p:dataExporter target="plano" type="pdf" fileName="plano" />
-							</p:commandLink>
-							-->
-						</h:form>
+                            <div id ="planoimg2">
+                                <div class="planoimg">
+                                    <h:commandLink action="#{prontoParaPararController.enviarEmail}"><h:graphicImage  library="default" title="Imprimir" name="images/email.png" alt="E-mail" /></h:commandLink>
+                                    <p><h:commandLink action="#{prontoParaPararController.enviarEmail}">E-mail</h:commandLink></p>
+                                </div>
+                            </div>
+                            <p><p:messages /></p>
+
+                            <!--
+                            <p:commandLink value="Salvar" ajax="false">
+                                    <p:dataExporter target="plano" type="pdf" fileName="plano" />
+                            </p:commandLink>
+                            -->
+                        </h:form>
 
                     </div>
                 </div>

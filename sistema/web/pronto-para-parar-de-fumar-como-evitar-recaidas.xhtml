@@ -24,8 +24,14 @@
 
                 <div class="pagecontent">
                     <div id="pagecont2">
-                        <div class="fotoframeclean">
-                            <h:graphicImage  library="default" title="Saiba dizer não" name="images/stop-smoking.jpg" alt="Saiba dizer não" />
+
+                        <div id ="pagetop"> 
+                            <div id="progressbar">
+                                <p:progressBar value="77" labelTemplate="{value}%" displayOnly="true"/>                            
+                            </div>
+                            <div class="fotoframeclean">
+                                <h:graphicImage  library="default" title="Saiba dizer não" name="images/stop-smoking.jpg" alt="Saiba dizer não" />
+                            </div>
                         </div>
 
                         <h1>Como evitar recaídas</h1>                        
@@ -39,11 +45,19 @@
                                     </p:selectOneRadio> 
                                 </h:panelGrid>
                             </p:panel>
-							<div class="proximopasso">
-								<div class="btnfloatspec">
-									<h:commandButton id="saveBtn" styleClass="btngen" value="Próximo" action="#{prontoParaPararController.recaidaTentouParar}"/>
-								</div>
-							</div>
+                            <div class="proximopasso">
+                            </div>
+                            <div class="btnfloat">
+                                <div class="btn1">
+                                    <h:button class="btnback" value ="Voltar" outcome="./pronto-para-parar-de-fumar-metodos-de-parar.xhtml"></h:button>
+                                </div>
+                                <div class="btn2">
+                                    <h:commandButton id="saveBtn" styleClass="btngen" value="Próximo" action="#{prontoParaPararController.recaidaTentouParar}"/>                                
+                                </div>
+                            </div>
+                            
+                              
+                            
                         </h:form>                      
 
 

@@ -22,10 +22,13 @@
                 <w:leftmenu_1 cssClass="leftmenu1" />
 
                 <div class="pagecontent">
-                    <div id="pagecont1"> 
-                        <div class="fotoframe">
+                    <div id="pagecont1">
+                        <div id="pagetop">
+                            <div class="fotoframeclean">                            
                             <h:graphicImage library="default" title="Sorrowing Old Man - Vincent van Gogh" name="images/tristeza-vangogh.png" alt="Gratuito" />
+                            </div>
                         </div>
+                        
                         <h1>Ansiedade de depressão</h1>
                         <p>Tanto a ansiedade e depressão são fatores importantes para o tratamento do tabagismo.</p>
                         <ul>
@@ -34,7 +37,6 @@
                         </ul>
 
                         <div id="avacomorbidades">
-                            <h3>Teste</h3>
                             <h:form>
                                 <p:panel id="questoes" >
                                     <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="10" id="questao1">
@@ -72,7 +74,15 @@
                                 <h2>Próximo material</h2>
                                 <p>Muitos fumantes sentem que precisam parar mas não conseguem abandonar o prazer o cigarro. Saiba como lidar com esse sentimento.</p>
                             </div>
-                            <div class="btnfloat"><h:button class="btngen1" title="Substituir o prazer do cigarro" value ="Próximo" outcome="./preparando-parar-de-fumar-substituir-prazer-cigarro.xhtml"  ></h:button></div>
+                            <div class="btnfloat">
+                                    <div class="btn1">
+                                        <h:button class="btnback" value ="Voltar" outcome="./preparando-parar-de-fumar-medo-nao-conseguir-ganho-de-peso.xhtml"></h:button>
+                                    </div>
+                                    <div class="btn2">
+                                        <h:button class="btngen1" title="Substituir o prazer do cigarro" value ="Próximo" outcome="./preparando-parar-de-fumar-substituir-prazer-cigarro.xhtml"  ></h:button>                                
+                                    </div>
+                            </div>
+                            
                         </div>
                         <div class="referencias">
                             <p>Fonte: Breslau, N., Peterson, E. L., Schultz, L. R., Chilcoat, H. D., Andreski, P. (1998). Major Depression and Stages of Smoking: A Longitudinal Investigation. Arch Gen Psychiatry, 55(2), 161–166.

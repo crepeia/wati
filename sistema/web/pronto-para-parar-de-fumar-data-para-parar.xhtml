@@ -23,10 +23,17 @@
                 <w:leftmenu_2 cssClass="leftmenu2" />
 
                 <div class="pagecontent">
-                    <div id="pagecont2">                        
-                        <div class="fotoframeclean">
-                            <h:graphicImage  library="default" title="Parar de fumar uma vez é melhor" name="images/calendario.png" alt="Parar de fumar de uma vez é melhor" />
-                        </div>
+                    <div id="pagecont2">
+
+                        <div id ="pagetop"> 
+                            <div id="progressbar">
+                                <p:progressBar value="67" labelTemplate="{value}%" displayOnly="true"/>                            
+                            </div>
+                            <div class="fotoframeclean">
+                                <h:graphicImage  library="default" title="Parar de fumar uma vez é melhor" name="images/calendario.png" alt="Parar de fumar de uma vez é melhor" />
+                            </div>
+                        </div> 
+
                         <h1>Escolha uma data para parar</h1>                        
                         <p>Nós já deixamos definido como hoje o dia de parar de fumar.</p>
                         <p>Caso você queira parar em outro dia, escolha no calendário. Enviaremos mensagens de e-mail para lembrá-lo.</p>                                                                                                                       
@@ -34,7 +41,7 @@
                         <p>Lembre-se que fumantes que decidem parar de uma vez têm <em>mais sucesso</em> em parar.</p>
 
                         <h:form>
-							<p:messages id="errorMessage" redisplay="true" globalOnly="true" />
+                            <p:messages id="errorMessage" redisplay="true" globalOnly="true" />
                             <p:panelGrid columns="4" id="data_parar">
                                 <h:outputText value="Escolher data"/>
                                 <p:selectOneMenu id="day" value="#{prontoParaPararController.dia}">  
@@ -51,15 +58,23 @@
                                 </p:selectOneMenu>
                             </p:panelGrid>
 
-							<div class="proximopasso">
-								<div class="txtproximopasso">
-									<h2>Próximo material</h2>                                
-									<p>Saiba como evitar recaídas.</p> 
-								</div>
-								<div class="btnfloatspec"><h:commandButton id="saveBtn" styleClass="btngen" value="Próximo" action="#{prontoParaPararController.dataParaParar}"/></div>
-							</div>
+                            <div class="proximopasso">
+                                <div class="txtproximopasso">
+                                    <h2>Próximo material</h2>                                
+                                    <p>Saiba como evitar recaídas.</p> 
+                                </div>
 
-						</h:form>
+                                <div class="btnfloat">
+                                    <div class="btn1">
+                                        <h:button class="btnback" value ="Voltar" outcome="./pronto-para-parar-de-fumar-metodos-de-parar.xhtml"></h:button>
+                                    </div>
+                                    <div class="btn2">
+                                        <h:commandButton id="saveBtn" styleClass="btngen" value="Próximo" action="#{prontoParaPararController.dataParaParar}"/>                                
+                                    </div>
+                                </div>                                
+                            </div>
+
+                        </h:form>
                         <div class="referencias">
                             <p>Fontes: U.S Department of Health and Human Services (2008). Treating Tobacco Use and Dependence: 2008 Update: Clinical Practice Guideline. DIANE Publishing.</p>                                                        
                             <p>Atualizado em 31/10/2013</p>                            

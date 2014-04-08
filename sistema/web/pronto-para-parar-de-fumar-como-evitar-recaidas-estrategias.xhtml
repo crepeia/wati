@@ -23,9 +23,14 @@
                 <w:leftmenu_2 cssClass="leftmenu2" />
 
                 <div class="pagecontent">
-                    <div id="pagecont2">
-                        <div class="fotoframeclean">
-                            <h:graphicImage  library="default" title="Saiba dizer não" name="images/stop-smoking.jpg" alt="Saiba dizer não" />
+                    <div id="pagecont2">                                              
+                        <div id ="pagetop"> 
+                            <div id="progressbar">
+                                <p:progressBar value="77" labelTemplate="{value}%" displayOnly="true"/>                            
+                            </div>
+                            <div class="fotoframeclean">
+                                <h:graphicImage  library="default" title="Saiba dizer não" name="images/stop-smoking.jpg" alt="Saiba dizer não" />
+                            </div>
                         </div>
 
                         <h1>Evitando situações de risco</h1>
@@ -42,15 +47,31 @@
                                     <p:inputTextarea rows="2" cols="72" value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara3}" id="campo3"/>                               
                                 </h:panelGrid>
                             </p:panel>
-                            <div class="btnfloat1">
-                                <h:commandButton id="saveBtn" styleClass="btngen" value="Próximo" action="#{prontoParaPararController.recaidasEvitar}"/>
+                            
+                           
+
+                            <div class="proximopasso">
+                                <div class="txtproximopasso">
+                                    <h2>Próximo material</h2>                                
+                                    <p>Saiba dicas de como lidar e previnir o ganho de peso.</p>
+                                </div>
+                                <div class="btnfloat">
+                                    <div class="btn1">
+                                        <h:button class="btnback" value ="Voltar" outcome="./pronto-para-parar-de-fumar-como-evitar-recaidas-completo.xhtml"></h:button>
+                                    </div>
+                                    <div class="btn2">
+                                        <h:commandButton id="saveBtn" styleClass="btngen" value="Próximo" action="#{prontoParaPararController.recaidasEvitar}"></h:commandButton>
+                                    </div>    
+                       
+                                    
+                                </div>             
                             </div>
-                        </h:form>                      
+                            
+                            </h:form>
 
-
-                        <div class="referencias">                            
-                            <p>Atualizado em 20/11/2013</p>                            
-                        </div>
+                            <div class="referencias">                            
+                                <p>Atualizado em 20/11/2013</p>                            
+                            </div>
 
                     </div>
                 </div>

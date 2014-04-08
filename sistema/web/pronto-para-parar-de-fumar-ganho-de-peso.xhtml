@@ -24,14 +24,20 @@
 
                 <div class="pagecontent">
                     <div id="pagecont2">
-                        <div class="fotoframeclean">
-                            <h:graphicImage  library="default" title="Procure um médico para recomendar um medicamento" name="images/ganho-peso.png" alt="Médico e paciente" />
+
+                        <div id ="pagetop"> 
+                            <div id="progressbar">
+                                <p:progressBar value="88" labelTemplate="{value}%" displayOnly="true"/>                            
+                            </div>
+                            <div class="fotoframeclean">
+                                <h:graphicImage  library="default" title="Procure um médico para recomendar um medicamento" name="images/ganho-peso.png" alt="Médico e paciente" />
+                            </div>
                         </div>
 
                         <h1>Ganho de peso</h1>                                                                                 
                         <p>Alguns fumantes ganham peso nos primeiros meses após parar de fumar.</p>
                         <p>A média de ganho de peso, costuma variar entre 2 a 4 quilos. Alguns fumantes podem até emagrecer.</p>                                                
-                                                                        
+
                         <h2>O que fazer?</h2>
                         <ul>                          
                             <li>Você ganha peso ao gastar menos energia do que consome.</li>
@@ -44,11 +50,18 @@
                                 <h2>Próximo material</h2>                                
                                 <p>Pronto para ver seu plano personalizado de parada?</p> 
                             </div>
-                            <div class="btnfloat"><h:button class="btngen" title="Riscos de fumar" value ="Próximo" outcome="./pronto-para-parar-de-fumar-plano-personalizado.xhtml"  ></h:button></div>
-                        </div>
+                            <div class="btnfloat">
+                                <div class="btn1">
+                                    <h:button class="btnback" value ="Voltar" outcome="./pronto-para-parar-de-fumar-como-evitar-recaidas-estrategias.xhtml"/>
+                                </div>
+                                <div class="btn2">
+                                    <h:button class="btngen" title="Riscos de fumar" value ="Próximo" outcome="./pronto-para-parar-de-fumar-plano-personalizado.xhtml" />                                
+                                </div>
+                            </div>
+                        </div>      
+
                         <div class="referencias">
-                            <p>Fontes: INCA. (2001). Abordagem e tratamento do fumante - consenso 2001.
-</p>                            
+                            <p>Fontes: INCA. (2001). Abordagem e tratamento do fumante - consenso 2001.</p>                            
                             <p>Atualizado em 01/11/2013</p>                            
                         </div>
 
