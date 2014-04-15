@@ -15,9 +15,9 @@ import wati.model.User;
  */
 @ManagedBean(name = "preparandoParaParar")
 @SessionScoped
-public class PreparandoParaParar {
+public class PreparandoParaPararController {
 
-    public PreparandoParaParar() {
+    public PreparandoParaPararController() {
     }
 	
 	public String prontoParaPararDeFumar() {

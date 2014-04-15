@@ -18,7 +18,6 @@ Baixa prioridade
 cadastrar-nova-conta - arrumar mensagens de erro. Estão fora de lugar.
 
 
-
 PROGRAMAÇÃO
 =============================
 login - criar página que envia senha para o usuário que esqueceu. Por enquanto, deixei link para formulário de contato.

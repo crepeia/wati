@@ -10,8 +10,18 @@ WATI
 
 Alta prioridade
 ----------------
-Inserir botão 'voltar' na página de navegação.
-Lembre-se do benefícios que você pode ter. 
+cadastrar-nova-conta - mensagem conta já existente
+cadastrar-nova-conta - checklist mês
+login-dialog - fechar e redirecionar
+login - redirecionar para a main após o login
+contato - mostrar carregamento e limpar campos
+preparando-parar-de-fumar-ansiedade-e-depressao - mostrar popup de avaliaçao (redigir o texto)
+menu lateral - destacar etapa atual
+pronto-para-parar-de-fumar-vencendo-a-fissura - inserir mp3
+pronto-para-parar-de-fumar-plano-personalizado - quebras de linha
+pronto-para-parar-de-fumar-plano-personalizado - aviso de e-mail enviado
+limpar projeto
+
 
 Baixa prioridade
 -----------------
