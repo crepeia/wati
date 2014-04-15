@@ -619,7 +619,9 @@ LEFTMENUS***********************/
     text-decoration: none;
 }
 
-.leftmenu1	nav ul li a {
+
+
+.leftmenu1 nav ul li a {
     display: block; padding: 6px 15px;
     color: #f8f8f8; text-decoration: none;
 }

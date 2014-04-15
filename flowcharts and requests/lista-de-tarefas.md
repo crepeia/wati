@@ -1,10 +1,3 @@
-Pautas para reunião 14/11
-==========================
-
-* Artigo Caloi - Terminar o artigo
-* Gwiaa - Cronograma de atividades
-
-
 WATI
 ==========================
 
@@ -15,7 +8,9 @@ cadastrar-nova-conta - checklist mês
 login-dialog - fechar e redirecionar
 login - redirecionar para a main após o login
 contato - mostrar carregamento e limpar campos
-preparando-parar-de-fumar-ansiedade-e-depressao - mostrar popup de avaliaçao (redigir o texto)
+
+preparando-parar-de-fumar-ansiedade-e-depressao - mostrar popup de avaliaçao
+
 menu lateral - destacar etapa atual
 pronto-para-parar-de-fumar-vencendo-a-fissura - inserir mp3
 pronto-para-parar-de-fumar-plano-personalizado - quebras de linha
@@ -33,13 +28,4 @@ PROGRAMAÇÃO
 login - criar página que envia senha para o usuário que esqueceu. Por enquanto, deixei link para formulário de contato.
 
 preparando-parar-de-fumar-ansiedade-e-depressao.xhtml - Avaliação não está funcionando.
-
-
-
-
-Preparar CSS para impressão
-
-
-
-
 
