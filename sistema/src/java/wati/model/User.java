@@ -39,8 +39,12 @@ public class User {
 	private Date birth;
 	@Column(name = "gender")
 	private char gender;
+        
 	@OneToOne(mappedBy = "usuario")
 	private ProntoParaParar prontoParaParar;
+        
+        @OneToOne(mappedBy = "usuario")
+	private AcompanhamentoEmail acompanhamentoEmail;
 	
 	@OneToMany(fetch= FetchType.LAZY)
 	private List<Acompanhamento> acompanhamentos;
@@ -161,4 +165,14 @@ public class User {
 	public void setAcompanhamentos(List<Acompanhamento> acompanhamentos) {
 		this.acompanhamentos = acompanhamentos;
 	}
+
+        public AcompanhamentoEmail getAcompanhamentoEmail() {
+            return acompanhamentoEmail;
+        }
+
+        public void setAcompanhamentoEmail(AcompanhamentoEmail acompanhamentoEmail) {
+            this.acompanhamentoEmail = acompanhamentoEmail;
+        }
+        
 }
+
