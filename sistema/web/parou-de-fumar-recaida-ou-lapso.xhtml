@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
+    <h:head>
+        <title>Acompanhamento | Viva sem tabaco</title>
+        <w:head_comum />
+    </h:head>
+    <h:body>
+        <div id="corpo"> 
+            <!-- header -->
+            <w:header loginRequired="true" />
+            <w:topmenu />
+
+            <!--mainmenu-->         	
+            <div class="main">
+
+
+                <w:leftmenu_3 cssClass="leftmenu3" />
+
+                <div class="pagecontent">
+
+                    <div id="pagecont2">
+                        <div class="fotoframeclean">
+                            <h:graphicImage  library="default" title="Acompanhamento" name="images/quizz.png" alt="Dúvida" />
+                        </div>
+
+                        <h1>Recaída ou lapso?</h1>
+                        <ul>
+                            <li><strong>Recaída</strong> - Retorno ao consumo regular de cigarro ou derivado, mesmo em quantidades menores que o padrão de consumo anterior.</li>
+                            <li><strong>Lapso</strong> - Ocorrência de um episódio isolado de consumo ou derivado, sem que o paciente volte a fumar regularmente.</li>                                
+                        </ul>
+
+                        <h3>Pergunta</h3>
+                        <p>Você teve uma recaída ou lapso?</p>
+                        <h:form>
+                            <p:panel id="qrecaida" >                
+                                <h:panelGrid columns="2" style="margin-bottom:10px;" cellpadding="10" id="questao1">                                                    
+                                    <p:selectOneRadio id="lapsoRecaidaRadio" value="#{parouDeFumarController.recaida}" required="true">  
+                                        <f:selectItem itemLabel="Lapso" itemValue="0" />
+                                        <f:selectItem itemLabel="Recaída" itemValue="1" /> 
+                                    </p:selectOneRadio> 
+                                </h:panelGrid>
+                            </p:panel>
+
+                            <div class="btn1">
+                                <h:button class="btnback" value ="Voltar" outcome="./parou-de-fumar-acompanhamento.xhtml"></h:button>
+                            </div>
+                            <div class="btn2">
+                                <p:commandButton styleClass="btngen3" value ="Avançar" action="#{parouDeFumarController.recaidaOuLapso}" />                                
+                            </div>                            
+
+
+                        </h:form>
+
+                        <div class="referencias">                                                        
+                            <p>Fonte: U.S Department of Health and Human Services (2008). Treating Tobacco Use and Dependence: 2008 Update: Clinical Practice Guideline. DIANE Publishing.</p>
+                            <p>Atualizado em 07/11/2013</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!-- end.corpo --> 
+
+        <!--Footer -->
+        <w:footer />
+    </h:body>
+</html>
+

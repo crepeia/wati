@@ -342,8 +342,7 @@ img {
 
 }
 
-.pagecontent p {
-    text-indent:1em;
+.pagecontent p {    
     text-align:left;
 }
 
@@ -972,14 +971,14 @@ img#artigotabaco{
 #seta1-img {
     clear:both;
     position:absolute;
-    top:685px;
+    top:580px;
     padding-left: 30px;
 }
 
 #seta2-img {
     clear:both;
     position:absolute;
-    top:685px;
+    top:580px;
     padding-left: 30px;
 }
 
@@ -1117,8 +1116,8 @@ img#artigotabaco{
 
 /* COMO SUBSTITUIR  */
 
-.buscarajuda{
-    clear:both;
+.buscarajuda{    
+    height: 100px;
 }
 
 .imgbuscarajuda img{
@@ -1128,25 +1127,9 @@ img#artigotabaco{
     margin-right:20px;
 }
 
-.pbuscarajuda{
-    float:left;
-    width:480px;
-    padding-bottom:25px;
-}
-
-.pbuscarajuda h4{
-    margin:0;
-}
-
-.pbuscarajuda p{
-    text-indent: 0;
-}
-
 .btnbuscarajuda{
-    float:right;
-    padding: 40px 5px 0 0;
+    float:left;
 }
-
 
 /* PASSO 2 ********
 PRONTO PARA PARAR*/
