@@ -5,8 +5,10 @@ the editor.
  */
 package wati.controller;
 
+import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Font.FontFamily;
@@ -16,7 +18,9 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Color;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -423,9 +427,8 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 
 	}
         
-        public ByteArrayOutputStream gerarPdf(){
-            try {
-                
+        public ByteArrayOutputStream gerarPdf() {
+            try{
                 ByteArrayOutputStream os = new ByteArrayOutputStream();
                 
                 Document document = new Document();
@@ -435,7 +438,8 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                 document.addTitle("Plano Persolanizado");
                 document.addAuthor("vivasemtabaco.com.br");
                 
-                Image img = Image.getInstance("viva-sem-tabaco-big.png");
+                URL url = FacesContext.getCurrentInstance().getExternalContext().getResource("/resources/default/images/viva-sem-tabaco-big.png");
+                Image img = Image.getInstance(url);
                 img.setAlignment(Element.ALIGN_CENTER);
                 img.scaleToFit(300, 300);
                 document.add(img);
@@ -488,21 +492,26 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                 document.close();                
 
                 return os;
-               
-                
-              } catch (Exception e) {
+            }catch(Exception e){
                 return null;
-              }     
-            
+            }
+                             
+         
             
         }
         
         
-    public StreamedContent getPlanoPersonalizado () {
+    public StreamedContent getPlanoPersonalizado(){
 
-            InputStream is = new ByteArrayInputStream(gerarPdf().toByteArray());
-
-            return new DefaultStreamedContent(is, "application/pdf", "plano.pdf");
+            InputStream is;
+            try{
+                is = new ByteArrayInputStream(gerarPdf().toByteArray());
+                return new DefaultStreamedContent(is, "application/pdf", "plano.pdf");
+            }catch(Exception e){
+              Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, "Erro ao gerar o pdf");
+              return null;      
+            }
+                  
 
    }
 
