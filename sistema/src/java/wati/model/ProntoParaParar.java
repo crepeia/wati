@@ -283,7 +283,7 @@ public class ProntoParaParar implements Serializable {
 			s.append("Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas), balas dietéticas e chicletes dietéticos.\n");
 		}
 		if (isEnfrentarFissuraLerRazoes()) {
-			s.append("Fazer exercício de relaxamento - em áudio MP3 - link para download no plano de parar.\n");
+			s.append("Fazer exercício de relaxamento - em áudio MP3 - vivasemtabaco.com.br/download/surfandoafissura.mp3\n");
 		}
 		if (isEnfrentarFissuraRelaxamento()) {
 			s.append("Ler um cartão com suas razões para ter parado de fumar.\n");
