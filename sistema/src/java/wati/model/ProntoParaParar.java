@@ -277,16 +277,16 @@ public class ProntoParaParar implements Serializable {
 	public String getFissuraStr() {
 		StringBuilder s = new StringBuilder();
 		if (isEnfrentarFissuraBeberAgua()) {
-			s.append("Beber um copo de água pausadamente.\n");
+			s.append("Beber um copo de água pausadamente. \n");
 		}
 		if (isEnfrentarFissuraComer()) {
 			s.append("Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas), balas dietéticas e chicletes dietéticos.\n");
 		}
 		if (isEnfrentarFissuraLerRazoes()) {
-			s.append("Fazer exercício de relaxamento - em áudio MP3 - vivasemtabaco.com.br/download/surfandoafissura.mp3\n");
+			s.append("Fazer exercício de relaxamento - em áudio MP3 - vivasemtabaco.com.br/download/surfandoafissura.mp3 \n");
 		}
 		if (isEnfrentarFissuraRelaxamento()) {
-			s.append("Ler um cartão com suas razões para ter parado de fumar.\n");
+			s.append("Ler um cartão com suas razões para ter parado de fumar.\n");                        
 		}
 		return s.toString();
 	}
