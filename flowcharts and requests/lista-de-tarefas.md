@@ -1,31 +1,27 @@
 WATI
 ==========================
 
-Alta prioridade
-----------------
+Tarefas
+------------------------
 cadastrar-nova-conta - mensagem conta já existente
 cadastrar-nova-conta - checklist mês
 login-dialog - fechar e redirecionar
 login - redirecionar para a main após o login
 contato - mostrar carregamento e limpar campos
-
+preparando-parar-de-fumar-ansiedade-e-depressao.xhtml - Avaliação não está funcionando.
 preparando-parar-de-fumar-ansiedade-e-depressao - mostrar popup de avaliaçao
-
-menu lateral - destacar etapa atual
 pronto-para-parar-de-fumar-vencendo-a-fissura - inserir mp3
 pronto-para-parar-de-fumar-plano-personalizado - quebras de linha
 pronto-para-parar-de-fumar-plano-personalizado - aviso de e-mail enviado
 limpar projeto
 
 
-Baixa prioridade
------------------
-cadastrar-nova-conta - arrumar mensagens de erro. Estão fora de lugar.
+etapa preparando para parar - (Henrique)
+* inserir página com fumo passivo
+* colocar odds ratio de fumar. Número de vezes.
 
 
-PROGRAMAÇÃO
-=============================
-login - criar página que envia senha para o usuário que esqueceu. Por enquanto, deixei link para formulário de contato.
-
-preparando-parar-de-fumar-ansiedade-e-depressao.xhtml - Avaliação não está funcionando.
+Problemas não resolvidos
+-------------------------
+menu lateral - destacar etapa atual - não conseguir fazer (Henrique)
 

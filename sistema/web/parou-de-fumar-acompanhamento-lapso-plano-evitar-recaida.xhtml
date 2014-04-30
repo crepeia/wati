@@ -38,11 +38,23 @@
                             <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar2}"/>
                             <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar3}"/>
 
-                            <h2>Salvar</h2>                                                
-                            <p><h:outputLink target="_blank" value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml">Ver versão para impressão.</h:outputLink></p>
-                            <p><h:commandLink action="#{parouDeFumarController.enviarEmail}">Enviar para e-mail</h:commandLink></p>
-                            <p><p:messages /></p>
+                            <h2>Salvar</h2>
+                            
+                            <div id ="planoimg1">
+                                <div class="planoimg">                                                            
+                                    <h:outputLink target="_blank" value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml"><h:graphicImage  library="default" title="Imprimir" name="images/impressao.png" alt="Imprimir" /></h:outputLink>                                                            
+                                    <p><h:outputLink target="_blank" value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml">Imprimir</h:outputLink></p>
+                                </div>
+                            </div>
 
+                            <div id ="planoimg2">
+                                <div class="planoimg">
+                                    <h:commandLink action="#{prontoParaPararController.enviarEmail}"><h:graphicImage  library="default" title="Imprimir" name="images/email.png" alt="E-mail" /></h:commandLink>
+                                    <p><h:commandLink action="#{parouDeFumarController.enviarEmail}">E-mail</h:commandLink></p>
+                                </div>
+                            </div>
+                            <p><p:messages /></p>
+                                                        
                             <div class="referencias">
                                 <p>Atualizado em 05/11/2013</p>                            
                             </div>
