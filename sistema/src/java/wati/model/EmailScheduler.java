@@ -57,8 +57,6 @@ public class EmailScheduler {
         String from = "watiufjf@gmail.com";
         List<User> usuarios;
 
-        System.out.println("ok");
-
         usuarios = dao.acompanhamentoDataDifente(entityManager);
         for (User usuario : usuarios){
            acompanhamentoEmail = new AcompanhamentoEmail();
@@ -66,7 +64,7 @@ public class EmailScheduler {
            Logger.getLogger(EmailScheduler.class.getName()).log(Level.INFO, "Email data diferente enviado para" + usuario.getEmail());
            acompanhamentoEmail.setUsuario(usuario);
            acompanhamentoEmail.setDataDiferente(new Date());
-           genericDAO.insert(usuario, entityManager);
+           genericDAO.insert(acompanhamentoEmail, entityManager);
 
        }
 
@@ -77,7 +75,7 @@ public class EmailScheduler {
             Logger.getLogger(EmailScheduler.class.getName()).log(Level.INFO, "Email semana 1 enviado para" + usuario.getEmail());
             acompanhamentoEmail.setUsuario(usuario);
             acompanhamentoEmail.setPrimeiraSemana(new Date());
-            genericDAO.insert(usuario, entityManager);
+            genericDAO.insertOrUpdate(acompanhamentoEmail, entityManager);
 
         }
 
@@ -88,7 +86,7 @@ public class EmailScheduler {
             Logger.getLogger(EmailScheduler.class.getName()).log(Level.INFO, "Email semana 2 enviado para" + usuario.getEmail());
             acompanhamentoEmail.setUsuario(usuario);
             acompanhamentoEmail.setSegundaSemana(new Date());
-            genericDAO.insert(usuario, entityManager);
+            genericDAO.insertOrUpdate(acompanhamentoEmail, entityManager);
 
         }
 
@@ -99,7 +97,7 @@ public class EmailScheduler {
             Logger.getLogger(EmailScheduler.class.getName()).log(Level.INFO, "Email semana 3 enviado para" + usuario.getEmail());
             acompanhamentoEmail.setUsuario(usuario);
             acompanhamentoEmail.setTereiraSemana(new Date());
-            genericDAO.insert(usuario, entityManager);
+            genericDAO.insertOrUpdate(acompanhamentoEmail, entityManager);
 
         }
 
@@ -110,7 +108,7 @@ public class EmailScheduler {
             Logger.getLogger(EmailScheduler.class.getName()).log(Level.INFO, "Email mensal enviado para" + usuario.getEmail());
             acompanhamentoEmail.setUsuario(usuario);
             acompanhamentoEmail.setMensal(new Date());
-            genericDAO.insert(usuario, entityManager);
+            genericDAO.insertOrUpdate(acompanhamentoEmail, entityManager);
          
         }
           
