@@ -28,14 +28,14 @@
 							<div class="signuptext"><input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/></div>
 							<div class="signuptext"><input type="hidden" name="ie" value="UTF-8" /></div>						
 							<div class="signuptext">
-								<p:inputText id="emailTxt" value="#{loginController.user.email}" required="true" size="30" >
+								<p:inputText id="emailTxt" value="#{loginController.user.email}" required="true" size="30" label="#{messages['email']}" >
 									<!--<p:ajax update="loginMsg" event="blur" />-->
 									<f:validateLength maximum="50" />
 								</p:inputText>
                                                             <p:watermark for="emailTxt" value="#{messages['email']}" />
 							</div>
 							<div class="signuptext">
-								<p:password id="passwordTxt" value="#{loginController.password}" required="true" redisplay="true" size="30">  
+								<p:password id="passwordTxt" value="#{loginController.password}" required="true" redisplay="true" size="30" label="#{messages['psw']}">  
 									<f:validateLength maximum="16" />
 									<!--<p:ajax update="passwordMsg" event="blur" />-->
 								</p:password>
@@ -45,13 +45,15 @@
 
 								<div id="signinsubmit">
 									<div id="signinbtn">
-                                                                            <p:commandButton id="entrarBtn" value="#{messages['signin']}" update="@form" actionListener="#{loginController.login}" />
+                                                                            <p:commandButton id="entrarBtn" value="#{messages['signin']}" update="@form" actionListener="#{loginController.login}" ajax="false"/>
 									</div>
 
 									<div id="signincheck">
 
-										<p:selectBooleanCheckbox id="contConect" value="#{messages['login.stayconnected']}"></p:selectBooleanCheckbox>
+                                                                            <!--
+                                                                            <p:selectBooleanCheckbox id="contConect" value=""></p:selectBooleanCheckbox>
 										<h:outputText value="#{messages['login.stayconnected']}"/>
+                                                                            -->
 
 									</div>
 
