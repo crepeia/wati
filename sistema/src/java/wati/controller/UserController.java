@@ -22,9 +22,12 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import wati.model.AcompanhamentoEmail;
 import wati.model.User;
+import wati.persistence.GenericDAO;
 import wati.utility.Encrypter;
 
 /**
@@ -52,6 +55,8 @@ public class UserController extends BaseFormController<User> {
 
 	@PersistenceContext
 	private EntityManager entityManager = null;
+        
+        private GenericDAO dao = null;
 	
 	/**
 	 * Creates a new instance of UserController
@@ -67,8 +72,8 @@ public class UserController extends BaseFormController<User> {
 		}
 
 		for (int i = 0; i < this.nomeMeses.length; i++) {
-			//meses.put(this.nomeMeses[ i], String.valueOf(i + 1));
-			meses.put(this.nomeMeses[ i], String.valueOf(i));
+			//meses.put(this.nomeMeses[ i], String.valueOf(i+1));
+			meses.put(this.nomeMeses[i], String.valueOf(i));
 		}
 
 		GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
@@ -76,6 +81,11 @@ public class UserController extends BaseFormController<User> {
 		for (int i = lastYear; i > lastYear - 100; i--) {
 			anos.put(String.valueOf(i), String.valueOf(i));
 		}
+            try {                
+                dao = new GenericDAO(User.class);
+            } catch (NamingException ex) {
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
 	}
 
@@ -135,24 +145,31 @@ public class UserController extends BaseFormController<User> {
 		this.user.setBirth(new GregorianCalendar(ano, mes, dia).getTime());
 
 		try {
+                        if(!(dao.list("email", user.getEmail(), entityManager).isEmpty())){
+                            String message = "Email já cadastrado.";
+                            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+                        }else{    
+                    
+                            if (user.getId() == 0) {
 
-			if (user.getId() == 0) {
+                                    //incluir criptografia da senha
+                                    this.user.setPassword(Encrypter.encrypt(this.password));
 
-				//incluir criptografia da senha
-				this.user.setPassword(Encrypter.encrypt(this.password));
+                            } else {
 
-			} else {
+                                    if (!Encrypter.compare(this.password, this.user.getPassword())) {
+                                            //incluir criptografia da senha
+                                            this.user.setPassword(Encrypter.encrypt(this.password));
+                                    }
 
-				if (!Encrypter.compare(this.password, this.user.getPassword())) {
-					//incluir criptografia da senha
-					this.user.setPassword(Encrypter.encrypt(this.password));
-				}
+                            }
 
-			}
 
-			super.save(actionEvent, entityManager);
-			//FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));
-			this.clear();
+
+                            super.save(actionEvent, entityManager);
+                            //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));
+                            this.clear();
+                        }
 
 		} catch (InvalidKeyException ex) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
@@ -169,6 +186,10 @@ public class UserController extends BaseFormController<User> {
 		} catch (NoSuchPaddingException ex) {
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
 			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
+                        Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+                        
 		}
 
 	}
