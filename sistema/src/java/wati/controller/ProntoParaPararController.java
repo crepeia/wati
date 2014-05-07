@@ -146,8 +146,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 			if (this.prontoParaParar.isTentouParar()) {
 				return "pronto-para-parar-de-fumar-como-evitar-recaidas-sim.xhtml";
 			} else {
-				return "pronto-para-parar-de-fumar-como-evitar-recaidas-completo.xhtml";
-				//return "pronto-para-parar-de-fumar-ganho-de-peso.xhtml";
+				return "pronto-para-parar-de-fumar-como-evitar-recaidas-completo.xhtml";				
 			}
 		} catch (SQLException ex) {
 			Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);

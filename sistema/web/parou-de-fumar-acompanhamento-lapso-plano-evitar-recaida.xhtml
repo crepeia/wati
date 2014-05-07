@@ -6,7 +6,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
     <h:head>
-        <title>Lapso - identificar fatores potenciais de recaída | Viva sem tabaco</title>
+        <title>Plano para recaídas e lapsos | Viva sem tabaco</title>
         <w:head_comum />
     </h:head>
     <h:body>
@@ -31,15 +31,16 @@
                                 <h:graphicImage  library="default" title="Acompanhamento" name="images/acompanhamento-interno.png" alt="Acompanhamento" />
                             </div>                        
 
-                            <h1>Plano para evitar recaídas</h1>                           
-                            <p>Evitar o primeiro cigarro é fundamental para quem consegue parar.</p>
-                            <h2>Estratégias para lidar com a recaída</h2>
-                            
+                            <h1>Meu plano contra recaídas</h1>                            
+                            <p>Estas são as informações que separamos com base no que nos passou.</p>                            
+                            <p>Guarde seu plano no e-mail ou imprima e deixe perto de você. Na bolsa, telefone (smartphone) ou carteira.</p>                            
+                            <p>Se você já está com seu plano de parar, lembre-se, evite o primeiro cigarro.</p>
+
                             <h3>Situações de risco</h3>
                             <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao1}"/><br/>
                             <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao2}"/><br/>
                             <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao3}"/><br/>
-                            
+
                             <h3>Como vou lidar</h3>
                             <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar1}"/><br/>
                             <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar2}"/><br/>
@@ -47,7 +48,7 @@
 
 
                             <h2>Salvar</h2>
-                            
+
                             <div id ="planoimg1">
                                 <div class="planoimg">                                                            
                                     <h:outputLink target="_blank" value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml"><h:graphicImage  library="default" title="Imprimir" name="images/impressao.png" alt="Imprimir" /></h:outputLink>                                                            
@@ -62,7 +63,7 @@
                                 </div>
                             </div>
                             <p><p:messages /></p>
-                                                        
+
                             <div class="referencias">
                                 <p>Atualizado em 05/11/2013</p>                            
                             </div>

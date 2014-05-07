@@ -30,7 +30,7 @@
                                 <p:progressBar value="11" labelTemplate="{value}%" displayOnly="true"/>                            
                             </div>
                             <div class="fotoframe">
-                                <h:graphicImage  library="default" title="Hora de fumar de fumar" name="images/hora-de-parar.png" alt="#{messages['pronto.intro.img']}Hora de parar de fumar" />
+                                <h:graphicImage  library="default" title="#{messages['pronto.intro.img']}" name="images/hora-de-parar.png" alt="#{messages['pronto.intro.img']}" />
                             </div>
                         </div>
                         
@@ -52,7 +52,7 @@
                                 <h2>#{messages['next.step']}</h2>                                
                                 <p>#{messages['pronto.intro.next.p']}</p> 
                             </div>
-                            <div class="btnfloat"><h:button class="btngen" title="Abstinência" value ="#{messages['next']}" outcome="./pronto-para-parar-de-fumar-abstinencia.xhtml"  ></h:button></div>
+                            <div class="btnfloat"><h:button class="btngen" title="#{messages['pronto.abs.titlepage']}" value ="#{messages['next']}" outcome="./pronto-para-parar-de-fumar-abstinencia.xhtml"  ></h:button></div>
                             
                         </div>
                                                 
@@ -60,7 +60,6 @@
                             <p>#{messages['update.date']}</p>
                             <p>#{messages['img.ref']} <h:outputLink value="http://www.flickr.com/photos/dasqfamily/">Dasqfamily</h:outputLink></p>
                         </div>
-
                     </div>
                 </div>
             </div>
