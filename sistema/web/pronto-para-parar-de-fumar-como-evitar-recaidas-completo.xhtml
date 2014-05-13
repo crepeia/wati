@@ -7,7 +7,7 @@
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
-        <title>Situações de risco - Como evitar recaídas  | Viva sem tabaco</title>
+        <title>#{messages['pronto.evitar.full.titlepage']} - #{messages['pronto.evitar.titlepage']} | #{messages['vivasemtabaco.title']}</title>
         <w:head_comum />
     </h:head>
     <h:body>
@@ -30,45 +30,45 @@
                                 <p:progressBar value="77" labelTemplate="{value}%" displayOnly="true"/>                            
                             </div>
                             <div class="fotoframeclean">
-                                <h:graphicImage  library="default" title="Saiba dizer não" name="images/stop-smoking.jpg" alt="Saiba dizer não" />
+                                <h:graphicImage  library="default" title="#{messages['pronto.evitar.full.img.title']}" name="images/stop-smoking.jpg" alt="#{messages['pronto.evitar.full.img.title']}" />
                             </div>
                         </div>
 
-                        <h1>Como evitar recaídas</h1>
-                        <h2>Situações de risco</h2>
-                        <p>Mesmo após parar de fumar, é possível que algumas pessoas voltem a fumar - o que é chamado de recaída.</p>                           
-                        <p>É muito importante antecipar as dificuldades e situações que podem levar você a uma recaída . Principalmente nas primeiras semanas, em que os sintomas de abstinência e fissura são mais intensos.</p>                                              
+                        <h1>#{messages['pronto.evitar.full.h1.1']}</h1>
+                        <h2>#{messages['pronto.evitar.full.h2.1']}</h2>
+                        <p>#{messages['pronto.evitar.full.p.1']}</p>                           
+                        <p>#{messages['pronto.evitar.full.p.2']}</p>                                              
 
-                        <h3>Amigos e familiares fumantes</h3>
-                        <p>Parar de fumar é mais difícil quando se convive com com amigos e / ou familiares fumantes.</p>
-                        <p>Se passa por essa situação, você pode pedir a seus amigos ou para seus familiares que não fumem por perto. Você também pode pedir para tentem parar de fumar.</p>                                                                       
+                        <h2>#{messages['pronto.evitar.full.h2.2']}</h2>
+                        <p>#{messages['pronto.evitar.full.p.3']}</p>
+                        <p>#{messages['pronto.evitar.full.p.4']}</p>                                                                       
 
-                        <h3>Bebidas alcóolicas</h3>                        
+                        <h2>#{messages['pronto.evitar.full.h2.3']}</h2>                        
                         <ul>
-                            <li>Se você bebe, procure evitar o consumo de bebidas alcóolicas nas primeiras semanas. </li>
-                            <li>Tomar bebidas alcóolicas aumenta a vontade de fumar.</li>
+                            <li>#{messages['pronto.evitar.full.li.1']}</li>
+                            <li>#{messages['pronto.evitar.full.li.2']}</li>
                         </ul>
 
                         <div class="proximopasso">
                             <div class="txtproximopasso">
-                                <h2>Próximo material</h2>                                
-                                <p>Faça um exercício rápido sobre o que você irá fazer para evitar recaídas.</p> 
+                                <h2>#{messages['next.step']}</h2>                                
+                                <p>#{messages['pronto.evitar.full.next.p.1']}</p> 
                             </div>
                             
                             <div class="btnfloat">
                                 <div class="btn1">
-                                    <h:button class="btnback" value ="Voltar" outcome="./pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml"></h:button>
+                                    <h:button class="btnback" value ="#{messages['back']}" outcome="./pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml"/>
                                 </div>
                                 <div class="btn2">
-                                    <h:button class="btngen" title="Estratégias" value ="Próximo" outcome="./pronto-para-parar-de-fumar-como-evitar-recaidas-estrategias.xhtml"/>                                   
+                                    <h:button class="btngen" value ="#{messages['next']}" outcome="./pronto-para-parar-de-fumar-como-evitar-recaidas-estrategias.xhtml"/>                                   
                                 </div>
                             </div>
                             
                             <div class="btnfloat"></div>
                         </div>
                         <div class="referencias">
-                            <p>Fontes: U.S Department of Health and Human Services (2008). Treating Tobacco Use and Dependence: 2008 Update: Clinical Practice Guideline. DIANE Publishing.</p>                                                                                                                
-                            <p>Atualizado em 20/11/2013</p>
+                            <p>#{messages['sources']}: U.S Department of Health and Human Services (2008). Treating Tobacco Use and Dependence: 2008 Update: Clinical Practice Guideline. DIANE Publishing.</p>                                                                                                                
+                            <p>#{messages['update.date']}</p>
                         </div>                                                
 
                     </div>
