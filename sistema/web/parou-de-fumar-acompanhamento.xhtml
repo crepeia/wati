@@ -6,7 +6,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
     <h:head>
-        <title>Acompanhamento | Viva sem tabaco</title>
+        <title>#{messages['acompanhamento.intro.titlepage']} | #{messages['vivasemtabaco']}</title>
         <w:head_comum />
     </h:head>
     <h:body>
@@ -26,35 +26,35 @@
                     <div id="pagecont2">
                         <div id="pagetop">
                             <div class="fotoframeclean">
-                            <h:graphicImage  library="default" title="Acompanhamento" name="images/acompanhamento-interno.png" alt="Acompanhamento" />
+                            <h:graphicImage  library="default" title="#{messages['acompanhamento.intro.img.title']}" name="images/acompanhamento-interno.png" alt="#{messages['acompanhamento.intro.img.title']}" />
                         </div>
                         </div> 
                         
-                        <h1>Acompanhamento</h1>                       
-                        <p>Não desanime. Parar de fumar não é fácil. Lembre-se:</p>
+                        <h1>#{messages['acompanhamento.intro.h1.1']}</h1>                       
+                        <p>#{messages['acompanhamento.intro.p.1']}</p>
                         <ol>
-                            <li>Deixar de fumar é um processo que envolve recaídas e tentativas;</li>
-                            <li>Um fumante tenta parar em média de 4 a 5 vezes até conseguir definitivamente.</li>
+                            <li>#{messages['acompanhamento.intro.li.1']}</li>
+                            <li>#{messages['acompanhamento.intro.li.2']}</li>
                         </ol>
                         
                         <div class="proximopasso">
                         </div>    
                             <div class="txtproximopasso">
-                                <h2>Próximo tema</h2>
-                                <p>Saiba o que é lapso e recaída para aprender a voltar a ficar sem nenhum cigarro.</p>
+                                <h2>#{messages['next.step']}</h2>
+                                <p>#{messages['acompanhamento.intro.next.p.1']}</p>
                             </div>
                             
                             <div class="btnfloat">
                                     <div class="btn2">
-                                        <h:button class="btngen3" title="Recaída ou lapso?" value ="#{messages['next']}" outcome="./parou-de-fumar-recaida-ou-lapso.xhtml" ></h:button>                                
+                                        <h:button class="btngen3" title="#{messages['acompanhamento.intro.btn.title']}" value ="#{messages['next']}" outcome="./parou-de-fumar-recaida-ou-lapso.xhtml" ></h:button>                                
                                     </div>
                                 </div>                                                        
                         
                                              
 
                         <div class="referencias">                                                        
-                            <p>Fonte: U.S Department of Health and Human Services (2008). Treating Tobacco Use and Dependence: 2008 Update: Clinical Practice Guideline. DIANE Publishing.</p>
-                            <p>Atualizado em 07/11/2013</p>
+                            <p>#{messages['source']}: U.S Department of Health and Human Services (2008). Treating Tobacco Use and Dependence: 2008 Update: Clinical Practice Guideline. DIANE Publishing.</p>
+                            <p>#{messages['update.date']}</p>
                         </div>
 
                     </div>

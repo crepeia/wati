@@ -6,7 +6,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
     <h:head>
-        <title>Onde procurar ajuda | Viva sem tabaco</title>
+        <title>#{messages['acompanhamento.ajuda.titlepage']} | #{messages['vivasemtabaco']}</title>
         <w:head_comum />
     </h:head>
     <h:body>
@@ -24,46 +24,46 @@
                 <div class="pagecontent">
 
                     <div id="pagecont2">                        
-                        <h1>Onde procurar ajuda</h1>
-                        <p>Separamos para você alguns recursos e lugares que oferecem tratamento para o tabagismo.</p>
+                        <h1>#{messages['acompanhamento.ajuda.h1.1']}</h1>
+                        <p>#{messages['acompanhamento.ajuda.p.1']}</p>
                         
-                        <h2>Serviços</h2>
+                        <h2>#{messages['acompanhamento.ajuda.h2.1']}</h2>
                         
                         <div class="buscarajuda">
                             <div class="imgbuscarajuda">
                                 <h:outputLink value="./index.xhtml">
-                                    <h:graphicImage library="default" title="Viva sem Tabaco" name="images/vst-100.png" alt="Viva sem Tabaco"/>
+                                    <h:graphicImage library="default" title="#{messages['vivasemtabaco']}" name="images/vst-100.png" alt="#{messages['vivasemtabaco']}"/>
                                 </h:outputLink>
                             </div>
                             <div class="pbuscarajuda">
-                                <h4><h:outputLink value="./index.xhtml">Programa Viva sem Tabaco</h:outputLink></h4>
-                                <p>Gostaria de tentar  nosso programa novamente? <br /><h:outputLink value="./index.xhtml">Clique aqui</h:outputLink>.</p>
+                                <h4><h:outputLink value="./index.xhtml">#{messages['acompanhamento.ajuda.h4.1']}</h:outputLink></h4>
+                                <p>#{messages['acompanhamento.ajuda.p.2a']} <br /><h:outputLink value="./index.xhtml">#{messages['acompanhamento.ajuda.p.2b']}</h:outputLink>.</p>
                             </div>                            
                         </div>
 
                         <div class="buscarajuda">
                             <div class="imgbuscarajuda">
-                                <h:graphicImage library="default" title="Viva sem Tabaco" name="images/viva-voz.png" alt="Viva sem Tabaco"/>
+                                <h:graphicImage library="default" title="#{messages['vivavoz']}" name="images/viva-voz.png" alt="#{messages['vivavoz']}"/>
                             </div>
                             <div class="pbuscarajuda">
-                                <h4>Serviço VivaVoz</h4>
-                                <p>Serviço gratuito para tratamento por telefone da Universidade Federal de Ciências da Saúde de Porto Alegre.</p>
+                                <h4>#{messages['acompanhamento.ajuda.h4.2']}</h4>
+                                <p>#{messages['acompanhamento.ajuda.p.3']}</p>
                             </div>                            
                         </div>
 
                         <div class="buscarajuda">
                             <div class="imgbuscarajuda">
-                                <h:graphicImage library="default" title="Viva sem Tabaco" name="images/sus.png" alt="Viva sem Tabaco"/>
+                                <h:graphicImage library="default" title="#{messages['sus']}" name="images/sus.png" alt="#{messages['sus']}"/>
                             </div>
                             <div class="pbuscarajuda">
-                                <h4>Sistema Único de Saúde</h4>
-                                <p>O SUS oferece tratamento gratuito. Consulte o serviço de sua cidade. Se não tiver, solicite ao gestor de saúde de sua cidade. <h:outputLink value="http://www.brasil.gov.br/saude/2013/04/controle-ao-tabagismo-sera-ampliado-na-rede-publica-de-saude">Saiba mais.</h:outputLink></p>
+                                <h4>#{messages['acompanhamento.ajuda.h4.3']}</h4>
+                                <p>#{messages['acompanhamento.ajuda.p.4a']}<h:outputLink value="http://www.brasil.gov.br/saude/2013/04/controle-ao-tabagismo-sera-ampliado-na-rede-publica-de-saude">#{messages['acompanhamento.ajuda.p.4b']}</h:outputLink></p>
                             </div>
 
                         </div>                                                                 
 
                         <div class="referencias">                            
-                            <p>Atualizado em 12/01/2014</p>
+                            <p>#{messages['update.date']}</p>
                         </div>
 
                     </div>

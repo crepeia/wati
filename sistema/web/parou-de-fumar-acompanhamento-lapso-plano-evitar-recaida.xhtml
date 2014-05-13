@@ -6,7 +6,7 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
     <h:head>
-        <title>Plano para recaídas e lapsos | Viva sem tabaco</title>
+        <title>#{messages['acompanhamento.plano.titlepage']} | #{messages['vivasemtabaco']}</title>
         <w:head_comum />
     </h:head>
     <h:body>
@@ -28,44 +28,44 @@
                         <h:form id="form">
 
                             <div class="fotoframeclean">
-                                <h:graphicImage  library="default" title="Acompanhamento" name="images/acompanhamento-interno.png" alt="Acompanhamento" />
+                                <h:graphicImage  library="default" title="#{messages['acompanhamento.plano.img.title']}" name="images/acompanhamento-interno.png" alt="#{messages['acompanhamento.plano.img.title']}" />
                             </div>                        
 
-                            <h1>Meu plano contra recaídas</h1>                            
-                            <p>Estas são as informações que separamos com base no que nos passou.</p>                            
-                            <p>Guarde seu plano no e-mail ou imprima e deixe perto de você. Na bolsa, telefone (smartphone) ou carteira.</p>                            
-                            <p>Se você já está com seu plano de parar, lembre-se, evite o primeiro cigarro.</p>
+                            <h1>#{messages['acompanhamento.plano.h1.1']}</h1>                            
+                            <p>#{messages['acompanhamento.plano.p.1']}</p>                            
+                            <p>#{messages['acompanhamento.plano.p.2']}</p>                            
+                            <p>#{messages['acompanhamento.plano.p.3']}</p>
 
-                            <h3>Situações de risco</h3>
+                            <h2>#{messages['acompanhamento.plano.h2.1']}</h2>
                             <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao1}"/><br/>
                             <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao2}"/><br/>
                             <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao3}"/><br/>
 
-                            <h3>Como vou lidar</h3>
+                            <h2>#{messages['acompanhamento.plano.h2.2']}</h2>
                             <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar1}"/><br/>
                             <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar2}"/><br/>
                             <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar3}"/><br/>
 
 
-                            <h2>Salvar</h2>
+                            <h2>#{messages['acompanhamento.plano.h2.3']}</h2>
 
                             <div id ="planoimg1">
                                 <div class="planoimg">                                                            
-                                    <h:outputLink target="_blank" value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml"><h:graphicImage  library="default" title="Imprimir" name="images/impressao.png" alt="Imprimir" /></h:outputLink>                                                            
-                                    <p><h:outputLink target="_blank" value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml">Imprimir</h:outputLink></p>
+                                    <h:outputLink target="_blank" value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml"><h:graphicImage  library="default" title="#{messages['acompanhamento.plano.imprimir']}" name="images/impressao.png" alt="#{messages['acompanhamento.plano.imprimir']}" /></h:outputLink>                                                            
+                                    <p><h:outputLink target="_blank" value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml">#{messages['acompanhamento.plano.imprimir']}</h:outputLink></p>
                                 </div>
                             </div>
 
                             <div id ="planoimg2">
                                 <div class="planoimg">
-                                    <h:commandLink action="#{prontoParaPararController.enviarEmail}"><h:graphicImage  library="default" title="Imprimir" name="images/email.png" alt="E-mail" /></h:commandLink>
-                                    <p><h:commandLink action="#{parouDeFumarController.enviarEmail}">E-mail</h:commandLink></p>
+                                    <h:commandLink action="#{prontoParaPararController.enviarEmail}"><h:graphicImage  library="default" title="#{messages['email']}" name="images/email.png" alt="#{messages['email']}" /></h:commandLink>
+                                    <p><h:commandLink action="#{parouDeFumarController.enviarEmail}">#{messages['email']}</h:commandLink></p>
                                 </div>
                             </div>
                             <p><p:messages /></p>
 
                             <div class="referencias">
-                                <p>Atualizado em 05/11/2013</p>                            
+                                <p>#{messages['update.date']}</p>                            
                             </div>
 
                         </h:form>
