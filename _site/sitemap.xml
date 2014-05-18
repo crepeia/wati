@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>http://localhost:4000</loc>
+        <loc>//crepeia.github.com/wati</loc>
     </url>
     
     
     <url>
-        <loc>http://localhost:4000/news/</loc>
+        <loc>//crepeia.github.com/wati/news/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/feed.xml</loc>
+        <loc>//crepeia.github.com/wati/feed.xml</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/about/</loc>
+        <loc>//crepeia.github.com/wati/about/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/search.json</loc>
+        <loc>//crepeia.github.com/wati/search.json</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/404.html</loc>
+        <loc>//crepeia.github.com/wati/404.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/sitemap.xml</loc>
+        <loc>//crepeia.github.com/wati/sitemap.xml</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/tags/</loc>
+        <loc>//crepeia.github.com/wati/tags/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/index.html</loc>
+        <loc>//crepeia.github.com/wati/index.html</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/install/</loc>
+        <loc>//crepeia.github.com/wati/install/</loc>
     </url>
     
 
     
     <url>
-        <loc>http://localhost:4000/news/teste/</loc>
+        <loc>//crepeia.github.com/wati/news/teste/</loc>
     </url>
     
     <url>
-        <loc>http://localhost:4000/news/code-new-blog/</loc>
+        <loc>//crepeia.github.com/wati/news/code-new-blog/</loc>
     </url>
     
 </urlset>

@@ -4,32 +4,33 @@
 
 
   
+  
 
 <title type="text">Live without tobacco project.</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
-<link rel="alternate" type="text/html" href="http://localhost:4000/" />
-<updated>2014-05-18T16:07:10-03:00</updated>
-<id>http://localhost:4000/</id>
+<link rel="self" type="application/atom+xml" href="http://crepeia.github.com/wati/feed.xml" />
+<link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/" />
+<updated>2014-05-18T16:16:38-03:00</updated>
+<id>http://crepeia.github.com/wati/</id>
 <author>
   <name>Henrique Pinto Gomide</name>
-  <uri>http://localhost:4000/</uri>
+  <uri>http://crepeia.github.com/wati/</uri>
   <email>henriquepgomide@gmail.com</email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[System is ready to translation]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/news/teste/"/>
-  <id>http://localhost:4000/news/teste</id>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/teste/"/>
+  <id>http://crepeia.github.com/wati/news/teste</id>
   <published>2013-05-18T00:00:00-03:00</published>
   <updated>2013-05-18T00:00:00-03:00</updated>
   <author>
     <name>Henrique Pinto Gomide</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://crepeia.github.com/wati</uri>
     <email>henriquepgomide@gmail.com</email>
   </author>
-  <category scheme="http://localhost:4000/tags/#live%20without%20tobacco" term="live without tobacco" /><category scheme="http://localhost:4000/tags/#translation" term="translation" />
+  <category scheme="http://crepeia.github.com/wati/tags/#live%20without%20tobacco" term="live without tobacco" /><category scheme="http://crepeia.github.com/wati/tags/#translation" term="translation" />
   <content type="html">
   
     &lt;p&gt;After 2 months working on code, the system is ready to translation. If you like to contribute and help spread the support of smoking cessation support, you just need to reach the spreadsheet in Google Docs.&lt;/p&gt;
@@ -40,22 +41,22 @@
 
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/teste/&quot;&gt;System is ready to translation&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on May 18, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/teste/&quot;&gt;System is ready to translation&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on May 18, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Live without tobacco - first realease]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/news/code-new-blog/"/>
-  <id>http://localhost:4000/news/code-new-blog</id>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/code-new-blog/"/>
+  <id>http://crepeia.github.com/wati/news/code-new-blog</id>
   <published>2013-05-01T00:00:00-03:00</published>
   <updated>2013-05-01T00:00:00-03:00</updated>
   <author>
     <name>Henrique Pinto Gomide</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://crepeia.github.com/wati</uri>
     <email>henriquepgomide@gmail.com</email>
   </author>
-  <category scheme="http://localhost:4000/tags/#sample%20post" term="sample post" /><category scheme="http://localhost:4000/tags/#code" term="code" /><category scheme="http://localhost:4000/tags/#highlighting" term="highlighting" />
+  <category scheme="http://crepeia.github.com/wati/tags/#sample%20post" term="sample post" /><category scheme="http://crepeia.github.com/wati/tags/#code" term="code" /><category scheme="http://crepeia.github.com/wati/tags/#highlighting" term="highlighting" />
   <content type="html">
   
     &lt;p&gt;“Live without tobacco” - the first open source web-assisted tobacco intervention is released. After 1 year of development, the portuguese version of the intervention is finally released. Now, we are seeking parterns for testing and translating in other languages. &lt;/p&gt;
@@ -65,7 +66,7 @@
 &lt;p&gt;In the next weeks, we are going to upload the documentation for install the intervention in your computer.&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/code-new-blog/&quot;&gt;Live without tobacco - first realease&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on May 01, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/code-new-blog/&quot;&gt;Live without tobacco - first realease&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on May 01, 2013.&lt;/p&gt;</content>
 </entry>
 
 </feed>
