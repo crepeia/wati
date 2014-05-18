@@ -1,0 +1,65 @@
+---
+layout: page
+permalink: /install/
+title: Install
+description: "Instructions on how to install and the Live without tobacco intervention."
+modified: 2014-05-18
+tags: [e-health, wati, live without tobacco, install, setup]
+---
+
+How to install and contribute to the project ****. 
+
+This page is under construction :/
+
+* Table of Contents
+{:toc}
+
+## Before you get started
+
+1. [Install Bundler](http://bundler.io) `gem install bundler` and then install [Jekyll](http://jekyllrb.com) and all dependencies `bundle install`.
+2. Fork the [So Simple Theme repo](https://github.com/mmistakes/so-simple-theme/fork).
+3. Clone the repo you just forked and rename it.
+4. Edit `_config.yml` to personalize your site.
+5. Check out the sample posts in `_posts` to see examples for pulling in large feature images, assigning categories and tags, and other YAML data.
+6. Read the documentation below for further customization pointers and documentation.
+
+<div markdown="0"><a href="https://github.com/mmistakes/so-simple-theme/archive/master.zip" class="btn">Download the Theme</a></div>
+
+**Pro-tip:** Delete the `gh-pages` branch after cloning and start fresh by branching off `master`. There is a bunch of garbage in `gh-pages` used for the theme's demo site that I'm guessing you don't want on your site.
+{: .notice}
+
+---
+
+## Dependencies
+
+
+### Java
+
+### MySQL
+
+### NetBeans
+
+### Glassfish
+
+
+---
+
+## Running project
+
+
+---
+
+## Translation
+
+---
+
+
+## Graphics
+
+### Images
+
+### Videos
+
+---
+
+
