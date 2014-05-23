@@ -10,13 +10,15 @@ E-mail - Preparar as mensagens de e-mail como arquivos externos
 
 Prioridade Média
 --------------------------
-preparando-parar-de-fumar-ansiedade-e-depressao.xhtml - Avaliação não está funcionando.
+preparando-parar-de-fumar-ansiedade-e-depressao.xhtml - Avaliação não está funcionando. (OK!!!!)
 preparando-parar-de-fumar-ansiedade-e-depressao - mostrar popup de avaliaçao
 parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print - Fazer plano em pdf
 pronto-para-parar-de-fumar-vencendo-a-fissura - inserir mp3
 pronto-para-parar-de-fumar-plano-personalizado - arrumar quebras de linha
 parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida - arrumar quebras de linha
 parou-de-fumar-recaida-ou-lapso - não trocar endereço da url ao mudar de página
+
+ansiedade-e-depressão: botão proximo não está funcionando
 
 
 

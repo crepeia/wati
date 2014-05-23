@@ -4,6 +4,33 @@
  */
 package wati.controller;
 
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Font.FontFamily;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Color;
+import java.io.ByteArrayOutputStream;
+import java.net.URL;
+import org.primefaces.model.StreamedContent;
+import java.awt.Color;
+import java.io.ByteArrayInputStream;
+import java.net.URL;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import org.primefaces.model.DefaultStreamedContent;
+
+
+
+
+
 import java.sql.SQLException;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -14,6 +41,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.naming.NamingException;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 import wati.model.Acompanhamento;
 import wati.model.ProntoParaParar;
 import wati.model.User;
@@ -31,6 +60,9 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
 	private static final int LIMITE_IGUALDADE_HORAS = 24;
 	private String recaida;
 	private Acompanhamento acompanhamento;
+        
+       // private StreamedContent lapsoReacaida;
+        
 
 	/**
 	 * Creates a new instance of ParouDeFumarController
@@ -231,4 +263,98 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
 		return this.acompanhamento;
 
 	}
-}
+        
+        
+        
+       /* 
+        public ByteArrayOutputStream gerarPdf2() {
+            try{
+                ByteArrayOutputStream os = new ByteArrayOutputStream();
+                
+                Document document = new Document();
+                PdfWriter.getInstance(document, os);
+                document.open();
+
+                document.addTitle("Recaída ou Lapso");
+                document.addAuthor("vivasemtabaco.com.br");
+                
+                URL url = FacesContext.getCurrentInstance().getExternalContext().getResource("/resources/default/images/viva-sem-tabaco-big.png");
+                Image img = Image.getInstance(url);
+                img.setAlignment(Element.ALIGN_CENTER);
+                img.scaleToFit(300, 300);
+                document.add(img);
+                
+                Color color = Color.getHSBColor(214, 81, 46);
+                Font f1 = new Font(FontFamily.TIMES_ROMAN, 20, Font.BOLD, BaseColor.BLUE);
+                f1.setColor(22, 63, 117);
+                Font f2 = new Font(FontFamily.TIMES_ROMAN, 14, Font.BOLD,  BaseColor.BLUE);
+                f2.setColor(22, 63, 117);
+                Font f3 = new Font(FontFamily.TIMES_ROMAN, 12);
+                    
+                Paragraph paragraph = new Paragraph("Recaída ou Lapso",f1);
+                paragraph.setAlignment(Element.ALIGN_CENTER);
+                document.add(paragraph);
+                paragraph.add(new Paragraph(" "));
+                paragraph.add(new Paragraph(" "));
+
+                paragraph = new Paragraph("Data de parada",f2);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getDataPararStr(),f3);
+                document.add(paragraph);
+                paragraph.add(new Paragraph(" "));
+            
+                paragraph = new Paragraph("Técnicas para fissura",f2);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getFissuraStr(),f3);
+                document.add(paragraph);
+                paragraph.add(new Paragraph(" "));
+                
+                paragraph = new Paragraph("Estratégias para resistir ao cigarro",f2);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara1(),f3);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara2(),f3);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara3(),f3);
+                document.add(paragraph);
+                paragraph.add(new Paragraph(" "));
+                               
+                paragraph = new Paragraph("O que deu certo da última vez que parei",f2);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida1(),f3);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida2(),f3);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida3(),f3);
+                document.add(paragraph);
+                paragraph.add(new Paragraph(" "));
+
+                document.close();                
+
+                return os;
+            }catch(Exception e){
+                return null;
+            }
+        
+        
+        public StreamedContent getLapsoRecaida(){
+
+            InputStream is;
+            try{
+                is = new ByteArrayInputStream(gerarPdf().toByteArray());
+                return new DefaultStreamedContent(is, "application/pdf", "plano.pdf");
+            }catch(Exception e){
+              Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, "Erro ao gerar o pdf");
+              return null;      
+            }
+                  
+
+   }
+                             
+         
+            
+        }*/
+        
+        
+ }
+        
