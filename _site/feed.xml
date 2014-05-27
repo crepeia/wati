@@ -10,13 +10,39 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://crepeia.github.com/wati/feed.xml" />
 <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/" />
-<updated>2014-05-18T19:34:01-03:00</updated>
+<updated>2014-05-26T21:37:15-03:00</updated>
 <id>http://crepeia.github.com/wati/</id>
 <author>
   <name>Henrique Pinto Gomide</name>
   <uri>http://crepeia.github.com/wati/</uri>
   <email>henriquepgomide@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Hallo! System is now being translated to german!]]></title>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/german/"/>
+  <id>http://crepeia.github.com/wati/news/german</id>
+  <published>2013-05-26T00:00:00-03:00</published>
+  <updated>2013-05-26T00:00:00-03:00</updated>
+  <author>
+    <name>Henrique Pinto Gomide</name>
+    <uri>http://crepeia.github.com/wati</uri>
+    <email>henriquepgomide@gmail.com</email>
+  </author>
+  <category scheme="http://crepeia.github.com/wati/tags/#translation" term="translation" /><category scheme="http://crepeia.github.com/wati/tags/#german" term="german" />
+  <content type="html">
+  
+    &lt;p&gt;Caroline Jansen, an exchange student in Brazil and also a very kind person, is going to translate the intervention to German. She has lived in Brazil for about 9 months studying at Federal University of Juiz de Fora and working at General Consulate of Germany (deutschen Auslandsvertretungen) in Rio de Janeiro.&lt;/p&gt;
+
+&lt;p&gt;The german version is expected to come out at the end of 2014. &lt;/p&gt;
+
+&lt;p&gt;If you like to join her spreading the word, reach us.&lt;/p&gt;
+
+
+  
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/german/&quot;&gt;Hallo! System is now being translated to german!&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on May 26, 2013.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
