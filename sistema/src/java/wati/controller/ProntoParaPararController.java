@@ -5,10 +5,8 @@ the editor.
  */
 package wati.controller;
 
-import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Font.FontFamily;
@@ -18,7 +16,6 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Color;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
@@ -59,7 +56,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 	private Map<String, String> anos = new LinkedHashMap<String, String>();
 	private GregorianCalendar gregorianCalendar = null;
         private StreamedContent planoPersonalizado;
-
+        
 	public ProntoParaPararController() {
 		//super(ProntoParaParar.class);
 		try {

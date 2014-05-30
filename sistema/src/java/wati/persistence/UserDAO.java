@@ -6,40 +6,45 @@
 
 package wati.persistence;
 
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import javax.naming.NamingException;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import wati.model.User;
 
 /**
  *
  * @author Thiago
  */
-public class UserDAO {
+public class UserDAO extends GenericDAO {
     
-    @PersistenceContext
-    private EntityManager entityManager = null;
+    public UserDAO(Class classe) throws NamingException {
+        super(classe);
+    }
     
-    public List acompanhamentoDataDifente(EntityManager entityManager){
-        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataParar != u.prontoParaParar.dataInserido");
+    public List acompanhamentoDataDiferente(EntityManager entityManager){
+        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataParar != u.prontoParaParar.dataInserido and u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.emailDataDiferente is null");
+        Date data = Calendar.getInstance().getTime();
+        query.setParameter("data",data );
+        query.setHint("toplink.refresh", "true");
         return query.getResultList();
-        
     }
     
     public List acompanhamentoPrimeiraSemana(EntityManager entityManager){
-        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido >= :data and u.acompanhamentoEmail.segundaSemana is null");
+        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.emailPrimeiraSemana is null");
         Calendar c = Calendar.getInstance();
         c.add(Calendar.DAY_OF_MONTH, -14);
         Date data = c.getTime();
-        query.setParameter("data",data );
+        query.setParameter("data",data);
         return query.getResultList();
         
     }
     
     public List acompanhamentoSegundaSemana(EntityManager entityManager){
-        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido >= :data and u.acompanhamentoEmail.segundaSemana is null");
+        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.emailSegundaSemana.emailSegundaSemana is null");
         Calendar c = Calendar.getInstance();
         c.add(Calendar.DAY_OF_MONTH, -21);
         Date data = c.getTime();
@@ -49,7 +54,7 @@ public class UserDAO {
     }
     
    public List acompanhamentoTerceiraSemana(EntityManager entityManager){
-        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido >= :data and u.acompanhamentoEmail.terceiraSemana is null");
+        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.emailTerceiraSemana is null");
         Calendar c = Calendar.getInstance();
         c.add(Calendar.DAY_OF_MONTH, -28);
         Date data = c.getTime();
@@ -59,7 +64,7 @@ public class UserDAO {
     }
     
     public List acompanhamentoMensal(EntityManager entityManager){
-        Query query = entityManager.createQuery("from User as u where u.acompanhamentoEmail.terceiraSemana is not null and (u.acompanhamentoEmail.mensal is null or u.acompanhamentoEmail.mensal >= :data)");
+        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.emailTerceiraSemana is not null and (u.prontoParaParar.emailTerceiraSemana is null or u.prontoParaParar.emailMensal <= :data)");
         Calendar c = Calendar.getInstance();
         c.add(Calendar.DAY_OF_MONTH, -30);
         Date data = c.getTime();
@@ -67,16 +72,15 @@ public class UserDAO {
         return query.getResultList();
         
     }
-
-    public EntityManager getEntityManager() {
-        return entityManager;
-    }
-
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
-
     
-    
-    
+    public void updateWithoutTransaction(User objeto, EntityManager entityManager) throws SQLException {
+		try {
+
+			entityManager.merge(objeto);
+
+		} catch (Exception erro) {
+			throw new SQLException(erro);
+		}
+	}
+
 }

@@ -11,6 +11,8 @@ import java.util.GregorianCalendar;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.crypto.BadPaddingException;
@@ -25,7 +27,6 @@ import javax.faces.event.ActionEvent;
 import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import wati.model.AcompanhamentoEmail;
 import wati.model.User;
 import wati.persistence.GenericDAO;
 import wati.utility.Encrypter;
@@ -51,13 +52,13 @@ public class UserController extends BaseFormController<User> {
 	private Map<String, String> dias = new LinkedHashMap<String, String>();
 	private Map<String, String> meses = new LinkedHashMap<String, String>();
 	private Map<String, String> anos = new LinkedHashMap<String, String>();
-	private String[] nomeMeses = {"Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"};
+	private String[] nomeMeses;
 
 	@PersistenceContext
 	private EntityManager entityManager = null;
         
         private GenericDAO dao = null;
-	
+       
 	/**
 	 * Creates a new instance of UserController
 	 */
@@ -70,6 +71,14 @@ public class UserController extends BaseFormController<User> {
 		for (int i = 1; i <= 31; i++) {
 			dias.put(String.valueOf(i), String.valueOf(i));
 		}
+                
+                nomeMeses = new String[12];
+                
+                for(int i = 0; i < 12; i++){
+                    nomeMeses[i] = PropertyResourceBundle.getBundle("wati.utility.messages").getString("month." + String.valueOf(i+1));
+                    //nomeMeses[i] = PropertyResourceBundle.getBundle("wati.utility.messages",locale).getString("month." + String.valueOf(i+1)); 
+                }
+                
 
 		for (int i = 0; i < this.nomeMeses.length; i++) {
 			//meses.put(this.nomeMeses[ i], String.valueOf(i+1));
@@ -81,6 +90,8 @@ public class UserController extends BaseFormController<User> {
 		for (int i = lastYear; i > lastYear - 100; i--) {
 			anos.put(String.valueOf(i), String.valueOf(i));
 		}
+                
+                
             try {                
                 dao = new GenericDAO(User.class);
             } catch (NamingException ex) {

@@ -60,6 +60,23 @@ public class ProntoParaParar implements Serializable {
 	@Column(name = "data_inserido")
 	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date dataInserido; 
+        
+        @Column(name = "email_data_diferente")
+        @Temporal(javax.persistence.TemporalType.DATE)
+        private Date emailDataDiferente;
+        @Column(name = "email_primeira_semana")
+        @Temporal(javax.persistence.TemporalType.DATE)
+        private Date emailPrimeiraSemana;
+        @Column(name = "email_segunda_semana")
+        @Temporal(javax.persistence.TemporalType.DATE)
+        private Date emailSegundaSemana;
+        @Column(name = "email_terceira_semana")
+        @Temporal(javax.persistence.TemporalType.DATE)
+        private Date emailTerceiraSemana;
+        @Column(name = "email_mensal")
+        @Temporal(javax.persistence.TemporalType.DATE)
+        private Date emailMensal;
+        
 
 	public ProntoParaParar() {
 		this.dataInserido = ((GregorianCalendar) GregorianCalendar.getInstance()).getTime();
@@ -304,4 +321,45 @@ public class ProntoParaParar implements Serializable {
 	public void setDataInserido(Date dataInserido) {
 		this.dataInserido = dataInserido;
 	}
+
+        public Date getEmailDataDiferente() {
+            return emailDataDiferente;
+        }
+
+        public void setEmailDataDiferente(Date emailDataDiferente) {
+            this.emailDataDiferente = emailDataDiferente;
+        }
+
+        public Date getEmailPrimeiraSemana() {
+            return emailPrimeiraSemana;
+        }
+
+        public void setEmailPrimeiraSemana(Date emailPrimeiraSemana) {
+            this.emailPrimeiraSemana = emailPrimeiraSemana;
+        }
+
+        public Date getEmailSegundaSemana() {
+            return emailSegundaSemana;
+        }
+
+        public void setEmailSegundaSemana(Date emailSegundaSemana) {
+            this.emailSegundaSemana = emailSegundaSemana;
+        }
+
+        public Date getEmailTerceiraSemana() {
+            return emailTerceiraSemana;
+        }
+
+        public void setEmailTerceiraSemana(Date emailTerceiraSemana) {
+            this.emailTerceiraSemana = emailTerceiraSemana;
+        }
+
+        public Date getEmailMensal() {
+            return emailMensal;
+        }
+
+        public void setEmailMensal(Date emailMensal) {
+            this.emailMensal = emailMensal;
+        }
+        
 }

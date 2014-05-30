@@ -42,10 +42,7 @@ public class User {
         
 	@OneToOne(mappedBy = "usuario")
 	private ProntoParaParar prontoParaParar;
-        
-        @OneToOne(mappedBy = "usuario")
-	private AcompanhamentoEmail acompanhamentoEmail;
-	
+       	
 	@OneToMany(fetch= FetchType.LAZY)
 	private List<Acompanhamento> acompanhamentos;
 
@@ -166,13 +163,6 @@ public class User {
 		this.acompanhamentos = acompanhamentos;
 	}
 
-        public AcompanhamentoEmail getAcompanhamentoEmail() {
-            return acompanhamentoEmail;
-        }
-
-        public void setAcompanhamentoEmail(AcompanhamentoEmail acompanhamentoEmail) {
-            this.acompanhamentoEmail = acompanhamentoEmail;
-        }
         
 }
 
