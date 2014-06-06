@@ -3,44 +3,28 @@ WATI
 
 Prioridade Alta
 ------------------------
+pronto-para-parar-de-fumar-plano-personalizado - inserir mp3 no plano e colocar quebra de linha nas opções - Daniela.
+Após efetuar o cadastro, redirecionar o usuário para página principal. - Daniela.
+Plano de acompanhamento - Se usuário preencheu os campos, aparecer o que ele preencheu. Se não, aparecer texto padrão. - Daniela.
 
-E-mail - Testar periodo das msgs de e-mail
-E-mail - Preparar as mensagens de e-mail como arquivos externos
+Plano de acompanhamento - Escrever texto padrão. - Henrique
+Retirar página inicial de acompanhamento - Henrique 
+Escrever página para quem teve o lapso - Henrique
+
+
 
 
 Prioridade Média
---------------------------
-preparando-parar-de-fumar-ansiedade-e-depressao.xhtml - Avaliação não está funcionando. (OK!!!!)
-preparando-parar-de-fumar-ansiedade-e-depressao - mostrar popup de avaliaçao
-parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print - Fazer plano em pdf
-pronto-para-parar-de-fumar-vencendo-a-fissura - inserir mp3
-pronto-para-parar-de-fumar-plano-personalizado - arrumar quebras de linha
-parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida - arrumar quebras de linha
-parou-de-fumar-recaida-ou-lapso - não trocar endereço da url ao mudar de página
-
-ansiedade-e-depressão: botão proximo não está funcionando
-
+-------------------------- 
 
 
 Prioridade Baixa
 -------------------------
-cadastrar-nova-conta - checklist mês
 login-dialog - fechar e redirecionar
 contato - mostrar carregamento e limpar campos
-pronto-para-parar-de-fumar-plano-personalizado - aviso de e-mail enviado
-
-
 
 
 Problemas não resolvidos
 -------------------------
-menu lateral - destacar etapa atual - não conseguir fazer (Henrique)
-
-
-
-
-
-
-etapa preparando para parar - (Henrique)
-* inserir página com fumo passivo
-* colocar odds ratio de fumar. Número de vezes.
+parou-de-fumar-recaida-ou-lapso - não trocar endereço da url ao mudar de página
+E-mail - Preparar as mensagens de e-mail como arquivos externos - (PENDENTE)
