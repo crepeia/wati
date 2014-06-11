@@ -150,7 +150,7 @@ public class UserController extends BaseFormController<User> {
 		this.password = password;
 	}
 
-	public void save(ActionEvent actionEvent) {
+	public String save(ActionEvent actionEvent) {
 
 		this.showErrorMessage = true;
 		this.user.setBirth(new GregorianCalendar(ano, mes, dia).getTime());
@@ -179,7 +179,11 @@ public class UserController extends BaseFormController<User> {
 
                             super.save(actionEvent, entityManager);
                             //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));
-                            this.clear();
+                            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
+                            
+                            return "index.xhtml";
+                            //this.clear();
+                            
                         }
 
 		} catch (InvalidKeyException ex) {
@@ -202,8 +206,16 @@ public class UserController extends BaseFormController<User> {
                         Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
                         
 		}
+                
+                return "";
+                /*if(user != null)
+                    return "cadastrar-nova-conta.xhtml";
+                else
+                    return "index.xhtml";*/
 
 	}
+        
+        
 
 	/**
 	 * @return the dia

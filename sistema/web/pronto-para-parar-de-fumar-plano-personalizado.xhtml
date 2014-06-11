@@ -43,7 +43,13 @@
                                 <h2>#{messages['pronto.plano.h2.1']}</h2>
                                 <h:outputText value="#{prontoParaPararController.prontoParaParar.dataPararStr}"/>
                                 <h2>#{messages['pronto.plano.h2.2']}</h2>
-                                <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraStr}"/>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraBeberAgua}"/><br/>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraComer}" rendered="#{prontoParaPararController.prontoParaParar.enfrentarFissuraComer}"/><br/>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraLerRazoes}"/><br/>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraRelaxamento}"/>
+                                <h:outputLink value="#{prontoParaPararController.prontoParaParar.link}"> 
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.textoLink}"/>
+                                </h:outputLink>
                                 <!--inserir as estratégias escolhidas em "pronto-para-parar-de-fumar-vencendo-a-fissura.xhtml" -->
                                 <h2>#{messages['pronto.plano.h2.3']}</h2>
                                 <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara1}"/><br />

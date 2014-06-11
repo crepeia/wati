@@ -1,9 +1,10 @@
-/*
+ /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package wati.model;
 
+import java.awt.Desktop;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -290,23 +291,75 @@ public class ProntoParaParar implements Serializable {
 		gc.setTime(dataParar);
 		return gc.get(GregorianCalendar.DAY_OF_MONTH) + "/" + gc.get(GregorianCalendar.MONTH) + "/" + gc.get(GregorianCalendar.YEAR);
 	}
-
+        
+        
+        public String getFissuraBeberAgua(){
+            if(isEnfrentarFissuraBeberAgua())
+                return("Beber um copo de água pausadamente.");
+            else
+                return null;
+        }
+        
+        public String getFissuraComer(){
+            //if(isEnfrentarFissuraComer())
+                return("Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas), balas dietéticas e chicletes dietéticos.\n");
+        
+        }
+        public String getFissuraLerRazoes(){
+            if(isEnfrentarFissuraLerRazoes())
+                return("Ler um cartão com suas razões para ter parado de fumar.\n");
+            else
+                return "";
+        }
+        public String getFissuraRelaxamento(){
+            if(isEnfrentarFissuraRelaxamento())
+                return("Fazer exercício de relaxamento - ");
+            else
+                return "";
+        }
+        
+        public String getLink(){
+            if(isEnfrentarFissuraRelaxamento())
+                return "http://vivasemtabaco.com.br/download/surfandoafissura.mp3";
+            else
+                 return "";
+        }
+        
+        public String getTextoLink(){
+            if(isEnfrentarFissuraRelaxamento())
+                return(" em áudio MP3 \n");
+            else
+                return "";
+        }
+        
+        
+        
 	public String getFissuraStr() {
 		StringBuilder s = new StringBuilder();
 		if (isEnfrentarFissuraBeberAgua()) {
-			s.append("Beber um copo de água pausadamente. \n");
+			s.append("Beber um copo de água pausadamente.").append("\n");
 		}
 		if (isEnfrentarFissuraComer()) {
-			s.append("Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas), balas dietéticas e chicletes dietéticos.\n");
+			s.append("Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas), balas dietéticas e chicletes dietéticos.").append("\n");
 		}
 		if (isEnfrentarFissuraLerRazoes()) {
-			s.append("Fazer exercício de relaxamento - em áudio MP3 - vivasemtabaco.com.br/download/surfandoafissura.mp3 \n");
+			s.append("Fazer exercício de relaxamento - em áudio MP3 - vivasemtabaco.com.br/download/surfandoafissura.mp3").append("\n");
 		}
 		if (isEnfrentarFissuraRelaxamento()) {
-			s.append("Ler um cartão com suas razões para ter parado de fumar.\n");                        
+			s.append("Ler um cartão com suas razões para ter parado de fumar.").append("\n");                        
 		}
 		return s.toString();
 	}
+        
+        public void url(){
+            Desktop desk = java.awt.Desktop.getDesktop();
+            try{
+                desk.browse(new java.net.URI("vivasemtabaco.com.br/download/surfandoafissura.mp3"));
+               
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
 
 	/**
 	 * @return the dataInserido
@@ -361,5 +414,9 @@ public class ProntoParaParar implements Serializable {
         public void setEmailMensal(Date emailMensal) {
             this.emailMensal = emailMensal;
         }
+
+    private void append(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
         
 }
