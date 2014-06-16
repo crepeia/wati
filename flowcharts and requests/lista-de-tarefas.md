@@ -8,8 +8,8 @@ Após efetuar o cadastro, redirecionar o usuário para página principal. - Dani
 Plano de acompanhamento - Se usuário preencheu os campos, aparecer o que ele preencheu. Se não, aparecer texto padrão. - Daniela.
 
 Plano de acompanhamento - Escrever texto padrão. - Henrique
-Retirar página inicial de acompanhamento - Henrique 
-Escrever página para quem teve o lapso - Henrique
+Retirar página inicial de acompanhamento - Henrique - OK
+Escrever página para quem teve o lapso - Henrique - OK
 
 
 
