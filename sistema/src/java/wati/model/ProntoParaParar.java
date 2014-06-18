@@ -301,35 +301,37 @@ public class ProntoParaParar implements Serializable {
         }
         
         public String getFissuraComer(){
-            //if(isEnfrentarFissuraComer())
+            if(isEnfrentarFissuraComer())
                 return("Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas), balas dietéticas e chicletes dietéticos.\n");
+            else
+                return null;
         
         }
         public String getFissuraLerRazoes(){
             if(isEnfrentarFissuraLerRazoes())
                 return("Ler um cartão com suas razões para ter parado de fumar.\n");
             else
-                return "";
+                return null;
         }
         public String getFissuraRelaxamento(){
             if(isEnfrentarFissuraRelaxamento())
                 return("Fazer exercício de relaxamento - ");
             else
-                return "";
+                return null;
         }
         
         public String getLink(){
             if(isEnfrentarFissuraRelaxamento())
                 return "http://vivasemtabaco.com.br/download/surfandoafissura.mp3";
             else
-                 return "";
+                 return null;
         }
         
         public String getTextoLink(){
             if(isEnfrentarFissuraRelaxamento())
                 return(" em áudio MP3 \n");
             else
-                return "";
+                return null;
         }
         
         

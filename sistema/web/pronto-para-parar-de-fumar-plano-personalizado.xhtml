@@ -5,7 +5,8 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>#{messages['pronto.plano.titlepage']} | #{messages['vivasemtabaco.title']}</title>
         <w:head_comum />
@@ -43,17 +44,17 @@
                                 <h2>#{messages['pronto.plano.h2.1']}</h2>
                                 <h:outputText value="#{prontoParaPararController.prontoParaParar.dataPararStr}"/>
                                 <h2>#{messages['pronto.plano.h2.2']}</h2>
-                                <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraBeberAgua}"/><br/>
-                                <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraComer}" rendered="#{prontoParaPararController.prontoParaParar.enfrentarFissuraComer}"/><br/>
-                                <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraLerRazoes}"/><br/>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraBeberAgua}"/><ui:fragment rendered="#{prontoParaPararController.prontoParaParar.enfrentarFissuraBeberAgua}"><br /></ui:fragment>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraComer}"/><ui:fragment rendered="#{prontoParaPararController.prontoParaParar.enfrentarFissuraComer}"><br /></ui:fragment>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraLerRazoes}"/><ui:fragment rendered="#{prontoParaPararController.prontoParaParar.enfrentarFissuraLerRazoes}"><br /></ui:fragment>
                                 <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraRelaxamento}"/>
                                 <h:outputLink value="#{prontoParaPararController.prontoParaParar.link}"> 
                                 <h:outputText value="#{prontoParaPararController.prontoParaParar.textoLink}"/>
                                 </h:outputLink>
                                 <!--inserir as estratégias escolhidas em "pronto-para-parar-de-fumar-vencendo-a-fissura.xhtml" -->
                                 <h2>#{messages['pronto.plano.h2.3']}</h2>
-                                <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara1}"/><br />
-                                <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara2}"/><br />
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara1}"/><ui:fragment rendered="#{prontoParaPararController.evitarRecaidaFara11}"><br /></ui:fragment>
+                                <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara2}"/><ui:fragment rendered="#{prontoParaPararController.evitarRecaidaFara22}"><br /></ui:fragment>
                                 <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara3}"/><br />
                                 <!-- inserir as estratégias daqui pronto-para-parar-de-fumar-como-evitar-recaidas-estrategias.xhtml" -->
                                 <h2>#{messages['pronto.plano.h2.4']}</h2>                                
