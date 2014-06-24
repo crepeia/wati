@@ -349,6 +349,28 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 		arrayList.add(prontoParaParar);
 		return arrayList;
 	}
+        
+        public boolean isEvitarRecaidaFara11(){
+            if(prontoParaParar.getEvitarRecaidaFara1() == null || prontoParaParar.getEvitarRecaidaFara1().trim().isEmpty() || prontoParaParar.getEvitarRecaidaFara1() == "")
+                return false;
+            else
+                return true;
+        }
+        
+        public boolean isEvitarRecaidaFara22(){
+            if(prontoParaParar.getEvitarRecaidaFara2() == null || prontoParaParar.getEvitarRecaidaFara1().trim().isEmpty())
+                return false;
+            else
+                return true;
+        }
+        
+        public boolean isEvitarRecaidaFara33(){
+            if(prontoParaParar.getEvitarRecaidaFara2() != null &&  prontoParaParar.getEvitarRecaidaFara3() != null)
+                return true;
+            else
+                return false;
+        }
+        
 
 	public void enviarEmail() {
 
