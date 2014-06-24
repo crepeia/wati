@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
+    <h:head>
+        <title>#{messages['acompanhamento.plano.titlepage']} | #{messages['vivasemtabaco']}</title>
+        <w:head_comum />
+    </h:head>
+    <h:body>
+        <div id="corpo"> 
+            <!-- header -->    
+            <w:header loginRequired="true" />
+            <w:topmenu />
+
+            <!--mainmenu-->         	
+            <div class="main">
+
+
+                <w:leftmenu_3 cssClass="leftmenu3" />
+
+                <div class="pagecontent">
+
+                    <div id="pagecont2">
+
+                        <h:form id="form">
+
+                            <div class="fotoframeclean">
+                                <h:graphicImage  library="default" title="#{messages['acompanhamento.plano.img.title']}" name="images/acompanhamento-interno.png" alt="#{messages['acompanhamento.plano.img.title']}" />
+                            </div>                        
+
+                            <h1>#{messages['acompanhamento.plano.h1.1']}</h1>                            
+                            <p>#{messages['acompanhamento.plano.padrao.p.1']}</p>                            
+
+                            <h2>#{messages['acompanhamento.plano.padrao.h2.1']}</h2>
+                            <ul>
+                                <li>#{messages['acompanhamento.plano.padrao.li.1']}</li>
+                                <li>#{messages['acompanhamento.plano.padrao.li.2']}</li>
+                            </ul>
+
+                            <h2>#{messages['acompanhamento.plano.padrao.h2.2']}</h2>
+                            <ul>
+                                <li>#{messages['acompanhamento.plano.padrao.li.3']}</li>
+                                <li>#{messages['acompanhamento.plano.padrao.li.4']}</li>
+                                <li>#{messages['acompanhamento.plano.padrao.li.5']}</li>
+                            </ul>
+                            
+                            <h2>#{messages['acompanhamento.plano.padrao.h2.3']}</h2>
+                            <div class="buscarajuda">
+                                <div class="imgbuscarajuda">
+                                    <h:outputLink value="./index.xhtml">
+                                        <h:graphicImage library="default" title="#{messages['vivasemtabaco']}" name="images/vst-100.png" alt="#{messages['vivasemtabaco']}"/>
+                                    </h:outputLink>
+                                </div>
+                                <div class="pbuscarajuda">
+                                    <h4><h:outputLink value="./index.xhtml">#{messages['acompanhamento.ajuda.h4.1']}</h:outputLink></h4>
+                                    <p>#{messages['acompanhamento.ajuda.p.2a']} <br /><h:outputLink value="./index.xhtml">#{messages['acompanhamento.ajuda.p.2b']}</h:outputLink>.</p>
+                                </div> 
+                            </div>
+
+                            <h2>#{messages['acompanhamento.plano.h2.3']}</h2>
+
+                            <div id ="planoimg1">
+                                <div class="planoimg">                                                            
+                                    <h:outputLink target="_blank" value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml"><h:graphicImage  library="default" title="#{messages['acompanhamento.plano.imprimir']}" name="images/impressao.png" alt="#{messages['acompanhamento.plano.imprimir']}" /></h:outputLink>                                                            
+                                    <p><h:outputLink target="_blank" value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml">#{messages['acompanhamento.plano.imprimir']}</h:outputLink></p>
+                                </div>
+                            </div>
+
+                            <div id ="planoimg2">
+                                <div class="planoimg">
+                                    <h:commandLink action="#{prontoParaPararController.enviarEmail}"><h:graphicImage  library="default" title="#{messages['email']}" name="images/email.png" alt="#{messages['email']}" /></h:commandLink>
+                                    <p><h:commandLink action="#{parouDeFumarController.enviarEmail}">#{messages['email']}</h:commandLink></p>
+                                </div>
+                            </div>
+                            <p><p:messages /></p>
+                                                        
+                            
+                            
+                            <div class="referencias">
+                                <p>#{messages['update.date']}</p>                            
+                            </div>
+
+                        </h:form>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!-- end.corpo --> 
+
+        <!--Footer -->
+        <w:footer />
+    </h:body>
+</html>
+
