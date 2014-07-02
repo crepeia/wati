@@ -39,287 +39,266 @@ import wati.utility.Encrypter;
 @SessionScoped
 public class UserController extends BaseFormController<User> {
 
-	private User user;
+    private User user;
 
-	private String password;
+    private String password;
 
-	private int dia;
-	private int mes;
-	private int ano;
+    private int dia;
+    private int mes;
+    private int ano;
 
-	private boolean showErrorMessage;
+    private boolean showErrorMessage;
 
-	private Map<String, String> dias = new LinkedHashMap<String, String>();
-	private Map<String, String> meses = new LinkedHashMap<String, String>();
-	private Map<String, String> anos = new LinkedHashMap<String, String>();
-	private String[] nomeMeses;
+    private Map<String, String> dias = new LinkedHashMap<String, String>();
+    private Map<String, String> meses = new LinkedHashMap<String, String>();
+    private Map<String, String> anos = new LinkedHashMap<String, String>();
+    private String[] nomeMeses;
 
-	@PersistenceContext
-	private EntityManager entityManager = null;
-        
-        private GenericDAO dao = null;
-       
-	/**
-	 * Creates a new instance of UserController
-	 */
-	public UserController() {
+    @PersistenceContext
+    private EntityManager entityManager = null;
 
-		super(User.class);
+    private GenericDAO dao = null;
 
-		this.showErrorMessage = false;
+    /**
+     * Creates a new instance of UserController
+     */
+    public UserController() {
 
-		for (int i = 1; i <= 31; i++) {
-			dias.put(String.valueOf(i), String.valueOf(i));
-		}
-                
-                nomeMeses = new String[12];
-                
-                for(int i = 0; i < 12; i++){
-                    nomeMeses[i] = PropertyResourceBundle.getBundle("wati.utility.messages").getString("month." + String.valueOf(i+1));
-                    //nomeMeses[i] = PropertyResourceBundle.getBundle("wati.utility.messages",locale).getString("month." + String.valueOf(i+1)); 
+        super(User.class);
+
+        this.showErrorMessage = false;
+
+        for (int i = 1; i <= 31; i++) {
+            dias.put(String.valueOf(i), String.valueOf(i));
+        }
+
+
+        for (int i = 1; i <= 12; i++) {
+            //meses.put(this.nomeMeses[ i], String.valueOf(i+1));
+            meses.put(PropertyResourceBundle.getBundle("wati.utility.messages").getString("month." + String.valueOf(i)),
+                    String.valueOf(i - 1));
+        }
+
+        GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
+        int lastYear = gc.get(GregorianCalendar.YEAR) - 1;
+        for (int i = lastYear; i > lastYear - 100; i--) {
+            anos.put(String.valueOf(i), String.valueOf(i));
+        }
+
+        try {
+            dao = new GenericDAO(User.class);
+        } catch (NamingException ex) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    /**
+     * @return the user
+     */
+    public User getUser() {
+        if (user == null) {
+            String id = this.getParameterMap().get("id");
+            if (id == null || id.isEmpty()) {
+                this.user = new User();
+            } else {
+                try {
+                    List<User> list = this.getDaoBase().list("id", Long.parseLong(id), this.entityManager);
+                    if (list.isEmpty()) {
+                        this.user = new User();
+                    } else {
+                        this.user = list.get(0);
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+                    this.user = new User();
                 }
-                
-
-		for (int i = 0; i < this.nomeMeses.length; i++) {
-			//meses.put(this.nomeMeses[ i], String.valueOf(i+1));
-			meses.put(this.nomeMeses[i], String.valueOf(i));
-		}
-
-		GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
-		int lastYear = gc.get(GregorianCalendar.YEAR) - 1;
-		for (int i = lastYear; i > lastYear - 100; i--) {
-			anos.put(String.valueOf(i), String.valueOf(i));
-		}
-                
-                
-            try {                
-                dao = new GenericDAO(User.class);
-            } catch (NamingException ex) {
-                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-	}
+        }
+        return user;
+    }
 
-	/**
-	 * @return the user
-	 */
-	public User getUser() {
-		if (user == null) {
-			String id = this.getParameterMap().get("id");
-			if (id == null || id.isEmpty()) {
-				this.user = new User();
-			} else {
-				try {
-					List<User> list = this.getDaoBase().list("id", Long.parseLong(id), this.entityManager);
-					if (list.isEmpty()) {
-						this.user = new User();
-					} else {
-						this.user = list.get(0);
-					}
-				} catch (SQLException ex) {
-					Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-					this.user = new User();
-				}
-			}
+    /**
+     * @param user the user to set
+     */
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-		}
-		return user;
-	}
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        if (this.password == null) {
+            this.password = this.user == null || this.user.getPassword() == null ? "" : this.user.getPassword().toString();
+        }
+        return this.password;
+    }
 
-	/**
-	 * @param user the user to set
-	 */
-	public void setUser(User user) {
-		this.user = user;
-	}
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	/**
-	 * @return the password
-	 */
-	public String getPassword() {
-		if (this.password == null) {
-			this.password = this.user == null || this.user.getPassword() == null ? "" : this.user.getPassword().toString();
-		}
-		return this.password;
-	}
+    public void save(ActionEvent actionEvent) {
 
-	/**
-	 * @param password the password to set
-	 */
-	public void setPassword(String password) {
-		this.password = password;
-	}
+        this.showErrorMessage = true;
+        this.user.setBirth(new GregorianCalendar(ano, mes, dia).getTime());
 
-	public String save(ActionEvent actionEvent) {
+        try {
+            if (!(dao.list("email", user.getEmail(), entityManager).isEmpty())) {
+                String message = "Email já cadastrado.";
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+            } else {
 
-		this.showErrorMessage = true;
-		this.user.setBirth(new GregorianCalendar(ano, mes, dia).getTime());
+                if (user.getId() == 0) {
 
-		try {
-                        if(!(dao.list("email", user.getEmail(), entityManager).isEmpty())){
-                            String message = "Email já cadastrado.";
-                            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
-                        }else{    
-                    
-                            if (user.getId() == 0) {
+                    //incluir criptografia da senha
+                    this.user.setPassword(Encrypter.encrypt(this.password));
 
-                                    //incluir criptografia da senha
-                                    this.user.setPassword(Encrypter.encrypt(this.password));
+                } else {
 
-                            } else {
+                    if (!Encrypter.compare(this.password, this.user.getPassword())) {
+                        //incluir criptografia da senha
+                        this.user.setPassword(Encrypter.encrypt(this.password));
+                    }
 
-                                    if (!Encrypter.compare(this.password, this.user.getPassword())) {
-                                            //incluir criptografia da senha
-                                            this.user.setPassword(Encrypter.encrypt(this.password));
-                                    }
+                }
 
-                            }
+                super.save(actionEvent, entityManager);
+                //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));
+                this.clear();
+            }
 
+        } catch (InvalidKeyException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalBlockSizeException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadPaddingException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchAlgorithmException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchPaddingException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
 
+        }
 
-                            super.save(actionEvent, entityManager);
-                            //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));
-                            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
-                            
-                            return "index.xhtml";
-                            //this.clear();
-                            
-                        }
+    }
 
-		} catch (InvalidKeyException ex) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
-			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-		} catch (IllegalBlockSizeException ex) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
-			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-		} catch (BadPaddingException ex) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
-			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-		} catch (NoSuchAlgorithmException ex) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
-			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-		} catch (NoSuchPaddingException ex) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
-			Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (SQLException ex) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar usuário.", null));
-                        Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-                        
-		}
-                
-                return "";
-                /*if(user != null)
-                    return "cadastrar-nova-conta.xhtml";
-                else
-                    return "index.xhtml";*/
+    /**
+     * @return the dia
+     */
+    public int getDia() {
+        return dia;
+    }
 
-	}
-        
-        
+    /**
+     * @param dia the dia to set
+     */
+    public void setDia(int dia) {
+        this.dia = dia;
+    }
 
-	/**
-	 * @return the dia
-	 */
-	public int getDia() {
-		return dia;
-	}
+    /**
+     * @return the mes
+     */
+    public int getMes() {
+        return mes;
+    }
 
-	/**
-	 * @param dia the dia to set
-	 */
-	public void setDia(int dia) {
-		this.dia = dia;
-	}
+    /**
+     * @param mes the mes to set
+     */
+    public void setMes(int mes) {
+        this.mes = mes;
+    }
 
-	/**
-	 * @return the mes
-	 */
-	public int getMes() {
-		return mes;
-	}
+    /**
+     * @return the ano
+     */
+    public int getAno() {
+        return ano;
+    }
 
-	/**
-	 * @param mes the mes to set
-	 */
-	public void setMes(int mes) {
-		this.mes = mes;
-	}
+    /**
+     * @param ano the ano to set
+     */
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
 
-	/**
-	 * @return the ano
-	 */
-	public int getAno() {
-		return ano;
-	}
+    /**
+     * @return the dias
+     */
+    public Map<String, String> getDias() {
+        return dias;
+    }
 
-	/**
-	 * @param ano the ano to set
-	 */
-	public void setAno(int ano) {
-		this.ano = ano;
-	}
+    /**
+     * @param dias the dias to set
+     */
+    public void setDias(Map<String, String> dias) {
+        this.dias = dias;
+    }
 
-	/**
-	 * @return the dias
-	 */
-	public Map<String, String> getDias() {
-		return dias;
-	}
+    /**
+     * @return the meses
+     */
+    public Map<String, String> getMeses() {
+        return meses;
+    }
 
-	/**
-	 * @param dias the dias to set
-	 */
-	public void setDias(Map<String, String> dias) {
-		this.dias = dias;
-	}
+    /**
+     * @param meses the meses to set
+     */
+    public void setMeses(Map<String, String> meses) {
+        this.meses = meses;
+    }
 
-	/**
-	 * @return the meses
-	 */
-	public Map<String, String> getMeses() {
-		return meses;
-	}
+    /**
+     * @return the anos
+     */
+    public Map<String, String> getAnos() {
+        return anos;
+    }
 
-	/**
-	 * @param meses the meses to set
-	 */
-	public void setMeses(Map<String, String> meses) {
-		this.meses = meses;
-	}
+    /**
+     * @param anos the anos to set
+     */
+    public void setAnos(Map<String, String> anos) {
+        this.anos = anos;
+    }
 
-	/**
-	 * @return the anos
-	 */
-	public Map<String, String> getAnos() {
-		return anos;
-	}
+    /**
+     * @return the showErrorMessage
+     */
+    public boolean isShowErrorMessage() {
+        return showErrorMessage;
+    }
 
-	/**
-	 * @param anos the anos to set
-	 */
-	public void setAnos(Map<String, String> anos) {
-		this.anos = anos;
-	}
+    /**
+     * @param showErrorMessage the showErrorMessage to set
+     */
+    public void setShowErrorMessage(boolean showErrorMessage) {
+        this.showErrorMessage = showErrorMessage;
+    }
 
-	/**
-	 * @return the showErrorMessage
-	 */
-	public boolean isShowErrorMessage() {
-		return showErrorMessage;
-	}
-
-	/**
-	 * @param showErrorMessage the showErrorMessage to set
-	 */
-	public void setShowErrorMessage(boolean showErrorMessage) {
-		this.showErrorMessage = showErrorMessage;
-	}
-
-	private void clear() {
-		this.ano = 0;
-		this.dia = 0;
-		this.mes = 0;
-		this.password = "";
-		this.user = new User();
-	}
+    private void clear() {
+        this.ano = 0;
+        this.dia = 0;
+        this.mes = 0;
+        this.password = "";
+        this.user = new User();
+    }
 }

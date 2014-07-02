@@ -6,6 +6,7 @@ the editor.
 package wati.controller;
 
 import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
@@ -351,26 +352,25 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 	}
         
         public boolean isEvitarRecaidaFara11(){
-            if(prontoParaParar.getEvitarRecaidaFara1() == null || prontoParaParar.getEvitarRecaidaFara1().trim().isEmpty() || prontoParaParar.getEvitarRecaidaFara1() == "")
-                return false;
-            else
-                return true;
+            return prontoParaParar.getEvitarRecaidaFara1()!= null && !prontoParaParar.getEvitarRecaidaFara1().trim().equals("");
         }
         
+        
         public boolean isEvitarRecaidaFara22(){
-            if(prontoParaParar.getEvitarRecaidaFara2() == null || prontoParaParar.getEvitarRecaidaFara1().trim().isEmpty())
-                return false;
-            else
-                return true;
+            return prontoParaParar.getEvitarRecaidaFara2() != null && !prontoParaParar.getEvitarRecaidaFara2().trim().equals("");
         }
         
         public boolean isEvitarRecaidaFara33(){
-            if(prontoParaParar.getEvitarRecaidaFara2() != null &&  prontoParaParar.getEvitarRecaidaFara3() != null)
-                return true;
-            else
-                return false;
+            return prontoParaParar.getEvitarRecaidaFara3() != null && !prontoParaParar.getEvitarRecaidaFara3().trim().equals("");
         }
         
+        public boolean tecnicaFissura(){
+         return false;   
+        }
+        
+        public boolean estrategias(){
+           return isEvitarRecaidaFara11() || isEvitarRecaidaFara22() || isEvitarRecaidaFara33();
+        }
 
 	public void enviarEmail() {
 
@@ -472,20 +472,21 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                 Paragraph paragraph = new Paragraph("Plano Personalizado",f1);
                 paragraph.setAlignment(Element.ALIGN_CENTER);
                 document.add(paragraph);
-                paragraph.add(new Paragraph(" "));
-                paragraph.add(new Paragraph(" "));
+               
+                 document.add( Chunk.NEWLINE );
+                  document.add( Chunk.NEWLINE );
 
                 paragraph = new Paragraph("Data de parada",f2);
                 document.add(paragraph);
                 paragraph = new Paragraph(this.prontoParaParar.getDataPararStr(),f3);
                 document.add(paragraph);
-                paragraph.add(new Paragraph(" "));
+               document.add( Chunk.NEWLINE );
             
                 paragraph = new Paragraph("Técnicas para fissura",f2);
                 document.add(paragraph);
                 paragraph = new Paragraph(this.prontoParaParar.getFissuraStr(),f3);
                 document.add(paragraph);
-                paragraph.add(new Paragraph(" "));
+                document.add( Chunk.NEWLINE );
                 
                 paragraph = new Paragraph("Estratégias para resistir ao cigarro",f2);
                 document.add(paragraph);
@@ -495,7 +496,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                 document.add(paragraph);
                 paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara3(),f3);
                 document.add(paragraph);
-                paragraph.add(new Paragraph(" "));
+                document.add( Chunk.NEWLINE );
                                
                 paragraph = new Paragraph("O que deu certo da última vez que parei",f2);
                 document.add(paragraph);

@@ -289,7 +289,7 @@ public class ProntoParaParar implements Serializable {
 	public String getDataPararStr() {
 		GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
 		gc.setTime(dataParar);
-		return gc.get(GregorianCalendar.DAY_OF_MONTH) + "/" + gc.get(GregorianCalendar.MONTH) + "/" + gc.get(GregorianCalendar.YEAR);
+		return gc.get(GregorianCalendar.DAY_OF_MONTH) + "/" + String.format("%02d",gc.get(GregorianCalendar.MONTH)+1) + "/" + gc.get(GregorianCalendar.YEAR);
 	}
         
         

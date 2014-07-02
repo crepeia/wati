@@ -6,7 +6,10 @@ package wati.controller;
 
 import wati.persistence.GenericDAO;
 import java.io.Serializable;
+import java.util.Locale;
 import java.util.Map;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
@@ -80,13 +83,9 @@ public abstract class BaseController<T> implements Serializable {
 		return (Map<String, String>) FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 	}
 
-//	/**
-//	 *
-//	 * @return Locale
-//	 */
-//	protected Locale getLocale() {
-//		return FacesContext.getCurrentInstance().getApplication().evaluateExpressionGet(FacesContext.getCurrentInstance(), "#{languageBean.language}", Locale.class);
-//	}
+	protected Locale getLocale() {
+		return FacesContext.getCurrentInstance().getApplication().evaluateExpressionGet(FacesContext.getCurrentInstance(), "#{languageBean.language}", Locale.class);
+	}
 
 	/**
 	 * @return the entityManager
@@ -101,5 +100,9 @@ public abstract class BaseController<T> implements Serializable {
 	public void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
+               
+        public String getText (String key){
+           return PropertyResourceBundle.getBundle("wati.utility.messages").getString(key);   
+        }
 
 }
