@@ -6,6 +6,7 @@ package wati.controller;
 
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
@@ -207,7 +208,31 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
     public void setRecaida(String recaida) {
         this.recaida = recaida;
     }
+    
+    public boolean isRecaidaSituacao11(){
+        return getAcompanhamento().getRecaidaSituacao1()!= null && !getAcompanhamento().getRecaidaSituacao1().trim().equals("");
+    }
+    
+    public boolean isRecaidaSituacao22(){
+        return acompanhamento.getRecaidaSituacao2()!= null && !acompanhamento.getRecaidaSituacao2().trim().equals("");
+    }
+    
+    public boolean isRecaidaSituacao33(){
+        return acompanhamento.getRecaidaSituacao3()!= null && !acompanhamento.getRecaidaSituacao3().trim().equals("");
+    }
 
+    public boolean isRecaidaLidar11(){
+        return acompanhamento.getRecaidaLidar1() != null && !acompanhamento.getRecaidaLidar1().trim().equals("");
+    }
+    
+    public boolean isRecaidaLidar22(){
+        return this.getAcompanhamento().getRecaidaLidar2() != null && !acompanhamento.getRecaidaLidar2().trim().equals("");
+    }
+    
+    public boolean isRecaidaLidar33(){
+        return acompanhamento.getRecaidaLidar3() != null && !acompanhamento.getRecaidaLidar3().trim().equals("");
+    }
+            
     public Acompanhamento getAcompanhamento() {
 
         if (this.acompanhamento == null) {
@@ -290,8 +315,8 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
             Paragraph paragraph = new Paragraph("Recaída ou Lapso", f1);
             paragraph.setAlignment(Element.ALIGN_CENTER);
             document.add(paragraph);
-            paragraph.add(new Paragraph(" "));
-            paragraph.add(new Paragraph(" "));
+            document.add( Chunk.NEWLINE );
+            document.add( Chunk.NEWLINE );
 
             paragraph = new Paragraph("Situações de risco", f2);
             document.add(paragraph);
@@ -301,7 +326,8 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
             document.add(paragraph);
             paragraph = new Paragraph(this.getAcompanhamento().getRecaidaSituacao3(), f3);
             document.add(paragraph);
-            paragraph.add(new Paragraph(" "));
+            document.add( Chunk.NEWLINE );
+            //paragraph.add(new Paragraph(" "));
 
             paragraph = new Paragraph("Como vou enfrentar", f2);
             document.add(paragraph);

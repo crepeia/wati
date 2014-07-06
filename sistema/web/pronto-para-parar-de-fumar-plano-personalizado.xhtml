@@ -58,7 +58,9 @@
                                 
                                 <h2>#{messages['pronto.plano.h2.1']}</h2>
                                 <h:outputText value="#{prontoParaPararController.prontoParaParar.dataPararStr}"/>
-                                <h2>#{messages['pronto.plano.h2.2']}</h2>
+                                <ui:fragment rendered="#{prontoParaPararController.fissuras()}">
+                                    <h2>#{messages['pronto.plano.h2.2']}</h2>
+                                </ui:fragment>
                                 <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraBeberAgua}"/><ui:fragment rendered="#{prontoParaPararController.prontoParaParar.enfrentarFissuraBeberAgua}"><br /></ui:fragment>
                                 <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraComer}"/><ui:fragment rendered="#{prontoParaPararController.prontoParaParar.enfrentarFissuraComer}"><br /></ui:fragment>
                                 <h:outputText value="#{prontoParaPararController.prontoParaParar.fissuraLerRazoes}"/><ui:fragment rendered="#{prontoParaPararController.prontoParaParar.enfrentarFissuraLerRazoes}"><br /></ui:fragment>
@@ -75,9 +77,11 @@
                                 <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara3}"/><br />
                                 
                                 <!-- inserir as estratégias daqui pronto-para-parar-de-fumar-como-evitar-recaidas-estrategias.xhtml" -->
-                                <h2>#{messages['pronto.plano.h2.4']}</h2>                                
-                                <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida1}"/><br />
-                                <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida2}"/><br />                                  
+                                <ui:fragment rendered="#{prontoParaPararController.deucerto()}">
+                                    <h2>#{messages['pronto.plano.h2.4']}</h2>                       
+                                </ui:fragment>
+                                <ui:fragment rendered="#{prontoParaPararController.evitarRecaida11}"><h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida1}"/><br /></ui:fragment>
+                                <ui:fragment rendered="#{prontoParaPararController.evitarRecaida22}"><h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida2}"/><br /></ui:fragment>                                 
                                 <h:outputText value="#{prontoParaPararController.prontoParaParar.evitarRecaida3}"/><br />
                                 
                                 <!-- inserir inputs daqui pronto-para-parar-de-fumar-como-evitar-recaidas-sim.xhtml -->

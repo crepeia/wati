@@ -364,12 +364,35 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             return prontoParaParar.getEvitarRecaidaFara3() != null && !prontoParaParar.getEvitarRecaidaFara3().trim().equals("");
         }
         
+        public boolean isEvitarRecaida11(){
+            return prontoParaParar.getEvitarRecaida1() != null && !prontoParaParar.getEvitarRecaida1().trim().equals("");
+        }
+        
+        public boolean isEvitarRecaida22(){
+            return prontoParaParar.getEvitarRecaida2() != null && !prontoParaParar.getEvitarRecaida2().trim().equals("");
+        }
+        
+        public boolean isEvitarRecaida33(){
+            return prontoParaParar.getEvitarRecaida3() != null && !prontoParaParar.getEvitarRecaida3().trim().equals("");
+        }
+        
         public boolean tecnicaFissura(){
          return false;   
         }
         
+        public boolean fissuras(){
+            if(prontoParaParar.isEnfrentarFissuraBeberAgua()==false && prontoParaParar.isEnfrentarFissuraComer()==false && prontoParaParar.isEnfrentarFissuraLerRazoes()==false && prontoParaParar.isEnfrentarFissuraRelaxamento()==false)
+                return false;
+            else
+                return true;
+        }
+        
         public boolean estrategias(){
            return isEvitarRecaidaFara11() || isEvitarRecaidaFara22() || isEvitarRecaidaFara33();
+        }
+        
+        public boolean deucerto(){
+            return isEvitarRecaida11() || isEvitarRecaida22() || isEvitarRecaida33();
         }
 
 	public void enviarEmail() {
@@ -472,32 +495,29 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                 Paragraph paragraph = new Paragraph("Plano Personalizado",f1);
                 paragraph.setAlignment(Element.ALIGN_CENTER);
                 document.add(paragraph);
-               
-                 document.add( Chunk.NEWLINE );
-                  document.add( Chunk.NEWLINE );
+                document.add( Chunk.NEWLINE );
+                document.add( Chunk.NEWLINE );
 
                 paragraph = new Paragraph("Data de parada",f2);
                 document.add(paragraph);
                 paragraph = new Paragraph(this.prontoParaParar.getDataPararStr(),f3);
                 document.add(paragraph);
-               document.add( Chunk.NEWLINE );
+                document.add( Chunk.NEWLINE );
             
                 paragraph = new Paragraph("Técnicas para fissura",f2);
                 document.add(paragraph);
                 paragraph = new Paragraph(this.prontoParaParar.getFissuraStr(),f3);
                 document.add(paragraph);
                 document.add( Chunk.NEWLINE );
-                
-                paragraph = new Paragraph("Estratégias para resistir ao cigarro",f2);
-                document.add(paragraph);
-                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara1(),f3);
-                document.add(paragraph);
+
+                paragraph = new Paragraph("Estratégias para resistir ao cigarro",f2);                            document.add(paragraph);
+                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara1(),f3);                            document.add(paragraph);
                 paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara2(),f3);
                 document.add(paragraph);
                 paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara3(),f3);
                 document.add(paragraph);
                 document.add( Chunk.NEWLINE );
-                               
+                       
                 paragraph = new Paragraph("O que deu certo da última vez que parei",f2);
                 document.add(paragraph);
                 paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida1(),f3);

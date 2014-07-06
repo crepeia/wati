@@ -4,7 +4,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>#{messages['acompanhamento.plano.titlepage']} | #{messages['vivasemtabaco']}</title>
         <w:head_comum />
@@ -37,13 +38,13 @@
                             <p>#{messages['acompanhamento.plano.p.3']}</p>
 
                             <h2>#{messages['acompanhamento.plano.h2.1']}</h2>
-                            <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao1}"/><br/>
-                            <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao2}"/><br/>
+                            <ui:fragment rendered="#{parouDeFumarController.recaidaSituacao11}"><h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao1}"/><br/></ui:fragment>
+                            <ui:fragment rendered="#{parouDeFumarController.recaidaSituacao22}"><h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao2}"/><br/></ui:fragment>
                             <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao3}"/><br/>
 
                             <h2>#{messages['acompanhamento.plano.h2.2']}</h2>
-                            <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar1}"/><br/>
-                            <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar2}"/><br/>
+                            <ui:fragment rendered="#{parouDeFumarController.recaidaLidar11}"><h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar1}"/><br/></ui:fragment>
+                            <ui:fragment rendered="#{parouDeFumarController.recaidaLidar22}"><h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar2}"/><br/></ui:fragment>
                             <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar3}"/><br/>
 
 
