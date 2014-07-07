@@ -6,6 +6,7 @@ package wati.controller;
 
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chapter;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -125,8 +126,10 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
         try {
 
             this.getDaoBase().insertOrUpdate(a, this.getEntityManager());
-
-            return "parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida.xhtml";
+            if(isRecaidaLidar11() || isRecaidaLidar22() || isRecaidaLidar33() || isRecaidaSituacao11() || isRecaidaSituacao22() || isRecaidaSituacao33())
+                return "parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida.xhtml";
+            else
+                return "parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-padrao.xhtml";
 
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
@@ -354,7 +357,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
         }
 
     }
-
+    
     public StreamedContent getLapsoRecaida() {
 
         InputStream is;
@@ -371,5 +374,92 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
         }
 
     }
+    
+    
+    public ByteArrayOutputStream gerarPdfPadrao() {
+
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+
+        Document document = new Document();
+        try {
+            PdfWriter.getInstance(document, os);
+
+            document.open();
+
+            document.addTitle("Recaída");
+            document.addAuthor("vivasemtabaco.com.br");
+
+            URL url;
+            url = FacesContext.getCurrentInstance().getExternalContext().getResource("/resources/default/images/viva-sem-tabaco-big.png");
+
+            Image img;
+            img = Image.getInstance(url);
+            img.setAlignment(Element.ALIGN_CENTER);
+            img.scaleToFit(300, 300);
+            document.add(img);
+
+            Color color = Color.getHSBColor(214, 81, 46);
+            Font f1 = new Font(FontFamily.TIMES_ROMAN, 20, Font.BOLD, BaseColor.BLUE);
+            f1.setColor(22, 63, 117);
+            Font f2 = new Font(FontFamily.TIMES_ROMAN, 14, Font.BOLD, BaseColor.BLUE);
+            f2.setColor(22, 63, 117);
+            Font f3 = new Font(FontFamily.TIMES_ROMAN, 12);
+
+            Paragraph paragraph = new Paragraph("Recaída", f1);
+            paragraph.setAlignment(Element.ALIGN_CENTER);
+            document.add(paragraph);
+            document.add( Chunk.NEWLINE );
+            document.add( Chunk.NEWLINE );
+
+            paragraph = new Paragraph("Lembre-se", f2);
+            document.add(paragraph);
+            paragraph = new Paragraph("- Qualquer período sem cigarro já é uma vitória;", f3);
+            document.add(paragraph);
+            paragraph = new Paragraph("- Aprenda com os erros. Fumantes geralmente tentam parar mais de uma vez até conseguir definitivamente. ", f3);
+            document.add(paragraph);
+            document.add( Chunk.NEWLINE );
+
+            paragraph = new Paragraph("Recomendamos a você", f2);
+            document.add(paragraph);
+            paragraph = new Paragraph("- Evitar acender o primeiro cigarro após a data de parar;", f3);
+            document.add(paragraph);
+            paragraph = new Paragraph("- Evitar beber bebidas alcóolicas;", f3);
+            document.add(paragraph);
+            paragraph = new Paragraph("- Pedir para amigos e familiares fumantes que não fumem perto de você.", f3);
+            document.add(paragraph);
+
+            document.close();
+
+            return os;
+        } catch (DocumentException ex) {
+            Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+            return null;
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+            return null;
+        } catch (IOException ex) {
+            Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+            return null;
+        }
+
+    }
+    
+     public StreamedContent getRecaidaPadrao() {
+
+        InputStream is;
+        try {
+            is = new ByteArrayInputStream(gerarPdfPadrao().toByteArray());
+            return new DefaultStreamedContent(is, "application/pdf", "plano.pdf");
+
+        } catch (Exception e) {
+            Logger.getLogger(ParouDeFumarController.class
+                    .getName()).log(Level.SEVERE, "Erro ao gerar o pdf");
+            Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.SEVERE, e.getMessage(), e);
+
+            return null;
+        }
+
+    }
+
 
 }
