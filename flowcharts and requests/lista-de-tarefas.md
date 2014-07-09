@@ -14,6 +14,7 @@ Prioridade Baixa
 -------------------------
 login-dialog - fechar e redirecionar
 contato - mostrar carregamento e limpar campos
+Fazer sitemap.txt quando servidor estiver ok
 
 
 Problemas não resolvidos
