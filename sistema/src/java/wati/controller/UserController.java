@@ -4,6 +4,7 @@
  */
 package wati.controller;
 
+import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -18,6 +19,7 @@ import java.util.logging.Logger;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
+import javax.el.ELContext;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -170,6 +172,18 @@ public class UserController extends BaseFormController<User> {
 
                 super.save(actionEvent, entityManager);
                 //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));
+                ELContext elContext = FacesContext.getCurrentInstance().getELContext();
+                LoginController login = (LoginController) FacesContext.getCurrentInstance().getApplication()
+                        .getELResolver().getValue(elContext, null, "loginController");
+                System.out.println("login controller null");
+                login.setUser(this.user);
+                login.setPassword(this.password);
+                login.loginDialog();
+                try {          
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+                } catch (IOException ex) {
+                    Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 this.clear();
             }
 
