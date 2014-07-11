@@ -90,6 +90,11 @@
                                             </p:selectOneRadio> 
                                         </p:panelGrid>
                                         <p:message for="options" />
+                                        
+                                        <p:panelGrid columns="2" id="allowemail">
+                                            <label for="chk1">Você gostaria de receber e-mails de acompanhamento?</label>
+                                            <input type="checkbox" name="chk" id="chk1" value="1"/>
+                                        </p:panelGrid>                                                                                
 
                                         <div id="signupsubmit">			                                            
                                             <div id="signupp"><p>#{messages['naccount.p.botton']}<h:outputLink value="./termos-de-uso.xhtml"> #{messages['naccount.already.userterms']}</h:outputLink>. #{messages['naccount.already.registered']} <h:outputLink value="login.xhtml">#{messages['signin']}</h:outputLink></p></div>                                            

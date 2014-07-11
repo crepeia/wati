@@ -479,20 +479,20 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                 document.addTitle("Plano Persolanizado");
                 document.addAuthor("vivasemtabaco.com.br");
                 
-                URL url = FacesContext.getCurrentInstance().getExternalContext().getResource("/resources/default/images/viva-sem-tabaco-big.png");
+                URL url = FacesContext.getCurrentInstance().getExternalContext().getResource("/resources/default/images/viva-sem-tabaco-new.png");
                 Image img = Image.getInstance(url);
                 img.setAlignment(Element.ALIGN_CENTER);
-                img.scaleToFit(300, 300);
+                img.scaleToFit(75, 75);
                 document.add(img);
                 
                 Color color = Color.getHSBColor(214, 81, 46);
-                Font f1 = new Font(FontFamily.TIMES_ROMAN, 20, Font.BOLD, BaseColor.BLUE);
+                Font f1 = new Font(FontFamily.HELVETICA, 20, Font.BOLD, BaseColor.BLUE);
                 f1.setColor(22, 63, 117);
-                Font f2 = new Font(FontFamily.TIMES_ROMAN, 14, Font.BOLD,  BaseColor.BLUE);
+                Font f2 = new Font(FontFamily.HELVETICA, 14, Font.BOLD,  BaseColor.BLUE);
                 f2.setColor(22, 63, 117);
-                Font f3 = new Font(FontFamily.TIMES_ROMAN, 12);
+                Font f3 = new Font(FontFamily.HELVETICA, 12);
                     
-                Paragraph paragraph = new Paragraph("Plano Personalizado",f1);
+                Paragraph paragraph = new Paragraph("Meu Plano",f1);
                 paragraph.setAlignment(Element.ALIGN_CENTER);
                 document.add(paragraph);
                 document.add( Chunk.NEWLINE );
@@ -525,8 +525,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                 paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida2(),f3);
                 document.add(paragraph);
                 paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida3(),f3);
-                document.add(paragraph);
-                paragraph.add(new Paragraph(" "));
+                document.add(paragraph);                
 
                 document.close();                
 
