@@ -41,7 +41,13 @@ public class ContatoController implements Serializable {
         String message = "Mensagem enviada com sucesso.";
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
         Logger.getLogger(BaseFormController.class.getName()).log(Level.INFO, message);
+        this.clear();
 
+    }
+    
+    public void clear(){
+        this.email = "";
+        this.message = "";
     }
 
     /**
