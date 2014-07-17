@@ -26,16 +26,36 @@
                         <h4>#{messages['contact.h4.a']}</h4>
                         <h4>#{messages['contact.h4.b']}</h4>
                         <h2>#{messages['contact.h2']}</h2>
+
+                        <p:ajaxStatus onstart="statusDialog.show()" onsuccess="statusDialog.hide()" />
+
+                        <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                            <p:graphicImage library="default" name="images/loading.gif" />
+                        </p:dialog>
+                        
                         <h:form id="form" class="form-signup">
-                            <p:growl id="errorGrowl" sticky="true" />  
-                            <p:inputText id="sendEmail" value="#{contatoController.email}" required="true" label="#{messages['email']}"></p:inputText>
+                            <p:growl id="errorGrowl" sticky="true" redisplay="true" globalOnly="true"/>
+                            <p:inputText id="sendEmail" value="#{contatoController.email}" required="true" size="30" label="#{messages['email']}" validatorMessage="#{messages['naccount.invalidemail']}" >
+                                <f:validateLength maximum="50" />
+                                <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                            </p:inputText>
                             <p:watermark for="sendEmail" value="#{messages['email']}" />
+                            <p:message for="sendEmail" />
+
                             <h4>#{messages['contact.h4.msg']}</h4>
-                            <p:inputTextarea rows="4" cols="60" autoResize="false" value="#{contatoController.message}" required="true" label="#{messages['contact.h4.msg']}" />
-                            <div id="signinsubmit"><p:commandButton value ="#{messages['send']}" update="@form" actionListener="#{contatoController.sendEmail}" /></div>
+                            <p:inputTextarea id="msg" rows="4" cols="60" autoResize="false" value="#{contatoController.message}" required="true" label="#{messages['contact.h4.msg']}" />
+                            <p:watermark for="msg" value="#{messages['contact.h4.msg']}" /> 
+                            <p:message for="msg" />
+
+
+                            <div id="signinsubmit">
+                                <p:commandButton id="send" value ="#{messages['send']}" update="@form" actionListener="#{contatoController.sendEmail}" />
+                            </div>
                         </h:form>
+
                     </div>	
                 </div>
+
             </div>
 
         </div><!-- end.corpo --> 

@@ -41,7 +41,13 @@ public class ContatoController extends BaseController implements Serializable{
         String message = this.getText("mensagem.enviada");
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
         Logger.getLogger(BaseFormController.class.getName()).log(Level.INFO, message);
+        this.clear();
 
+    }
+    
+    public void clear(){
+        this.email = "";
+        this.message = "";
     }
 
     /**
