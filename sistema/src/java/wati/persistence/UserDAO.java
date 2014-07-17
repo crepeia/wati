@@ -26,7 +26,7 @@ public class UserDAO extends GenericDAO {
     }
     
     public List acompanhamentoDataDiferente(EntityManager entityManager){
-        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataParar != u.prontoParaParar.dataInserido and u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.emailDataDiferente is null");
+        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataParar != u.prontoParaParar.dataInserido and u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.emailDataDiferente is null and u.receiveEmails == true");
         Date data = Calendar.getInstance().getTime();
         query.setParameter("data",data );
         query.setHint("toplink.refresh", "true");
@@ -34,7 +34,7 @@ public class UserDAO extends GenericDAO {
     }
     
     public List acompanhamentoPrimeiraSemana(EntityManager entityManager){
-        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.emailPrimeiraSemana is null");
+        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.emailPrimeiraSemana is null and u.receiveEmails == true");
         Calendar c = Calendar.getInstance();
         c.add(Calendar.DAY_OF_MONTH, -14);
         Date data = c.getTime();
@@ -44,7 +44,7 @@ public class UserDAO extends GenericDAO {
     }
     
     public List acompanhamentoSegundaSemana(EntityManager entityManager){
-        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.emailSegundaSemana.emailSegundaSemana is null");
+        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.emailSegundaSemana.emailSegundaSemana is null and u.receiveEmails == true");
         Calendar c = Calendar.getInstance();
         c.add(Calendar.DAY_OF_MONTH, -21);
         Date data = c.getTime();
@@ -54,7 +54,7 @@ public class UserDAO extends GenericDAO {
     }
     
    public List acompanhamentoTerceiraSemana(EntityManager entityManager){
-        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.emailTerceiraSemana is null");
+        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.emailTerceiraSemana is null and u.receive_emails == true");
         Calendar c = Calendar.getInstance();
         c.add(Calendar.DAY_OF_MONTH, -28);
         Date data = c.getTime();

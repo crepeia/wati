@@ -352,16 +352,6 @@ public class ProntoParaParar implements Serializable {
 		}
 		return s.toString();
 	}
-        
-        public void url(){
-            Desktop desk = java.awt.Desktop.getDesktop();
-            try{
-                desk.browse(new java.net.URI("vivasemtabaco.com.br/download/surfandoafissura.mp3"));
-               
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-        }
 
 	/**
 	 * @return the dataInserido

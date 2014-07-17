@@ -55,13 +55,6 @@
 									<h:outputText value="#{user.email}" />  
 								</p:column>
 
-								<!--
-								<p:column>  
-									<p:commandButton id="selectBtn" update=":form:display" oncomplete="userDialog.show()" icon="ui-icon-search">  
-										<f:setPropertyActionListener value="#{user}" target="#{userListController.selected}" />  
-									</p:commandButton>  
-								</p:column>
-								-->
 
 								<f:facet name="footer">  
 									Número de registros: #{fn:length(userListController.list)}
