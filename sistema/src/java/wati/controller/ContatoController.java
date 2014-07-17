@@ -21,7 +21,7 @@ import wati.utility.EMailSSL;
  */
 @ManagedBean(name = "contatoController")
 @RequestScoped
-public class ContatoController implements Serializable {
+public class ContatoController extends BaseController implements Serializable{
 
     private EMailSSL eMailSSL;
     private String email;
@@ -38,7 +38,7 @@ public class ContatoController implements Serializable {
     public void sendEmail() {
 
         eMailSSL.send(this.email, "hedersb@gmail.com", "Contato -- Wati", message);
-        String message = "Mensagem enviada com sucesso.";
+        String message = this.getText("mensagem.enviada");
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
         Logger.getLogger(BaseFormController.class.getName()).log(Level.INFO, message);
         this.clear();

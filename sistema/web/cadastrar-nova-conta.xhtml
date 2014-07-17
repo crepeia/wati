@@ -92,8 +92,12 @@
                                         <p:message for="options" />
                                         
                                         <p:panelGrid columns="2" id="allowemail">
-                                            <label for="chk1">Você gostaria de receber e-mails de acompanhamento?</label>
-                                            <input type="checkbox" name="chk" id="chk1" value="1"/>
+                                            <label for="chk1">#{messages['gostaria.receber.email']}</label>
+                                            <p:selectBooleanCheckbox value="#{userController.user.receiveEmails}"/>
+                                            <!--<input type="checkbox" name="chk" id="chk1" value="#{userController.user.receiveEmails}"/><br></br>-->
+                                            <label for="chk2">#{messages['autorizo.para.pesquisa']}</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <p:selectBooleanCheckbox value="#{userController.user.authorizeData}"/>
+                                           <!-- <input type="checkbox" name="chk" id="chk2" value="#{userController.user.authorizeData}"/>-->
                                         </p:panelGrid>                                                                                
 
                                         <div id="signupsubmit">			                                            

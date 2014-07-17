@@ -39,6 +39,10 @@ public class User {
 	private Date birth;
 	@Column(name = "gender")
 	private char gender;
+        @Column(name = "receive_emails")
+        private boolean receiveEmails;
+        @Column(name = "authorize_data")
+        private boolean authorizeData;
         
 	@OneToOne(mappedBy = "usuario")
 	private ProntoParaParar prontoParaParar;
@@ -87,6 +91,24 @@ public class User {
 	public void setPassword(byte[] password) {
 		this.password = password;
 	}
+
+        public boolean isReceiveEmails() {
+            return receiveEmails;
+        }
+
+        public void setReceiveEmails(boolean receiveEmails) {
+            this.receiveEmails = receiveEmails;
+        }
+
+        public boolean isAuthorizeData() {
+            return authorizeData;
+        }
+
+        public void setAuthorizeData(boolean authorizeData) {
+            this.authorizeData = authorizeData;
+        }
+        
+        
 
 	@Override
 	public String toString() {
