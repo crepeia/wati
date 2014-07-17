@@ -1174,7 +1174,6 @@ PRONTO PARA PARAR*/
     padding-top:5px;
 }
 
-/* medicamentos */
 
 /* Vencendo a fissura */
 
@@ -1186,7 +1185,7 @@ PRONTO PARA PARAR*/
 
 }
 
-/* Recaídas */
+/* RELAPSE */
 
 #qrecaida p {
     text-indent: 0;
@@ -1198,7 +1197,7 @@ thead{
 }
 
 
-/** Impressão plano **/
+/** QUITPLAN PRINT **/
 
 .planoimg img {
     border:0;
