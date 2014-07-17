@@ -5,11 +5,9 @@ Prioridade Alta
 ------------------------
 Teste das mensagens de e-mail
 E-mail - Preparar as mensagens de e-mail como arquivos externos - (PENDENTE) - Thiago
-
-
-
-Prioridade Média
--------------------------- 
+Informar alteração de 'receber mensagens' para Heder mudar o banco de dados.
+Criar opção de enviar dados para pesquisa.
+Mudar página envio de mensagens para teste.dfg
 
 
 Prioridade Baixa
