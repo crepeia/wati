@@ -175,7 +175,6 @@ public class UserController extends BaseFormController<User> {
                 ELContext elContext = FacesContext.getCurrentInstance().getELContext();
                 LoginController login = (LoginController) FacesContext.getCurrentInstance().getApplication()
                         .getELResolver().getValue(elContext, null, "loginController");
-                System.out.println("login controller null");
                 login.setUser(this.user);
                 login.setPassword(this.password);
                 login.loginDialog();

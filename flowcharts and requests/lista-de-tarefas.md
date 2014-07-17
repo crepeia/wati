@@ -15,7 +15,7 @@ Prioridade Média
 Prioridade Baixa
 -------------------------
 login-dialog - fechar e redirecionar
-contato - mostrar carregamento e limpar campos
+contato - mostrar carregamento e limpar campos - PARCIALMENTE RESOLVIDO - mudar estilo das mensagens de erro
 Fazer sitemap.txt quando servidor estiver ok - Henrique
 
 

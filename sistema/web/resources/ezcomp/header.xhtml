@@ -31,18 +31,18 @@
                             <p:panel id="loginPanel" rendered="#{!loginController.showName}">
                                 <h:outputLink value="cadastrar-nova-conta.xhtml" >#{messages['register']}</h:outputLink> / 
                                 <p:commandLink value="#{messages['signin']}" id="entrarLink" /> 
+                                <p:message for="emailTxt" />
+                                <p:message for="passwordTxt"/>
+                                <p:messages id="loginMessages" globalOnly="true" />
                             </p:panel>
                             <p:panel id="userPanel" rendered="#{loginController.showName}">
                                 Olá <h:outputText value="#{loginController.user.name}" />  ::  
                                 <h:outputLink value="logout.xhtml">Sair</h:outputLink>
                             </p:panel>
                         </p:panel>
-                        <div id="fastlogin">
-                            <p:overlayPanel id="loginDialog" for="entrarLink" hideEffect="fade" showEffect="fade">  
-                                <p:panel id="loginInformationPanel" >
-                                    <p:message for="emailTxt" />
-                                    <p:message for="passwordTxt"/>
-                                    <p:messages id="loginMessages" globalOnly="true" />
+                        <div id="fastlogin" >
+                            <p:overlayPanel id="loginDialog" for="entrarLink" hideEffect="fade" showEffect="fade" >  
+                                <p:panel id="loginInformationPanel">
                                     <p:inputText id="emailTxt" value="#{loginController.user.email}" required="true" size="30" label="E-mail" >
                                         <f:validateLength maximum="50" />
                                     </p:inputText>
@@ -51,7 +51,7 @@
                                         <f:validateLength maximum="16" />
                                     </p:password>
                                     <p:watermark for="passwordTxt" value="#{messages['password']}" />
-                                    <p:commandButton id="entrarBtn" value="#{messages['signin']}" styleClass="btnlogin" update="groupPanel loginInformationPanel" actionListener="#{loginController.loginDialog}" />
+                                    <p:commandButton id="entrarBtn" value="#{messages['signin']}" styleClass="btnlogin" update="groupPanel loginDialog" actionListener="#{loginController.loginDialog}" />
                                 </p:panel>
                             </p:overlayPanel>
                         </div>    

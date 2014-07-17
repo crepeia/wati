@@ -5,8 +5,7 @@ Prioridade Alta
 ------------------------
 Teste das mensagens de e-mail
 E-mail - Preparar as mensagens de e-mail como arquivos externos - (PENDENTE) - Thiago
-Criar botão na página de cadastro
-Melhorar layout pdf - Henrique
+
 
 
 Prioridade Média
