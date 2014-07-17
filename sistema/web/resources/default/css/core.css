@@ -1066,19 +1066,30 @@ img#artigotabaco{
 
 }
 
+.proximopasso {
+    background:#f8f8f8;
+    border:1px solid #ddd;
+    width: auto;
+    height:150px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
 .txtproximopasso{    
     float:left;
+    padding-left: 10px;
 }
 
 .txtproximopasso p{
     text-indent: 0;
-    width: 550px;
+    width: 530px;
 }
 
 .btnfloat {
     float:right;
     position:relative;
     top:65px;
+    padding-right:10px;
 }
 
 .btn1 {
@@ -1123,6 +1134,11 @@ img#artigotabaco{
     width:280px;
 }
 
+/* ANXIETY AND DEPRESSION*/
+
+#resultadoaval{
+    padding: 20px 0 20px 0;
+}
 
 /* COMO VENCER OS MEDOS*/
 
