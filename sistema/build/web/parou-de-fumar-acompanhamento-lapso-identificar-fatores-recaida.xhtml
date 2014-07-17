@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
+    <h:head>
+        <title>#{messages['acompanhamento.fat.titlepage']} | #{messages['vivasemtabaco']}</title>
+        <w:head_comum />
+    </h:head>
+    <h:body>
+        <div id="corpo"> 
+            <!-- header -->    
+            <w:header loginRequired="true" />
+            <w:topmenu />
+
+            <!--mainmenu-->         	
+            <div class="main">
+
+
+                <w:leftmenu_3 cssClass="leftmenu3" />
+
+                <div class="pagecontent">
+
+                    <div id="pagecont2">
+                        <div class="fotoframeclean">
+                            <h:graphicImage  library="default" title="#{messages['acompanhamento.fat.img.title']}Acompanhamento" name="images/acompanhamento-interno.png" alt="Acompanhamento" />
+                        </div>                        
+
+                        <h1>#{messages['acompanhamento.fat.h1.1']}</h1>
+                        <h2>#{messages['acompanhamento.fat.h2.1']}</h2>
+                        <p>#{messages['acompanhamento.fat.p.1']}</p>
+                        <p>#{messages['acompanhamento.fat.p.2']}</p> 
+                        <ul>
+                            <li>#{messages['acompanhamento.fat.li.1']}</li>
+                            <li>#{messages['acompanhamento.fat.li.2']}</li>
+                            <li>#{messages['acompanhamento.fat.li.3']}</li>
+                        </ul>
+                        <h2>#{messages['acompanhamento.fat.h2.2']}</h2>
+                        <p>#{messages['acompanhamento.fat.p.3']}</p>
+                        <p>#{messages['acompanhamento.fat.p.4']}</p>
+                        <ul>
+                            <li><strong>#{messages['acompanhamento.fat.li.4a']}</strong> - #{messages['acompanhamento.fat.li.4b']}</li>
+                            <li><strong>#{messages['acompanhamento.fat.li.5a']}</strong> - #{messages['acompanhamento.fat.li.5b']}</li>                                     
+                        </ul>
+
+                        <h:form>
+                            <div style="float: left; width: 50%" align="center">
+                                <p:panel id="questoes" >
+                                    <h:panelGrid columns="1" style="margin-bottom:10px" cellpadding="10" id="questao1">
+                                        <f:facet name="header">  
+                                            <h3>#{messages['acompanhamento.fat.h3.1']}</h3>  
+                                        </f:facet> 
+                                        <p:inputTextarea rows="2" cols="30" id="q1campo1" value="#{parouDeFumarController.acompanhamento.recaidaSituacao1}" />   
+                                        <p:inputTextarea rows="2" cols="30" id="q1campo2" value="#{parouDeFumarController.acompanhamento.recaidaSituacao2}" />   
+                                        <p:inputTextarea rows="2" cols="30" id="q1campo3" value="#{parouDeFumarController.acompanhamento.recaidaSituacao3}" />
+                                    </h:panelGrid>
+                                </p:panel>
+                            </div>
+
+                            <div style="float: right; width: 50%" align="center">
+                                <p:panel id="questoes2" >
+                                    <h:panelGrid columns="1" style="margin-bottom:10px" cellpadding="10" id="questao2">
+                                        <f:facet name="header">  
+                                            <h3>#{messages['acompanhamento.fat.h3.2']}</h3>  
+                                        </f:facet> 
+                                        <p:inputTextarea rows="2" cols="30" id="q2campo1" value="#{parouDeFumarController.acompanhamento.recaidaLidar1}" />
+                                        <p:inputTextarea rows="2" cols="30" id="q2campo2" value="#{parouDeFumarController.acompanhamento.recaidaLidar2}" />
+                                        <p:inputTextarea rows="2" cols="30" id="q2campo3" value="#{parouDeFumarController.acompanhamento.recaidaLidar3}" />
+                                    </h:panelGrid>
+                                </p:panel>
+                            </div> 
+
+                            
+                            <div class="btn1">
+                                <h:button class="btnback" value ="#{messages['back']}" outcome="./parou-de-fumar-acompanhamento.xhtml"></h:button>
+                            </div>
+                            <div class="btn2">
+                                <h:commandButton styleClass="btngen3" value ="#{messages['next']}" action="#{parouDeFumarController.identificarFatoresRecaida}" />                                
+                            </div>  
+                            
+                        </h:form>                      
+
+
+                        <div class="referencias">                            
+                            <p>"#{messages['update.date']}"</p>                            
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!-- end.corpo --> 
+
+        <!--Footer -->
+        <w:footer />
+    </h:body>
+</html>
+

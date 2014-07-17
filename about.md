@@ -13,7 +13,7 @@ Looking to provide a web assisted tobacco intervention in your country?
 Quite easy! See what we have done so far and what is going next.
 
 ## What is this?
-This is the repository of the first web-assisted tobacco intervention, a fully-automated website built mainly using Java e open-source software. The content is based on widely accepted guidelines for tobacco and dependence treatment[^1] and scientific research[^2][^3].
+This is the repository of the first open-source tobacco intervention, a fully-automated website built mainly using Java and open-source software. The content is based on widely accepted guidelines for tobacco and dependence treatment[^1] and scientific research[^2][^3].
 
 [^1]: U.S Department of Health Services. Treating Tobacco Use and Dependence: 2008 Update. 2008.
 [^2]: Civljak M, Sheikh A, Stead LF, Car J. Internet-based interventions for smoking cessation. Cochrane Database Syst Rev. 2010;(9):CD007078. 

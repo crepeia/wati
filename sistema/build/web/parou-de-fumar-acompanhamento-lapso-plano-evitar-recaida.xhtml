@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>#{messages['acompanhamento.plano.titlepage']} | #{messages['vivasemtabaco']}</title>
+        <w:head_comum />
+    </h:head>
+    <h:body>
+        <div id="corpo"> 
+            <!-- header -->    
+            <w:header loginRequired="true" />
+            <w:topmenu />
+
+            <!--mainmenu-->         	
+            <div class="main">
+
+
+                <w:leftmenu_3 cssClass="leftmenu3" />
+
+                <div class="pagecontent">
+
+                    <div id="pagecont2">
+
+                        <h:form id="form">
+
+                            <div class="fotoframeclean">
+                                <h:graphicImage  library="default" title="#{messages['acompanhamento.plano.img.title']}" name="images/acompanhamento-interno.png" alt="#{messages['acompanhamento.plano.img.title']}" />
+                            </div>                        
+
+                            <h1>#{messages['acompanhamento.plano.h1.1']}</h1>                            
+                            <p>#{messages['acompanhamento.plano.p.1']}</p>                            
+                            <p>#{messages['acompanhamento.plano.p.2']}</p>                            
+                            <p>#{messages['acompanhamento.plano.p.3']}</p>
+                            
+                            <ui:fragment rendered="#{parouDeFumarController.situacoesRisco()}">
+                                <h2>#{messages['acompanhamento.plano.h2.1']}</h2>
+                            </ui:fragment>
+                            <ui:fragment rendered="#{parouDeFumarController.recaidaSituacao11}"><h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao1}"/><br/></ui:fragment>
+                            <ui:fragment rendered="#{parouDeFumarController.recaidaSituacao22}"><h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao2}"/><br/></ui:fragment>
+                            <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao3}"/><br/>
+                            
+                            <ui:fragment rendered="#{parouDeFumarController.comoEnfrentar()}">
+                                <h2>#{messages['acompanhamento.plano.h2.2']}</h2>
+                            </ui:fragment>
+                            <ui:fragment rendered="#{parouDeFumarController.recaidaLidar11}"><h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar1}"/><br/></ui:fragment>
+                            <ui:fragment rendered="#{parouDeFumarController.recaidaLidar22}"><h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar2}"/><br/></ui:fragment>
+                            <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar3}"/><br/>
+
+                            <br>
+                                <br></br>
+                            </br>
+                            <div id ="planoimg1">
+                                <div class="planoimg">                                                            
+                                    <h:outputLink target="_blank" value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml"><h:graphicImage  library="default" title="#{messages['acompanhamento.plano.imprimir']}" name="images/impressao.png" alt="#{messages['acompanhamento.plano.imprimir']}Imprimir" /></h:outputLink>                                                            
+                                    <p><h:outputLink target="_blank" value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml">#{messages['acompanhamento.plano.imprimir']}</h:outputLink></p>
+                                  
+                                </div>
+                            </div>
+
+                            <div id ="planoimg2">
+                                <div class="planoimg">
+                                    <h:commandLink action="#{prontoParaPararController.enviarEmail}"><h:graphicImage  library="default" title="#{messages['email']}" name="images/email.png" alt="#{messages['email']}" /></h:commandLink>
+                                    <p><h:commandLink action="#{parouDeFumarController.enviarEmail}">#{messages['email']}</h:commandLink></p>
+                                </div>
+                            </div>
+                            <p><p:messages /></p>
+
+                            <div class="referencias">
+                                <p>#{messages['update.date']}</p>                            
+                            </div>
+
+                        </h:form>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!-- end.corpo --> 
+
+        <!--Footer -->
+        <w:footer />
+    </h:body>
+</html>
+

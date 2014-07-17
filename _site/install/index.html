@@ -136,12 +136,11 @@
 <p>This page is under construction :/</p>
 
 <ul id="markdown-toc">
-  <li><a href="#before-you-get-started">Before you get started</a></li>
-  <li><a href="#dependencies">Dependencies</a>    <ul>
+  <li><a href="#get-started">Get started</a>    <ul>
       <li><a href="#java">Java</a></li>
       <li><a href="#mysql">MySQL</a></li>
       <li><a href="#netbeans">NetBeans</a></li>
-      <li><a href="#glassfish">Glassfish</a></li>
+      <li><a href="#glassfish-server">Glassfish Server</a></li>
     </ul>
   </li>
   <li><a href="#running-project">Running project</a></li>
@@ -153,19 +152,57 @@
   </li>
 </ul>
 
-<h2 id="before-you-get-started">Before you get started</h2>
+<h2 id="get-started">Get started</h2>
+
+<p>You will need the following material to study and deploy the project.</p>
+
+<ol>
+  <li>A PC with any Linux distribution installed. We use and tested on Ubuntu and Debian. We haven’t test but it might work on Windows and Apple machines.</li>
+  <li>Netbeans IDE - to edit the code. You can install here.</li>
+  <li>Java JDK - 7.</li>
+  <li>Mysql.</li>
+</ol>
+
+<p>Installation procedures are described below. It was tested using Ubuntu 14.04.</p>
 
 <hr />
 
-<h2 id="dependencies">Dependencies</h2>
-
 <h3 id="java">Java</h3>
+
+<p>To install Java JDK 7 copy and paste the following code inside the Terminal (Find it using the dash or just press Ctrl + Alt + T). We promess that the project won’t work with versions 6 and 8. </p>
+
+<p><code>
+sudo add-apt-repository ppa:webupd8team/java
+</code></p>
+
+<p><code>
+sudo apt-get update
+</code></p>
+
+<p><code>
+sudo apt-get install oracle-java7-installer 
+</code></p>
 
 <h3 id="mysql">MySQL</h3>
 
+<p>Copy and paste the following inside the terminal.</p>
+
+<p><code>
+sudo apt-get install mysql-server
+</code></p>
+
+<p>During installation, you will be prompted to insert a password. Save an put it in a safe.</p>
+
 <h3 id="netbeans">NetBeans</h3>
 
-<h3 id="glassfish">Glassfish</h3>
+<p>Download Netbeans (here)[https://netbeans.org/downloads/]. Pick the Java EE version. Once download, open the terminal and go to Download folder.</p>
+
+<p><code>
+sudo bash netbeans-8.0-javaee-linux.sh 
+</code></p>
+
+<h3 id="glassfish-server">Glassfish Server</h3>
+<p>The project was tested on Glasshfish Server versions 3.x.x. To download it open Netbeans and the step described on the images.</p>
 
 <hr />
 
