@@ -31,7 +31,7 @@ public class Acompanhamento {
 	@ManyToOne
 	private User usuario;
 	@Column(name = "recaida")
-	private boolean recaida; //se verdadeiro então recaida, caso contrário, lapso
+	private Integer recaida; //se verdadeiro então recaida, caso contrário, lapso
 	@Column(name = "data_inserido")
 	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date dataInserido;
@@ -91,14 +91,14 @@ public class Acompanhamento {
 	/**
 	 * @return the recaida
 	 */
-	public boolean isRecaida() {
+	public Integer getRecaida() {
 		return recaida;
 	}
 
 	/**
 	 * @param recaida the recaida to set
 	 */
-	public void setRecaida(boolean recaida) {
+	public void setRecaida(Integer recaida) {
 		this.recaida = recaida;
 	}
 

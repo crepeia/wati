@@ -497,6 +497,26 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                 document.add(paragraph);
                 document.add( Chunk.NEWLINE );
                 document.add( Chunk.NEWLINE );
+                
+                 paragraph = new Paragraph("Dicas", f2);
+                document.add(paragraph);
+                paragraph = new Paragraph("1. Ao parar de fumar você melhora sua qualidade de vida e vive mais tempo.", f3);
+                document.add(paragraph);
+                paragraph = new Paragraph("2. A vontade de fumar é muito comum nas pessoas que estão parando de fumar. Para a maioria dos fumantes, ela diminui nas primeiras semanas após você parar.", f3);
+                document.add(paragraph);
+                paragraph = new Paragraph("3. Manter a abstinência é fundamental, logo evite fumar após a data escolhida.", f3);
+                document.add(paragraph);
+                paragraph = new Paragraph("4. Medicamentos dobram suas chances de conseguir parar. Não deixe de procurar um profissional de saúde.", f3);
+                document.add(paragraph);
+                paragraph = new Paragraph("5. Evite situações de risco na primeira semana como: ", f3);
+                document.add(paragraph);
+                paragraph = new Paragraph("     - Usar de bebidas alcóolicas.", f3);
+                document.add(paragraph);
+                paragraph = new Paragraph("     - Avise também aos seus amigos e familiares que fumam que você está tentando parar.", f3);
+                document.add(paragraph);
+                paragraph = new Paragraph("6. É normal fumantes ganharem peso. Pode ser uma boa hora para começar a fazer exercícios físicos e comer mais frutas e legumes. ", f3);
+                document.add(paragraph);
+                document.add( Chunk.NEWLINE );
 
                 paragraph = new Paragraph("Data de parada",f2);
                 document.add(paragraph);
@@ -504,28 +524,42 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                 document.add(paragraph);
                 document.add( Chunk.NEWLINE );
             
-                paragraph = new Paragraph("Técnicas para fissura",f2);
-                document.add(paragraph);
-                paragraph = new Paragraph(this.prontoParaParar.getFissuraStr(),f3);
-                document.add(paragraph);
-                document.add( Chunk.NEWLINE );
-
-                paragraph = new Paragraph("Estratégias para resistir ao cigarro",f2);                            document.add(paragraph);
-                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara1(),f3);                            document.add(paragraph);
-                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara2(),f3);
-                document.add(paragraph);
-                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara3(),f3);
-                document.add(paragraph);
-                document.add( Chunk.NEWLINE );
-                       
-                paragraph = new Paragraph("O que deu certo da última vez que parei",f2);
-                document.add(paragraph);
-                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida1(),f3);
-                document.add(paragraph);
-                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida2(),f3);
-                document.add(paragraph);
-                paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida3(),f3);
-                document.add(paragraph);                
+                if(this.fissuras()){
+                    paragraph = new Paragraph("Técnicas para fissura",f2);
+                    document.add(paragraph);
+                    paragraph = new Paragraph(this.prontoParaParar.getFissuraStr(),f3);
+                    document.add(paragraph);
+                    document.add( Chunk.NEWLINE );
+                } else{
+                    paragraph.add(new Paragraph(" "));
+                }
+                
+                if(this.estrategias()){
+                    paragraph = new Paragraph("Estratégias para resistir ao cigarro",f2);                            
+                    document.add(paragraph);
+                    paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara1(),f3);                            
+                    document.add(paragraph);
+                    paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara2(),f3);
+                    document.add(paragraph);
+                    paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara3(),f3);
+                    document.add(paragraph);
+                    document.add( Chunk.NEWLINE );
+                } else{
+                    paragraph.add(new Paragraph(" "));
+                }
+                
+                if(this.deucerto()){
+                    paragraph = new Paragraph("O que deu certo da última vez que parei",f2);
+                    document.add(paragraph);
+                    paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida1(),f3);
+                    document.add(paragraph);
+                    paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida2(),f3);
+                    document.add(paragraph);
+                    paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida3(),f3);
+                    document.add(paragraph);    
+                } else{
+                    paragraph.add(new Paragraph(" "));
+                }
 
                 document.close();                
 

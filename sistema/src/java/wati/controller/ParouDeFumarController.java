@@ -81,24 +81,26 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
     public String recaidaOuLapso() {
 
         Acompanhamento a = this.getAcompanhamento();
-        a.setRecaida(this.recaida.equals("1"));
+        //a.setRecaida(this.recaida.equals("1"));
         try {
 
             this.getDaoBase().insertOrUpdate(a, this.getEntityManager());
 
-            if (a.isRecaida()) {
+            if (a.getRecaida() == 1) {
                 return "parou-de-fumar-acompanhamento-recaidas-identificar-motivos.xhtml";
-            } else {
+            } else if(a.getRecaida() == 0){
                 return "parou-de-fumar-acompanhamento-lapso.xhtml";
                 //"parou-de-fumar-acompanhamento-lapso-identificar-fatores-recaida.xhtml";
-            }
+            }else if(a.getRecaida() == 2)
+                return "parou-de-fumar-acompanhamento-estou-sem-fumar.xhtml";
+            else
+                return null;
 
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return null;
-
     }
 
     public String identificarMotivos() {
@@ -193,7 +195,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
     /**
      * @return the recaida
      */
-    public String getRecaida() {
+    /*public String getRecaida() {
 
         Acompanhamento a = this.getAcompanhamento();
 
@@ -210,6 +212,14 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
      */
     public void setRecaida(String recaida) {
         this.recaida = recaida;
+    }
+    
+    public boolean situacoesRisco(){
+           return isRecaidaSituacao11()|| isRecaidaSituacao22()|| isRecaidaSituacao33();
+    }
+    
+    public boolean comoEnfrentar(){
+        return isRecaidaLidar11() || isRecaidaLidar22() || isRecaidaLidar33();
     }
     
     public boolean isRecaidaSituacao11(){
@@ -321,26 +331,33 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
             document.add( Chunk.NEWLINE );
             document.add( Chunk.NEWLINE );
 
-            paragraph = new Paragraph("Situações de risco", f2);
-            document.add(paragraph);
-            paragraph = new Paragraph(this.getAcompanhamento().getRecaidaSituacao1(), f3);
-            document.add(paragraph);
-            paragraph = new Paragraph(this.getAcompanhamento().getRecaidaSituacao2(), f3);
-            document.add(paragraph);
-            paragraph = new Paragraph(this.getAcompanhamento().getRecaidaSituacao3(), f3);
-            document.add(paragraph);
-            document.add( Chunk.NEWLINE );
+            if(this.situacoesRisco()){
+                paragraph = new Paragraph("Situações de risco", f2);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.getAcompanhamento().getRecaidaSituacao1(), f3);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.getAcompanhamento().getRecaidaSituacao2(), f3);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.getAcompanhamento().getRecaidaSituacao3(), f3);
+                document.add(paragraph);
+                document.add( Chunk.NEWLINE );
+            } else {
+                paragraph.add(new Paragraph(" "));
+            }
             //paragraph.add(new Paragraph(" "));
 
-            paragraph = new Paragraph("Como vou enfrentar", f2);
-            document.add(paragraph);
-            paragraph = new Paragraph(this.getAcompanhamento().getRecaidaLidar1(), f3);
-            document.add(paragraph);
-            paragraph = new Paragraph(this.getAcompanhamento().getRecaidaLidar2(), f3);
-            document.add(paragraph);
-            paragraph = new Paragraph(this.getAcompanhamento().getRecaidaLidar3(), f3);
-            document.add(paragraph);
-            paragraph.add(new Paragraph(" "));
+            if(this.comoEnfrentar()){
+                paragraph = new Paragraph("Como vou enfrentar", f2);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.getAcompanhamento().getRecaidaLidar1(), f3);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.getAcompanhamento().getRecaidaLidar2(), f3);
+                document.add(paragraph);
+                paragraph = new Paragraph(this.getAcompanhamento().getRecaidaLidar3(), f3);
+                document.add(paragraph);
+            } else{
+                paragraph.add(new Paragraph(" "));
+            }
 
             document.close();
 

@@ -27,12 +27,11 @@ public class CalculadoraController implements Serializable {
         
     }
     
-    public void calcular( ActionEvent actionEvent ) {
-        
+    public void calcular() {
         int numeroCigarrosDiaInt = Integer.valueOf( numeroCigarrosDia );
-        double custoMassoDbl = Double.valueOf( custoMasso.replace("R$ ", "").replace(",", ".") );
+        double custoMassoDbl = Double.valueOf( custoMasso.replace("R$", ""));
         double numeroMassosDia = numeroCigarrosDiaInt / 20.0;
-		
+		      System.out.println("");
         double custoDia = numeroMassosDia * custoMassoDbl;
         custoSemana = String.format("%.2f", 7.0*custoDia);
         custoMes = String.format("%.2f", 30.0*custoDia);
