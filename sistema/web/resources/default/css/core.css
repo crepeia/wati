@@ -208,11 +208,11 @@ img {
 
 /*Search bar*/
 
-.form-wrapper input {
-    width: 170px;
-    height: 20px;
-    padding: 10px 5px;
-    border: 0;
+.form-wrapper input[type=text] {
+    width: 170px!important;
+    height: 20px!important;
+    padding: 10px 5px!important;
+    border: 0!important;
     background: #eee;
     float: left;
 
@@ -221,22 +221,24 @@ img {
 .form-wrapper input {
     /*outline: 1;*/
     background: #fff;
-    box-shadow: 0 0 2px rgba(0,0,0,.3) inset;
+    box-shadow: 0 0 2px rgba(0,0,0,.3) inset;    
 }
 
 .form-wrapper input::-webkit-input-placeholder {
     color: #999;
-    font-weight: normal;
+    font-weight: normal;    
 }
 
 .form-wrapper input:-moz-placeholder {
     color: #999;
     font-weight: normal;
+
 }
 
 .form-wrapper input:-ms-input-placeholder {
     color: #999;
     font-weight: normal;
+
 }    
 
 

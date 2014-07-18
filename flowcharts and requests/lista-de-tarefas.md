@@ -17,12 +17,10 @@ Página cadastro - mudar padrão do selectOneList para "mês"
 Calculador - retirar moeda
 Colocar mensagem antes de redirecionar após cadastro
 Preparando para parar - menu lateral - botão "Já estou pronto"
-pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml - tirar <div>
 Pŕonto para parar - plano - colocar carregamento ao enviar email
 Pronto para parar - arrumar link mp3 na página e no pdf
 Acompanhamento - lapso - corrigir texto "Talvez seja uma bora de tentar fazer[...]"
 Acompanhamento - recaida - campo começando com 0 (?)
-Acompanhamento - recaida - retirar <div>
 
 Problemas não resolvidos
 -------------------------
