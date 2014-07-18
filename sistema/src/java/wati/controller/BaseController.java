@@ -4,8 +4,11 @@
  */
 package wati.controller;
 
+import java.io.IOException;
 import wati.persistence.GenericDAO;
 import java.io.Serializable;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Locale;
 import java.util.Map;
 import java.util.PropertyResourceBundle;
@@ -17,6 +20,7 @@ import javax.faces.context.FacesContext;
 import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import wati.utility.EMailSSL;
 
 /**
  *
@@ -103,6 +107,27 @@ public abstract class BaseController<T> implements Serializable {
                
         public String getText (String key){
            return PropertyResourceBundle.getBundle("wati.utility.messages").getString(key);   
+        }
+        
+        public String defaultEmail(String subtitle, String text){
+            
+            EMailSSL e = new EMailSSL();
+            try {
+                URL url = FacesContext.getCurrentInstance().getExternalContext().getResource("/resources/default/template-email-vst/template.html");
+                String template = e.readTemplateToString("/resources/default/template-email-vst/template.html");
+                String[] tags = {"#title#","#subtitle#","#text#","#footer#"};
+                String[] content = new String[4];
+                content[0] = "Viva Sem Tabaco";
+                content[1] = subtitle;
+                content[2] = text;
+                content[3] = "<span style='font-weight:bold;'>Viva sem Tabaco</span><br>CREPEIA<br>Universidade Federal de Juiz de Fora";
+                return e.fillTemplate(template, tags, content);
+                
+            } catch (IOException ex) {
+                Logger.getLogger(BaseController.class.getName()).log(Level.SEVERE, "Erro ao ler template default", ex);
+            }
+            
+            return null;
         }
 
 }
