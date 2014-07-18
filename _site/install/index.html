@@ -133,23 +133,34 @@
       <div class="entry-content">
         <p>How to install and contribute to the project <em>**</em>. </p>
 
-<p>This page is under construction :/</p>
-
 <ul id="markdown-toc">
   <li><a href="#get-started">Get started</a>    <ul>
       <li><a href="#java">Java</a></li>
       <li><a href="#mysql">MySQL</a></li>
       <li><a href="#netbeans">NetBeans</a></li>
-      <li><a href="#glassfish-server">Glassfish Server</a></li>
+      <li><a href="#glassfish-server">Glassfish Server</a>        <ul>
+          <li><a href="#step-1">Step 1</a></li>
+          <li><a href="#step-2">Step 2</a></li>
+          <li><a href="#step-3">Step 3</a></li>
+        </ul>
+      </li>
+      <li><a href="#github">Github</a>        <ul>
+          <li><a href="#for-the-git-newbies">For the git newbies</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
-  <li><a href="#running-project">Running project</a></li>
+  <li><a href="#donwload">Donwload</a></li>
+  <li><a href="#set-the-database">Set the database</a></li>
+  <li><a href="#run">Run</a></li>
   <li><a href="#translation">Translation</a></li>
   <li><a href="#graphics">Graphics</a>    <ul>
       <li><a href="#images">Images</a></li>
       <li><a href="#videos">Videos</a></li>
+      <li><a href="#stylesheet">Stylesheet</a></li>
     </ul>
   </li>
+  <li><a href="#mayday-need-any-help">Mayday! Need any help?</a></li>
 </ul>
 
 <h2 id="get-started">Get started</h2>
@@ -161,9 +172,10 @@
   <li>Netbeans IDE - to edit the code. You can install here.</li>
   <li>Java JDK - 7.</li>
   <li>Mysql.</li>
+  <li>Github</li>
 </ol>
 
-<p>Installation procedures are described below. It was tested using Ubuntu 14.04.</p>
+<p>Installation procedures are described below. It was tested using Ubuntu 14.04 on a 64 bits machine.</p>
 
 <hr />
 
@@ -195,32 +207,118 @@ sudo apt-get install mysql-server
 
 <h3 id="netbeans">NetBeans</h3>
 
-<p>Download Netbeans (here)[https://netbeans.org/downloads/]. Pick the Java EE version. Once download, open the terminal and go to Download folder.</p>
+<p>Download Netbeans <a href="https://netbeans.org/downloads/">here</a>. Pick the Java EE version. Once download, open the terminal and go to Download folder.</p>
 
 <p><code>
 sudo bash netbeans-8.0-javaee-linux.sh 
 </code></p>
 
 <h3 id="glassfish-server">Glassfish Server</h3>
-<p>The project was tested on Glasshfish Server versions 3.x.x. To download it open Netbeans and the step described on the images.</p>
+<p>The project was tested on Glasshfish Server versions 3.x.x. To download it open Netbeans and the step described on the images. If you prefer, you can also download it from the project page <a href="https://glassfish.java.net/">here</a>.</p>
+
+<h4 id="step-1">Step 1</h4>
+<p>Left-click on services tab.</p>
+
+<p><img src="/images/fig1.png" alt="Figure 1 - Servers tab" /></p>
+
+<h4 id="step-2">Step 2</h4>
+<p>Right-click on server</p>
+
+<p><img src="/images/fig2.png" alt="Figure 2 - Servers tab" /></p>
+
+<h4 id="step-3">Step 3</h4>
+<p>Select Add server, then “Glassfish”. Press next and mark the checkbox. After that, click on “Download now” and choose the option Glassfish 3.x.x.x.</p>
+
+<p><img src="/images/fig3.png" alt="Figure 3 - Servers tab" /></p>
+
+<h3 id="github">Github</h3>
+
+<p>To download the project we recommend the git program. With git you will be able to fork the project and distribute the code easily. To install, type on terminal:</p>
+
+<p><code>
+sudo apt-get install git
+</code></p>
+
+<p>If don’t have a clue about how git works, we recommend to you this (page)[https://guides.github.com/]. Whether your checked the link before or not, you can catch up the follow steps.</p>
+
+<h4 id="for-the-git-newbies">For the git newbies</h4>
+<ol>
+  <li>Create an account <a href="https://www.github/join">here</a>.</li>
+  <li>On terminal, type the following commands.</li>
+</ol>
+
+<p><code>
+git config --global user.name "John Doe"
+</code></p>
+
+<p><code>
+git config --global user.email johndoe@example.com
+</code></p>
+
+<p>That’s all for now.</p>
 
 <hr />
 
-<h2 id="running-project">Running project</h2>
+<h2 id="donwload">Donwload</h2>
+
+<p>To download, just open the terminal and type.</p>
+
+<p><code>
+git clone https://github.com/crepeia/wati.git
+</code></p>
+
+<p>Done. If you did, the project folder is located in your home folder “~”.</p>
+
+<h2 id="set-the-database">Set the database</h2>
+
+<p>We are are almost there. We just need to set the database. Follow these instructions to create the database. Open the terminal (again!) and type:</p>
+
+<p><code>
+mysql -u root -p
+</code></p>
+
+<p>You need to insert your root password (the one that you should’ve put in the safe). You need to run the following commands:</p>
+
+<p><code>
+create user wati@localhost identified by "wati1235";
+</code></p>
+
+<p><code>
+create database wati;
+</code></p>
+
+<p><code>
+grant all privileges on wati.* to wati@localhost;
+</code></p>
+
+<p>Voilá! Now everything is set to run the project on your machine. </p>
+
+<h2 id="run">Run</h2>
+
+<p>If you have completed the steps above. Open Netbeans, go to files - &gt; open project and browse to the donwloaded folder. Now execute de project using the run command.</p>
 
 <hr />
 
 <h2 id="translation">Translation</h2>
+
+<p>The translation files are located in “Source Packages” folder, inside the controller “wati-utility”. They all have names starting with messages_xx_properties.</p>
 
 <hr />
 
 <h2 id="graphics">Graphics</h2>
 
 <h3 id="images">Images</h3>
+<p>The images are in Web Pages -&gt; resources -&gt; default -&gt; images.</p>
 
 <h3 id="videos">Videos</h3>
 
-<hr />
+<h3 id="stylesheet">Stylesheet</h3>
+<p>The CSS code is in Web Pages -&gt; resources -&gt; default -&gt; css.
+—</p>
+
+<h2 id="mayday-need-any-help">Mayday! Need any help?</h2>
+
+<p>Reach us at henriquepgomide@gmail.com</p>
 
 
       </div><!-- /.entry-content -->
