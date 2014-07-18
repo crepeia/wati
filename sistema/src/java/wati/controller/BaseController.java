@@ -113,8 +113,7 @@ public abstract class BaseController<T> implements Serializable {
             
             EMailSSL e = new EMailSSL();
             try {
-                URL url = FacesContext.getCurrentInstance().getExternalContext().getResource("/resources/default/template-email-vst/template.html");
-                String template = e.readTemplateToString("/resources/default/template-email-vst/template.html");
+                String template = e.readTemplateToString("/resources/default/email-templates/template.html");
                 String[] tags = {"#title#","#subtitle#","#text#","#footer#"};
                 String[] content = new String[4];
                 content[0] = "Viva Sem Tabaco";
