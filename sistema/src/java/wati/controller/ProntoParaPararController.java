@@ -63,7 +63,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         try {
             this.daoBase = new GenericDAO<ProntoParaParar>(ProntoParaParar.class);
         } catch (NamingException ex) {
-            String message = "Ocorreu um erro inesperado.";
+            String message = this.getText("mensagem.erro");
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
         }
@@ -132,7 +132,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             return "pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml";
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar a data de parar de fumar.", null));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.data"), null));
         }
         return null;
     }
@@ -148,7 +148,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar a data de parar de fumar.", null));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.data"), null));
         }
         return null;
     }
@@ -161,7 +161,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             //return "pronto-para-parar-de-fumar-ganho-de-peso.xhtml";
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar a data de parar de fumar.", null));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.data"), null));
         }
         return null;
     }
@@ -173,7 +173,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             return "pronto-para-parar-de-fumar-ganho-de-peso.xhtml";
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao gravar a data de parar de fumar.", null));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.data"), null));
         }
         return null;
     }
@@ -317,7 +317,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                 }
                 this.prontoParaParar.setUsuario((User) object);
             } else {
-                Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, "Usuário não logado preenchendo ficha.");
+                Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, this.getText("usuario.preenchendo.ficha"));
             }
         }
 
@@ -401,9 +401,9 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 
         if (object == null) {
 
-            Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, "Usuário não logado no sistema requerendo plano.");
+            Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, this.getText("user.not.logged"));
             //message to the user
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Você deve estar logado no sistema para solitar o envio do e-mail.", null));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("deve.estar.logado"), null));
 
         } else {
 
@@ -412,23 +412,23 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             try {
                 String from = "watiufjf@gmail.com";
                 String to = user.getEmail();
-                String subject = "Plano Personalizado -- Wati";
+                String subject = this.getText("plano.wati2");
                 
-                String html =  this.defaultEmail("Plano Personalizado", this.planoToHTML(user));
+                String html =  this.defaultEmail(this.getText("plano.personalizado"), this.planoToHTML(user));
 
                 EMailSSL eMailSSL = new EMailSSL();
                 System.out.println(html);
                 eMailSSL.send(from, to, subject, this.planoToText(user), html, gerarPdf());
 
-                Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.INFO, "Plano personalizado enviado para o e-mail " + user.getEmail() + ".");
+                Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.INFO, this.getText("plano.enviado2") + user.getEmail() + ".");
                 //message to the user
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "E-mail enviado com sucesso.", null));
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, this.getText("email.enviado"), null));
 
             } catch (Exception ex) {
 
-                Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, "Problemas ao enviar e-mail para " + user.getEmail() + ".");
+                Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, this.getText("problemas.enviar.email") + user.getEmail() + ".");
                 //message to the user
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao enviar e-mail. Por favor, tente novamente mais tarde.", null));
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.enviar.email2"), null));
 
             }
 
@@ -437,44 +437,44 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     }
 
     public String planoToHTML(User user) {
-        String html = "   Prezado " + user.getName() + ",<br><br>"
-                + "Segue abaixo seu plano personalizado:<br>"
-                + "<br>Data de parada:<br>"
-                + this.prontoParaParar.getDataPararStr() +"<br>"
-                + "<br>Técnicas para fissura:<br>"
-                + this.prontoParaParar.getFissuraStr() +"<br>"
-                + "<br>Estratégias para resistir ao cigarro:<br>";
+        String html = this.getText("dear")+ user.getName() + ",\n\n"
+                + this.getText("plano.email2") + "\n"
+                + "\n" + this.getText("pronto.plano.h2.1") + ":\n"
+                + this.prontoParaParar.getDataPararStr() +"\n"
+                + "\n" + this.getText("pronto.plano.h2.2")+ ":\n"
+                + this.prontoParaParar.getFissuraStr() +"\n"
+                + "\n" + this.getText("pronto.plano.h2.3") + ":\n";
         if (this.prontoParaParar.getEvitarRecaidaFara1() != null && !this.prontoParaParar.getEvitarRecaidaFara1().isEmpty()) {
-            html += this.prontoParaParar.getEvitarRecaidaFara1()+"<br>";
+            html += this.prontoParaParar.getEvitarRecaidaFara1()+"\n";
         }
         if (this.prontoParaParar.getEvitarRecaidaFara2() != null && !this.prontoParaParar.getEvitarRecaidaFara2().isEmpty()) {
-            html += this.prontoParaParar.getEvitarRecaidaFara2()+"<br>";
+            html += this.prontoParaParar.getEvitarRecaidaFara2()+"\n";
         }
         if (this.prontoParaParar.getEvitarRecaidaFara3() != null && !this.prontoParaParar.getEvitarRecaidaFara3().isEmpty()) {
-            html += this.prontoParaParar.getEvitarRecaidaFara3()+"<br>";
+            html += this.prontoParaParar.getEvitarRecaidaFara3()+"\n";
         }
-                html += "<br>O que deu certo da última vez que parei:<br>";
+                html += "\n" + this.getText("pronto.plano.h2.4") + ":\n";
         if (this.prontoParaParar.getEvitarRecaida1() != null && !this.prontoParaParar.getEvitarRecaida1().isEmpty()) {
-            html += this.prontoParaParar.getEvitarRecaida1()+"<br>";
+            html += this.prontoParaParar.getEvitarRecaida1()+"\n";
         }
         if (this.prontoParaParar.getEvitarRecaida2() != null && !this.prontoParaParar.getEvitarRecaida2().isEmpty()) {
-            html += this.prontoParaParar.getEvitarRecaida2()+"<br>";
+            html += this.prontoParaParar.getEvitarRecaida2()+"\n";
         }
         if (this.prontoParaParar.getEvitarRecaida3() != null && !this.prontoParaParar.getEvitarRecaida3().isEmpty()) {
-            html += this.prontoParaParar.getEvitarRecaida3()+"<br>";
+            html += this.prontoParaParar.getEvitarRecaida3()+"\n";
         }
-            html += "<br>Atenciosamente.";
+            html += "\n" + this.getText("att");
         return html;
     }
 
     public String planoToText(User user) {
-        String text = "Prezado " + user.getName() + ",\n\n"
-                + "Segue abaixo seu plano personalizado:\n\n"
-                + "Data de parada:\n"
+        String text = this.getText("dear") + user.getName() + ",\n\n"
+                + this.getText("plano.email2") + "\n\n"
+                + this.getText("pronto.plano.h2.1") + ":\n"
                 + this.prontoParaParar.getDataPararStr()
-                + "\nTécnicas para fissura:\n"
+                + "\n" + this.getText("pronto.plano.h2.2")+ ":\n"
                 + this.prontoParaParar.getFissuraStr()
-                + "\nEstratégias para resistir ao cigarro:\n";
+                + "\n" + this.getText("pronto.plano.h2.3") + ":\n";
         if (this.prontoParaParar.getEvitarRecaidaFara1() != null && !this.prontoParaParar.getEvitarRecaidaFara1().isEmpty()) {
             text += this.prontoParaParar.getEvitarRecaidaFara1() + "\n";
         }
@@ -484,7 +484,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         if (this.prontoParaParar.getEvitarRecaidaFara3() != null && !this.prontoParaParar.getEvitarRecaidaFara3().isEmpty()) {
             text += this.prontoParaParar.getEvitarRecaidaFara3() + "\n";
         }
-        text += "O que deu certo da última vez que parei:\n";
+        text += this.getText("pronto.plano.h2.4") + ":\n";
         if (this.prontoParaParar.getEvitarRecaida1() != null && !this.prontoParaParar.getEvitarRecaida1().isEmpty()) {
             text += this.prontoParaParar.getEvitarRecaida1() + "\n";
         }
@@ -494,7 +494,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         if (this.prontoParaParar.getEvitarRecaida3() != null && !this.prontoParaParar.getEvitarRecaida3().isEmpty()) {
             text += this.prontoParaParar.getEvitarRecaida3() + "\n";
         }
-        text += "\n\nAtenciosamente.\n";
+        text += "\n\n" + this.getText("att") + "\n";
         return text;
     }
 
@@ -506,7 +506,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             PdfWriter.getInstance(document, os);
             document.open();
 
-            document.addTitle("Plano Persolanizado");
+            document.addTitle(this.getText("plano.personalizado"));
             document.addAuthor("vivasemtabaco.com.br");
 
             URL url = FacesContext.getCurrentInstance().getExternalContext().getResource("/resources/default/images/viva-sem-tabaco-new.png");
@@ -520,42 +520,42 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             f1.setColor(22, 63, 117);
             Font f2 = new Font(FontFamily.HELVETICA, 14, Font.BOLD, BaseColor.BLUE);
             f2.setColor(22, 63, 117);
-            Font f3 = new Font(FontFamily.HELVETICA, 12);
+            Font f3 = new Font(FontFamily.HELVETICA, 11);
 
-            Paragraph paragraph = new Paragraph("Meu Plano", f1);
+            Paragraph paragraph = new Paragraph(this.getText("meu.plano"), f1);
             paragraph.setAlignment(Element.ALIGN_CENTER);
             document.add(paragraph);
             document.add(Chunk.NEWLINE);
             document.add(Chunk.NEWLINE);
 
-            paragraph = new Paragraph("Dicas", f2);
+            paragraph = new Paragraph(this.getText("pronto.plano.padrao.h2.1"), f2);
             document.add(paragraph);
-            paragraph = new Paragraph("1. Ao parar de fumar você melhora sua qualidade de vida e vive mais tempo.", f3);
+            paragraph = new Paragraph(this.getText("dicas.p1"), f3);
             document.add(paragraph);
-            paragraph = new Paragraph("2. A vontade de fumar é muito comum nas pessoas que estão parando de fumar. Para a maioria dos fumantes, ela diminui nas primeiras semanas após você parar.", f3);
+            paragraph = new Paragraph(this.getText("dicas.p2"), f3);
             document.add(paragraph);
-            paragraph = new Paragraph("3. Manter a abstinência é fundamental, logo evite fumar após a data escolhida.", f3);
+            paragraph = new Paragraph(this.getText("dicas.p3"), f3);
             document.add(paragraph);
-            paragraph = new Paragraph("4. Medicamentos dobram suas chances de conseguir parar. Não deixe de procurar um profissional de saúde.", f3);
+            paragraph = new Paragraph(this.getText("dicas.p4"), f3);
             document.add(paragraph);
-            paragraph = new Paragraph("5. Evite situações de risco na primeira semana como: ", f3);
+            paragraph = new Paragraph(this.getText("dicas.p5"), f3);
             document.add(paragraph);
-            paragraph = new Paragraph("     - Usar de bebidas alcóolicas.", f3);
+            paragraph = new Paragraph(this.getText("dicas.p5.1"), f3);
             document.add(paragraph);
-            paragraph = new Paragraph("     - Avise também aos seus amigos e familiares que fumam que você está tentando parar.", f3);
+            paragraph = new Paragraph(this.getText("dicas.p5.2"), f3);
             document.add(paragraph);
-            paragraph = new Paragraph("6. É normal fumantes ganharem peso. Pode ser uma boa hora para começar a fazer exercícios físicos e comer mais frutas e legumes. ", f3);
+            paragraph = new Paragraph(this.getText("dicas.p6"), f3);
             document.add(paragraph);
             document.add(Chunk.NEWLINE);
 
-            paragraph = new Paragraph("Data de parada", f2);
+            paragraph = new Paragraph(this.getText("pronto.plano.h2.1"), f2);
             document.add(paragraph);
             paragraph = new Paragraph(this.prontoParaParar.getDataPararStr(), f3);
             document.add(paragraph);
             document.add(Chunk.NEWLINE);
 
             if (this.fissuras()) {
-                paragraph = new Paragraph("Técnicas para fissura", f2);
+                paragraph = new Paragraph(this.getText("pronto.plano.h2.2"), f2);
                 document.add(paragraph);
                 paragraph = new Paragraph(this.prontoParaParar.getFissuraStr(), f3);
                 document.add(paragraph);
@@ -565,7 +565,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             }
 
             if (this.estrategias()) {
-                paragraph = new Paragraph("Estratégias para resistir ao cigarro", f2);
+                paragraph = new Paragraph(this.getText("pronto.plano.h2.3"), f2);
                 document.add(paragraph);
                 paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaidaFara1(), f3);
                 document.add(paragraph);
@@ -579,7 +579,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             }
 
             if (this.deucerto()) {
-                paragraph = new Paragraph("O que deu certo da última vez que parei", f2);
+                paragraph = new Paragraph(this.getText("pronto.plano.h2.4"), f2);
                 document.add(paragraph);
                 paragraph = new Paragraph(this.prontoParaParar.getEvitarRecaida1(), f3);
                 document.add(paragraph);
@@ -607,7 +607,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             is = new ByteArrayInputStream(gerarPdf().toByteArray());
             return new DefaultStreamedContent(is, "application/pdf", "plano.pdf");
         } catch (Exception e) {
-            Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, "Erro ao gerar o pdf");
+            Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, this.getText("erro.pdf"));
             return null;
         }
 

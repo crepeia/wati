@@ -77,9 +77,9 @@ public class LoginController extends BaseFormController<User> {
 
 			if (userList.isEmpty() || !Encrypter.compare(this.password, userList.get(0).getPassword())) {
 				//log message
-				Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, "O usuário com o e-mail '" + this.getUser().getEmail() + "' não conseguiu logar.");
+				Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, this.getText("usuario.email") + this.getUser().getEmail() + this.getText("not.login"));
 				//message to the user
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "E-mail ou senha inválida.", null));
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("email.senha"), null));
 
 			} else {
 
@@ -90,7 +90,7 @@ public class LoginController extends BaseFormController<User> {
 //                              session.setAttribute( "loggedUser" , userList.get( 0 ));
 				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", userList.get(0));
 
-				Logger.getLogger(LoginController.class.getName()).log(Level.INFO, "O usuário '" + this.getUser().getName() + "' logou no sistema.");
+				Logger.getLogger(LoginController.class.getName()).log(Level.INFO, this.getText("user") + this.getUser().getName() + this.getText("login"));
 
 			}
 
@@ -105,7 +105,7 @@ public class LoginController extends BaseFormController<User> {
 		} catch (NoSuchPaddingException ex) {
 			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
 		} catch (SQLException ex) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Problemas no acesso ao banco de dados.", null));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, this.getText("mensagem.delete2"), null));
 			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
 		}
 
@@ -125,9 +125,9 @@ public class LoginController extends BaseFormController<User> {
 
 			if (userList.isEmpty() || !Encrypter.compare(this.password, userList.get(0).getPassword())) {
 				//log message
-				Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, "O usuário com o e-mail '" + this.getUser().getEmail() + "' não conseguiu logar.");
+				Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, this.getText("usuario.email") + this.getUser().getEmail() + this.getText("not.login"));
 				//message to the user
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "E-mail ou senha inválida.", null));
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("email.senha"), null));
 
 			} else {
 
@@ -138,7 +138,7 @@ public class LoginController extends BaseFormController<User> {
 //                              session.setAttribute( "loggedUser" , userList.get( 0 ));
 				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", userList.get(0));
 
-				Logger.getLogger(LoginController.class.getName()).log(Level.INFO, "O usuário '" + this.getUser().getName() + "' logou no sistema.");
+				Logger.getLogger(LoginController.class.getName()).log(Level.INFO, this.getText("user") + this.getUser().getName() + this.getText("login"));
 
 				if (this.user.getId() > 0) {
 					this.showName = true;
@@ -170,7 +170,7 @@ public class LoginController extends BaseFormController<User> {
 		} catch (NoSuchPaddingException ex) {
 			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
 		} catch (SQLException ex) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Problemas no acesso ao banco de dados.", null));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, this.getText("mensagem.delete2"), null));
 			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
 		}
 
@@ -179,7 +179,7 @@ public class LoginController extends BaseFormController<User> {
 	//TODO -- arrumar a funcionalidade de deslogar do sistema
 	public String getLogout() {
 
-		Logger.getLogger(LoginController.class.getName()).log(Level.INFO, "O usuário '" + this.getUser().getName() + "' saiu no sistema.");
+		Logger.getLogger(LoginController.class.getName()).log(Level.INFO, this.getText("user") + this.getUser().getName() + this.getText("logout"));
 
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		try {

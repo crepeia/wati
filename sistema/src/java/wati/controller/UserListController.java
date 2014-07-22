@@ -29,7 +29,7 @@ import wati.persistence.GenericDAO;
  */
 @ManagedBean(name = "userListController")
 @ViewScoped
-public class UserListController implements Serializable {
+public class UserListController extends BaseController implements Serializable {
 
 	private GenericDAO<User> dao;
 	@PersistenceContext
@@ -46,7 +46,7 @@ public class UserListController implements Serializable {
 		try {
 			this.dao = new GenericDAO<User>(User.class);
 		} catch (NamingException ex) {
-			String message = "Um erro inesperado ocorreu.";
+			String message = this.getText("mensagem.erro");
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
 			Logger.getLogger(UserListController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
 		}
@@ -58,7 +58,7 @@ public class UserListController implements Serializable {
 			try {
 				this.list = this.dao.list(this.entityManager);
 			} catch (SQLException ex) {
-				String message = "Problemas ao acessar o banco de dados.";
+				String message = this.getText("mensagem.delete2");
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
 				Logger.getLogger(UserListController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
 				this.list = new ArrayList<User>();

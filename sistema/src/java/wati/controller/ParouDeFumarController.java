@@ -71,7 +71,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
         try {
             this.daoBase = new GenericDAO<Acompanhamento>(Acompanhamento.class);
         } catch (NamingException ex) {
-            String message = "Ocorreu um erro inesperado.";
+            String message = this.getText("mensagem.erro");
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
             Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
         }
@@ -147,9 +147,9 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
 
         if (object == null) {
 
-            Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, "Usuário não logado no sistema requerendo plano.");
+            Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, this.getText("user.not.logged"));
             //message to the user
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Você deve estar logado no sistema para solitar o envio do e-mail.", null));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("deve.estar.logado"), null));
 
         } else {
 
@@ -159,10 +159,10 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
             try {
                 String from = "watiufjf@gmail.com";
                 String to = user.getEmail();
-                String subject = "Plano para evitar recaídas -- Wati";
-                String message = "Prezado " + user.getName() + ",\n\n"
-                        + "Segue abaixo seu plano para evitar recaídas:\n\n"
-                        + "\nEstratégias para lidar com a recaída:\n";
+                String subject = this.getText("plano.wati");
+                String message = this.getText("dear") + user.getName() + ",\n\n"
+                        + this.getText("plano.email") + "\n\n"
+                        + "\n" + this.getText("plano.estrategias.email") + "\n";
                 if (a.getRecaidaLidar1() != null && !a.getRecaidaLidar1().isEmpty()) {
                     message += a.getRecaidaLidar1() + "\n";
                 }
@@ -172,41 +172,26 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
                 if (a.getRecaidaLidar3() != null && !a.getRecaidaLidar3().isEmpty()) {
                     message += a.getRecaidaLidar3() + "\n";
                 }
-                message += "\n\nAtenciosamente.\n";
+                message += "\n\n" + this.getText("att") + "\n";
 
                 EMailSSL eMailSSL = new EMailSSL();
                 eMailSSL.send(from, to, subject, message);
 
-                Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.INFO, "Plano para evitar recaídas enviado para o e-mail " + user.getEmail() + ".");
+                Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.INFO, this.getText("plano.enviado") + user.getEmail() + ".");
                 //message to the user
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "E-mail enviado com sucesso.", null));
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, this.getText("email.enviado"), null));
 
             } catch (Exception ex) {
 
-                Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.SEVERE, "Problemas ao enviar e-mail para " + user.getEmail() + ".");
+                Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.SEVERE, this.getText("problemas.enviar.email") + user.getEmail() + ".");
                 //message to the user
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problemas ao enviar e-mail. Por favor, tente novamente mais tarde.", null));
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.enviar.email2"), null));
 
             }
 
         }
     }
-
-    /**
-     * @return the recaida
-     */
-    /*public String getRecaida() {
-
-        Acompanhamento a = this.getAcompanhamento();
-
-        if (a.isRecaida()) {
-            return "1";
-        } else {
-            return "0";
-        }
-
-    }
-
+    
     /**
      * @param recaida the recaida to set
      */
@@ -286,7 +271,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
                 }
 
             } else {
-                Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, "Usuário não logado sendo acompanhado.");
+                Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, this.getText("usuario.acompanhado"));
                 this.acompanhamento = new Acompanhamento();
             }
 
@@ -306,7 +291,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
 
             document.open();
 
-            document.addTitle("Meu Plano");
+            document.addTitle(this.getText("meu.plano"));
             document.addAuthor("vivasemtabaco.com.br");
 
             URL url;
@@ -323,16 +308,16 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
             f1.setColor(22, 63, 117);
             Font f2 = new Font(FontFamily.HELVETICA, 14, Font.BOLD, BaseColor.BLUE);
             f2.setColor(22, 63, 117);
-            Font f3 = new Font(FontFamily.HELVETICA, 12);
+            Font f3 = new Font(FontFamily.HELVETICA, 11);
 
-            Paragraph paragraph = new Paragraph("Meu Plano", f1);
+            Paragraph paragraph = new Paragraph(this.getText("meu.plano"), f1);
             paragraph.setAlignment(Element.ALIGN_CENTER);
             document.add(paragraph);
             document.add( Chunk.NEWLINE );
             document.add( Chunk.NEWLINE );
 
             if(this.situacoesRisco()){
-                paragraph = new Paragraph("Situações de risco", f2);
+                paragraph = new Paragraph(this.getText("acompanhamento.plano.h2.1"), f2);
                 document.add(paragraph);
                 paragraph = new Paragraph(this.getAcompanhamento().getRecaidaSituacao1(), f3);
                 document.add(paragraph);
@@ -347,7 +332,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
             //paragraph.add(new Paragraph(" "));
 
             if(this.comoEnfrentar()){
-                paragraph = new Paragraph("Como vou enfrentar", f2);
+                paragraph = new Paragraph(this.getText("acompanhamento.plano.h2.1"), f2);
                 document.add(paragraph);
                 paragraph = new Paragraph(this.getAcompanhamento().getRecaidaLidar1(), f3);
                 document.add(paragraph);
@@ -384,7 +369,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
 
         } catch (Exception e) {
             Logger.getLogger(ParouDeFumarController.class
-                    .getName()).log(Level.SEVERE, "Erro ao gerar o pdf");
+                    .getName()).log(Level.SEVERE, this.getText("erro.pdf"));
             Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 
             return null;
@@ -403,7 +388,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
 
             document.open();
 
-            document.addTitle("Recaída");
+            document.addTitle(this.getText("recaida"));
             document.addAuthor("vivasemtabaco.com.br");
 
             URL url;
@@ -420,29 +405,29 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
             f1.setColor(22, 63, 117);
             Font f2 = new Font(FontFamily.HELVETICA, 14, Font.BOLD, BaseColor.BLUE);
             f2.setColor(22, 63, 117);
-            Font f3 = new Font(FontFamily.HELVETICA, 12);
+            Font f3 = new Font(FontFamily.HELVETICA, 11);
 
-            Paragraph paragraph = new Paragraph("Meu plano", f1);
+            Paragraph paragraph = new Paragraph(this.getText("meu.plano"), f1);
             paragraph.setAlignment(Element.ALIGN_CENTER);
             document.add(paragraph);
             document.add( Chunk.NEWLINE );
             document.add( Chunk.NEWLINE );
 
-            paragraph = new Paragraph("Lembre-se", f2);
+            paragraph = new Paragraph(this.getText("acompanhamento.plano.padrao.h2.1"), f2);
             document.add(paragraph);
-            paragraph = new Paragraph("- Qualquer período sem cigarro já é uma vitória;", f3);
+            paragraph = new Paragraph(this.getText("lembre.se2"), f3);
             document.add(paragraph);
-            paragraph = new Paragraph("- Aprenda com os erros. Fumantes geralmente tentam parar mais de uma vez até conseguir definitivamente. ", f3);
+            paragraph = new Paragraph(this.getText("lembre.se3"), f3);
             document.add(paragraph);
             document.add( Chunk.NEWLINE );
 
-            paragraph = new Paragraph("Recomendamos a você", f2);
+            paragraph = new Paragraph(this.getText("acompanhamento.plano.padrao.h2.2"), f2);
             document.add(paragraph);
-            paragraph = new Paragraph("- Evitar acender o primeiro cigarro após a data de parar;", f3);
+            paragraph = new Paragraph(this.getText("recomendamos1"), f3);
             document.add(paragraph);
-            paragraph = new Paragraph("- Evitar beber bebidas alcóolicas;", f3);
+            paragraph = new Paragraph(this.getText("recomendamos2"), f3);
             document.add(paragraph);
-            paragraph = new Paragraph("- Pedir para amigos e familiares fumantes que não fumem perto de você.", f3);
+            paragraph = new Paragraph(this.getText("recomendamos3"), f3);
             document.add(paragraph);
 
             document.close();
@@ -470,7 +455,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
 
         } catch (Exception e) {
             Logger.getLogger(ParouDeFumarController.class
-                    .getName()).log(Level.SEVERE, "Erro ao gerar o pdf");
+                    .getName()).log(Level.SEVERE, this.getText("erro.pdf"));
             Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.SEVERE, e.getMessage(), e);
 
             return null;
