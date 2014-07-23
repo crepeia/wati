@@ -37,40 +37,49 @@ public class EmailScheduler {
     UserDAO dao;
     private EMailSSL emailSSL;
 
-    final String MENSAGEM_DATA_DIFERENTE = "Olá! Não deixe de começar seu plano na data escolhida. Enviaremos e-mails de acompanhamento durante este período. Caso você queira mudar seu plano, entre no nosso site. \n Cordialmente, \n"
+    final String MENSAGEM_DATA_DIFERENTE = 
+            "Olá!" + "<br><br>" 
+            + "Não deixe de começar seu plano na data escolhida." + "<br>" 
+            + "Enviaremos e-mails de acompanhamento durante este período." + "<br>" 
+            + "Caso você queira mudar seu plano, entre no nosso site. + <br><br>"
+            + "Cordialmente," + "<br><br>"
             + "Equipe Viva sem Tabaco";
 
-    final String MENSAGEM_PRIMEIRA_SEMANA = "Faz uma semana que você entrou no nosso programa - Viva sem Tabaco. \n Se você já conseguiu parar de fumar, você pode estar sentindo algumas mudanças positivas* no seu corpo:\n"
-            + "* Melhora do ritmo cardíaco, \n"
-            + "* Redução do nível de monoxído de carbono no sangue - o mesmo que sai dos escapamentos de carros e ônibus,\n"
-            + "* Redução do risco úlceras no estômago. Se você ainda, não conseguiu parar. \n"
-            + "Sabemos que o processo de parar de fumar é difícil. O importante é continuar tentando. Convidamos a voltar em nosso site e tentar um novo plano.\n Cordialmente, \n"
+    final String MENSAGEM_PRIMEIRA_SEMANA = 
+            "Faz uma semana que você entrou no nosso programa - Viva sem Tabaco." + "<br>"
+            + "Se você já conseguiu parar de fumar, você pode estar sentindo algumas mudanças positivas no seu corpo:" + "<br>"
+            + "* Melhora do ritmo cardíaco," + "<br>"
+            + "* Redução do nível de monoxído de carbono no sangue - o mesmo que sai dos escapamentos de carros e ônibus," + "<br>"
+            + "* Redução do risco úlceras no estômago. Se você ainda, não conseguiu parar." + "<br><br>"
+            + "Sabemos que o processo de parar de fumar é difícil. O importante é continuar tentando. Convidamos a voltar em nosso site e tentar um novo plano." + "<br><br>"
+            + "Cordialmente," + "<br><br>"
             + "Equipe Viva sem Tabaco";
 
-    final String MENSAGEM_SEGUNDA_SEMANA = "Parabéns! Fazem duas semanas que você decidiu parar. Nesta semana, gostaríamos de falar brevemente sobre dois temas: desejo intenso de fumar (fissura) e o medo do ganho de peso.\n"
-            + "\n"
-            + "A fissura, ou desejo intenso de fumar, costuma demorar apenas alguns minutos. Veja abaixo algumas dicas para vencer a fissura:\n"
-            + "* Comer frutas, beber água podem ajudá-lo a vencer estes momentos. \n"
-            + "* Separamos para você, um exercício de relaxamento preparado por especialistas em tabagismo. Você pode acessá-lo ou fazer o download no site. \n"
-            + "\n"
-            + "Para evitar o ganho de peso, tente fazer exercícios físicos (como caminhada) e comer mais frutas e vegetais.\n Não conseguiu parar ainda? Teve uma recaída?\n"
-            + "Sabemos que o processo de parar de fumar é difícil. Temos algumas informações e exercícios que podem ajudá-lo em nosso site.\n Cordialmente, \n"
+    final String MENSAGEM_SEGUNDA_SEMANA = 
+            "Parabéns! Fazem duas semanas que você decidiu parar. Nesta semana, gostaríamos de falar brevemente sobre dois temas: desejo intenso de fumar (fissura) e o medo do ganho de peso." + "<br><br>"
+            + "A fissura, ou desejo intenso de fumar, costuma demorar apenas alguns minutos. Veja abaixo algumas dicas para vencer a fissura:" + "<br>"
+            + "Comer frutas, beber água podem ajudá-lo a vencer estes momentos." + "<br>"
+            + "Separamos para você, um exercício de relaxamento preparado por especialistas em tabagismo. Você pode acessá-lo ou fazer o download no site." + "<br><br>"
+            + "Para evitar o ganho de peso, tente fazer exercícios físicos (como caminhada) e comer mais frutas e vegetais." + "<br><br>"
+            + "Não conseguiu parar ainda? Teve uma recaída?" + "<br>"
+            + "Sabemos que o processo de parar de fumar é difícil. Temos algumas informações e exercícios que podem ajudá-lo em nosso site." + "<br><br>"
+            + "Cordialmente," + "<br><br>" 
             + "Equipe Viva sem Tabaco";
 
-    final String MENSAGEM_TERCEIRA_SEMANA = "Parabéns! Você está superando um dos maiores desafios de sua vida. E para comemorar, que tal comprar alguma coisa ou presentear alguém com o dinheiro economizado com o cigarro?\n"
-            + "\n"
-            + "Você já deve ter percebido melhoras no seu organismo como seu fôlego, auto-estima. Além disso a partir desta semana, o risco de ter um ataque cardíaco começa a reduzir. Seus pulmões começam a funcionar melhor*.\n"
-            + "\n"
-            + "Não conseguiu parar ainda? Teve uma recaída?\n"
-            + "Sabemos que o processo de parar de fumar é difícil. Temos algumas informações e exercícios que podem ajudá-lo em nosso site.\n Cordialmente, \n"
+    final String MENSAGEM_TERCEIRA_SEMANA = 
+            "Parabéns! Você está superando um dos maiores desafios de sua vida. E para comemorar, que tal comprar alguma coisa ou presentear alguém com o dinheiro economizado com o cigarro?" + "<br><br>"
+            + "Você já deve ter percebido melhoras no seu organismo como seu fôlego, auto-estima. Além disso a partir desta semana, o risco de ter um ataque cardíaco começa a reduzir. Seus pulmões começam a funcionar melhor." + "<br><br>"
+            + "Não conseguiu parar ainda? Teve uma recaída?" + "<br>"
+            + "Sabemos que o processo de parar de fumar é difícil. Temos algumas informações e exercícios que podem ajudá-lo em nosso site." + "<br><br>"
+            + "Cordialmente," + "<br><br>"
             + "Equipe Viva sem Tabaco";
 
-    final String MENSAGEM_MENSAL = "Hora do acompanhamento mensal! Caso tenha alguma dúvida sobre tabagismo, não deixe de entrar em nosso programa \n"
-            + "\n"
-            + "Nós temos uma página no facebook e conta do twitter. Deixe um recado para gente ou para outras as pessoas que também estão tentando parar.\n"
-            + "\n"
-            + "Não conseguiu parar ainda? Teve uma recaída?\n"
-            + "Sabemos que o processo de parar de fumar é difícil. Temos algumas informações e exercícios que podem ajudá-lo em nosso site. \n Cordialmente, \n"
+    final String MENSAGEM_MENSAL = 
+            "Hora do acompanhamento mensal! Caso tenha alguma dúvida sobre tabagismo, não deixe de entrar em nosso programa." + "<br><br>"
+            + "Nós temos uma página no facebook e conta do twitter. Deixe um recado para gente ou para outras as pessoas que também estão tentando parar." + "<br><br>"
+            + "Não conseguiu parar ainda? Teve uma recaída?" + "<br>"
+            + "Sabemos que o processo de parar de fumar é difícil. Temos algumas informações e exercícios que podem ajudá-lo em nosso site." + "<br><br>" 
+            + "Cordialmente," + "<br><br>"
             + "Equipe Viva sem Tabaco";
 
     public EmailScheduler() {

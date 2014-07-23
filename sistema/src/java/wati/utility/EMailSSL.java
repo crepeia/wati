@@ -4,7 +4,7 @@
  */
 package wati.utility;
 
-import com.google.common.base.Charsets;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URL;

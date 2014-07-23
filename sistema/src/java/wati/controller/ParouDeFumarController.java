@@ -88,13 +88,14 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
 
             if (a.getRecaida() == 1) {
                 return "parou-de-fumar-acompanhamento-recaidas-identificar-motivos.xhtml";
-            } else if(a.getRecaida() == 0){
+            } else if (a.getRecaida() == 0) {
                 return "parou-de-fumar-acompanhamento-lapso.xhtml";
                 //"parou-de-fumar-acompanhamento-lapso-identificar-fatores-recaida.xhtml";
-            }else if(a.getRecaida() == 2)
+            } else if (a.getRecaida() == 2) {
                 return "parou-de-fumar-acompanhamento-estou-sem-fumar.xhtml";
-            else
+            } else {
                 return null;
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
@@ -128,10 +129,11 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
         try {
 
             this.getDaoBase().insertOrUpdate(a, this.getEntityManager());
-            if(isRecaidaLidar11() || isRecaidaLidar22() || isRecaidaLidar33() || isRecaidaSituacao11() || isRecaidaSituacao22() || isRecaidaSituacao33())
+            if (isRecaidaLidar11() || isRecaidaLidar22() || isRecaidaLidar33() || isRecaidaSituacao11() || isRecaidaSituacao22() || isRecaidaSituacao33()) {
                 return "parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida.xhtml";
-            else
+            } else {
                 return "parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-padrao.xhtml";
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
@@ -160,22 +162,23 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
                 String from = "watiufjf@gmail.com";
                 String to = user.getEmail();
                 String subject = this.getText("plano.wati");
-                String message = this.getText("dear") + user.getName() + ",\n\n"
-                        + this.getText("plano.email") + "\n\n"
-                        + "\n" + this.getText("plano.estrategias.email") + "\n";
-                if (a.getRecaidaLidar1() != null && !a.getRecaidaLidar1().isEmpty()) {
-                    message += a.getRecaidaLidar1() + "\n";
+                
+                String html;
+                String text;
+                ByteArrayOutputStream pdf;
+                
+                if(this.isPlanoPreenchido()){
+                    html = this.defaultEmail(this.getText("plano.personalizado"), this.planoToHTML(user));
+                    text = this.planoToText(user);
+                    pdf = this.gerarPdf2();
+                }else{
+                    html = this.defaultEmail(this.getText("plano.personalizado"), this.planoPadraoToHTML(user));
+                    text = this.planoPadraoToText(user);
+                    pdf = this.gerarPdfPadrao();
                 }
-                if (a.getRecaidaLidar2() != null && !a.getRecaidaLidar2().isEmpty()) {
-                    message += a.getRecaidaLidar2() + "\n";
-                }
-                if (a.getRecaidaLidar3() != null && !a.getRecaidaLidar3().isEmpty()) {
-                    message += a.getRecaidaLidar3() + "\n";
-                }
-                message += "\n\n" + this.getText("att") + "\n";
-
                 EMailSSL eMailSSL = new EMailSSL();
-                eMailSSL.send(from, to, subject, message);
+                
+                eMailSSL.send(from, to, subject, text, html, pdf);
 
                 Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.INFO, this.getText("plano.enviado") + user.getEmail() + ".");
                 //message to the user
@@ -191,46 +194,46 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
 
         }
     }
-    
+
     /**
      * @param recaida the recaida to set
      */
     public void setRecaida(String recaida) {
         this.recaida = recaida;
     }
-    
-    public boolean situacoesRisco(){
-           return isRecaidaSituacao11()|| isRecaidaSituacao22()|| isRecaidaSituacao33();
-    }
-    
-    public boolean comoEnfrentar(){
-        return isRecaidaLidar11() || isRecaidaLidar22() || isRecaidaLidar33();
-    }
-    
-    public boolean isRecaidaSituacao11(){
-        return getAcompanhamento().getRecaidaSituacao1()!= null && !getAcompanhamento().getRecaidaSituacao1().trim().equals("");
-    }
-    
-    public boolean isRecaidaSituacao22(){
-        return acompanhamento.getRecaidaSituacao2()!= null && !acompanhamento.getRecaidaSituacao2().trim().equals("");
-    }
-    
-    public boolean isRecaidaSituacao33(){
-        return acompanhamento.getRecaidaSituacao3()!= null && !acompanhamento.getRecaidaSituacao3().trim().equals("");
+
+    public boolean situacoesRisco() {
+        return isRecaidaSituacao11() || isRecaidaSituacao22() || isRecaidaSituacao33();
     }
 
-    public boolean isRecaidaLidar11(){
+    public boolean comoEnfrentar() {
+        return isRecaidaLidar11() || isRecaidaLidar22() || isRecaidaLidar33();
+    }
+
+    public boolean isRecaidaSituacao11() {
+        return getAcompanhamento().getRecaidaSituacao1() != null && !getAcompanhamento().getRecaidaSituacao1().trim().equals("");
+    }
+
+    public boolean isRecaidaSituacao22() {
+        return acompanhamento.getRecaidaSituacao2() != null && !acompanhamento.getRecaidaSituacao2().trim().equals("");
+    }
+
+    public boolean isRecaidaSituacao33() {
+        return acompanhamento.getRecaidaSituacao3() != null && !acompanhamento.getRecaidaSituacao3().trim().equals("");
+    }
+
+    public boolean isRecaidaLidar11() {
         return acompanhamento.getRecaidaLidar1() != null && !acompanhamento.getRecaidaLidar1().trim().equals("");
     }
-    
-    public boolean isRecaidaLidar22(){
+
+    public boolean isRecaidaLidar22() {
         return this.getAcompanhamento().getRecaidaLidar2() != null && !acompanhamento.getRecaidaLidar2().trim().equals("");
     }
-    
-    public boolean isRecaidaLidar33(){
+
+    public boolean isRecaidaLidar33() {
         return acompanhamento.getRecaidaLidar3() != null && !acompanhamento.getRecaidaLidar3().trim().equals("");
     }
-            
+
     public Acompanhamento getAcompanhamento() {
 
         if (this.acompanhamento == null) {
@@ -281,6 +284,46 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
 
     }
 
+    public String planoToText(User user) {
+        String text = this.getText("dear") + user.getName() + ",\n"
+        + "\n" + this.getText("plano.email") + "\n";
+        if (this.situacoesRisco()) {
+            text += "\n" + this.getText("acompanhamento.plano.h2.1") + "\n"
+                    + this.getAcompanhamento().getRecaidaSituacao1() + "\n"
+                    + this.getAcompanhamento().getRecaidaSituacao2() + "\n"
+                    + this.getAcompanhamento().getRecaidaSituacao3() + "\n";
+        }
+        if (this.comoEnfrentar()) {
+            text += "\n" + this.getText("acompanhamento.plano.h2.1") + "\n"
+                    + this.getAcompanhamento().getRecaidaLidar1() + "\n"
+                    + this.getAcompanhamento().getRecaidaLidar2() + "\n"
+                    + this.getAcompanhamento().getRecaidaLidar3() + "\n";
+
+        }
+        text += "\n" + this.getText("att");
+        return text;
+    }
+    
+    public String planoToHTML(User user){
+        String html = this.getText("dear") + user.getName() + ",<br>"
+        + "<br>" + this.getText("plano.email") + "<br>";
+        if (this.situacoesRisco()) {
+            html += "<br>" + this.getText("acompanhamento.plano.h2.1") + "<br>"
+                    + this.getAcompanhamento().getRecaidaSituacao1() + "<br>"
+                    + this.getAcompanhamento().getRecaidaSituacao2() + "<br>"
+                    + this.getAcompanhamento().getRecaidaSituacao3() + "<br>";
+        }
+        if (this.comoEnfrentar()) {
+            html += "<br>" + this.getText("acompanhamento.plano.h2.1") + "<br>"
+                    + this.getAcompanhamento().getRecaidaLidar1() + "<br>"
+                    + this.getAcompanhamento().getRecaidaLidar2() + "<br>"
+                    + this.getAcompanhamento().getRecaidaLidar3() + "<br>";
+
+        }
+        html += "<br>" + this.getText("att");
+        return html;
+    }
+
     public ByteArrayOutputStream gerarPdf2() {
 
         ByteArrayOutputStream os = new ByteArrayOutputStream();
@@ -313,10 +356,10 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
             Paragraph paragraph = new Paragraph(this.getText("meu.plano"), f1);
             paragraph.setAlignment(Element.ALIGN_CENTER);
             document.add(paragraph);
-            document.add( Chunk.NEWLINE );
-            document.add( Chunk.NEWLINE );
+            document.add(Chunk.NEWLINE);
+            document.add(Chunk.NEWLINE);
 
-            if(this.situacoesRisco()){
+            if (this.situacoesRisco()) {
                 paragraph = new Paragraph(this.getText("acompanhamento.plano.h2.1"), f2);
                 document.add(paragraph);
                 paragraph = new Paragraph(this.getAcompanhamento().getRecaidaSituacao1(), f3);
@@ -325,13 +368,13 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
                 document.add(paragraph);
                 paragraph = new Paragraph(this.getAcompanhamento().getRecaidaSituacao3(), f3);
                 document.add(paragraph);
-                document.add( Chunk.NEWLINE );
+                document.add(Chunk.NEWLINE);
             } else {
                 paragraph.add(new Paragraph(" "));
             }
             //paragraph.add(new Paragraph(" "));
 
-            if(this.comoEnfrentar()){
+            if (this.comoEnfrentar()) {
                 paragraph = new Paragraph(this.getText("acompanhamento.plano.h2.1"), f2);
                 document.add(paragraph);
                 paragraph = new Paragraph(this.getAcompanhamento().getRecaidaLidar1(), f3);
@@ -340,7 +383,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
                 document.add(paragraph);
                 paragraph = new Paragraph(this.getAcompanhamento().getRecaidaLidar3(), f3);
                 document.add(paragraph);
-            } else{
+            } else {
                 paragraph.add(new Paragraph(" "));
             }
 
@@ -359,7 +402,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
         }
 
     }
-    
+
     public StreamedContent getLapsoRecaida() {
 
         InputStream is;
@@ -376,8 +419,35 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
         }
 
     }
-    
-    
+
+    public String planoPadraoToText(User user) {
+        String text =  this.getText("dear") + user.getName() + ",\n" 
+                + "\n" + this.getText("meu.plano") + "\n"
+                + "\n" + this.getText("acompanhamento.plano.padrao.h2.1") + "\n"
+                + this.getText("lembre.se2") + "\n"
+                + this.getText("lembre.se3") + "\n"
+                + "\n" + this.getText("acompanhamento.plano.padrao.h2.2") + "\n"
+                + this.getText("recomendamos1") + "\n"
+                + this.getText("recomendamos2") + "\n"
+                + this.getText("recomendamos3") + "\n"
+                + "\n" + this.getText("att");
+        return text;
+    }
+
+    public String planoPadraoToHTML(User user) {
+        String html = this.getText("dear") + user.getName() + ",<br>" 
+                + "<br>" + this.getText("meu.plano") + "<br>"
+                + "<br>" + this.getText("acompanhamento.plano.padrao.h2.1") + "<br>"
+                + this.getText("lembre.se2") + "<br>"
+                + this.getText("lembre.se3") + "<br>"
+                + "<br>" + this.getText("acompanhamento.plano.padrao.h2.2") + "<br>"
+                + this.getText("recomendamos1") + "<br>"
+                + this.getText("recomendamos2") + "<br>"
+                + this.getText("recomendamos3") + "<br>"
+                + "<br>" + this.getText("att");
+        return html;
+    }
+
     public ByteArrayOutputStream gerarPdfPadrao() {
 
         ByteArrayOutputStream os = new ByteArrayOutputStream();
@@ -410,8 +480,8 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
             Paragraph paragraph = new Paragraph(this.getText("meu.plano"), f1);
             paragraph.setAlignment(Element.ALIGN_CENTER);
             document.add(paragraph);
-            document.add( Chunk.NEWLINE );
-            document.add( Chunk.NEWLINE );
+            document.add(Chunk.NEWLINE);
+            document.add(Chunk.NEWLINE);
 
             paragraph = new Paragraph(this.getText("acompanhamento.plano.padrao.h2.1"), f2);
             document.add(paragraph);
@@ -419,7 +489,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
             document.add(paragraph);
             paragraph = new Paragraph(this.getText("lembre.se3"), f3);
             document.add(paragraph);
-            document.add( Chunk.NEWLINE );
+            document.add(Chunk.NEWLINE);
 
             paragraph = new Paragraph(this.getText("acompanhamento.plano.padrao.h2.2"), f2);
             document.add(paragraph);
@@ -445,8 +515,8 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
         }
 
     }
-    
-     public StreamedContent getRecaidaPadrao() {
+
+    public StreamedContent getRecaidaPadrao() {
 
         InputStream is;
         try {
@@ -462,6 +532,13 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
         }
 
     }
-
+    
+    public boolean isPlanoPreenchido(){
+        if (isRecaidaLidar11() || isRecaidaLidar22() || isRecaidaLidar33() || isRecaidaSituacao11() || isRecaidaSituacao22() || isRecaidaSituacao33()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }

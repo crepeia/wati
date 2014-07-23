@@ -4,8 +4,7 @@ WATI
 Prioridade Alta
 ------------------------
 Teste das mensagens de e-mail
-Adaptar todas mensagens de e-mail para html
-Adaptar todas as mensagens para o arquivo de tradução
+Adaptar todas mensagens para o arquivo de tradução
 Criar página de alterar cadastro
 
 

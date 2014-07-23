@@ -413,11 +413,11 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                 String from = "watiufjf@gmail.com";
                 String to = user.getEmail();
                 String subject = this.getText("plano.wati2");
-                
-                String html =  this.defaultEmail(this.getText("plano.personalizado"), this.planoToHTML(user));
+
+                String html = this.defaultEmail(this.getText("plano.personalizado"), this.planoToHTML(user));
 
                 EMailSSL eMailSSL = new EMailSSL();
-                System.out.println(html);
+                
                 eMailSSL.send(from, to, subject, this.planoToText(user), html, gerarPdf());
 
                 Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.INFO, this.getText("plano.enviado2") + user.getEmail() + ".");
@@ -437,62 +437,94 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     }
 
     public String planoToHTML(User user) {
-        String html = this.getText("dear")+ user.getName() + ",\n\n"
-                + this.getText("plano.email2") + "\n"
-                + "\n" + this.getText("pronto.plano.h2.1") + ":\n"
-                + this.prontoParaParar.getDataPararStr() +"\n"
-                + "\n" + this.getText("pronto.plano.h2.2")+ ":\n"
-                + this.prontoParaParar.getFissuraStr() +"\n"
-                + "\n" + this.getText("pronto.plano.h2.3") + ":\n";
-        if (this.prontoParaParar.getEvitarRecaidaFara1() != null && !this.prontoParaParar.getEvitarRecaidaFara1().isEmpty()) {
-            html += this.prontoParaParar.getEvitarRecaidaFara1()+"\n";
+        String html = this.getText("dear") + user.getName() + ",<br>"
+                + "<br>" + this.getText("plano.email2") + "<br>"
+                + "<br>" + this.getText("pronto.plano.padrao.h2.1") + "<br>"
+                + this.getText("dicas.p1") + "<br>"
+                + this.getText("dicas.p2") + "<br>"
+                + this.getText("dicas.p3") + "<br>"
+                + this.getText("dicas.p4") + "<br>"
+                + this.getText("dicas.p5") + "<br>"
+                + this.getText("dicas.p5.1") + "<br>"
+                + this.getText("dicas.p5.2") + "<br>"
+                + this.getText("dicas.p6") + "<br>"
+                + "<br>" + this.getText("pronto.plano.h2.1") + ":<br>"
+                + this.prontoParaParar.getDataPararStr();
+        if (this.fissuras()) {
+            html += "<br>" + this.getText("pronto.plano.h2.2") + ":<br>"
+                    + this.prontoParaParar.getFissuraStr();
         }
-        if (this.prontoParaParar.getEvitarRecaidaFara2() != null && !this.prontoParaParar.getEvitarRecaidaFara2().isEmpty()) {
-            html += this.prontoParaParar.getEvitarRecaidaFara2()+"\n";
+        if (this.estrategias()) {
+            html += "<br>" + this.getText("pronto.plano.h2.3") + ":<br>";
+
+            if (this.prontoParaParar.getEvitarRecaidaFara1() != null && !this.prontoParaParar.getEvitarRecaidaFara1().isEmpty()) {
+                html += this.prontoParaParar.getEvitarRecaidaFara1() + "<br>";
+            }
+            if (this.prontoParaParar.getEvitarRecaidaFara2() != null && !this.prontoParaParar.getEvitarRecaidaFara2().isEmpty()) {
+                html += this.prontoParaParar.getEvitarRecaidaFara2() + "<br>";
+            }
+            if (this.prontoParaParar.getEvitarRecaidaFara3() != null && !this.prontoParaParar.getEvitarRecaidaFara3().isEmpty()) {
+                html += this.prontoParaParar.getEvitarRecaidaFara3() + "<br>";
+            }
         }
-        if (this.prontoParaParar.getEvitarRecaidaFara3() != null && !this.prontoParaParar.getEvitarRecaidaFara3().isEmpty()) {
-            html += this.prontoParaParar.getEvitarRecaidaFara3()+"\n";
+        if (this.deucerto()) {
+            html += "<br>" + this.getText("pronto.plano.h2.4") + ":<br>";
+            if (this.prontoParaParar.getEvitarRecaida1() != null && !this.prontoParaParar.getEvitarRecaida1().isEmpty()) {
+                html += this.prontoParaParar.getEvitarRecaida1() + "<br>";
+            }
+            if (this.prontoParaParar.getEvitarRecaida2() != null && !this.prontoParaParar.getEvitarRecaida2().isEmpty()) {
+                html += this.prontoParaParar.getEvitarRecaida2() + "<br>";
+            }
+            if (this.prontoParaParar.getEvitarRecaida3() != null && !this.prontoParaParar.getEvitarRecaida3().isEmpty()) {
+                html += this.prontoParaParar.getEvitarRecaida3() + "<br>";
+            }
         }
-                html += "\n" + this.getText("pronto.plano.h2.4") + ":\n";
-        if (this.prontoParaParar.getEvitarRecaida1() != null && !this.prontoParaParar.getEvitarRecaida1().isEmpty()) {
-            html += this.prontoParaParar.getEvitarRecaida1()+"\n";
-        }
-        if (this.prontoParaParar.getEvitarRecaida2() != null && !this.prontoParaParar.getEvitarRecaida2().isEmpty()) {
-            html += this.prontoParaParar.getEvitarRecaida2()+"\n";
-        }
-        if (this.prontoParaParar.getEvitarRecaida3() != null && !this.prontoParaParar.getEvitarRecaida3().isEmpty()) {
-            html += this.prontoParaParar.getEvitarRecaida3()+"\n";
-        }
-            html += "\n" + this.getText("att");
+        html += "<br><br>" + this.getText("att") + "<br>";
         return html;
     }
 
     public String planoToText(User user) {
-        String text = this.getText("dear") + user.getName() + ",\n\n"
-                + this.getText("plano.email2") + "\n\n"
-                + this.getText("pronto.plano.h2.1") + ":\n"
-                + this.prontoParaParar.getDataPararStr()
-                + "\n" + this.getText("pronto.plano.h2.2")+ ":\n"
-                + this.prontoParaParar.getFissuraStr()
-                + "\n" + this.getText("pronto.plano.h2.3") + ":\n";
-        if (this.prontoParaParar.getEvitarRecaidaFara1() != null && !this.prontoParaParar.getEvitarRecaidaFara1().isEmpty()) {
-            text += this.prontoParaParar.getEvitarRecaidaFara1() + "\n";
+        String text = this.getText("dear") + user.getName() + ",\n"
+                + "\n" + this.getText("plano.email2") + "\n"
+                + "\n" + this.getText("pronto.plano.padrao.h2.1") + "\n"
+                + this.getText("dicas.p1") + "\n"
+                + this.getText("dicas.p2") + "\n"
+                + this.getText("dicas.p3") + "\n"
+                + this.getText("dicas.p4") + "\n"
+                + this.getText("dicas.p5") + "\n"
+                + this.getText("dicas.p5.1") + "\n"
+                + this.getText("dicas.p5.2") + "\n"
+                + this.getText("dicas.p6") + "\n"
+                + "\n" + this.getText("pronto.plano.h2.1") + ":\n"
+                + this.prontoParaParar.getDataPararStr();
+        if (this.fissuras()) {
+            text += "\n" + this.getText("pronto.plano.h2.2") + ":\n"
+                    + this.prontoParaParar.getFissuraStr();
         }
-        if (this.prontoParaParar.getEvitarRecaidaFara2() != null && !this.prontoParaParar.getEvitarRecaidaFara2().isEmpty()) {
-            text += this.prontoParaParar.getEvitarRecaidaFara2() + "\n";
+        if (this.estrategias()) {
+            text += "\n" + this.getText("pronto.plano.h2.3") + ":\n";
+
+            if (this.prontoParaParar.getEvitarRecaidaFara1() != null && !this.prontoParaParar.getEvitarRecaidaFara1().isEmpty()) {
+                text += this.prontoParaParar.getEvitarRecaidaFara1() + "\n";
+            }
+            if (this.prontoParaParar.getEvitarRecaidaFara2() != null && !this.prontoParaParar.getEvitarRecaidaFara2().isEmpty()) {
+                text += this.prontoParaParar.getEvitarRecaidaFara2() + "\n";
+            }
+            if (this.prontoParaParar.getEvitarRecaidaFara3() != null && !this.prontoParaParar.getEvitarRecaidaFara3().isEmpty()) {
+                text += this.prontoParaParar.getEvitarRecaidaFara3() + "\n";
+            }
         }
-        if (this.prontoParaParar.getEvitarRecaidaFara3() != null && !this.prontoParaParar.getEvitarRecaidaFara3().isEmpty()) {
-            text += this.prontoParaParar.getEvitarRecaidaFara3() + "\n";
-        }
-        text += this.getText("pronto.plano.h2.4") + ":\n";
-        if (this.prontoParaParar.getEvitarRecaida1() != null && !this.prontoParaParar.getEvitarRecaida1().isEmpty()) {
-            text += this.prontoParaParar.getEvitarRecaida1() + "\n";
-        }
-        if (this.prontoParaParar.getEvitarRecaida2() != null && !this.prontoParaParar.getEvitarRecaida2().isEmpty()) {
-            text += this.prontoParaParar.getEvitarRecaida2() + "\n";
-        }
-        if (this.prontoParaParar.getEvitarRecaida3() != null && !this.prontoParaParar.getEvitarRecaida3().isEmpty()) {
-            text += this.prontoParaParar.getEvitarRecaida3() + "\n";
+        if (this.deucerto()) {
+            text += "\n" + this.getText("pronto.plano.h2.4") + ":\n";
+            if (this.prontoParaParar.getEvitarRecaida1() != null && !this.prontoParaParar.getEvitarRecaida1().isEmpty()) {
+                text += this.prontoParaParar.getEvitarRecaida1() + "\n";
+            }
+            if (this.prontoParaParar.getEvitarRecaida2() != null && !this.prontoParaParar.getEvitarRecaida2().isEmpty()) {
+                text += this.prontoParaParar.getEvitarRecaida2() + "\n";
+            }
+            if (this.prontoParaParar.getEvitarRecaida3() != null && !this.prontoParaParar.getEvitarRecaida3().isEmpty()) {
+                text += this.prontoParaParar.getEvitarRecaida3() + "\n";
+            }
         }
         text += "\n\n" + this.getText("att") + "\n";
         return text;
