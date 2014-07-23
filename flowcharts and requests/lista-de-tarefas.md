@@ -11,7 +11,6 @@ Criar página de alterar cadastro
 
 Prioridade Baixa
 -------------------------
-Fazer sitemap.txt quando servidor estiver ok - Henrique
 Página cadastro - mudar padrão do selectOneList para "mês"
 Calculador - retirar moeda
 Colocar mensagem antes de redirecionar após cadastro
