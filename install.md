@@ -114,7 +114,7 @@ To download, just open the terminal and type.
 git clone https://github.com/crepeia/wati.git
 ```
 
-Done. If you did, the project folder is located in your home folder "~".
+Done. Now the project folder is located in your home folder "~".
 
 ## Set the database
 
@@ -156,16 +156,17 @@ The translation files are located in "Source Packages" folder, inside the contro
 
 ## Graphics
 
-### Images
-The images are in Web Pages -> resources -> default -> images.
+### Images and Vectors
+The images are in Web Pages -> resources -> default -> images. If you like to change and adapt them, use the vector file 'img-vector.svg' located in /flowchart and request folder. We recommend the open-source software [Inkscape](http://www.inkscape.org/en/) to work with vector graphics.
 
-### Videos
+### Video
+You can download the editable intro video [here](http://www.blendswap.com/blends/view/71482). To create the intro video, we used Blender, an all-around open-source 3d editor. You can download it [here](http://www.blender.org/). Be advised: blender is tricky and has a steep learning curve, feel free to reach us.
 
 ### Stylesheet
-The CSS code is in Web Pages -> resources -> default -> css.
+The CSS code is located in Web Pages -> resources -> default -> css.
 ---
 
-## Mayday! Need any help?
+## Seeking help?
 
 Reach us at henriquepgomide@gmail.com
 

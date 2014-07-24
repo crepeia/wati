@@ -10,13 +10,38 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://crepeia.github.com/wati/feed.xml" />
 <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/" />
-<updated>2014-07-18T11:28:13-03:00</updated>
+<updated>2014-07-24T10:23:28-03:00</updated>
 <id>http://crepeia.github.com/wati/</id>
 <author>
   <name>Henrique Pinto Gomide</name>
   <uri>http://crepeia.github.com/wati/</uri>
   <email>henriquepgomide@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Live without tobacco - version 0.2 released]]></title>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/1strelease/"/>
+  <id>http://crepeia.github.com/wati/news/1strelease</id>
+  <published>2013-07-24T00:00:00-03:00</published>
+  <updated>2013-07-24T00:00:00-03:00</updated>
+  <author>
+    <name>Henrique Pinto Gomide</name>
+    <uri>http://crepeia.github.com/wati</uri>
+    <email>henriquepgomide@gmail.com</email>
+  </author>
+  <category scheme="http://crepeia.github.com/wati/tags/#release" term="release" /><category scheme="http://crepeia.github.com/wati/tags/#code" term="code" /><category scheme="http://crepeia.github.com/wati/tags/#highlighting" term="highlighting" />
+  <content type="html">
+  
+    &lt;p&gt;We are pleased to announce that the 0.2 version is released called &lt;a href=&quot;http://en.wikipedia.org/wiki/C%C3%A9sar_Lattes&quot;&gt;Cesar Lattes&lt;/a&gt;. We have improved the e-mail feedback and quitplans with standard messages. We also fixed minor bugs.&lt;/p&gt;
+
+&lt;p&gt;The code is available in our &lt;a href=&quot;http://crepeia.github.io/wati&quot;&gt;github repository&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;English and Spanish versions are expected to come out in late August.&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/1strelease/&quot;&gt;Live without tobacco - version 0.2 released&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on July 24, 2013.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>

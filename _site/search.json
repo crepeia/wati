@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Live without tobacco - version 0.2 released",
+		  "category"   : "news",
+		  "url"        : "//crepeia.github.com/wati/news/1strelease/",
+		  "date"       : "2013-07-24 00:00:00 -0300",
+		  "shortdate"  : "July 24, 2013"
+		} ,
+	
+		{
 		  "title"      : "Hallo! System is now being translated to german!",
 		  "category"   : "news",
 		  "url"        : "//crepeia.github.com/wati/news/german/",
