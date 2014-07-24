@@ -437,7 +437,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     }
 
     public String planoToHTML(User user) {
-        String html = this.getText("dear") + user.getName() + ",<br>"
+        String html = this.getText("dear") + " " + user.getName() + ",<br>"
                 + "<br>" + this.getText("plano.email2") + "<br>"
                 + "<br>" + this.getText("pronto.plano.padrao.h2.1") + "<br>"
                 + this.getText("dicas.p1") + "<br>"
@@ -484,7 +484,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     }
 
     public String planoToText(User user) {
-        String text = this.getText("dear") + user.getName() + ",\n"
+        String text = this.getText("dear") + " " + user.getName() + ",\n"
                 + "\n" + this.getText("plano.email2") + "\n"
                 + "\n" + this.getText("pronto.plano.padrao.h2.1") + "\n"
                 + this.getText("dicas.p1") + "\n"

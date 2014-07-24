@@ -69,6 +69,8 @@ public class UserController extends BaseFormController<User> {
         super(User.class);
 
         this.showErrorMessage = false;
+        
+        mes = -1;
 
         for (int i = 1; i <= 31; i++) {
             dias.put(String.valueOf(i), String.valueOf(i));
@@ -310,7 +312,7 @@ public class UserController extends BaseFormController<User> {
     private void clear() {
         this.ano = 0;
         this.dia = 0;
-        this.mes = 0;
+        this.mes = -1;
         this.password = "";
         this.user = new User();
     }

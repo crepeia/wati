@@ -52,6 +52,13 @@
                                     </ul></li>
                                 <li>#{messages['pronto.plano.padrao.li.8']}</li>
                             </ol>
+                        
+                        
+                        <p:ajaxStatus onstart="statusDialog.show()" onsuccess="statusDialog.hide()" />
+
+                        <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                            <p:graphicImage library="default" name="images/loading.gif" />
+                        </p:dialog>
 
                         <h:form id="form">
                             <p:panel id="plano">
@@ -98,8 +105,8 @@
 
                             <div id ="planoimg2">
                                 <div class="planoimg">
-                                    <h:commandLink action="#{prontoParaPararController.enviarEmail}"><h:graphicImage  library="default" title="#{messages['pronto.plano.email']}" name="images/email.png" alt="#{messages['pronto.plano.email']}" /></h:commandLink>
-                                    <p><h:commandLink action="#{prontoParaPararController.enviarEmail}">#{messages['pronto.plano.email']}</h:commandLink></p>
+                                    <p:commandLink action="#{prontoParaPararController.enviarEmail}" update="@form" ><h:graphicImage  library="default" title="#{messages['pronto.plano.email']}" name="images/email.png" alt="#{messages['pronto.plano.email']}" /></p:commandLink>
+                                    <p><p:commandLink action="#{prontoParaPararController.enviarEmail}" update="@form">#{messages['pronto.plano.email']}</p:commandLink></p>
                                 </div>
                             </div>
                             <p><p:messages /></p>

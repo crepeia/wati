@@ -285,7 +285,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
     }
 
     public String planoToText(User user) {
-        String text = this.getText("dear") + user.getName() + ",\n"
+        String text = this.getText("dear") + " " + user.getName() + ",\n"
         + "\n" + this.getText("plano.email") + "\n";
         if (this.situacoesRisco()) {
             text += "\n" + this.getText("acompanhamento.plano.h2.1") + "\n"
@@ -305,7 +305,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
     }
     
     public String planoToHTML(User user){
-        String html = this.getText("dear") + user.getName() + ",<br>"
+        String html = this.getText("dear") + " " + user.getName() + ",<br>"
         + "<br>" + this.getText("plano.email") + "<br>";
         if (this.situacoesRisco()) {
             html += "<br>" + this.getText("acompanhamento.plano.h2.1") + "<br>"
@@ -421,8 +421,9 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
     }
 
     public String planoPadraoToText(User user) {
-        String text =  this.getText("dear") + user.getName() + ",\n" 
-                + "\n" + this.getText("meu.plano") + "\n"
+        String text =  this.getText("dear") + " " + user.getName() + ",\n" 
+                + "\n" + this.getText("plano.email") + "\n"
+                + "\n" + this.getText("acompanhamento.plano.padrao.p.1") + "\n"
                 + "\n" + this.getText("acompanhamento.plano.padrao.h2.1") + "\n"
                 + this.getText("lembre.se2") + "\n"
                 + this.getText("lembre.se3") + "\n"
@@ -435,8 +436,9 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
     }
 
     public String planoPadraoToHTML(User user) {
-        String html = this.getText("dear") + user.getName() + ",<br>" 
-                + "<br>" + this.getText("meu.plano") + "<br>"
+        String html = this.getText("dear") + " " + user.getName() + ",<br>" 
+                + "<br>" + this.getText("plano.email") + "<br>"
+                + "<br>" + this.getText("acompanhamento.plano.padrao.p.1") + "<br>"
                 + "<br>" + this.getText("acompanhamento.plano.padrao.h2.1") + "<br>"
                 + this.getText("lembre.se2") + "<br>"
                 + this.getText("lembre.se3") + "<br>"

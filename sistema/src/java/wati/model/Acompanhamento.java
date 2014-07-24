@@ -42,7 +42,7 @@ public class Acompanhamento {
 	@Column(name = "motivo_recaida_depois")
 	private String motivoRecaidaDepois;
 	@Column(name = "motivo_recaida_cigarros_fuma")
-	private int motivoRecaidaCigarrosFuma;
+	private Integer motivoRecaidaCigarrosFuma;
 	@Column(name = "recaida_situacao_1")
 	private String recaidaSituacao1;
 	@Column(name = "recaida_situacao_2")
@@ -161,14 +161,14 @@ public class Acompanhamento {
 	/**
 	 * @return the motivoRecaidaCigarrosFuma
 	 */
-	public int getMotivoRecaidaCigarrosFuma() {
+	public Integer getMotivoRecaidaCigarrosFuma() {
 		return motivoRecaidaCigarrosFuma;
 	}
 
 	/**
 	 * @param motivoRecaidaCigarrosFuma the motivoRecaidaCigarrosFuma to set
 	 */
-	public void setMotivoRecaidaCigarrosFuma(int motivoRecaidaCigarrosFuma) {
+	public void setMotivoRecaidaCigarrosFuma(Integer motivoRecaidaCigarrosFuma) {
 		this.motivoRecaidaCigarrosFuma = motivoRecaidaCigarrosFuma;
 	}
 
