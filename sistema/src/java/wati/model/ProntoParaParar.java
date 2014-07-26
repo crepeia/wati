@@ -18,6 +18,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import org.hibernate.annotations.Type;
+import wati.controller.BaseController;
 
 /**
  *
@@ -25,7 +26,7 @@ import org.hibernate.annotations.Type;
  */
 @Entity
 @Table(name = "tb_pronto_para_parar")
-public class ProntoParaParar implements Serializable {
+public class ProntoParaParar extends BaseController implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -295,27 +296,27 @@ public class ProntoParaParar implements Serializable {
         
         public String getFissuraBeberAgua(){
             if(isEnfrentarFissuraBeberAgua())
-                return("Beber um copo de água pausadamente.");
+                return(this.getText("pronto.fis.lab1"));
             else
                 return null;
         }
         
         public String getFissuraComer(){
             if(isEnfrentarFissuraComer())
-                return("Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas), balas dietéticas e chicletes dietéticos.\n");
+                return(this.getText("pronto.fis.lab2")) + "\n";
             else
                 return null;
         
         }
         public String getFissuraLerRazoes(){
             if(isEnfrentarFissuraLerRazoes())
-                return("Ler um cartão com suas razões para ter parado de fumar.\n");
+                return(this.getText("pronto.fis.lab4") + "\n");
             else
                 return null;
         }
         public String getFissuraRelaxamento(){
             if(isEnfrentarFissuraRelaxamento())
-                return("Fazer exercício de relaxamento - ");
+                return(this.getText("exercicio.relaxamento"));
             else
                 return null;
         }
@@ -329,7 +330,7 @@ public class ProntoParaParar implements Serializable {
         
         public String getTextoLink(){
             if(isEnfrentarFissuraRelaxamento())
-                return(" em áudio MP3 \n");
+                return(this.getText("exercicio.relaxamento1") + "\n");
             else
                 return null;
         }

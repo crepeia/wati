@@ -19,6 +19,7 @@ import javax.faces.bean.SessionScoped;
 import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import wati.controller.BaseController;
 import wati.persistence.GenericDAO;
 import wati.persistence.UserDAO;
 import wati.utility.EMailSSL;
@@ -29,7 +30,7 @@ import wati.utility.EMailSSL;
  */
 //@TransactionManagement(TransactionManagementType.BEAN)
 @Stateless
-public class EmailScheduler {
+public class EmailScheduler  extends BaseController{
 
     @PersistenceContext
     private EntityManager entityManager = null;
@@ -38,49 +39,49 @@ public class EmailScheduler {
     private EMailSSL emailSSL;
 
     final String MENSAGEM_DATA_DIFERENTE = 
-            "Olá!" + "<br><br>" 
-            + "Não deixe de começar seu plano na data escolhida." + "<br>" 
-            + "Enviaremos e-mails de acompanhamento durante este período." + "<br>" 
-            + "Caso você queira mudar seu plano, entre no nosso site. + <br><br>"
-            + "Cordialmente," + "<br><br>"
-            + "Equipe Viva sem Tabaco";
+            this.getText("hello") + "<br><br>" 
+            + this.getText("msg.data.diferente1") + "<br>" 
+            + this.getText("msg.data.diferente2") + "<br>" 
+            + this.getText("msg.data.diferente3") + "<br><br>"
+            + this.getText("cordialmente") + "<br><br>"
+            + this.getText("equipe.vst");
 
     final String MENSAGEM_PRIMEIRA_SEMANA = 
-            "Faz uma semana que você entrou no nosso programa - Viva sem Tabaco." + "<br>"
-            + "Se você já conseguiu parar de fumar, você pode estar sentindo algumas mudanças positivas no seu corpo:" + "<br>"
-            + "* Melhora do ritmo cardíaco," + "<br>"
-            + "* Redução do nível de monoxído de carbono no sangue - o mesmo que sai dos escapamentos de carros e ônibus," + "<br>"
-            + "* Redução do risco úlceras no estômago. Se você ainda, não conseguiu parar." + "<br><br>"
-            + "Sabemos que o processo de parar de fumar é difícil. O importante é continuar tentando. Convidamos a voltar em nosso site e tentar um novo plano." + "<br><br>"
-            + "Cordialmente," + "<br><br>"
-            + "Equipe Viva sem Tabaco";
+            this.getText("msg.primeira.semana1") + "<br>"
+            + this.getText("msg.primeira.semana2") + "<br>"
+            + this.getText("msg.primeira.semana3") + "<br>"
+            + this.getText("msg.primeira.semana4") + "<br>"
+            + this.getText("msg.primeira.semana5") + "<br><br>"
+            + this.getText("msg.primeira.semana6") + "<br><br>"
+            + this.getText("cordialmente") + "<br><br>"
+            + this.getText("equipe.vst");
 
     final String MENSAGEM_SEGUNDA_SEMANA = 
-            "Parabéns! Fazem duas semanas que você decidiu parar. Nesta semana, gostaríamos de falar brevemente sobre dois temas: desejo intenso de fumar (fissura) e o medo do ganho de peso." + "<br><br>"
-            + "A fissura, ou desejo intenso de fumar, costuma demorar apenas alguns minutos. Veja abaixo algumas dicas para vencer a fissura:" + "<br>"
-            + "Comer frutas, beber água podem ajudá-lo a vencer estes momentos." + "<br>"
-            + "Separamos para você, um exercício de relaxamento preparado por especialistas em tabagismo. Você pode acessá-lo ou fazer o download no site." + "<br><br>"
-            + "Para evitar o ganho de peso, tente fazer exercícios físicos (como caminhada) e comer mais frutas e vegetais." + "<br><br>"
-            + "Não conseguiu parar ainda? Teve uma recaída?" + "<br>"
-            + "Sabemos que o processo de parar de fumar é difícil. Temos algumas informações e exercícios que podem ajudá-lo em nosso site." + "<br><br>"
-            + "Cordialmente," + "<br><br>" 
-            + "Equipe Viva sem Tabaco";
+            this.getText("msg.segunda.semana1") + "<br><br>"
+            + this.getText("msg.segunda.semana2") + "<br>"
+            + this.getText("msg.segunda.semana3") + "<br>"
+            + this.getText("msg.segunda.semana4") + "<br><br>"
+            + this.getText("msg.segunda.semana5")  + "<br><br>"
+            + this.getText("msg.segunda.semana6") + "<br>"
+            + this.getText("msg.segunda.semana7")  + "<br><br>"
+            + this.getText("cordialmente") + "<br><br>" 
+            + this.getText("equipe.vst");
 
     final String MENSAGEM_TERCEIRA_SEMANA = 
-            "Parabéns! Você está superando um dos maiores desafios de sua vida. E para comemorar, que tal comprar alguma coisa ou presentear alguém com o dinheiro economizado com o cigarro?" + "<br><br>"
-            + "Você já deve ter percebido melhoras no seu organismo como seu fôlego, auto-estima. Além disso a partir desta semana, o risco de ter um ataque cardíaco começa a reduzir. Seus pulmões começam a funcionar melhor." + "<br><br>"
-            + "Não conseguiu parar ainda? Teve uma recaída?" + "<br>"
-            + "Sabemos que o processo de parar de fumar é difícil. Temos algumas informações e exercícios que podem ajudá-lo em nosso site." + "<br><br>"
-            + "Cordialmente," + "<br><br>"
-            + "Equipe Viva sem Tabaco";
+            this.getText("msg.terceira.semana1") + "<br><br>"
+            + this.getText("msg.terceira.semana2") + "<br><br>"
+            + this.getText("msg.terceira.semana3") + "<br>"
+            + this.getText("msg.terceira.semana4")  + "<br><br>"
+            + this.getText("cordialmente") + "<br><br>"
+            + this.getText("equipe.vst");
 
     final String MENSAGEM_MENSAL = 
-            "Hora do acompanhamento mensal! Caso tenha alguma dúvida sobre tabagismo, não deixe de entrar em nosso programa." + "<br><br>"
-            + "Nós temos uma página no facebook e conta do twitter. Deixe um recado para gente ou para outras as pessoas que também estão tentando parar." + "<br><br>"
-            + "Não conseguiu parar ainda? Teve uma recaída?" + "<br>"
-            + "Sabemos que o processo de parar de fumar é difícil. Temos algumas informações e exercícios que podem ajudá-lo em nosso site." + "<br><br>" 
-            + "Cordialmente," + "<br><br>"
-            + "Equipe Viva sem Tabaco";
+            this.getText("msg.mensal1") + "<br><br>"
+            + this.getText("msg.mensal2") + "<br><br>"
+            + this.getText("msg.mensal3") + "<br>"
+            + this.getText("msg.mensal4")  + "<br><br>" 
+            + this.getText("cordialmente") + "<br><br>"
+            + this.getText("equipe.vst");
 
     public EmailScheduler() {
         try {
@@ -94,7 +95,7 @@ public class EmailScheduler {
     @Schedule(second = "5", minute = "*", hour = "*", dayOfWeek = "*")
     public void scheduleEmails() {
         String from = "watiufjf@gmail.com";
-        System.out.println("Iniciando Envio de emails");
+        System.out.println(this.getText("iniciando.envio.emails"));
         List<User> usuarios;
 
         usuarios = dao.acompanhamentoDataDiferente(entityManager);
@@ -102,7 +103,7 @@ public class EmailScheduler {
             try {
                 for (User usuario : usuarios) {
                     emailSSL.send(from, usuario.getEmail(), "Wati", MENSAGEM_DATA_DIFERENTE);
-                    Logger.getLogger(EmailScheduler.class.getName()).log(Level.INFO, "Email data diferente enviado para " + usuario.getEmail());
+                    Logger.getLogger(EmailScheduler.class.getName()).log(Level.INFO, this.getText("email.data.diferente.enviado") + usuario.getEmail());
                     usuario.getProntoParaParar().setEmailDataDiferente(new Date());
                     dao.updateWithoutTransaction(usuario, entityManager);
                 }
@@ -116,7 +117,7 @@ public class EmailScheduler {
             try {
                 for (User usuario : usuarios) {
                     emailSSL.send(from, usuario.getEmail(), "Wati", MENSAGEM_PRIMEIRA_SEMANA);
-                    Logger.getLogger(EmailScheduler.class.getName()).log(Level.INFO, "Email primeira semana enviado para " + usuario.getEmail());
+                    Logger.getLogger(EmailScheduler.class.getName()).log(Level.INFO, this.getText("email.primeira.semana.enviado") + usuario.getEmail());
                     usuario.getProntoParaParar().setEmailPrimeiraSemana(new Date());
                     dao.updateWithoutTransaction(usuario, entityManager);
                 }
@@ -130,7 +131,7 @@ public class EmailScheduler {
             try {
                 for (User usuario : usuarios) {
                     emailSSL.send(from, usuario.getEmail(), "Wati", MENSAGEM_SEGUNDA_SEMANA);
-                    Logger.getLogger(EmailScheduler.class.getName()).log(Level.INFO, "Email segunda semana enviado para " + usuario.getEmail());
+                    Logger.getLogger(EmailScheduler.class.getName()).log(Level.INFO, this.getText("email.segunda.semana.enviado") + usuario.getEmail());
                     usuario.getProntoParaParar().setEmailSegundaSemana(new Date());
                     dao.updateWithoutTransaction(usuario, entityManager);
                 }
@@ -144,7 +145,7 @@ public class EmailScheduler {
             try {
                 for (User usuario : usuarios) {
                     emailSSL.send(from, usuario.getEmail(), "Wati", MENSAGEM_TERCEIRA_SEMANA);
-                    Logger.getLogger(EmailScheduler.class.getName()).log(Level.INFO, "Email terceira semana enviado para " + usuario.getEmail());
+                    Logger.getLogger(EmailScheduler.class.getName()).log(Level.INFO, this.getText("email.terceira.semana.enviado") + usuario.getEmail());
                     usuario.getProntoParaParar().setEmailTerceiraSemana(new Date());
                     dao.updateWithoutTransaction(usuario, entityManager);
                 }
@@ -158,7 +159,7 @@ public class EmailScheduler {
             try {
                 for (User usuario : usuarios) {
                     emailSSL.send(from, usuario.getEmail(), "Wati", MENSAGEM_MENSAL);
-                    Logger.getLogger(EmailScheduler.class.getName()).log(Level.INFO, "Email mensal enviado para " + usuario.getEmail());
+                    Logger.getLogger(EmailScheduler.class.getName()).log(Level.INFO, this.getText("email.mensal.enviado") + usuario.getEmail());
                     usuario.getProntoParaParar().setEmailMensal(new Date());
                     dao.updateWithoutTransaction(usuario, entityManager);
                 }
