@@ -3,11 +3,8 @@ WATI
 
 Prioridade Alta
 ------------------------
-Arrumar o tempo de envio das mensagens de e-mail
-Colocar nos controladores as msgs de e-mail.
 Inserir a navegação do usuário como tabela do banco.
 Criar página de alterar cadastro
-
 
 
 Prioridade Baixa
