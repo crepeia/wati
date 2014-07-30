@@ -6,8 +6,12 @@ package wati.model;
 
 import java.awt.Desktop;
 import java.io.Serializable;
+import java.net.MalformedURLException;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.faces.context.FacesContext;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -323,7 +327,8 @@ public class ProntoParaParar extends BaseController implements Serializable {
         
         public String getLink(){
             if(isEnfrentarFissuraRelaxamento())
-                return "http://vivasemtabaco.com.br/download/surfandoafissura.mp3";
+                    return FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() +"/download/surfandoafissura.mp3";
+
             else
                  return null;
         }
