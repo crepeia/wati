@@ -16,6 +16,8 @@
     <cc:implementation>
 
         <h:inputHidden value="#{redirectController.redirect( cc.attrs.loginRequired )}" />
+        
+        <h:inputHidden value="#{pageNavigationController.saveNavigation()}" />
 
         <div id="header">
             <div class="headertop">
