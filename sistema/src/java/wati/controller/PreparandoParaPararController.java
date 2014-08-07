@@ -18,14 +18,14 @@ import wati.model.User;
 @SessionScoped
 public class PreparandoParaPararController {
     
-    private int pergunta1;
-    private int pergunta2;
+    private int question1;
+    private int question2;
     private String texto;
     
 
     public PreparandoParaPararController() {
-        this.pergunta1 = 3;
-        this.pergunta2 = 3;
+        this.question1 = 3;
+        this.question2 = 3;
         this.texto = "";
     }
 	
@@ -44,7 +44,7 @@ public class PreparandoParaPararController {
 	}
         
         public void avaliar(){
-            if(pergunta1 == 1 || pergunta2 == 1)
+            if(question1 == 1 || question2 == 1)
                 texto = PropertyResourceBundle.getBundle("wati.utility.messages").getString("preparando.aed.p.2");
             else
                 texto = PropertyResourceBundle.getBundle("wati.utility.messages").getString("preparando.aed.p.3");
@@ -63,20 +63,20 @@ public class PreparandoParaPararController {
         
         
         
-    public int getPergunta1() {
-        return pergunta1;
+    public int getQuestion1() {
+        return question1;
     }
 
-    public void setPergunta1(int pergunta1) {
-        this.pergunta1 = pergunta1;
+    public void setQuestion1(int question1) {
+        this.question1 = question1;
     }
 
-    public int getPergunta2() {
-        return pergunta2;
+    public int getQuestion2() {
+        return question2;
     }
 
-    public void setPergunta2(int pergunta2) {
-        this.pergunta2 = pergunta2;
+    public void setQuestion2(int question2) {
+        this.question2 = question2;
     }
         
         
