@@ -175,13 +175,13 @@ public class UserController extends BaseFormController<User> {
                 super.save(actionEvent, entityManager);
                 //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));
                 ELContext elContext = FacesContext.getCurrentInstance().getELContext();
-                LoginController login = (LoginController) FacesContext.getCurrentInstance().getApplication()
-                        .getELResolver().getValue(elContext, null, "loginController");
+                LoginController login = (LoginController) FacesContext.getCurrentInstance().getApplication().getELResolver().getValue(elContext, null, "loginController");
                 login.setUser(this.user);
                 login.setPassword(this.password);
                 login.loginDialog();
-                try {          
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+                try { 
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("escolha-uma-etapa");
+                    //FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
                 } catch (IOException ex) {
                     Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
                 }

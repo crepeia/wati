@@ -116,7 +116,71 @@ public class LoginController extends BaseFormController<User> {
 		}
 
 	}
+        
+        public void loginBegin() {
 
+		try {
+
+			List<User> userList = this.getDaoBase().list("email", this.user.getEmail(), this.getEntityManager());
+
+			if (userList.isEmpty() || !Encrypter.compare(this.password, userList.get(0).getPassword())) {
+				//log message
+				Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, this.getText("usuario.email") + this.getUser().getEmail() + this.getText("not.login"));
+				//message to the user
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("email.senha"), null));
+
+			} else {
+
+				this.user = userList.get(0);
+
+//                              FacesContext facesContext = FacesContext.getCurrentInstance();
+//                              HttpSession session = (HttpSession) facesContext.getExternalContext().getSession( false );
+//                              session.setAttribute( "loggedUser" , userList.get( 0 ));
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", userList.get(0));
+
+				Logger.getLogger(LoginController.class.getName()).log(Level.INFO, this.getText("user") + this.getUser().getName() + this.getText("login"));
+
+				if (this.user.getId() > 0) {
+					this.showName = true;
+				} else {
+					this.showName = false;
+				}
+
+				//Object object = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("url");
+				//if (object != null) {
+					//String url = (String) object;
+					try {
+                                                
+						//Logger.getLogger(LoginController.class.getName()).log(Level.INFO, url);
+                                                FacesContext.getCurrentInstance().getExternalContext().redirect("escolha-uma-etapa.xhtml");
+						//FacesContext.getCurrentInstance().getExternalContext().redirect(url);
+					} catch (IOException ex) {
+						Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                                                
+                                                
+					}
+				
+                                
+
+			}
+
+		} catch (InvalidKeyException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (IllegalBlockSizeException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (BadPaddingException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (NoSuchAlgorithmException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (NoSuchPaddingException ex) {
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (SQLException ex) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, this.getText("mensagem.delete2"), null));
+			Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+		}
+
+	}
+        
 	public void login() {
 
 		try {
@@ -197,6 +261,8 @@ public class LoginController extends BaseFormController<User> {
 		return "";
 
 	}
+        
+        
 	
 	/**
 	 * @return the showName
