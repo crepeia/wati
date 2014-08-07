@@ -6,7 +6,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
-
+  
     <!-- INTERFACE -->
     <cc:interface>
         <cc:attribute name="loginRequired" default="false" rendered="false"/>
@@ -16,7 +16,7 @@
     <cc:implementation>
 
         <h:inputHidden value="#{redirectController.redirect( cc.attrs.loginRequired )}" />
-        
+
         <h:inputHidden value="#{pageNavigationController.saveNavigation()}" />
 
         <div id="header">
@@ -27,21 +27,33 @@
             </div>
 
             <div id="rightheader">
+                <div id="languages">
+                    <h:form id="langform">
+                        <h:panelGrid columns="6">
+
+                                <h:selectOneMenu value="#{languageController.language}" onchange="submit()">
+                                    <f:selectItems value="#{languageController.languages}"/> 
+                                </h:selectOneMenu>
+
+                        </h:panelGrid>
+                    </h:form>
+                </div>
+
                 <div id="fastsignin">
                     <h:form id="loginForm">
                         <p:panel id="groupPanel">                                                                                    
-                            
+
                             <p:panel id="loginPanel" rendered="#{!loginController.showName}">
                                 <h:outputLink value="cadastrar-nova-conta.xhtml" >#{messages['register']}</h:outputLink> / 
                                 <p:commandLink value="#{messages['signin']}" id="entrarLink" />                                 
                                 <p:messages id="loginMessages" globalOnly="true" />
                             </p:panel>
-                            
+
                             <div id="errormsg">
-                            <p:message for="emailTxt" />
-                            <p:message for="passwordTxt"/>
+                                <p:message for="emailTxt" />
+                                <p:message for="passwordTxt"/>
                             </div>
-                            
+
                             <p:panel id="userPanel" rendered="#{loginController.showName}">
                                 Olá <h:outputText value="#{loginController.user.name}" />  ::  
                                 <h:outputLink value="logout.xhtml">Sair</h:outputLink>
@@ -78,4 +90,5 @@
             </div>    
         </div>
     </cc:implementation>
+
 </html>

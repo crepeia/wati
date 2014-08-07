@@ -87,10 +87,10 @@ public abstract class BaseController<T> implements Serializable {
 		return (Map<String, String>) FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
 	}
 
-	protected Locale getLocale() {
+	/*protected Locale getLocale() {
 		return FacesContext.getCurrentInstance().getApplication().evaluateExpressionGet(FacesContext.getCurrentInstance(), "#{languageBean.language}", Locale.class);
-	}
-
+	}*/
+        
 	/**
 	 * @return the entityManager
 	 */
@@ -106,7 +106,7 @@ public abstract class BaseController<T> implements Serializable {
 	}
                
         public String getText (String key){
-           return PropertyResourceBundle.getBundle("wati.utility.messages").getString(key);   
+           return PropertyResourceBundle.getBundle("wati.utility.messages", FacesContext.getCurrentInstance().getViewRoot().getLocale()).getString(key);   
         }
         
         public String defaultEmail(String subtitle, String text){
