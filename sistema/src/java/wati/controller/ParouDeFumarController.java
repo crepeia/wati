@@ -58,7 +58,7 @@ import wati.utility.EMailSSL;
 public class ParouDeFumarController extends BaseController<Acompanhamento> {
 
     private static final int LIMITE_IGUALDADE_HORAS = 24;
-    private String recaida;
+    private String relapse;
     private Acompanhamento acompanhamento;
 
     private StreamedContent lapsoRecaida;
@@ -71,7 +71,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
         try {
             this.daoBase = new GenericDAO<Acompanhamento>(Acompanhamento.class);
         } catch (NamingException ex) {
-            String message = this.getText("mensagem.erro");
+            String message = this.getText("message.error");
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
             Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
         }
@@ -198,8 +198,8 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
     /**
      * @param recaida the recaida to set
      */
-    public void setRecaida(String recaida) {
-        this.recaida = recaida;
+    public void setRelapse(String relapse) {
+        this.relapse = relapse;
     }
 
     public boolean situacoesRisco() {

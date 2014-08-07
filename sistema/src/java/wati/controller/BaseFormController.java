@@ -36,7 +36,7 @@ public abstract class BaseFormController<T> extends BaseController<T> {
 		try {
 			this.daoBase = new GenericDAO<T>( cls );
 		} catch (NamingException ex) {
-			String message = this.getText("mensagem.erro");
+			String message = this.getText("message.error");
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
 			Logger.getLogger(BaseFormController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
 		}
@@ -51,13 +51,13 @@ public abstract class BaseFormController<T> extends BaseController<T> {
 			
 			this.getDaoBase().delete( object, entityManager );
 			
-			String message = this.getText("mensagem.delete1");
+			String message = this.getText("message.delete1");
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
 			Logger.getLogger(BaseFormController.class.getName()).log(Level.INFO, message);
 			//Logger.getLogger(User.class.getName()).log(Level.INFO, object.toString());
 
 		} catch (SQLException ex) {
-			String message = this.getText("mensagem.delete2");
+			String message = this.getText("message.delete2");
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
 			Logger.getLogger(BaseFormController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
 			//Logger.getLogger(User.class.getName()).log(Level.SEVERE, object.toString());
@@ -79,7 +79,7 @@ public abstract class BaseFormController<T> extends BaseController<T> {
 			//Logger.getLogger(User.class.getName()).log(Level.INFO, object.toString());
 
 		} catch (SQLException ex) {
-			String message = this.getText("mensagem.delete2");
+			String message = this.getText("message.delete2");
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
 			Logger.getLogger(BaseFormController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
 			//Logger.getLogger(User.class.getName()).log(Level.SEVERE, object.toString());

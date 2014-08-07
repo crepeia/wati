@@ -17,97 +17,68 @@ import javax.faces.event.ActionEvent;
 @SessionScoped
 public class CalculadoraController implements Serializable {
     
-    private String numeroCigarrosDia;
-    private String custoMasso;
-    private String custoSemana;
-    private String custoMes;
-    private String custoAno;
+    private String numberCigaretteDay;
+    private String costMasso;
+    private String costWeek;
+    private String costMonth;
+    private String costYear;
     
     public CalculadoraController() {
         
     }
     
-    public void calcular() {
-        int numeroCigarrosDiaInt = Integer.valueOf( numeroCigarrosDia );
-        double custoMassoDbl = Double.valueOf( custoMasso);
+    public void calculate() {
+        int numeroCigarrosDiaInt = Integer.valueOf( numberCigaretteDay );
+        double custoMassoDbl = Double.valueOf( costMasso);
         double numeroMassosDia = numeroCigarrosDiaInt / 20.0;
 		      System.out.println("");
         double custoDia = numeroMassosDia * custoMassoDbl;
-        custoSemana = String.format("%.2f", 7.0*custoDia);
-        custoMes = String.format("%.2f", 30.0*custoDia);
-        custoAno = String.format("%.2f", 365.0*custoDia);
+        costWeek = String.format("%.2f", 7.0*custoDia);
+        costMonth = String.format("%.2f", 30.0*custoDia);
+        costYear = String.format("%.2f", 365.0*custoDia);
         
     }
 
-    /**
-     * @return the numeroCigarrosDia
-     */
-    public String getNumeroCigarrosDia() {
-        return numeroCigarrosDia;
+    public String getNumberCigaretteDay() {
+        return numberCigaretteDay;
     }
 
-    /**
-     * @param numeroCigarrosDia the numeroCigarrosDia to set
-     */
-    public void setNumeroCigarrosDia(String numeroCigarrosDia) {
-        this.numeroCigarrosDia = numeroCigarrosDia;
+    public void setNumberCigaretteDay(String numberCigaretteDay) {
+        this.numberCigaretteDay = numberCigaretteDay;
     }
 
-    /**
-     * @return the custoMasso
-     */
-    public String getCustoMasso() {
-        return custoMasso;
+    public String getCostMasso() {
+        return costMasso;
     }
 
-    /**
-     * @param custoMasso the custoMasso to set
-     */
-    public void setCustoMasso(String custoMasso) {
-        this.custoMasso = custoMasso;
+    public void setCostMasso(String costMasso) {
+        this.costMasso = costMasso;
     }
 
-    /**
-     * @return the custoSemana
-     */
-    public String getCustoSemana() {
-        return custoSemana;
+    public String getCostWeek() {
+        return costWeek;
     }
 
-    /**
-     * @param custoSemana the custoSemana to set
-     */
-    public void setCustoSemana(String custoSemana) {
-        this.custoSemana = custoSemana;
+    public void setCostWeek(String costWeek) {
+        this.costWeek = costWeek;
     }
 
-    /**
-     * @return the custoMes
-     */
-    public String getCustoMes() {
-        return custoMes;
+    public String getCostMonth() {
+        return costMonth;
     }
 
-    /**
-     * @param custoMes the custoMes to set
-     */
-    public void setCustoMes(String custoMes) {
-        this.custoMes = custoMes;
+    public void setCostMonth(String costMonth) {
+        this.costMonth = costMonth;
     }
 
-    /**
-     * @return the custoAno
-     */
-    public String getCustoAno() {
-        return custoAno;
+    public String getCostYear() {
+        return costYear;
     }
 
-    /**
-     * @param custoAno the custoAno to set
-     */
-    public void setCustoAno(String custoAno) {
-        this.custoAno = custoAno;
+    public void setCostYear(String costYear) {
+        this.costYear = costYear;
     }
+
     
     
 }
