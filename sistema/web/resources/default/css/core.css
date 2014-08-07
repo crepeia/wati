@@ -447,6 +447,7 @@ INDEX***********************/
 
 .maindescribe p {
     text-indent: 0;
+    margin-left:60px;
 }
 
 #mainleft h1{
@@ -1027,13 +1028,14 @@ img#artigotabaco{
     background-color: #f8f8f8;
     border-radius: 20px;
     border: solid #ddd 1px;
-    height: 380px;
+    height: 410px;
 }
 
 .passos h2 {
     padding-left:12px;
     margin-left:auto;
     margin-right:auto;
+    height:55px;
     width:90%;
 
 }
