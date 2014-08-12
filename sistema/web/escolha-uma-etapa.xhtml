@@ -5,23 +5,24 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
-    <h:head>
-        <title>#{messages['index.titlepage']} </title>
-        <w:head_comum />
-    </h:head>
-    <h:body>
-        <div id="corpo"> 
-            <!-- header -->    
-            <w:header />
-            <w:topmenu />
+    <f:view locale="#{languageController.locale}">
+        <h:head>
+            <title>#{messages['index.titlepage']} </title>
+            <w:head_comum />
+        </h:head>
+        <h:body>
+            <div id="corpo"> 
+                <!-- header -->    
+                <w:header />
+                <w:topmenu />
 
-            <!--mainmenu-->         	
-            <div class="main">
+                <!--mainmenu-->         	
+                <div class="main">
 
 
-                <div class="pagecontent">
+                    <div class="pagecontent">
 
-                    <h1>#{messages['index.bottom.h']}</h1>
+                        <h1>#{messages['index.bottom.h']}</h1>
                         <div id="passosbottom">
                             <div class="passos">
                                 <h2><h:outputLink value="preparando-parar-de-fumar-introducao.xhtml">#{messages['index.step1.h']}</h:outputLink></h2>
@@ -75,13 +76,14 @@
                         </div>
 
 
+                    </div>
                 </div>
-            </div>
 
-        </div><!-- end.corpo --> 
+            </div><!-- end.corpo --> 
 
-        <!--Footer -->
-        <w:footer />
-    </h:body>
+            <!--Footer -->
+            <w:footer />
+        </h:body>
+    </f:view>
 </html>
 

@@ -5,49 +5,51 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
-    <h:head>
-        <title>#{messages['acompanhamento.semfumar.titlepage']} | #{messages['vivasemtabaco']}</title>
-        <w:head_comum />
-    </h:head>
-    <h:body>
-        <div id="corpo"> 
-            <!-- header -->
-            <w:header loginRequired="true" />
-            <w:topmenu />
+    <f:view locale="#{languageController.locale}">
+        <h:head>
+            <title>#{messages['acompanhamento.semfumar.titlepage']} | #{messages['vivasemtabaco']}</title>
+            <w:head_comum />
+        </h:head>
+        <h:body>
+            <div id="corpo"> 
+                <!-- header -->
+                <w:header loginRequired="true" />
+                <w:topmenu />
 
-            <!--mainmenu-->         	
-            <div class="main">
+                <!--mainmenu-->         	
+                <div class="main">
 
 
-                <w:leftmenu_3 cssClass="leftmenu3" />
+                    <w:leftmenu_3 cssClass="leftmenu3" />
 
-                <div class="pagecontent">
+                    <div class="pagecontent">
 
-                    <div id="pagecont2">
-                        <div id="pagetop">
-                            <div class="fotoframeclean">                            
-                            <h:graphicImage id="cartoonman" library="default" name="images/homem-feliz.png" alt="#{messages['preparando.bene.img.alt']}" />
+                        <div id="pagecont2">
+                            <div id="pagetop">
+                                <div class="fotoframeclean">                            
+                                    <h:graphicImage id="cartoonman" library="default" name="images/homem-feliz.png" alt="#{messages['preparando.bene.img.alt']}" />
+                                </div>
+                            </div> 
+
+                            <h1>#{messages['acompanhamento.intro.h1.1']}</h1>                       
+                            <p>#{messages['acompanhamento.semfumar.p.1']}</p>                        
+
+
+                            <div class="referencias">                                                        
+                                <p>#{messages['source']}: U.S Department of Health and Human Services (2008). Treating Tobacco Use and Dependence: 2008 Update: Clinical Practice Guideline. DIANE Publishing.</p>
+                                <p>#{messages['update.date']}</p>
                             </div>
-                        </div> 
 
-                        <h1>#{messages['acompanhamento.intro.h1.1']}</h1>                       
-                        <p>#{messages['acompanhamento.semfumar.p.1']}</p>                        
-                        
-
-                        <div class="referencias">                                                        
-                            <p>#{messages['source']}: U.S Department of Health and Human Services (2008). Treating Tobacco Use and Dependence: 2008 Update: Clinical Practice Guideline. DIANE Publishing.</p>
-                            <p>#{messages['update.date']}</p>
                         </div>
 
                     </div>
-
                 </div>
-            </div>
 
-        </div><!-- end.corpo --> 
+            </div><!-- end.corpo --> 
 
-        <!--Footer -->
-        <w:footer />
-    </h:body>
+            <!--Footer -->
+            <w:footer />
+        </h:body>
+    </f:view>
 </html>
 

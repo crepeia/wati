@@ -5,65 +5,67 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
-    <h:head>
-        <title>#{messages['acompanhamento.fat.titlepage']} | #{messages['vivasemtabaco']}</title>
-        <w:head_comum />
-    </h:head>
-    <h:body>
-        <div id="corpo"> 
-            <!-- header -->    
-            <w:header loginRequired="true" />
-            <w:topmenu />
+    <f:view locale="#{languageController.locale}">
+        <h:head>
+            <title>#{messages['acompanhamento.fat.titlepage']} | #{messages['vivasemtabaco']}</title>
+            <w:head_comum />
+        </h:head>
+        <h:body>
+            <div id="corpo"> 
+                <!-- header -->    
+                <w:header loginRequired="true" />
+                <w:topmenu />
 
-            <!--mainmenu-->         	
-            <div class="main">
+                <!--mainmenu-->         	
+                <div class="main">
 
 
-                <w:leftmenu_3 cssClass="leftmenu3" />
+                    <w:leftmenu_3 cssClass="leftmenu3" />
 
-                <div class="pagecontent">
+                    <div class="pagecontent">
 
-                    <div id="pagecont2">
-                        <div class="fotoframeclean">
-                            <h:graphicImage  library="default" title="#{messages['acompanhamento.fat.img.title']}Acompanhamento" name="images/acompanhamento-interno.png" alt="Acompanhamento" />
-                        </div>                        
-                                                                     
-                        <h1>#{messages['acompanhamento.lapso.h1.1']}</h1>                       
-                        
-                        <p>#{messages['acompanhamento.lapso.p.1']}</p>
-                            
-                        <ul>
-                            <li><h:outputLink value="preparando-parar-de-fumar-beneficios-de-parar.xhtml">#{messages['menu.firststep.li3']}</h:outputLink></li>
-                            <li><h:outputLink value="preparando-parar-de-fumar-riscos-de-fumar.xhtml">#{messages['menu.firststep.li2']}</h:outputLink></li>
-                            <li><h:outputLink value="preparando-parar-de-fumar-substituir-prazer-cigarro.xhtml">#{messages['menu.firststep.li8']}</h:outputLink></li>
-                        </ul>
-                        <br />
-                        
-                        <div class="buscarajuda">
-                            <div class="imgbuscarajuda">
-                                <h:outputLink value="./index.xhtml">
-                                    <h:graphicImage library="default" title="#{messages['vivasemtabaco']}" name="images/vst-100.png" alt="#{messages['vivasemtabaco']}"/>
-                                </h:outputLink>
+                        <div id="pagecont2">
+                            <div class="fotoframeclean">
+                                <h:graphicImage  library="default" title="#{messages['acompanhamento.fat.img.title']}Acompanhamento" name="images/acompanhamento-interno.png" alt="Acompanhamento" />
+                            </div>                        
+
+                            <h1>#{messages['acompanhamento.lapso.h1.1']}</h1>                       
+
+                            <p>#{messages['acompanhamento.lapso.p.1']}</p>
+
+                            <ul>
+                                <li><h:outputLink value="preparando-parar-de-fumar-beneficios-de-parar.xhtml">#{messages['menu.firststep.li3']}</h:outputLink></li>
+                                <li><h:outputLink value="preparando-parar-de-fumar-riscos-de-fumar.xhtml">#{messages['menu.firststep.li2']}</h:outputLink></li>
+                                <li><h:outputLink value="preparando-parar-de-fumar-substituir-prazer-cigarro.xhtml">#{messages['menu.firststep.li8']}</h:outputLink></li>
+                            </ul>
+                            <br />
+
+                            <div class="buscarajuda">
+                                <div class="imgbuscarajuda">
+                                    <h:outputLink value="./index.xhtml">
+                                        <h:graphicImage library="default" title="#{messages['vivasemtabaco']}" name="images/vst-100.png" alt="#{messages['vivasemtabaco']}"/>
+                                    </h:outputLink>
+                                </div>
+                                <div class="pbuscarajuda">
+                                    <h4><h:outputLink value="./index.xhtml">#{messages['acompanhamento.ajuda.h4.1']}</h:outputLink></h4>
+                                    <p>#{messages['acompanhamento.ajuda.p.2a']} <br /><h:outputLink value="./index.xhtml">#{messages['acompanhamento.ajuda.p.2b']}</h:outputLink>.</p>
+                                </div> 
                             </div>
-                            <div class="pbuscarajuda">
-                                <h4><h:outputLink value="./index.xhtml">#{messages['acompanhamento.ajuda.h4.1']}</h:outputLink></h4>
-                                <p>#{messages['acompanhamento.ajuda.p.2a']} <br /><h:outputLink value="./index.xhtml">#{messages['acompanhamento.ajuda.p.2b']}</h:outputLink>.</p>
-                            </div> 
-                        </div>
 
-                        <div class="referencias">                            
-                            <p>"#{messages['update.date']}"</p>                            
+                            <div class="referencias">                            
+                                <p>"#{messages['update.date']}"</p>                            
+                            </div>
+
                         </div>
 
                     </div>
-
                 </div>
-            </div>
 
-        </div><!-- end.corpo --> 
+            </div><!-- end.corpo --> 
 
-        <!--Footer -->
-        <w:footer />
-    </h:body>
+            <!--Footer -->
+            <w:footer />
+        </h:body>
+    </f:view>
 </html>
 

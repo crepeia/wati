@@ -6,84 +6,86 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
-    <h:head>
-        <title>#{messages['pronto.evitar.estrat.titlepage']} - #{messages['pronto.evitar.titlepage']} | #{messages['vivasemtabaco.title']}</title>
-        <w:head_comum />
-    </h:head>
-    <h:body>
-        <div id="corpo"> 
-            <!-- header -->    
-            <w:header loginRequired="true" />
-            <w:topmenu />
+    <f:view locale="#{languageController.locale}">
+        <h:head>
+            <title>#{messages['pronto.evitar.estrat.titlepage']} - #{messages['pronto.evitar.titlepage']} | #{messages['vivasemtabaco.title']}</title>
+            <w:head_comum />
+        </h:head>
+        <h:body>
+            <div id="corpo"> 
+                <!-- header -->    
+                <w:header loginRequired="true" />
+                <w:topmenu />
 
-            <!--mainmenu-->         	
-            <div class="main">
+                <!--mainmenu-->         	
+                <div class="main">
 
 
-                <w:leftmenu_2 cssClass="leftmenu2" />
+                    <w:leftmenu_2 cssClass="leftmenu2" />
 
-                <div class="pagecontent">
-                    <div id="pagecont2">                                              
-                        <div id ="pagetop"> 
-                            <div id="progressbar">
-                                <p:progressBar value="77" labelTemplate="{value}%" displayOnly="true"/>                            
-                            </div>
-                            <div class="fotoframeclean">
-                                <h:graphicImage  library="default" title="Saiba dizer não" name="images/stop-smoking.jpg" alt="Saiba dizer não" />
-                            </div>
-                        </div>
-                        
-                        <h1>#{messages['pronto.evitar.estrat.h1.1']}</h1>
-
-                        <h2>#{messages['pronto.evitar.estrat.h2.1']}</h2>
-                        <p>#{messages['pronto.evitar.estrat.p.1']}</p>
-                        <p>#{messages['pronto.evitar.estrat.p.2']}</p>                                                                               
-
-                        <h:form>
-                            <p:panel id="questoes" >
-                                <h:panelGrid columns="1"  cellpadding="5" id="questao1">
-                                    <f:facet name="header">  
-                                        #{messages['pronto.evitar.estrat.question.label']}
-                                        </f:facet>
-                                    <p:inputTextarea rows="2" cols="72" value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara1}" id="campo1"/> 
-                                    <p:inputTextarea rows="2" cols="72" value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara2}" id="campo2"/> 
-                                    <p:inputTextarea rows="2" cols="72" value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara3}" id="campo3"/>                               
-                                </h:panelGrid>
-                            </p:panel>
-                            
-                           
-
-                            <div class="proximopasso">
-                                <div class="txtproximopasso">
-                                    <h2>#{messages['next.step']}</h2>                                
-                                    <p>#{messages['pronto.evitar.estrat.next.p.1']}</p>
+                    <div class="pagecontent">
+                        <div id="pagecont2">                                              
+                            <div id ="pagetop"> 
+                                <div id="progressbar">
+                                    <p:progressBar value="77" labelTemplate="{value}%" displayOnly="true"/>                            
                                 </div>
-                                <div class="btnfloat">
-                                    <div class="btn1">
-                                        <h:button class="btnback" value ="#{messages['back']}" outcome="./pronto-para-parar-de-fumar-como-evitar-recaidas-completo.xhtml"></h:button>
-                                    </div>
-                                    <div class="btn2">
-                                        <h:commandButton id="saveBtn" styleClass="btngen" value="#{messages['next']}" action="#{prontoParaPararController.recaidasEvitar}"></h:commandButton>
-                                    </div>    
-                       
-                                    
-                                </div>             
+                                <div class="fotoframeclean">
+                                    <h:graphicImage  library="default" title="Saiba dizer não" name="images/stop-smoking.jpg" alt="Saiba dizer não" />
+                                </div>
                             </div>
-                            
+
+                            <h1>#{messages['pronto.evitar.estrat.h1.1']}</h1>
+
+                            <h2>#{messages['pronto.evitar.estrat.h2.1']}</h2>
+                            <p>#{messages['pronto.evitar.estrat.p.1']}</p>
+                            <p>#{messages['pronto.evitar.estrat.p.2']}</p>                                                                               
+
+                            <h:form>
+                                <p:panel id="questoes" >
+                                    <h:panelGrid columns="1"  cellpadding="5" id="questao1">
+                                        <f:facet name="header">  
+                                            #{messages['pronto.evitar.estrat.question.label']}
+                                        </f:facet>
+                                        <p:inputTextarea rows="2" cols="72" value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara1}" id="campo1"/> 
+                                        <p:inputTextarea rows="2" cols="72" value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara2}" id="campo2"/> 
+                                        <p:inputTextarea rows="2" cols="72" value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara3}" id="campo3"/>                               
+                                    </h:panelGrid>
+                                </p:panel>
+
+
+
+                                <div class="proximopasso">
+                                    <div class="txtproximopasso">
+                                        <h2>#{messages['next.step']}</h2>                                
+                                        <p>#{messages['pronto.evitar.estrat.next.p.1']}</p>
+                                    </div>
+                                    <div class="btnfloat">
+                                        <div class="btn1">
+                                            <h:button class="btnback" value ="#{messages['back']}" outcome="./pronto-para-parar-de-fumar-como-evitar-recaidas-completo.xhtml"></h:button>
+                                        </div>
+                                        <div class="btn2">
+                                            <h:commandButton id="saveBtn" styleClass="btngen" value="#{messages['next']}" action="#{prontoParaPararController.recaidasEvitar}"></h:commandButton>
+                                        </div>    
+
+
+                                    </div>             
+                                </div>
+
                             </h:form>
 
                             <div class="referencias">                            
                                 <p>#{messages['update.date']}</p>                            
                             </div>
 
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </div><!-- end.corpo --> 
+            </div><!-- end.corpo --> 
 
-        <!--Footer -->
-        <w:footer />
-    </h:body>
+            <!--Footer -->
+            <w:footer />
+        </h:body>
+    </f:view>
 </html>
 
