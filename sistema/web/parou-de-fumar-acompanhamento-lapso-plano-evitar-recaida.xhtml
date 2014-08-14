@@ -44,14 +44,14 @@
                                 <p>#{messages['acompanhamento.plano.p.2']}</p>                            
                                 <p>#{messages['acompanhamento.plano.p.3']}</p>
 
-                                <ui:fragment rendered="#{parouDeFumarController.situacoesRisco()}">
+                                <ui:fragment rendered="#{parouDeFumarController.riskSituations()}">
                                     <h2>#{messages['acompanhamento.plano.h2.1']}</h2>
                                 </ui:fragment>
                                 <ui:fragment rendered="#{parouDeFumarController.recaidaSituacao11}"><h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao1}"/><br/></ui:fragment>
                                 <ui:fragment rendered="#{parouDeFumarController.recaidaSituacao22}"><h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao2}"/><br/></ui:fragment>
                                 <h:outputText value="#{parouDeFumarController.acompanhamento.recaidaSituacao3}"/><br/>
 
-                                <ui:fragment rendered="#{parouDeFumarController.comoEnfrentar()}">
+                                <ui:fragment rendered="#{parouDeFumarController.howFace()}">
                                     <h2>#{messages['acompanhamento.plano.h2.2']}</h2>
                                 </ui:fragment>
                                 <ui:fragment rendered="#{parouDeFumarController.recaidaLidar11}"><h:outputText value="#{parouDeFumarController.acompanhamento.recaidaLidar1}"/><br/></ui:fragment>
