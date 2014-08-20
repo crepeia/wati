@@ -27,9 +27,9 @@ public class LanguageController extends BaseController<Object> {
 
     public LanguageController() {
         languages.put("English", "en");
-        languages.put("Spanish", "es");
-        languages.put("Portuguese", "pt");
-        languages.put("German", "de");
+        languages.put("Español", "es");
+        languages.put("Português", "pt");
+        // languages.put("Deutsch", "de");
     }
 
     public Locale getLocale() {
