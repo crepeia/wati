@@ -54,7 +54,7 @@
                                 </div>
 
                                 <p:panel id="userPanel" rendered="#{loginController.showName}">
-                                    Olá <h:outputText value="#{loginController.user.name}" />  ::  
+                                     #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  ::  
                                     <h:outputLink value="logout.xhtml">Sair</h:outputLink>
                                 </p:panel>
                             </p:panel>
