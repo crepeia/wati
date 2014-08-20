@@ -77,11 +77,11 @@ public class UserController extends BaseFormController<User> {
         }
 
 
-        for (int i = 1; i <= 12; i++) {
+       /* for (int i = 1; i <= 12; i++) {
             //meses.put(this.nomeMeses[ i], String.valueOf(i+1));
-            meses.put(PropertyResourceBundle.getBundle("wati.utility.messages").getString("month." + String.valueOf(i)),
+            meses.put(this.getText("month." + String.valueOf(i)),
                     String.valueOf(i - 1));
-        }
+        }*/
 
         GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
         int lastYear = gc.get(GregorianCalendar.YEAR) - 1;
@@ -271,6 +271,11 @@ public class UserController extends BaseFormController<User> {
      * @return the meses
      */
     public Map<String, String> getMeses() {
+        meses.clear();
+        for (int i = 1; i <= 12; i++) {
+            meses.put(this.getText("month." + String.valueOf(i)),
+                    String.valueOf(i - 1));
+        }
         return meses;
     }
 

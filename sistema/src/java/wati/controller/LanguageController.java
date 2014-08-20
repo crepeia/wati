@@ -43,6 +43,7 @@ public class LanguageController extends BaseController<Object> {
     public void setLanguage(String language) {
         locale = new Locale(language);
         FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("locale", locale);
     }
 
     public Map<String, String> getLanguages() {

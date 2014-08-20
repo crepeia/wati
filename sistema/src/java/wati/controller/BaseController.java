@@ -106,7 +106,15 @@ public abstract class BaseController<T> implements Serializable {
 	}
                
         public String getText (String key){
-           return PropertyResourceBundle.getBundle("wati.utility.messages", FacesContext.getCurrentInstance().getViewRoot().getLocale()).getString(key);   
+            ResourceBundle bundle;
+            Locale locale =  (Locale) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("locale");
+            if (locale == null){
+                 bundle = PropertyResourceBundle.getBundle("wati.utility.messages");
+            }else {
+                 bundle = PropertyResourceBundle.getBundle("wati.utility.messages", locale);
+            }
+           
+            return   bundle.getString(key);
         }
         
         public String defaultEmail(String subtitle, String text){
