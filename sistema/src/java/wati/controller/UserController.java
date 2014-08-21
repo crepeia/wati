@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.GregorianCalendar;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
@@ -171,6 +172,12 @@ public class UserController extends BaseFormController<User> {
                     }
 
                 }
+                
+                Locale locale =  (Locale) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("locale");
+                if(locale == null ){
+                    locale = FacesContext.getCurrentInstance().getViewRoot().getLocale();
+                }
+                this.user.setPreferedLanguage(locale.getLanguage());
 
                 super.save(actionEvent, entityManager);
                 //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));
@@ -180,7 +187,7 @@ public class UserController extends BaseFormController<User> {
                 login.setPassword(this.password);
                 login.loginDialog();
                 try { 
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("escolha-uma-etapa");
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("escolha-uma-etapa.xhtml");
                     //FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
                 } catch (IOException ex) {
                     Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);

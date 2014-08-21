@@ -25,166 +25,172 @@ import javax.persistence.Temporal;
 @Table(name = "tb_user")
 public class User {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-	@Column(name = "name", length = 100)
-	private String name;
-	@Column(name = "email", length = 50, unique = true)
-	private String email;
-	@Column(name = "password", length = 16)
-	private byte[] password;
-	@Column(name = "birth")
-	@Temporal(javax.persistence.TemporalType.DATE)
-	private Date birth;
-	@Column(name = "gender")
-	private char gender;
-        @Column(name = "receive_emails")
-        private boolean receiveEmails;
-        @Column(name = "authorize_data")
-        private boolean authorizeData;
-        
-	@OneToOne(mappedBy = "usuario")
-	private ProntoParaParar prontoParaParar;
-       	
-	@OneToMany(fetch= FetchType.LAZY)
-	private List<Acompanhamento> acompanhamentos;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    @Column(name = "name", length = 100)
+    private String name;
+    @Column(name = "email", length = 50, unique = true)
+    private String email;
+    @Column(name = "password", length = 16)
+    private byte[] password;
+    @Column(name = "birth")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date birth;
+    @Column(name = "gender")
+    private char gender;
+    @Column(name = "receive_emails")
+    private boolean receiveEmails;
+    @Column(name = "authorize_data")
+    private boolean authorizeData;
+    @Column(name = "prefered_language")
+    private String preferedLanguage;
 
-	/**
-	 * @return the id
-	 */
-	public long getId() {
-		return id;
-	}
+    @OneToOne(mappedBy = "usuario")
+    private ProntoParaParar prontoParaParar;
 
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(long id) {
-		this.id = id;
-	}
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Acompanhamento> acompanhamentos;
 
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
+    /**
+     * @return the id
+     */
+    public long getId() {
+        return id;
+    }
 
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
+    /**
+     * @param id the id to set
+     */
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	/**
-	 * @return the password
-	 */
-	public byte[] getPassword() {
-		return password;
-	}
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
 
-	/**
-	 * @param password the password to set
-	 */
-	public void setPassword(byte[] password) {
-		this.password = password;
-	}
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
-        public boolean isReceiveEmails() {
-            return receiveEmails;
-        }
+    /**
+     * @return the password
+     */
+    public byte[] getPassword() {
+        return password;
+    }
 
-        public void setReceiveEmails(boolean receiveEmails) {
-            this.receiveEmails = receiveEmails;
-        }
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(byte[] password) {
+        this.password = password;
+    }
 
-        public boolean isAuthorizeData() {
-            return authorizeData;
-        }
+    public boolean isReceiveEmails() {
+        return receiveEmails;
+    }
 
-        public void setAuthorizeData(boolean authorizeData) {
-            this.authorizeData = authorizeData;
-        }
-        
-        
+    public void setReceiveEmails(boolean receiveEmails) {
+        this.receiveEmails = receiveEmails;
+    }
 
-	@Override
-	public String toString() {
-		return this.id + ", " + this.name + ", " + this.email + ", " + new String(this.password);
-	}
+    public boolean isAuthorizeData() {
+        return authorizeData;
+    }
 
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
+    public void setAuthorizeData(boolean authorizeData) {
+        this.authorizeData = authorizeData;
+    }
 
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    @Override
+    public String toString() {
+        return this.id + ", " + this.name + ", " + this.email + ", " + new String(this.password);
+    }
 
-	/**
-	 * @return the birth
-	 */
-	public Date getBirth() {
-		return birth;
-	}
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
 
-	/**
-	 * @param birth the birth to set
-	 */
-	public void setBirth(Date birth) {
-		this.birth = birth;
-	}
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	/**
-	 * @return the gender
-	 */
-	public char getGender() {
-		return gender;
-	}
+    /**
+     * @return the birth
+     */
+    public Date getBirth() {
+        return birth;
+    }
 
-	/**
-	 * @param gender the gender to set
-	 */
-	public void setGender(char gender) {
-		this.gender = gender;
-	}
+    /**
+     * @param birth the birth to set
+     */
+    public void setBirth(Date birth) {
+        this.birth = birth;
+    }
 
-	/**
-	 * @return the prontoParaParar
-	 */
-	public ProntoParaParar getProntoParaParar() {
-		return prontoParaParar;
-	}
+    /**
+     * @return the gender
+     */
+    public char getGender() {
+        return gender;
+    }
 
-	/**
-	 * @param prontoParaParar the prontoParaParar to set
-	 */
-	public void setProntoParaParar(ProntoParaParar prontoParaParar) {
-		this.prontoParaParar = prontoParaParar;
-	}
+    /**
+     * @param gender the gender to set
+     */
+    public void setGender(char gender) {
+        this.gender = gender;
+    }
 
-	/**
-	 * @return the acompanhamentos
-	 */
-	public List<Acompanhamento> getAcompanhamentos() {
-		return acompanhamentos;
-	}
+    /**
+     * @return the prontoParaParar
+     */
+    public ProntoParaParar getProntoParaParar() {
+        return prontoParaParar;
+    }
 
-	/**
-	 * @param acompanhamentos the acompanhamentos to set
-	 */
-	public void setAcompanhamentos(List<Acompanhamento> acompanhamentos) {
-		this.acompanhamentos = acompanhamentos;
-	}
+    /**
+     * @param prontoParaParar the prontoParaParar to set
+     */
+    public void setProntoParaParar(ProntoParaParar prontoParaParar) {
+        this.prontoParaParar = prontoParaParar;
+    }
 
-        
+    /**
+     * @return the acompanhamentos
+     */
+    public List<Acompanhamento> getAcompanhamentos() {
+        return acompanhamentos;
+    }
+
+    /**
+     * @param acompanhamentos the acompanhamentos to set
+     */
+    public void setAcompanhamentos(List<Acompanhamento> acompanhamentos) {
+        this.acompanhamentos = acompanhamentos;
+    }
+
+    public String getPreferedLanguage() {
+        return preferedLanguage;
+    }
+
+    public void setPreferedLanguage(String preferedLanguage) {
+        this.preferedLanguage = preferedLanguage;
+    }
+
 }
-

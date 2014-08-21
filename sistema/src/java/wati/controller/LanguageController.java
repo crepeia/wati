@@ -22,10 +22,11 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class LanguageController extends BaseController<Object> {
 
-    private Locale locale = FacesContext.getCurrentInstance().getViewRoot().getLocale();
+    private Locale locale;
     private Map<String, String> languages = new LinkedHashMap<String, String>();
 
     public LanguageController() {
+        locale = FacesContext.getCurrentInstance().getViewRoot().getLocale();
         languages.put("English", "en");
         languages.put("Español", "es");
         languages.put("Português", "pt");
@@ -43,7 +44,7 @@ public class LanguageController extends BaseController<Object> {
     public void setLanguage(String language) {
         locale = new Locale(language);
         FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
-        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("locale", locale);
+        //FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("locale", locale);
     }
 
     public Map<String, String> getLanguages() {
@@ -54,4 +55,13 @@ public class LanguageController extends BaseController<Object> {
         this.languages = languages;
     }
 
+    public String getLogo() {
+        if (locale.getLanguage().contains("en")) {
+            return "images/live-without-tobacco.png";
+        } else if (locale.getLanguage().contains("es")) {
+            return "images/viva-sin-tabaco.png";
+        } else {
+            return "images/viva-sem-tabaco.png";
+        }
+    }
 }
