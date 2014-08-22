@@ -33,30 +33,11 @@ public class UserDAO extends GenericDAO {
         return query.getResultList();
     }
     
-    public List acompanhamentoPrimeiraSemana(EntityManager entityManager){
-        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.emailPrimeiraSemana is null and u.receiveEmails == true");
-        Calendar c = Calendar.getInstance();
-        c.add(Calendar.DAY_OF_MONTH, -14);
-        Date data = c.getTime();
-        query.setParameter("data",data);
-        return query.getResultList();
-        
-    }
     
-    public List acompanhamentoSegundaSemana(EntityManager entityManager){
-        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.emailSegundaSemana.emailSegundaSemana is null and u.receiveEmails == true");
+     public List acompanhamentoSemanal(EntityManager entityManager, int semana){
+        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido <= :data and u.receiveEmails == true");
         Calendar c = Calendar.getInstance();
-        c.add(Calendar.DAY_OF_MONTH, -21);
-        Date data = c.getTime();
-        query.setParameter("data",data );
-        return query.getResultList();
-        
-    }
-    
-   public List acompanhamentoTerceiraSemana(EntityManager entityManager){
-        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.emailTerceiraSemana is null and u.receive_emails == true");
-        Calendar c = Calendar.getInstance();
-        c.add(Calendar.DAY_OF_MONTH, -28);
+        c.add(Calendar.DAY_OF_MONTH, -7*(semana+1));
         Date data = c.getTime();
         query.setParameter("data",data );
         return query.getResultList();
@@ -64,7 +45,7 @@ public class UserDAO extends GenericDAO {
     }
     
     public List acompanhamentoMensal(EntityManager entityManager){
-        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.emailTerceiraSemana is not null and (u.prontoParaParar.emailTerceiraSemana is null or u.prontoParaParar.emailMensal <= :data)");
+        Query query = entityManager.createQuery("from User as u where u.receiveEmails == true and u.prontoParaParar.emailTerceiraSemana is not null and ((u.prontoParaParar.emailMensal is null and u.prontoParaParar.emailTerceiraSemana <= :data) or (u.prontoParaParar.emailMensal is not null and u.prontoParaParar.emailMensal <= :data and u.prontoParaparar.emailMensalCont < 12))");
         Calendar c = Calendar.getInstance();
         c.add(Calendar.DAY_OF_MONTH, -30);
         Date data = c.getTime();

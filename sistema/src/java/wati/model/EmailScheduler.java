@@ -13,15 +13,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Schedule;
 import javax.ejb.Stateless;
-import javax.ejb.TransactionManagement;
-import javax.ejb.TransactionManagementType;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import wati.controller.BaseController;
-import wati.persistence.GenericDAO;
 import wati.persistence.UserDAO;
 import wati.utility.EMailSSL;
 
@@ -113,7 +107,7 @@ public class EmailScheduler {
             }
         }
 
-        usuarios = dao.acompanhamentoPrimeiraSemana(entityManager);
+        usuarios = dao.acompanhamentoSemanal(entityManager, 1);
         if (!usuarios.isEmpty()) {
             try {
                 for (User usuario : usuarios) {
@@ -127,7 +121,7 @@ public class EmailScheduler {
             }
         }
 
-        usuarios = dao.acompanhamentoSegundaSemana(entityManager);
+        usuarios = dao.acompanhamentoSemanal(entityManager, 2);
         if (!usuarios.isEmpty()) {
             try {
                 for (User usuario : usuarios) {
@@ -141,7 +135,7 @@ public class EmailScheduler {
             }
         }
 
-        usuarios = dao.acompanhamentoTerceiraSemana(entityManager);
+        usuarios = dao.acompanhamentoSemanal(entityManager, 3);
         if (!usuarios.isEmpty()) {
             try {
                 for (User usuario : usuarios) {

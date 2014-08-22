@@ -4,24 +4,18 @@
  */
 package wati.model;
 
-import java.awt.Desktop;
 import java.io.Serializable;
-import java.net.MalformedURLException;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.context.FacesContext;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
-import org.hibernate.annotations.Type;
 import wati.controller.BaseController;
 
 /**
@@ -32,389 +26,404 @@ import wati.controller.BaseController;
 @Table(name = "tb_pronto_para_parar")
 public class ProntoParaParar extends BaseController implements Serializable {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
-	@Column(name = "enfrentar_fissura_beber_agua")
-	private boolean enfrentarFissuraBeberAgua;
-	@Column(name = "enfrentar_fissura_comer")
-	private boolean enfrentarFissuraComer;
-	@Column(name = "enfrentar_fissura_relaxamento")
-	private boolean enfrentarFissuraRelaxamento;
-	@Column(name = "enfrentar_fissura_ler_razoes")
-	private boolean enfrentarFissuraLerRazoes;
-	@Column(name = "data_parar")
-	@Temporal(javax.persistence.TemporalType.DATE)
-	private Date dataParar;
-	@Column(name = "tentou_parar")
-	private boolean tentouParar;
-	@Column(name = "evitar_recaida_1")
-	private String evitarRecaida1;
-	@Column(name = "evitar_recaida_2")
-	private String evitarRecaida2;
-	@Column(name = "evitar_recaida_3")
-	private String evitarRecaida3;
-	@Column(name = "evitar_recaida_fara_1")
-	private String evitarRecaidaFara1;
-	@Column(name = "evitar_recaida_fara_2")
-	private String evitarRecaidaFara2;
-	@Column(name = "evitar_recaida_fara_3")
-	private String evitarRecaidaFara3; 
-	//@Column(name="usuario")
-	@OneToOne
-	private User usuario;
-	@Column(name = "data_inserido")
-	@Temporal(javax.persistence.TemporalType.DATE)
-	private Date dataInserido; 
-        
-        @Column(name = "email_data_diferente")
-        @Temporal(javax.persistence.TemporalType.DATE)
-        private Date emailDataDiferente;
-        @Column(name = "email_primeira_semana")
-        @Temporal(javax.persistence.TemporalType.DATE)
-        private Date emailPrimeiraSemana;
-        @Column(name = "email_segunda_semana")
-        @Temporal(javax.persistence.TemporalType.DATE)
-        private Date emailSegundaSemana;
-        @Column(name = "email_terceira_semana")
-        @Temporal(javax.persistence.TemporalType.DATE)
-        private Date emailTerceiraSemana;
-        @Column(name = "email_mensal")
-        @Temporal(javax.persistence.TemporalType.DATE)
-        private Date emailMensal;
-        
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    @Column(name = "enfrentar_fissura_beber_agua")
+    private boolean enfrentarFissuraBeberAgua;
+    @Column(name = "enfrentar_fissura_comer")
+    private boolean enfrentarFissuraComer;
+    @Column(name = "enfrentar_fissura_relaxamento")
+    private boolean enfrentarFissuraRelaxamento;
+    @Column(name = "enfrentar_fissura_ler_razoes")
+    private boolean enfrentarFissuraLerRazoes;
+    @Column(name = "data_parar")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dataParar;
+    @Column(name = "tentou_parar")
+    private boolean tentouParar;
+    @Column(name = "evitar_recaida_1")
+    private String evitarRecaida1;
+    @Column(name = "evitar_recaida_2")
+    private String evitarRecaida2;
+    @Column(name = "evitar_recaida_3")
+    private String evitarRecaida3;
+    @Column(name = "evitar_recaida_fara_1")
+    private String evitarRecaidaFara1;
+    @Column(name = "evitar_recaida_fara_2")
+    private String evitarRecaidaFara2;
+    @Column(name = "evitar_recaida_fara_3")
+    private String evitarRecaidaFara3;
+    //@Column(name="usuario")
+    @OneToOne
+    private User usuario;
+    @Column(name = "data_inserido")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dataInserido;
 
-	public ProntoParaParar() {
-		this.dataInserido = ((GregorianCalendar) GregorianCalendar.getInstance()).getTime();
-	}
+    @Column(name = "email_data_diferente")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date emailDataDiferente;
+    @Column(name = "email_primeira_semana")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date emailPrimeiraSemana;
+    @Column(name = "email_segunda_semana")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date emailSegundaSemana;
+    @Column(name = "email_terceira_semana")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date emailTerceiraSemana;
+    @Column(name = "email_mensal")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date emailMensal;
+    @Column(name = "email_mensal_cont")
+    private Integer emailMensalCont;
 
-	/**
-	 * @return the id
-	 */
-	public long getId() {
-		return id;
-	}
+    public ProntoParaParar() {
+        this.dataInserido = ((GregorianCalendar) GregorianCalendar.getInstance()).getTime();
+    }
 
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(long id) {
-		this.id = id;
-	}
+    /**
+     * @return the id
+     */
+    public long getId() {
+        return id;
+    }
 
-	/**
-	 * @return the enfrentarFissuraBeberAgua
-	 */
-	public boolean isEnfrentarFissuraBeberAgua() {
-		return enfrentarFissuraBeberAgua;
-	}
+    /**
+     * @param id the id to set
+     */
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	/**
-	 * @param enfrentarFissuraBeberAgua the enfrentarFissuraBeberAgua to set
-	 */
-	public void setEnfrentarFissuraBeberAgua(boolean enfrentarFissuraBeberAgua) {
-		this.enfrentarFissuraBeberAgua = enfrentarFissuraBeberAgua;
-	}
+    /**
+     * @return the enfrentarFissuraBeberAgua
+     */
+    public boolean isEnfrentarFissuraBeberAgua() {
+        return enfrentarFissuraBeberAgua;
+    }
 
-	/**
-	 * @return the enfrentarFissuraComer
-	 */
-	public boolean isEnfrentarFissuraComer() {
-		return enfrentarFissuraComer;
-	}
+    /**
+     * @param enfrentarFissuraBeberAgua the enfrentarFissuraBeberAgua to set
+     */
+    public void setEnfrentarFissuraBeberAgua(boolean enfrentarFissuraBeberAgua) {
+        this.enfrentarFissuraBeberAgua = enfrentarFissuraBeberAgua;
+    }
 
-	/**
-	 * @param enfrentarFissuraComer the enfrentarFissuraComer to set
-	 */
-	public void setEnfrentarFissuraComer(boolean enfrentarFissuraComer) {
-		this.enfrentarFissuraComer = enfrentarFissuraComer;
-	}
+    /**
+     * @return the enfrentarFissuraComer
+     */
+    public boolean isEnfrentarFissuraComer() {
+        return enfrentarFissuraComer;
+    }
 
-	/**
-	 * @return the enfrentarFissuraRelaxamento
-	 */
-	public boolean isEnfrentarFissuraRelaxamento() {
-		return enfrentarFissuraRelaxamento;
-	}
+    /**
+     * @param enfrentarFissuraComer the enfrentarFissuraComer to set
+     */
+    public void setEnfrentarFissuraComer(boolean enfrentarFissuraComer) {
+        this.enfrentarFissuraComer = enfrentarFissuraComer;
+    }
 
-	/**
-	 * @param enfrentarFissuraRelaxamento the enfrentarFissuraRelaxamento to set
-	 */
-	public void setEnfrentarFissuraRelaxamento(boolean enfrentarFissuraRelaxamento) {
-		this.enfrentarFissuraRelaxamento = enfrentarFissuraRelaxamento;
-	}
+    /**
+     * @return the enfrentarFissuraRelaxamento
+     */
+    public boolean isEnfrentarFissuraRelaxamento() {
+        return enfrentarFissuraRelaxamento;
+    }
 
-	/**
-	 * @return the enfrentarFissuraLerRazoes
-	 */
-	public boolean isEnfrentarFissuraLerRazoes() {
-		return enfrentarFissuraLerRazoes;
-	}
+    /**
+     * @param enfrentarFissuraRelaxamento the enfrentarFissuraRelaxamento to set
+     */
+    public void setEnfrentarFissuraRelaxamento(boolean enfrentarFissuraRelaxamento) {
+        this.enfrentarFissuraRelaxamento = enfrentarFissuraRelaxamento;
+    }
 
-	/**
-	 * @param enfrentarFissuraLerRazoes the enfrentarFissuraLerRazoes to set
-	 */
-	public void setEnfrentarFissuraLerRazoes(boolean enfrentarFissuraLerRazoes) {
-		this.enfrentarFissuraLerRazoes = enfrentarFissuraLerRazoes;
-	}
+    /**
+     * @return the enfrentarFissuraLerRazoes
+     */
+    public boolean isEnfrentarFissuraLerRazoes() {
+        return enfrentarFissuraLerRazoes;
+    }
 
-	public void limparVencendoFissura() {
-		this.setEnfrentarFissuraBeberAgua(false);
-		this.setEnfrentarFissuraComer(false);
-		this.setEnfrentarFissuraLerRazoes(false);
-		this.setEnfrentarFissuraRelaxamento(false);
-	}
+    /**
+     * @param enfrentarFissuraLerRazoes the enfrentarFissuraLerRazoes to set
+     */
+    public void setEnfrentarFissuraLerRazoes(boolean enfrentarFissuraLerRazoes) {
+        this.enfrentarFissuraLerRazoes = enfrentarFissuraLerRazoes;
+    }
 
-	/**
-	 * @return the dataParar
-	 */
-	public Date getDataParar() {
-		return dataParar;
-	}
+    public void limparVencendoFissura() {
+        this.setEnfrentarFissuraBeberAgua(false);
+        this.setEnfrentarFissuraComer(false);
+        this.setEnfrentarFissuraLerRazoes(false);
+        this.setEnfrentarFissuraRelaxamento(false);
+    }
 
-	/**
-	 * @param dataParar the dataParar to set
-	 */
-	public void setDataParar(Date dataParar) {
-		this.dataParar = dataParar;
-	}
+    /**
+     * @return the dataParar
+     */
+    public Date getDataParar() {
+        return dataParar;
+    }
 
-	/**
-	 * @return the usuario
-	 */
-	public User getUsuario() {
-		return usuario;
-	}
+    /**
+     * @param dataParar the dataParar to set
+     */
+    public void setDataParar(Date dataParar) {
+        this.dataParar = dataParar;
+    }
 
-	/**
-	 * @param usuario the usuario to set
-	 */
-	public void setUsuario(User usuario) {
-		this.usuario = usuario;
-	}
+    /**
+     * @return the usuario
+     */
+    public User getUsuario() {
+        return usuario;
+    }
 
-	/**
-	 * @return the tentouParar
-	 */
-	public boolean isTentouParar() {
-		return tentouParar;
-	}
+    /**
+     * @param usuario the usuario to set
+     */
+    public void setUsuario(User usuario) {
+        this.usuario = usuario;
+    }
 
-	/**
-	 * @param tentouParar the tentouParar to set
-	 */
-	public void setTentouParar(boolean tentouParar) {
-		this.tentouParar = tentouParar;
-	}
+    /**
+     * @return the tentouParar
+     */
+    public boolean isTentouParar() {
+        return tentouParar;
+    }
 
-	/**
-	 * @return the evitarRecaida1
-	 */
-	public String getEvitarRecaida1() {
-		return evitarRecaida1;
-	}
+    /**
+     * @param tentouParar the tentouParar to set
+     */
+    public void setTentouParar(boolean tentouParar) {
+        this.tentouParar = tentouParar;
+    }
 
-	/**
-	 * @param evitarRecaida1 the evitarRecaida1 to set
-	 */
-	public void setEvitarRecaida1(String evitarRecaida1) {
-		this.evitarRecaida1 = evitarRecaida1;
-	}
+    /**
+     * @return the evitarRecaida1
+     */
+    public String getEvitarRecaida1() {
+        return evitarRecaida1;
+    }
 
-	/**
-	 * @return the evitarRecaida2
-	 */
-	public String getEvitarRecaida2() {
-		return evitarRecaida2;
-	}
+    /**
+     * @param evitarRecaida1 the evitarRecaida1 to set
+     */
+    public void setEvitarRecaida1(String evitarRecaida1) {
+        this.evitarRecaida1 = evitarRecaida1;
+    }
 
-	/**
-	 * @param evitarRecaida2 the evitarRecaida2 to set
-	 */
-	public void setEvitarRecaida2(String evitarRecida2) {
-		this.evitarRecaida2 = evitarRecida2;
-	}
+    /**
+     * @return the evitarRecaida2
+     */
+    public String getEvitarRecaida2() {
+        return evitarRecaida2;
+    }
 
-	/**
-	 * @return the evitarRecaida3
-	 */
-	public String getEvitarRecaida3() {
-		return evitarRecaida3;
-	}
+    /**
+     * @param evitarRecaida2 the evitarRecaida2 to set
+     */
+    public void setEvitarRecaida2(String evitarRecida2) {
+        this.evitarRecaida2 = evitarRecida2;
+    }
 
-	/**
-	 * @param evitarRecaida3 the evitarRecaida3 to set
-	 */
-	public void setEvitarRecaida3(String evitarRecida3) {
-		this.evitarRecaida3 = evitarRecida3;
-	}
+    /**
+     * @return the evitarRecaida3
+     */
+    public String getEvitarRecaida3() {
+        return evitarRecaida3;
+    }
 
-	/**
-	 * @return the evitarRecaidaFara1
-	 */
-	public String getEvitarRecaidaFara1() {
-		return evitarRecaidaFara1;
-	}
+    /**
+     * @param evitarRecaida3 the evitarRecaida3 to set
+     */
+    public void setEvitarRecaida3(String evitarRecida3) {
+        this.evitarRecaida3 = evitarRecida3;
+    }
 
-	/**
-	 * @param evitarRecaidaFara1 the evitarRecaidaFara1 to set
-	 */
-	public void setEvitarRecaidaFara1(String evitarRecaidaFara1) {
-		this.evitarRecaidaFara1 = evitarRecaidaFara1;
-	}
+    /**
+     * @return the evitarRecaidaFara1
+     */
+    public String getEvitarRecaidaFara1() {
+        return evitarRecaidaFara1;
+    }
 
-	/**
-	 * @return the evitarRecaidaFara2
-	 */
-	public String getEvitarRecaidaFara2() {
-		return evitarRecaidaFara2;
-	}
+    /**
+     * @param evitarRecaidaFara1 the evitarRecaidaFara1 to set
+     */
+    public void setEvitarRecaidaFara1(String evitarRecaidaFara1) {
+        this.evitarRecaidaFara1 = evitarRecaidaFara1;
+    }
 
-	/**
-	 * @param evitarRecaidaFara2 the evitarRecaidaFara2 to set
-	 */
-	public void setEvitarRecaidaFara2(String evitarRecaidaFara2) {
-		this.evitarRecaidaFara2 = evitarRecaidaFara2;
-	}
+    /**
+     * @return the evitarRecaidaFara2
+     */
+    public String getEvitarRecaidaFara2() {
+        return evitarRecaidaFara2;
+    }
 
-	/**
-	 * @return the evitarRecaidaFara3
-	 */
-	public String getEvitarRecaidaFara3() {
-		return evitarRecaidaFara3;
-	}
+    /**
+     * @param evitarRecaidaFara2 the evitarRecaidaFara2 to set
+     */
+    public void setEvitarRecaidaFara2(String evitarRecaidaFara2) {
+        this.evitarRecaidaFara2 = evitarRecaidaFara2;
+    }
 
-	/**
-	 * @param evitarRecaidaFara3 the evitarRecaidaFara3 to set
-	 */
-	public void setEvitarRecaidaFara3(String evitarRecaidaFara3) {
-		this.evitarRecaidaFara3 = evitarRecaidaFara3;
-	}
+    /**
+     * @return the evitarRecaidaFara3
+     */
+    public String getEvitarRecaidaFara3() {
+        return evitarRecaidaFara3;
+    }
 
-	public String getDataPararStr() {
-		GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
-		gc.setTime(dataParar);
-		return gc.get(GregorianCalendar.DAY_OF_MONTH) + "/" + String.format("%02d",gc.get(GregorianCalendar.MONTH)+1) + "/" + gc.get(GregorianCalendar.YEAR);
-	}
-        
-        
-        public String getFissuraBeberAgua(){
-            if(isEnfrentarFissuraBeberAgua())
-                return(this.getText("pronto.fis.lab1"));
-            else
-                return null;
+    /**
+     * @param evitarRecaidaFara3 the evitarRecaidaFara3 to set
+     */
+    public void setEvitarRecaidaFara3(String evitarRecaidaFara3) {
+        this.evitarRecaidaFara3 = evitarRecaidaFara3;
+    }
+
+    public String getDataPararStr() {
+        GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
+        gc.setTime(dataParar);
+        return gc.get(GregorianCalendar.DAY_OF_MONTH) + "/" + String.format("%02d", gc.get(GregorianCalendar.MONTH) + 1) + "/" + gc.get(GregorianCalendar.YEAR);
+    }
+
+    public String getFissuraBeberAgua() {
+        if (isEnfrentarFissuraBeberAgua()) {
+            return (this.getText("pronto.fis.lab1"));
+        } else {
+            return null;
         }
-        
-        public String getFissuraComer(){
-            if(isEnfrentarFissuraComer())
-                return(this.getText("pronto.fis.lab2")) + "\n";
-            else
-                return null;
-        
-        }
-        public String getFissuraLerRazoes(){
-            if(isEnfrentarFissuraLerRazoes())
-                return(this.getText("pronto.fis.lab4") + "\n");
-            else
-                return null;
-        }
-        public String getFissuraRelaxamento(){
-            if(isEnfrentarFissuraRelaxamento())
-                return(this.getText("exercicio.relaxamento"));
-            else
-                return null;
-        }
-        
-        public String getLink(){
-            if(isEnfrentarFissuraRelaxamento())
-                    return FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() +"/download/surfandoafissura.mp3";
+    }
 
-            else
-                 return null;
-        }
-        
-        public String getTextoLink(){
-            if(isEnfrentarFissuraRelaxamento())
-                return(this.getText("exercicio.relaxamento1") + "\n");
-            else
-                return null;
-        }
-        
-        
-        
-	public String getFissuraStr() {
-		StringBuilder s = new StringBuilder();
-		if (isEnfrentarFissuraBeberAgua()) {
-			s.append("Beber um copo de água pausadamente.").append("\n");
-		}
-		if (isEnfrentarFissuraComer()) {
-			s.append("Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas), balas dietéticas e chicletes dietéticos.").append("\n");
-		}
-		if (isEnfrentarFissuraLerRazoes()) {
-			s.append("Fazer exercício de relaxamento - em áudio MP3 - vivasemtabaco.com.br/download/surfandoafissura.mp3").append("\n");
-		}
-		if (isEnfrentarFissuraRelaxamento()) {
-			s.append("Ler um cartão com suas razões para ter parado de fumar.").append("\n");                        
-		}
-		return s.toString();
-	}
-
-	/**
-	 * @return the dataInserido
-	 */
-	public Date getDataInserido() {
-		return dataInserido;
-	}
-
-	/**
-	 * @param dataInserido the dataInserido to set
-	 */
-	public void setDataInserido(Date dataInserido) {
-		this.dataInserido = dataInserido;
-	}
-
-        public Date getEmailDataDiferente() {
-            return emailDataDiferente;
+    public String getFissuraComer() {
+        if (isEnfrentarFissuraComer()) {
+            return (this.getText("pronto.fis.lab2")) + "\n";
+        } else {
+            return null;
         }
 
-        public void setEmailDataDiferente(Date emailDataDiferente) {
-            this.emailDataDiferente = emailDataDiferente;
-        }
+    }
 
-        public Date getEmailPrimeiraSemana() {
-            return emailPrimeiraSemana;
+    public String getFissuraLerRazoes() {
+        if (isEnfrentarFissuraLerRazoes()) {
+            return (this.getText("pronto.fis.lab4") + "\n");
+        } else {
+            return null;
         }
+    }
 
-        public void setEmailPrimeiraSemana(Date emailPrimeiraSemana) {
-            this.emailPrimeiraSemana = emailPrimeiraSemana;
+    public String getFissuraRelaxamento() {
+        if (isEnfrentarFissuraRelaxamento()) {
+            return (this.getText("exercicio.relaxamento"));
+        } else {
+            return null;
         }
+    }
 
-        public Date getEmailSegundaSemana() {
-            return emailSegundaSemana;
+    public String getLink() {
+        if (isEnfrentarFissuraRelaxamento()) {
+            return FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/download/surfandoafissura.mp3";
+        } else {
+            return null;
         }
+    }
 
-        public void setEmailSegundaSemana(Date emailSegundaSemana) {
-            this.emailSegundaSemana = emailSegundaSemana;
+    public String getTextoLink() {
+        if (isEnfrentarFissuraRelaxamento()) {
+            return (this.getText("exercicio.relaxamento1") + "\n");
+        } else {
+            return null;
         }
+    }
 
-        public Date getEmailTerceiraSemana() {
-            return emailTerceiraSemana;
+    public String getFissuraStr() {
+        StringBuilder s = new StringBuilder();
+        if (isEnfrentarFissuraBeberAgua()) {
+            s.append("Beber um copo de água pausadamente.").append("\n");
         }
+        if (isEnfrentarFissuraComer()) {
+            s.append("Comer alimentos com baixa quantidade de calorias como frutas cristalizadas (uva passas), balas dietéticas e chicletes dietéticos.").append("\n");
+        }
+        if (isEnfrentarFissuraLerRazoes()) {
+            s.append("Fazer exercício de relaxamento - em áudio MP3 - vivasemtabaco.com.br/download/surfandoafissura.mp3").append("\n");
+        }
+        if (isEnfrentarFissuraRelaxamento()) {
+            s.append("Ler um cartão com suas razões para ter parado de fumar.").append("\n");
+        }
+        return s.toString();
+    }
 
-        public void setEmailTerceiraSemana(Date emailTerceiraSemana) {
-            this.emailTerceiraSemana = emailTerceiraSemana;
-        }
+    /**
+     * @return the dataInserido
+     */
+    public Date getDataInserido() {
+        return dataInserido;
+    }
 
-        public Date getEmailMensal() {
-            return emailMensal;
-        }
+    /**
+     * @param dataInserido the dataInserido to set
+     */
+    public void setDataInserido(Date dataInserido) {
+        this.dataInserido = dataInserido;
+    }
 
-        public void setEmailMensal(Date emailMensal) {
-            this.emailMensal = emailMensal;
-        }
+    public Date getEmailDataDiferente() {
+        return emailDataDiferente;
+    }
+
+    public void setEmailDataDiferente(Date emailDataDiferente) {
+        this.emailDataDiferente = emailDataDiferente;
+    }
+
+    public Date getEmailPrimeiraSemana() {
+        return emailPrimeiraSemana;
+    }
+
+    public void setEmailPrimeiraSemana(Date emailPrimeiraSemana) {
+        this.emailPrimeiraSemana = emailPrimeiraSemana;
+    }
+
+    public Date getEmailSegundaSemana() {
+        return emailSegundaSemana;
+    }
+
+    public void setEmailSegundaSemana(Date emailSegundaSemana) {
+        this.emailSegundaSemana = emailSegundaSemana;
+    }
+
+    public Date getEmailTerceiraSemana() {
+        return emailTerceiraSemana;
+    }
+
+    public void setEmailTerceiraSemana(Date emailTerceiraSemana) {
+        this.emailTerceiraSemana = emailTerceiraSemana;
+    }
+
+    public Date getEmailMensal() {
+        return emailMensal;
+    }
+
+    public void setEmailMensal(Date emailMensal) {
+        this.emailMensal = emailMensal;
+    }
+
+    public Integer getEmailMensalCont() {
+        return emailMensalCont;
+    }
+
+    public void setEmailMensalCont(Integer emailMensalCont) {
+        this.emailMensalCont = emailMensalCont;
+    }
+
+    
 
     private void append(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-        
+
 }

@@ -126,6 +126,13 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 //			this.dia = String.valueOf( new GregorianCalendar().get( GregorianCalendar.DAY_OF_MONTH ) );
 //		}
         this.prontoParaParar.setDataParar(this.gregorianCalendar.getTime());
+        this.prontoParaParar.setEmailDataDiferente(null);
+        this.prontoParaParar.setEmailPrimeiraSemana(null);
+        this.prontoParaParar.setEmailSegundaSemana(null);
+        this.prontoParaParar.setEmailTerceiraSemana(null);
+        this.prontoParaParar.setEmailMensal(null);
+        this.prontoParaParar.setEmailMensalCont(null);
+        
 
         try {
             this.getDaoBase().insertOrUpdate(prontoParaParar, this.getEntityManager());
