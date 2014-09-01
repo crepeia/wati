@@ -43,9 +43,9 @@
                                 <div id="calculatortop">
                                     <p:panelGrid id="calculadoraPnl" columns="2">
                                         <h:outputText value="#{messages['preparando.gastos.value.1']}" />
-                                        <p:inputText id="numeroCigarrosDiaTxt" value="#{calculadoraController.numeroCigarrosDia}" onkeyup="$(this).val($(this).val().replace(/[^0-9]/g, ''));" />
+                                        <p:inputText id="numeroCigarrosDiaTxt" value="#{calculadoraController.numberCigaretteDay}" onkeyup="$(this).val($(this).val().replace(/[^0-9]/g, ''));" />
                                         <h:outputText value="#{messages['preparando.gastos.value.2']}" />
-                                        <p:inputText id="custoMassoTxt" value="#{calculadoraController.custoMasso}" styleClass="custoFormat" />
+                                        <p:inputText id="custoMassoTxt" value="#{calculadoraController.costMasso}" styleClass="custoFormat" />
                                         <script type="text/javascript">
                                             $('.custoFormat').priceFormat({
                                                 prefix: '',
@@ -65,11 +65,11 @@
                                     <h2>#{messages['preparando.gastos.h2.2']}</h2>
                                     <p:panelGrid id="saidaPnl" columns="2">
                                         <h:outputText value="#{messages['preparando.gastos.value.3']}" />
-                                        <p:inputText id="gastoSemana" value="#{calculadoraController.custoSemana}" styleClass="custoFormat" readonly="true" />
+                                        <p:inputText id="gastoSemana" value="#{calculadoraController.costWeek}" styleClass="custoFormat" readonly="true" />
                                         <h:outputText value="#{messages['preparando.gastos.value.4']}" />
-                                        <p:inputText id="gastoMes" value="#{calculadoraController.custoMes}" styleClass="custoFormat" readonly="true"/>
+                                        <p:inputText id="gastoMes" value="#{calculadoraController.costMonth}" styleClass="custoFormat" readonly="true"/>
                                         <h:outputText value="#{messages['preparando.gastos.value.5']}" />
-                                        <p:inputText id="gastoAno" value="#{calculadoraController.custoAno}" styleClass="custoFormat" readonly="true"/>
+                                        <p:inputText id="gastoAno" value="#{calculadoraController.costYear}" styleClass="custoFormat" readonly="true"/>
                                     </p:panelGrid>
                                 </div>
 
