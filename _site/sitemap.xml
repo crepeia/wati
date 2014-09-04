@@ -6,15 +6,15 @@
     
     
     <url>
+        <loc>//crepeia.github.com/wati/404.html</loc>
+    </url>
+    
+    <url>
+        <loc>//crepeia.github.com/wati/about/</loc>
+    </url>
+    
+    <url>
         <loc>//crepeia.github.com/wati/feed.xml</loc>
-    </url>
-    
-    <url>
-        <loc>//crepeia.github.com/wati/tags/</loc>
-    </url>
-    
-    <url>
-        <loc>//crepeia.github.com/wati/news/</loc>
     </url>
     
     <url>
@@ -26,19 +26,19 @@
     </url>
     
     <url>
+        <loc>//crepeia.github.com/wati/news/</loc>
+    </url>
+    
+    <url>
         <loc>//crepeia.github.com/wati/search.json</loc>
     </url>
     
     <url>
-        <loc>//crepeia.github.com/wati/404.html</loc>
-    </url>
-    
-    <url>
-        <loc>//crepeia.github.com/wati/about/</loc>
-    </url>
-    
-    <url>
         <loc>//crepeia.github.com/wati/sitemap.xml</loc>
+    </url>
+    
+    <url>
+        <loc>//crepeia.github.com/wati/tags/</loc>
     </url>
     
 

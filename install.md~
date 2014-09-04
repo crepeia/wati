@@ -9,57 +9,164 @@ tags: [e-health, wati, live without tobacco, install, setup]
 
 How to install and contribute to the project ****. 
 
-This page is under construction :/
-
 * Table of Contents
 {:toc}
 
-## Before you get started
+## Get started
 
-1. [Install Bundler](http://bundler.io) `gem install bundler` and then install [Jekyll](http://jekyllrb.com) and all dependencies `bundle install`.
-2. Fork the [So Simple Theme repo](https://github.com/mmistakes/so-simple-theme/fork).
-3. Clone the repo you just forked and rename it.
-4. Edit `_config.yml` to personalize your site.
-5. Check out the sample posts in `_posts` to see examples for pulling in large feature images, assigning categories and tags, and other YAML data.
-6. Read the documentation below for further customization pointers and documentation.
+You will need the following materials to study and deploy the project.
 
-<div markdown="0"><a href="https://github.com/mmistakes/so-simple-theme/archive/master.zip" class="btn">Download the Theme</a></div>
+1. A PC with any Linux distribution installed. We use and tested on Ubuntu and Debian. We haven't test but it might work on Windows and Apple machines.
+2. Netbeans IDE - to edit the code. You can install here.
+3. Java JDK - 7.
+4. Mysql.
+5. Github
 
-**Pro-tip:** Delete the `gh-pages` branch after cloning and start fresh by branching off `master`. There is a bunch of garbage in `gh-pages` used for the theme's demo site that I'm guessing you don't want on your site.
-{: .notice}
+Installation procedures are described below. It was tested using Ubuntu 14.04 on a 64 bits machine.
 
 ---
-
-## Dependencies
-
 
 ### Java
 
+To install Java JDK 7 copy and paste the following code inside the Terminal (Find it using the dash or just press Ctrl + Alt + T). We promise that the project won't work with versions 6 and 8. 
+
+```
+sudo add-apt-repository ppa:webupd8team/java
+```
+
+```
+sudo apt-get update
+```
+
+```
+sudo apt-get install oracle-java7-installer 
+```
+
 ### MySQL
+
+Copy and paste the following inside the terminal.
+
+```
+sudo apt-get install mysql-server
+```
+
+During installation, you will be prompted to insert a password. Save an put it in a safe.
+
 
 ### NetBeans
 
-### Glassfish
+Download Netbeans [here](https://netbeans.org/downloads/). Pick the Java EE version. Once downloaded, open the terminal and go to Download folder.
 
+```
+sudo bash netbeans-8.0-javaee-linux.sh 
+```
+
+
+### Glassfish Server
+The project was tested on Glasshfish Server versions 3.x.x. To download it, open Netbeans and the steps described on the images. If you prefer, you can also download it from the project page [here](https://glassfish.java.net/).
+
+#### Step 1
+Left-click on services tab.
+
+![Figure 1 - Servers tab](/images/fig1.png)
+
+#### Step 2
+Right-click on server
+
+![Figure 2 - Servers tab](/images/fig2.png)
+
+#### Step 3
+Select Add server, then "Glassfish". Press next and mark the checkbox. After that, click on "Download now" and choose the option Glassfish 3.x.x.x.
+
+![Figure 3 - Servers tab](/images/fig3.png)
+
+### Github
+
+To download the project we recommend the git program. With git you will be able to fork the project and distribute the code easily. To install, type on terminal:
+
+```
+sudo apt-get install git
+```
+
+If you don't have a clue about how git works, we recommend to you this (page)[https://guides.github.com/]. Whether your checked the link before or not, you can catch up the following steps.
+
+#### For the git newbies
+1. Create an account [here](https://www.github/join).
+2. On terminal, type the following commands.
+
+```
+git config --global user.name "John Doe"
+```
+
+```
+git config --global user.email johndoe@example.com
+```
+
+That's all for now.
 
 ---
 
-## Running project
+## Donwload
 
+To download, just open the terminal and type.
+
+```
+git clone https://github.com/crepeia/wati.git
+```
+
+Done. Now the project folder is located in your home folder "~".
+
+## Set the database
+
+We are almost there. We just need to set the database. Follow these instructions to create the database. Open the terminal (again!) and type:
+
+```
+mysql -u root -p
+```
+
+You need to insert your root password (the one that you should've put in the safe). You need to run the following commands:
+
+```
+create user wati@localhost identified by "wati1235";
+```
+
+```
+create database wati;
+```
+
+```
+grant all privileges on wati.* to wati@localhost;
+```
+
+Voilá! Now everything is set to run the project on your machine. 
+
+
+## Run
+
+If you have completed the steps above. Open Netbeans, go to files - > open project and browse to the donwloaded folder. Now execute de project using the run command.
 
 ---
 
 ## Translation
+
+The translation files are located in "Source Packages" folder, inside the controller "wati-utility". They all have names starting with messages_xx_properties.
 
 ---
 
 
 ## Graphics
 
-### Images
+### Images and Vectors
+The images are in Web Pages -> resources -> default -> images. If you like to change and adapt them, use the vector file 'img-vector.svg' located in /flowchart and request folder. We recommend the open-source software [Inkscape](http://www.inkscape.org/en/) to work with vector graphics.
 
-### Videos
+### Video
+You can download the editable intro video [here](http://www.blendswap.com/blends/view/71482). To create the intro video, we used Blender, an all-around open-source 3d editor. You can download it [here](http://www.blender.org/). Be advised: blender is tricky and has a steep learning curve, feel free to reach us.
 
+### Stylesheet
+The CSS code is located in Web Pages -> resources -> default -> css.
 ---
 
+## Seeking help?
+
+Reach us at henriquepgomide@gmail.com
 
