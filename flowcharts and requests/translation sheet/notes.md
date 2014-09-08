@@ -1,2 +1,2 @@
-## Version .2 
-Corrections of goodDeal translation made by Caroline Jansen and Henrique Gomide
+## Version v0.6.02
+English and Spanish are completed. German in Beta.

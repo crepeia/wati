@@ -130,11 +130,10 @@ img {
 }
 
 #languages {
-    float:left;
+    float:right;
     z-index:1;
     position:relative;
     top:15px;
-    left:70px;
 }
 
 #languages select {
@@ -1213,7 +1212,16 @@ img#artigotabaco{
 /* COMO SUBSTITUIR  */
 
 .buscarajuda{    
-    height: 100px;
+    padding-bottom: 60px;
+}
+
+.buscarajuda p {
+    margin:0;
+    padding-top:5px;    
+}
+
+.buscarajuda h4 {
+    margin:0;        
 }
 
 .imgbuscarajuda img{

@@ -30,7 +30,7 @@ public class LanguageController extends BaseController<Object> {
         languages.put("English", "en");
         languages.put("Español", "es");
         languages.put("Português", "pt");
-        // languages.put("Deutsch", "de");
+        languages.put("Deutsch", "de");
     }
 
     public Locale getLocale() {
@@ -60,8 +60,27 @@ public class LanguageController extends BaseController<Object> {
             return "images/live-without-tobacco.png";
         } else if (locale.getLanguage().contains("es")) {
             return "images/viva-sin-tabaco.png";
+        } else if (locale.getLanguage().contains("de")) {
+            return "images/lebe-ohne-tabak.png";
         } else {
             return "images/viva-sem-tabaco.png";
         }
     }
+    
+    public String getQuitline() {
+        if (locale.getLanguage().contains("pt")) {
+            return "images/viva-voz.png";       
+        } else {
+            return "images/info1.png";
+        }
+    }
+    
+    public String getHealthservice() {
+        if (locale.getLanguage().contains("pt")) {
+            return "images/sus.png";       
+        } else {
+            return "images/info2.png";
+        }
+    }
+    
 }
