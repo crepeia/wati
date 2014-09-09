@@ -55,7 +55,7 @@
 
                                 <p:panel id="userPanel" rendered="#{loginController.showName}">
                                      #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  ::  
-                                    <h:outputLink value="logout.xhtml">Sair</h:outputLink>
+                                     <h:outputLink value="logout.xhtml">#{messages['signout']}</h:outputLink>
                                 </p:panel>
                             </p:panel>
 
