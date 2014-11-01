@@ -70,11 +70,12 @@ public class EMailSSL {
         try {
 
             Message message = new MimeMessage(session);
+            message.setContent(body, "text/plain; charset=UTF-8");
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
             message.setSubject(subject);
-            message.setText(body);
+     
 
             Transport.send(message);
 
