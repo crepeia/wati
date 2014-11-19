@@ -16,7 +16,7 @@ import wati.model.User;
  */
 @ManagedBean(name = "preparandoParaPararController")
 @SessionScoped
-public class PreparandoParaPararController {
+public class PreparandoParaPararController extends BaseController {
     
     private int question1;
     private int question2;
@@ -45,9 +45,9 @@ public class PreparandoParaPararController {
         
         public void avaliar(){
             if(question1 == 1 || question2 == 1)
-                texto = PropertyResourceBundle.getBundle("wati.utility.messages").getString("preparando.aed.p.2");
+                texto = this.getText("preparando.aed.p.3");
             else
-                texto = PropertyResourceBundle.getBundle("wati.utility.messages").getString("preparando.aed.p.3");
+                texto = this.getText("preparando.aed.p.3");
             
         }
 

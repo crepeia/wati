@@ -45,6 +45,8 @@ public class User {
     private boolean authorizeData;
     @Column(name = "prefered_language")
     private String preferedLanguage;
+    @Column(name = "recover_code")
+    private Integer recoverCode;
 
     @OneToOne(mappedBy = "usuario")
     private ProntoParaParar prontoParaParar;
@@ -108,6 +110,14 @@ public class User {
 
     public void setAuthorizeData(boolean authorizeData) {
         this.authorizeData = authorizeData;
+    }
+
+    public Integer getRecoverCode() {
+        return recoverCode;
+    }
+
+    public void setRecoverCode(Integer recoverCode) {
+        this.recoverCode = recoverCode;
     }
 
     @Override

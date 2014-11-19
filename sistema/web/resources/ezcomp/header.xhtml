@@ -72,10 +72,14 @@
                                     </p:password>
                                     <p:watermark for="passwordTxt" value="#{messages['password']}" />
                                     <p:commandButton id="entrarBtn" value="#{messages['signin']}" styleClass="btnlogin" update="groupPanel loginDialog" actionListener="#{loginController.loginDialog}" />
+                                   
                                     
+                                    
+                                    <h:outputLink value="enviar-email-senha.xhtml">#{messages['forgot.password']}</h:outputLink>
                                 </p:panel>                                
                             </p:overlayPanel>
-                        </div>    
+                        </div>
+                        
                     </h:form>
                 </div>
                 <div id="searchbar">

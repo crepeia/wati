@@ -140,8 +140,10 @@
                                             </p:password>
                                             <p:watermark for="passwordTxt" value="#{messages['password']}" />
                                         </div>
-
                                         <div id="signinbtn">
+                                            <div id="signinp">                                                 
+                                                <h:outputLink value="enviar-email-senha.xhtml">#{messages['forgot.password']}</h:outputLink>
+                                            </div>
                                             <p:commandButton id="entrarBtn" value="#{messages['signin']}" update="@form" actionListener="#{loginController.loginBegin}" ajax="false"/>
                                         </div>
 

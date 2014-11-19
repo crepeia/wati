@@ -4,7 +4,11 @@
  */
 package wati.controller;
 
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.io.IOException;
+import static java.lang.Math.pow;
+import java.util.Random;
+import static java.lang.Math.random;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -32,6 +36,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import wati.model.User;
 import wati.persistence.GenericDAO;
+import wati.utility.EMailSSL;
 import wati.utility.Encrypter;
 
 /**
@@ -49,6 +54,10 @@ public class UserController extends BaseFormController<User> {
     private int dia;
     private int mes;
     private int ano;
+
+    private String email;
+    private Integer recoverCode;
+    private String passwordd;
 
     private boolean showErrorMessage;
 
@@ -70,7 +79,7 @@ public class UserController extends BaseFormController<User> {
         super(User.class);
 
         this.showErrorMessage = false;
-        
+
         mes = -1;
 
         for (int i = 1; i <= 31; i++) {
@@ -78,12 +87,11 @@ public class UserController extends BaseFormController<User> {
         }
 
 
-       /* for (int i = 1; i <= 12; i++) {
-            //meses.put(this.nomeMeses[ i], String.valueOf(i+1));
-            meses.put(this.getText("month." + String.valueOf(i)),
-                    String.valueOf(i - 1));
-        }*/
-
+        /* for (int i = 1; i <= 12; i++) {
+         //meses.put(this.nomeMeses[ i], String.valueOf(i+1));
+         meses.put(this.getText("month." + String.valueOf(i)),
+         String.valueOf(i - 1));
+         }*/
         GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
         int lastYear = gc.get(GregorianCalendar.YEAR) - 1;
         for (int i = lastYear; i > lastYear - 100; i--) {
@@ -131,6 +139,14 @@ public class UserController extends BaseFormController<User> {
         this.user = user;
     }
 
+    public Integer getRecoverCode() {
+        return recoverCode;
+    }
+
+    public void setRecoverCode(Integer recoverCode) {
+        this.recoverCode = recoverCode;
+    }
+
     /**
      * @return the password
      */
@@ -141,6 +157,14 @@ public class UserController extends BaseFormController<User> {
         return this.password;
     }
 
+    public String getPasswordd() {
+        return passwordd;
+    }
+
+    public void setPasswordd(String passwordd) {
+        this.passwordd = passwordd;
+    }
+
     /**
      * @param password the password to set
      */
@@ -148,6 +172,144 @@ public class UserController extends BaseFormController<User> {
         this.password = password;
     }
 
+    public void sendEmailPassword() throws SQLException {
+
+        try {
+            List<User> userList = this.getDaoBase().list("email", this.email, this.getEntityManager());
+            if (userList.isEmpty()) {
+                String message = this.getText("user.not.registered.password");
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+            } else {
+                String name_user = userList.get(0).getName();
+                String email_user = userList.get(0).getEmail();
+                String from = "watiufjf@gmail.com";
+
+                int code = this.generateCode();
+
+                String to = this.email;
+                String subject = this.getText("subject.email.password");
+                String body;
+                body = this.getText("hello") + name_user + "\n"
+                        + "\n"
+                        + this.getText("email.password.send")+ email_user + this.getText("email.password.send.2") + " \n"
+                        + this.getText("email.password.send.3") + "\n"
+                        + this.getText("email.password.send.4") + code + "\n"
+                        + this.getText("email.password.send.5") + this.getLinkPassword() +  "\n\n"
+                        + this.getText("cordialmente")
+                        + "\n"
+                        + this.getText("equipe.vst")
+                        + "\n";
+
+                EMailSSL eMailSSL = new EMailSSL();
+
+                eMailSSL.send(from, to, subject, body);
+
+                user = userList.get(0);
+                user.setRecoverCode(code);
+                this.getDaoBase().insertOrUpdate(user, this.getEntityManager());
+                String message = this.getText("email.sent.password");
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+            }
+        } catch (SQLException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+    }
+
+    public String getLinkPassword() {
+        return "http://wwww.vivasemtabaco.com/esqueceu-sua-senha.xhtml";
+    }
+
+    public int generateCode() {
+        long codigo = 0;
+        int base = 1;
+        float valor = 0;
+
+        Random generate = new Random();
+        valor = (float) generate.nextInt(100000) / 10;
+        while (valor > 999 && valor < 10000) {
+            valor = (float) generate.nextInt(10000) / 10;
+        }
+        valor *= 10;
+
+        codigo = (int) valor;
+        return (int) codigo;
+    }
+
+    
+    public String checkCode() {
+        try {
+            String message;
+            List<User> userList = this.getDaoBase().list("email", this.email, this.getEntityManager());
+            if (!userList.isEmpty() && userList.get(0).getRecoverCode() != null && userList.get(0).getRecoverCode().intValue() == recoverCode.intValue() && recoverCode.intValue() != 0) {
+                return "esqueceu-sua-senha-concluir.xhtml";
+            } else {
+                message = this.getText("email.code.incorretos");
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+                return "";
+            }
+        } catch (SQLException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            return "";
+        }
+    }
+    
+    public String returnIndex(){
+        return "index.xhtml";
+    }
+
+    public void alterPassword() throws SQLException, InvalidKeyException, IOException {
+        this.showErrorMessage = true;
+        List<User> userList = this.getDaoBase().list("email", this.email, this.getEntityManager());
+        try{
+                if (!userList.isEmpty() && userList.get(0).getId() != 0) {
+                    user = userList.get(0);
+                    this.user.setPassword(Encrypter.encrypt(this.passwordd));
+                    /*if (!Encrypter.compare(this.passwordd, this.user.getPassword())) {
+                        //incluir criptografia da senha
+                        this.user.setPassword(Encrypter.encrypt(this.passwordd));
+                    }*/
+                    this.getDaoBase().insertOrUpdate(user, this.getEntityManager());
+                    String message = this.getText("password.changed");
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+                    //this.returnIndex();
+                }
+                else{
+                    String message = this.getText("user.not.registered.requesting.password.change");
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+                }
+            
+        }catch (InvalidKeyException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalBlockSizeException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadPaddingException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchAlgorithmException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchPaddingException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.setPasswordAlter(user);
+        this.getDaoBase().insertOrUpdate(user, this.getEntityManager());
+    }
+    
+    public void setPasswordAlter(User user){
+        int setCode = 0;
+        user.setRecoverCode(setCode);
+    }
+        
     public void save(ActionEvent actionEvent) {
 
         this.showErrorMessage = true;
@@ -172,9 +334,9 @@ public class UserController extends BaseFormController<User> {
                     }
 
                 }
-                
-                Locale locale =  (Locale) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("locale");
-                if(locale == null ){
+
+                Locale locale = (Locale) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("locale");
+                if (locale == null) {
                     locale = FacesContext.getCurrentInstance().getViewRoot().getLocale();
                 }
                 this.user.setPreferedLanguage(locale.getLanguage());
@@ -186,7 +348,7 @@ public class UserController extends BaseFormController<User> {
                 login.setUser(this.user);
                 login.setPassword(this.password);
                 login.loginDialog();
-                try { 
+                try {
                     FacesContext.getCurrentInstance().getExternalContext().redirect("escolha-uma-etapa.xhtml");
                     //FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
                 } catch (IOException ex) {
@@ -327,5 +489,19 @@ public class UserController extends BaseFormController<User> {
         this.mes = -1;
         this.password = "";
         this.user = new User();
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
