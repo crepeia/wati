@@ -1,18 +1,36 @@
-WATI
+VIVA SEM TABACO - Lista de pendências
 ==========================
 
 Prioridade Alta
 ------------------------
-Inserir a navegação do usuário como tabela do banco.
-Criar página de alterar cadastro
+* Consertar arquivos robots.txt e sitemap.xml
+* Index - Inserir uma página com informações sobre o site após o usuário clicar nos passos 2 e 3.
+* Medicamentos - Consertar 'tag' que não aparece ''??pronto.meds..??''
+* Riscos - Benefícios - Mesclar o conteúdo em uma página, usando javascript. Esquema da página de depressão e ansiedade
+  * Registrar passos do usuário na tabela do banco UserNavigation
+* Ansiedade e depressão - Resolver problema com troca de idioma na resposta por javascript
+
+
+Prioridade Média
+------------------------
+* Cadastro - Inserir link para uma página com informações sobre o que nós iremos fazer durante a pesquisa.
+* Plano de parada - Inserir informações mais user-friendly para os usuários.
+* Passo 2 - Inserir página com questionário para depressão após a página de medicamentos e antes da data para parar.
+* Fazer relatório com os padrões de resposta da tabela plano de parada.
+
 
 
 Prioridade Baixa
 -------------------------	
-* Colocar mensagem antes de redirecionar após cadastro
-* Após efetuar o cadastro redirecionar o usuário para a página 'escolha-uma-etapa'
-* Comentar em inglês o código do programa
+* Inserir plugins sociais na página - Facebook e Twitter.
+* Comentar em inglês o código do programa.
+* Inserir legendas no vídeo ou faixas de áudio.
+* Inserir questões sobre a caracterização dos fumantes no início da segunda etapa.
+* Passos 1 e 3 - Enviar a pesquisa de satisfação por e-mail.
+   * Tentar inserir o formulário de satisfação dentro do corpo do e-mail.
+* Passo 2 - Inserir questionário de satisfação após o usuário completar o plano de parada.
 
 
 
-
+Cronograma
+-------------------------
