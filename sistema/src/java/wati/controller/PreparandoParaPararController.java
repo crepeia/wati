@@ -45,7 +45,7 @@ public class PreparandoParaPararController extends BaseController {
         
         public void avaliar(){
             if(question1 == 1 || question2 == 1)
-                texto = this.getText("preparando.aed.p.3");
+                texto = this.getText("preparando.aed.p.2");
             else
                 texto = this.getText("preparando.aed.p.3");
             

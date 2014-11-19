@@ -332,6 +332,14 @@ public class UserController extends BaseFormController<User> {
                         //incluir criptografia da senha
                         this.user.setPassword(Encrypter.encrypt(this.password));
                     }
+                    
+                    try {
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("escolha-uma-etapa.xhtml");
+                    //FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+                } catch (IOException ex) {
+                    Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                    
 
                 }
 
@@ -348,12 +356,7 @@ public class UserController extends BaseFormController<User> {
                 login.setUser(this.user);
                 login.setPassword(this.password);
                 login.loginDialog();
-                try {
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("escolha-uma-etapa.xhtml");
-                    //FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
-                } catch (IOException ex) {
-                    Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                ////////
                 this.clear();
             }
 
