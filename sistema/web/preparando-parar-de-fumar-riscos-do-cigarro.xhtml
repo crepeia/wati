@@ -30,7 +30,7 @@
                                 </div>
                             </div>  
                             <h1>#{messages['preparando.risks.h1.1']}</h1>                        
-                            <p>#{messages['preparando.risks.p.1']}</p>
+                            <p>#{messages['preparando.risks.p.1']}</p>                            
 
                             <h2>#{messages['preparando.risks.h2.1']}</h2>
                             <ul>
@@ -50,7 +50,48 @@
                             <ul>                            
                                 <li>#{messages['preparando.risks.li.7']}</li>
                                 <li>#{messages['preparando.risks.li.8']}</li>                                                                               
-                            </ul>                        
+                            </ul>                                      
+
+                            <p:commandButton styleClass="btngen1" type="button" value="#{messages['preparando.passivo.h1.1']}">
+                                <p:effect type="blind" event="click" for="basic">
+                                    <f:param name="mode" value="'show'" />
+                                </p:effect>
+                            </p:commandButton>
+                            
+                            <p:panel id="basic"  style="display:none">
+                                <h:panelGrid columns="1">
+
+                                    <h2>#{messages['preparando.passivo.h1.1']}</h2>
+
+
+                                    <p>#{messages['preparando.passivo.p.1']}</p>
+
+
+                                    <h2>#{messages['preparando.passivo.h2.2']}</h2>
+                                    <ul>
+                                        <li>#{messages['preparando.passivo.li.1']}</li>
+                                        <li>#{messages['preparando.passivo.li.2']}</li>
+                                        <li>#{messages['preparando.passivo.li.3']}</li>                                       
+                                    </ul>
+
+                                    <h2>#{messages['preparando.passivo.h2.3']}</h2>
+                                    <ul>
+                                        <li>#{messages['preparando.passivo.li.4']}</li>                                                                   
+                                        <li>#{messages['preparando.passivo.li.5']}</li>                                                                   
+                                    </ul>
+
+                                    <div class="referencias">
+                                        <p>#{messages['authors']}: Daniela Carvalho, Fillipe Roque, Jéssica Brum.</p>
+                                        <p>#{messages['sources']} - Samet, J. (2007). Fundamentals of Tobacco Control: Health Effects of Passive Smoking. Retrieved May 06, 2014, from http://globaltobaccocontrol.org/content/health-effects-passive-smoking-0 </p><p>Passos, Valéria Maria de Azeredo, Giatti, Luana, e Barreto, Sandhi Maria. (2011). Tabagismo passivo no Brasil: resultados da Pesquisa Especial Do Tabagismo, 2008.Ciência e Saúde Coletiva, 16(9), 3671-3678. Retrieved May 06, 2014, from 10.1590/S1413-81232011001000004.</p>
+                                        <p>#{messages['update.date']}</p>
+                                    </div>
+
+                                </h:panelGrid>
+                            </p:panel>
+
+
+
+
 
                             <div class="proximopasso">
                                 <div class="txtproximopasso">
@@ -63,11 +104,10 @@
                                         <h:button class="btnback" value ="#{messages['back']}" outcome="./preparando-parar-de-fumar-introducao.xhtml"></h:button>
                                     </div>
                                     <div class="btn2">
-                                        <h:button class="btngen1" title="#{messages['preparando.risks.btn.title']}" value ="#{messages['next']}" outcome="./preparando-parar-de-fumar-riscos-fumo-passivo.xhtml" ></h:button>                                
+                                        <h:button class="btngen1" title="#{messages['preparando.risks.btn.title']}" value ="#{messages['next']}" outcome="./preparando-parar-de-fumar-calculadora-gastos.xhtml" ></h:button>                                
                                     </div>
                                 </div>                                                        
                             </div>
-
 
                             <div class="referencias">
                                 <p>#{messages['pronto.fis.ref.p1']}</p>
@@ -79,7 +119,8 @@
             </div><!-- end.corpo --> 
 
             <!--Footer -->
-            <w:footer />
+            <w:footer />              
+
         </h:body>
     </f:view>
 </html>

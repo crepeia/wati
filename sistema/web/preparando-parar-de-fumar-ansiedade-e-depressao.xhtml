@@ -62,14 +62,10 @@
 
                                     </p:panel>
 
-                                    <div><p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{preparandoParaPararController.avaliar()}" process="@all"/>
-                                        <p></p>
-
-
+                                    <div><p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{preparandoParaPararController.avaliar()}" process="@all"/>                                        
                                         <div id="resultadoaval">
                                             <h:outputText id="texto" value="#{preparandoParaPararController.texto}" />  
                                         </div> 
-
                                     </div>
                                 </h:form>
                             </div>
