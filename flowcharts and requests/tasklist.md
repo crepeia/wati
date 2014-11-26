@@ -3,12 +3,9 @@ VIVA SEM TABACO - Lista de pendências
 
 Prioridade Alta
 ------------------------
-* Consertar arquivos robots.txt e sitemap.xml
-* Index - Inserir uma página com informações sobre o site após o usuário clicar nos passos 2 e 3.
-* Medicamentos - Consertar 'tag' que não aparece ''??pronto.meds..??''
+* Consertar arquivos robots.txt e sitemap.xml - Pendente
 * Riscos - Benefícios - Mesclar o conteúdo em uma página, usando javascript. Esquema da página de depressão e ansiedade
   * Registrar passos do usuário na tabela do banco UserNavigation
-* Ansiedade e depressão - Resolver problema com troca de idioma na resposta por javascript
 
 
 Prioridade Média

@@ -21,8 +21,29 @@
 
 
                     <div class="pagecontent">
+                        
+                        <div id="mainleft">
+                            
+                            <div id="whylogin">
+                            
+                            <h1>#{messages['login.cadastro.h1']}</h1>                            
+                            <p>#{messages['login.cadastro.p.1']}</p>
+                            <p>#{messages['login.cadastro.p.2']}</p>
+                            <ul>
+                                <li>#{messages['login.cadastro.li.1']}</li>
+                                <li>#{messages['login.cadastro.li.2']}</li>
+                            </ul>                            
+                            
+                            <h2>#{messages['program.h2.important']}</h2>
+                            <p>#{messages['program.p.important']}</p>
+                             <div id="btnprog"><h:button class="btngen" value ="#{messages['register']}" outcome="./cadastrar-nova-conta.xhtml"  ></h:button></div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div id="mainright">
 
-                        <div id="signin">
+                        <div id="signinlogin">
                             <h1>#{messages['signin']}</h1>
                             <h:form id="form" class="form-signup">
                                 <p:messages />
@@ -63,7 +84,9 @@
                                     </div>
                                 </div>
                             </h:form>	    		
-                        </div>	
+                        </div>
+                            
+                            </div>
 
                     </div>
                 </div>
