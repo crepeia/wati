@@ -5,10 +5,16 @@
 package wati.controller;
 
 import java.util.PropertyResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.naming.NamingException;
+import wati.model.PageNavigation;
+import wati.model.ProntoParaParar;
 import wati.model.User;
+import wati.persistence.GenericDAO;
 
 /**
  *
@@ -17,7 +23,7 @@ import wati.model.User;
 @ManagedBean(name = "preparandoParaPararController")
 @SessionScoped
 public class PreparandoParaPararController extends BaseController {
-    
+
     private int question1;
     private int question2;
     private String texto;
