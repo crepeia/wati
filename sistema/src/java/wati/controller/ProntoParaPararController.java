@@ -100,7 +100,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }
         try {
             this.getDaoBase().insertOrUpdate(prontoParaParar, this.getEntityManager());
-            return "pronto-para-parar-de-fumar-medicamentos.xhtml";
+            return "pronto-para-parar-de-fumar-depressao.xhtml";
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -656,17 +656,18 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     
  
     public void evaluateScale(){
-        int sum1 = Integer.valueOf(prontoParaParar.getPhq1());
-        int sum2 = Integer.valueOf(prontoParaParar.getPhq2());
-        int sum3 = Integer.valueOf(prontoParaParar.getPhq3());
-        int sum4 = Integer.valueOf(prontoParaParar.getPhq4());
-        int sum5 = Integer.valueOf(prontoParaParar.getPhq5());
-        int sum6 = Integer.valueOf(prontoParaParar.getPhq6());
-        int sum7 = Integer.valueOf(prontoParaParar.getPhq7());
-        int sum8 = Integer.valueOf(prontoParaParar.getPhq8());
-        int sum9 = Integer.valueOf(prontoParaParar.getPhq9());
+        int sum1 = prontoParaParar.getPhq1();
+        int sum2 = prontoParaParar.getPhq2();
+        int sum3 = prontoParaParar.getPhq3();
+        int sum4 = prontoParaParar.getPhq4();
+        int sum5 = prontoParaParar.getPhq5();
+        int sum6 = prontoParaParar.getPhq6();
+        int sum7 = prontoParaParar.getPhq7();
+        int sum8 = prontoParaParar.getPhq8();
+        int sum9 = prontoParaParar.getPhq9();
+        
         int sumTotal = sum1 + sum2 + sum3 + sum4 + sum5 + sum6 + sum7 + sum8 + sum9;
-        System.out.println("Soma:" + sumTotal );
+        System.out.println("Soma:" + sumTotal);
         if(sumTotal >=9 && sumTotal <= 13)
             System.out.println("Não tem nenhum problema");
         else if(sumTotal >= 14 && sumTotal <= 23){
@@ -676,5 +677,6 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }else
             System.out.println("Infelizmente não conseguimos avaliar porque você não preencheu nenhum item");
     }
+    
 
 }
