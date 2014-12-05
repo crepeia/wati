@@ -28,6 +28,9 @@ public class PreparandoParaPararController extends BaseController {
     private int question2;
     private String texto;
     
+    private int phq2_1;
+    private int phq2_2;
+    
 
     public PreparandoParaPararController() {
         this.question1 = 3;
@@ -56,6 +59,19 @@ public class PreparandoParaPararController extends BaseController {
                 texto = this.getText("preparando.aed.p.3");
             
         }
+        
+    public void evaluateScalePhq2(){
+        int sum1 = this.phq2_1;
+        int sum2 = this.phq2_2;
+        int sumTotal = sum1 + sum2;
+        System.out.println("Soma:" + sumTotal);
+        if(2<= sumTotal && sumTotal<=5)
+            System.out.println("fazer o que");
+        else if(6 <= sumTotal && sumTotal <= 8)
+            System.out.println("ruim");
+        else
+            System.out.println("Que bom");
+    }    
 
     public String getTexto() {
          return texto;
@@ -84,6 +100,24 @@ public class PreparandoParaPararController extends BaseController {
     public void setQuestion2(int question2) {
         this.question2 = question2;
     }
+
+    public int getPhq2_1() {
+        return phq2_1;
+    }
+
+    public void setPhq2_1(int phq2_1) {
+        this.phq2_1 = phq2_1;
+    }
+
+    public int getPhq2_2() {
+        return phq2_2;
+    }
+
+    public void setPhq2_2(int phq_2) {
+        this.phq2_2 = phq_2;
+    }
+    
+    
         
         
 
