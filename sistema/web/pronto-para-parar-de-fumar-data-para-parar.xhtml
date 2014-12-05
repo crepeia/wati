@@ -37,9 +37,18 @@
 
                             <h1>#{messages['pronto.data.h1.1']}</h1>                        
                             <p>#{messages['pronto.data.p.1']}</p>
-                            <p>#{messages['pronto.data.p.2']}</p>                                                                                                                       
+                            <p>#{messages['pronto.data.p.2']}</p>                                                                                                                   
                             <p>#{messages['pronto.data.p.3']}</p>
+                            
+                            <p:lightBox iframe="true" id="lighbox3" width="1000px">
+                                <h:outputLink value="metodos-de-parar.xhtml">
+                                    <p><h:outputText value="#{messages['pronto.met.titlepage']}" /></p>
+                                </h:outputLink>
+                            </p:lightBox>
+                            
                             <p>#{messages['pronto.data.p.4']}</p>
+                            
+
 
                             <h:form>
                                 <p:messages id="errorMessage" redisplay="true" globalOnly="true" />
@@ -62,7 +71,7 @@
                                 <div class="proximopasso">
                                     <div class="txtproximopasso">
                                         <h2>#{messages['next.step']}</h2>                                
-                                        <p>#{messages['pronto.data.next.p']}</p> 
+                                        <p>#{messages['pronto.evitar.h1.1']}</p> 
                                     </div>
 
                                     <div class="btnfloat">

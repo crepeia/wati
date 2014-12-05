@@ -1174,7 +1174,7 @@ img#artigotabaco{
 
 .txtproximopasso p{
     text-indent: 0;
-    width: 530px;
+    width: 500px;
 }
 
 .btnfloat {
@@ -1321,3 +1321,24 @@ thead{
     position:relative;
     left:12px;
 }
+
+
+/*BLANK PAGE*/
+
+#blankpage{
+    background-color: #fff!important;
+    padding:30px;
+}
+
+#blankpageheader{
+    background: #3b68a0;
+}
+
+#blankpageheader h1 {
+    color:#fff;    
+}
+
+.ui-lightbox-content {
+    background: #fff!important;    
+}
+
