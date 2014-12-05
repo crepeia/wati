@@ -3,9 +3,11 @@ VIVA SEM TABACO - Lista de pendências
 
 Prioridade Alta
 ------------------------
-* Consertar arquivos robots.txt e sitemap.xml - Pendente
+* Consertar arquivos robots.txt e sitemap.xml - Pendente. Ver se há alguma porta relacionada à consulta.
 * Riscos - Benefícios - Mesclar o conteúdo em uma página, usando javascript. Esquema da página de depressão e ansiedade
-  * Registrar passos do usuário na tabela do banco UserNavigation
+  * Registrar passos do usuário na tabela do banco UserNavigation.
+
+* Passos 2 - Gravar o fluxo do passo 2 em vez de sobrescrever os dados.
 
 
 Prioridade Média
@@ -30,3 +32,6 @@ Prioridade Baixa
 
 Cronograma
 -------------------------
+
+
+* Daniela - Ver bolsas.

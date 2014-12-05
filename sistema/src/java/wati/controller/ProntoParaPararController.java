@@ -73,6 +73,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         for (int i = firstYear; i < firstYear + 5; i++) {
             anos.put(String.valueOf(i), String.valueOf(i));
         }
+    
 
     }
 
@@ -650,6 +651,28 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             return null;
         }
 
+    }
+    
+    public void evaluateScale(){
+        int sum1 = Integer.valueOf(prontoParaParar.getPhq1());
+        int sum2 = Integer.valueOf(prontoParaParar.getPhq2());
+        int sum3 = Integer.valueOf(prontoParaParar.getPhq3());
+        int sum4 = Integer.valueOf(prontoParaParar.getPhq4());
+        int sum5 = Integer.valueOf(prontoParaParar.getPhq5());
+        int sum6 = Integer.valueOf(prontoParaParar.getPhq6());
+        int sum7 = Integer.valueOf(prontoParaParar.getPhq7());
+        int sum8 = Integer.valueOf(prontoParaParar.getPhq8());
+        int sum9 = Integer.valueOf(prontoParaParar.getPhq9());
+        int sumTotal = sum1 + sum2 + sum3 + sum4 + sum5 + sum6 + sum7 + sum8 + sum9;
+        System.out.println("Soma:" + sumTotal );
+        if(sumTotal >=9 && sumTotal <= 13)
+            System.out.println("Não tem nenhum problema");
+        else if(sumTotal >= 14 && sumTotal <= 23){
+            System.out.println("Seria bom você procurar aconselhamento");
+        }else if(sumTotal >= 24 && sumTotal <= 36){
+            System.out.println("Procure um profissional de saúde");
+        }else
+            System.out.println("Infelizmente não conseguimos avaliar porque você não preencheu nenhum item");
     }
 
 }
