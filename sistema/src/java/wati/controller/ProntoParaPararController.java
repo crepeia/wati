@@ -58,6 +58,9 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     private GregorianCalendar gregorianCalendar = null;
     private StreamedContent planoPersonalizado;
 
+    
+    
+    
     public ProntoParaPararController() {
         //super(ProntoParaParar.class);
         try {
