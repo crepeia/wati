@@ -35,11 +35,20 @@
                                 </div>
                             </div>
 
-
                             <h1>#{messages['pronto.intro.h1']}</h1>                        
                             <p>#{messages['pronto.intro.p1']}</p>
                             <p>#{messages['pronto.intro.p2']}</p>
-                            <p>#{messages['pronto.intro.p3']}</p>                        
+                            <p>#{messages['pronto.intro.p3']}</p>   
+
+                            <h3>#{messages['acompanhamento.rl.intro.h2.1']}</h3>
+                            <p><strong>#{messages['pronto.intro.question1']}</strong><br />#{messages['pronto.intro.question.label']}</p>
+                                                        
+                                <h:panelGrid columns="4" style="margin-bottom: 10px">
+                                    <div id="motlefttext">#{messages['pronto.intro.question.answer1']}</div>
+                                    <p:column><p:slider for="txt3" step="1" minValue="0" maxValue="10" /></p:column>                                           <div id="motleftright">#{messages['pronto.intro.question.answer2']}</div>
+                                    <div class="motresult"><p:inputText id="txt3" styleClass="motinput" value="#{prontoParaPararController.prontoParaParar.mot1}" /></div>
+                                </h:panelGrid>
+                               
 
                             <h3>#{messages['pronto.intro.h3']}</h3>
                             <ol>                          
