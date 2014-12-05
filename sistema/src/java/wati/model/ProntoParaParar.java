@@ -80,23 +80,23 @@ public class ProntoParaParar extends BaseController implements Serializable {
     private Integer emailMensalCont;
     
     @Column(name = "phq_1")
-    private int phq1;
+    private Integer phq1;
     @Column(name = "phq_2")
-    private int phq2;
+    private Integer phq2;
     @Column(name = "phq_3")
-    private int phq3;
+    private Integer phq3;
     @Column(name = "phq_4")
-    private int phq4;
+    private Integer phq4;
     @Column(name = "phq_5")
-    private int phq5;
+    private Integer phq5;
     @Column(name = "phq_6")
-    private int phq6;
+    private Integer phq6;
     @Column(name = "phq_7")
-    private int phq7;
+    private Integer phq7;
     @Column(name = "phq_8")
-    private int phq8;
+    private Integer phq8;
     @Column(name = "phq_9")
-    private int phq9;
+    private Integer phq9;
     
 
     public ProntoParaParar() {
@@ -440,81 +440,79 @@ public class ProntoParaParar extends BaseController implements Serializable {
         this.emailMensalCont = emailMensalCont;
     }
 
-    public int getPhq1() {
+    public Integer getPhq1() {
         return phq1;
     }
 
-    public void setPhq1(int phq1) {
+    public void setPhq1(Integer phq1) {
         this.phq1 = phq1;
     }
 
-    public int getPhq2() {
+    public Integer getPhq2() {
         return phq2;
     }
 
-    public void setPhq2(int phq2) {
+    public void setPhq2(Integer phq2) {
         this.phq2 = phq2;
     }
 
-    public int getPhq3() {
+    public Integer getPhq3() {
         return phq3;
     }
 
-    public void setPhq3(int phq3) {
+    public void setPhq3(Integer phq3) {
         this.phq3 = phq3;
     }
 
-    public int getPhq4() {
+    public Integer getPhq4() {
         return phq4;
     }
 
-    public void setPhq4(int phq4) {
+    public void setPhq4(Integer phq4) {
         this.phq4 = phq4;
     }
 
-    public int getPhq5() {
+    public Integer getPhq5() {
         return phq5;
     }
 
-    public void setPhq5(int phq5) {
+    public void setPhq5(Integer phq5) {
         this.phq5 = phq5;
     }
 
-    public int getPhq6() {
+    public Integer getPhq6() {
         return phq6;
     }
 
-    public void setPhq6(int phq6) {
+    public void setPhq6(Integer phq6) {
         this.phq6 = phq6;
     }
 
-    public int getPhq7() {
+    public Integer getPhq7() {
         return phq7;
     }
 
-    public void setPhq7(int phq7) {
+    public void setPhq7(Integer phq7) {
         this.phq7 = phq7;
     }
 
-    public int getPhq8() {
+    public Integer getPhq8() {
         return phq8;
     }
 
-    public void setPhq8(int phq8) {
+    public void setPhq8(Integer phq8) {
         this.phq8 = phq8;
     }
 
-    public int getPhq9() {
+    public Integer getPhq9() {
         return phq9;
     }
 
-    public void setPhq9(int phq9) {
+    public void setPhq9(Integer phq9) {
         this.phq9 = phq9;
     }
 
     
-    
-
     private void append(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
