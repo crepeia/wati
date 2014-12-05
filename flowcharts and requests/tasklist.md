@@ -9,6 +9,8 @@ Prioridade Alta
 
 * Passos 2 - Gravar o fluxo do passo 2 em vez de sobrescrever os dados.
 
+** Dani: Corrigir as avaliações das escalas
+
 
 Prioridade Média
 ------------------------
