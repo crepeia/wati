@@ -889,7 +889,7 @@ LEFTMENUS***********************/
 }
 
 
-/*O PROGRAMA*/
+/*THE PROGRAM */
 
 img#artigotabaco{
     border:1px solid #fff;
@@ -1017,7 +1017,7 @@ img#artigotabaco{
     background:#fed499!important;
 }
 
-/*QUEM SOMOS*/
+/* ABOUT US*/
 .pesquisadores {
     padding:10px 0 10px 0;
     clear:both;
@@ -1275,6 +1275,40 @@ PRONTO PARA PARAR*/
     padding-top:5px;
 }
 
+
+/* Introdução */
+
+.ui-slider-horizontal{
+    width:250px!important;
+    padding:0 20px 0 20px; 
+    background-color: #fbaf3e;
+}
+
+#motlefttext {
+    width:80px;
+    float:left;
+    padding-right: 10px;
+    font-size: .9em;
+    text-align: center;
+    font-weight: 600;   
+}
+
+#motleftright {
+    float:left;
+    width:80px;
+    padding-left: 10px;
+    font-size: .9em;
+    text-align: center;
+    font-weight: 600;
+    
+}
+
+
+.motinput {
+    padding-left:20px;
+    width:25px;
+    text-align: center;
+}
 
 /* Vencendo a fissura */
 

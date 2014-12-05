@@ -98,6 +98,12 @@ public class ProntoParaParar extends BaseController implements Serializable {
     @Column(name = "phq_9")
     private Integer phq9;
     
+    @Column(name="mot_01")
+    private int mot1;
+    
+    @Column(name="mot_02")
+    private int mot2;
+    
 
     public ProntoParaParar() {
         this.dataInserido = ((GregorianCalendar) GregorianCalendar.getInstance()).getTime();
@@ -512,7 +518,26 @@ public class ProntoParaParar extends BaseController implements Serializable {
         this.phq9 = phq9;
     }
 
+    public int getMot1() {
+        this.setMot1(5);
+        return mot1;
+    }
     
+    public void setMot1(int mot1) {
+        this.mot1 = mot1;
+    }
+    
+    public int getMot2() {
+        this.setMot2(5);
+        return mot2;
+    }
+
+    public void setMot2(int mot2) {
+        this.mot1 = mot2;
+    }
+    
+    
+
     private void append(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

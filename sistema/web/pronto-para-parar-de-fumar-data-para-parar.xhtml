@@ -39,21 +39,19 @@
                             <p>#{messages['pronto.data.p.1']}</p>
                             <p>#{messages['pronto.data.p.2']}</p>                                                                                                                   
                             <p>#{messages['pronto.data.p.3']}</p>
-                            
+
                             <p:lightBox iframe="true" id="lighbox3" width="1000px">
                                 <h:outputLink value="metodos-de-parar.xhtml">
                                     <p><h:outputText value="#{messages['pronto.met.titlepage']}" /></p>
                                 </h:outputLink>
                             </p:lightBox>
-                            
-                            <p>#{messages['pronto.data.p.4']}</p>
-                            
 
+                            <p>#{messages['pronto.data.p.4']}</p>                            
+                            <h3>#{messages['pronto.data.escolherdata']}</h3>
 
                             <h:form>
                                 <p:messages id="errorMessage" redisplay="true" globalOnly="true" />
-                                <p:panelGrid columns="4" id="data_parar">
-                                    <h:outputText value="#{messages['pronto.data.escolherdata']}"/>
+                                <p:panelGrid columns="3" id="data_parar">
                                     <p:selectOneMenu id="day" value="#{prontoParaPararController.dia}">  
                                         <!--<f:selectItem itemLabel="Atual" itemValue="" />  -->
                                         <f:selectItems value="#{userController.dias}" />  
@@ -67,6 +65,17 @@
                                         <f:selectItems value="#{prontoParaPararController.anos}" />  
                                     </p:selectOneMenu>
                                 </p:panelGrid>
+
+                                <h3>#{messages['acompanhamento.rl.intro.h2.1']}</h3>
+                                <p><strong>#{messages['pronto.intro.question1']}</strong><br />#{messages['pronto.intro.question.label']}</p>
+
+                                <h:panelGrid columns="4" style="margin-bottom: 10px">
+                                    <div id="motlefttext">#{messages['pronto.intro.question.answer1']}</div>
+                                    <p:column><p:slider for="txt3" step="1" minValue="0" maxValue="10" /></p:column>                                           <div id="motleftright">#{messages['pronto.intro.question.answer2']}</div>
+                                    <div class="motresult"><p:inputText id="txt3" styleClass="motinput" value="#{prontoParaPararController.prontoParaParar.mot1}" /></div>
+                                </h:panelGrid>
+
+
 
                                 <div class="proximopasso">
                                     <div class="txtproximopasso">
@@ -83,13 +92,6 @@
                                         </div>
                                     </div>                                
                                 </div>
-                                
-                                
-                                <div><p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{prontoParaPararController.evaluateScale()}" process="@all"/>                                        
-                                        <div id="resultadoaval">
-                                            <h:outputText id="texto" value="#{preparandoParaPararController.texto}" />  
-                                        </div> 
-                                    </div>
 
                             </h:form>
                             <div class="referencias">

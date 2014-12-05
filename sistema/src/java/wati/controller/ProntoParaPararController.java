@@ -653,6 +653,8 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 
     }
     
+    
+ 
     public void evaluateScale(){
         int sum1 = prontoParaParar.getPhq1();
         int sum2 = prontoParaParar.getPhq2();
