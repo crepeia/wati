@@ -39,47 +39,37 @@
 
                             <div id="avacomorbidades">
                                 <h:form>
-                                    <p:panel id="questoes" >
-                                        
-                                        Questionario(inserir pergunta)
-                                        
-                                        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="10" id="phq2_1">
+                                    <p:panel id="questoes" style="margin-top:100px!important; padding-top: 20px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
+
+                                        <p><strong>#{messages['phq2']}</strong></p>
+
+                                        <h:panelGrid columns="2" style="margin-top:30px" cellpadding="10" id="phq2_1">
                                             <f:facet name="header">  
-                                                1. Questão 1
+                                                1 - #{messages['phq2.1']}
                                             </f:facet> 
                                             <p:selectOneRadio id="phq_2_1" value="#{preparandoParaPararController.phq2_1}" required="true">  
-                                                <f:selectItem itemLabel="s" itemValue="1" />
-                                                <f:selectItem itemLabel="n" itemValue="2" /> 
-                                                <f:selectItem itemLabel="t" itemValue="3" /> 
-                                                <f:selectItem itemLabel="r" itemValue="4" /> 
+                                                <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1" />
+                                                <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
+                                                <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
+                                                <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="4"/>
                                             </p:selectOneRadio> 
                                         </h:panelGrid>
-                                        
+
                                         <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="10" id="phq2_2">
                                             <f:facet name="header">  
-                                                2. Questão 2
+                                                2 - #{messages['phq2.2']}
                                             </f:facet> 
-                                            <p:selectOneRadio id="phq_2_2" value="#{preparandoParaPararController.phq2_2}" required="true">  
-                                                <f:selectItem itemLabel="s" itemValue="1" />
-                                                <f:selectItem itemLabel="n" itemValue="2" /> 
-                                                <f:selectItem itemLabel="t" itemValue="3" /> 
-                                                <f:selectItem itemLabel="r" itemValue="4" /> 
+                                            <p:selectOneRadio id="phq_2_2" value="#{preparandoParaPararController.phq2_2}" required="true" requiredMessage="Teste">  
+                                                <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1" />
+                                                <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
+                                                <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
+                                                <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="4"/>
                                             </p:selectOneRadio> 
                                         </h:panelGrid>
-                                        
-                                        
-                                        <div><p:commandButton id="AvaliarBtn1" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{preparandoParaPararController.evaluateScalePhq2()}" process="@all"/>                                        
-                                        <!--<div id="resultadoaval">
-                                            <h:outputText id="texto" value="#{preparandoParaPararController.texto}" />  
-                                        </div>-->
-                                    </div>
-                                        
-                                        
-                                    
 
                                         <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="10" id="questao2">
                                             <f:facet name="header">  
-                                                #{messages['preparando.aed.question.2']}  
+                                                3 - #{messages['preparando.aed.question.2']}  
                                             </f:facet> 
                                             <p:selectOneRadio id="options2" value="#{preparandoParaPararController.question2}" required="true">  
                                                 <f:selectItem itemLabel="#{messages['preparando.aed.question.option.1']}" itemValue="1" />
@@ -87,21 +77,24 @@
                                             </p:selectOneRadio> 
                                         </h:panelGrid>
 
+
+                                        <div><p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{preparandoParaPararController.avaliar()}" process="@all">
+                                                <p:effect type="blind" event="click" for="basic">
+                                                    <f:param name="mode" value="'show'" />
+                                                </p:effect>
+                                            </p:commandButton>                                        
+
+                                        </div>
+
+
                                     </p:panel>
 
-                                    <div><p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{preparandoParaPararController.avaliar()}" process="@all"/>                                        
+                                    <p:panel id="basic" style="display:none; margin-top:20px!important; padding-top: 10px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
                                         <div id="resultadoaval">
+                                            <h2>#{messages['preparando.aed.result']}</h2>
                                             <h:outputText id="texto" value="#{preparandoParaPararController.texto}" />  
                                         </div> 
-                                    </div>
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
+                                    </p:panel>
                                 </h:form>
                             </div>
 

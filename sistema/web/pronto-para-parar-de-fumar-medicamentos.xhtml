@@ -37,7 +37,7 @@
                                 </div>
                             </div> 
 
-                            <h1>#{messages['pronto.meds.h1.1']}</h1>
+                            <!--<h1>#{messages['pronto.meds.h1.1']}</h1>
                             <p>#{messages['pronto.meds.p.1']}</p>
                             <p>#{messages['pronto.meds.p.2']}</p>
                             <p>#{messages['pronto.meds.p.3']}</p>                                              
@@ -57,7 +57,98 @@
                                 <li>#{messages['pronto.meds.li.5']}</li>
                                 <li>#{messages['pronto.meds.li.6']}</li>                                 
                                 <li>#{messages['pronto.meds.li.7']}</li>
-                            </ul>
+                            </ul>-->
+
+
+                            <h1>Medicamentos</h1>
+
+                            <p>Os medicamentos mais usados no tratamento do tabagismo são adesivos, gomas e pastilhas de nicotina e alguns antidepressivos. Eles aumentam as chances de você conseguir parar, além de diminuir os sintomas de abstinência e a vontade de fumar.</p>
+                            <p>Se for tomar qualquer um desses medicamentos, você deve consultar um médico.</p>
+                            <p>Os medicamentos são recomendados de acordo com o nível de dependência.</p>
+
+                            <h2>Avalie seu nível de dependência</h2>
+
+                            <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq1">
+                                <f:facet name="header">
+                                    1. #{messages['ftnd.1q']}
+                                </f:facet>
+                                <p:selectOneRadio id="phq_1" value="#{prontoParaPararController.prontoParaParar.phq1}" required="true" requiredMessage="TESTE">
+                                    <f:selectItem itemLabel="#{messages['ftnd.r.1a']}" itemValue="3"/>
+                                    <f:selectItem itemLabel="#{messages['ftnd.r.1b']}" itemValue="2"/>
+                                    <f:selectItem itemLabel="#{messages['ftnd.r.1c']}" itemValue="1"/>
+                                    <f:selectItem itemLabel="#{messages['ftnd.r.1d']}" itemValue="0"/>
+                                </p:selectOneRadio>
+                            </h:panelGrid>
+
+                            <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq2">
+                                <f:facet name="header">
+                                    2. #{messages['ftnd.2q']}
+                                </f:facet>
+                                <p:selectOneRadio id="phq_2" value="#{prontoParaPararController.prontoParaParar.phq2}" required="true">
+                                    <f:selectItem itemLabel="#{messages['yes']}" itemValue="1"/>
+                                    <f:selectItem itemLabel="#{messages['no']}" itemValue="0"/>
+                                </p:selectOneRadio>
+                            </h:panelGrid>
+
+
+                            <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq3">
+                                <f:facet name="header">
+                                    3. #{messages['ftnd.3q']}
+                                </f:facet>
+                                <p:selectOneRadio id="phq_3" value="#{prontoParaPararController.prontoParaParar.phq3}" required="true">
+                                    <f:selectItem itemLabel="#{messages['ftnd.r.3a']}" itemValue="1"/>
+                                    <f:selectItem itemLabel="#{messages['ftnd.r.3b']}" itemValue="0"/>
+                                </p:selectOneRadio>
+                            </h:panelGrid>
+                            
+                            
+                             <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq4">
+                                <f:facet name="header">
+                                    4. #{messages['ftnd.4q']}
+                                </f:facet>
+                                <p:selectOneRadio id="phq_4" value="#{prontoParaPararController.prontoParaParar.phq4}" required="true">
+                                    <f:selectItem itemLabel="#{messages['ftnd.r.4a']}" itemValue="0"/>
+                                    <f:selectItem itemLabel="#{messages['ftnd.r.4b']}" itemValue="1"/>
+                                    <f:selectItem itemLabel="#{messages['ftnd.r.4c']}" itemValue="2"/>
+                                    <f:selectItem itemLabel="#{messages['ftnd.r.4d']}" itemValue="3"/>
+                                </p:selectOneRadio>
+                            </h:panelGrid>
+                            
+                            
+                             <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq5">
+                                <f:facet name="header">
+                                    5. #{messages['ftnd.5q']}
+                                </f:facet>
+                                <p:selectOneRadio id="phq_5" value="#{prontoParaPararController.prontoParaParar.phq5}" required="true">
+                                    <f:selectItem itemLabel="#{messages['yes']}" itemValue="1"/>
+                                    <f:selectItem itemLabel="#{messages['no']}" itemValue="0"/>
+                                </p:selectOneRadio>
+                            </h:panelGrid>
+                            
+                            <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq6">
+                                <f:facet name="header">
+                                    6. #{messages['ftnd.6q']}
+                                </f:facet>
+                                <p:selectOneRadio id="phq_6" value="#{prontoParaPararController.prontoParaParar.phq6}" required="true">
+                                    <f:selectItem itemLabel="#{messages['yes']}" itemValue="1"/>
+                                    <f:selectItem itemLabel="#{messages['no']}" itemValue="0"/>
+                                </p:selectOneRadio>
+                            </h:panelGrid>
+                            
+                            
+                            <!-- Critérios de correção 
+                            somaFTND = 
+                            
+                            
+                            Se (FTNDq4 == 3 |FTNDq4 == 4) | (FTNDq1 == 1) | somaFTND > 5
+                             então - Dependência alta - Recomenda fortemente o uso de medicação.
+                             Senão - Dependência baixa - Pede para considerar o uso de medicação.
+                            
+                           
+                            
+                            
+                            -->
+                           
 
                             <div class="proximopasso">
                                 <div class="txtproximopasso">
