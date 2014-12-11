@@ -48,6 +48,70 @@
                                 </p:panel>
 
 
+                                <p:panel id="questoes" style="margin-top:60px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
+
+                                    <h:panelGrid columns="1" style="margin-bottom: 10px" cellpadding="10" id="sd4">  
+                                        
+                                        <f:facet name="header">
+                                            #{messages['sd.4.r']}
+                                        </f:facet>
+                                        
+                                        <p:selectOneMenu id="day" value="#{userController.dia}" required="true" label="#{messages['naccount.day']}">  
+                                            <f:selectItem itemLabel="0" itemValue="0" />  
+                                            <f:selectItems value="#{userController.dias}" />  
+                                        </p:selectOneMenu>
+                                    </h:panelGrid>
+
+
+                                    <h:panelGrid columns="1" style="margin-bottom: 10px" cellpadding="10" id="ftnd1">                                    
+                                        <f:facet name="header">
+                                            #{messages['pnad.3']}
+                                        </f:facet>
+
+                                        <p:selectManyCheckbox value="#{prontoParaPararController.vencendoAFissuraMarcados}" layout="pageDirection">  
+                                            <f:selectItem itemLabel="#{messages['pnad.3.a']}" itemValue="0" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.b']}" itemValue="1" />  
+                                            <f:selectItem itemLabel="#{messages['pnad.3.c']}" itemValue="2" />  
+                                            <f:selectItem itemLabel="#{messages['pnad.3.d']}" itemValue="3" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.e']}" itemValue="4" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.f']}" itemValue="5" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.g']}" itemValue="6" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.h']}" itemValue="7" />                                      
+                                        </p:selectManyCheckbox> 
+
+                                    </h:panelGrid>
+
+                                    <div>
+                                        <p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{preparandoParaPararController.avaliar()}" process="@all">
+                                            <p:effect type="blind" event="click" for="basic">
+                                                <f:param name="mode" value="'show'" />
+                                            </p:effect>
+                                        </p:commandButton>                                        
+                                    </div>
+
+
+                                </p:panel>  
+
+
+                                <p:panel id="basic" style="display:none; margin-top:20px!important; padding-top: 10px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
+                                    <div id="resultadoaval">
+                                        <h2>#{messages['preparando.aed.result']}</h2>
+                                        <h:outputText id="texto" value="#{preparandoParaPararController.texto}" />  
+                                    </div> 
+
+
+                                    <!-- Critérios de correção 
+                                    somaFTND =  FTNDq1 + FTNDq2 + FTNDq3 + FTNDq4 + FTNDq4 + FTNDq5 + FTNDq6
+                                    
+                                    Se (FTNDq4 == 3 | FTNDq4 == 4) | (FTNDq1 == 1) | somaFTND > 5
+                                     então - Dependência alta - Recomenda fortemente o uso de medicação.
+                                     Senão - Dependência baixa - Pede para considerar o uso de medicação.
+                                    -->
+
+                                </p:panel>
+
+
+
                                 <div class="btnfloat">
                                     <div class="btn1">
                                         <h:button class="btnback" value ="#{messages['back']}" outcome="./pronto-para-parar-de-fumar-metodos-de-parar.xhtml"></h:button>

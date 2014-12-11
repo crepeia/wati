@@ -58,12 +58,25 @@
                                         <p:inputTextarea rows="1" cols="70" id="q1campo3" value="#{parouDeFumarController.acompanhamento.motivoRecaidaDepois}" />
                                     </h:panelGrid>
 
-                                    <h:panelGrid columns="1" style="margin-bottom:5px" id="questao4">
+
+                                    <h:panelGrid columns="1" style="margin-bottom: 10px"  id="questao4">
+                                        <f:facet name="header">
+                                            <p>4. #{messages['ftnd.4q']}</p>
+                                        </f:facet>
+                                        <p:selectOneRadio id="ftnd_4" value="#{prontoParaPararController.prontoParaParar.phq4}" required="true">
+                                            <f:selectItem itemLabel="#{messages['ftnd.r.4a']}" itemValue="0"/>
+                                            <f:selectItem itemLabel="#{messages['ftnd.r.4b']}" itemValue="1"/>
+                                            <f:selectItem itemLabel="#{messages['ftnd.r.4c']}" itemValue="2"/>
+                                            <f:selectItem itemLabel="#{messages['ftnd.r.4d']}" itemValue="3"/>
+                                        </p:selectOneRadio>
+                                    </h:panelGrid>  
+
+                                    <!--<h:panelGrid columns="1" style="margin-bottom:5px" id="questao4">
                                         <f:facet name="header">  
                                             <p>#{messages['acompanhamento.causas.question.4']}</p>  
                                         </f:facet> 
                                         <p:inputText id="q1campo4" onkeyup="$(this).val($(this).val().replace(/[^0-9]/g, ''));" value="#{parouDeFumarController.acompanhamento.motivoRecaidaCigarrosFuma}" />
-                                    </h:panelGrid>
+                                    </h:panelGrid>-->
 
                                 </p:panel>
 
