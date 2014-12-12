@@ -62,9 +62,9 @@
 
                             <h1>#{messages['pronto.meds.h1.1']}</h1>
 
-                            <p>#{messages['pronto.meds.p2.1']}Os medicamentos mais usados no tratamento do tabagismo são adesivos, gomas e pastilhas de nicotina e alguns antidepressivos. Eles aumentam as chances de você conseguir parar, além de diminuir os sintomas de abstinência e a vontade de fumar.</p>
-                            <p>#{messages['pronto.meds.p2.2']}Se for tomar qualquer um desses medicamentos, você deve consultar um médico.</p>
-                            <p>#{messages['pronto.meds.p2.3']}Os medicamentos são recomendados de acordo com o nível de dependência.</p>
+                            <p>#{messages['pronto.meds.p2.1']}</p>
+                            <p>#{messages['pronto.meds.p2.2']}</p>
+                            <p>#{messages['pronto.meds.p2.3']}</p>
 
                             <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="sd7">
                                 <f:facet name="header">
@@ -84,7 +84,7 @@
                                     <f:facet name="header">
                                         1. #{messages['ftnd.1q']}
                                     </f:facet>
-                                    <p:selectOneRadio id="ftnd_1" value="#{prontoParaPararController.prontoParaParar.phq1}" required="true" requiredMessage="TESTE">
+                                    <p:selectOneRadio id="ftnd_1" value="#{prontoParaPararController.prontoParaParar.phq1}" required="true" requiredMessage="Erro!">
                                         <f:selectItem itemLabel="#{messages['ftnd.r.1a']}" itemValue="3"/>
                                         <f:selectItem itemLabel="#{messages['ftnd.r.1b']}" itemValue="2"/>
                                         <f:selectItem itemLabel="#{messages['ftnd.r.1c']}" itemValue="1"/>
@@ -181,14 +181,14 @@
                             <div class="proximopasso">
                                 <div class="txtproximopasso">
                                     <h2>#{messages['next.step']}</h2>                                
-                                    <p>#{messages['pronto.meds.p.6']}</p> 
+                                     <p>#{messages['pronto.met.next.p']}</p>  
                                 </div>
                                 <div class="btnfloat">
                                     <div class="btn1">
                                         <h:button class="btnback" value ="#{messages['back']}" outcome="./pronto-para-parar-de-fumar-depressao.xhtml"></h:button>
                                     </div>
                                     <div class="btn2">
-                                        <h:button class="btngen" title="#{messages['pronto.meds.btn.next']}" value ="#{messages['next']}" outcome="./pronto-para-parar-de-fumar-metodos-de-parar.xhtml"  />                                
+                                        <h:button class="btngen" title="#{messages['pronto.met.btn.title']}" value ="#{messages['next']}" outcome="./pronto-para-parar-de-fumar-data-para-parar.xhtml"></h:button>                               
                                     </div>
                                 </div>                                             
                             </div>

@@ -652,8 +652,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }
 
     }
-    
-    
+        
  
     public void evaluateScale(){
         int sum1 = prontoParaParar.getPhq1();
@@ -677,6 +676,29 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }else
             System.out.println("Infelizmente não conseguimos avaliar porque você não preencheu nenhum item");
     }
+    
+    // Henrique criou o código abaixo. Grandes chances de dar merda.
+    
+    public void evaluateFagerstrom(){
+        int ftnd1 = prontoParaParar.getFtnd_1();
+        int ftnd2 = prontoParaParar.getFtnd_2();
+        int ftnd3 = prontoParaParar.getFtnd_3();
+        int ftnd4 = prontoParaParar.getFtnd_4();
+        int ftnd5 = prontoParaParar.getFtnd_5();
+        int ftnd6 = prontoParaParar.getFtnd_6();
+        
+        int sumTotal = ftnd1 + ftnd2 + ftnd3 + ftnd4 + ftnd5 + ftnd6;
+        System.out.println("Soma:" + sumTotal);
+        
+        if(sumTotal >=9 && sumTotal <= 13)
+            System.out.println("Não tem nenhum problema");
+        else if(sumTotal >= 14 && sumTotal <= 23){
+            System.out.println("Seria bom você procurar aconselhamento");
+        }else if(sumTotal >= 24 && sumTotal <= 36){
+            System.out.println("Procure um profissional de saúde");
+        }else
+            System.out.println("Infelizmente não conseguimos avaliar porque você não preencheu nenhum item");
+    }    
     
 
 }

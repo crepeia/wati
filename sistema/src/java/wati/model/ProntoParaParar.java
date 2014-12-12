@@ -79,6 +79,8 @@ public class ProntoParaParar extends BaseController implements Serializable {
     @Column(name = "email_mensal_cont")
     private Integer emailMensalCont;
     
+    // PHQ - Depression Scale
+    
     @Column(name = "phq_1")
     private Integer phq1;
     @Column(name = "phq_2")
@@ -98,9 +100,25 @@ public class ProntoParaParar extends BaseController implements Serializable {
     @Column(name = "phq_9")
     private Integer phq9;
     
+    // FTND - Nicotine Dependence Scale
+    
+    @Column(name = "ftnd_1")
+    private Integer ftnd_1;
+    @Column(name = "ftnd_2")
+    private Integer ftnd_2;
+    @Column(name = "ftnd_3")
+    private Integer ftnd_3;
+    @Column(name = "ftnd_4")
+    private Integer ftnd_4;
+    @Column(name = "ftnd_5")
+    private Integer ftnd_5;
+    @Column(name = "ftnd_6")
+    private Integer ftnd_6;
+    
+    // Motivation Slider
+        
     @Column(name="mot_01")
     private int mot1;
-    
     @Column(name="mot_02")
     private int mot2;
     
@@ -517,6 +535,58 @@ public class ProntoParaParar extends BaseController implements Serializable {
     public void setPhq9(Integer phq9) {
         this.phq9 = phq9;
     }
+    
+    // Henrique criou isto. Grandes chances de merda.
+    // FTND Scale - Nicotine Dependence
+    
+    public Integer getFtnd_1() {
+        return ftnd_1;
+    }
+    
+    public void setFtnd_1(Integer Ftnd_1) {
+        this.ftnd_1 = Ftnd_1;
+    }
+    
+    public Integer getFtnd_2() {
+        return ftnd_2;
+    }
+    
+    public void setFtnd_2(Integer Ftnd_2) {
+        this.ftnd_2 = Ftnd_2;
+    }
+    
+    public Integer getFtnd_3() {
+        return ftnd_3;
+    }
+    
+    public void setFtnd_3(Integer Ftnd_1) {
+        this.ftnd_3 = ftnd_3;
+    }
+    
+    public Integer getFtnd_4() {
+        return ftnd_4;
+    }
+    
+    public void setFtnd_4(Integer Ftnd_4) {
+        this.ftnd_4 = Ftnd_4;
+    }
+    
+    public Integer getFtnd_5() {
+        return ftnd_5;
+    }
+    
+    public void setFtnd_5(Integer Ftnd_5) {
+        this.ftnd_5 = ftnd_5;
+    }
+    
+      public Integer getFtnd_6() {
+        return ftnd_6;
+    }
+    
+    public void setFtnd_6(Integer Ftnd_6) {
+        this.ftnd_6 = Ftnd_6;
+    }
+    
 
     public int getMot1() {
         this.setMot1(5);

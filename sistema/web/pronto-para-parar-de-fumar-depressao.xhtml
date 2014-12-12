@@ -41,8 +41,8 @@
                             <p>#{messages['ready.depression.p.2']}</p>
                             <p>#{messages['ready.depression.p.3']}</p>
                             <p>#{messages['ready.depression.p.4']}</p>
-
-
+                            
+                          
                             <p:commandButton styleClass="btngen1" type="button" value="Faça o teste">
                                 <p:effect type="blind" event="click" for="basic">
                                     <f:param name="mode" value="'show'" />
@@ -161,7 +161,7 @@
                                     </p:selectOneRadio>
                                 </h:panelGrid>
 
-                                <div><p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{prontoParaPararController.evaluateScale()}" process="@all"/>                                        
+                                <div><p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{prontoParaPararController.evaluateFagerstrom()}" process="@all"/>                                        
                                     <div id="resultadoaval">
                                         <h:outputText id="texto" value="#{preparandoParaPararController.texto}" />  
                                     </div> 
