@@ -52,26 +52,37 @@ public class PreparandoParaPararController extends BaseController {
 		
 	}
         
-        public void avaliar(){
+        /*public void avaliar(){
             if(question1 == 1 || question2 == 1)
                 texto = this.getText("preparando.aed.p.2");
             else
                 texto = this.getText("preparando.aed.p.3");
             
-        }
+        }*/
         
     public void evaluateScalePhq2(){
         int sum1 = this.phq2_1;
         int sum2 = this.phq2_2;
         int sumTotal = sum1 + sum2;
         System.out.println("Soma:" + sumTotal);
-        if(2<= sumTotal && sumTotal<=5)
-            System.out.println("fazer o que");
-        else if(6 <= sumTotal && sumTotal <= 8)
-            System.out.println("ruim");
-        else
-            System.out.println("Que bom");
-    }    
+        if((1<=sumTotal && sumTotal<=4) && question2 == 1 ){
+            texto = "resultado para soma entre e 1e4, e resposta sim";
+            //System.out.println("resultado para soma entre e 1e4, e resposta sim");
+        }else if((1<=sumTotal && sumTotal<=4) && question2 != 1){
+            texto = "resultado para soma entre e 1e4, e resposta não";
+            //System.out.println("resultado para soma entre e 1e4, e resposta não");
+        }else if((5<=sumTotal && sumTotal<=8) && question2 == 1){
+            texto = "resultado para soma entre e 5a8, e resposta sim";
+            //System.out.println("resultado para soma entre e 5a8, e resposta sim");
+        } else if((5<=sumTotal && sumTotal<=8) && question2 != 1){
+            texto = "resultado para soma entre e 5a8, e resposta não";
+            //System.out.println("resultado para soma entre e 5a8, e resposta sim");
+        }else
+            texto = "resposta caso nao responda nada";
+            //System.out.println("resposta caso nao responda nada");
+    }
+     
+       
 
     public String getTexto() {
          return texto;

@@ -57,6 +57,9 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     private Map<String, String> anos = new LinkedHashMap<String, String>();
     private GregorianCalendar gregorianCalendar = null;
     private StreamedContent planoPersonalizado;
+    
+    private String texto1;
+    private String texto2;
 
     public ProntoParaPararController() {
         //super(ProntoParaParar.class);
@@ -73,6 +76,8 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         for (int i = firstYear; i < firstYear + 5; i++) {
             anos.put(String.valueOf(i), String.valueOf(i));
         }
+        this.texto1 = "";
+        this.texto2 = "";
     
 
     }
@@ -655,6 +660,16 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         
  
     public void evaluateScale(){
+        int sum1 = Integer.valueOf(prontoParaParar.getPhq1());
+        int sum2 = Integer.valueOf(prontoParaParar.getPhq2());
+        int sum3 = Integer.valueOf(prontoParaParar.getPhq3());
+        int sum4 = Integer.valueOf(prontoParaParar.getPhq4());
+        int sum5 = Integer.valueOf(prontoParaParar.getPhq5());
+        int sum6 = Integer.valueOf(prontoParaParar.getPhq6());
+        int sum7 = Integer.valueOf(prontoParaParar.getPhq7());
+        int sum8 = Integer.valueOf(prontoParaParar.getPhq8());
+        int sum9 = Integer.valueOf(prontoParaParar.getPhq9());
+        /*
         int sum1 = prontoParaParar.getPhq1();
         int sum2 = prontoParaParar.getPhq2();
         int sum3 = prontoParaParar.getPhq3();
@@ -663,42 +678,76 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         int sum6 = prontoParaParar.getPhq6();
         int sum7 = prontoParaParar.getPhq7();
         int sum8 = prontoParaParar.getPhq8();
-        int sum9 = prontoParaParar.getPhq9();
+        int sum9 = prontoParaParar.getPhq9();*/
         
         int sumTotal = sum1 + sum2 + sum3 + sum4 + sum5 + sum6 + sum7 + sum8 + sum9;
         System.out.println("Soma:" + sumTotal);
+        System.out.println("shuashuashuah **");
+        /*
         if(sumTotal >=9 && sumTotal <= 13)
-            System.out.println("Não tem nenhum problema");
+            texto1 = "Não tem nenhum problema";
+            //System.out.println("Não tem nenhum problema");
         else if(sumTotal >= 14 && sumTotal <= 23){
-            System.out.println("Seria bom você procurar aconselhamento");
+            texto1 = "Seria bom você procurar aconselhamento";
+            //System.out.println("Seria bom você procurar aconselhamento");
         }else if(sumTotal >= 24 && sumTotal <= 36){
-            System.out.println("Procure um profissional de saúde");
+            texto1 = "Procure um profissional de saúde";
+            //System.out.println("Procure um profissional de saúde");
         }else
-            System.out.println("Infelizmente não conseguimos avaliar porque você não preencheu nenhum item");
+            texto1 = "Infelizmente não conseguimos avaliar porque você não preencheu nenhum item";
+            // System.out.println("Infelizmente não conseguimos avaliar porque você não preencheu nenhum item");
+       */
     }
     
     // Henrique criou o código abaixo. Grandes chances de dar merda.
     
     public void evaluateFagerstrom(){
-        int ftnd1 = prontoParaParar.getFtnd_1();
-        int ftnd2 = prontoParaParar.getFtnd_2();
-        int ftnd3 = prontoParaParar.getFtnd_3();
-        int ftnd4 = prontoParaParar.getFtnd_4();
-        int ftnd5 = prontoParaParar.getFtnd_5();
-        int ftnd6 = prontoParaParar.getFtnd_6();
+        int ftnd1 = prontoParaParar.getFtnd1();
+        int ftnd2 = prontoParaParar.getFtnd2();
+        int ftnd3 = prontoParaParar.getFtnd3();
+        int ftnd4 = prontoParaParar.getFtnd4();
+        int ftnd5 = prontoParaParar.getFtnd5();
+        int ftnd6 = prontoParaParar.getFtnd6();
         
         int sumTotal = ftnd1 + ftnd2 + ftnd3 + ftnd4 + ftnd5 + ftnd6;
-        System.out.println("Soma:" + sumTotal);
-        
-        if(sumTotal >=9 && sumTotal <= 13)
-            System.out.println("Não tem nenhum problema");
-        else if(sumTotal >= 14 && sumTotal <= 23){
-            System.out.println("Seria bom você procurar aconselhamento");
-        }else if(sumTotal >= 24 && sumTotal <= 36){
-            System.out.println("Procure um profissional de saúde");
+        System.out.println("Soma:" + sumTotal); 
+        if(sumTotal >=0 && sumTotal <= 4)
+            
+            texto2 = "Verificar qual texto colocar";
+            //System.out.println("Não tem nenhum problema");
+        else if(sumTotal >= 5 && sumTotal <= 10){
+            texto2 = "Verificar qual texto colocar 2";
+            //System.out.println("Seria bom você procurar aconselhamento");
         }else
-            System.out.println("Infelizmente não conseguimos avaliar porque você não preencheu nenhum item");
-    }    
+            texto2 = "Infelizmente não conseguimos avaliar porque você não preencheu nenhum item";
+            //System.out.println("Infelizmente não conseguimos avaliar porque você não preencheu nenhum item");
+        
+        
+    }
+    
+    public void txt(){
+             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("You said:'" + texto1 + "'"));
+    }
+
+    public String getTexto1() {
+        return texto1;
+    }
+
+    public void setTexto1(String texto1) {
+        this.texto1 = texto1;
+    }
+
+    public String getTexto2() {
+        return texto2;
+    }
+
+    public void setTexto2(String texto2) {
+        this.texto2 = texto2;
+    }
+    
+    
+    
+    
     
 
 }

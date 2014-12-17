@@ -70,7 +70,7 @@
                                 <f:facet name="header">
                                     #{messages['sd.7']}
                                 </f:facet>
-                                <p:selectOneRadio id="sd_7" value="#{prontoParaPararController.prontoParaParar.phq2}" required="true">
+                                <p:selectOneRadio id="sd_7" value="#{prontoParaPararController.prontoParaParar.ftndFumaDiariamente}" required="true">
                                     <f:selectItem itemLabel="#{messages['yes']}" itemValue="1"/>
                                     <f:selectItem itemLabel="#{messages['no']}" itemValue="0"/>
                                 </p:selectOneRadio>
@@ -84,7 +84,7 @@
                                     <f:facet name="header">
                                         1. #{messages['ftnd.1q']}
                                     </f:facet>
-                                    <p:selectOneRadio id="ftnd_1" value="#{prontoParaPararController.prontoParaParar.phq1}" required="true" requiredMessage="Erro!">
+                                    <p:selectOneRadio id="ftnd_1" value="#{prontoParaPararController.prontoParaParar.ftnd1}" required="true" requiredMessage="Erro!">
                                         <f:selectItem itemLabel="#{messages['ftnd.r.1a']}" itemValue="3"/>
                                         <f:selectItem itemLabel="#{messages['ftnd.r.1b']}" itemValue="2"/>
                                         <f:selectItem itemLabel="#{messages['ftnd.r.1c']}" itemValue="1"/>
@@ -96,7 +96,7 @@
                                     <f:facet name="header">
                                         2. #{messages['ftnd.2q']}
                                     </f:facet>
-                                    <p:selectOneRadio id="ftnd_2" value="#{prontoParaPararController.prontoParaParar.phq2}" required="true">
+                                    <p:selectOneRadio id="ftnd_2" value="#{prontoParaPararController.prontoParaParar.ftnd2}" required="true">
                                         <f:selectItem itemLabel="#{messages['yes']}" itemValue="1"/>
                                         <f:selectItem itemLabel="#{messages['no']}" itemValue="0"/>
                                     </p:selectOneRadio>
@@ -107,7 +107,7 @@
                                     <f:facet name="header">
                                         3. #{messages['ftnd.3q']}
                                     </f:facet>
-                                    <p:selectOneRadio id="ftnd_3" value="#{prontoParaPararController.prontoParaParar.phq3}" required="true">
+                                    <p:selectOneRadio id="ftnd_3" value="#{prontoParaPararController.prontoParaParar.ftnd3}" required="true">
                                         <f:selectItem itemLabel="#{messages['ftnd.r.3a']}" itemValue="1"/>
                                         <f:selectItem itemLabel="#{messages['ftnd.r.3b']}" itemValue="0"/>
                                     </p:selectOneRadio>
@@ -118,7 +118,7 @@
                                     <f:facet name="header">
                                         4. #{messages['ftnd.4q']}
                                     </f:facet>
-                                    <p:selectOneRadio id="ftnd_4" value="#{prontoParaPararController.prontoParaParar.phq4}" required="true">
+                                    <p:selectOneRadio id="ftnd_4" value="#{prontoParaPararController.prontoParaParar.ftnd4}" required="true">
                                         <f:selectItem itemLabel="#{messages['ftnd.r.4a']}" itemValue="0"/>
                                         <f:selectItem itemLabel="#{messages['ftnd.r.4b']}" itemValue="1"/>
                                         <f:selectItem itemLabel="#{messages['ftnd.r.4c']}" itemValue="2"/>
@@ -131,7 +131,7 @@
                                     <f:facet name="header">
                                         5. #{messages['ftnd.5q']}
                                     </f:facet>
-                                    <p:selectOneRadio id="ftnd_5" value="#{prontoParaPararController.prontoParaParar.phq5}" required="true">
+                                    <p:selectOneRadio id="ftnd_5" value="#{prontoParaPararController.prontoParaParar.ftnd5}" required="true">
                                         <f:selectItem itemLabel="#{messages['yes']}" itemValue="1"/>
                                         <f:selectItem itemLabel="#{messages['no']}" itemValue="0"/>
                                     </p:selectOneRadio>
@@ -141,7 +141,7 @@
                                     <f:facet name="header">
                                         6. #{messages['ftnd.6q']}
                                     </f:facet>
-                                    <p:selectOneRadio id="ftnd_6" value="#{prontoParaPararController.prontoParaParar.phq6}" required="true">
+                                    <p:selectOneRadio id="ftnd_6" value="#{prontoParaPararController.prontoParaParar.ftnd6}" required="true">
                                         <f:selectItem itemLabel="#{messages['yes']}" itemValue="1"/>
                                         <f:selectItem itemLabel="#{messages['no']}" itemValue="0"/>
                                     </p:selectOneRadio>
@@ -149,7 +149,7 @@
 
 
                                 <div>
-                                    <p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{preparandoParaPararController.avaliar()}" process="@all">
+                                    <p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto2" actionListener="#{prontoParaPararController.evaluateFagerstrom()}" process="@all">
                                         <p:effect type="blind" event="click" for="basic">
                                             <f:param name="mode" value="'show'" />
                                         </p:effect>
@@ -162,7 +162,7 @@
                             <p:panel id="basic" style="display:none; margin-top:20px!important; padding-top: 10px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
                                 <div id="resultadoaval">
                                     <h2>#{messages['preparando.aed.result']}</h2>
-                                    <h:outputText id="texto" value="#{preparandoParaPararController.texto}" />  
+                                    <h:outputText id="texto2" value="#{prontoParaPararController.texto2}" />  
                                 </div> 
 
 

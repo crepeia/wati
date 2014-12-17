@@ -102,18 +102,20 @@ public class ProntoParaParar extends BaseController implements Serializable {
     
     // FTND - Nicotine Dependence Scale
     
+    @Column(name="ftnd_fumaDiariamente")
+    private Integer ftndFumaDiariamente; 
     @Column(name = "ftnd_1")
-    private Integer ftnd_1;
+    private Integer ftnd1;
     @Column(name = "ftnd_2")
-    private Integer ftnd_2;
+    private Integer ftnd2;
     @Column(name = "ftnd_3")
-    private Integer ftnd_3;
+    private Integer ftnd3;
     @Column(name = "ftnd_4")
-    private Integer ftnd_4;
+    private Integer ftnd4;
     @Column(name = "ftnd_5")
-    private Integer ftnd_5;
+    private Integer ftnd5;
     @Column(name = "ftnd_6")
-    private Integer ftnd_6;
+    private Integer ftnd6;
     
     // Motivation Slider
         
@@ -538,56 +540,55 @@ public class ProntoParaParar extends BaseController implements Serializable {
     
     // Henrique criou isto. Grandes chances de merda.
     // FTND Scale - Nicotine Dependence
-    
-    public Integer getFtnd_1() {
-        return ftnd_1;
+    public Integer getFtnd1() {
+        return ftnd1;
     }
-    
-    public void setFtnd_1(Integer Ftnd_1) {
-        this.ftnd_1 = Ftnd_1;
-    }
-    
-    public Integer getFtnd_2() {
-        return ftnd_2;
-    }
-    
-    public void setFtnd_2(Integer Ftnd_2) {
-        this.ftnd_2 = Ftnd_2;
-    }
-    
-    public Integer getFtnd_3() {
-        return ftnd_3;
-    }
-    
-    public void setFtnd_3(Integer Ftnd_1) {
-        this.ftnd_3 = ftnd_3;
-    }
-    
-    public Integer getFtnd_4() {
-        return ftnd_4;
-    }
-    
-    public void setFtnd_4(Integer Ftnd_4) {
-        this.ftnd_4 = Ftnd_4;
-    }
-    
-    public Integer getFtnd_5() {
-        return ftnd_5;
-    }
-    
-    public void setFtnd_5(Integer Ftnd_5) {
-        this.ftnd_5 = ftnd_5;
-    }
-    
-      public Integer getFtnd_6() {
-        return ftnd_6;
-    }
-    
-    public void setFtnd_6(Integer Ftnd_6) {
-        this.ftnd_6 = Ftnd_6;
-    }
-    
 
+    public void setFtnd1(Integer ftnd1) {
+        this.ftnd1 = ftnd1;
+    }
+
+    public Integer getFtnd2() {
+        return ftnd2;
+    }
+
+    public void setFtnd2(Integer ftnd2) {
+        this.ftnd2 = ftnd2;
+    }
+
+    public Integer getFtnd3() {
+        return ftnd3;
+    }
+
+    public void setFtnd3(Integer ftnd3) {
+        this.ftnd3 = ftnd3;
+    }
+
+    public Integer getFtnd4() {
+        return ftnd4;
+    }
+
+    public void setFtnd4(Integer ftnd4) {
+        this.ftnd4 = ftnd4;
+    }
+
+    public Integer getFtnd5() {
+        return ftnd5;
+    }
+
+    public void setFtnd5(Integer ftnd5) {
+        this.ftnd5 = ftnd5;
+    }
+
+    public Integer getFtnd6() {
+        return ftnd6;
+    }
+
+    public void setFtnd6(Integer ftnd6) {
+        this.ftnd6 = ftnd6;
+    }
+    
+    
     public int getMot1() {
         this.setMot1(5);
         return mot1;
@@ -611,5 +612,17 @@ public class ProntoParaParar extends BaseController implements Serializable {
     private void append(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    public Integer getFtndFumaDiariamente() {
+        return ftndFumaDiariamente;
+    }
+
+    public void setFtndFumaDiariamente(Integer ftndFumaDiariamente) {
+        this.ftndFumaDiariamente = ftndFumaDiariamente;
+    }
+    
+    
+    
+    
 
 }
