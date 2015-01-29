@@ -3,10 +3,10 @@ VIVA SEM TABACO - Lista de pendências
 
 Prioridade Alta
 ------------------------
-* Consertar arquivos robots.txt e sitemap.xml - Pendente
-* Index - Inserir uma página com informações sobre o site após o usuário clicar nos passos 2 e 3.
-* Riscos - Benefícios - Mesclar o conteúdo em uma página, usando javascript. Esquema da página de depressão e ansiedade
-  * Registrar passos do usuário na tabela do banco UserNavigation
+ * Registrar passos do usuário na tabela do banco UserNavigation.
+ * Passos 2 - Gravar o fluxo do passo 2 em vez de sobrescrever os dados.
+
+** Dani: Corrigir as avaliações das escalas
 
 
 Prioridade Média
@@ -28,6 +28,16 @@ Prioridade Baixa
 * Passo 2 - Inserir questionário de satisfação após o usuário completar o plano de parada.
 
 
+* Paǵina Ansiedade e depressão - Inserir a avaliação e registrar na tabela no banco de dados.
+* Substituir a página de cadastro antiga pela nova login (login.xhtml) 
+* Depressão da etapa 2 - Inserir texto pronto - pronto-para-parar-de-fumar-depressao.xhtml; Aumentar o espaçamento entre as respostas.
+* Medicamentos etapa 2 - Inserir textos prontos - (pronto-para-parar-de-fumar-medicamentos.xhtml)
+* Como evitar recaídas - Inserir as mensagens sobre as evidências de cada tratamento tentado. Se clicar em 'sim' aparecer div com métodos tentados.
+* Página do plano - inserir pergunta se usuário quer fazer responder a pesquisa. E inserir página de link com pesquisa com satisfação.
+
 
 Cronograma
 -------------------------
+
+
+* Daniela - Ver bolsas.
