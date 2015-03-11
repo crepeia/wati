@@ -42,6 +42,7 @@
                             <p>#{messages['ready.depression.p.3']}</p>
                             <p>#{messages['ready.depression.p.4']}</p>
                             
+                            <h:form>
                           
                             <p:commandButton styleClass="btngen1" type="button" value="Faça o teste">
                                 <p:effect type="blind" event="click" for="basic">
@@ -161,11 +162,12 @@
                                     </p:selectOneRadio>
                                 </h:panelGrid>
 
-                                <div><p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" actionListener="#{prontoParaPararController.evaluateScale()}" process="@all">
-                                       <!-- <p:effect type="blind" event="click" for="teste">
+                                <div><p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto1" actionListener="#{prontoParaPararController.evaluateScale()}" process="@all">
+                                        <p:effect type="blind" event="click" for="text">
                                                     <f:param name="mode" value="'show'" />
-                                                </p:effect>-->
+                                                </p:effect>
                                     </p:commandButton>                                      
+                                    
                                 <!--    <div id="resultadoaval">
                                         <h:outputText id="texto" value="#{preparandoParaPararController.texto}" />  
                                     </div> -->
@@ -175,13 +177,13 @@
                             
                               
                             
-                       <!--     <p:panel id="teste" style="display:none; margin-top:20px!important; padding-top: 10px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
+                           <p:panel id="text" style="display:none; margin-top:20px!important; padding-top: 10px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
                                         <div id="resultadoaval">
                                             <h2>#{messages['preparando.aed.result']}</h2>
                                             <h:outputText id="texto1" value="#{prontoParaPararController.texto1}" />
                                         </div> 
-                                    </p:panel>-->
-                                
+                                    </p:panel>
+                                </h:form>
 
                             <div class="proximopasso">
                                 <div class="txtproximopasso">
@@ -213,4 +215,3 @@
         </h:body>
     </f:view>
 </html>
-

@@ -657,19 +657,14 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }
 
     }
+    
+    public void testarMetodo(){
+        System.out.println("***TESTE***TESTE***TESTE***");
+    }
         
  
-    public void evaluateScale(){
-        int sum1 = Integer.valueOf(prontoParaParar.getPhq1());
-        int sum2 = Integer.valueOf(prontoParaParar.getPhq2());
-        int sum3 = Integer.valueOf(prontoParaParar.getPhq3());
-        int sum4 = Integer.valueOf(prontoParaParar.getPhq4());
-        int sum5 = Integer.valueOf(prontoParaParar.getPhq5());
-        int sum6 = Integer.valueOf(prontoParaParar.getPhq6());
-        int sum7 = Integer.valueOf(prontoParaParar.getPhq7());
-        int sum8 = Integer.valueOf(prontoParaParar.getPhq8());
-        int sum9 = Integer.valueOf(prontoParaParar.getPhq9());
-        /*
+    public String evaluateScale(){
+        
         int sum1 = prontoParaParar.getPhq1();
         int sum2 = prontoParaParar.getPhq2();
         int sum3 = prontoParaParar.getPhq3();
@@ -678,12 +673,12 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         int sum6 = prontoParaParar.getPhq6();
         int sum7 = prontoParaParar.getPhq7();
         int sum8 = prontoParaParar.getPhq8();
-        int sum9 = prontoParaParar.getPhq9();*/
+        int sum9 = prontoParaParar.getPhq9();
         
         int sumTotal = sum1 + sum2 + sum3 + sum4 + sum5 + sum6 + sum7 + sum8 + sum9;
-        System.out.println("Soma:" + sumTotal);
-        System.out.println("shuashuashuah **");
-        /*
+        //System.out.println("Soma:" + sumTotal);
+        //System.out.println("shuashuashuah **");
+        
         if(sumTotal >=9 && sumTotal <= 13)
             texto1 = "Não tem nenhum problema";
             //System.out.println("Não tem nenhum problema");
@@ -696,9 +691,13 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }else
             texto1 = "Infelizmente não conseguimos avaliar porque você não preencheu nenhum item";
             // System.out.println("Infelizmente não conseguimos avaliar porque você não preencheu nenhum item");
-       */
+       
+        return null;
     }
     
+    public void teste(){
+        System.out.println("teste**teste");
+    }
     // Henrique criou o código abaixo. Grandes chances de dar merda.
     
     public void evaluateFagerstrom(){
@@ -711,19 +710,17 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         
         int sumTotal = ftnd1 + ftnd2 + ftnd3 + ftnd4 + ftnd5 + ftnd6;
         System.out.println("Soma:" + sumTotal); 
-        if(sumTotal >=0 && sumTotal <= 4)
-            
+        
+        if(sumTotal >=6 && sumTotal <= 10) //
             texto2 = "Verificar qual texto colocar";
-            //System.out.println("Não tem nenhum problema");
-        else if(sumTotal >= 5 && sumTotal <= 10){
+            
+        else if(sumTotal >= 11 && sumTotal <= 16){
             texto2 = "Verificar qual texto colocar 2";
-            //System.out.println("Seria bom você procurar aconselhamento");
+            
         }else
             texto2 = "Infelizmente não conseguimos avaliar porque você não preencheu nenhum item";
-            //System.out.println("Infelizmente não conseguimos avaliar porque você não preencheu nenhum item");
-        
-        
-    }
+        }
+    
     
     public void txt(){
              FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("You said:'" + texto1 + "'"));
