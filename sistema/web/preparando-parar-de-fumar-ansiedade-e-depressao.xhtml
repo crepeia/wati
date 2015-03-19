@@ -39,15 +39,15 @@
 
                             <div id="avacomorbidades">
                                 <h:form>
-                                    <p:panel id="questoes" style="margin-top:100px!important; padding-top: 20px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
+                                    <p:panel id="questoes" styleClass="formpanel" style="margin-top:100px!important;">
 
                                         <p><strong>#{messages['phq2']}</strong></p>
 
-                                        <h:panelGrid columns="2" style="margin-top:30px" cellpadding="10" id="phq2_1">
+                                        <h:panelGrid columns="2" styleClass="formmiddleq" cellpadding="10" id="phq2_1">
                                             <f:facet name="header">  
                                                 1 - #{messages['phq2.1']}
                                             </f:facet> 
-                                            <p:selectOneRadio id="phq_2_1" value="#{preparandoParaPararController.phq2_1}" required="true">  
+                                            <p:selectOneRadio id="phq_2_1" value="#{preparandoParaPararController.phq2_1}" required="true" styleClass="radio-inline">  
                                                 <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1" />
                                                 <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
                                                 <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
@@ -55,12 +55,12 @@
                                             </p:selectOneRadio> 
                                         </h:panelGrid>
 
-                                        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="10" id="phq2_2">
+                                        <h:panelGrid columns="2" styleClass="formmiddleq" cellpadding="10" id="phq2_2">
                                             <f:facet name="header">  
                                                 2 - #{messages['phq2.2']}
                                             </f:facet> 
-                                            <p:selectOneRadio id="phq_2_2" value="#{preparandoParaPararController.phq2_2}" required="true" requiredMessage="Teste">  
-                                                <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1" />
+                                            <p:selectOneRadio id="phq_2_2" value="#{preparandoParaPararController.phq2_2}" required="true" requiredMessage="true" styleClass="radio-inline">  
+                                                <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1"/>
                                                 <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
                                                 <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
                                                 <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="4"/>
@@ -71,7 +71,7 @@
                                             <f:facet name="header">  
                                                 3 - #{messages['preparando.aed.question.2']}  
                                             </f:facet> 
-                                            <p:selectOneRadio id="options2" value="#{preparandoParaPararController.question2}" required="true">  
+                                            <p:selectOneRadio id="options2" value="#{preparandoParaPararController.question2}" required="true" styleClass="radio-inline">  
                                                 <f:selectItem itemLabel="#{messages['preparando.aed.question.option.1']}" itemValue="1" />
                                                 <f:selectItem itemLabel="#{messages['preparando.aed.question.option.2']}" itemValue="0" />
                                             </p:selectOneRadio> 

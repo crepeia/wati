@@ -1229,8 +1229,24 @@ img#artigotabaco{
 /* COMO VENCER OS MEDOS*/
 
 /* AVALIAÇÃO COMORBIDADES*/
-#avacomorbidades{
 
+
+.radio-inline label{
+    padding-right: 20px;
+}
+
+.formpanel {
+    margin-top:20px!important; 
+    padding-top: 20px!important;
+    border-top: 3px solid #e0e0e0;
+    border-bottom: 3px solid #e0e0e0; 
+    background-color: #EBF4FC;
+}
+
+.formmiddleq{
+    width: 100%;
+    margin-bottom:10px; 
+    border-bottom: 2px solid #e0e0e0;
 }
 
 /* COMO SUBSTITUIR  */
@@ -1369,4 +1385,5 @@ thead{
 .ui-lightbox-content {
     background: #fff!important;    
 }
+
 

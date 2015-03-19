@@ -171,7 +171,6 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         try {
             this.getDaoBase().insertOrUpdate(this.prontoParaParar, this.getEntityManager());
             return "pronto-para-parar-de-fumar-como-evitar-recaidas-completo.xhtml";
-            //return "pronto-para-parar-de-fumar-ganho-de-peso.xhtml";
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.data"), null));
@@ -663,6 +662,8 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     }
         
  
+    // PHQ9 - Patient Health Questionnaire
+    
     public String evaluateScale(){
         
         int sum1 = prontoParaParar.getPhq1();
@@ -676,21 +677,15 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         int sum9 = prontoParaParar.getPhq9();
         
         int sumTotal = sum1 + sum2 + sum3 + sum4 + sum5 + sum6 + sum7 + sum8 + sum9;
-        //System.out.println("Soma:" + sumTotal);
-        //System.out.println("shuashuashuah **");
         
         if(sumTotal >=9 && sumTotal <= 13)
-            texto1 = "Não tem nenhum problema";
-            //System.out.println("Não tem nenhum problema");
+            texto1 = this.getText("feedback.phq9.1");
         else if(sumTotal >= 14 && sumTotal <= 23){
-            texto1 = "Seria bom você procurar aconselhamento";
-            //System.out.println("Seria bom você procurar aconselhamento");
+            texto1 = this.getText("feedback.phq9.2");
         }else if(sumTotal >= 24 && sumTotal <= 36){
-            texto1 = "Procure um profissional de saúde";
-            //System.out.println("Procure um profissional de saúde");
+            texto1 = this.getText("feedback.phq9.3");
         }else
-            texto1 = "Infelizmente não conseguimos avaliar porque você não preencheu nenhum item";
-            // System.out.println("Infelizmente não conseguimos avaliar porque você não preencheu nenhum item");
+            texto1 = this.getText("feedback.phq9.no");
        
         return null;
     }
@@ -698,27 +693,29 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     public void teste(){
         System.out.println("teste**teste");
     }
-    // Henrique criou o código abaixo. Grandes chances de dar merda.
+    // FTND - Fagerstrom test of nicotine dependence
     
-    public void evaluateFagerstrom(){
-        int ftnd1 = prontoParaParar.getFtnd1();
-        int ftnd2 = prontoParaParar.getFtnd2();
-        int ftnd3 = prontoParaParar.getFtnd3();
-        int ftnd4 = prontoParaParar.getFtnd4();
-        int ftnd5 = prontoParaParar.getFtnd5();
-        int ftnd6 = prontoParaParar.getFtnd6();
+    public String evaluateFagerstrom(){
+        int sum1 = prontoParaParar.getFtnd1();
+        int sum2 = prontoParaParar.getFtnd2();
+        int sum3 = prontoParaParar.getFtnd3();
+        int sum4 = prontoParaParar.getFtnd4();
+        int sum5 = prontoParaParar.getFtnd5();
+        int sum6 = prontoParaParar.getFtnd6();
         
-        int sumTotal = ftnd1 + ftnd2 + ftnd3 + ftnd4 + ftnd5 + ftnd6;
-        System.out.println("Soma:" + sumTotal); 
+        int sumTotal = sum1 + sum2 + sum3 + sum4 + sum5 + sum6;
         
-        if(sumTotal >=6 && sumTotal <= 10) //
-            texto2 = "Verificar qual texto colocar";
+        if(sumTotal >=6 && sumTotal <= 10)
+            texto2 = "feedback.ftnd.1";
             
         else if(sumTotal >= 11 && sumTotal <= 16){
-            texto2 = "Verificar qual texto colocar 2";
-            
+            texto2 = "feedback.ftnd.2";
         }else
-            texto2 = "Infelizmente não conseguimos avaliar porque você não preencheu nenhum item";
+            texto2 = "feedback.phq9.no";
+        
+        return null;
+
+        
         }
     
     
@@ -741,8 +738,6 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     public void setTexto2(String texto2) {
         this.texto2 = texto2;
     }
-    
-    
     
     
     

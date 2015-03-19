@@ -50,15 +50,15 @@
                                 </p:effect>
                             </p:commandButton>
                     
-                                <p:panel id="basic" style="display:none; margin-top:10px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
+                                <p:panel id="basic" styleClass="formpanel" style="display:none;">
                                 
                                 <p><strong>#{messages['phq9.a']}</strong></p>
                                 
-                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq1">
+                                <h:panelGrid columns="2" styleClass="formmiddleq" cellpadding="10" id="phq1">
                                     <f:facet name="header">
                                         1 - #{messages['phq9.1']}
                                     </f:facet>
-                                    <p:selectOneRadio id="phq_1" value="#{prontoParaPararController.prontoParaParar.phq1}" required="true">
+                                    <p:selectOneRadio id="phq_1" value="#{prontoParaPararController.prontoParaParar.phq1}" required="true" styleClass="radio-inline">
                                         <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
@@ -66,11 +66,11 @@
                                     </p:selectOneRadio>
                                 </h:panelGrid>
 
-                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq2">
+                                <h:panelGrid columns="2" styleClass="formmiddleq"  cellpadding="10" id="phq2">
                                     <f:facet name="header">
                                         2 - #{messages['phq9.2']}
                                     </f:facet>
-                                    <p:selectOneRadio id="phq_2" value="#{prontoParaPararController.prontoParaParar.phq2}" required="true">
+                                    <p:selectOneRadio id="phq_2" value="#{prontoParaPararController.prontoParaParar.phq2}" required="true" styleClass="radio-inline">
                                         <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
@@ -78,11 +78,11 @@
                                     </p:selectOneRadio>
                                 </h:panelGrid>
 
-                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq3">
+                                <h:panelGrid columns="2" styleClass="formmiddleq"  cellpadding="10" id="phq3">
                                     <f:facet name="header">
                                         3 - #{messages['phq9.3']}
                                     </f:facet>
-                                    <p:selectOneRadio id="phq_3" value="#{prontoParaPararController.prontoParaParar.phq3}" required="true">
+                                    <p:selectOneRadio id="phq_3" value="#{prontoParaPararController.prontoParaParar.phq3}" required="true" styleClass="radio-inline">
                                         <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
@@ -90,11 +90,11 @@
                                     </p:selectOneRadio>
                                 </h:panelGrid>
 
-                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq4">
+                                <h:panelGrid columns="2" styleClass="formmiddleq"  cellpadding="10" id="phq4">
                                     <f:facet name="header">
                                         4 - #{messages['phq9.4']}
                                     </f:facet>
-                                    <p:selectOneRadio id="phq_4" value="#{prontoParaPararController.prontoParaParar.phq4}" required="true">
+                                    <p:selectOneRadio id="phq_4" value="#{prontoParaPararController.prontoParaParar.phq4}" required="true" styleClass="radio-inline">
                                         <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
@@ -102,11 +102,11 @@
                                     </p:selectOneRadio>
                                 </h:panelGrid>
 
-                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq5">
+                                <h:panelGrid columns="2" styleClass="formmiddleq"  cellpadding="10" id="phq5">
                                     <f:facet name="header">
                                         5 - #{messages['phq9.5']}
                                     </f:facet>
-                                    <p:selectOneRadio id="phq_5" value="#{prontoParaPararController.prontoParaParar.phq5}" required="true">
+                                    <p:selectOneRadio id="phq_5" value="#{prontoParaPararController.prontoParaParar.phq5}" required="true" styleClass="radio-inline">
                                         <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
@@ -114,11 +114,11 @@
                                     </p:selectOneRadio>
                                 </h:panelGrid>
 
-                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq6">
+                                <h:panelGrid columns="2" styleClass="formmiddleq" cellpadding="10" id="phq6">
                                     <f:facet name="header">
                                         6 - #{messages['phq9.6']}
                                     </f:facet>
-                                    <p:selectOneRadio id="phq_6" value="#{prontoParaPararController.prontoParaParar.phq6}" required="true">
+                                    <p:selectOneRadio id="phq_6" value="#{prontoParaPararController.prontoParaParar.phq6}" required="true" styleClass="radio-inline">
                                         <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
@@ -126,11 +126,11 @@
                                     </p:selectOneRadio>
                                 </h:panelGrid>
 
-                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq7">
+                                <h:panelGrid columns="2" styleClass="formmiddleq" cellpadding="10" id="phq7">
                                     <f:facet name="header">
                                         7 - #{messages['phq9.7']}
                                     </f:facet>
-                                    <p:selectOneRadio id="phq_7" value="#{prontoParaPararController.prontoParaParar.phq7}" required="true">
+                                    <p:selectOneRadio id="phq_7" value="#{prontoParaPararController.prontoParaParar.phq7}" required="true" styleClass="radio-inline">
                                         <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
@@ -138,11 +138,11 @@
                                     </p:selectOneRadio>
                                 </h:panelGrid>
 
-                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq8">
+                                <h:panelGrid columns="2" styleClass="formmiddleq"  cellpadding="10" id="phq8">
                                     <f:facet name="header">
                                         8 - #{messages['phq9.8']}
                                     </f:facet>
-                                    <p:selectOneRadio id="phq_8" value="#{prontoParaPararController.prontoParaParar.phq8}" required="true">
+                                    <p:selectOneRadio id="phq_8" value="#{prontoParaPararController.prontoParaParar.phq8}" required="true" styleClass="radio-inline">
                                         <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
@@ -154,7 +154,7 @@
                                     <f:facet name="header">
                                         9 - #{messages['phq9.9']}
                                     </f:facet>
-                                    <p:selectOneRadio id="phq_9" value="#{prontoParaPararController.prontoParaParar.phq9}" required="true">
+                                    <p:selectOneRadio id="phq_9" value="#{prontoParaPararController.prontoParaParar.phq9}" required="true" styleClass="radio-inline">
                                         <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
                                         <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>

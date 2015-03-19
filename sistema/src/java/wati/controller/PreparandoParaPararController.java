@@ -11,6 +11,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.naming.NamingException;
+import org.hibernate.validator.internal.util.logging.Messages;
 import wati.model.PageNavigation;
 import wati.model.ProntoParaParar;
 import wati.model.User;
@@ -64,10 +65,9 @@ public class PreparandoParaPararController extends BaseController {
         int sum1 = this.phq2_1;
         int sum2 = this.phq2_2;
         int sumTotal = sum1 + sum2;
-        System.out.println("Soma:" + sumTotal);
         if((1<=sumTotal && sumTotal<=4) && question2 == 1 ){
-            texto = "resultado para soma entre e 1e4, e resposta sim";
-            //System.out.println("resultado para soma entre e 1e4, e resposta sim");
+            texto = this.getText("acompanhamento.fat.li.4a"); // Use this to insert feedback directly from the translation sheet.
+            // texto =  "resultado para soma entre e 1e4, e resposta sim";
         }else if((1<=sumTotal && sumTotal<=4) && question2 != 1){
             texto = "resultado para soma entre e 1e4, e resposta não";
             //System.out.println("resultado para soma entre e 1e4, e resposta não");
@@ -91,8 +91,6 @@ public class PreparandoParaPararController extends BaseController {
     public void setTexto(String texto) {
         this.texto = texto;
     }
-        
-        
         
         
         
