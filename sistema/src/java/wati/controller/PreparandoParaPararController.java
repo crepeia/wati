@@ -4,18 +4,10 @@
  */
 package wati.controller;
 
-import java.util.PropertyResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.naming.NamingException;
-import org.hibernate.validator.internal.util.logging.Messages;
-import wati.model.PageNavigation;
-import wati.model.ProntoParaParar;
 import wati.model.User;
-import wati.persistence.GenericDAO;
 
 /**
  *
