@@ -20,72 +20,73 @@ public class PreparandoParaPararController extends BaseController {
     private int question1;
     private int question2;
     private String texto;
-    
+
     private int phq2_1;
     private int phq2_2;
-    
 
     public PreparandoParaPararController() {
         this.question1 = 3;
         this.question2 = 3;
         this.texto = "";
     }
-	
-	public String prontoParaPararDeFumar() {
-		
-		Object obj = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loggedUser");
-		if ( obj != null ) {
-			User user = (User) obj;
-			if ( user.getId() > 0 ) {
-				return "pronto-para-parar-de-fumar-introducao.xhtml";
-			}
-		}
-		
-		return "cadastrar-nova-conta.xhtml";
-		
-	}
-        
-        /*public void avaliar(){
-            if(question1 == 1 || question2 == 1)
-                texto = this.getText("preparando.aed.p.2");
-            else
-                texto = this.getText("preparando.aed.p.3");
+
+    public String prontoParaPararDeFumar() {
+
+        Object obj = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loggedUser");
+        if (obj != null) {
+            User user = (User) obj;
+            if (user.getId() > 0) {
+                return "pronto-para-parar-de-fumar-introducao.xhtml";
+            }
+        }
+
+        return "cadastrar-nova-conta.xhtml";
+
+    }
+
+    /*public void avaliar(){
+     if(question1 == 1 || question2 == 1)
+     texto = this.getText("preparando.aed.p.2");
+     else
+     texto = this.getText("preparando.aed.p.3");
             
-        }*/
-        
-    public void evaluateScalePhq2(){
+     }*/
+    
+    
+    /**
+     * Method which computes the Patient Health Questionnaire 2 included on page
+     * preparando-parar-de-fumar-ansiedade-e-depressao.xhtml.
+     */
+    public void evaluateScalePhq2() {
         int sum1 = this.phq2_1;
         int sum2 = this.phq2_2;
         int sumTotal = sum1 + sum2;
-        if((1<=sumTotal && sumTotal<=4) && question2 == 1 ){
-            texto = this.getText("acompanhamento.fat.li.4a"); // Use this to insert feedback directly from the translation sheet.
-            // texto =  "resultado para soma entre e 1e4, e resposta sim";
-        }else if((1<=sumTotal && sumTotal<=4) && question2 != 1){
-            texto = "resultado para soma entre e 1e4, e resposta não";
-            //System.out.println("resultado para soma entre e 1e4, e resposta não");
-        }else if((5<=sumTotal && sumTotal<=8) && question2 == 1){
-            texto = "resultado para soma entre e 5a8, e resposta sim";
-            //System.out.println("resultado para soma entre e 5a8, e resposta sim");
-        } else if((5<=sumTotal && sumTotal<=8) && question2 != 1){
-            texto = "resultado para soma entre e 5a8, e resposta não";
-            //System.out.println("resultado para soma entre e 5a8, e resposta sim");
-        }else
-            texto = "resposta caso nao responda nada";
-            //System.out.println("resposta caso nao responda nada");
+        if ((1 <= sumTotal && sumTotal <= 4) && question2 == 1) {
+            texto = this.getText("feedback.dea.3");
+        } else if ((1 <= sumTotal && sumTotal <= 4) && question2 != 1) {
+            texto = this.getText("feedback.dea.1");
+        } else if ((5 <= sumTotal && sumTotal <= 8) && question2 == 1) {
+            texto = this.getText("feedback.dea.4");
+        } else if ((5 <= sumTotal && sumTotal <= 8) && question2 != 1) {
+            texto = this.getText("feedback.dea.2");
+        } else {
+            texto = this.getText("feedback.phq9.no");
+        }
     }
-     
-       
 
+    /**
+     * Returns texto feedback from the class evaluateScalePhq2
+     *
+     * @return the text field from PHQ questionnaire.
+     */
     public String getTexto() {
-         return texto;
+        return texto;
     }
 
     public void setTexto(String texto) {
         this.texto = texto;
     }
-        
-        
-        
+
     public int getQuestion1() {
         return question1;
     }
@@ -117,10 +118,5 @@ public class PreparandoParaPararController extends BaseController {
     public void setPhq2_2(int phq_2) {
         this.phq2_2 = phq_2;
     }
-    
-    
-        
-        
 
-    
 }
