@@ -102,8 +102,6 @@ public class ProntoParaParar extends BaseController implements Serializable {
     
     // FTND - Nicotine Dependence Scale
     
-    @Column(name="ftnd_fumaDiariamente")
-    private Integer ftndFumaDiariamente; 
     @Column(name = "ftnd_1")
     private Integer ftnd1;
     @Column(name = "ftnd_2")
@@ -538,8 +536,6 @@ public class ProntoParaParar extends BaseController implements Serializable {
         this.phq9 = phq9;
     }
     
-    // Henrique criou isto. Grandes chances de merda.
-    // FTND Scale - Nicotine Dependence
     public Integer getFtnd1() {
         return ftnd1;
     }
@@ -607,20 +603,11 @@ public class ProntoParaParar extends BaseController implements Serializable {
         this.mot1 = mot2;
     }
     
-    
 
     private void append(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public Integer getFtndFumaDiariamente() {
-        return ftndFumaDiariamente;
-    }
-
-    public void setFtndFumaDiariamente(Integer ftndFumaDiariamente) {
-        this.ftndFumaDiariamente = ftndFumaDiariamente;
-    }
-    
     
     
     

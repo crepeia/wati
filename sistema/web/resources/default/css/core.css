@@ -609,6 +609,10 @@ INDEX***********************/
     padding: 20px 0 0 10px;
 }
 
+#signup-terms a{
+    color:#163f75;
+}
+
 #signupsubmit {
     padding:0 10px;
     width:440px;
