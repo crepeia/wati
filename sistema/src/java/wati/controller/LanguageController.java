@@ -63,6 +63,8 @@ public class LanguageController extends BaseController<Object> {
             return "images/viva-sin-tabaco.png";
         } else if (locale.getLanguage().contains("de")) {
             return "images/lebe-ohne-tabak.png";
+        } else if (locale.getLanguage().contains("ru")) {
+            return "images/viva-sem-tabaco-ru.png";                           
         } else {
             return "images/viva-sem-tabaco.png";
         }
