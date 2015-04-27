@@ -87,12 +87,17 @@
                                             4. #{messages['ftnd.4q']}
                                         </f:facet>
                                         
-                                        <p:selectOneRadio id="ftnd_4" value="#{prontoParaPararController.prontoParaParar.ftnd4}" required="true" styleClass="radio-inline">
+                                        <p:selectOneMenu id="ftnd_4" value="#{prontoParaPararController.prontoParaParar.ftnd4}" required="true" label="qtde">  
+                                                        <f:selectItem itemLabel="Quantidade" itemValue="" />  
+                                                        <f:selectItems value="#{prontoParaPararController.ftnd4Qtde}" />  
+                                                    </p:selectOneMenu>
+                                        
+                                       <!-- <p:selectOneRadio id="ftnd_4" value="#{prontoParaPararController.prontoParaParar.ftnd4}" required="true" styleClass="radio-inline">
                                             <f:selectItem itemLabel="#{messages['ftnd.r.4a']}" itemValue="1"/>
                                             <f:selectItem itemLabel="#{messages['ftnd.r.4b']}" itemValue="2"/>
                                             <f:selectItem itemLabel="#{messages['ftnd.r.4c']}" itemValue="3"/>
                                             <f:selectItem itemLabel="#{messages['ftnd.r.4d']}" itemValue="4"/>
-                                        </p:selectOneRadio>
+                                        </p:selectOneRadio>-->
                                     </h:panelGrid>
 
 

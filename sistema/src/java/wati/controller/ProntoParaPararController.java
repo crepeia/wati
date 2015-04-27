@@ -60,6 +60,8 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     
     private String texto1;
     private String texto2;
+    
+    private Map<String, String> ftnd4Qtde = new LinkedHashMap<String, String>();
 
     public ProntoParaPararController() {
         //super(ProntoParaParar.class);
@@ -70,7 +72,10 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
         }
-
+        for (int i = 1; i <= 150; i++) {
+            ftnd4Qtde.put(String.valueOf(i), String.valueOf(i));
+        }
+        
         GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
         int firstYear = gc.get(GregorianCalendar.YEAR);
         for (int i = firstYear; i < firstYear + 5; i++) {
@@ -690,16 +695,26 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         return null;
     }
     
-    public void teste(){
-        System.out.println("teste**teste");
-    }
+  
     // FTND - Fagerstrom test of nicotine dependence
     
     public String evaluateFagerstrom(){
+        int sum4;
+        int valor = prontoParaParar.getFtnd4();
+        if(valor <= 30){
+            sum4 = 1;
+        }else if(valor >= 31 && valor <= 50)
+            sum4 = 2;
+        else if(valor >= 51 && valor <= 70)
+            sum4 = 3;
+        else
+            sum4 = 4;
+        
+        
         int sum1 = prontoParaParar.getFtnd1();
         int sum2 = prontoParaParar.getFtnd2();
         int sum3 = prontoParaParar.getFtnd3();
-        int sum4 = prontoParaParar.getFtnd4();
+       // int sum4 = prontoParaParar.getFtnd4();
         int sum5 = prontoParaParar.getFtnd5();
         int sum6 = prontoParaParar.getFtnd6();
         
@@ -714,7 +729,6 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             texto2 = "feedback.phq9.no";
         
         return null;
-
         
         }
     
@@ -738,6 +752,15 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     public void setTexto2(String texto2) {
         this.texto2 = texto2;
     }
+
+    public Map<String, String> getFtnd4Qtde() {
+        return ftnd4Qtde;
+    }
+
+    public void setFtnd4Qtde(Map<String, String> ftnd4Qtde) {
+        this.ftnd4Qtde = ftnd4Qtde;
+    }
+    
     
     
     
