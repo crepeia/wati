@@ -62,6 +62,17 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     private String texto2;
     
     private Map<String, String> ftnd4Qtde = new LinkedHashMap<String, String>();
+    
+    private String[] procPararFumarMarcados = null;
+    private static final int PNAD_A = 0;
+    private static final int PNAD_B = 1;
+    private static final int PNAD_C = 2;
+    private static final int PNAD_D = 3;
+    private static final int PNAD_E = 4;
+    private static final int PNAD_F = 5;
+    private static final int PNAD_G = 6;
+    private static final int PNAD_H = 7;
+    
 
     public ProntoParaPararController() {
         //super(ProntoParaParar.class);
@@ -761,7 +772,111 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         this.ftnd4Qtde = ftnd4Qtde;
     }
     
-    
+    public String procPararFumar() {
+        this.prontoParaParar.limparProcPararFumar();
+        
+        for (String string : procPararFumarMarcados){
+            switch(Integer.valueOf(string)){
+                case PNAD_A: 
+                    this.prontoParaParar.setPnadA(true);
+                    break;
+                case PNAD_B: 
+                    this.prontoParaParar.setPnadB(true);
+                    break;
+                case PNAD_C: 
+                    this.prontoParaParar.setPnadC(true);
+                    break;
+                case PNAD_D: 
+                    this.prontoParaParar.setPnadD(true);
+                    break;
+                case PNAD_E: 
+                    this.prontoParaParar.setPnadE(true);
+                    break;
+                case PNAD_F: 
+                    this.prontoParaParar.setPnadF(true);
+                    break;
+                case PNAD_G: 
+                    this.prontoParaParar.setPnadG(true);
+                    break;
+                case PNAD_H: 
+                    this.prontoParaParar.setPnadH(true);
+                    break;
+                      
+            }
+        }
+        try {
+            this.getDaoBase().insertOrUpdate(prontoParaParar, this.getEntityManager());
+            //return "pronto-para-parar-de-fumar-depressao.xhtml";
+        } catch (SQLException ex) {
+            Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public String[] getProcPararFumarMarcados() {
+        if(this.procPararFumarMarcados == null){
+            ProntoParaParar ppp = this.getProntoParaParar();
+            int count = 0;
+            if(ppp.isPnadA())
+                count++;
+            if(ppp.isPnadB())
+                count++;
+            if(ppp.isPnadC())
+                count++;
+            if(ppp.isPnadD())
+                count++;
+            if(ppp.isPnadE())
+                count++;
+            if(ppp.isPnadF())
+                count++;
+            if(ppp.isPnadG())
+                count++;
+            if(ppp.isPnadH())
+                count++;
+            
+            this.procPararFumarMarcados = new String[count];
+            count = 0;
+            if (ppp.isPnadA()) {
+                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_A);
+                count++;
+            }
+            if (ppp.isPnadB()) {
+                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_B);
+                count++;
+            }
+            if (ppp.isPnadC()) {
+                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_C);
+                count++;
+            }
+            if (ppp.isPnadD()) {
+                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_D);
+                count++;
+            }
+            if (ppp.isPnadE()) {
+                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_E);
+                count++;
+            }
+            if (ppp.isPnadF()) {
+                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_F);
+                count++;
+            }
+            if (ppp.isPnadG()) {
+                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_G);
+                count++;
+            }
+            if (ppp.isPnadH()) {
+                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_H);
+                count++;
+            }
+            
+        }
+        
+        return procPararFumarMarcados;
+    }
+
+    public void setProcPararFumarMarcados(String[] procPararFumarMarcados) {
+        this.procPararFumarMarcados = procPararFumarMarcados;
+    }
     
     
 

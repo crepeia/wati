@@ -122,6 +122,24 @@ public class ProntoParaParar extends BaseController implements Serializable {
     @Column(name="mot_02")
     private int mot2;
     
+    @Column(name="pnad_a")
+    private boolean pnadA;
+    @Column(name="pnad_b")
+    private boolean pnadB;
+    @Column(name="pnad_c")
+    private boolean pnadC;
+    @Column(name="pnad_d")
+    private boolean pnadD;
+    @Column(name="pnad_e")
+    private boolean pnadE;
+    @Column(name="pnad_f")
+    private boolean pnadF;
+    @Column(name="pnad_g")
+    private boolean pnadG;
+    @Column(name="pnad_h")
+    private boolean pnadH;
+    
+    
 
     public ProntoParaParar() {
         this.dataInserido = ((GregorianCalendar) GregorianCalendar.getInstance()).getTime();
@@ -606,6 +624,83 @@ public class ProntoParaParar extends BaseController implements Serializable {
 
     private void append(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean isPnadA() {
+        return pnadA;
+    }
+
+    public void setPnadA(boolean pnadA) {
+        this.pnadA = pnadA;
+    }
+
+    public boolean isPnadB() {
+        return pnadB;
+    }
+
+    public void setPnadB(boolean pnadB) {
+        this.pnadB = pnadB;
+    }
+
+    public boolean isPnadC() {
+        return pnadC;
+    }
+
+    public void setPnadC(boolean pnadC) {
+        this.pnadC = pnadC;
+    }
+
+    public boolean isPnadD() {
+        return pnadD;
+    }
+
+    public void setPnadD(boolean pnadD) {
+        this.pnadD = pnadD;
+    }
+
+    public boolean isPnadE() {
+        return pnadE;
+    }
+
+    public void setPnadE(boolean pnadE) {
+        this.pnadE = pnadE;
+    }
+
+    public boolean isPnadF() {
+        return pnadF;
+    }
+
+    public void setPnadF(boolean pnadF) {
+        this.pnadF = pnadF;
+    }
+
+    public boolean isPnadG() {
+        return pnadG;
+    }
+
+    public void setPnadG(boolean pnadG) {
+        this.pnadG = pnadG;
+    }
+
+    public boolean isPnadH() {
+        return pnadH;
+    }
+
+    public void setPnadH(boolean pnadH) {
+        this.pnadH = pnadH;
+    }
+    
+    
+    
+     public void limparProcPararFumar(){
+        this.setPnadA(false);
+        this.setPnadB(false);
+        this.setPnadC(false);
+        this.setPnadD(false);
+        this.setPnadE(false);
+        this.setPnadF(false);
+        this.setPnadG(false);
+        this.setPnadH(false);
     }
 
     
