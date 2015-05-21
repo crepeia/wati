@@ -614,12 +614,12 @@ INDEX***********************/
 }
 
 #signupsubmit {
-    padding:0 10px;
     width:440px;
 }
 
 #signupp{
     float:left;
+    width:300px;
 }
 
 #signupbtn{      
