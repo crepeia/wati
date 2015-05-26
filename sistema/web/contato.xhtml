@@ -21,11 +21,8 @@
 
 
                 <div class="pagecontent">
-                    <h:graphicImage library="default" name="images/vst-paisagem.png" alt="#{messages['vivasemtabaco']}" id="vstpaisagem" />	
                     <h1>#{messages['contact.h1']}</h1>
                     <div id="contato">
-                        <h4>#{messages['contact.h4.a']}</h4>
-                        <h4>#{messages['contact.h4.b']}</h4>
                         <h2>#{messages['contact.h2']}</h2>
 
                         <p:ajaxStatus onstart="statusDialog.show()" onsuccess="statusDialog.hide()" />
@@ -43,14 +40,14 @@
                             <p:watermark for="sendEmail" value="#{messages['email']}" />
                             <p:message for="sendEmail" />
 
-                            <h4>#{messages['contact.h4.msg']}</h4>
+                            <h2>#{messages['contact.h4.msg']}</h2>
                             <p:inputTextarea id="msg" rows="4" cols="60" autoResize="false" value="#{contatoController.message}" required="true" label="#{messages['contact.h4.msg']}" />
                             <p:watermark for="msg" value="#{messages['contact.h4.msg']}" /> 
                             <p:message for="msg" />
 
 
                             <div id="signinsubmit">
-                                <p:commandButton id="send" value ="#{messages['send']}" update="@form" actionListener="#{contatoController.sendEmail}" />
+                                <p:commandButton styleClass="btngen" value ="#{messages['send']}" update="@form" actionListener="#{contatoController.sendEmail}" />
                             </div>
                         </h:form>
 

@@ -706,6 +706,11 @@ INDEX***********************/
     text-align: right;
 }
 
+
+#signinsubmit {
+    padding-top: 15px;
+}
+
 /* LOGIN.XHTML */ 
 
 #signinlogin {    
