@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <f:view locale="#{languageController.locale}">
+        <h:head>
+            <title>Queremos saber um pouco mais sobre você</title>
+            <w:head_comum />
+        </h:head>
+        <h:body>
+            <div id="corpo"> 
+                <!-- header -->    
+                <w:header />
+                <w:topmenu />
+
+                <!--mainmenu-->         	
+                <div class="main">
+
+                    <div class="pagecontent">
+                        
+                        <h1>Antes de começar</h1>
+                        <p>Gostaríamos de saber mais sobre você. Para isso responsa as perguntas abaixo</p>
+                        <ul>
+                            <li>Socio demográficas</li>
+                            <li>Fagerstrom 2 questões</li>
+                            <li>PHQ2</li>
+                            <li>Audit-C</li>
+                            <li>...</li>
+                        </ul>
+                        
+                        
+                        <div id="btnprog"><h:button class="btngen" value ="#{messages['register']}" outcome="./cadastrar-nova-conta.xhtml"  ></h:button></div>
+                        <div class="referencias">
+                            <p>#{messages['update.date']}</p>
+                        </div>                     
+
+                    </div>
+                </div>
+
+            </div><!-- end.corpo --> 
+
+            <!--Footer -->
+            <w:footer />
+        </h:body>
+    </f:view>
+</html>
+
