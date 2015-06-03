@@ -46,7 +46,7 @@ import wati.utility.Encrypter;
 @ManagedBean(name = "userController")
 @SessionScoped
 public class UserController extends BaseFormController<User> {
-
+    
     private User user;
 
     private String password;
@@ -65,12 +65,48 @@ public class UserController extends BaseFormController<User> {
     private Map<String, String> meses = new LinkedHashMap<String, String>();
     private Map<String, String> anos = new LinkedHashMap<String, String>();
     private String[] nomeMeses;
+    
+    private int grupo;
 
     @PersistenceContext
     private EntityManager entityManager = null;
 
     private GenericDAO dao = null;
-
+    /*
+    *   return grupo do usuario
+    *   0 para o grupo 1
+    *   1 para o grupo 2
+    */
+    private int GeraGrupoUsuario() {
+        Random generate = new Random();
+        int valor;
+        valor = generate.nextInt(1000);
+        valor = valor%2;
+        return (int)valor;
+    }
+    
+    public void defineGrupoUsuario(){
+       this.setGrupo(this.GeraGrupoUsuario());
+    }
+    
+    public void setGrupo(int grup){
+        this.grupo = grup;
+    }
+    
+    public int getGrupo(){
+        return this.grupo;
+    }
+    
+    public String GrupoPaginaDestino(){
+        if(this.getGrupo()==0){
+            return "queremos-saber-mais-sobre-voce_1.xhtml";
+        }else if (this.getGrupo()==1){
+            return "queremos-saber-mais-sobre-voce_2.xhtml";
+        }
+        //caso ocorra algum erro
+        return "index.xhtml";
+    }
+    
     /**
      * Creates a new instance of UserController
      */
@@ -355,7 +391,14 @@ public class UserController extends BaseFormController<User> {
                 LoginController login = (LoginController) FacesContext.getCurrentInstance().getApplication().getELResolver().getValue(elContext, null, "loginController");
                 login.setUser(this.user);
                 login.setPassword(this.password);
-                login.loginDialog();
+                //login.loginDialog();
+                String url;
+                url = this.GrupoPaginaDestino();
+                try {
+                FacesContext.getCurrentInstance().getExternalContext().redirect(url);
+                }catch(IOException ex){
+                    //
+                }
                 ////////
                 this.clear();
             }
