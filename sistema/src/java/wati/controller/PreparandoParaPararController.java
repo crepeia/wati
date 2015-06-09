@@ -54,7 +54,7 @@ public class PreparandoParaPararController extends BaseController {
     
     
     /**
-     * Method which computes the Patient Health Questionnaire 2 included on page
+     * Method that computes the Patient Health Questionnaire 2 included at page
      * preparando-parar-de-fumar-ansiedade-e-depressao.xhtml.
      */
     public void evaluateScalePhq2() {
