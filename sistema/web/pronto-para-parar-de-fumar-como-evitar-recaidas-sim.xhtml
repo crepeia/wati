@@ -5,7 +5,8 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <f:view locale="#{languageController.locale}">
         <h:head>
             <title>#{messages['pronto.evitar.titlepage']} | #{messages['vivasemtabaco.title']}</title>
@@ -67,20 +68,20 @@
                                         </f:facet>
                                         
                                         <p:selectManyCheckbox value="#{prontoParaPararController.procPararFumarMarcados}" layout="pageDirection">  
-                                            <f:selectItem itemLabel="#{messages['pnad.3.a']}" itemValue="0" />                                      
-                                            <f:selectItem itemLabel="#{messages['pnad.3.b']}" itemValue="1" />  
-                                            <f:selectItem itemLabel="#{messages['pnad.3.c']}" itemValue="2" />  
-                                            <f:selectItem itemLabel="#{messages['pnad.3.d']}" itemValue="3" />                                      
-                                            <f:selectItem itemLabel="#{messages['pnad.3.e']}" itemValue="4" />                                      
-                                            <f:selectItem itemLabel="#{messages['pnad.3.f']}" itemValue="5" />                                      
-                                            <f:selectItem itemLabel="#{messages['pnad.3.g']}" itemValue="6" />                                      
-                                            <f:selectItem itemLabel="#{messages['pnad.3.h']}" itemValue="7" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.a']}" itemValue="a" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.b']}" itemValue="b" />  
+                                            <f:selectItem itemLabel="#{messages['pnad.3.c']}" itemValue="c" />  
+                                            <f:selectItem itemLabel="#{messages['pnad.3.d']}" itemValue="d" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.e']}" itemValue="e" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.f']}" itemValue="f" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.g']}" itemValue="g" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.h']}" itemValue="h" />                                      
                                         </p:selectManyCheckbox> 
 
                                     </h:panelGrid>
 
                                     <div>
-                                        <p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{preparandoParaPararController.avaliar()}" process="@all">
+                                        <p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{prontoParaPararController.procPararFumar()}" process="@all">
                                             <p:effect type="blind" event="click" for="basic">
                                                 <f:param name="mode" value="'show'" />
                                             </p:effect>
@@ -95,7 +96,16 @@
                                 <p:panel id="basic" style="display:none; margin-top:20px!important; padding-top: 10px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
                                     <div id="resultadoaval">
                                         <h2>#{messages['preparando.aed.result']}</h2>
-                                        <h:outputText id="texto" value="#{preparandoParaPararController.texto}" />  
+                                        <h:outputText id="texto" value="#{preparandoParaPararController.texto}" /> 
+                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadA}">A</ui:fragment>
+                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadB}">BB</ui:fragment>
+                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadC}">CCC</ui:fragment>
+                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadD}">DDDD</ui:fragment>
+                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadE}">EEEEE</ui:fragment>
+                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadF}">FFFFFF</ui:fragment>
+                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadG}">GGGGGGG</ui:fragment>
+                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadH}">HHHHHHHH</ui:fragment>
+                                        
                                     </div> 
 
                                 </p:panel>

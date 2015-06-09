@@ -64,14 +64,14 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     private Map<String, String> ftnd4Qtde = new LinkedHashMap<String, String>();
     
     private String[] procPararFumarMarcados = null;
-    private static final int PNAD_A = 0;
-    private static final int PNAD_B = 1;
-    private static final int PNAD_C = 2;
-    private static final int PNAD_D = 3;
-    private static final int PNAD_E = 4;
-    private static final int PNAD_F = 5;
-    private static final int PNAD_G = 6;
-    private static final int PNAD_H = 7;
+    private static final char PNAD_A = 'a';
+    private static final char PNAD_B = 'b';
+    private static final char PNAD_C = 'c';
+    private static final char PNAD_D = 'd';
+    private static final char PNAD_E = 'e';
+    private static final char PNAD_F = 'f';
+    private static final char PNAD_G = 'g';
+    private static final char PNAD_H = 'h';
     
 
     public ProntoParaPararController() {
@@ -672,10 +672,10 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }
 
     }
-    
+    /*
     public void testarMetodo(){
         System.out.println("***TESTE***TESTE***TESTE***");
-    }
+    }*/
         
  
     // PHQ9 - Patient Health Questionnaire
@@ -772,11 +772,11 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         this.ftnd4Qtde = ftnd4Qtde;
     }
     
-    public String procPararFumar() {
+    public void procPararFumar() {
         this.prontoParaParar.limparProcPararFumar();
         
         for (String string : procPararFumarMarcados){
-            switch(Integer.valueOf(string)){
+            switch(string.charAt(0)){
                 case PNAD_A: 
                     this.prontoParaParar.setPnadA(true);
                     break;
@@ -806,11 +806,10 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }
         try {
             this.getDaoBase().insertOrUpdate(prontoParaParar, this.getEntityManager());
-            //return "pronto-para-parar-de-fumar-depressao.xhtml";
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
+      
     }
 
     public String[] getProcPararFumarMarcados() {
@@ -878,6 +877,12 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         this.procPararFumarMarcados = procPararFumarMarcados;
     }
     
+    public void teste(){
+        for(String s:this.procPararFumarMarcados){
+            System.out.println(s);
+        }
+        
+    }
     
 
 }
