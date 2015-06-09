@@ -8,7 +8,7 @@
       xmlns:c="http://java.sun.com/jsp/jstl/core">
     <f:view locale="#{languageController.locale}">
         <h:head>
-            <title>#{messages['pronto.evitar.titlepage']} | #{messages['vivasemtabaco.title']}</title>
+            <title>#{messages['pronto.evitar.sim.titlepage']} - #{messages['pronto.evitar.titlepage']} | #{messages['vivasemtabaco.title']}</title>
             <w:head_comum />
         </h:head>
         <h:body>
@@ -25,37 +25,43 @@
 
                     <div class="pagecontent">
                         <div id="pagecont2">
-
                             <div id ="pagetop"> 
                                 <div id="progressbar">
                                     <p:progressBar value="77" labelTemplate="{value}%" displayOnly="true"/>                            
                                 </div>
                                 <div class="fotoframeclean">
-                                    <h:graphicImage  library="default" title="#{messages['pronto.img.title']}" name="images/stop-smoking.jpg" alt="#{messages['pronto.img.title']}" />
+                                    <h:graphicImage  library="default" title="#{messages['pronto.evitar.sim.img.title']}" name="images/stop-smoking.jpg" alt="#{messages['pronto.evitar.sim.img.title']}" />
                                 </div>
                             </div>
 
-                            <h1>#{messages['pronto.evitar.h1.1']}</h1>                        
-                            <p>#{messages['pronto.evitar.p.1']}</p>                                                                   
+                            <h1>#{messages['pronto.evitar.sim.h1.1']}</h1>
+                            <h2>#{messages['pronto.evitar.sim.h2.1']}</h2>                        
+                            <p>#{messages['pronto.evitar.sim.p.1']}</p>
+                            <p>#{messages['pronto.evitar.sim.p.2']}</p>
+
                             <h:form>
-                                <p:panel id="qrecaida" >                
-                                    <h:panelGrid columns="2" style="margin-bottom:10px;" cellpadding="10" id="questao1">                                                    
-                                        <p:selectOneRadio id="options" value="#{prontoParaPararController.prontoParaParar.tentouParar}" required="true">  
-                                            <f:selectItem itemLabel="#{messages['pronto.evitar.question.option.1']}" itemValue="true" />
-                                            <f:selectItem itemLabel="#{messages['pronto.evitar.question.option.2']}" itemValue="false" /> 
-                                        </p:selectOneRadio>                                   
+                                <p:panel id="questoes" >
+                                    <h:panelGrid columns="1"  cellpadding="5" id="questao1">
+                                        <f:facet name="header">  
+                                            #{messages['pronto.evitar.sim.question.label']}                                        
+                                        </f:facet>
+                                        <p:inputTextarea rows="2" cols="70" value="#{prontoParaPararController.prontoParaParar.evitarRecaida1}" id="campo1"/> 
+                                        <p:inputTextarea rows="2" cols="70" value="#{prontoParaPararController.prontoParaParar.evitarRecaida2}" id="campo2"/> 
+                                        <p:inputTextarea rows="2" cols="70" value="#{prontoParaPararController.prontoParaParar.evitarRecaida3}" id="campo3"/>                               
                                     </h:panelGrid>
-                                </p:panel>
+                                </p:panel>                            
+
                                 <div class="btnfloat">
                                     <div class="btn1">
-                                        <h:button class="btnback" value ="#{messages['back']}" outcome="./pronto-para-parar-de-fumar-metodos-de-parar.xhtml"></h:button>
+                                        <h:button class="btnback" value ="#{messages['back']}" outcome="./pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml"/>
                                     </div>
-                                    <div class="btn2">
-                                        <h:commandButton id="saveBtn" styleClass="btngen" value="#{messages['next']}" action="#{prontoParaPararController.recaidaTentouParar}"/>                                
+                                    <div class="btn2">                                    
+                                        <h:commandButton id="saveBtn" styleClass="btngen" value="#{messages['next']}" action="#{prontoParaPararController.recaidasAjudar}"/>
                                     </div>
                                 </div>
 
                             </h:form>                      
+
 
                             <div class="referencias">                            
                                 <p>#{messages['update.date']}</p>                            

@@ -8,7 +8,7 @@
       xmlns:c="http://java.sun.com/jsp/jstl/core">
     <f:view locale="#{languageController.locale}">
         <h:head>
-            <title>#{messages['pronto.evitar.sim.titlepage']} - #{messages['pronto.evitar.titlepage']} | #{messages['vivasemtabaco.title']}</title>
+            <title>#{messages['pronto.evitar.titlepage']} | #{messages['vivasemtabaco.title']}</title>
             <w:head_comum />
         </h:head>
         <h:body>
@@ -25,43 +25,94 @@
 
                     <div class="pagecontent">
                         <div id="pagecont2">
+
                             <div id ="pagetop"> 
                                 <div id="progressbar">
                                     <p:progressBar value="77" labelTemplate="{value}%" displayOnly="true"/>                            
                                 </div>
                                 <div class="fotoframeclean">
-                                    <h:graphicImage  library="default" title="#{messages['pronto.evitar.sim.img.title']}" name="images/stop-smoking.jpg" alt="#{messages['pronto.evitar.sim.img.title']}" />
+                                    <h:graphicImage  library="default" title="#{messages['pronto.img.title']}" name="images/stop-smoking.jpg" alt="#{messages['pronto.img.title']}" />
                                 </div>
                             </div>
 
-                            <h1>#{messages['pronto.evitar.sim.h1.1']}</h1>
-                            <h2>#{messages['pronto.evitar.sim.h2.1']}</h2>                        
-                            <p>#{messages['pronto.evitar.sim.p.1']}</p>
-                            <p>#{messages['pronto.evitar.sim.p.2']}</p>
-
+<!--                            <h1>#{messages['pronto.evitar.h1.1']}</h1>                        
+                            <p>#{messages['pronto.evitar.p.1']}</p>-->
+                                    
+                            <h1>Saiba mais sobre os métodos que usou parar parar de fumar </h1>                        
+                            <p>Fumantes geralmente tentam parar de fumar mais de uma vez e de diferentes maneiras.</p> 
+                            <p>No entanto, somente algumas das maneiras funcionam comprovadamente. Saiba mais abaixo.</p>
+                               
+                            
                             <h:form>
-                                <p:panel id="questoes" >
-                                    <h:panelGrid columns="1"  cellpadding="5" id="questao1">
-                                        <f:facet name="header">  
-                                            #{messages['pronto.evitar.sim.question.label']}                                        
-                                        </f:facet>
-                                        <p:inputTextarea rows="2" cols="70" value="#{prontoParaPararController.prontoParaParar.evitarRecaida1}" id="campo1"/> 
-                                        <p:inputTextarea rows="2" cols="70" value="#{prontoParaPararController.prontoParaParar.evitarRecaida2}" id="campo2"/> 
-                                        <p:inputTextarea rows="2" cols="70" value="#{prontoParaPararController.prontoParaParar.evitarRecaida3}" id="campo3"/>                               
+                               
+                                
+                                <div id="quitmethods">
+                                
+                                <p:panel id="questoes" style="margin-top:60px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
+
+                                    <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="sd4">  
+                                        
+                                        <h4>#{messages['sd.4']}</h4>
+                                           
+                                        <p:selectOneMenu id="day" value="#{userController.dia}" required="true" label="#{messages['naccount.day']}">  
+                                            <f:selectItem itemLabel="0" itemValue="0" />  
+                                            <f:selectItems value="#{userController.dias}" />  
+                                        </p:selectOneMenu>
                                     </h:panelGrid>
-                                </p:panel>                            
+
+
+                                    <h:panelGrid columns="1" style="margin-bottom: 10px" cellpadding="10" id="ftnd1">                                    
+                                        <f:facet name="header">
+                                            #{messages['pnad.3']}
+                                        </f:facet>
+                                        
+                                        <p:selectManyCheckbox value="#{prontoParaPararController.procPararFumarMarcados}" layout="pageDirection">  
+                                            <f:selectItem itemLabel="#{messages['pnad.3.a']}" itemValue="0" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.b']}" itemValue="1" />  
+                                            <f:selectItem itemLabel="#{messages['pnad.3.c']}" itemValue="2" />  
+                                            <f:selectItem itemLabel="#{messages['pnad.3.d']}" itemValue="3" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.e']}" itemValue="4" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.f']}" itemValue="5" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.g']}" itemValue="6" />                                      
+                                            <f:selectItem itemLabel="#{messages['pnad.3.h']}" itemValue="7" />                                      
+                                        </p:selectManyCheckbox> 
+
+                                    </h:panelGrid>
+
+                                    <div>
+                                        <p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{preparandoParaPararController.avaliar()}" process="@all">
+                                            <p:effect type="blind" event="click" for="basic">
+                                                <f:param name="mode" value="'show'" />
+                                            </p:effect>
+                                        </p:commandButton>                                        
+                                    </div>
+
+                                </p:panel>  
+                                    
+                                </div>    
+
+
+                                <p:panel id="basic" style="display:none; margin-top:20px!important; padding-top: 10px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
+                                    <div id="resultadoaval">
+                                        <h2>#{messages['preparando.aed.result']}</h2>
+                                        <h:outputText id="texto" value="#{preparandoParaPararController.texto}" />  
+                                    </div> 
+
+                                </p:panel>
+
 
                                 <div class="btnfloat">
                                     <div class="btn1">
-                                        <h:button class="btnback" value ="#{messages['back']}" outcome="./pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml"/>
+                                        <h:button class="btnback" value ="#{messages['back']}" outcome="./pronto-para-parar-de-fumar-metodos-de-parar.xhtml"/>
                                     </div>
-                                    <div class="btn2">                                    
-                                        <h:commandButton id="saveBtn" styleClass="btngen" value="#{messages['next']}" action="#{prontoParaPararController.recaidasAjudar}"/>
+                                    
+                                    <!-- Henrique modificou este código, avaliar se está gravando na base de dados. Provavelmente não.-->
+                                    <div class="btn2">
+                                        <h:button id="saveBtn" styleClass="btngen" value="#{messages['next']}" outcome="pronto-para-parar-de-fumar-como-evitar-recaidas-sim-aprendendo-com-erros.xhtml"/>                                
                                     </div>
                                 </div>
 
                             </h:form>                      
-
 
                             <div class="referencias">                            
                                 <p>#{messages['update.date']}</p>                            
