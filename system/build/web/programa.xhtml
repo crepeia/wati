@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
+    <f:view locale="#{languageController.locale}">
+        <h:head>
+            <title>#{messages['program.titlepage']}</title>
+            <w:head_comum />
+        </h:head>
+        <h:body>
+            <div id="corpo"> 
+                <!-- header -->    
+                <w:header />
+                <w:topmenu />
+
+                <!--mainmenu-->         	
+                <div class="main">
+
+
+                    <div class="pagecontent">
+
+                        <h1>#{messages['program.h1.program']}</h1>                    
+                        <h:graphicImage library="default" name="images/felicidade.png" alt="#{messages['program.img']}" id="artigotabaco" />
+                        <h2>#{messages['program.h2.objective']}</h2>
+                        <p>#{messages['program.p.objective']}</p>
+                        <h2>#{messages['program.h2.how']}</h2>
+                        <p>#{messages['program.p.how1']}</p>
+                        <p>#{messages['program.p.how2a']} <h:outputLink value="http://www.hon.ch/HONcode/Webmasters/intro.html"> #{messages['program.p.how2b']}</h:outputLink>.</p>                    
+                        <p>#{messages['program.p.how3']}</p>
+                        <h2>#{messages['program.h2.important']}</h2>
+                        <p>#{messages['program.p.important']}</p>                    
+                        <div id="btnprog"><h:button class="btngen" value ="#{messages['register']}" outcome="./cadastrar-nova-conta.xhtml"  ></h:button></div>
+                        <div class="referencias">
+                            <p>#{messages['update.date']}</p>
+                        </div>                     
+
+                    </div>
+                </div>
+
+            </div><!-- end.corpo --> 
+
+            <!--Footer -->
+            <w:footer />
+        </h:body>
+    </f:view>
+</html>
+
