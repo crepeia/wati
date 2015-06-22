@@ -732,12 +732,12 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         int sumTotal = sum1 + sum2 + sum3 + sum4 + sum5 + sum6;
         
         if(sumTotal >=6 && sumTotal <= 10)
-            texto2 = "feedback.ftnd.1";
+            texto2 = this.getText("feedback.ftnd.1");
             
         else if(sumTotal >= 11 && sumTotal <= 16){
-            texto2 = "feedback.ftnd.2";
+            texto2 = this.getText("feedback.ftnd.2");
         }else
-            texto2 = "feedback.phq9.no";
+            texto2 = this.getText("feedback.phq9.no");
         
         return null;
         

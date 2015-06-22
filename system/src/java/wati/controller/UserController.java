@@ -99,11 +99,15 @@ public class UserController extends BaseFormController<User> {
     
     public String GrupoPaginaDestino(){
         if(this.getGrupo()==0){
-            return "queremos-saber-mais-sobre-voce_1.xhtml";
+            // Return user to Intervention A
+            //return "queremos-saber-mais-sobre-voce_1.xhtml";
+            return "escolha-uma-etapa.xhtml";
         }else if (this.getGrupo()==1){
-            return "queremos-saber-mais-sobre-voce_2.xhtml";
+            // Return user to Intervention B
+            //return "queremos-saber-mais-sobre-voce_2.xhtml";
+            return "escolha-uma-etapa.xhtml";
         }
-        //caso ocorra algum erro
+        // In case of error, return to index page.
         return "index.xhtml";
     }
     

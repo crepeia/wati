@@ -263,7 +263,7 @@ public class LoginController extends BaseFormController<User> {
 
     }
 
-    //TODO -- arrumar a funcionalidade de deslogar do sistema
+    //TODO -- Fix the logout system functionality
     public String getLogout() {
 
         Logger.getLogger(LoginController.class.getName()).log(Level.INFO, this.getText("user") + this.getUser().getName() + this.getText("logout"));

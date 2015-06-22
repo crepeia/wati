@@ -618,7 +618,7 @@ public class ProntoParaParar extends BaseController implements Serializable {
     }
 
     public void setMot2(int mot2) {
-        this.mot1 = mot2;
+        this.mot2 = mot2;
     }
     
 
@@ -689,7 +689,6 @@ public class ProntoParaParar extends BaseController implements Serializable {
     public void setPnadH(boolean pnadH) {
         this.pnadH = pnadH;
     }
-    
     
     
      public void limparProcPararFumar(){

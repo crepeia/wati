@@ -36,131 +36,126 @@
                                 </div>
                             </div>
 
-<!--                            <h1>#{messages['pronto.evitar.h1.1']}</h1>                        
-                            <p>#{messages['pronto.evitar.p.1']}</p>-->
-                                    
-                            <h1>Você tentou os melhores métodos quando tentou parar?</h1>                        
-                            <p>Fumantes geralmente tentam parar de diferentes maneiras e várias vezes antes de conseguir parar para sempre.</p> 
-                            <p>No entanto, algumas maneiras funcionam mais. Saiba mais abaixo.</p>
-                               
-                            
+                            <h1>#{messages['pronto.evitar.h1.1']}</h1>                        
+                            <p>#{messages['pronto.evitar.p.2']}</p> 
+                            <p>#{messages['pronto.evitar.p.3']}</p>
+
                             <h:form>
-                               
-                                
+
+
                                 <div id="quitmethods">
-                                
-                                <p:panel id="questoes" style="margin-top:60px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
 
-                                    <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="sd4">  
-                                        
-                                        <h4>#{messages['sd.4']}</h4>
-                                           
-                                        <p:selectOneMenu id="day" value="#{userController.dia}" required="true" label="#{messages['naccount.day']}">  
-                                            <f:selectItem itemLabel="0" itemValue="0" />  
-                                            <f:selectItems value="#{userController.dias}" />  
-                                        </p:selectOneMenu>
-                                    </h:panelGrid>
+                                    <p:panel id="questoes" style="margin-top:60px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
+
+                                        <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="sd4">  
+
+                                            <h4>#{messages['sd.4']}</h4>
+
+                                            <p:selectOneMenu id="day" value="#{userController.dia}" required="true" label="#{messages['naccount.day']}">  
+                                                <f:selectItem itemLabel="0" itemValue="0" />  
+                                                <f:selectItems value="#{userController.dias}" />  
+                                            </p:selectOneMenu>
+                                        </h:panelGrid>
 
 
-                                    <h:panelGrid columns="1" style="margin-bottom: 10px" cellpadding="10" id="ftnd1">                                    
-                                        <f:facet name="header">
-                                            #{messages['pnad.3']}
-                                        </f:facet>
-                                        
-                                        <p:selectManyCheckbox value="#{prontoParaPararController.procPararFumarMarcados}" layout="pageDirection">  
-                                            <f:selectItem itemLabel="#{messages['pnad.3.a']}" itemValue="a" />
-                                            <f:selectItem itemLabel="#{messages['pnad.3.b']}" itemValue="b" />
-                                            <f:selectItem itemLabel="#{messages['pnad.3.c']}" itemValue="c" />
-                                            <f:selectItem itemLabel="#{messages['pnad.3.d']}" itemValue="d" />
-                                            <f:selectItem itemLabel="#{messages['pnad.3.e']}" itemValue="e" />
-                                            <f:selectItem itemLabel="#{messages['pnad.3.f']}" itemValue="f" />
-                                            <f:selectItem itemLabel="#{messages['pnad.3.g']}" itemValue="g" />
-                                            <f:selectItem itemLabel="#{messages['pnad.3.h']}" itemValue="h" />
-                                        </p:selectManyCheckbox> 
-                                    </h:panelGrid>
+                                        <h:panelGrid columns="1" style="margin-bottom: 10px" cellpadding="10" id="ftnd1">                                    
+                                            <f:facet name="header">
+                                                #{messages['pnad.3']}
+                                            </f:facet>
 
-                                    <div>
-                                        <p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{prontoParaPararController.procPararFumar()}" process="@all">
-                                            <p:effect type="blind" event="click" for="basic">
-                                                <f:param name="mode" value="'show'" />
-                                            </p:effect>
-                                        </p:commandButton>                                        
-                                    </div>
+                                            <p:selectManyCheckbox value="#{prontoParaPararController.procPararFumarMarcados}" layout="pageDirection">  
+                                                <f:selectItem itemLabel="#{messages['pnad.3.a']}" itemValue="a" />
+                                                <f:selectItem itemLabel="#{messages['pnad.3.b']}" itemValue="b" />
+                                                <f:selectItem itemLabel="#{messages['pnad.3.c']}" itemValue="c" />
+                                                <f:selectItem itemLabel="#{messages['pnad.3.d']}" itemValue="d" />
+                                                <f:selectItem itemLabel="#{messages['pnad.3.e']}" itemValue="e" />
+                                                <f:selectItem itemLabel="#{messages['pnad.3.f']}" itemValue="f" />
+                                                <f:selectItem itemLabel="#{messages['pnad.3.g']}" itemValue="g" />
+                                                <f:selectItem itemLabel="#{messages['pnad.3.h']}" itemValue="h" />
+                                            </p:selectManyCheckbox> 
+                                        </h:panelGrid>
 
-                                </p:panel>  
-                                    
+                                        <div>
+                                            <p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" actionListener="#{prontoParaPararController.procPararFumar()}" process="@all">
+                                                <p:effect type="blind" event="click" for="basic">
+                                                    <f:param name="mode" value="'show'" />
+                                                </p:effect>
+                                            </p:commandButton>                                        
+                                        </div>
+
+                                    </p:panel>  
+
                                 </div>    
 
-
+                                <h:panelGroup id="texto" layout ="block">
                                 <p:panel id="basic" style="display:none; margin-top:20px!important; padding-top: 10px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
-                                    <div id="resultadoaval">
-                                        <h2>#{messages['preparando.aed.result']}</h2>
-                                        <h:outputText id="texto" value="#{preparandoParaPararController.texto}" /> 
-                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadA}">
-                                            <h4>#{messages['ready.avoid.relapses.yes.h4.1']}</h4>
-                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.1']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.2']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.3']}</li>
-                                            </ul>
-                                        </ui:fragment>
-                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadB}">
-                                            <h4>#{messages['ready.avoid.relapses.yes.h4.2']}</h4>
-                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.4']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.5']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.6']}</li>
-                                            </ul>
-                                        </ui:fragment>
-                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadC}">
-                                            <h4>#{messages['ready.avoid.relapses.yes.h4.3']}</h4>
-                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.7']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.8']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.9']}</li>
-                                            </ul>
-                                        </ui:fragment>
-                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadD}">
-                                            <h4>#{messages['ready.avoid.relapses.yes.h4.4']}</h4>
-                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.10']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.11']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.12']}</li>
-                                            </ul>
-                                        </ui:fragment>
-                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadE}">
+                                                                        
+                                    <h2>#{messages['preparando.aed.result']}</h2>                                       
+                                    <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadA}">
+                                        <h4>#{messages['ready.avoid.relapses.yes.h4.1']}</h4>
+                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.1']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.2']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.3']}</li>
+                                        </ul>
+                                    </ui:fragment>
+                                    <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadB}">
+                                        <h4>#{messages['ready.avoid.relapses.yes.h4.2']}</h4>
+                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.4']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.5']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.6']}</li>
+                                        </ul>
+                                    </ui:fragment>
+                                    <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadC}">
+                                        <h4>#{messages['ready.avoid.relapses.yes.h4.3']}</h4>
+                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.7']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.8']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.9']}</li>
+                                        </ul>
+                                    </ui:fragment>
+                                    <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadD}">
+                                        <h4>#{messages['ready.avoid.relapses.yes.h4.4']}</h4>
+                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.10']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.11']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.12']}</li>
+                                        </ul>
+                                    </ui:fragment>
+                                    <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadE}">
                                         <h4>#{messages['ready.avoid.relapses.yes.h4.5']}</h4>
-                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.13']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.14']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.15']}</li>
-                                            </ul>
-                                        </ui:fragment>
-                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadF}">
+                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.13']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.14']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.15']}</li>
+                                        </ul>
+                                    </ui:fragment>
+                                    <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadF}">
                                         <h4>#{messages['ready.avoid.relapses.yes.h4.6']}</h4>
-                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.16']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.17']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.18']}</li>
-                                            </ul>
-                                        </ui:fragment>
-                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadG}">
+                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.16']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.17']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.18']}</li>
+                                        </ul>
+                                    </ui:fragment>
+                                    <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadG}">
                                         <h4>#{messages['ready.avoid.relapses.yes.h4.7']}</h4>
-                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.19']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.20']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.21']}</li>
-                                            </ul>
-                                        </ui:fragment>
-                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadH}">
-                                            <h4>#{messages['ready.avoid.relapses.yes.h4.8']}</h4>
-                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.22']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.23']}</li><br />
-                                                <li>#{messages['ready.avoid.relapses.yes.li.24']}</li>
-                                            </ul>
-                                        </ui:fragment>                                        
-                                    </div> 
+                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.19']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.20']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.21']}</li>
+                                        </ul>
+                                    </ui:fragment>
+                                    <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadH}">
+                                        <h4>#{messages['ready.avoid.relapses.yes.h4.8']}</h4>
+                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.22']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.23']}</li><br />
+                                            <li>#{messages['ready.avoid.relapses.yes.li.24']}</li>
+                                        </ul>
+                                    </ui:fragment>                                        
+
                                 </p:panel>
+                                </h:panelGroup>
 
                                 <div class="btnfloat">
                                     <div class="btn1">
-                                        <h:button class="btnback" value ="#{messages['back']}" outcome="./pronto-para-parar-de-fumar-metodos-de-parar.xhtml"/>
+                                        <h:button class="btnback" value ="#{messages['back']}" outcome="./pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml"/>
                                     </div>
-                                    
-                                    <!-- TO DO - Add user input on data base. Henrique -->
+
                                     <div class="btn2">
                                         <h:button id="saveBtn" styleClass="btngen" value="#{messages['next']}" outcome="pronto-para-parar-de-fumar-como-evitar-recaidas-sim-aprendendo-com-erros.xhtml"/>                                          
                                     </div>
