@@ -6,6 +6,8 @@ Por favor, resolver as pendências e copiá-las para a última sessão "Atividad
 
 Prioridade Alta
 ------------------------
+ * O sistema não está enviando mensagens de e-mail.
+ * Não é possível recuperar senhas de contas antigas, ou fazer o login.
  * Testar sistema de randomização - Felipe.
  * Implementar Feedback da página do PHQ-9. - Henrique
  * Verificar se a 2 barra de motivação está salvando os dados. - Henrique

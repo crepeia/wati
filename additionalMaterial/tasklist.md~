@@ -6,6 +6,7 @@ Por favor, resolver as pendências e copiá-las para a última sessão "Atividad
 
 Prioridade Alta
 ------------------------
+ * O sistema não está enviando mensagens de e-mail.
  * Testar sistema de randomização - Felipe.
  * Implementar Feedback da página do PHQ-9. - Henrique
  * Verificar se a 2 barra de motivação está salvando os dados. - Henrique
@@ -29,4 +30,4 @@ Prioridade Baixa
 
 Atividades Completas
 -------------------------
-* Criação de script para exportar dados da folha de tradução diretamente para o netbeans.
+* Criação de script para exportar dados da folha de tradução diretamente para o netbeans. - Henrique
