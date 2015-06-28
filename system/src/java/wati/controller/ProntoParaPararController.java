@@ -820,54 +820,54 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         if(this.procPararFumarMarcados == null){
             ProntoParaParar ppp = this.getProntoParaParar();
             int count = 0;
-            if(ppp.isPnadA())
+            if(ppp.isPnadA()!=null && ppp.isPnadA())
                 count++;
-            if(ppp.isPnadB())
+            if(ppp.isPnadB()!=null && ppp.isPnadB())
                 count++;
-            if(ppp.isPnadC())
+            if(ppp.isPnadC()!=null && ppp.isPnadC())
                 count++;
-            if(ppp.isPnadD())
+            if(ppp.isPnadD()!=null && ppp.isPnadD())
                 count++;
-            if(ppp.isPnadE())
+            if(ppp.isPnadE()!=null && ppp.isPnadE())
                 count++;
-            if(ppp.isPnadF())
+            if(ppp.isPnadF()!=null && ppp.isPnadF())
                 count++;
-            if(ppp.isPnadG())
+            if(ppp.isPnadG()!=null && ppp.isPnadG())
                 count++;
-            if(ppp.isPnadH())
+            if(ppp.isPnadH()!=null && ppp.isPnadH())
                 count++;
             
             this.procPararFumarMarcados = new String[count];
             count = 0;
-            if (ppp.isPnadA()) {
+            if (ppp.isPnadA()!=null && ppp.isPnadA()) {
                 this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_A);
                 count++;
             }
-            if (ppp.isPnadB()) {
+            if (ppp.isPnadB()!=null && ppp.isPnadB()) {
                 this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_B);
                 count++;
             }
-            if (ppp.isPnadC()) {
+            if (ppp.isPnadC()!=null && ppp.isPnadC()) {
                 this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_C);
                 count++;
             }
-            if (ppp.isPnadD()) {
+            if (ppp.isPnadD()!=null && ppp.isPnadD()) {
                 this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_D);
                 count++;
             }
-            if (ppp.isPnadE()) {
+            if (ppp.isPnadE()!=null && ppp.isPnadE()) {
                 this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_E);
                 count++;
             }
-            if (ppp.isPnadF()) {
+            if (ppp.isPnadF()!=null && ppp.isPnadF()) {
                 this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_F);
                 count++;
             }
-            if (ppp.isPnadG()) {
+            if (ppp.isPnadG()!=null && ppp.isPnadG()) {
                 this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_G);
                 count++;
             }
-            if (ppp.isPnadH()) {
+            if (ppp.isPnadH()!=null && ppp.isPnadH()) {
                 this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_H);
                 count++;
             }
