@@ -335,7 +335,11 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                     List<ProntoParaParar> ppps = this.getDaoBase().list("usuario", object, this.getEntityManager());
                     if (ppps.size() > 0) {
                         this.prontoParaParar = ppps.get(0);
-                        this.gregorianCalendar.setTime(this.prontoParaParar.getDataParar());
+			if (this.prontoParaParar.getDataParar()==null) {
+			    this.prontoParaParar.setDataParar(this.gregorianCalendar.getTime());
+			} else {
+			    this.gregorianCalendar.setTime( this.prontoParaParar.getDataParar() );
+			}
                     } else {
                         this.prontoParaParar = new ProntoParaParar();
                         this.prontoParaParar.setDataParar(this.gregorianCalendar.getTime());

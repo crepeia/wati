@@ -26,6 +26,8 @@ import wati.controller.BaseController;
 @Table(name = "tb_pronto_para_parar")
 public class ProntoParaParar extends BaseController implements Serializable {
 
+    private static final int MOTIVATION_STANDARD_VALUE = 5;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -621,7 +623,10 @@ public class ProntoParaParar extends BaseController implements Serializable {
      * @return the mot1
      */
     public Integer getMot1() {
-        return mot1;
+        if (this.mot1==null) {
+	    this.mot1 = ProntoParaParar.MOTIVATION_STANDARD_VALUE; //standard value?
+	}
+	return mot1;
     }
 
     /**
@@ -635,6 +640,9 @@ public class ProntoParaParar extends BaseController implements Serializable {
      * @return the mot2
      */
     public Integer getMot2() {
+	if (this.mot2==null) {
+	    this.mot2 = ProntoParaParar.MOTIVATION_STANDARD_VALUE; //standard value?
+	}
         return mot2;
     }
 
