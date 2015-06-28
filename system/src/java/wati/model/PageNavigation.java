@@ -1,5 +1,6 @@
 package wati.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -17,7 +19,7 @@ import javax.persistence.Temporal;
  */
 @Entity
 @Table(name = "tb_page_navigation")
-public class PageNavigation {
+public class PageNavigation implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,6 +33,8 @@ public class PageNavigation {
     private String url;
     @ManyToOne
     private User user;
+    @ManyToOne
+    private UserAgent userAgent;
 
     public long getId() {
         return id;
@@ -72,4 +76,19 @@ public class PageNavigation {
         this.user = user;
     }
 
+    /**
+     * @return the userAgent
+     */
+    public UserAgent getUserAgent() {
+        return userAgent;
+    }
+
+    /**
+     * @param userAgent the userAgent to set
+     */
+    public void setUserAgent(UserAgent userAgent) {
+        this.userAgent = userAgent;
+    }
+
 }
+

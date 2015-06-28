@@ -207,8 +207,11 @@ public class GenericDAO<T> implements Serializable {
 						+ " obj where obj." + campoStr + " is Null");
 			}
 			query.setHint("toplink.refresh", "true");
-			Object obj = query.getSingleResult();
-			return obj == null ? null : (T) obj;
+                        //to fix: java.sql.SQLException: javax.persistence.NoResultException: No entity found for query
+			//Object obj = query.getSingleResult();
+			//return obj == null ? null : (T) obj;
+                        List<T> list = query.getResultList();
+                        return list.isEmpty()? null: list.get(0);
 		} catch (Exception erro) {
 			throw new SQLException(erro);
 		}

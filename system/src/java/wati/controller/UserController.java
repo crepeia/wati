@@ -213,7 +213,7 @@ public class UserController extends BaseFormController<User> {
     }
 
     public void sendEmailPassword() throws SQLException {
-
+	Logger.getLogger(UserController.class.getName()).log(Level.INFO, null, "User reseting password.");
         try {
             List<User> userList = this.getDaoBase().list("email", this.email, this.getEntityManager());
             if (userList.isEmpty()) {
@@ -223,6 +223,8 @@ public class UserController extends BaseFormController<User> {
                 String name_user = userList.get(0).getName();
                 String email_user = userList.get(0).getEmail();
                 String from = "watiufjf@gmail.com";
+		
+		Logger.getLogger(UserController.class.getName()).log(Level.INFO, null, "User name: " + name_user + "\te-mail: " + email_user);
 
                 int code = this.generateCode();
 
@@ -248,7 +250,7 @@ public class UserController extends BaseFormController<User> {
                 user.setRecoverCode(code);
                 this.getDaoBase().insertOrUpdate(user, this.getEntityManager());
                 String message = this.getText("email.sent.password");
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
             }
         } catch (SQLException ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));

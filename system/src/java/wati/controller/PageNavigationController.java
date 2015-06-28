@@ -11,6 +11,7 @@ import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import wati.model.PageNavigation;
 import wati.model.User;
+import wati.model.UserAgent;
 import wati.persistence.GenericDAO;
 
 /**
@@ -22,10 +23,13 @@ import wati.persistence.GenericDAO;
 public class PageNavigationController extends BaseController<PageNavigation> {
 
     private PageNavigation pageNavigation;
+    private GenericDAO<UserAgent> userAgentDAO;
+    private UserAgent currentUserAgent; //TODO: it is not used yet but this variable can be used to improve performance.
 
     public PageNavigationController() {
         try {
             this.daoBase = new GenericDAO<PageNavigation>(PageNavigation.class);
+            this.userAgentDAO = new GenericDAO<>( UserAgent.class );
         } catch (NamingException ex) {
             Logger.getLogger(PageNavigationController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -38,6 +42,8 @@ public class PageNavigationController extends BaseController<PageNavigation> {
         pageNavigation.setUrl(this.getURL());
         pageNavigation.setUser(this.getUser());
         try {
+            pageNavigation.setUserAgent(this.getUserAgent());
+            //pageNavigation.getUserAgent().getPageNavigation().add(pageNavigation); //TODO: is this necessary?
             this.daoBase.insert(pageNavigation, this.getEntityManager());
         } catch (SQLException ex) {
             Logger.getLogger(PageNavigationController.class.getName()).log(Level.SEVERE, null, ex);
@@ -65,6 +71,38 @@ public class PageNavigationController extends BaseController<PageNavigation> {
 	url = url.substring( url.lastIndexOf('/') + 1 );
         return url;
         
+    }
+    /*
+        This method verifies if the current user-agent is in database.
+        Yes; then return the current UserAgent.
+        No; then insert the user-agent and return an UserAgent object.
+    */
+    private UserAgent getUserAgent() throws SQLException {
+        HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+        String description = ((HttpServletRequest) request).getHeader("user-agent");
+        //TODO: to improve the performance (for instance, avoiding the unnecessary consults to the database?)
+        UserAgent ua = this.userAgentDAO.listOnce("description", description, this.getEntityManager());
+        if (ua == null) {
+            ua = new UserAgent();
+            ua.setDescription(description);
+            this.userAgentDAO.insert(ua, this.getEntityManager());
+        }
+        return ua;
+        
+    }
+
+    /**
+     * @return the currentUserAgent
+     */
+    public UserAgent getCurrentUserAgent() {
+        return currentUserAgent;
+    }
+
+    /**
+     * @param currentUserAgent the currentUserAgent to set
+     */
+    public void setCurrentUserAgent(UserAgent currentUserAgent) {
+        this.currentUserAgent = currentUserAgent;
     }
     
     

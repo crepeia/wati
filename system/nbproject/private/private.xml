@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/hp-gomide/wati/system/web/pronto-para-parar-de-fumar-como-evitar-recaidas-sim.xhtml</file>
-            <file>file:/home/hp-gomide/wati/system/src/java/wati/controller/ProntoParaPararController.java</file>
+            <file>file:/home/hedersb/workspace/wati/system/src/java/wati/controller/UserController.java</file>
+            <file>file:/home/hedersb/workspace/wati/system/src/java/wati/model/User.java</file>
+            <file>file:/home/hedersb/workspace/wati/system/src/java/wati/controller/PageNavigationController.java</file>
+            <file>file:/home/hedersb/workspace/wati/system/src/java/wati/model/ProntoParaParar.java</file>
+            <file>file:/home/hedersb/workspace/wati/system/src/java/wati/model/PageNavigation.java</file>
+            <file>file:/home/hedersb/workspace/wati/system/src/java/wati/model/UserAgent.java</file>
+            <file>file:/home/hedersb/workspace/wati/system/src/java/wati/persistence/UserDAO.java</file>
         </group>
     </open-files>
 </project-private>
