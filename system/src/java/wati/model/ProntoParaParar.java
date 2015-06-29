@@ -141,7 +141,7 @@ public class ProntoParaParar extends BaseController implements Serializable {
     @Column(name="pnad_h")
     private Boolean pnadH;
     
-    
+     
 
     public ProntoParaParar() {
         this.dataInserido = ((GregorianCalendar) GregorianCalendar.getInstance()).getTime();
@@ -657,7 +657,7 @@ public class ProntoParaParar extends BaseController implements Serializable {
      * @return the pnadA
      */
     public Boolean isPnadA() {
-        return pnadA;
+        return getPnadA();
     }
 
     /**
@@ -671,7 +671,7 @@ public class ProntoParaParar extends BaseController implements Serializable {
      * @return the pnadB
      */
     public Boolean isPnadB() {
-        return pnadB;
+        return getPnadB();
     }
 
     /**
@@ -685,7 +685,7 @@ public class ProntoParaParar extends BaseController implements Serializable {
      * @return the pnadC
      */
     public Boolean isPnadC() {
-        return pnadC;
+        return getPnadC();
     }
 
     /**
@@ -699,7 +699,7 @@ public class ProntoParaParar extends BaseController implements Serializable {
      * @return the pnadD
      */
     public Boolean isPnadD() {
-        return pnadD;
+        return getPnadD();
     }
 
     /**
@@ -713,7 +713,7 @@ public class ProntoParaParar extends BaseController implements Serializable {
      * @return the pnadE
      */
     public Boolean isPnadE() {
-        return pnadE;
+        return getPnadE();
     }
 
     /**
@@ -727,7 +727,7 @@ public class ProntoParaParar extends BaseController implements Serializable {
      * @return the pnadF
      */
     public Boolean isPnadF() {
-        return pnadF;
+        return getPnadF();
     }
 
     /**
@@ -741,7 +741,7 @@ public class ProntoParaParar extends BaseController implements Serializable {
      * @return the pnadG
      */
     public Boolean isPnadG() {
-        return pnadG;
+        return getPnadG();
     }
 
     /**
@@ -755,7 +755,7 @@ public class ProntoParaParar extends BaseController implements Serializable {
      * @return the pnadH
      */
     public Boolean isPnadH() {
-        return pnadH;
+        return getPnadH();
     }
 
     /**
@@ -763,6 +763,62 @@ public class ProntoParaParar extends BaseController implements Serializable {
      */
     public void setPnadH(Boolean pnadH) {
         this.pnadH = pnadH;
+    }
+
+    /**
+     * @return the pnadA
+     */
+    public Boolean getPnadA() {
+	return pnadA;
+    }
+
+    /**
+     * @return the pnadB
+     */
+    public Boolean getPnadB() {
+	return pnadB;
+    }
+
+    /**
+     * @return the pnadC
+     */
+    public Boolean getPnadC() {
+	return pnadC;
+    }
+
+    /**
+     * @return the pnadD
+     */
+    public Boolean getPnadD() {
+	return pnadD;
+    }
+
+    /**
+     * @return the pnadE
+     */
+    public Boolean getPnadE() {
+	return pnadE;
+    }
+
+    /**
+     * @return the pnadF
+     */
+    public Boolean getPnadF() {
+	return pnadF;
+    }
+
+    /**
+     * @return the pnadG
+     */
+    public Boolean getPnadG() {
+	return pnadG;
+    }
+
+    /**
+     * @return the pnadH
+     */
+    public Boolean getPnadH() {
+	return pnadH;
     }
 
 }
