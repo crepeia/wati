@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:cc="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
@@ -12,28 +12,101 @@
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
+        <footer class="page-footer white">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="grey-text">#{messages['vivasemtabaco']}</h5>
+                        <div class="divider"></div>
+                        <ul>
+                            <li><h:outputLink styleClass="grey-text" value="./index.xhtml">#{messages['footer.li1']}</h:outputLink></li>
+                            <li><h:outputLink styleClass="grey-text" value="./quem-somos-os-autores.xhtml">#{messages['footer.li2']}</h:outputLink></li>
+                            <li><h:outputLink styleClass="grey-text" value="./politica-do-site.xhtml">#{messages['footer.li3']}</h:outputLink></li>
+                            <li><h:outputLink styleClass="grey-text" value="./termos-de-uso.xhtml">#{messages['footer.li4']}</h:outputLink></li>
+                            <li><h:outputLink styleClass="grey-text" value="./contato.xhtml">#{messages['footer.li5']}</h:outputLink></li>                            
+                        </ul>
+                        
 
-        <div id ="logoscenter">
-            <h:outputLink value="http://www.ufjf.br" target="_blank"><h:graphicImage library="default" name="images/ufjf.png" alt="#{messages['ufjf']}" id="ufjf"/></h:outputLink>
-            <h:outputLink value="http://www.ufjf.br/crepeia" target="_blank"><h:graphicImage library="default" name="images/crepeia.png" alt="#{messages['crepeia']}" id="crepeia" /></h:outputLink>
-            <h:outputLink value="http://www.ufjf.br/deptocomputacao/" target="_blank"><h:graphicImage library="default" name="images/dcc-ufjf.png" alt="#{messages['dcc']}" id="csf"/></h:outputLink>
-            <h:outputLink value="http://www.fapemig.br/" target="_blank"><h:graphicImage library="default" name="images/fapemig.png" alt="#{messages['fapemig']}" id="mainfapemig" /></h:outputLink>
-            <h:outputLink value="http://www.cnpq.br/" target="_blank"><h:graphicImage library="default" name="images/cnpq.png" alt="#{messages['cnpq']}" id="cnpq" /></h:outputLink>
-            <h:outputLink value="http://www.capes.gov.br/" target="_blank"><h:graphicImage library="default" name="images/capes.png" alt="#{messages['capes']}" id="capes" /></h:outputLink>
-        </div>
+                    </div>
+                    <div class="col l6 s12">
+                        <h5 class="grey-text">#{messages['aboutus.h1.funding']}</h5>
+                        <div class="divider"></div>
+                        <br />
 
-        <div id="footer">
-            <ul class="urls">	
-                <li><h:outputLink value="./index.xhtml">#{messages['footer.li1']}</h:outputLink> | </li>
-                <li><h:outputLink value="./quem-somos-os-autores.xhtml">#{messages['footer.li2']}</h:outputLink> |</li>
-                <li><h:outputLink value="./politica-do-site.xhtml">#{messages['footer.li3']}</h:outputLink> |</li>
-                <li><h:outputLink value="./termos-de-uso.xhtml">#{messages['footer.li4']}</h:outputLink> |</li>
-                <li><h:outputLink value="./contato.xhtml">#{messages['footer.li5']}</h:outputLink></li>
-            </ul>     		
-            <p>#{messages['footer.description']}</p>
-            <p>#{messages['footer.contact']} | #{messages['update.date']}</p> 
-            <p/>
-        </div>
+                        <div class="hide-on-large-only">
+                            <ul>
+                                <li><h:outputLink styleClass="grey-text" value="http://www.ufjf.br">#{messages['ufjf']}</h:outputLink></li>
+                                <li><h:outputLink styleClass="grey-text" value="http://www.ufjf.br/crepeia">#{messages['crepeia']}</h:outputLink></li>
+                                <li><h:outputLink styleClass="grey-text" value="http://www.ufjf.br/deptocomputacao/">#{messages['dcc']}</h:outputLink></li>
+                                <li><h:outputLink styleClass="grey-text" value="http://www.capes.gov.br/">#{messages['capes']}</h:outputLink></li>
+                                <li><h:outputLink styleClass="grey-text" value="http://www.fapemig.br/">#{messages['fapemig']}</h:outputLink></li>
+                                <li><h:outputLink styleClass="grey-text" value="http://www.cnpq.br/">#{messages['cnpq']}</h:outputLink></li>                                
+                                
+                            </ul>
+                        </div>
+
+                        <div class="row">
+                            <div class="col l3 g3 s6 hide-on-med-and-down">
+                                <div class="center">
+                                    <h:outputLink value="http://www.ufjf.br" target="_blank"><h:graphicImage library="default" name="images/ufjf.png" alt="#{messages['ufjf']}" id="ufjf"/></h:outputLink>
+                                </div>
+                            </div>
+                            <div class="col l3 g3 s6 hide-on-med-and-down">
+                                <div class="center">
+                                    <h:outputLink value="http://www.ufjf.br/crepeia" target="_blank"><h:graphicImage library="default" name="images/crepeia.png" alt="#{messages['crepeia']}" id="crepeia" /></h:outputLink>
+                                </div>
+                            </div>
+                            <div class="col l3 g3 s6 hide-on-med-and-down">
+                                <div class="center">
+                                    <h:outputLink value="http://www.capes.gov.br/" target="_blank"><h:graphicImage library="default" name="images/capes.png" alt="#{messages['capes']}" id="capes" /></h:outputLink>                                    
+                                </div>
+                            </div>
+                            <div class="col l3 g3 s6 hide-on-med-and-down">
+                                <div class="center">
+                                    <h:outputLink value="http://www.fapemig.br/" target="_blank"><h:graphicImage library="default" name="images/fapemig.png" alt="#{messages['fapemig']}" id="mainfapemig" /></h:outputLink>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">                                                          
+                            <div class="col l3 g3 s6 hide-on-med-and-down">                                
+                                <h:outputLink value="http://www.cnpq.br/" target="_blank"><h:graphicImage library="default" name="images/cnpq.png" alt="#{messages['cnpq']}" id="cnpq" /></h:outputLink>
+                            </div>
+                            <div class="col l4 g3 s6 hide-on-med-and-down">                                
+                                <h:outputLink value="http://www.ufjf.br/deptocomputacao/" target="_blank"><h:graphicImage library="default" name="images/dcc-ufjf.png" alt="#{messages['dcc']}" id="csf" style="padding-left:15px;"/></h:outputLink>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    <span class="grey-text">#{messages['footer.description']}</span>
+                </div>
+            </div>
+        </footer>
+
+        <!--        <div id ="logoscenter">
+                    <h:outputLink value="http://www.ufjf.br" target="_blank"><h:graphicImage library="default" name="images/ufjf.png" alt="#{messages['ufjf']}" id="ufjf"/></h:outputLink>
+                    <h:outputLink value="http://www.ufjf.br/crepeia" target="_blank"><h:graphicImage library="default" name="images/crepeia.png" alt="#{messages['crepeia']}" id="crepeia" /></h:outputLink>
+                    <h:outputLink value="http://www.ufjf.br/deptocomputacao/" target="_blank"><h:graphicImage library="default" name="images/dcc-ufjf.png" alt="#{messages['dcc']}" id="csf"/></h:outputLink>
+                    <h:outputLink value="http://www.fapemig.br/" target="_blank"><h:graphicImage library="default" name="images/fapemig.png" alt="#{messages['fapemig']}" id="mainfapemig" /></h:outputLink>
+                    <h:outputLink value="http://www.cnpq.br/" target="_blank"><h:graphicImage library="default" name="images/cnpq.png" alt="#{messages['cnpq']}" id="cnpq" /></h:outputLink>
+                    <h:outputLink value="http://www.capes.gov.br/" target="_blank"><h:graphicImage library="default" name="images/capes.png" alt="#{messages['capes']}" id="capes" /></h:outputLink>
+                </div>
+        
+                <div id="footer">
+                    <ul class="urls">	
+                        <li><h:outputLink value="./index.xhtml">#{messages['footer.li1']}</h:outputLink> | </li>
+                        <li><h:outputLink value="./quem-somos-os-autores.xhtml">#{messages['footer.li2']}</h:outputLink> |</li>
+                        <li><h:outputLink value="./politica-do-site.xhtml">#{messages['footer.li3']}</h:outputLink> |</li>
+                        <li><h:outputLink value="./termos-de-uso.xhtml">#{messages['footer.li4']}</h:outputLink> |</li>
+                        <li><h:outputLink value="./contato.xhtml">#{messages['footer.li5']}</h:outputLink></li>
+                    </ul>     		
+                    <p>#{messages['footer.description']}</p>
+                    <p>#{messages['footer.contact']} | #{messages['update.date']}</p> 
+                    <p/>
+                </div>-->
 
     </cc:implementation>
 </html>

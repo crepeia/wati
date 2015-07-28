@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:cc="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
@@ -11,16 +11,40 @@
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
-        <div class="topmenu">
-            <nav>
-                <ul>
-                    <li><h:outputLink value="./index.xhtml">#{messages['menu.top.li1']}</h:outputLink></li>
-                    <li><h:outputLink value="./programa.xhtml">#{messages['menu.top.li2']}</h:outputLink></li>
-                    <li><h:outputLink value="./quem-somos-os-autores.xhtml">#{messages['menu.top.li3']}</h:outputLink></li>
-                    <li><h:outputLink value="./contato.xhtml">#{messages['menu.top.li4']}</h:outputLink></li>
-                    <li><h:outputLink value="./para-pesquisadores.xhtml">#{messages['menu.top.li5']}</h:outputLink></li>
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#!">Português</a></li>
+            <li><a href="#!">Español</a></li>
+            <li><a href="#!">English</a></li>
+            <li><a href="#!">Deutsch</a></li>
+            <li><a href="#!">Russian</a></li>
+
+            <li><a href="#!">Russian</a></li>
+        </ul>
+
+        <nav class="white" role="navigation">
+            <div class="nav-wrapper container">
+                <div class="logo-container">
+                    <a href="#" class="brand-logo center-on-small-only"><h:graphicImage styleClass="icon" value="resources/default/images/vst-color.png"/><!--#{messages['vivasemtabaco']}--></a>
+                </div>                
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="./programa.xhtml">#{messages['menu.top.li2']}</a></li>                                        
+                    <li><a href="./quem-somos-os-autores.xhtml">#{messages['menu.top.li3']}</a></li>                    
+
+                    <li><a href="#">#{messages['signin']}</a></li>
+                    <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Idioma<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
-            </nav>
-        </div>
+
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#">#{messages['menu.top.li2']}</a></li>
+                    <li><a href="#">#{messages['menu.top.li3']}</a></li>
+                    <li><a href="#">#{messages['menu.top.li4']}</a></li>
+                    <li><a href="#">#{messages['menu.top.li5']}</a></li>
+                    <li class="divider"></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
+
     </cc:implementation>
 </html>

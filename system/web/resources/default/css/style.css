@@ -8,7 +8,7 @@
 
 nav ul a,
 nav .brand-logo {
-  color: #fff;
+  color: #4375b4;
 }
 
 p {
@@ -19,6 +19,10 @@ p {
   color: #26a69a;
 }
 
+.icon {
+    position:absolute;
+    padding-top: 13px;
+}
 .parallax-container {
   min-height: 380px;
   line-height: 0;
@@ -54,4 +58,7 @@ p {
 
 footer.page-footer {
   margin: 0;
+}
+steps h3 {
+    line-height: 1rem;
 }
