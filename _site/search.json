@@ -1,6 +1,22 @@
 [
 	
 		{
+		  "title"      : "Live without tobacco - version 0.3 released",
+		  "category"   : "news",
+		  "url"        : "//crepeia.github.com/wati/news/3rdrealease/",
+		  "date"       : "2015-07-29 00:00:00 -0300",
+		  "shortdate"  : "July 29, 2015"
+		} ,
+	
+		{
+		  "title"      : "Привет! Russian is now partially supported.",
+		  "category"   : "news",
+		  "url"        : "//crepeia.github.com/wati/news/russian/",
+		  "date"       : "2015-06-22 00:00:00 -0300",
+		  "shortdate"  : "June 22, 2015"
+		} ,
+	
+		{
 		  "title"      : "Live without tobacco - version 0.2 released",
 		  "category"   : "news",
 		  "url"        : "//crepeia.github.com/wati/news/1strelease/",

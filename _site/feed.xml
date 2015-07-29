@@ -10,13 +10,83 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://crepeia.github.com/wati/feed.xml" />
 <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/" />
-<updated>2014-09-04T15:56:22-03:00</updated>
+<updated>2015-07-29T14:51:33-03:00</updated>
 <id>http://crepeia.github.com/wati/</id>
 <author>
   <name>Henrique Pinto Gomide</name>
   <uri>http://crepeia.github.com/wati/</uri>
   <email>henriquepgomide@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Live without tobacco - version 0.3 released]]></title>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/3rdrealease/"/>
+  <id>http://crepeia.github.com/wati/news/3rdrealease</id>
+  <published>2015-07-29T00:00:00-03:00</published>
+  <updated>2015-07-29T00:00:00-03:00</updated>
+  <author>
+    <name>Henrique Pinto Gomide</name>
+    <uri>http://crepeia.github.com/wati</uri>
+    <email>henriquepgomide@gmail.com</email>
+  </author>
+  <category scheme="http://crepeia.github.com/wati/tags/#release" term="release" /><category scheme="http://crepeia.github.com/wati/tags/#code" term="code" /><category scheme="http://crepeia.github.com/wati/tags/#highlighting" term="highlighting" />
+  <content type="html">
+  
+    &lt;p&gt;We are really pleased to announce that the 0.3 version of Viva sem Tabaco is released; it is named after &lt;a href=&quot;https://en.wikipedia.org/wiki/Carlos_Chagas&quot;&gt;Carlos Chagas&lt;/a&gt;. &lt;/p&gt;
+
+&lt;p&gt;Version notes&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added Fagerstrom Test of Nicotine Dependence - FTND - in the “Ready to quit” section. The test provides feedback to its users.&lt;/li&gt;
+  &lt;li&gt;Added Patient Health Questionnaire 2 - PHQ2 - in the “Is it worth stopping smoking?” section. The test also provides feedback to its users.&lt;/li&gt;
+  &lt;li&gt;Added Patient Health Questionnaire 9 - PHQ9 - in the “Ready to quit” section. The test provides feedback to its users.&lt;/li&gt;
+  &lt;li&gt;Added motivation rule to evaluate motivation in the “Ready to quit” section.&lt;/li&gt;
+  &lt;li&gt;Added pages “benefits of quitting” and “risks of smoking” in the “Ready to quit” section.&lt;/li&gt;
+  &lt;li&gt;Added information about efficaccy of methods of quit smoking. Users fill what they have tried and receive feedback.&lt;/li&gt;
+  &lt;li&gt;Added partial support do Russian. Now only Portuguese is fully supported. English, Spanish and German are also partially supported.&lt;/li&gt;
+  &lt;li&gt;Fix of minor bugs.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The code is available in our &lt;a href=&quot;http://crepeia.github.io/wati&quot;&gt;github repository&lt;/a&gt;.&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/3rdrealease/&quot;&gt;Live without tobacco - version 0.3 released&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on July 29, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Привет! Russian is now partially supported.]]></title>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/russian/"/>
+  <id>http://crepeia.github.com/wati/news/russian</id>
+  <published>2015-06-22T00:00:00-03:00</published>
+  <updated>2015-06-22T00:00:00-03:00</updated>
+  <author>
+    <name>Henrique Pinto Gomide</name>
+    <uri>http://crepeia.github.com/wati</uri>
+    <email>henriquepgomide@gmail.com</email>
+  </author>
+  <category scheme="http://crepeia.github.com/wati/tags/#translation" term="translation" /><category scheme="http://crepeia.github.com/wati/tags/#german" term="german" />
+  <content type="html">
+  
+    &lt;p&gt;Dr. Dmytro Khvotenko, a Postdoctoral Researcher (and also owner of the lovely pug Axel), has translated the Viva sem Tabaco content into Russian. Russian is the official language in Russia, Belarus, Kazakhstan, and Kyrgyzstan and widely spoken language in Ukraine, Moldova, Latvia, Estonia, and to a lesser extent, the other countries that were once constituent republics of the Soviet Union. It is estimated that 260 million people speak russian&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. Besides, approximately half of russian men smoke&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;p&gt;The full support of Russian is expected to come out at the end of 2015. We would also like to invite the scientific community from Russian to join our project! :)&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot;&gt;
+      &lt;p&gt;Russian language. (2015, July 29). In Wikipedia, the free encyclopedia. Retrieved from (https://en.wikipedia.org/w/index.php?title=Russian_language&amp;amp;oldid=673619229) &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot;&gt;
+      &lt;p&gt;Gilmore, A., Pomerleau, J., McKee, M., Rose, R., Haerpfer, C. W., Rotman, D., &amp;amp; Tumanov, S. (2004). Prevalence of Smoking in 8 Countries of the Former Soviet Union: Results From the Living Conditions, Lifestyles and Health Study. American Journal of Public Health, 94(12), 2177–2187. &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/russian/&quot;&gt;Привет! Russian is now partially supported.&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on June 22, 2015.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
