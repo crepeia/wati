@@ -3,7 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:cc="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <!-- INTERFACE -->
     <cc:interface>
@@ -11,6 +13,7 @@
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
+
         <ul id="dropdown1" class="dropdown-content">
             <li><a href="#!">Português</a></li>
             <li><a href="#!">Español</a></li>
@@ -18,6 +21,14 @@
             <li><a href="#!">Deutsch</a></li>
             <li><a href="#!">Russian</a></li>
         </ul>
+
+        <!--        <label>Browser Select</label>
+                <select class="browser-default">
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>-->
+
 
         <nav class="white" role="navigation">
             <div class="nav-wrapper container">
@@ -27,10 +38,15 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="./programa.xhtml">#{messages['menu.top.li2']}</a></li>                                        
                     <li><a href="./quem-somos-os-autores.xhtml">#{messages['menu.top.li3']}</a></li>                    
+                    <li><a href="./cadastrar-nova-conta.xhtml">#{messages['signin']}</a></li>
+                    <li><h:form id="langform">                        
+                            <h:selectOneMenu styleClass="browser-default indigo-text accent-3" style="margin-top:10px;" value="#{languageController.language}" onchange="submit()">
+                                <f:selectItems value="#{languageController.languages}"/> 
+                            </h:selectOneMenu>                        
+                        </h:form></li>
 
-                    <li><a href="#">#{messages['signin']}</a></li>
                     <!-- Dropdown Trigger -->
-                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Idioma<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <!--                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Language<i class="material-icons right">arrow_drop_down</i></a></li>-->
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
@@ -39,10 +55,19 @@
                     <li><a href="./contato.xhtml">#{messages['menu.top.li4']}</a></li>
                     <li><a href="./para-pesquisadores.xhtml">#{messages['menu.top.li5']}</a></li>
                     <li class="divider"></li>
+                    <li><h:form id="langform1">                        
+                            <h:selectOneMenu styleClass="browser-default indigo-text accent-3" style="margin-top:10px;" value="#{languageController.language}" onchange="submit()">
+                                <f:selectItems value="#{languageController.languages}"/> 
+                            </h:selectOneMenu>                        
+                        </h:form></li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+
             </div>
         </nav>
+
+
+
 
     </cc:implementation>
 </html>

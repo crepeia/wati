@@ -13,29 +13,51 @@
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>	
-        <div class="#{cc.attrs.cssClass}">			
-            <h:form id="leftMenuForm">
-                <nav>
 
-                    <ul>
-                        <li><a href="preparando-parar-de-fumar-introducao.xhtml">#{messages['menu.firststep.li1']}</a></li>
-                        <li><a href="preparando-parar-de-fumar-beneficios-de-parar.xhtml">#{messages['menu.firststep.li3']}</a></li>                        
-                        <li><a href="preparando-parar-de-fumar-riscos-do-cigarro.xhtml">#{messages['menu.firststep.li2']}</a></li>                       
-                        <li><a href="preparando-parar-de-fumar-calculadora-gastos.xhtml">#{messages['menu.firststep.li4']}</a></li>
-                        <li><a href="preparando-parar-de-fumar-abstinencia-fissura.xhtml">#{messages['menu.firststep.li5']}</a></li>
-                        <li><a href="preparando-parar-de-fumar-medo-nao-conseguir-ganho-de-peso.xhtml">#{messages['menu.firststep.li6']}</a></li>
-                        <li><a href="preparando-parar-de-fumar-ansiedade-e-depressao.xhtml">#{messages['menu.firststep.li7']}</a></li>
-                        <li><a href="preparando-parar-de-fumar-substituir-prazer-cigarro.xhtml">#{messages['menu.firststep.li8']}</a></li>
-                        <li><a href="preparando-parar-de-fumar-onde-encontrar-ajuda.xhtml">#{messages['menu.firststep.li9']}</a></li>
-                        <li id="blue-li">
-                            <p:commandLink value="#{messages['menu.firststep.li10']}" action="#{preparandoParaPararController.prontoParaPararDeFumar}" update="@form" >
-                                <f:attribute name="toURL" value="pronto-para-parar-de-fumar-introducao.xhtml" />
-                            </p:commandLink>
-                        </li>				
-                    </ul>
-                </nav>              
-            </h:form>
-        </div>
+        <ul id="dropdown2" class="dropdown-content">
+            <li><a href="preparando-parar-de-fumar-introducao.xhtml">#{messages['menu.firststep.li1']}</a></li>
+            <li><a href="preparando-parar-de-fumar-beneficios-de-parar.xhtml">#{messages['menu.firststep.li3']}</a></li>
+            <li><a href="preparando-parar-de-fumar-riscos-do-cigarro.xhtml">#{messages['menu.firststep.li2']}</a></li>
+            <li><a href="preparando-parar-de-fumar-calculadora-gastos.xhtml">#{messages['menu.firststep.li4']}</a></li> 
+            <li><a href="preparando-parar-de-fumar-abstinencia-fissura.xhtml">#{messages['menu.firststep.li5']}</a></li>
+            <li><a href="preparando-parar-de-fumar-medo-nao-conseguir-ganho-de-peso.xhtml">#{messages['menu.firststep.li6']}</a></li>
+            <li><a href="preparando-parar-de-fumar-ansiedade-e-depressao.xhtml">#{messages['menu.firststep.li7']}</a></li>
+            <li><a href="preparando-parar-de-fumar-substituir-prazer-cigarro.xhtml">#{messages['menu.firststep.li8']}</a></li>
+            <li><a href="preparando-parar-de-fumar-onde-encontrar-ajuda.xhtml">#{messages['menu.firststep.li9']}</a></li>
+            <li>
+                <h:form>
+                    <p:commandLink value="#{messages['menu.firststep.li10']}" action="#{preparandoParaPararController.prontoParaPararDeFumar}" update="@form" styleClass="waves-effect waves-light btn blue darken-2">
+                    <f:attribute name="toURL" value="pronto-para-parar-de-fumar-introducao.xhtml" />
+                    </p:commandLink>
+                </h:form></li>
+        </ul>
+        
+        
+        <nav class="teal lighten-2" role="navigation">
+            <div class="nav-wrapper container">                    
+                <ul class="left hide-on-med-and-down text-white">                        
+                    <li><a class="dropdown-button white-text" href="#!" data-activates="dropdown2"><i class="material-icons white-text">menu</i></a></li>
+                </ul>                    
+
+                <ul id="nav-mobile1" class="side-nav">
+                    <li><a href="preparando-parar-de-fumar-introducao.xhtml">#{messages['menu.firststep.li3']}</a></li>
+                    <li><a href="preparando-parar-de-fumar-beneficios-de-parar.xhtml">#{messages['menu.firststep.li2']}</a></li>
+                    <li><a href="preparando-parar-de-fumar-riscos-do-cigarro.xhtml">#{messages['menu.firststep.li4']}</a></li> 
+                    <li><a href="preparando-parar-de-fumar-calculadora-gastos.xhtml">#{messages['menu.firststep.li5']}</a></li>
+                    <li><a href="preparando-parar-de-fumar-abstinencia-fissura.xhtml">#{messages['menu.firststep.li6']}</a></li>
+                    <li><a href="preparando-parar-de-fumar-medo-nao-conseguir-ganho-de-peso.xhtml">#{messages['menu.firststep.li7']}</a></li>
+                    <li><a href="preparando-parar-de-fumar-substituir-prazer-cigarro.xhtml">#{messages['menu.firststep.li8']}</a></li>
+                    <li><a href="preparando-parar-de-fumar-onde-encontrar-ajuda.xhtml">#{messages['menu.firststep.li9']}</a></li>
+                                <li>
+                <h:form>
+                    <p:commandLink value="#{messages['menu.firststep.li10']}" action="#{preparandoParaPararController.prontoParaPararDeFumar}" update="@form" styleClass="waves-effect waves-light btn blue darken-2 white-text">
+                    <f:attribute name="toURL" value="pronto-para-parar-de-fumar-introducao.xhtml" />
+                    </p:commandLink>
+                </h:form></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile1" class="button-collapse"><i class="material-icons white-text">menu</i></a>
+            </div>
+        </nav>
 
     </cc:implementation>
 </html>

@@ -13,28 +13,32 @@
         </h:head>
 
         <h:body>
-            <!-- header -->    
-            <!--                <w:header />-->
             <w:topmenu />
-            <!--mainmenu-->         	
-
-
             <w:leftmenu_1 cssClass="leftmenu1" />
 
             <div class="container">
 
-                <div class="fotoframe">                            
-                    <h:graphicImage library="default" id="cartoonman" title="#{messages['preparando.intro.img']}" name="images/deixar-cigarro.png" alt="#{messages['preparando.intro.img']}" />
+                <div class="row">
+
+
+                    <div class="col l6 m6 s12">                
+                        <h3 class="headertop orange-text text-lighten-2">#{messages['preparando.intro.h1']}</h3>
+
+<!--                <h2>#{messages['preparando.intro.h2']}</h2>                                                                                   -->
+                        <p>#{messages['preparando.intro.p1']}</p>
+                        <p>#{messages['preparando.intro.p2']}</p>
+                        <p>#{messages['preparando.intro.p3']}</p>
+<!--                        <p>#{messages['preparando.intro.p4']}</p>-->
+                    </div>
+
+                    <div class="col l6 m6 s12 hide-on-small-and-down">
+                        <h:graphicImage styleClass="center-align valign-wrapper" id="cartoonman" library="default" name="images/deixar-cigarro.png" alt="#{messages['preparando.medos.img.alt']}" />
+                    </div>
                 </div>
 
 
-                <h1>#{messages['preparando.intro.h1']}</h1>
 
-                <h2>#{messages['preparando.intro.h2']}</h2>                                                                                   
-                <p>#{messages['preparando.intro.p1']}</p>
-                <p>#{messages['preparando.intro.p2']}</p>
-                <p>#{messages['preparando.intro.p3']}</p>
-                <p>#{messages['preparando.intro.p4']}</p>                                                                                                                                                                                                                                                                                                                                                                                                                             
+
                 <div class="row">
                     <div class="col s12 m12 l12">
                         <div class="card grey lighten-5">
@@ -49,16 +53,7 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-<!--                <h2>#{messages['next.step']}</h2>
-                <p>#{messages['preparando.intro.next.p']}</p> 
-                <h:button class="btn waves-effect waves-light" title="#{messages['preparando.btn.title']}" value ="#{messages['next']}" outcome="./preparando-parar-de-fumar-beneficios-de-parar.xhtml"/>
-
-
-                -->                
+             
                 <p class="grey-text">#{messages['update.date']}</p>
 
 
