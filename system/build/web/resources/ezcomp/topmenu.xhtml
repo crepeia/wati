@@ -14,22 +14,6 @@
     <!-- IMPLEMENTATION -->
     <cc:implementation>
 
-        <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#!">Português</a></li>
-            <li><a href="#!">Español</a></li>
-            <li><a href="#!">English</a></li>
-            <li><a href="#!">Deutsch</a></li>
-            <li><a href="#!">Russian</a></li>
-        </ul>
-
-        <!--        <label>Browser Select</label>
-                <select class="browser-default">
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                </select>-->
-
-
         <nav class="white" role="navigation">
             <div class="nav-wrapper container">
                 <div class="logo-container">
@@ -38,15 +22,12 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="./programa.xhtml">#{messages['menu.top.li2']}</a></li>                                        
                     <li><a href="./quem-somos-os-autores.xhtml">#{messages['menu.top.li3']}</a></li>                    
-                    <li><a href="./cadastrar-nova-conta.xhtml">#{messages['signin']}</a></li>
+                    <li><a href="./login.xhtml">#{messages['signin']}</a></li>
                     <li><h:form id="langform">                        
                             <h:selectOneMenu styleClass="browser-default indigo-text accent-3" style="margin-top:10px;" value="#{languageController.language}" onchange="submit()">
                                 <f:selectItems value="#{languageController.languages}"/> 
                             </h:selectOneMenu>                        
                         </h:form></li>
-
-                    <!-- Dropdown Trigger -->
-                    <!--                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Language<i class="material-icons right">arrow_drop_down</i></a></li>-->
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
@@ -65,9 +46,5 @@
 
             </div>
         </nav>
-
-
-
-
     </cc:implementation>
 </html>

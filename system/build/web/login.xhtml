@@ -1,97 +1,83 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
     <f:view locale="#{languageController.locale}">
         <h:head>
             <title>#{messages['login.pagetitle']}</title>
             <w:head_comum />
         </h:head>
+
         <h:body>
-            <div id="corpo"> 
-                <!-- header -->    
-                <w:header />
-                <w:topmenu />
+            <!-- header -->     
+            <w:topmenu />
 
-                <!--mainmenu-->
-                <div class="main">
+            <div class="container">
+
+                <div class="row">
 
 
-                    <div class="pagecontent">
-                        
-                        <div id="mainleft">
-                            
-                            <div id="whylogin">
-                            
-                            <h1>#{messages['login.cadastro.h1']}</h1>                            
-                            <p>#{messages['login.cadastro.p.1']}</p>
-                            <p>#{messages['login.cadastro.p.2']}</p>
-                            <ul>
-                                <li>#{messages['login.cadastro.li.1']}</li>
-                                <li>#{messages['login.cadastro.li.2']}</li>
-                            </ul>                            
-                            
-                            <h2>#{messages['program.h2.important']}</h2>
+
+
+
+                    <div class="col s12 m6 l6">
+
+
+                        <h2 class="orange-text">#{messages['signin']}</h2>
+                        <h:form id="form" class="form-signup">
+                            <p:messages />
+                            <input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/>
+                            <input type="hidden" name="ie" value="UTF-8" />						
+                            <div class="input-field">
+                                <p:inputText id="emailTxt" value="#{loginController.user.email}" required="true" size="30" label="#{messages['email']}" styleClass="validate" type="email" >
+                                    <!--<p:ajax update="loginMsg" event="blur" />-->
+                                    <f:validateLength maximum="50" />
+                                </p:inputText>
+                                <label for="emailTxt"  data-error="wrong" data-success="right">#{messages['email']}</label> 
+                            </div>
+                            <div class="input-field">
+                                <p:password id="passwordTxt" value="#{loginController.password}" required="true" redisplay="true" size="30" label="#{messages['psw']}">  
+                                    <f:validateLength maximum="16" />
+                                    <!--<p:ajax update="passwordMsg" event="blur" />-->
+                                    <label for="passwordTxt" >#{messages['password']}</label>
+                                </p:password>
+                                <p:watermark for="passwordTxt" value="#{messages['password']}" />
+                            </div>							
+                            <p:commandButton styleClass="btn waves-effect waves-light"  id="entrarBtn" value="#{messages['signin']}" update="@form" actionListener="#{loginController.login}" ajax="false"/>
+                            <h:outputLink style="padding-left: 15px;" value="contato.xhtml">#{messages['login.couldntaccess']}</h:outputLink>
+
+                        </h:form>	    		
+                    </div>
+
+
+                    <div class="col s12 m6 l6">                                                        
+
+                        <h2 class="orange-text">#{messages['login.cadastro.h1']}</h2>                            
+                        <p>#{messages['login.cadastro.p.1']}</p>
+                        <p>#{messages['login.cadastro.p.2']}</p>
+                        <ol>
+                            <li>#{messages['login.cadastro.li.1']}</li>
+                            <li>#{messages['login.cadastro.li.2']}</li>
+                        </ol>                            
+
+                        <blockquote>
+                            <h5>#{messages['program.h2.important']}</h5>
                             <p>#{messages['program.p.important']}</p>
-                             <div id="btnprog"><h:button class="btngen" value ="#{messages['register']}" outcome="./cadastrar-nova-conta.xhtml"  ></h:button></div>
-                            </div>
-                            
+                        </blockquote>
+
+                        <div class="center"><br />
+                            <p:button styleClass="btn waves-effect waves-light" value ="#{messages['register']}" outcome="./cadastrar-nova-conta.xhtml"  />
                         </div>
-                        
-                        <div id="mainright">
-
-                        <div id="signinlogin">
-                            <h1>#{messages['signin']}</h1>
-                            <h:form id="form" class="form-signup">
-                                <p:messages />
-                                <div class="signuptext"><input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/></div>
-                                <div class="signuptext"><input type="hidden" name="ie" value="UTF-8" /></div>						
-                                <div class="signuptext">
-                                    <p:inputText id="emailTxt" value="#{loginController.user.email}" required="true" size="30" label="#{messages['email']}" >
-                                        <!--<p:ajax update="loginMsg" event="blur" />-->
-                                        <f:validateLength maximum="50" />
-                                    </p:inputText>
-                                    <p:watermark for="emailTxt" value="#{messages['email']}" />
-                                </div>
-                                <div class="signuptext">
-                                    <p:password id="passwordTxt" value="#{loginController.password}" required="true" redisplay="true" size="30" label="#{messages['psw']}">  
-                                        <f:validateLength maximum="16" />
-                                        <!--<p:ajax update="passwordMsg" event="blur" />-->
-                                    </p:password>
-                                    <p:watermark for="passwordTxt" value="#{messages['password']}" />
-                                </div>							
-                                <div id="signipbottom">	
-
-                                    <div id="signinsubmit">
-                                        <div id="signinbtn">
-                                            <p:commandButton id="entrarBtn" value="#{messages['signin']}" update="@form" actionListener="#{loginController.login}" ajax="false"/>
-                                        </div>
-
-                                        <div id="signincheck">
-
-                                            <!--
-                                            <p:selectBooleanCheckbox id="contConect" value=""></p:selectBooleanCheckbox>
-                                                <h:outputText value="#{messages['login.stayconnected']}"/>
-                                            -->
-
-                                        </div>
-
-                                        <p><h:outputLink value="contato.xhtml">#{messages['login.couldntaccess']}</h:outputLink></p>
-
-                                    </div>
-                                </div>
-                            </h:form>	    		
-                        </div>
-                            
-                            </div>
 
                     </div>
-                </div>
 
-            </div><!-- end.corpo --> 
+                </div>
+            </div>
+
 
             <!--Footer -->
             <w:footer />

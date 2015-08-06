@@ -19,29 +19,157 @@
 
             <!--mainmenu-->         	
             <div class="container">
+                <div class="row">
+                    <div class="col l12 m12 s12">
 
-                <div class="col l6 m6 s12">
+                        <h2 class="orange-text">#{messages['naccount.register']}</h2>
+                        <h:form id="form">
+                            <div class="row">
+                                <div class="col l6 m6 s12">
+                                    <div class="input-field">
 
-                    <div id="signup">
-                        <h1>#{messages['naccount.register']}</h1>
-                        <h:form id="form" class="col s12">
-                            <!--                            <div class="input-field col s6">
-                                                            <div class="signuptext"><input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/></div>
-                                                            <div class="signuptext"><input type="hidden" name="ie" value="UTF-8" /></div>
-                                                            <p:messages id="errorMessage" redisplay="true" globalOnly="true" />
-                                                        </div>-->
+                                        <p:inputText id="nameTxt" value="#{userController.user.name}" required="true" label="#{messages['naccount.name']}" >
 
-                            <!-- Full name -->
-                            <div class="input-field">
-                                <p:inputText id="nameTxt" value="#{userController.user.name}" required="true" label="#{messages['naccount.name']}" >
+                                            <f:validateLength maximum="100" />
+                                            <label for="nameTxt"  data-error="wrong" data-success="right">#{messages['naccount.fullname']}</label>
+                                        </p:inputText>
+                                    </div>
+                                </div>
+                                <p:message for="nameTxt" />
 
-                                    <f:validateLength maximum="100" />
-                                    <label for="nameTxt"  data-error="wrong" data-success="right">#{messages['naccount.fullname']}</label>
-                                </p:inputText>
-                            </div>                           
-                            <p:message for="nameTxt" />
+                                <!-- Email -->
+                                <div class="col l6 m6 s12">
+                                    <div class="input-field">
+                                        <p:inputText id="emailTxt" value="#{userController.user.email}" required="true" label="#{messages['email']}" validatorMessage="#{messages['naccount.invalidemail']}" styleClass="validate" type="email" >                                    
+                                            <f:validateLength maximum="50" />
+                                            <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                                            <label for="sendEmail"  data-error="wrong" data-success="right">#{messages['email']}</label>    
+                                        </p:inputText>                               
+                                        <p:message for="emailTxt" />
+                                    </div>
+                                </div>
+                            </div>
 
-                            <!-- Email -->
+                            <div class="row">
+                                <div class="col l6 m6 s12">
+                                    <!-- Password -->
+                                    <div class="input-field">
+                                        <p:password id="passwordTxt" value="#{userController.password}" required="true" match="confirmPasswordTxt" redisplay="true" size="30" label="#{messages['psw']}">  
+                                            <f:validateLength maximum="16" />
+                                            <!--<p:ajax update="passwordMsg" event="blur" />-->                                   
+                                            <label for="passwordTxt">#{messages['psw']}</label> 
+                                        </p:password>
+
+                                        <p:message for="passwordTxt" />
+                                    </div>
+                                </div>
+
+                                <div class="col l6 m6 s12">
+                                    <div class="input-field">
+                                        <p:password id="confirmPasswordTxt" value="#{userController.password}" required="true" redisplay="true" label="#{messages['naccount.rpt.psw']}">  
+                                            <f:validateLength maximum="16" />
+                                            <!--<p:ajax update="passwordMsg" event="blur" />-->
+                                            <label for="confirmPasswordTxt">#{messages['naccount.rpt.psw']}</label>
+                                        </p:password>                                
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col s12 m6 l6">
+                                    <div class="col s3 m3 l3">
+                                        <h:outputText value="#{messages['naccount.birthdate']}" styleClass="grey-text valign" style="position:relative;top:11px;"/>
+                                    </div>
+
+                                    <div class="col s3 m3 l3">
+                                        <h:selectOneMenu id="day" styleClass="browser-default grey-text accent-3" value="#{userController.dia}" required="true" label="#{messages['naccount.day']}">  
+
+                                            <f:selectItem itemLabel="#{messages['naccount.day']}" itemValue=""/>  
+                                            <f:selectItems value="#{userController.dias}"/>
+                                        </h:selectOneMenu>
+
+                                    </div>
+
+                                    <div class="col s3 m3 l3">                               
+                                        <h:selectOneMenu id="month" styleClass="browser-default grey-text accent-3" value="#{userController.mes}" required="true" label="#{messages['naccount.month']}">  
+                                            <f:selectItem itemLabel="#{messages['naccount.month']}" itemValue="" />  
+                                            <f:selectItems value="#{userController.meses}" />  
+                                        </h:selectOneMenu>
+                                    </div>    
+
+
+                                    <div class="col s3 m3 l3"> 
+                                        <h:selectOneMenu id="year" styleClass="browser-default grey-text accent-3" value="#{userController.ano}" required="true" label="#{messages['naccount.year']}">  
+                                            <f:selectItem itemLabel="#{messages['naccount.year']}" itemValue="" />  
+                                            <f:selectItems value="#{userController.anos}" />  
+                                        </h:selectOneMenu>
+                                        <p:message for="day" />
+                                        <p:message for="month" />
+                                        <p:message for="year" />
+                                    </div> 
+                                </div>                         
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12 m6 l6">
+                                    <div class="col l3 m3 s3">
+                                        <h:outputText value="#{messages['naccount.sex']}" styleClass="grey-text valign" style="position:relative;top:16px;"/>
+                                    </div>
+
+                                    <div class="col l9 m9 s9">                            
+                                        <h:selectOneRadio styleClass="with-gap" id="options" value="#{userController.user.gender}" required="true" label="#{messages['naccount.sex']}">  
+                                            <f:selectItem itemLabel="#{messages['naccount.female']}" itemValue="F" />  
+                                            <f:selectItem itemLabel="#{messages['naccount.male']}" itemValue="M" />  
+                                        </h:selectOneRadio> 
+                                        <p:message for="options" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12 m12 l12">
+                                    <h:selectBooleanCheckbox styleClass="checkbox" value="#{userController.user.receiveEmails}"/>
+                                    <input type="checkbox" name="chk" id="chk1" value="#{userController.user.receiveEmails}"/>
+                                    <label for="chk1">#{messages['gostaria.receber.email']}</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12 m12 l12">
+                                    <h:selectBooleanCheckbox styleClass="checkbox" value="#{userController.user.authorizeData}"/>
+                                    <input type="checkbox" name="chk" id="chk2" value="#{userController.user.authorizeData}"/>
+                                    <label for="chk2">#{messages['autorizo.para.pesquisa.p1']} <a href="./termo-consentimento.xhtml" target="_blank" >#{messages['login.informed.consent']}</a>.</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12 m12 l12 center-on-small-only">
+                                    <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['register']}" update="@form" actionListener="#{userController.save}">
+                                        <f:attribute name="object" value="#{userController.user}" />
+                                        <f:attribute name="typeName" value="user" />
+                                    </p:commandButton>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12 m12 l12">
+                                    <p>#{messages['naccount.p.botton']}<h:outputLink value="./termos-de-uso.xhtml"> #{messages['naccount.already.userterms']}</h:outputLink>. </p>
+                                </div>
+                            </div>
+
+
+                        </h:form>	    		
+                    </div>
+                </div>      
+
+                <div class="row">                
+                    <div class="col s12 m6 l6">                                                                        
+                        <h2 class="orange-text">#{messages['signin']}</h2>
+                        <h:form id="form1" class="form-signup">
+                            <p:messages />
+                            <input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/>
+                            <input type="hidden" name="ie" value="UTF-8" />
                             <div class="input-field">
                                 <p:inputText id="emailTxt" value="#{userController.user.email}" required="true" label="#{messages['email']}" validatorMessage="#{messages['naccount.invalidemail']}" styleClass="validate" type="email" >                                    
                                     <f:validateLength maximum="50" />
@@ -51,154 +179,22 @@
                                 <p:message for="emailTxt" />
                             </div>
 
-                            <!-- Password -->
                             <div class="input-field">
-                                <p:password id="passwordTxt" value="#{userController.password}" required="true" match="confirmPasswordTxt" redisplay="true" size="30" label="#{messages['psw']}">  
-                                    <f:validateLength maximum="16" />
-                                    <!--<p:ajax update="passwordMsg" event="blur" />-->                                   
-                                    <label for="passwordTxt">#{messages['psw']}</label> 
-                                </p:password>
-
-                                <p:message for="passwordTxt" />
-                            </div>
-
-                            <!-- Repeat Password -->
-                            <div class="input-field">
-                                <p:password id="confirmPasswordTxt" value="#{userController.password}" required="true" redisplay="true" label="#{messages['naccount.rpt.psw']}">  
+                                <p:password id="passwordTxt" value="#{loginController.password}" required="true" redisplay="true" size="30" label="#{messages['psw']}">  
                                     <f:validateLength maximum="16" />
                                     <!--<p:ajax update="passwordMsg" event="blur" />-->
-                                    <label for="confirmPasswordTxt">#{messages['naccount.rpt.psw']}</label>
-                                </p:password>                                
+                                    <label for="passwordTxt" >#{messages['password']}</label>
+                                </p:password>
+                                <p:watermark for="passwordTxt" value="#{messages['password']}" />
                             </div>
 
-                            <!--                            <div class="row">
-                                                            <div class="col s12 m3 l3">
-                                                                <h:outputText value="#{messages['naccount.birthdate']}"/>
-                                                            </div>
-                            
-                                                            <div class="col s12 m3 l3">
-                                                                <p:selectOneMenu id="day" value="#{userController.dia}" required="true" label="#{messages['naccount.day']}" panelStyleClass="input-field">  
-                            
-                                                                    <f:selectItem itemLabel="#{messages['naccount.day']}" itemValue=""/>  
-                                                                    <f:selectItems value="#{userController.dias}"/>
-                                                                    <label>#{messages['naccount.day']}</label>
-                                                                </p:selectOneMenu>
-                            
-                                                            </div>
-                            
-                                                            <div class="col s12 m3 l3">                               
-                                                                <p:selectOneMenu id="month" value="#{userController.mes}" required="true" label="#{messages['naccount.month']}">  
-                                                                    <f:selectItem itemLabel="#{messages['naccount.month']}" itemValue="" />  
-                                                                    <f:selectItems value="#{userController.meses}" />  
-                                                                </p:selectOneMenu>
-                                                            </div>    
-                            
-                            
-                                                            <div class="col s12 m3 l3"> 
-                                                                <p:selectOneMenu id="year" value="#{userController.ano}" required="true" label="#{messages['naccount.year']}">  
-                                                                    <f:selectItem itemLabel="#{messages['naccount.year']}" itemValue="" />  
-                                                                    <f:selectItems value="#{userController.anos}" />  
-                                                                </p:selectOneMenu>
-                                                                <p:message for="day" />
-                                                                <p:message for="month" />
-                                                                <p:message for="year" />
-                                                            </div>
-                                                        </div>-->
+                            <p:commandButton id="entrarBtn" styleClass="waves-effect waves-light btn" value="#{messages['signin']}" update="@form" actionListener="#{loginController.loginBegin}" ajax="false"/>
+                            <h:outputLink style="position:relative; padding-left:10px;" value="enviar-email-senha.xhtml">#{messages['forgot.password']}</h:outputLink>
 
 
-                            <p:panelGrid columns="4" id="nascimento">
-                                <h:outputText value="#{messages['naccount.birthdate']}"/>
-                                <p:selectOneMenu id="day" value="#{userController.dia}" required="true" label="#{messages['naccount.day']}">  
-                                    <f:selectItem itemLabel="#{messages['naccount.day']}" itemValue="" />  
-                                    <f:selectItems value="#{userController.dias}" />  
-                                </p:selectOneMenu>
-                                <p:selectOneMenu id="month" value="#{userController.mes}" required="true" label="#{messages['naccount.month']}">  
-                                    <f:selectItem itemLabel="#{messages['naccount.month']}" itemValue="" />  
-                                    <f:selectItems value="#{userController.meses}" />  
-                                </p:selectOneMenu>
-                                <p:selectOneMenu id="year" value="#{userController.ano}" required="true" label="#{messages['naccount.year']}">  
-                                    <f:selectItem itemLabel="#{messages['naccount.year']}" itemValue="" />  
-                                    <f:selectItems value="#{userController.anos}" />  
-                                </p:selectOneMenu>
-                            </p:panelGrid>
-                            <p:message for="day" />
-                            <p:message for="month" />
-                            <p:message for="year" />
-
-
-
-                            <p:panelGrid columns="2" id="sexo">
-                                <h:outputText value="#{messages['naccount.sex']}"/>
-                                <p:selectOneRadio id="options" value="#{userController.user.gender}" required="true" label="#{messages['naccount.sex']}">  
-                                    <f:selectItem itemLabel="#{messages['naccount.female']}" itemValue="F" />  
-                                    <f:selectItem itemLabel="#{messages['naccount.male']}" itemValue="M" />  
-                                </p:selectOneRadio> 
-                            </p:panelGrid>
-                            <p:message for="options" />
-
-                            <div id="signup-terms">
-                                <p:panelGrid columns="2" id="allowemail">
-                                    <label for="chk1">#{messages['gostaria.receber.email']}</label>
-                                    <p:selectBooleanCheckbox value="#{userController.user.receiveEmails}"/>
-                                    <!--<input type="checkbox" name="chk" id="chk1" value="#{userController.user.receiveEmails}"/><br></br>-->
-                                    <label for="chk2">#{messages['autorizo.para.pesquisa.p1']} <a href="./termo-consentimento.xhtml" target="_blank" >#{messages['login.informed.consent']}</a>.</label>
-                                    <p:selectBooleanCheckbox value="#{userController.user.authorizeData}"/>
-                                   <!-- <input type="checkbox" name="chk" id="chk2" value="#{userController.user.authorizeData}"/>-->
-                                </p:panelGrid>
-                            </div>
-
-                            <div id="signupsubmit">			                                            
-                                <div id="signupp"><p>#{messages['naccount.p.botton']}<h:outputLink value="./termos-de-uso.xhtml"> #{messages['naccount.already.userterms']}</h:outputLink>. </p></div>                                            
-                                <div id="signupbtn">
-                                    <p:commandButton id="saveBtn" value="#{messages['register']}" update="@form" actionListener="#{userController.save}">
-                                        <f:attribute name="object" value="#{userController.user}" />
-                                        <f:attribute name="typeName" value="user" />
-                                    </p:commandButton>
-                                </div>
-                            </div>
-
-                        </h:form>	    		
+                        </h:form>
                     </div>
-
-                </div><!-- end.main left -->
-
-                <div id="col s12 m6 l6">                                                                        
-
-                    <h1>#{messages['signin']}</h1>
-                    <h:form id="form1" class="form-signup">
-                        <p:messages />
-                        <div class="signuptext"><input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/></div>
-                        <div class="signuptext"><input type="hidden" name="ie" value="UTF-8" /></div>						
-                        <div class="signuptext">
-                            <p:inputText id="emailTxt" value="#{loginController.user.email}" required="true" size="30" label="#{messages['email']}" >
-                                <!--<p:ajax update="loginMsg" event="blur" />-->
-                                <f:validateLength maximum="50" />
-                            </p:inputText>
-                            <p:watermark for="emailTxt" value="#{messages['email']}" />
-                        </div>
-                        <div class="signuptext">
-                            <p:password id="passwordTxt" value="#{loginController.password}" required="true" redisplay="true" size="30" label="#{messages['psw']}">  
-                                <f:validateLength maximum="16" />
-                                <!--<p:ajax update="passwordMsg" event="blur" />-->
-                            </p:password>
-                            <p:watermark for="passwordTxt" value="#{messages['password']}" />
-                        </div>
-                        <div id="signinbtn">
-                            <div id="signinp">                                                 
-                                <h:outputLink value="enviar-email-senha.xhtml">#{messages['forgot.password']}</h:outputLink>
-                            </div>
-                            <p:commandButton id="entrarBtn" value="#{messages['signin']}" update="@form" actionListener="#{loginController.loginBegin}" ajax="false"/>
-                        </div>
-
-
-
-                    </h:form>
-
-
-
                 </div>
-
-
             </div>
 
 
@@ -208,3 +204,70 @@
         </h:body>
     </f:view>
 </html>
+
+
+
+<!--
+
+
+                        <p:panelGrid columns="4" id="nascimento">
+                            <h:outputText value="#{messages['naccount.birthdate']}"/>
+                            <div class="input-field">
+                                <p:selectOneMenu styleClass="browser-default indigo-text accent-3" id="day" value="#{userController.dia}" required="true" label="#{messages['naccount.day']}">  
+                                    <f:selectItem itemLabel="#{messages['naccount.day']}" itemValue="" />  
+                                    <f:selectItems value="#{userController.dias}" />  
+                                </p:selectOneMenu>
+                            </div>    
+
+
+                            <p:selectOneMenu id="month" value="#{userController.mes}" required="true" label="#{messages['naccount.month']}">  
+                                <f:selectItem itemLabel="#{messages['naccount.month']}" itemValue="" />  
+                                <f:selectItems value="#{userController.meses}" />  
+                            </p:selectOneMenu>
+                            <p:selectOneMenu id="year" value="#{userController.ano}" required="true" label="#{messages['naccount.year']}">  
+                                <f:selectItem itemLabel="#{messages['naccount.year']}" itemValue="" />  
+                                <f:selectItems value="#{userController.anos}" />  
+                            </p:selectOneMenu>
+                        </p:panelGrid>
+                        <p:message for="day" />
+                        <p:message for="month" />
+                        <p:message for="year" />
+
+
+                        <div class="row">
+                            <p>#{messages['naccount.sex']}</p>
+                            <p>                                    
+                                <input name="group1" type="radio" id="test2" />
+                                <label for="test2">Feminino</label>
+                                <input name="group1" type="radio" id="test3" />
+                                <label for="test3">Masculino</label>
+                            </p>                                
+                        </div>
+
+                        <div class="row">
+                            <p>                                    
+                                <input type="checkbox" id="test5" />
+                                <label for="test5">Red</label>
+                            </p>
+                        </div>
+
+
+                        <p:panelGrid columns="2" id="sexo">
+                            <h:outputText value="#{messages['naccount.sex']}"/>
+                            <p:selectOneRadio styleClass="with-gap" id="options" value="#{userController.user.gender}" required="true" label="#{messages['naccount.sex']}">  
+                                <f:selectItem itemLabel="#{messages['naccount.female']}" itemValue="F" />  
+                                <f:selectItem itemLabel="#{messages['naccount.male']}" itemValue="M" />  
+                            </p:selectOneRadio> 
+                        </p:panelGrid>
+                        <p:message for="options" />
+
+                        <p:panelGrid columns="2" id="allowemail">
+                            <label for="chk1">#{messages['gostaria.receber.email']}</label>
+                            <p:selectBooleanCheckbox value="#{userController.user.receiveEmails}"/>
+                            <input type="checkbox" name="chk" id="chk1" value="#{userController.user.receiveEmails}"/><br></br>
+                            <label for="chk2">#{messages['autorizo.para.pesquisa.p1']} <a href="./termo-consentimento.xhtml" target="_blank" >#{messages['login.informed.consent']}</a>.</label>
+                            <p:selectBooleanCheckbox styleClass="checkbox" value="#{userController.user.authorizeData}"/>
+                            <input type="checkbox" name="chk" id="chk2" value="#{userController.user.authorizeData}"/>
+                        </p:panelGrid>
+
+                        <p>#{messages['naccount.p.botton']}<h:outputLink value="./termos-de-uso.xhtml"> #{messages['naccount.already.userterms']}</h:outputLink>. </p>                                         -->
