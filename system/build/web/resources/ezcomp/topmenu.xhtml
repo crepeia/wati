@@ -14,11 +14,19 @@
     <!-- IMPLEMENTATION -->
     <cc:implementation>
 
+        <div class="hide-on-med-and-up" id="userPanelm">
+            <p:panel  styleClass="right" rendered="#{loginController.showName}">
+                #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  ::  
+                <h:outputLink value="logout.xhtml">#{messages['signout']}</h:outputLink>
+            </p:panel>
+        </div>
+
         <nav class="white" role="navigation">
+
             <div class="nav-wrapper container">
                 <div class="logo-container">
                     <a href="./index.xhtml" class="brand-logo center-on-small-only"><h:graphicImage styleClass="icon" value="resources/default/images/vst-color.png"/><!--#{messages['vivasemtabaco']}--></a>
-                </div>                
+                </div> 
                 <ul class="right hide-on-med-and-down">
                     <li><a href="./programa.xhtml">#{messages['menu.top.li2']}</a></li>                                        
                     <li><a href="./quem-somos-os-autores.xhtml">#{messages['menu.top.li3']}</a></li>                    
@@ -27,7 +35,7 @@
                             <h:selectOneMenu styleClass="browser-default indigo-text accent-3" style="margin-top:10px;" value="#{languageController.language}" onchange="submit()">
                                 <f:selectItems value="#{languageController.languages}"/> 
                             </h:selectOneMenu>                        
-                        </h:form></li>
+                        </h:form></li>   
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
@@ -42,9 +50,29 @@
                             </h:selectOneMenu>                        
                         </h:form></li>
                 </ul>
+
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
 
             </div>
         </nav>
+
+        <div class="hide-on-med-and-down" id="userPanel">
+            <p:panel  styleClass="right" rendered="#{loginController.showName}">
+                #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  ::  
+                <h:outputLink value="logout.xhtml">#{messages['signout']}</h:outputLink>
+            </p:panel>
+        </div>
+
+        <!--        <div class="hide-on-med-and-up" id="userPanelm">
+                    <p:panel  styleClass="right" rendered="#{loginController.showName}">
+        #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  ::  
+        <h:outputLink value="logout.xhtml">#{messages['signout']}</h:outputLink>
+    </p:panel>
+</div>-->
+
+
+
+
+
     </cc:implementation>
 </html>
