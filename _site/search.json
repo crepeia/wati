@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Mobile version is under way!",
+		  "category"   : "news",
+		  "url"        : "//crepeia.github.com/wati/news/mobile-friendly-version/",
+		  "date"       : "2015-08-13 00:00:00 -0300",
+		  "shortdate"  : "August 13, 2015"
+		} ,
+	
+		{
 		  "title"      : "Live without tobacco - version 0.3 released",
 		  "category"   : "news",
 		  "url"        : "//crepeia.github.com/wati/news/3rdrealease/",

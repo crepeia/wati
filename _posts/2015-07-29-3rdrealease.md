@@ -3,7 +3,7 @@ layout: post
 title: Live without tobacco - version 0.3 released
 description: "Live without tobacco version 0.3 released"
 category: news
-tags: [release, code, highlighting]
+tags: [release, code, carlos chagas, ftnd, phq9]
 image:
   feature: so-simple-sample-image-4.jpg
   credit: Henrique Gomide

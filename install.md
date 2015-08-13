@@ -68,17 +68,17 @@ The project was tested on Glasshfish Server versions 3.x.x. To download it, open
 #### Step 1
 Left-click on services tab.
 
-![Figure 1 - Servers tab](/images/fig1.png)
+![Figure 1 - Servers tab](../images/fig1.png)
 
 #### Step 2
 Right-click on server
 
-![Figure 2 - Servers tab](/images/fig2.png)
+![Figure 2 - Servers tab](../images/fig2.png)
 
 #### Step 3
 Select Add server, then "Glassfish". Press next and mark the checkbox. After that, click on "Download now" and choose the option Glassfish 3.x.x.x.
 
-![Figure 3 - Servers tab](/images/fig3.png)
+![Figure 3 - Servers tab](../images/fig3.png)
 
 ### Github
 
