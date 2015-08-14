@@ -31,8 +31,8 @@ Are you curious to watch the results we've got so far? Take a look.
 ![The program](../../images/programa.png)
 
 <figure class="half">
-	<img src="/images/index_mobile.png" alt="image">
-	<img src="/images/programa_mobile.png" alt="image">
+	<img src="../../images/index_mobile.png" alt="image">
+	<img src="../../images/programa_mobile.png" alt="image">
 	<figcaption>Mobile versions.</figcaption>
 </figure>
 

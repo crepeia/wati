@@ -10,7 +10,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://crepeia.github.com/wati/feed.xml" />
 <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/" />
-<updated>2015-08-13T18:19:12-03:00</updated>
+<updated>2015-08-13T21:20:37-03:00</updated>
 <id>http://crepeia.github.com/wati/</id>
 <author>
   <name>Henrique Pinto Gomide</name>
@@ -52,8 +52,8 @@
 &lt;p&gt;&lt;img src=&quot;../../images/programa.png&quot; alt=&quot;The program&quot; /&gt;&lt;/p&gt;
 
 &lt;figure class=&quot;half&quot;&gt;
-	&lt;img src=&quot;/images/index_mobile.png&quot; alt=&quot;image&quot; /&gt;
-	&lt;img src=&quot;/images/programa_mobile.png&quot; alt=&quot;image&quot; /&gt;
+	&lt;img src=&quot;../../images/index_mobile.png&quot; alt=&quot;image&quot; /&gt;
+	&lt;img src=&quot;../../images/programa_mobile.png&quot; alt=&quot;image&quot; /&gt;
 	&lt;figcaption&gt;Mobile versions.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
