@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "How browserstack is helping us to testing our project.",
+		  "category"   : "news",
+		  "url"        : "//crepeia.github.com/wati/news/browserstack-is-helping-us-to-test-new-version/",
+		  "date"       : "2015-08-17 00:00:00 -0300",
+		  "shortdate"  : "August 17, 2015"
+		} ,
+	
+		{
 		  "title"      : "Mobile version is under way!",
 		  "category"   : "news",
 		  "url"        : "//crepeia.github.com/wati/news/mobile-friendly-version/",
