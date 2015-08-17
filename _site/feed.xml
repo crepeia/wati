@@ -10,7 +10,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://crepeia.github.com/wati/feed.xml" />
 <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/" />
-<updated>2015-08-15T17:58:30-03:00</updated>
+<updated>2015-08-17T16:45:22-03:00</updated>
 <id>http://crepeia.github.com/wati/</id>
 <author>
   <name>Henrique Pinto Gomide</name>
@@ -20,7 +20,7 @@
 
 
 <entry>
-  <title type="html"><![CDATA[How browserstack is helping us to testing our project.]]></title>
+  <title type="html"><![CDATA[How browserstack is helping us to test our project.]]></title>
   <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/browserstack-is-helping-us-to-test-new-version/"/>
   <id>http://crepeia.github.com/wati/news/browserstack-is-helping-us-to-test-new-version</id>
   <published>2015-08-17T00:00:00-03:00</published>
@@ -33,7 +33,7 @@
   <category scheme="http://crepeia.github.com/wati/tags/#mobile%20version" term="mobile version" /><category scheme="http://crepeia.github.com/wati/tags/#browserstack" term="browserstack" /><category scheme="http://crepeia.github.com/wati/tags/#open-source" term="open-source" /><category scheme="http://crepeia.github.com/wati/tags/#browser%20testing" term="browser testing" />
   <content type="html">
   
-    &lt;p&gt;We are pleased to announce that Browserstack is offering us their Live plan for free. Why did they do that? Our project is open-source and they love to help open-source projects.&lt;/p&gt;
+    &lt;p&gt;We are pleased to announce that Browserstack is offering us their Live plan for free. Why did they do that? Our project is open-source and they love to support open-source projects.&lt;/p&gt;
 
 &lt;h2 id=&quot;what-is-browser-stack&quot;&gt;What is Browser Stack?&lt;/h2&gt;
 
@@ -47,7 +47,7 @@
 
 
   
-  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/browserstack-is-helping-us-to-test-new-version/&quot;&gt;How browserstack is helping us to testing our project.&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on August 17, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/browserstack-is-helping-us-to-test-new-version/&quot;&gt;How browserstack is helping us to test our project.&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on August 17, 2015.&lt;/p&gt;</content>
 </entry>
 
 

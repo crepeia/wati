@@ -1,7 +1,7 @@
 ---
 layout: post
-title: How browserstack is helping us to testing our project.
-description: "How browserstack is helping us testing the new-version"
+title: How browserstack is helping us to test our project.
+description: "How browserstack is helping us to test the new-version"
 category: news
 tags: [mobile version, browserstack, open-source, browser testing]
 image:
@@ -10,7 +10,7 @@ comments: true
 share: true
 ---
 
-We are pleased to announce that Browserstack is offering us their Live plan for free. Why did they do that? Our project is open-source and they love to help open-source projects.
+We are pleased to announce that Browserstack is offering us their Live plan for free. Why did they do that? Our project is open-source and they love to support open-source projects.
 
 ## What is Browser Stack?
 
