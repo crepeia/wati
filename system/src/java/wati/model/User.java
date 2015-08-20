@@ -47,7 +47,8 @@ public class User {
     private String preferedLanguage;
     @Column(name = "recover_code")
     private Integer recoverCode;
-
+    @Column(name = "experimental_groups")
+    private Integer experimentalGroups;
     @OneToOne(mappedBy = "usuario")
     private ProntoParaParar prontoParaParar;
 
@@ -203,4 +204,16 @@ public class User {
         this.preferedLanguage = preferedLanguage;
     }
 
+    public Integer getExperimentalGroups() {
+        return experimentalGroups;
+    }
+
+    public void setExperimentalGroups(Integer experimentalGroups) {
+        this.experimentalGroups = experimentalGroups;
+    }
+
+    
+    
+
 }
+
