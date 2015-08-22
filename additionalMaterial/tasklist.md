@@ -12,11 +12,11 @@ Prioridade Alta
  * Implementar Feedback da página do PHQ-9. - Henrique
  * Verificar se a 2 barra de motivação está salvando os dados. - Henrique
  * Melhorar design da página com o plano de parada. - Henrique 
+ * Inserir Feedback da escala Ladder - Nathalia
 
 
 Prioridade Média
 ------------------------
-* Enviar uma cópia do termo de consentimento para usuário por e-mail, caso ele tenha concordado em participar da pesquisa. O Termo de consentimento está disponível no projeto com o nome "termo-consentimento". - Felipe.
 * Traduzir tags em português em inglês. - Henrique
 
 Prioridade Baixa
@@ -32,3 +32,4 @@ Prioridade Baixa
 Atividades Completas
 -------------------------
 * Criação de script para exportar dados da folha de tradução diretamente para o netbeans. - Henrique
+* Enviar uma cópia do termo de consentimento para usuário por e-mail, caso ele tenha concordado em participar da pesquisa. O Termo de consentimento está disponível no projeto com o nome "termo-consentimento". - Daniela.

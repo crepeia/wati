@@ -9,10 +9,30 @@
     </cc:interface>
 
     <!-- IMPLEMENTATION -->
-    <cc:implementation>
-        <div class="#{cc.attrs.cssClass}">
-            <nav>
-                <ul>
+    <cc:implementation>	
+
+        <ul id="dropdown2" class="dropdown-content">
+            <li><a href="pronto-para-parar-de-fumar-introducao.xhtml">#{messages['menu.ndstep.li1']}</a></li>  
+            <li><a href="pronto-para-parar-de-fumar-beneficios-de-parar.xhtml">#{messages['index.step1.li2']}</a></li>
+            <li><a href="pronto-para-parar-de-fumar-riscos-do-cigarro.xhtml">#{messages['menu.firststep.li2']}</a></li>
+            <li><a href="pronto-para-parar-de-fumar-abstinencia.xhtml">#{messages['menu.ndstep.li2']}</a></li>
+            <li><a href="pronto-para-parar-de-fumar-vencendo-a-fissura.xhtml">#{messages['menu.ndstep.li3']}</a></li>
+            <li><a href="pronto-para-parar-de-fumar-depressao.xhtml">#{messages['menu.firststep.li7']}</a></li>
+            <li><a href="pronto-para-parar-de-fumar-medicamentos.xhtml">#{messages['menu.ndstep.li4']}</a></li>
+            <li><a href="pronto-para-parar-de-fumar-data-para-parar.xhtml">#{messages['menu.ndstep.li6']}</a></li>                                   <li><a href="pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml">#{messages['menu.ndstep.li7']}</a></li>
+            <li><a href="pronto-para-parar-de-fumar-ganho-de-peso.xhtml">#{messages['menu.ndstep.li8']}</a></li>
+            <li><a href="pronto-para-parar-de-fumar-plano-personalizado.xhtml">#{messages['menu.ndstep.li9']}</a></li>
+        </ul>
+
+
+
+        <nav class="blue darken-1" role="navigation">
+            <div class="nav-wrapper container">                    
+                <ul class="left hide-on-med-and-down text-white">                        
+                    <li><a class="dropdown-button white-text" href="#!" data-activates="dropdown2"><i class="material-icons white-text">menu</i></a></li>
+                </ul>                    
+
+                <ul id="nav-mobile1" class="side-nav">
                     <li><a href="pronto-para-parar-de-fumar-introducao.xhtml">#{messages['menu.ndstep.li1']}</a></li>  
                     <li><a href="pronto-para-parar-de-fumar-beneficios-de-parar.xhtml">#{messages['index.step1.li2']}</a></li>
                     <li><a href="pronto-para-parar-de-fumar-riscos-do-cigarro.xhtml">#{messages['menu.firststep.li2']}</a></li>
@@ -20,11 +40,15 @@
                     <li><a href="pronto-para-parar-de-fumar-vencendo-a-fissura.xhtml">#{messages['menu.ndstep.li3']}</a></li>
                     <li><a href="pronto-para-parar-de-fumar-depressao.xhtml">Depressão</a></li>
                     <li><a href="pronto-para-parar-de-fumar-medicamentos.xhtml">#{messages['menu.ndstep.li4']}</a></li>
-                    <li><a href="pronto-para-parar-de-fumar-data-para-parar.xhtml">#{messages['menu.ndstep.li6']}</a></li>                             <li><a href="pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml">#{messages['menu.ndstep.li7']}</a></li>
+                    <li><a href="pronto-para-parar-de-fumar-data-para-parar.xhtml">#{messages['menu.ndstep.li6']}</a></li>
+                    <li><a href="pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml">#{messages['menu.ndstep.li7']}</a></li>
                     <li><a href="pronto-para-parar-de-fumar-ganho-de-peso.xhtml">#{messages['menu.ndstep.li8']}</a></li>
                     <li><a href="pronto-para-parar-de-fumar-plano-personalizado.xhtml">#{messages['menu.ndstep.li9']}</a></li>
                 </ul>
-            </nav>
-        </div>
+                <a href="#" data-activates="nav-mobile1" class="button-collapse"><i class="material-icons white-text">menu</i></a>
+            </div>
+        </nav>
+
     </cc:implementation>
+
 </html>

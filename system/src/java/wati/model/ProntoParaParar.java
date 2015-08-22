@@ -78,9 +78,8 @@ public class ProntoParaParar extends BaseController implements Serializable {
     private Date emailMensal;
     @Column(name = "email_mensal_cont")
     private Integer emailMensalCont;
-    
+
     // PHQ - Depression Scale
-    
     @Column(name = "phq_1")
     private Integer phq1;
     @Column(name = "phq_2")
@@ -99,9 +98,8 @@ public class ProntoParaParar extends BaseController implements Serializable {
     private Integer phq8;
     @Column(name = "phq_9")
     private Integer phq9;
-    
+
     // FTND - Nicotine Dependence Scale
-    
     @Column(name = "ftnd_1")
     private Integer ftnd1;
     @Column(name = "ftnd_2")
@@ -114,32 +112,33 @@ public class ProntoParaParar extends BaseController implements Serializable {
     private Integer ftnd5;
     @Column(name = "ftnd_6")
     private Integer ftnd6;
-    
+
     // Motivation Slider
-        
-    @Column(name="mot_01")
+    @Column(name = "mot_01")
     private int mot1;
-    @Column(name="mot_02")
+    @Column(name = "mot_02")
     private int mot2;
-    
-    @Column(name="pnad_a")
+
+    // Contemplation Ladder Scale        
+    @Column(name = "ladder")
+    private int ladder1;
+
+    @Column(name = "pnad_a")
     private boolean pnadA;
-    @Column(name="pnad_b")
+    @Column(name = "pnad_b")
     private boolean pnadB;
-    @Column(name="pnad_c")
+    @Column(name = "pnad_c")
     private boolean pnadC;
-    @Column(name="pnad_d")
+    @Column(name = "pnad_d")
     private boolean pnadD;
-    @Column(name="pnad_e")
+    @Column(name = "pnad_e")
     private boolean pnadE;
-    @Column(name="pnad_f")
+    @Column(name = "pnad_f")
     private boolean pnadF;
-    @Column(name="pnad_g")
+    @Column(name = "pnad_g")
     private boolean pnadG;
-    @Column(name="pnad_h")
+    @Column(name = "pnad_h")
     private boolean pnadH;
-    
-    
 
     public ProntoParaParar() {
         this.dataInserido = ((GregorianCalendar) GregorianCalendar.getInstance()).getTime();
@@ -553,7 +552,7 @@ public class ProntoParaParar extends BaseController implements Serializable {
     public void setPhq9(Integer phq9) {
         this.phq9 = phq9;
     }
-    
+
     public Integer getFtnd1() {
         return ftnd1;
     }
@@ -601,17 +600,26 @@ public class ProntoParaParar extends BaseController implements Serializable {
     public void setFtnd6(Integer ftnd6) {
         this.ftnd6 = ftnd6;
     }
-    
-    
+
     public int getMot1() {
         this.setMot1(5);
         return mot1;
     }
-    
+
     public void setMot1(int mot1) {
         this.mot1 = mot1;
     }
+
+    // Contemplation Ladder - Be aware, Henrique was here.
     
+    public int getLadder1() {
+        return ladder1;
+    }
+
+    public void setLadder1(int ladder1) {
+        this.ladder1 = ladder1;
+    }
+
     public int getMot2() {
         this.setMot2(5);
         return mot2;
@@ -620,7 +628,6 @@ public class ProntoParaParar extends BaseController implements Serializable {
     public void setMot2(int mot2) {
         this.mot2 = mot2;
     }
-    
 
     private void append(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -689,9 +696,8 @@ public class ProntoParaParar extends BaseController implements Serializable {
     public void setPnadH(boolean pnadH) {
         this.pnadH = pnadH;
     }
-    
-    
-     public void limparProcPararFumar(){
+
+    public void limparProcPararFumar() {
         this.setPnadA(false);
         this.setPnadB(false);
         this.setPnadC(false);
@@ -701,9 +707,5 @@ public class ProntoParaParar extends BaseController implements Serializable {
         this.setPnadG(false);
         this.setPnadH(false);
     }
-
-    
-    
-    
 
 }

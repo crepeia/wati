@@ -57,12 +57,14 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     private Map<String, String> anos = new LinkedHashMap<String, String>();
     private GregorianCalendar gregorianCalendar = null;
     private StreamedContent planoPersonalizado;
-    
+
     private String texto1;
     private String texto2;
-    
+
+    private String textoladder;
+
     private Map<String, String> ftnd4Qtde = new LinkedHashMap<String, String>();
-    
+
     private String[] procPararFumarMarcados = null;
     private static final char PNAD_A = 'a';
     private static final char PNAD_B = 'b';
@@ -72,7 +74,6 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     private static final char PNAD_F = 'f';
     private static final char PNAD_G = 'g';
     private static final char PNAD_H = 'h';
-    
 
     public ProntoParaPararController() {
         //super(ProntoParaParar.class);
@@ -86,7 +87,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         for (int i = 1; i <= 150; i++) {
             ftnd4Qtde.put(String.valueOf(i), String.valueOf(i));
         }
-        
+
         GregorianCalendar gc = (GregorianCalendar) GregorianCalendar.getInstance();
         int firstYear = gc.get(GregorianCalendar.YEAR);
         for (int i = firstYear; i < firstYear + 5; i++) {
@@ -94,8 +95,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }
         this.texto1 = "";
         this.texto2 = "";
-    
-
+        this.textoladder = "";
     }
 
     public String vencendoAFissura() {
@@ -154,7 +154,6 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         this.prontoParaParar.setEmailTerceiraSemana(null);
         this.prontoParaParar.setEmailMensal(null);
         this.prontoParaParar.setEmailMensalCont(null);
-        
 
         try {
             this.getDaoBase().insertOrUpdate(prontoParaParar, this.getEntityManager());
@@ -181,7 +180,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }
         return null;
     }
-    
+
     public String recaidasAjudar() {
 
         try {
@@ -231,19 +230,19 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             this.vencendoAFissuraMarcados = new String[count];
             count = 0;
             if (ppp.isEnfrentarFissuraBeberAgua()) {
-                this.vencendoAFissuraMarcados[ count] = String.valueOf(ProntoParaPararController.VENCENDO_FISSURA_BEBER_AGUA);
+                this.vencendoAFissuraMarcados[count] = String.valueOf(ProntoParaPararController.VENCENDO_FISSURA_BEBER_AGUA);
                 count++;
             }
             if (ppp.isEnfrentarFissuraComer()) {
-                this.vencendoAFissuraMarcados[ count] = String.valueOf(ProntoParaPararController.VENCENDO_FISSURA_COMER);
+                this.vencendoAFissuraMarcados[count] = String.valueOf(ProntoParaPararController.VENCENDO_FISSURA_COMER);
                 count++;
             }
             if (ppp.isEnfrentarFissuraLerRazoes()) {
-                this.vencendoAFissuraMarcados[ count] = String.valueOf(ProntoParaPararController.VENCENDO_FISSURA_LER_RAZOES);
+                this.vencendoAFissuraMarcados[count] = String.valueOf(ProntoParaPararController.VENCENDO_FISSURA_LER_RAZOES);
                 count++;
             }
             if (ppp.isEnfrentarFissuraRelaxamento()) {
-                this.vencendoAFissuraMarcados[ count] = String.valueOf(ProntoParaPararController.VENCENDO_FISSURA_RELAXAMENTO);
+                this.vencendoAFissuraMarcados[count] = String.valueOf(ProntoParaPararController.VENCENDO_FISSURA_RELAXAMENTO);
                 count++;
             }
         }
@@ -445,7 +444,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                 String html = this.defaultEmail(this.getText("plano.personalizado"), this.planoToHTML(user));
 
                 EMailSSL eMailSSL = new EMailSSL();
-                
+
                 eMailSSL.send(from, to, subject, this.planoToText(user), html, gerarPdf());
 
                 Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.INFO, this.getText("plano.enviado2") + user.getEmail() + ".");
@@ -673,15 +672,35 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 
     }
     /*
-    public void testarMetodo(){
-        System.out.println("***TESTE***TESTE***TESTE***");
-    }*/
-        
- 
+     public void testarMetodo(){
+     System.out.println("***TESTE***TESTE***TESTE***");
+     }*/
+
+    // Contemplation Ladder Scale
+    /**
+     * Method that computes the Patient Health Questionnaire 2 included at page
+     * preparando-parar-de-fumar-ansiedade-e-depressao.xhtml.
+     */
+    public void evaluateLadder() {
+        int score = prontoParaParar.getLadder1();
+        if (score == 10) {
+            textoladder = this.getText("feedback.dea.3");
+        } else if (score == 8) {
+            textoladder = this.getText("feedback.dea.1");
+        } else if (score == 6) {
+            textoladder = this.getText("feedback.dea.4");
+        } else if (score == 4) {
+            textoladder = this.getText("feedback.dea.2");
+        } else if (score == 2) {
+            textoladder = this.getText("feedback.dea.2");
+        } else {
+            textoladder = this.getText("feedback.phq9.no");
+        }
+    }
+
     // PHQ9 - Patient Health Questionnaire
-    
-    public String evaluateScale(){
-        
+    public String evaluateScale() {
+
         int sum1 = prontoParaParar.getPhq1();
         int sum2 = prontoParaParar.getPhq2();
         int sum3 = prontoParaParar.getPhq3();
@@ -691,61 +710,59 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         int sum7 = prontoParaParar.getPhq7();
         int sum8 = prontoParaParar.getPhq8();
         int sum9 = prontoParaParar.getPhq9();
-        
+
         int sumTotal = sum1 + sum2 + sum3 + sum4 + sum5 + sum6 + sum7 + sum8 + sum9;
-        
-        if(sumTotal >=9 && sumTotal <= 13)
+
+        if (sumTotal >= 9 && sumTotal <= 13) {
             texto1 = this.getText("feedback.phq9.1");
-        else if(sumTotal >= 14 && sumTotal <= 23){
+        } else if (sumTotal >= 14 && sumTotal <= 23) {
             texto1 = this.getText("feedback.phq9.2");
-        }else if(sumTotal >= 24 && sumTotal <= 36){
+        } else if (sumTotal >= 24 && sumTotal <= 36) {
             texto1 = this.getText("feedback.phq9.3");
-        }else
+        } else {
             texto1 = this.getText("feedback.phq9.no");
-       
+        }
+
         return null;
     }
-    
-  
+
     // FTND - Fagerstrom test of nicotine dependence
-    
-    public String evaluateFagerstrom(){
+    public String evaluateFagerstrom() {
         int sum4;
         int valor = prontoParaParar.getFtnd4();
-        if(valor <= 30){
+        if (valor <= 30) {
             sum4 = 1;
-        }else if(valor >= 31 && valor <= 50)
+        } else if (valor >= 31 && valor <= 50) {
             sum4 = 2;
-        else if(valor >= 51 && valor <= 70)
+        } else if (valor >= 51 && valor <= 70) {
             sum4 = 3;
-        else
+        } else {
             sum4 = 4;
-        
-        
+        }
+
         int sum1 = prontoParaParar.getFtnd1();
         int sum2 = prontoParaParar.getFtnd2();
         int sum3 = prontoParaParar.getFtnd3();
-       // int sum4 = prontoParaParar.getFtnd4();
+        // int sum4 = prontoParaParar.getFtnd4();
         int sum5 = prontoParaParar.getFtnd5();
         int sum6 = prontoParaParar.getFtnd6();
-        
+
         int sumTotal = sum1 + sum2 + sum3 + sum4 + sum5 + sum6;
-        
-        if(sumTotal >=6 && sumTotal <= 10)
+
+        if (sumTotal >= 6 && sumTotal <= 10) {
             texto2 = this.getText("feedback.ftnd.1");
-            
-        else if(sumTotal >= 11 && sumTotal <= 16){
+        } else if (sumTotal >= 11 && sumTotal <= 16) {
             texto2 = this.getText("feedback.ftnd.2");
-        }else
+        } else {
             texto2 = this.getText("feedback.phq9.no");
-        
-        return null;
-        
         }
-    
-    
-    public void txt(){
-             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("You said:'" + texto1 + "'"));
+
+        return null;
+
+    }
+
+    public void txt() {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("You said:'" + texto1 + "'"));
     }
 
     public String getTexto1() {
@@ -754,6 +771,14 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 
     public void setTexto1(String texto1) {
         this.texto1 = texto1;
+    }
+
+    public String getTextoladder() {
+        return textoladder;
+    }
+
+    public void setTextoladder(String textoladder) {
+        this.textoladder = textoladder;
     }
 
     public String getTexto2() {
@@ -771,37 +796,37 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     public void setFtnd4Qtde(Map<String, String> ftnd4Qtde) {
         this.ftnd4Qtde = ftnd4Qtde;
     }
-    
+
     public void procPararFumar() {
         this.prontoParaParar.limparProcPararFumar();
-        
-        for (String string : procPararFumarMarcados){
-            switch(string.charAt(0)){
-                case PNAD_A: 
+
+        for (String string : procPararFumarMarcados) {
+            switch (string.charAt(0)) {
+                case PNAD_A:
                     this.prontoParaParar.setPnadA(true);
                     break;
-                case PNAD_B: 
+                case PNAD_B:
                     this.prontoParaParar.setPnadB(true);
                     break;
-                case PNAD_C: 
+                case PNAD_C:
                     this.prontoParaParar.setPnadC(true);
                     break;
-                case PNAD_D: 
+                case PNAD_D:
                     this.prontoParaParar.setPnadD(true);
                     break;
-                case PNAD_E: 
+                case PNAD_E:
                     this.prontoParaParar.setPnadE(true);
                     break;
-                case PNAD_F: 
+                case PNAD_F:
                     this.prontoParaParar.setPnadF(true);
                     break;
-                case PNAD_G: 
+                case PNAD_G:
                     this.prontoParaParar.setPnadG(true);
                     break;
-                case PNAD_H: 
+                case PNAD_H:
                     this.prontoParaParar.setPnadH(true);
                     break;
-                      
+
             }
         }
         try {
@@ -809,80 +834,87 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
+
     }
 
     public String[] getProcPararFumarMarcados() {
-        if(this.procPararFumarMarcados == null){
+        if (this.procPararFumarMarcados == null) {
             ProntoParaParar ppp = this.getProntoParaParar();
             int count = 0;
-            if(ppp.isPnadA())
-                count++;
-            if(ppp.isPnadB())
-                count++;
-            if(ppp.isPnadC())
-                count++;
-            if(ppp.isPnadD())
-                count++;
-            if(ppp.isPnadE())
-                count++;
-            if(ppp.isPnadF())
-                count++;
-            if(ppp.isPnadG())
-                count++;
-            if(ppp.isPnadH())
-                count++;
-            
-            this.procPararFumarMarcados = new String[count];
-            count = 0;
             if (ppp.isPnadA()) {
-                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_A);
                 count++;
             }
             if (ppp.isPnadB()) {
-                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_B);
                 count++;
             }
             if (ppp.isPnadC()) {
-                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_C);
                 count++;
             }
             if (ppp.isPnadD()) {
-                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_D);
                 count++;
             }
             if (ppp.isPnadE()) {
-                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_E);
                 count++;
             }
             if (ppp.isPnadF()) {
-                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_F);
                 count++;
             }
             if (ppp.isPnadG()) {
-                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_G);
                 count++;
             }
             if (ppp.isPnadH()) {
-                this.procPararFumarMarcados[ count] = String.valueOf(ProntoParaPararController.PNAD_H);
                 count++;
             }
-            
+
+            this.procPararFumarMarcados = new String[count];
+            count = 0;
+            if (ppp.isPnadA()) {
+                this.procPararFumarMarcados[count] = String.valueOf(ProntoParaPararController.PNAD_A);
+                count++;
+            }
+            if (ppp.isPnadB()) {
+                this.procPararFumarMarcados[count] = String.valueOf(ProntoParaPararController.PNAD_B);
+                count++;
+            }
+            if (ppp.isPnadC()) {
+                this.procPararFumarMarcados[count] = String.valueOf(ProntoParaPararController.PNAD_C);
+                count++;
+            }
+            if (ppp.isPnadD()) {
+                this.procPararFumarMarcados[count] = String.valueOf(ProntoParaPararController.PNAD_D);
+                count++;
+            }
+            if (ppp.isPnadE()) {
+                this.procPararFumarMarcados[count] = String.valueOf(ProntoParaPararController.PNAD_E);
+                count++;
+            }
+            if (ppp.isPnadF()) {
+                this.procPararFumarMarcados[count] = String.valueOf(ProntoParaPararController.PNAD_F);
+                count++;
+            }
+            if (ppp.isPnadG()) {
+                this.procPararFumarMarcados[count] = String.valueOf(ProntoParaPararController.PNAD_G);
+                count++;
+            }
+            if (ppp.isPnadH()) {
+                this.procPararFumarMarcados[count] = String.valueOf(ProntoParaPararController.PNAD_H);
+                count++;
+            }
+
         }
-        
+
         return procPararFumarMarcados;
     }
 
     public void setProcPararFumarMarcados(String[] procPararFumarMarcados) {
         this.procPararFumarMarcados = procPararFumarMarcados;
     }
-    
-    public void teste(){
-        for(String s:this.procPararFumarMarcados){
+
+    public void teste() {
+        for (String s : this.procPararFumarMarcados) {
             System.out.println(s);
         }
-        
+
     }
-    
 
 }
