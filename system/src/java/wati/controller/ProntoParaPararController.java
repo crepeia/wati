@@ -699,7 +699,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     }
 
     // PHQ9 - Patient Health Questionnaire
-    public String evaluateScale() {
+    public void evaluateScale() {
 
         int sum1 = prontoParaParar.getPhq1();
         int sum2 = prontoParaParar.getPhq2();
@@ -723,11 +723,10 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             texto1 = this.getText("feedback.phq9.no");
         }
 
-        return null;
     }
 
     // FTND - Fagerstrom test of nicotine dependence
-    public String evaluateFagerstrom() {
+    public void evaluateFagerstrom() {
         int sum4;
         int valor = prontoParaParar.getFtnd4();
         if (valor <= 30) {
@@ -756,8 +755,6 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         } else {
             texto2 = this.getText("feedback.phq9.no");
         }
-
-        return null;
 
     }
 
