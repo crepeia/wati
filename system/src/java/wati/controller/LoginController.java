@@ -232,17 +232,9 @@ public class LoginController extends BaseFormController<User> {
                 } else {
                     this.showName = false;
                 }
-
-                Object object = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("url");
-                if (object != null) {
-                    String url = (String) object;
-                    try {
-                        Logger.getLogger(LoginController.class.getName()).log(Level.INFO, url);
-                        FacesContext.getCurrentInstance().getExternalContext().redirect(url);
-                    } catch (IOException ex) {
-                        Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
+                
+                FacesContext.getCurrentInstance().getExternalContext().redirect("escolha-uma-etapa.xhtml");
+                         
 
             }
 
@@ -259,6 +251,8 @@ public class LoginController extends BaseFormController<User> {
         } catch (SQLException ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, this.getText("mensagem.delete2"), null));
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
