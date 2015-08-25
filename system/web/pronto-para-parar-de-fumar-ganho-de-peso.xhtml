@@ -1,80 +1,69 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
     <f:view locale="#{languageController.locale}">
         <h:head>
             <title>#{messages['pronto.peso.titlepage']} | #{messages['vivasemtabaco.title']}</title>
             <w:head_comum />
         </h:head>
+
         <h:body>
-            <div id="corpo"> 
-                <!-- header -->    
-                <w:header loginRequired="true" />
-                <w:topmenu />
+            <w:topmenu loginRequired="true" />
+            <w:leftmenu_2/>
 
-                <!--mainmenu-->         	
-                <div class="main">
+            <div class="container">
+                <div class="row">
 
+                    <div class="col l8 m6 s12">
+                        <h3 class="headertop orange-text text-lighten-2">#{messages['pronto.peso.h1.1']}</h3>
+                        <p>#{messages['pronto.peso.p.1']}</p>
+                        <p>#{messages['pronto.peso.p.2']}</p>
 
-                    <w:leftmenu_2 cssClass="leftmenu2" />
+                        <h4 class="orange-text text-lighten-2">#{messages['pronto.peso.h2.1']}</h4>
+                        <ol>                          
+                            <li>#{messages['pronto.peso.li.1']}</li>
+                            <li>#{messages['pronto.peso.li.2']}</li>
+                            <li>#{messages['pronto.peso.li.3']}</li>                            
+                        </ol> 
+                    </div>
 
-                    <div class="pagecontent">
-                        <div id="pagecont2">
+                    <div class="col l4 m6 s12 hide-on-small-and-down">
+                        <br /><br />                   
+                        <h:graphicImage  library="default" styleClass="center-align valign-wrapper right" title="#{messages['pronto.peso.img.title']}" name="images/ganho-peso.png" alt="#{messages['pronto.peso.img.title']}" />
+                    </div>
+                </div>
 
-                            <div id ="pagetop"> 
-                                <div id="progressbar">
-                                    <p:progressBar value="88" labelTemplate="{value}%" displayOnly="true"/>                            
-                                </div>
-                                <div class="fotoframeclean">
-                                    <h:graphicImage  library="default" title="#{messages['pronto.peso.img.title']}" name="images/ganho-peso.png" alt="#{messages['pronto.peso.img.title']}" />
-                                </div>
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div class="card grey lighten-5">
+                            <div class="card-content grey-text darken-4">
+                                <span class="card-title blue-text darken-3">#{messages['next.step']}</span>
+                                <p>#{messages['preparando.bene.next.p']}</p>
                             </div>
-
-                            <h1>#{messages['pronto.peso.h1.1']}</h1>                                                                                 
-                            <p>#{messages['pronto.peso.p.1']}</p>
-                            <p>#{messages['pronto.peso.p.2']}</p>                                                
-
-                            <h2>#{messages['pronto.peso.h2.1']}</h2>
-                            <ul>                          
-                                <li>#{messages['pronto.peso.li.1']}</li>
-                                <li>#{messages['pronto.peso.li.2']}</li>
-                                <li>#{messages['pronto.peso.li.3']}</li>                            
-                            </ul>                                                  
-
-                            <div class="proximopasso">
-                                <div class="txtproximopasso">
-                                    <h2>#{messages['next.step']}</h2>                                
-                                    <p>#{messages['pronto.peso.next.p']}</p> 
-                                </div>
-                                <div class="btnfloat">
-                                    <div class="btn1">
-                                        <h:button class="btnback" value ="#{messages['back']}" outcome="./pronto-para-parar-de-fumar-como-evitar-recaidas-estrategias.xhtml"/>
-                                    </div>
-                                    <div class="btn2">
-                                        <h:button class="btngen" title="#{messages['pronto.peso.btn.title']}" value ="#{messages['next']}" outcome="./pronto-para-parar-de-fumar-plano-personalizado.xhtml" />                                
-                                    </div>
-                                </div>
+                            <div class="card-action">
+                                <a href="./pronto-para-parar-de-fumar-como-evitar-recaidas-estrategias.xhtml" title="#{messages['pronto.intro.h1']}">#{messages['back']}</a>
+                                <a class="tooltipped" data-position="right" data-tooltip="#{messages['pronto.peso.btn.title']}" href="./pronto-para-parar-de-fumar-plano-personalizado.xhtml" title="#{messages['pronto.peso.btn.title']}">#{messages['next']}</a>
                             </div>
-
-                            <div class="referencias">
-                                <p>#{messages['source']}: INCA. (2001). Abordagem e tratamento do fumante - consenso 2001.</p>                            
-                                <p>#{messages['update.date']}</p>                            
-                            </div>
-
                         </div>
                     </div>
                 </div>
 
-            </div><!-- end.corpo --> 
+                <div class="section">
+                    <div class='row'>
+                        <div class="col s12 m12 l12">
+                            <p class="grey-text">#{messages['update.date']}</p>
+                            <p class="grey-text">#{messages['source']}: INCA. (2001). Abordagem e tratamento do fumante - consenso 2001.</p>
+                        </div>
+                    </div>
+                </div>
 
-            <!--Footer -->
+            </div>
             <w:footer />
         </h:body>
     </f:view>
 </html>
-
