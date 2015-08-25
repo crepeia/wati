@@ -160,40 +160,7 @@
 
                         </h:form>	    		
                     </div>
-                </div>      
-
-                <div class="row">                
-                    <div class="col s12 m6 l6">                                                                        
-                        <h2 class="orange-text">#{messages['signin']}</h2>
-                        <h:form id="form1" class="form-signup">
-                            <p:messages />
-                            <input type="hidden" name="cx" value="000901674862427730485:_xhsedehfns"/>
-                            <input type="hidden" name="ie" value="UTF-8" />
-                            <div class="input-field">
-                                <p:inputText id="emailTxt" value="#{userController.user.email}" required="true" label="#{messages['email']}" validatorMessage="#{messages['naccount.invalidemail']}" styleClass="validate" type="email" >                                    
-                                    <f:validateLength maximum="50" />
-                                    <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
-                                    <label for="sendEmail"  data-error="wrong" data-success="right">#{messages['email']}</label>    
-                                </p:inputText>                               
-                                <p:message for="emailTxt" />
-                            </div>
-
-                            <div class="input-field">
-                                <p:password id="passwordTxt" value="#{loginController.password}" required="true" redisplay="true" size="30" label="#{messages['psw']}">  
-                                    <f:validateLength maximum="16" />
-                                    <!--<p:ajax update="passwordMsg" event="blur" />-->
-                                    <label for="passwordTxt" >#{messages['password']}</label>
-                                </p:password>
-                                <p:watermark for="passwordTxt" value="#{messages['password']}" />
-                            </div>
-
-                            <p:commandButton id="entrarBtn" styleClass="waves-effect waves-light btn" value="#{messages['signin']}" update="@form" actionListener="#{loginController.loginBegin}" ajax="false"/>
-                            <h:outputLink style="position:relative; padding-left:10px;" value="enviar-email-senha.xhtml">#{messages['forgot.password']}</h:outputLink>
-
-
-                        </h:form>
-                    </div>
-                </div>
+                </div>                
             </div>
 
 

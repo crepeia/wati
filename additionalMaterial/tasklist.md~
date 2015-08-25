@@ -13,6 +13,7 @@ Prioridade Alta
  * Verificar se a 2 barra de motivação está salvando os dados. - Henrique
  * Melhorar design da página com o plano de parada. - Henrique 
  * Inserir Feedback da escala Ladder - Nathalia
+ * Adicionar Toast no plano de parar de fumar - Henrique
 
 
 Prioridade Média

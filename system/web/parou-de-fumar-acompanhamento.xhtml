@@ -26,13 +26,12 @@
                                 <li>#{messages['acompanhamento.intro.li.2']}</li>
                             </ol>
 
-                            <h3 class="headertop orange-text text-lighten-2">#{messages['acompanhamento.rl.intro.h1.1']}</h3>
+                            <h4 class="headertop orange-text text-lighten-2">#{messages['acompanhamento.rl.intro.h1.1']}</h4>
                             <ul>
-                                <li><strong>#{messages['acompanhamento.rl.intro.li.1a']}</strong> - #{messages['acompanhamento.rl.intro.li.1b']}</li>
+                                <li><strong>#{messages['acompanhamento.rl.intro.li.1a']}</strong> - #{messages['acompanhamento.rl.intro.li.1b']}</li><br />
                                 <li><strong>#{messages['acompanhamento.rl.intro.li.2a']}</strong> - #{messages['acompanhamento.rl.intro.li.2b']}</li>                                
                             </ul>
-
-                            <h3 class="headertop orange-text text-lighten-2" >#{messages['acompanhamento.rl.intro.h2.1']}</h3>
+                            <h4 class="headertop orange-text text-lighten-2" >#{messages['acompanhamento.rl.intro.h2.1']}</h4>
                             <h5 class="headertop orange-text text-lighten-2">#{messages['acompanhamento.rl.intro.p.1']}</h5>
 
                         </div>
@@ -46,7 +45,7 @@
                     <h:form>
                         <div class="row">
                             <div class="col s12 m12 l12">
-                                <h:selectOneRadio id="lapsoRecaidaRadio" value="#{parouDeFumarController.acompanhamento.recaida}" required="true">  
+                                <h:selectOneRadio id="lapsoRecaidaRadio" value="#{parouDeFumarController.acompanhamento.recaida}" required="true" layout="pageDirection">  
                                     <f:selectItem itemLabel="#{messages['acompanhamento.rl.intro.li.2a']}" itemValue="0" />
                                     <f:selectItem itemLabel="#{messages['acompanhamento.rl.intro.li.1a']}" itemValue="1" /> 
                                     <f:selectItem itemLabel="#{messages['acompanhamento.rl.intro.li.3']}" itemValue="2" />
