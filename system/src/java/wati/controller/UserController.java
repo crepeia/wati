@@ -229,9 +229,10 @@ public class UserController extends BaseFormController<User> {
                 String to = this.email;
                 String subject = this.getText("subject.email.password");
                 String body;
-                body = this.getText("hello") + name_user + "\n"
+                body = this.getText("hello") + " " + name_user + "," + "\n"
                         + "\n"
                         + this.getText("email.password.send")+ email_user + this.getText("email.password.send.2") + " \n"
+                        + "\n"
                         + this.getText("email.password.send.3") + "\n"
                         + this.getText("email.password.send.4") + code + "\n"
                         + this.getText("email.password.send.5") + this.getLinkPassword() +  "\n\n"
@@ -258,7 +259,7 @@ public class UserController extends BaseFormController<User> {
     }
 
     public String getLinkPassword() {
-        return "http://wwww.vivasemtabaco.com/esqueceu-sua-senha.xhtml";
+        return "http://www.vivasemtabaco.com.br/esqueceu-sua-senha.xhtml";
     }
 
     public int generateCode() {

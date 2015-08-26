@@ -6,20 +6,34 @@ Por favor, resolver as pendências e copiá-las para a última sessão "Atividad
 
 Prioridade Alta
 ------------------------
- * O sistema não está enviando mensagens de e-mail.
- * Implementar o sistema de salvar msgs do formulario - parou-de-fumar-acompanhamento.xhtml.
- * Não é possível recuperar senhas de contas antigas, ou fazer o login.
- * Testar sistema de randomização - Felipe.
- * Implementar Feedback da página do PHQ-9. - Henrique
- * Verificar se a 2 barra de motivação está salvando os dados. - Henrique
- * Melhorar design da página com o plano de parada. - Henrique 
- * Inserir Feedback da escala Ladder - Nathalia
- * Adicionar Toast no plano de parar de fumar - Henrique
 
+### Thiago
+ * pronto-para-parar-de-fumar-depressao - Inserir resposta caso usuario esqueca de preencher alguma questao
+ * pronto-para-parar-de-fumar-medicamentos - Inserir resposta caso usuario esqueca de preencher alguma questao
+ * pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml - Consertar o sistema de feedback
+ * Acompanhamento parou de fumar - Enviar o campo para o banco de dados.
+ * Erro critico - /parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida.xhtml @50,101 rendered="#{parouDeFumarController.recaidaSituacao11}": The class 'wati.controller.ParouDeFumarController' does not have the property 'recaidaSituacao11'.
+
+### Nathália
+ * Atualizar informação em Português sobre o disque parar de fumar - Nathália.
+ * pronto-para-parar-de-fumar-introducao.xhtml - Inserir Feedback da escala Ladder - Nathalia
+ * Implementar Feedback da página do PHQ-9. - Nathalia
+
+### Henrique
+ * cadastrar-nova-conta.xhtml - Arrumar mensagens de erro.
+ * Mesclar os itens do topmenu nos menus laterais para versao mobile.
+ * Escrever lista de variaveis que sairao do banco de dados. - Henrique
+ 
 
 Prioridade Média
 ------------------------
-* Traduzir tags em português em inglês. - Henrique
+ * Plano de parar - plano para impressao aparece apenas em uma parte da tela.
+ * Testar sistema de randomização - Felipe.
+ * Traduzir tags em português em inglês. - Henrique
+ * Retirar bordas da select dos idiomas - Henrique
+ * preparando-parar-de-fumar-introducao - Inserir imagem melhor para - Henrique
+ * Melhorar design da página com o plano de parada. - Nathalia
+ 
 
 Prioridade Baixa
 -------------------------	
@@ -33,5 +47,10 @@ Prioridade Baixa
 
 Atividades Completas
 -------------------------
-* Criação de script para exportar dados da folha de tradução diretamente para o netbeans. - Henrique
-* Enviar uma cópia do termo de consentimento para usuário por e-mail, caso ele tenha concordado em participar da pesquisa. O Termo de consentimento está disponível no projeto com o nome "termo-consentimento". - Daniela.
+ * Inserir selo da Health on the Net Foundation no footer - Henrique
+ * Criação de script para exportar dados da folha de tradução diretamente para o netbeans. - Henrique
+ * Investigar e resolver o problema que aparece abaixo do rodapé - "The form component needs to have a UIForm in its ancestry. Suggestion: enclose the necessary components within <h:form>"
+ * O sistema não está enviando mensagens de e-mail.
+ * Enviar uma cópia do termo de consentimento para usuário por e-mail, caso ele tenha concordado em participar da pesquisa. O Termo de consentimento está disponível no projeto com o nome "termo-consentimento". - Daniela.
+ * Não é possível recuperar senhas de contas antigas, ou fazer o login.
+

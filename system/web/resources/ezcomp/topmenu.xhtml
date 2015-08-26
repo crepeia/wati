@@ -15,9 +15,11 @@
     <!-- IMPLEMENTATION -->
     <cc:implementation>
         
-        <h:inputHidden value="#{redirectController.redirect( cc.attrs.loginRequired )}" />
-        <h:inputHidden value="#{pageNavigationController.saveNavigation()}" />
-
+        <h:form>
+            <h:inputHidden value="#{redirectController.redirect( cc.attrs.loginRequired )}" />
+            <h:inputHidden value="#{pageNavigationController.saveNavigation()}" />
+        </h:form>
+        
         <div class="hide-on-med-and-up" id="userPanelm">
             <p:panel  styleClass="right" rendered="#{loginController.showName}">
                 #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  ::  
@@ -35,10 +37,10 @@
                     <li><a href="./programa.xhtml">#{messages['menu.top.li2']}</a></li>                                        
                     <li><a href="./quem-somos-os-autores.xhtml">#{messages['menu.top.li3']}</a></li>                    
                     <li><a href="./login.xhtml">#{messages['signin']}</a></li>
-                    <li><h:form id="langform">                        
-                            <h:selectOneMenu styleClass="browser-default indigo-text accent-3" style="margin-top:10px;" value="#{languageController.language}" onchange="submit()">
+                    <li><h:form id="langform">                      
+                            <div class="langselect"><h:selectOneMenu styleClass="browser-default blue-text text-darken-3" style="margin-top:10px;" value="#{languageController.language}" onchange="submit()">
                                 <f:selectItems value="#{languageController.languages}"/> 
-                            </h:selectOneMenu>                        
+                            </h:selectOneMenu></div>                        
                         </h:form></li>   
                 </ul>
 
