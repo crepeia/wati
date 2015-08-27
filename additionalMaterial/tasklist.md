@@ -17,12 +17,10 @@ Prioridade Alta
 ### Nathália
  * Atualizar informação em Português sobre o disque parar de fumar - Nathália.
  * pronto-para-parar-de-fumar-introducao.xhtml - Inserir Feedback da escala Ladder - Nathalia
- * Implementar Feedback da página do PHQ-9. - Nathalia
+ * Implementar Feedback da página do PHQ-9. A última questão do questionário fala sobre ideação suicida. Eu acho que seria legal criarmos um feedback especial para esta questão. Caso o usuário a marque, podemos sugerir que ele entre em contato com linhas telefônicas de suporte no Brasil ao menos. O telefone de contato deles é 141. Maiores informações aqui - http://www.cvv.org.br/site/voip.html - Nathália
 
 ### Henrique
- * cadastrar-nova-conta.xhtml - Arrumar mensagens de erro.
  * Mesclar os itens do topmenu nos menus laterais para versao mobile.
- * Escrever lista de variaveis que sairao do banco de dados. - Henrique
  
 
 Prioridade Média
@@ -53,4 +51,5 @@ Atividades Completas
  * O sistema não está enviando mensagens de e-mail.
  * Enviar uma cópia do termo de consentimento para usuário por e-mail, caso ele tenha concordado em participar da pesquisa. O Termo de consentimento está disponível no projeto com o nome "termo-consentimento". - Daniela.
  * Não é possível recuperar senhas de contas antigas, ou fazer o login.
-
+ * cadastrar-nova-conta.xhtml - Arrumar mensagens de erro.
+ * Escrever lista de variaveis que sairao do banco de dados. - Henrique

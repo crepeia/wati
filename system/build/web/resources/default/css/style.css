@@ -8,15 +8,15 @@
 
 nav ul a,
 nav .brand-logo {
-  color: #1565c0;
+    color: #1565c0;
 }
 
 p {
-  line-height: 2rem;
+    line-height: 2rem;
 }
 
 .button-collapse {
-  color: #26a69a;
+    color: #26a69a;
 }
 
 .icon {
@@ -24,40 +24,40 @@ p {
     padding-top: 13px;
 }
 .parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
 }
-  .parallax-container .section {
+.parallax-container .section {
     width: 100%;
-  }
+}
 
 @media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+    #index-banner .section {
+        top: 10%;
+    }
 }
 
 @media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
+    #index-banner .section {
+        top: 0;
+    }
 }
 
 .icon-block {
-  padding: 0 15px;
+    padding: 0 15px;
 }
 .icon-block .material-icons {
-  font-size: inherit;
+    font-size: inherit;
 }
 
 footer.page-footer {
-  margin: 0;
+    margin: 0;
 }
 steps h3 {
     line-height: 1rem;
@@ -83,4 +83,14 @@ blockquote {
 
 #userPanel a #userPanelm a{
     color:#4375b4;
+}
+
+#logo-container{
+    height: 57px;
+    margin: 20px 0 50px 0;
+    padding: 0 0 20px 35px;
+}
+
+#front-page-logo{
+    text-align: center;
 }
