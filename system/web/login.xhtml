@@ -21,8 +21,6 @@
                 <div class="row">
 
                     <div class="col s12 m6 l6">
-
-
                         <h2 class="orange-text">#{messages['signin']}</h2>
                         <h:form id="form" class="form-signup">
                             <p:messages />
@@ -42,9 +40,17 @@
                                     <label for="passwordTxt" >#{messages['password']}</label>
                                 </p:password>
                                 <p:watermark for="passwordTxt" value="#{messages['password']}" />
-                            </div>							
-                            <p:commandButton styleClass="btn waves-effect waves-light"  id="entrarBtn" value="#{messages['signin']}" update="@form" actionListener="#{loginController.login}" ajax="false"/>
-                            <h:outputLink style="padding-left: 15px;" value="contato.xhtml">#{messages['login.couldntaccess']}</h:outputLink>
+                            </div>	
+
+                            <div class="row">
+                                <div class="col s12 m5 l5">
+                                    <p:commandButton styleClass="btn waves-effect waves-light"  id="entrarBtn" value="#{messages['signin']}" update="@form" actionListener="#{loginController.login}" ajax="false"/>
+                                </div>
+                                <div class="col s12 m7 l7">                                    
+                                    <h:outputLink value="contato.xhtml" style="position:relative; top: 12px;">#{messages['login.couldntaccess']}</h:outputLink>
+                                </div>
+                            </div>
+
 
                         </h:form>	    		
                     </div>

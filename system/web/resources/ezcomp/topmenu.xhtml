@@ -14,24 +14,31 @@
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
-        
+
         <h:form>
             <h:inputHidden value="#{redirectController.redirect( cc.attrs.loginRequired )}" />
             <h:inputHidden value="#{pageNavigationController.saveNavigation()}" />
+
+
+            <div class="hide-on-med-and-up" id="userPanelm">
+                <p:panel id="loginPanel" rendered="#{!loginController.showName}">
+                    <h:outputLink value="cadastrar-nova-conta.xhtml" >#{messages['register']}</h:outputLink> / 
+                    <h:outputLink value="login.xhtml" >#{messages['signin']}</h:outputLink>
+<!--                    <p:commandLink value="#{messages['signin']}" id="entrarLink" />                                 -->
+                    <p:messages id="loginMessages" globalOnly="true" />
+                </p:panel>
+                <p:panel  styleClass="left" rendered="#{loginController.showName}">
+                    #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  ::  
+                    <h:outputLink value="logout.xhtml">#{messages['signout']}</h:outputLink>
+                </p:panel>
+            </div>
         </h:form>
-        
-        <div class="hide-on-med-and-up" id="userPanelm">
-            <p:panel  styleClass="right" rendered="#{loginController.showName}">
-                #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  ::  
-                <h:outputLink value="logout.xhtml">#{messages['signout']}</h:outputLink>
-            </p:panel>
-        </div>
 
         <nav class="white" role="navigation">
 
             <div class="nav-wrapper container">
                 <div class="logo-container">
-                    <a href="./index.xhtml" class="brand-logo center-on-small-only"><h:graphicImage styleClass="icon" value="resources/default/images/vst-color.png"/><!--#{messages['vivasemtabaco']}--></a>
+                    <a href="./index.xhtml" class="brand-logo hide-on-small-and-down"><h:graphicImage styleClass="icon" value="resources/default/images/vst-color.png"/><!--#{messages['vivasemtabaco']}--></a>
                 </div> 
                 <ul class="right hide-on-med-and-down">
                     <li><a href="./programa.xhtml">#{messages['menu.top.li2']}</a></li>                                        
@@ -39,8 +46,8 @@
                     <li><a href="./login.xhtml">#{messages['signin']}</a></li>
                     <li><h:form id="langform">                      
                             <div class="langselect"><h:selectOneMenu styleClass="browser-default blue-text text-darken-3" style="margin-top:10px;" value="#{languageController.language}" onchange="submit()">
-                                <f:selectItems value="#{languageController.languages}"/> 
-                            </h:selectOneMenu></div>                        
+                                    <f:selectItems value="#{languageController.languages}"/> 
+                                </h:selectOneMenu></div>                        
                         </h:form></li>   
                 </ul>
 
@@ -64,7 +71,7 @@
                         </h:form></li>
                 </ul>
 
-                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a href="#" data-activates="nav-mobile" class="button-collapse left"><i class="material-icons">menu</i></a>
 
             </div>
         </nav>
@@ -75,17 +82,6 @@
                 <h:outputLink value="logout.xhtml">#{messages['signout']}</h:outputLink>
             </p:panel>
         </div>
-
-        <!--        <div class="hide-on-med-and-up" id="userPanelm">
-                    <p:panel  styleClass="right" rendered="#{loginController.showName}">
-        #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  ::  
-        <h:outputLink value="logout.xhtml">#{messages['signout']}</h:outputLink>
-    </p:panel>
-</div>-->
-
-
-
-
 
     </cc:implementation>
 </html>
