@@ -56,4 +56,17 @@ public class RedirectController {
 		return "OK";
 
 	}
+        
+        public void redirectIndex (boolean redirect){
+            if(redirect){
+                Object object = FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loggedUser");
+                if (object != null) {
+                    try {
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+                    } catch (IOException ex) {
+                        Logger.getLogger(RedirectController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        }
 }
