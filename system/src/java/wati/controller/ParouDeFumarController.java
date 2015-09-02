@@ -41,6 +41,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.naming.NamingException;
+import org.primefaces.context.RequestContext;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import wati.model.Acompanhamento;
@@ -541,6 +542,17 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
         }else{
             return false;
         }
+    }
+    
+    public void saveQuitMessage(){
+        Acompanhamento a = this.getAcompanhamento();
+        try {
+            this.getDaoBase().insertOrUpdate(a, this.getEntityManager());
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Thank you!", "Your message has been saved."));
+        } catch (SQLException ex) {
+            Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
 }
