@@ -43,7 +43,9 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="./programa.xhtml">#{messages['menu.top.li2']}</a></li>                                        
                     <li><a href="./quem-somos-os-autores.xhtml">#{messages['menu.top.li3']}</a></li>                    
+                    <p:outputPanel rendered="#{!loginController.showName}">
                     <li><a href="./login.xhtml">#{messages['signin']}</a></li>
+                    </p:outputPanel>
                     <li><h:form id="langform">                      
                             <div class="langselect"><h:selectOneMenu styleClass="browser-default blue-text text-darken-3" style="margin-top:10px;" value="#{languageController.language}" onchange="submit()">
                                     <f:selectItems value="#{languageController.languages}"/> 
