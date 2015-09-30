@@ -39,13 +39,14 @@
                         <h:form>
                             <div class="input-field col s12 m12 l12">
                                 <i class="material-icons prefix">mode_edit</i>
-                                <h:inputTextarea styleClass="materialize-textarea" value="#{contatoController.message}" id="campo1"/> 
+                                <h:inputTextarea styleClass="materialize-textarea" value="#{parouDeFumarController.acompanhamento.quitMessage}" id="campo1"/> 
                                 <label for="campo1"><!--#{messages['pronto.evitar.sim.question.note']}--></label>
                             </div>  
                             <div class="center">
-                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['send']}"/>
+                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['send']}" action="#{parouDeFumarController.saveQuitMessage()}"/>
                             </div>
                         </h:form>
+                        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
                     </div>
                 </div>
 

@@ -15,9 +15,9 @@ Prioridade Alta
  * Erro critico - /parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida.xhtml @50,101 rendered="#{parouDeFumarController.recaidaSituacao11}": The class 'wati.controller.ParouDeFumarController' does not have the property 'recaidaSituacao11'.
 
 ### Nathália
- * Atualizar informação em Português sobre o disque parar de fumar - Nathália.
- * pronto-para-parar-de-fumar-introducao.xhtml - Inserir Feedback da escala Ladder - Nathalia
- * Implementar Feedback da página do PHQ-9. A última questão do questionário fala sobre ideação suicida. Eu acho que seria legal criarmos um feedback especial para esta questão. Caso o usuário a marque, podemos sugerir que ele entre em contato com linhas telefônicas de suporte no Brasil ao menos. O telefone de contato deles é 141. Maiores informações aqui - http://www.cvv.org.br/site/voip.html - Nathália
+ * Atualizar informação em Português sobre o disque parar de fumar
+ * pronto-para-parar-de-fumar-introducao.xhtml - Inserir Feedback da escala Ladder
+ * Implementar Feedback da página do PHQ-9. A última questão do questionário fala sobre ideação suicida. Eu acho que seria legal criarmos um feedback especial para esta questão. Caso o usuário a marque, podemos sugerir que ele entre em contato com linhas telefônicas de suporte no Brasil ao menos. O telefone de contato deles é 141. Maiores informações aqui - http://www.cvv.org.br/site/voip.html
 
 ### Henrique
  * Atualizar pagina de termos de uso com versao mais atual.
@@ -25,7 +25,7 @@ Prioridade Alta
 
 Prioridade Média
 ------------------------
- * Plano de parar - plano para impressao aparece apenas em uma parte da tela.
+ * Plano de parar - plano para impressao aparece apenas em uma parte da tela. - Thiago
  * Testar sistema de randomização - Felipe.
  * Traduzir tags em português em inglês. - Henrique
  * Retirar bordas da select dos idiomas - Henrique
@@ -35,6 +35,8 @@ Prioridade Média
 
 Prioridade Baixa
 -------------------------	
+
+* Atualizar Servidor Glassfish - Thiago.
 * Inserir plugins sociais na página - Facebook e Twitter.
 * Comentar em inglês o código do programa. - Felipe e Daniela
 * Inserir legendas no vídeo ou faixas de áudio. - Henrique
