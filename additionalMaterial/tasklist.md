@@ -12,7 +12,6 @@ Prioridade Alta
  * pronto-para-parar-de-fumar-medicamentos - Inserir resposta caso usuario esqueca de preencher alguma questao
  * pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml - Consertar o sistema de feedback
  * Acompanhamento parou de fumar - Enviar o campo para o banco de dados.
- * Erro critico - /parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida.xhtml @50,101 rendered="#{parouDeFumarController.recaidaSituacao11}": The class 'wati.controller.ParouDeFumarController' does not have the property 'recaidaSituacao11'.
 
 ### Nathália
  * Atualizar informação em Português sobre o disque parar de fumar
@@ -54,4 +53,5 @@ Atividades Completas
  * Escrever lista de variaveis que sairao do banco de dados. - Henrique
  * Mesclar os itens do topmenu nos menus laterais para versao mobile.
  * Atualizar pagina de termos de uso com versao mais atual. - Henrique
+ * Erro critico - /parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida.xhtml @50,101 rendered="#{parouDeFumarController.recaidaSituacao11}": The class 'wati.controller.ParouDeFumarController' does not have the property 'recaidaSituacao11'. - Henrique
 
