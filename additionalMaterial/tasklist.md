@@ -19,9 +19,6 @@ Prioridade Alta
  * pronto-para-parar-de-fumar-introducao.xhtml - Inserir Feedback da escala Ladder
  * Implementar Feedback da página do PHQ-9. A última questão do questionário fala sobre ideação suicida. Eu acho que seria legal criarmos um feedback especial para esta questão. Caso o usuário a marque, podemos sugerir que ele entre em contato com linhas telefônicas de suporte no Brasil ao menos. O telefone de contato deles é 141. Maiores informações aqui - http://www.cvv.org.br/site/voip.html
 
-### Henrique
- * Atualizar pagina de termos de uso com versao mais atual.
-
 
 Prioridade Média
 ------------------------
@@ -56,4 +53,5 @@ Atividades Completas
  * cadastrar-nova-conta.xhtml - Arrumar mensagens de erro.
  * Escrever lista de variaveis que sairao do banco de dados. - Henrique
  * Mesclar os itens do topmenu nos menus laterais para versao mobile.
+ * Atualizar pagina de termos de uso com versao mais atual. - Henrique
 

@@ -112,7 +112,6 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
         try {
 
             this.getDaoBase().insertOrUpdate(a, this.getEntityManager());
-
             return "parou-de-fumar-acompanhamento-lapso-identificar-fatores-recaida.xhtml";
 
         } catch (SQLException ex) {
