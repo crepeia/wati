@@ -40,7 +40,7 @@
 
                         <h3 class="headertop orange-text text-lighten-2">#{messages['pronto.meds.h2.3']}</h3>  
                         <p>1. #{messages['ftnd.1q']}</p>
-                        <h:selectOneRadio id="ftnd_1" value="#{prontoParaPararController.prontoParaParar.ftnd1}" required="true" requiredMessage="Erro!" styleClass="radio-inline">
+                        <h:selectOneRadio id="ftnd_1" value="#{prontoParaPararController.prontoParaParar.ftnd1}"  requiredMessage="Erro!" styleClass="radio-inline">
                             <f:selectItem itemLabel="#{messages['ftnd.r.1a']}" itemValue="4"/>
                             <f:selectItem itemLabel="#{messages['ftnd.r.1b']}" itemValue="3"/>
                             <f:selectItem itemLabel="#{messages['ftnd.r.1c']}" itemValue="2"/>
@@ -49,14 +49,14 @@
 
                         <div class="divider"></div>
                         <p>2. #{messages['ftnd.2q']}</p>                                        
-                        <h:selectOneRadio id="ftnd_2" value="#{prontoParaPararController.prontoParaParar.ftnd2}" required="true" styleClass="radio-inline">
+                        <h:selectOneRadio id="ftnd_2" value="#{prontoParaPararController.prontoParaParar.ftnd2}"  styleClass="radio-inline">
                             <f:selectItem itemLabel="#{messages['yes']}" itemValue="2"/>
                             <f:selectItem itemLabel="#{messages['no']}" itemValue="1"/>
                         </h:selectOneRadio>
 
                         <div class="divider"></div>
                         <p>3. #{messages['ftnd.3q']}</p>
-                        <h:selectOneRadio id="ftnd_3" value="#{prontoParaPararController.prontoParaParar.ftnd3}" required="true" styleClass="radio-inline">
+                        <h:selectOneRadio id="ftnd_3" value="#{prontoParaPararController.prontoParaParar.ftnd3}"  styleClass="radio-inline">
                             <f:selectItem itemLabel="#{messages['ftnd.r.3a']}" itemValue="2"/>
                             <f:selectItem itemLabel="#{messages['ftnd.r.3b']}" itemValue="1"/>
                         </h:selectOneRadio>
@@ -64,7 +64,7 @@
                         <div class="divider"></div>
                         <p>4. #{messages['ftnd.4q']}</p>
 
-                        <h:selectOneMenu id="ftnd_4" value="#{prontoParaPararController.prontoParaParar.ftnd4}" styleClass="browser-default" required="true" label="qtde">  
+                        <h:selectOneMenu id="ftnd_4" value="#{prontoParaPararController.prontoParaParar.ftnd4}" styleClass="browser-default"  label="qtde">  
                             <f:selectItem itemLabel="Quantidade" itemValue="" />  
                             <f:selectItems value="#{prontoParaPararController.ftnd4Qtde}" />  
                         </h:selectOneMenu>
@@ -72,7 +72,7 @@
                         <div class="divider"></div>
                         <p>5. #{messages['ftnd.5q']}</p>
 
-                        <h:selectOneRadio id="ftnd_5" value="#{prontoParaPararController.prontoParaParar.ftnd5}" required="true" styleClass="radio-inline">
+                        <h:selectOneRadio id="ftnd_5" value="#{prontoParaPararController.prontoParaParar.ftnd5}"  styleClass="radio-inline">
                             <f:selectItem itemLabel="#{messages['yes']}" itemValue="2"/>
                             <f:selectItem itemLabel="#{messages['no']}" itemValue="1"/>
                         </h:selectOneRadio>
@@ -81,7 +81,7 @@
 
                         <p>6. #{messages['ftnd.6q']}</p>
 
-                        <h:selectOneRadio id="ftnd_6" value="#{prontoParaPararController.prontoParaParar.ftnd6}" required="true">
+                        <h:selectOneRadio id="ftnd_6" value="#{prontoParaPararController.prontoParaParar.ftnd6}" >
                             <f:selectItem itemLabel="#{messages['yes']}" itemValue="2"/>
                             <f:selectItem itemLabel="#{messages['no']}" itemValue="1"/>
                         </h:selectOneRadio>

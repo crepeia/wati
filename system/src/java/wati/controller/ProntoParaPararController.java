@@ -700,16 +700,15 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 
     // PHQ9 - Patient Health Questionnaire
     public void evaluateScale() {
-
-        int sum1 = prontoParaParar.getPhq1();
-        int sum2 = prontoParaParar.getPhq2();
-        int sum3 = prontoParaParar.getPhq3();
-        int sum4 = prontoParaParar.getPhq4();
-        int sum5 = prontoParaParar.getPhq5();
-        int sum6 = prontoParaParar.getPhq6();
-        int sum7 = prontoParaParar.getPhq7();
-        int sum8 = prontoParaParar.getPhq8();
-        int sum9 = prontoParaParar.getPhq9();
+        int sum1 = prontoParaParar.getPhq1() == null ? 0 : prontoParaParar.getPhq1();
+        int sum2 = prontoParaParar.getPhq2() == null ? 0 : prontoParaParar.getPhq2();
+        int sum3 = prontoParaParar.getPhq3() == null ? 0 : prontoParaParar.getPhq3();
+        int sum4 = prontoParaParar.getPhq4() == null ? 0 : prontoParaParar.getPhq4();
+        int sum5 = prontoParaParar.getPhq5() == null ? 0 : prontoParaParar.getPhq5();
+        int sum6 = prontoParaParar.getPhq6() == null ? 0 : prontoParaParar.getPhq6();
+        int sum7 = prontoParaParar.getPhq7() == null ? 0 : prontoParaParar.getPhq7();
+        int sum8 = prontoParaParar.getPhq8() == null ? 0 : prontoParaParar.getPhq8();
+        int sum9 = prontoParaParar.getPhq9() == null ? 0 : prontoParaParar.getPhq9();
 
         int sumTotal = sum1 + sum2 + sum3 + sum4 + sum5 + sum6 + sum7 + sum8 + sum9;
 
@@ -722,13 +721,12 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         } else {
             texto1 = this.getText("feedback.phq9.no");
         }
-
     }
 
     // FTND - Fagerstrom test of nicotine dependence
     public void evaluateFagerstrom() {
         int sum4;
-        int valor = prontoParaParar.getFtnd4();
+        int valor = prontoParaParar.getFtnd4() == null ? 0 : prontoParaParar.getFtnd4();
         if (valor <= 30) {
             sum4 = 1;
         } else if (valor >= 31 && valor <= 50) {
@@ -739,12 +737,12 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             sum4 = 4;
         }
 
-        int sum1 = prontoParaParar.getFtnd1();
-        int sum2 = prontoParaParar.getFtnd2();
-        int sum3 = prontoParaParar.getFtnd3();
+        int sum1 = prontoParaParar.getFtnd1() == null ? 0 : prontoParaParar.getFtnd1();
+        int sum2 = prontoParaParar.getFtnd2() == null ? 0 : prontoParaParar.getFtnd2();
+        int sum3 = prontoParaParar.getFtnd3() == null ? 0 : prontoParaParar.getFtnd3();
         // int sum4 = prontoParaParar.getFtnd4();
-        int sum5 = prontoParaParar.getFtnd5();
-        int sum6 = prontoParaParar.getFtnd6();
+        int sum5 = prontoParaParar.getFtnd5() == null ? 0 : prontoParaParar.getFtnd5();
+        int sum6 = prontoParaParar.getFtnd6() == null ? 0 : prontoParaParar.getFtnd6();
 
         int sumTotal = sum1 + sum2 + sum3 + sum4 + sum5 + sum6;
 

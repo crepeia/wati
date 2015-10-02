@@ -8,8 +8,6 @@ Prioridade Alta
 ------------------------
 
 ### Thiago
- * pronto-para-parar-de-fumar-depressao - Inserir resposta caso usuario esqueca de preencher alguma questao
- * pronto-para-parar-de-fumar-medicamentos - Inserir resposta caso usuario esqueca de preencher alguma questao
  * pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml - Consertar o sistema de feedback
  * Acompanhamento parou de fumar - Enviar o campo para o banco de dados.
 
@@ -54,4 +52,6 @@ Atividades Completas
  * Mesclar os itens do topmenu nos menus laterais para versao mobile.
  * Atualizar pagina de termos de uso com versao mais atual. - Henrique
  * Erro critico - /parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida.xhtml @50,101 rendered="#{parouDeFumarController.recaidaSituacao11}": The class 'wati.controller.ParouDeFumarController' does not have the property 'recaidaSituacao11'. - Henrique
+ * pronto-para-parar-de-fumar-depressao - Inserir resposta caso usuario esqueca de preencher alguma questao
+ * pronto-para-parar-de-fumar-medicamentos - Inserir resposta caso usuario esqueca de preencher alguma questao
 
