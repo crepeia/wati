@@ -793,43 +793,51 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     }
 
     public void procPararFumar() {
-        this.prontoParaParar.limparProcPararFumar();
+        getProntoParaParar().limparProcPararFumar();
 
         for (String string : procPararFumarMarcados) {
             switch (string.charAt(0)) {
                 case PNAD_A:
-                    this.prontoParaParar.setPnadA(true);
+                    getProntoParaParar().setPnadA(true);
                     break;
                 case PNAD_B:
-                    this.prontoParaParar.setPnadB(true);
+                    getProntoParaParar().setPnadB(true);
                     break;
                 case PNAD_C:
-                    this.prontoParaParar.setPnadC(true);
+                    getProntoParaParar().setPnadC(true);
                     break;
                 case PNAD_D:
-                    this.prontoParaParar.setPnadD(true);
+                    getProntoParaParar().setPnadD(true);
                     break;
                 case PNAD_E:
-                    this.prontoParaParar.setPnadE(true);
+                    getProntoParaParar().setPnadE(true);
                     break;
                 case PNAD_F:
-                    this.prontoParaParar.setPnadF(true);
+                    getProntoParaParar().setPnadF(true);
                     break;
                 case PNAD_G:
-                    this.prontoParaParar.setPnadG(true);
+                    getProntoParaParar().setPnadG(true);
                     break;
                 case PNAD_H:
-                    this.prontoParaParar.setPnadH(true);
+                    getProntoParaParar().setPnadH(true);
                     break;
 
             }
         }
+
         try {
-            this.getDaoBase().insertOrUpdate(prontoParaParar, this.getEntityManager());
+            this.getDaoBase().insertOrUpdate(getProntoParaParar(), this.getEntityManager());
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+    
+    public boolean isProcPararFumarMarcado(){
+        return getProntoParaParar().isPnadA() || getProntoParaParar().isPnadB()||
+               getProntoParaParar().isPnadC() || getProntoParaParar().isPnadD()||
+               getProntoParaParar().isPnadE() || getProntoParaParar().isPnadF()||
+               getProntoParaParar().isPnadG() || getProntoParaParar().isPnadH();
     }
 
     public String[] getProcPararFumarMarcados() {

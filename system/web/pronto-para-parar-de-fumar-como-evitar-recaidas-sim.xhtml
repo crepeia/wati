@@ -40,7 +40,7 @@
 
                             <div class="row">
                                 <div class="col l3 m3 s12">
-                                    <h:selectOneMenu id="day" value="#{userController.dia}" styleClass="browser-default" required="true" label="#{messages['naccount.day']}">
+                                    <h:selectOneMenu id="day" value="#{userController.dia}" styleClass="browser-default"  label="#{messages['naccount.day']}">
                                         <f:selectItem itemLabel="0" itemValue="0" />  
                                         <f:selectItems value="#{userController.dias}" />  
                                     </h:selectOneMenu>
@@ -49,7 +49,7 @@
                             <br />
 
                             <h5 class="headertop orange-text text-lighten-2">#{messages['pnad.3']}</h5>
-                            <h:selectManyCheckbox value="#{prontoParaPararController.procPararFumarMarcados}" layout="pageDirection">  
+                            <h:selectManyCheckbox  value="#{prontoParaPararController.procPararFumarMarcados}" layout="pageDirection">  
                                 <f:selectItem itemLabel="#{messages['pnad.3.a']}" itemValue="a" />
                                 <f:selectItem itemLabel="#{messages['pnad.3.b']}" itemValue="b" />
                                 <f:selectItem itemLabel="#{messages['pnad.3.c']}" itemValue="c" />
@@ -62,68 +62,72 @@
 
                             <div class="center">
                                 <a class="modal-trigger" href="#HiddenDiv">
-                                    <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['preparando.aed.btn.avaliar']}"  actionListener="#{prontoParaPararController.procPararFumar()}" update="frag1,frag2"  process="@all" onclick="javascript:ShowHide('HiddenDiv');"/></a>                             
+                                    <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['preparando.aed.btn.avaliar']}"  actionListener="#{prontoParaPararController.procPararFumar()}" update="hiddenPanel"  process="@all" onclick="javascript:ShowHide('HiddenDiv');"/></a>                             
                             </div>                            
 
                             <div class="modal" style="display: none" id="HiddenDiv">
                                 <div class="modal-content">
-                                    <h2>#{messages['preparando.aed.result']}</h2>
-                                    <ui:fragment id="frag1" rendered="#{prontoParaPararController.prontoParaParar.pnadA}">
-                                        <h4>#{messages['ready.avoid.relapses.yes.h4.1']}</h4>
-                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.1']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.2']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.3']}</li>
-                                        </ul>
-                                    </ui:fragment>
-                                    <ui:fragment id="frag2" rendered="#{prontoParaPararController.prontoParaParar.pnadB}">
-                                        <h4>#{messages['ready.avoid.relapses.yes.h4.2']}</h4>
-                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.4']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.5']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.6']}</li>
-                                        </ul>
-                                    </ui:fragment>
-                                    <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadC}">
-                                        <h4>#{messages['ready.avoid.relapses.yes.h4.3']}</h4>
-                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.7']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.8']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.9']}</li>
-                                        </ul>
-                                    </ui:fragment>
-                                    <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadD}">
-                                        <h4>#{messages['ready.avoid.relapses.yes.h4.4']}</h4>
-                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.10']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.11']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.12']}</li>
-                                        </ul>
-                                    </ui:fragment>
-                                    <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadE}">
-                                        <h4>#{messages['ready.avoid.relapses.yes.h4.5']}</h4>
-                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.13']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.14']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.15']}</li>
-                                        </ul>
-                                    </ui:fragment>
-                                    <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadF}">
-                                        <h4>#{messages['ready.avoid.relapses.yes.h4.6']}</h4>
-                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.16']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.17']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.18']}</li>
-                                        </ul>
-                                    </ui:fragment>
-                                    <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadG}">
-                                        <h4>#{messages['ready.avoid.relapses.yes.h4.7']}</h4>
-                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.19']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.20']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.21']}</li>
-                                        </ul>
-                                    </ui:fragment>
-                                    <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadH}">
-                                        <h4>#{messages['ready.avoid.relapses.yes.h4.8']}</h4>
-                                        <ul><li>#{messages['ready.avoid.relapses.yes.li.22']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.23']}</li><br />
-                                            <li>#{messages['ready.avoid.relapses.yes.li.24']}</li>
-                                        </ul>
-                                    </ui:fragment>                                        
+                                    <p:panel id="hiddenPanel">
+
+                                        <h2>#{messages['preparando.aed.result']}</h2>
+                                        <h:outputText value="#{messages['feedback.phq9.no']}" rendered="#{!prontoParaPararController.procPararFumarMarcado}" />
+                                        <ui:fragment id="frag1" rendered="#{prontoParaPararController.prontoParaParar.pnadA}">
+                                            <h4>#{messages['ready.avoid.relapses.yes.h4.1']}</h4>
+                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.1']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.2']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.3']}</li>
+                                            </ul>
+                                        </ui:fragment>
+                                        <ui:fragment id="frag2" rendered="#{prontoParaPararController.prontoParaParar.pnadB}">
+                                            <h4>#{messages['ready.avoid.relapses.yes.h4.2']}</h4>
+                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.4']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.5']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.6']}</li>
+                                            </ul>
+                                        </ui:fragment>
+                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadC}">
+                                            <h4>#{messages['ready.avoid.relapses.yes.h4.3']}</h4>
+                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.7']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.8']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.9']}</li>
+                                            </ul>
+                                        </ui:fragment>
+                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadD}">
+                                            <h4>#{messages['ready.avoid.relapses.yes.h4.4']}</h4>
+                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.10']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.11']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.12']}</li>
+                                            </ul>
+                                        </ui:fragment>
+                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadE}">
+                                            <h4>#{messages['ready.avoid.relapses.yes.h4.5']}</h4>
+                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.13']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.14']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.15']}</li>
+                                            </ul>
+                                        </ui:fragment>
+                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadF}">
+                                            <h4>#{messages['ready.avoid.relapses.yes.h4.6']}</h4>
+                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.16']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.17']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.18']}</li>
+                                            </ul>
+                                        </ui:fragment>
+                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadG}">
+                                            <h4>#{messages['ready.avoid.relapses.yes.h4.7']}</h4>
+                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.19']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.20']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.21']}</li>
+                                            </ul>
+                                        </ui:fragment>
+                                        <ui:fragment rendered="#{prontoParaPararController.prontoParaParar.pnadH}">
+                                            <h4>#{messages['ready.avoid.relapses.yes.h4.8']}</h4>
+                                            <ul><li>#{messages['ready.avoid.relapses.yes.li.22']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.23']}</li><br />
+                                                <li>#{messages['ready.avoid.relapses.yes.li.24']}</li>
+                                            </ul>
+                                        </ui:fragment>
+                                    </p:panel>
                                 </div>
                                 <div class="modal-footer">
                                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">#{messages['close']}</a>
