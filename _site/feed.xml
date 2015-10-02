@@ -10,13 +10,44 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://crepeia.github.com/wati/feed.xml" />
 <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/" />
-<updated>2015-08-17T16:45:22-03:00</updated>
+<updated>2015-10-02T13:40:31-03:00</updated>
 <id>http://crepeia.github.com/wati/</id>
 <author>
   <name>Henrique Pinto Gomide</name>
   <uri>http://crepeia.github.com/wati/</uri>
   <email>henriquepgomide@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Viva sem Tabaco has been certified by HONCode]]></title>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/health-on-the-net-certification/"/>
+  <id>http://crepeia.github.com/wati/news/health-on-the-net-certification</id>
+  <published>2015-10-02T00:00:00-03:00</published>
+  <updated>2015-10-02T00:00:00-03:00</updated>
+  <author>
+    <name>Henrique Pinto Gomide</name>
+    <uri>http://crepeia.github.com/wati</uri>
+    <email>henriquepgomide@gmail.com</email>
+  </author>
+  <category scheme="http://crepeia.github.com/wati/tags/#HONcode" term="HONcode" /><category scheme="http://crepeia.github.com/wati/tags/#Health%20on%20the%20Net%20Foundation" term="Health on the Net Foundation" /><category scheme="http://crepeia.github.com/wati/tags/#mhealth" term="mhealth" />
+  <content type="html">
+  
+    &lt;p&gt;Good news!! We have been certified by the Health on the Net Foundation. What does it mean? It means that our content is compliant with the Code of Ethics of the most used and trustworthy code for medical and health information available on Internet. This is good for intervention users and also good for researchers and developers. As you probably know, Viva sem Tabaco is open-source and you are able build on it. You can check our certificate out &lt;a href=&quot;https://www.healthonnet.org/HONcode/Conduct.html?HONConduct896511&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../images/hon-code.jpg&quot; alt=&quot;https://www.healthonnet.org/HONcode/Conduct.html?HONConduct896511&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We are also seeking collaboration partners because it is really hard to keep all languages updated. So if you can speak English, Spanish, German or Russian, you are more than encouraged to reach us. If you know a different language, you can also translate the project and help smokers quitting. Students are more than welcome!&lt;/p&gt;
+
+&lt;h2 id=&quot;screenshot&quot;&gt;Screenshot&lt;/h2&gt;
+
+&lt;p&gt;Take a look at our new intervention version that is about to be released.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../images/vst-index.png&quot; alt=&quot;Main Page&quot; /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/health-on-the-net-certification/&quot;&gt;Viva sem Tabaco has been certified by HONCode&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on October 02, 2015.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>

@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Viva sem Tabaco has been certified by HONCode",
+		  "category"   : "news",
+		  "url"        : "//crepeia.github.com/wati/news/health-on-the-net-certification/",
+		  "date"       : "2015-10-02 00:00:00 -0300",
+		  "shortdate"  : "October 02, 2015"
+		} ,
+	
+		{
 		  "title"      : "How browserstack is helping us to test our project.",
 		  "category"   : "news",
 		  "url"        : "//crepeia.github.com/wati/news/browserstack-is-helping-us-to-test-new-version/",
