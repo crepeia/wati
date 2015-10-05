@@ -16,6 +16,10 @@ Prioridade Alta
  * Implementar Feedback da página do PHQ-9. A última questão do questionário fala sobre ideação suicida. Eu acho que seria legal criarmos um feedback especial para esta questão. Caso o usuário a marque, podemos sugerir que ele entre em contato com linhas telefônicas de suporte no Brasil ao menos. O telefone de contato deles é 141. Maiores informações aqui - http://www.cvv.org.br/site/voip.html
 
 
+### Heder
+  * Servidor de e-mail
+  * Criar cron para conducao de backup
+
 Prioridade Média
 ------------------------
  * Plano de parar - plano para impressao aparece apenas em uma parte da tela. - Thiago
