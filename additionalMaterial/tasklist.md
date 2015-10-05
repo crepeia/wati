@@ -20,6 +20,15 @@ Prioridade Alta
   * Servidor de e-mail
   * Criar cron para conducao de backup
 
+### Henrique
+Ao final do passo 1 - "Onde encontrar ajuda para parar de fumar" - a pessoa precisa voltar para fazer cadastro, talvez podemos incluir um link para ir direto ao cadastro
+Passo 2 - Página pronto para parar: "Qual a opção melhor representa você?" a última opção já fica marcada automaticatimante. Seria possível deixar todas desmarcadas?
+Passo 2 - Página pronto para parar: "Qual a opção melhor representa você?" quando clica em avaliar, aparece o feedback da escala de depressão e ansiedade
+Passo 2 - Medicamentos - na questão 3, as respostas estãos mais afastadas do que nas demais
+Passo 2 - Como evitar recaídas - na questão "Você já tentou parar de fumar outras vezes?" a resposta não já aparece marcada automaticamente. Seria possível deixar todas desmarcadas?
+Passo 2 - Como evitar recaídas - não está aparecendo o feedback para a questão "Nos últimos 12 meses você usou algum dos seguintes procedimentos para parar de fumar"
+Não recebi o e-mail com o plano de parada.
+
 Prioridade Média
 ------------------------
  * Plano de parar - plano para impressao aparece apenas em uma parte da tela. - Thiago
