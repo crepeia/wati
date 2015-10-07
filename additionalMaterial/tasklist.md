@@ -8,7 +8,6 @@ Prioridade Alta
 ------------------------
 
 ### Thiago
- * Acompanhamento parou de fumar - Enviar o campo para o banco de dados.
 
 ### Nathália
  * Atualizar informação em Português sobre o disque parar de fumar 
@@ -66,6 +65,8 @@ Atividades Completas
  * pronto-para-parar-de-fumar-medicamentos - Inserir resposta caso usuario esqueca de preencher alguma questao
  * pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml - Consertar o sistema de feedback
  * Atualizar informação em Português sobre o disque parar de fumar  - (797 e 798 na folha de tradução)
+ * Acompanhamento parou de fumar - Enviar o campo para o banco de dados.
+
 
 
 
