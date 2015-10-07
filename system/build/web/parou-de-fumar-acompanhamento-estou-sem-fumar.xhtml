@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
+    <f:view locale="#{languageController.locale}">
+        <h:head>
+            <title>#{messages['acompanhamento.semfumar.titlepage']} | #{messages['vivasemtabaco']}</title>
+            <w:head_comum />
+        </h:head>
+
+        <h:body>
+            <w:topmenu loginRequired="true" />
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 m6 s12">  
+                        <h3 class="headertop orange-text text-lighten-2">#{messages['acompanhamento.intro.h1.1']}</h3>
+                        <p>#{messages['acompanhamento.semfumar.p.1']}</p>
+                        <p>#{messages['acompanhamento.semfumar.p.2']}</p>                                                                                </div>
+
+
+                    <div class="col l6 m6 s12 hide-on-small-and-down">
+                        <br /><br />
+                        <h:graphicImage  library="default" styleClass="right valign-wrapper"  title="#{messages['acompanhamento.intro.img.title']}" name="images/acompanhamento-interno.png" alt="#{messages['acompanhamento.intro.img.title']}" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="l12 m12 s12">
+                        <h4 class="headertop orange-text text-lighten-2">#{messages['acompanhamento.semfumar.h1.1']}</h4>
+                        <p>#{messages['acompanhamento.semfumar.p.3']} #{messages['acompanhamento.semfumar.p.4']} <h:outputLink value="https://www.facebook.com/vivasemtabaco">Facebook</h:outputLink>.</p>                                                        
+
+                        <!-- This has not been implemented yet -->
+                        <h:form>
+                            <div class="input-field col s12 m12 l12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <h:inputTextarea styleClass="materialize-textarea" value="#{parouDeFumarController.acompanhamento.quitMessage}" id="campo1"/> 
+                                <label for="campo1"><!--#{messages['pronto.evitar.sim.question.note']}--></label>
+                            </div>  
+                            <div class="center">
+                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['send']}" action="#{parouDeFumarController.saveQuitMessage()}"/>
+                            </div>
+                        </h:form>
+                        <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+                    </div>
+                </div>
+
+
+                <div class="section">
+                    <div class='row'>
+                        <div class="col s12 m12 l12">
+                            <p class="grey-text">#{messages['update.date']}</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Footer -->
+            <w:footer />      
+        </h:body>
+    </f:view>
+</html>

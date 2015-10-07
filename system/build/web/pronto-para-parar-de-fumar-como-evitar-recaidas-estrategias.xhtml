@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
+    <f:view locale="#{languageController.locale}">
+        <h:head>
+            <title>#{messages['pronto.evitar.estrat.titlepage']} - #{messages['pronto.evitar.titlepage']} | #{messages['vivasemtabaco.title']}</title>
+            <w:head_comum />
+        </h:head>
+
+        <h:body>
+            <w:topmenu loginRequired="true" />
+            <w:leftmenu_2/>
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col l6 m6 s12">    
+                        <h3 class="headertop orange-text text-lighten-2">#{messages['pronto.evitar.estrat.h1.1']}</h3>
+                        <h4 class="headertop orange-text text-lighten-2">#{messages['pronto.evitar.estrat.h2.1']}</h4>
+                        <p>#{messages['pronto.evitar.estrat.p.1']}</p>
+                        <p>#{messages['pronto.evitar.estrat.p.2']}</p>   
+                    </div>
+
+                    <div class="col l6 m6 s12 hide-on-small-and-down">
+                        <br /><br />
+                        <h:graphicImage  library="default" styleClass="right valign-wrapper" title="#{messages['pronto.evitar.sim.img.title']}" name="images/stop-smoking.jpg" alt="Saiba dizer não" />
+                    </div>
+                </div>
+
+                <h:form>
+                    <h5 class="headertop orange-text text-lighten-2"> #{messages['pronto.evitar.estrat.question.label']}</h5>
+
+                    <div class="row">
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <h:inputTextarea styleClass="materialize-textarea" value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara1}" id="campo1"/> 
+                                <label for="campo1"><!--#{messages['pronto.evitar.sim.question.note']}--></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <h:inputTextarea styleClass="materialize-textarea" value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara2}" id="campo2"/> 
+                                <label for="campo2"><!--#{messages['pronto.evitar.sim.question.note']}--></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="row">
+                            <div class="input-field col s12 m12 l12">
+                                <i class="material-icons prefix">mode_edit</i>
+                                <h:inputTextarea styleClass="materialize-textarea" value="#{prontoParaPararController.prontoParaParar.evitarRecaidaFara3}" id="campo3"/> 
+                                <label for="campo3"><!--#{messages['pronto.evitar.sim.question.note']}--></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div class="card grey lighten-5">
+                                <div class="card-content grey-text darken-4">
+                                    <span class="card-title blue-text darken-3">#{messages['next.step']}</span>
+                                    <p>#{messages['pronto.evitar.estrat.next.p.1']}</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="./pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml" title="#{messages['preparando.btn.title']}">#{messages['back']}</a>
+                                    <h:commandLink  action="#{prontoParaPararController.recaidasEvitar}" title="#{messages['next']}">#{messages['next']}</h:commandLink>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </h:form>      
+
+                <div class="section">
+                    <div class='row'>
+                        <div class="col s12 m12 l12">
+                            <p class="grey-text">#{messages['update.date']}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Footer -->
+            <w:footer />      
+        </h:body>
+    </f:view>
+</html>

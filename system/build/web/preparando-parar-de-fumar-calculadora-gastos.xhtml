@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
+    <f:view locale="#{languageController.locale}">
+        <h:head>
+            <title>#{messages['preparando.gastos.titlepage']}  - #{messages['preparandoparaparar']}| #{messages['vivasemtabaco']}</title>
+            <w:head_comum />
+            <h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
+            <script src="resources/js/jquery.price_format.1.8.min.js" type="text/javascript"></script>
+        </h:head>
+
+        <h:body>
+            <w:topmenu />
+            <w:leftmenu_1 cssClass="leftmenu1" />
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col l6 m6 s12">                
+                        <h3 class="headertop orange-text text-lighten-2">#{messages['preparando.gastos.h1.1']}</h3>
+                        <p>#{messages['preparando.gastos.p.1']}</p>
+                    </div>
+
+                    <div class="col l6 m6 s12 hide-on-small-and-down">
+                        <br /><br />
+                        <h:graphicImage styleClass="center-align valign-wrapper right"  library="default" title="#{messages['preparando.gastos.img.title']}Gastos financeiros" name="images/gastos-tabagismo.png" alt="#{messages['preparando.gastos.img.title']}" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col l12 m12 s12">   
+
+                        <h5 class="headertop orange-text text-lighten-2">#{messages['preparando.gastos.h2.1']}</h5>
+
+                        <h:form id="form">
+                            <h:outputText value="#{messages['preparando.gastos.value.1']}" />
+                            <p:inputText id="numeroCigarrosDiaTxt" value="#{calculadoraController.numberCigaretteDay}" onkeyup="$(this).val($(this).val().replace(/[^0-9]/g, ''));" />
+                            <h:outputText value="#{messages['preparando.gastos.value.2']}" />
+                            <p:inputText id="custoMassoTxt" value="#{calculadoraController.costMasso}" styleClass="custoFormat" />
+                            <script type="text/javascript">
+                                $('.custoFormat').priceFormat({
+                                    prefix: '',
+                                    centsSeparator: '#{messages['centseparator']}',
+                                    thousandsSeparator: '#{messages['thousandseparator']}'
+                                });
+                            </script> 
+
+                            <div class="center">
+                                <p:commandButton id="calcularBtn" styleClass="waves-effect waves-light btn" value="#{messages['preparando.gastos.btn.1']}" update="@form" action="#{calculadoraController.calculate}" ajax="disable"/>
+                            </div>
+
+                            <div class="section"></div>
+
+                            <h5 class="headertop orange-text text-lighten-2">#{messages['preparando.gastos.h2.2']}</h5>
+                            <h:outputText value="#{messages['preparando.gastos.value.3']}" />
+                            <p:inputText id="gastoSemana" value="#{calculadoraController.costWeek}" styleClass="custoFormat" readonly="true" />
+                            <h:outputText value="#{messages['preparando.gastos.value.4']}" />
+                            <p:inputText id="gastoMes" value="#{calculadoraController.costMonth}" styleClass="custoFormat" readonly="true"/>
+                            <h:outputText value="#{messages['preparando.gastos.value.5']}" />
+                            <p:inputText id="gastoAno" value="#{calculadoraController.costYear}" styleClass="custoFormat" readonly="true"/>      
+                        </h:form>
+
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div class="card grey lighten-5">
+                            <div class="card-content grey-text darken-4">
+                                <span class="card-title blue-text darken-3">#{messages['next.step']}</span>
+                                <p>#{messages['preparando.gastos.next']}</p>
+                            </div>
+                            <div class="card-action">
+                                <a class="tooltipped" data-position="right" data-tooltip="#{messages['preparando.risks.h1.1']}" href="./preparando-parar-de-fumar-riscos-do-cigarro.xhtml" title="#{messages['preparando.risks.h1.1']}">#{messages['back']}</a>
+                                <a class="tooltipped" data-position="right" data-tooltip="#{messages['preparando.aef.h1.1']}" href="./preparando-parar-de-fumar-abstinencia-fissura.xhtml" title="#{messages['preparando.aef.h1.1']}">#{messages['next']}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='row'>
+                    <div class="col s12 m12 l12">
+                        <p class="grey-text">#{messages['update.date']}</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <w:footer />
+        </h:body>
+    </f:view>
+</html>
