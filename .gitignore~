@@ -1,0 +1,13 @@
+### NetBeans ###
+/system/nbproject/private
+/system/build/
+/system/dist/
+
+
+### Java ###
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
