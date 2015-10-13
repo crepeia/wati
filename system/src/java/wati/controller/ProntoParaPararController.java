@@ -60,7 +60,6 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 
     private String texto1;
     private String texto2;
-
     private String textoladder;
 
     private Map<String, String> ftnd4Qtde = new LinkedHashMap<String, String>();
@@ -678,21 +677,16 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 
     // Contemplation Ladder Scale
     /**
-     * Method that computes the Patient Health Questionnaire 2 included at page
-     * preparando-parar-de-fumar-ansiedade-e-depressao.xhtml.
+     * Method that provides feedback to users based on their feedback on Ladder Contemplation Scale.
      */
     public void evaluateLadder() {
         int score = prontoParaParar.getLadder1();
-        if (score == 10) {
-            textoladder = this.getText("feedback.dea.3");
-        } else if (score == 8) {
-            textoladder = this.getText("feedback.dea.1");
-        } else if (score == 6) {
-            textoladder = this.getText("feedback.dea.4");
-        } else if (score == 4) {
-            textoladder = this.getText("feedback.dea.2");
-        } else if (score == 2) {
-            textoladder = this.getText("feedback.dea.2");
+        if (score >= 8) {
+            textoladder = this.getText("feedback.mot.3");
+        } else if (score < 8 && score > 5) {
+            textoladder = this.getText("feedback.mot.2");
+        } else if (score < 5 && score >= 1) {
+            textoladder = this.getText("feedback.mot.1");
         } else {
             textoladder = this.getText("feedback.phq9.no");
         }
@@ -711,7 +705,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         int sum9 = prontoParaParar.getPhq9() == null ? 0 : prontoParaParar.getPhq9();
 
         int sumTotal = sum1 + sum2 + sum3 + sum4 + sum5 + sum6 + sum7 + sum8 + sum9;
-
+        
         if (sumTotal >= 9 && sumTotal <= 13) {
             texto1 = this.getText("feedback.phq9.1");
         } else if (sumTotal >= 14 && sumTotal <= 23) {
@@ -783,7 +777,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     public void setTexto2(String texto2) {
         this.texto2 = texto2;
     }
-
+    
     public Map<String, String> getFtnd4Qtde() {
         return ftnd4Qtde;
     }
