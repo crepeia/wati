@@ -8,19 +8,18 @@ Prioridade Alta
 ------------------------
 
 ### Thiago
+* pronto-para-parar-de-fumar-introducao.xhtml - Inserir resposta "Por favor, responder" caso usuário não marque nada e aperte o botão "Avaliar".
+* verificar se a mensagem da escrita na página - /wati/parou-de-fumar-acompanhamento.xhtml está sendo arquivada no nosso banco de dados.
+* Resolver o problema da renderização dos planos em pdf pelo browser.
+
 
 ### Nathália
- * Atualizar informação em Português sobre o disque parar de fumar 
- * pronto-para-parar-de-fumar-introducao.xhtml - Inserir Feedback da escala Ladder
- * Implementar Feedback da página do PHQ-9. A última questão do questionário fala sobre ideação suicida. Eu acho que seria legal criarmos um feedback especial para esta questão. Caso o usuário a marque, podemos sugerir que ele entre em contato com linhas telefônicas de suporte no Brasil ao menos. O telefone de contato deles é 141. Maiores informações aqui - http://www.cvv.org.br/site/voip.html
-
+* Dar ênfase no plano de parada à - uso de medicamentos, busca de serviços em saúde.
 
 ### Heder
   * Servidor de e-mail
-  * Criar cron para conducao de backup
 
 ### Henrique
-Passo 2 - Página pronto para parar: "Qual a opção melhor representa você?" quando clica em avaliar, aparece o feedback da escala de depressão e ansiedade
 Passo 2 - Medicamentos - na questão 3, as respostas estãos mais afastadas do que nas demais
 Passo 2 - Como evitar recaídas - na questão "Você já tentou parar de fumar outras vezes?" a resposta não já aparece marcada automaticamente. Seria possível deixar todas desmarcadas?
 Passo 2 - Como evitar recaídas - não está aparecendo o feedback para a questão "Nos últimos 12 meses você usou algum dos seguintes procedimentos para parar de fumar"
@@ -32,7 +31,6 @@ Prioridade Média
  * Testar sistema de randomização - Felipe.
  * Traduzir tags em português em inglês. - Henrique
  * Retirar bordas da select dos idiomas - Henrique
- * preparando-parar-de-fumar-introducao - Inserir imagem melhor para - Henrique
  * Melhorar design da página com o plano de parada. - Nathalia
  
 
@@ -50,6 +48,12 @@ Prioridade Baixa
 
 Atividades Completas
 -------------------------
+ * preparando-parar-de-fumar-introducao - Inserir imagem melhor para - Henrique
+ * Criar cron para conducao de backup
+ * Passo 2 - Página pronto para parar: "Qual a opção melhor representa você?" quando clica em avaliar, aparece o feedback da escala de depressão e ansiedade - Nathália
+ * Implementar Feedback da página do PHQ-9 com referência à página sobre depressão - Nathália
+ * pronto-para-parar-de-fumar-introducao.xhtml - Inserir Feedback da escala Ladder - Nathália
+ * Atualizar informação em Português sobre o disque parar de fumar - Nathália
  * Inserir selo da Health on the Net Foundation no footer - Henrique
  * Criação de script para exportar dados da folha de tradução diretamente para o netbeans. - Henrique
  * Investigar e resolver o problema que aparece abaixo do rodapé - "The form component needs to have a UIForm in its ancestry. Suggestion: enclose the necessary components within <h:form>"
