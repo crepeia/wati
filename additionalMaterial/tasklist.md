@@ -12,7 +12,6 @@ Prioridade Alta
 * verificar se a mensagem da escrita na página - /wati/parou-de-fumar-acompanhamento.xhtml está sendo arquivada no nosso banco de dados.
 * Resolver o problema da renderização dos planos em pdf pelo browser.
 
-
 ### Nathália
 * Dar ênfase no plano de parada à - uso de medicamentos, busca de serviços em saúde.
 
@@ -20,10 +19,9 @@ Prioridade Alta
   * Servidor de e-mail
 
 ### Henrique
-Passo 2 - Medicamentos - na questão 3, as respostas estãos mais afastadas do que nas demais
+
 Passo 2 - Como evitar recaídas - na questão "Você já tentou parar de fumar outras vezes?" a resposta não já aparece marcada automaticamente. Seria possível deixar todas desmarcadas?
-Passo 2 - Como evitar recaídas - não está aparecendo o feedback para a questão "Nos últimos 12 meses você usou algum dos seguintes procedimentos para parar de fumar"
-ão recebi o e-mail com o plano de parada.
+nao recebi o e-mail com o plano de parada.
 
 Prioridade Média
 ------------------------
@@ -36,7 +34,7 @@ Prioridade Média
 
 Prioridade Baixa
 -------------------------	
-
+* 3 ícones do programa: talvez inserir imagens que mudam, por exemplo, $$, foto de algum risco, foto do ganho de peso
 * Atualizar Servidor Glassfish - Thiago.
 * Inserir plugins sociais na página - Facebook e Twitter.
 * Comentar em inglês o código do programa. - Felipe e Daniela
@@ -48,7 +46,8 @@ Prioridade Baixa
 
 Atividades Completas
 -------------------------
- * preparando-parar-de-fumar-introducao - Inserir imagem melhor para - Henrique
+ * Passo 2 - Medicamentos - na questão 3, as respostas estãos mais afastadas do que nas demais * preparando-parar-de-fumar-introducao - Inserir imagem melhor para - Henrique
+ * Passo 2 - Como evitar recaídas - não está aparecendo o feedback para a questão "Nos últimos 12 meses você usou algum dos seguintes procedimentos para parar de fumar"
  * Criar cron para conducao de backup
  * Passo 2 - Página pronto para parar: "Qual a opção melhor representa você?" quando clica em avaliar, aparece o feedback da escala de depressão e ansiedade - Nathália
  * Implementar Feedback da página do PHQ-9 com referência à página sobre depressão - Nathália

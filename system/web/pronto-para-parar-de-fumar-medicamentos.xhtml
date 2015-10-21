@@ -34,105 +34,111 @@
                     </div>
                 </div>                          
 
-                <div class="row">
+                <div class="row"></div>
 
-                    <h:form>
+                <h:form>
 
-                        <h3 class="headertop orange-text text-lighten-2">#{messages['pronto.meds.h2.3']}</h3>  
-                        <p>1. #{messages['ftnd.1q']}</p>
-                        <h:selectOneRadio id="ftnd_1" value="#{prontoParaPararController.prontoParaParar.ftnd1}"  requiredMessage="Erro!" styleClass="radio-inline">
-                            <f:selectItem itemLabel="#{messages['ftnd.r.1a']}" itemValue="4"/>
-                            <f:selectItem itemLabel="#{messages['ftnd.r.1b']}" itemValue="3"/>
-                            <f:selectItem itemLabel="#{messages['ftnd.r.1c']}" itemValue="2"/>
-                            <f:selectItem itemLabel="#{messages['ftnd.r.1d']}" itemValue="1"/>
-                        </h:selectOneRadio>
+                    <h3 class="headertop orange-text text-lighten-2">#{messages['pronto.meds.h2.3']}</h3>  
+                    <p>1. #{messages['ftnd.1q']}</p>
+                    <h:selectOneRadio id="ftnd_1" value="#{prontoParaPararController.prontoParaParar.ftnd1}"  requiredMessage="Erro!" styleClass="radio-inline">
+                        <f:selectItem itemLabel="#{messages['ftnd.r.1a']}" itemValue="4"/>
+                        <f:selectItem itemLabel="#{messages['ftnd.r.1b']}" itemValue="3"/>
+                        <f:selectItem itemLabel="#{messages['ftnd.r.1c']}" itemValue="2"/>
+                        <f:selectItem itemLabel="#{messages['ftnd.r.1d']}" itemValue="1"/>
+                    </h:selectOneRadio>
 
-                        <div class="divider"></div>
-                        <p>2. #{messages['ftnd.2q']}</p>                                        
-                        <h:selectOneRadio id="ftnd_2" value="#{prontoParaPararController.prontoParaParar.ftnd2}"  styleClass="radio-inline">
-                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="2"/>
-                            <f:selectItem itemLabel="#{messages['no']}" itemValue="1"/>
-                        </h:selectOneRadio>
+                    <div class="divider"></div>
+                    <p>2. #{messages['ftnd.2q']}</p>                                        
+                    <h:selectOneRadio id="ftnd_2" value="#{prontoParaPararController.prontoParaParar.ftnd2}"  styleClass="radio-inline">
+                        <f:selectItem itemLabel="#{messages['yes']}" itemValue="2"/>
+                        <f:selectItem itemLabel="#{messages['no']}" itemValue="1"/>
+                    </h:selectOneRadio>
 
-                        <div class="divider"></div>
-                        <p>3. #{messages['ftnd.3q']}</p>
-                        <h:selectOneRadio id="ftnd_3" value="#{prontoParaPararController.prontoParaParar.ftnd3}"  styleClass="radio-inline">
-                            <f:selectItem itemLabel="#{messages['ftnd.r.3a']}" itemValue="2"/>
-                            <f:selectItem itemLabel="#{messages['ftnd.r.3b']}" itemValue="1"/>
-                        </h:selectOneRadio>
-
-                        <div class="divider"></div>
-                        <p>4. #{messages['ftnd.4q']}</p>
-
-                        <h:selectOneMenu id="ftnd_4" value="#{prontoParaPararController.prontoParaParar.ftnd4}" styleClass="browser-default"  label="qtde">  
-                            <f:selectItem itemLabel="Quantidade" itemValue="" />  
-                            <f:selectItems value="#{prontoParaPararController.ftnd4Qtde}" />  
-                        </h:selectOneMenu>
-
-                        <div class="divider"></div>
-                        <p>5. #{messages['ftnd.5q']}</p>
-
-                        <h:selectOneRadio id="ftnd_5" value="#{prontoParaPararController.prontoParaParar.ftnd5}"  styleClass="radio-inline">
-                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="2"/>
-                            <f:selectItem itemLabel="#{messages['no']}" itemValue="1"/>
-                        </h:selectOneRadio>
-
-                        <div class="divider"></div>
-
-                        <p>6. #{messages['ftnd.6q']}</p>
-
-                        <h:selectOneRadio id="ftnd_6" value="#{prontoParaPararController.prontoParaParar.ftnd6}" >
-                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="2"/>
-                            <f:selectItem itemLabel="#{messages['no']}" itemValue="1"/>
-                        </h:selectOneRadio>
-
-                        <br />
-                        <div class="center">
-                            <a class="modal-trigger" href="#HiddenDiv">
-                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto2" actionListener="#{prontoParaPararController.evaluateFagerstrom()}" process="@all" onclick="javascript:ShowHide('HiddenDiv');"/></a>                             
+                    <div class="divider"></div>
+                    <p>3. #{messages['ftnd.3q']}</p>
+                    <div class="row">
+                        <div class="col l9 m9 s9">
+                            <h:selectOneRadio id="ftnd_3" value="#{prontoParaPararController.prontoParaParar.ftnd3}"  styleClass="radio-inline">
+                                <f:selectItem itemLabel="#{messages['ftnd.r.3a']}" itemValue="2"/>
+                                <f:selectItem itemLabel="#{messages['ftnd.r.3b']}" itemValue="1"/>                          
+                            </h:selectOneRadio>
                         </div>
+                        <div class="offset-l3 offset-m3 offset-s3"></div>
+                    </div>
 
-                        <div class="modal" style="display: none" id="HiddenDiv">
-                            <div class="modal-content">
-                                <h2>#{messages['preparando.aed.result']}</h2>
-                                <h:outputText id="texto2" value="#{prontoParaPararController.texto2}" />
-                            </div>
-                            <div class="modal-footer">
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">#{messages['close']}</a>
-                            </div>
-                        </div>
+                    <div class="divider"></div>
+                    <p>4. #{messages['ftnd.4q']}</p>
 
-                    </h:form>
+                    <h:selectOneMenu id="ftnd_4" value="#{prontoParaPararController.prontoParaParar.ftnd4}" styleClass="browser-default"  label="qtde">  
+                        <f:selectItem itemLabel="Quantidade" itemValue="" />  
+                        <f:selectItems value="#{prontoParaPararController.ftnd4Qtde}" />  
+                    </h:selectOneMenu>
+
+                    <div class="divider"></div>
+                    <p>5. #{messages['ftnd.5q']}</p>
+
+                    <h:selectOneRadio id="ftnd_5" value="#{prontoParaPararController.prontoParaParar.ftnd5}"  styleClass="radio-inline">
+                        <f:selectItem itemLabel="#{messages['yes']}" itemValue="2"/>
+                        <f:selectItem itemLabel="#{messages['no']}" itemValue="1"/>
+                    </h:selectOneRadio>
+
+                    <div class="divider"></div>
+
+                    <p>6. #{messages['ftnd.6q']}</p>
+
+                    <h:selectOneRadio id="ftnd_6" value="#{prontoParaPararController.prontoParaParar.ftnd6}" >
+                        <f:selectItem itemLabel="#{messages['yes']}" itemValue="2"/>
+                        <f:selectItem itemLabel="#{messages['no']}" itemValue="1"/>
+                    </h:selectOneRadio>
 
                     <br />
+                    <div class="center">
+                        <a class="modal-trigger" href="#HiddenDiv">
+                            <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto2" actionListener="#{prontoParaPararController.evaluateFagerstrom()}" process="@all" onclick="javascript:ShowHide('HiddenDiv');"/></a>                             
+                    </div>
 
-                    <div class="row">
-                        <div class="col s12 m12 l12">
-                            <div class="card grey lighten-5">
-                                <div class="card-content grey-text darken-4">
-                                    <span class="card-title blue-text darken-3">#{messages['next.step']}</span>
-                                    <p>#{messages['pronto.met.next.p']}</p>
-                                </div>
-                                <div class="card-action">
-                                    <a class="tooltipped" data-position="right" data-tooltip="#{messages['ready.depression.titlepage']}" href="./pronto-para-parar-de-fumar-depressao.xhtml" title="#{messages['ready.depression.titlepage']}">#{messages['back']}</a>
-                                    <a class="tooltipped" data-position="right" data-tooltip="#{messages['pronto.met.btn.title']}" href="./pronto-para-parar-de-fumar-data-para-parar.xhtml" title="#{messages['pronto.met.btn.title']}">#{messages['next']}</a>
-                                </div>
-                            </div>
+                    <div class="modal" style="display: none" id="HiddenDiv">
+                        <div class="modal-content">
+                            <h2>#{messages['preparando.aed.result']}</h2>
+                            <h:outputText id="texto2" value="#{prontoParaPararController.texto2}" />
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">#{messages['close']}</a>
                         </div>
                     </div>
 
-                    <div class="section">
-                        <div class='row'>
-                            <div class="col s12 m12 l12">
-                                <p class="grey-text">#{messages['update.date']}</p>
-                                <p class="grey-text">#{messages['sources']}: INCA. (2001). Abordagem e tratamento do fumante - consenso 2001.</p>
-                                <p class="grey-text">Hartmann-Boyce, J., Stead, L. F., Cahill, K., Lancaster, T. (2013). Efficacy of interventions to combat tobacco addiction: Cochrane update of 2012 reviews. Addiction, 108(10), 1711–1721. doi:10.1111/add.12291</p>
-                                <p class="grey-text">#{messages['img.ref']} <h:outputLink value="http://www.flickr.com/photos/dasqfamily/">Dasqfamily</h:outputLink></p>
+                </h:form>
+
+                <!--                </div>-->
+
+                <br />
+
+                <div class="row">
+                    <div class="col s12 m12 l12">
+                        <div class="card grey lighten-5">
+                            <div class="card-content grey-text darken-4">
+                                <span class="card-title blue-text darken-3">#{messages['next.step']}</span>
+                                <p>#{messages['pronto.met.next.p']}</p>
+                            </div>
+                            <div class="card-action">
+                                <a class="tooltipped" data-position="right" data-tooltip="#{messages['ready.depression.titlepage']}" href="./pronto-para-parar-de-fumar-depressao.xhtml" title="#{messages['ready.depression.titlepage']}">#{messages['back']}</a>
+                                <a class="tooltipped" data-position="right" data-tooltip="#{messages['pronto.met.btn.title']}" href="./pronto-para-parar-de-fumar-data-para-parar.xhtml" title="#{messages['pronto.met.btn.title']}">#{messages['next']}</a>
                             </div>
                         </div>
                     </div>
-
                 </div>
+
+                <div class="section">
+                    <div class='row'>
+                        <div class="col s12 m12 l12">
+                            <p class="grey-text">#{messages['update.date']}</p>
+                            <p class="grey-text">#{messages['sources']}: INCA. (2001). Abordagem e tratamento do fumante - consenso 2001.</p>
+                            <p class="grey-text">Hartmann-Boyce, J., Stead, L. F., Cahill, K., Lancaster, T. (2013). Efficacy of interventions to combat tobacco addiction: Cochrane update of 2012 reviews. Addiction, 108(10), 1711–1721. doi:10.1111/add.12291</p>
+                            <p class="grey-text">#{messages['img.ref']} <h:outputLink value="http://www.flickr.com/photos/dasqfamily/">Dasqfamily</h:outputLink></p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
             <!--Footer -->
