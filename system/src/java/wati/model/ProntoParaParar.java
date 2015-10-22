@@ -609,8 +609,6 @@ public class ProntoParaParar extends BaseController implements Serializable {
     public void setMot1(int mot1) {
         this.mot1 = mot1;
     }
-
-    // Contemplation Ladder - Be aware, Henrique was here.
     
     public int getLadder1() {
         return ladder1;

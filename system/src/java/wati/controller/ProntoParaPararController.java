@@ -94,7 +94,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }
         this.texto1 = "";
         this.texto2 = "";
-        this.textoladder = getText("feedback.mot.0");
+        this.textoladder = getText("feedback.mot.4");
     }
 
     public String vencendoAFissura() {
@@ -682,13 +682,13 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     public void evaluateLadder() {
         int score = prontoParaParar.getLadder1();
         if (score >= 8) {
-            textoladder = this.getText("feedback.mot.0");
+            textoladder = this.getText("feedback.mot.3");
         } else if (score < 8 && score >= 5) {
             textoladder = this.getText("feedback.mot.2");
         } else if (score < 5 && score >= 1) {
             textoladder = this.getText("feedback.mot.1");
         } else {
-            textoladder = this.getText("feedback.mot.0");
+            textoladder = this.getText("feedback.mot.4");
         }
     }
 

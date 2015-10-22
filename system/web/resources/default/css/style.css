@@ -101,3 +101,7 @@ blockquote {
 #front-page-logo{
     text-align: center;
 }
+
+.icon{
+    z-index: 1;
+}

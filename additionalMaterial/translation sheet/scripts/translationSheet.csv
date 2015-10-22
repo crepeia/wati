@@ -1169,9 +1169,10 @@ feedback.phq9.4;Parece que voce apresenta algumas ideias depressivas. Recomendam
 ###################################;;;;;;ok
 # Feedback Motivation (Ladder);;;;;;ok
 ###################################;;;;;;ok
-feedback.mot.1;Ei, não desanime! Para de fumar é sempre benéfico e aumenta a qualidade de vida. Vá para o próximo passo e conheça as vantagens de parar de fumar.;;;;;needs translation
-feedback.mot.2;Parece que você está um pouco indeciso sobre parar de fumar. Para de fumar é sempre benéfico e aumenta a qualidade de vida. Esta parece ser uma boa hora para atingir este objetivo.;;;;;
-feedback.mot.3;Parabéns! Você está bastante motivado para deixar de fumar. Esta parece ser uma boa hora para atingir este objetivo. Boa sorte!;;;;;needs translation
+feedback.mot.1;Ei, não desanime! Para de fumar é sempre benéfico e aumenta a qualidade de vida. Vá para o próximo passo e conheça as vantagens de parar de fumar.;Ei, não desanime! Para de fumar é sempre benéfico e aumenta a qualidade de vida. Vá para o próximo passo e conheça as vantagens de parar de fumar.;;;;needs translation
+feedback.mot.2;Parece que você está um pouco indeciso sobre parar de fumar. Para de fumar é sempre benéfico e aumenta a qualidade de vida. Esta parece ser uma boa hora para atingir este objetivo.;Parece que você está um pouco indeciso sobre parar de fumar. Para de fumar é sempre benéfico e aumenta a qualidade de vida. Esta parece ser uma boa hora para atingir este objetivo.;;;;needs translation
+feedback.mot.3;Parabéns! Você está bastante motivado para deixar de fumar. Esta parece ser uma boa hora para atingir este objetivo. Boa sorte!;Parabéns! Você está bastante motivado para deixar de fumar. Esta parece ser uma boa hora para atingir este objetivo. Boa sorte!;;;;needs translation
+feedback.mot.4;Por, favor preencha pelo menos uma resposta.;Por, favor preencha pelo menos uma resposta.;;;;needs translation
 ###################################;;;;;;ok
 # Feedback PNAD;;;;;;ok
 ###################################;;;;;;ok
