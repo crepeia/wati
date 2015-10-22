@@ -8,10 +8,10 @@ Prioridade Alta
 ------------------------
 
 ### Thiago
-* pronto-para-parar-de-fumar-introducao.xhtml - Inserir resposta "Por favor, responder" caso usuário não marque nada e aperte o botão "Avaliar".
-* verificar se a mensagem da escrita na página - /wati/parou-de-fumar-acompanhamento.xhtml está sendo arquivada no nosso banco de dados.
-* Resolver o problema da renderização dos planos em pdf pelo browser.
 
+
+* Resolver o problema da renderização dos planos em pdf pelo browser.
+	
 ### Nathália
 * Dar ênfase no plano de parada à - uso de medicamentos, busca de serviços em saúde.
 
@@ -69,6 +69,8 @@ Atividades Completas
  * pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml - Consertar o sistema de feedback
  * Atualizar informação em Português sobre o disque parar de fumar  - (797 e 798 na folha de tradução)
  * Acompanhamento parou de fumar - Enviar o campo para o banco de dados.
+* pronto-para-parar-de-fumar-introducao.xhtml - Inserir resposta "Por favor, responder" caso usuário não marque nada e aperte o botão "Avaliar".
+* verificar se a mensagem da escrita na página - /wati/parou-de-fumar-acompanhamento.xhtml está sendo arquivada no nosso banco de dados.
 
 
 
