@@ -70,9 +70,15 @@ blockquote {
 }
 
 #userPanel {
+    float:left;
+    color:black;
+    padding-left:45px;
     position:absolute;
-    top:10px;
-    left:265px;
+    top: -11px;
+}
+
+#userPanel a {
+    color:#1565c0;
 }
 
 #userPanelm {
