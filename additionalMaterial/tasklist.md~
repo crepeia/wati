@@ -11,6 +11,7 @@ Prioridade Alta
 
 
 * Resolver o problema da renderização dos planos em pdf pelo browser.
+* Trocar valor Ladder1 no banco de dados de int para integer. - 
 	
 ### Nathália
 * Dar ênfase no plano de parada à - uso de medicamentos, busca de serviços em saúde.
