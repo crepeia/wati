@@ -3,8 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:cc="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:o="http://omnifaces.org/ui">
 
     <!-- INTERFACE -->
     <cc:interface>
@@ -25,9 +24,8 @@
 
                             <li><h:outputLink styleClass="grey-text" value="./politica-do-site.xhtml">#{messages['footer.li3']}</h:outputLink></li>
                             <li><h:outputLink styleClass="grey-text" value="./termos-de-uso.xhtml">#{messages['footer.li4']}</h:outputLink></li>
-                            <li><h:outputLink styleClass="grey-text" value="./contato.xhtml">#{messages['footer.li5']}</h:outputLink></li>                            
+                            <li><h:outputLink styleClass="grey-text" value="./contato.xhtml">#{messages['footer.li5']}</h:outputLink></li>
                         </ul>
-
 
                     </div>
                     <div class="col l6 m6 s12">
@@ -82,8 +80,7 @@
                     <div class="col s12 m2 l2">
                         <div class="right">
                             <br /><br />
-                            <a href="https://www.healthonnet.org/HONcode/Conduct.html?HONConduct896511" onclick="window.open(this.href);
-                                    return false;" > <img src="http://www.honcode.ch/HONcode/Seal/HONConduct896511_hr1.gif" style="border:0px; width: 49px; height: 72px; float: left; margin: 2px;" title="This website is certified by Health On the Net Foundation. Click to verify." alt="This website is certified by Health On the Net Foundation. Click to verify." /></a>                                  
+                            <h:outputLink value="https://www.healthonnet.org/HONcode/Conduct.html?HONConduct896511" target="_blank"><h:graphicImage library="default" name="images/HONCode.png" alt="This website is certified by Health On the Net Foundation. Click to verify."/></h:outputLink>                                
                         </div>
                     </div>
                 </div>
@@ -94,8 +91,13 @@
                 </div>
             </div>
         </footer>
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="resources/default/js/materialize.min.js"></script>
-        <script src="resources/default/js/init.min.js"></script>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"/>
+        <h:outputScript library="default" name="js/materialize.min.js"/>
+        <h:outputScript library="default" name="js/init.min.js"/>        
+        <h:outputScript library="default" name="js/primefaces.deferred.js" target="head" />
+        <o:deferredScript library="primefaces" name="jquery/jquery-plugins.js" onbegin="DeferredPrimeFaces.begin()"/>
+        <o:deferredScript library="primefaces" name="primefaces.js" onbegin="DeferredPrimeFaces.begin()" />
+
     </cc:implementation>
 </html>
