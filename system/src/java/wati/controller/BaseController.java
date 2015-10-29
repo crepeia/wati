@@ -122,6 +122,14 @@ public abstract class BaseController<T> implements Serializable {
         bundle = PropertyResourceBundle.getBundle("wati.utility.messages", locale);
         return bundle.getString(key);
     }
+    
+    public boolean loggedUser() {
+        return getLoggedUser() != null;
+    }
+
+    public User getLoggedUser() {
+        return (User) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("loggedUser");
+    }
 
     public String defaultEmail(String subtitle, String text) {
 

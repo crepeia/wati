@@ -5,14 +5,18 @@
  */
 package wati.controller;
 
+import java.sql.SQLException;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.naming.NamingException;
+import wati.model.User;
+import wati.persistence.GenericDAO;
 
 /**
  *
@@ -26,7 +30,16 @@ public class LanguageController extends BaseController<Object> {
     private Map<String, String> languages = new LinkedHashMap<String, String>();
 
     public LanguageController() {
-        locale = FacesContext.getCurrentInstance().getViewRoot().getLocale();
+         try {
+            daoBase = new GenericDAO(User.class);
+        } catch (NamingException ex) {
+            Logger.getLogger(LanguageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (loggedUser() && getLoggedUser().getPreferedLanguage()!= null) {
+            locale = new Locale(getLoggedUser().getPreferedLanguage());
+        } else {
+            locale = FacesContext.getCurrentInstance().getExternalContext().getRequestLocale();
+        }
         languages.put("English", "en");
         languages.put("Español", "es");
         languages.put("Português", "pt");
@@ -43,9 +56,16 @@ public class LanguageController extends BaseController<Object> {
     }
 
     public void setLanguage(String language) {
-        locale = new Locale(language);
+       locale = new Locale(language);
         FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
-        //FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("locale", locale);
+        if (loggedUser()) {
+            getLoggedUser().setPreferedLanguage(language);
+            try {
+                daoBase.insertOrUpdate(getLoggedUser(), getEntityManager());
+            } catch (SQLException ex) {
+                Logger.getLogger(LanguageController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     public Map<String, String> getLanguages() {
