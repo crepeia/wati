@@ -10,13 +10,42 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://crepeia.github.com/wati/feed.xml" />
 <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/" />
-<updated>2015-10-02T13:40:31-03:00</updated>
+<updated>2015-11-04T12:55:01-02:00</updated>
 <id>http://crepeia.github.com/wati/</id>
 <author>
   <name>Henrique Pinto Gomide</name>
   <uri>http://crepeia.github.com/wati/</uri>
   <email>henriquepgomide@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Viva sem Tabaco is now mobile frienldy]]></title>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/mobile-version-launched/"/>
+  <id>http://crepeia.github.com/wati/news/mobile-version-launched</id>
+  <published>2015-11-03T00:00:00-02:00</published>
+  <updated>2015-11-03T00:00:00-02:00</updated>
+  <author>
+    <name>Henrique Pinto Gomide</name>
+    <uri>http://crepeia.github.com/wati</uri>
+    <email>henriquepgomide@gmail.com</email>
+  </author>
+  <category scheme="http://crepeia.github.com/wati/tags/#HONcode" term="HONcode" /><category scheme="http://crepeia.github.com/wati/tags/#Health%20on%20the%20Net%20Foundation" term="Health on the Net Foundation" /><category scheme="http://crepeia.github.com/wati/tags/#mhealth" term="mhealth" />
+  <content type="html">
+  
+    &lt;p&gt;After some time of fine tunning, a new version of Viva sem Tabaco is now available. The main change was its new front-end, now mobile-friendly. Besides, we have corrected bugs and made minor adjustments. &lt;/p&gt;
+
+&lt;p&gt;We created the new layout using &lt;a href=&quot;http://materializecss.com/&quot;&gt;Materialize CSS&lt;/a&gt;, a responsive front-end framework based on Material Design. With the new layout, we will be able to address the fast growing number of accesses from mobile devices.&lt;/p&gt;
+
+&lt;p&gt;The code was also optimized in order to increase server response and reduce the loading time. Compare with other web-based interventions.&lt;/p&gt;
+
+&lt;h2 id=&quot;screenshot&quot;&gt;Screenshot&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../images/vst-index.png&quot; alt=&quot;Main Page&quot; /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/mobile-version-launched/&quot;&gt;Viva sem Tabaco is now mobile frienldy&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on November 03, 2015.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
