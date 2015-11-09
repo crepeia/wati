@@ -6,7 +6,7 @@ search:           true
 comments: true
 # Change url to your domain. Leave localhost server or blank when working locally.
 # You don't need to specify the protocol if you want it available on http and https. Example: //localhost:4000 ; 
-url:              //crepeia.github.com/wati # Activate this part for deployment
+url:              //crepeia.github.com/wati # Activate this part for deployment 
 # url:              //localhost:4000 # Uncomment this part for development
 
 
@@ -28,7 +28,7 @@ owner:
   # For Google Authorship https://plus.google.com/authorship
   #google_plus:
 
-# Analytics and webmaster tools stuff goes here
+# Analytics and webmaster too goes here
 google_analytics: UA-51121127-1
 google_verify:
 # https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here

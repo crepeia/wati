@@ -15,7 +15,7 @@ After some time of fine tunning, a new version of Viva sem Tabaco is now availab
 
 We created the new layout using [Materialize CSS](http://materializecss.com/), a responsive front-end framework based on Material Design. With the new layout, we will be able to address the fast growing number of accesses from mobile devices.
 
-The code was also optimized in order to increase server response and reduce the loading time. Compare with other web-based interventions.
+The code was also optimized in order to increase performance and reduce loading time.
 
 ## Screenshot
 
