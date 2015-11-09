@@ -47,6 +47,8 @@ Prioridade Baixa
 
 Atividades Completas
 -------------------------
+ * Inserted menu languages inside internal menus
+ * Improved language in index.xhtml page
  * Passo 2 - Medicamentos - na questão 3, as respostas estãos mais afastadas do que nas demais * preparando-parar-de-fumar-introducao - Inserir imagem melhor para - Henrique
  * Passo 2 - Como evitar recaídas - não está aparecendo o feedback para a questão "Nos últimos 12 meses você usou algum dos seguintes procedimentos para parar de fumar"
  * Criar cron para conducao de backup

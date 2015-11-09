@@ -65,6 +65,12 @@
                     <li><a href="./quem-somos-os-autores.xhtml">#{messages['menu.top.li3']}</a></li>
                     <li><a href="./contato.xhtml">#{messages['menu.top.li4']}</a></li>
                     <li><a href="./para-pesquisadores.xhtml">#{messages['menu.top.li5']}</a></li>
+                    <li class="divider"></li>
+                    <li><h:form id="langform">                      
+                            <div class="langselect"><h:selectOneMenu styleClass="browser-default blue-text text-darken-3" style="margin-top:10px;" value="#{languageController.language}" onchange="submit()">
+                                    <f:selectItems value="#{languageController.languages}"/> 
+                                </h:selectOneMenu></div>                        
+                        </h:form></li> 
                 </ul>
                 <a href="#" data-activates="nav-mobile1" class="button-collapse"><i class="material-icons white-text">menu</i></a>
             </div>
