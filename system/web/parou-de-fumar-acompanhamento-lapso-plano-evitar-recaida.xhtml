@@ -59,12 +59,16 @@
                                     <div class="col s12 m12 l12">
                                         <h4 class="headertop orange-text text-lighten-2">#{messages['pronto.plano.h2.5']}</h4>
                                     </div>
-                                    <div class="col s6 m3 l3">
-                                        <h:outputLink value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml" styleClass="waves-effect waves-light btn" target="_blank" title="#{messages['pronto.plano.print']}"><i class="material-icons left">print</i>#{messages['pronto.plano.print']}</h:outputLink>
-                                    </div>
+                                </div>
 
+                                <div class="row">
                                     <div class="col s6 m3 l3">
                                         <p:commandLink styleClass="waves-effect waves-light btn" action="#{parouDeFumarController.enviarEmail}" update="@form" ><i class="material-icons left">email</i>#{messages['pronto.plano.email']}</p:commandLink>
+                                    </div>
+                                    <div class="col s6 m3 l3">
+                                        <div class="hide-on-med-and-down">
+                                            <h:outputLink value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml" styleClass="waves-effect waves-light btn" target="_blank" title="#{messages['pronto.plano.print']}"><i class="material-icons left">print</i>#{messages['pronto.plano.print']}</h:outputLink>
+                                        </div>
                                     </div>
                                 </div>
 

@@ -7,22 +7,31 @@ Por favor, resolver as pendências e copiá-las para a última sessão "Atividad
 Prioridade Alta
 ------------------------
 
+### Heder e Thiago
+* Usar email contato@vivasemtabaco para enviar o plano de parada e mensagens do site.
+
+### Daniela
+* Implementar módulo de recuperar senha - Daniela.
+
 ### Thiago
-
-
 * Resolver o problema da renderização dos planos em pdf pelo browser.
 * Trocar valor Ladder1 no banco de dados de int para integer. - (trocar outros valores no banco também)
+* Definir como Master repositório com wati-bootstrap - Thiago
 	
 ### Nathália
 * Dar ênfase no plano de parada à - uso de medicamentos, busca de serviços em saúde.
+* Traduzir pôster enviado para inglês. (Henrique ajudará)
 
-### Heder
-  * Servidor de e-mail
+### Raissa
+* Listar possibilidades de divulgação dos projetos.
 
 ### Henrique
 
-Passo 2 - Como evitar recaídas - na questão "Você já tentou parar de fumar outras vezes?" a resposta não já aparece marcada automaticamente. Seria possível deixar todas desmarcadas?
+* Enviar artigo do mestrado para plosOne or internet interventions - Henrique
+* Passo 2 - Como evitar recaídas - na questão "Você já tentou parar de fumar outras vezes?" a resposta não já aparece marcada automaticamente. Seria possível deixar todas desmarcadas?
 nao recebi o e-mail com o plano de parada.
+* Corrigir menu interno no idioma ingles. - Henrique
+* Definir quais instrumentos iremos incluir o que entrara na etapa de pesquisa. - Henrique
 
 Prioridade Média
 ------------------------
@@ -31,7 +40,6 @@ Prioridade Média
  * Traduzir tags em português em inglês. - Henrique
  * Retirar bordas da select dos idiomas - Henrique
  * Melhorar design da página com o plano de parada. - Nathalia
- 
 
 Prioridade Baixa
 -------------------------	

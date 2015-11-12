@@ -18,7 +18,7 @@ dcc;Departamento de Ciências da Computação - UFJF;Departamento de Ciencias de
 fapemig;FAPEMIG;FAPEMIG;FAPEMIG;FAPEMIG;FAPEMIG;ok
 cnpq;CNPQ - Ciências sem Fronteiras;CNPQ - Ciencia sin Fronteras;CNPQ - Science without Borders;CNPQ - Наука без Границ;CNPQ - Science without Borders;ok
 capes;CAPES;CAPES;CAPES;CAPES;CAPES;ok
-update.date;Atualizado em 09/11/2015.;Actualizado el 09/11/2015.;Last update: 11/09/2015.;Последнее обновление: 09/11/2015.;Aktualisiert am 09/11/2015.;ok
+update.date;Atualizado em 21/10/2015.;Actualizado el 21/10/2015.;Last update: 10-21-2015.;Последнее обновление: 21/10/2015;Aktualisiert am 21/10/2015.;ok
 vivasemtabaco;Viva sem Tabaco;Viva sin Tabaco;Live without Tobacco;Живи без Табака;Lebe ohne Tabak;ok
 send;Enviar;Enviar;Send;Отправить;Senden;ok
 psw;Senha;Contraseña;Password;Пароль;Passwort;ok
@@ -143,6 +143,9 @@ footer.li4;Termos de uso;Terminos de uso;Terms of use;Правила испол�
 footer.li5;Contato;Contacto;Contact;Контакт;Kontakt;ok
 footer.description;Centro de Referência em Pesquisa, Intervenção e Avaliação em Álcool e Outras Drogas - 2013-2015 - Alguns direitos reservados;Centro de Referencia en Investigación, Intervención y Evaluación del Alcohol y Otras Drogas - 2013-2015 - Algunos derechos reservados;Center for Research, Intervention and Evaluation on Alcohol & Drugs - 2013-2015 - Some rights reserved;Центр Исследования, Интервенции и Оценивания Алкоголя и Наркотиков - 2013-2015 - Некоторые права защищены;Zentrum für Forschung, Intervention und Studien zu Alkohol und anderen Drogen - 2013-2015 - Einige Rechte vorbehalten;ok
 footer.contact;contato@vivasemtabaco.com.br;contato@vivasemtabaco.com.br;contato@vivasemtabaco.com.br;contato@vivasemtabaco.com.br (доступно только на Английском и Португальском языках);contato@vivasemtabaco.com.br (nur auf englisch oder portugiesisch);ok
+footer.hon.1;Nós aderimos aos ;Nosotros subscribimos los;This site complies with the ;This site complies with the ;Wir befolgen den;ok
+footer.hon.2;princípios da carta HONcode;Principios del código HONcode;HONcode standard for trustworthy health;HONcode standard for trustworthy health;HONcode Standard für vertrauenswürdige Gesundheitsinformationen;ok
+footer.hon.3;Verifique aqui;Compruébelo aquí;verify here;verify here;Überprüfen Sie dies hier;ok
 ###################################;;;;;;ok
 # PROGRAM;;;;;;ok
 ###################################;;;;;;ok

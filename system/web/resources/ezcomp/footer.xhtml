@@ -14,7 +14,7 @@
         <footer class="page-footer white">
             <div class="container">
                 <div class="row">
-                    <div class="col l4 m4 s12">
+                    <div class="col l3 m3 s12">
                         <h5 class="grey-text">#{messages['vivasemtabaco']}</h5>
                         <div class="divider"></div>
                         <ul>
@@ -28,7 +28,7 @@
                         </ul>
 
                     </div>
-                    <div class="col l6 m6 s12">
+                    <div class="col l5 m5 s12">
                         <h5 class="grey-text">#{messages['aboutus.h1.funding']}</h5>
                         <div class="divider"></div>
                         <br />
@@ -77,11 +77,19 @@
                             </div>                            
                         </div>
                     </div>
-                    <div class="col s12 m2 l2">
-                        <div class="right">
-                            <br /><br />
-                            <h:outputLink value="https://www.healthonnet.org/HONcode/Conduct.html?HONConduct896511" target="_blank"><h:graphicImage library="default" name="images/HONCode.png" alt="This website is certified by Health On the Net Foundation. Click to verify."/></h:outputLink>                                
+                    <div class="col s12 m3 l3">              
+                        <br /><br />
+                        <div class="row">
+                            <div class="col l3 m3 s2">    
+                                <h:outputLink value="https://www.healthonnet.org/HONcode/Conduct.html?HONConduct896511" target="_blank"><h:graphicImage library="default" name="images/HONCode.png" alt="This website is certified by Health On the Net Foundation. Click to verify."/></h:outputLink>
+                            </div>
+                            <div class="col l9 m9 s10">
+                                #{messages['footer.hon.1']}<a href="http://www.healthonnet.org/HONcode/Portuguese/" onclick="window.open(this.href);
+                                        return false;"> #{messages['footer.hon.2']}</a>. <a href="https://www.healthonnet.org/HONcode/Portuguese/?HONConduct896511" onclick="window.open(this.href);
+                                                return false;">#{messages['footer.hon.3']}</a>.
+                            </div>                                                                                     
                         </div>
+
                     </div>
                 </div>
             </div>
