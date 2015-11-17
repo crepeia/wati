@@ -117,13 +117,13 @@ public class ProntoParaParar extends BaseController implements Serializable {
 
     // Motivation Slider
     @Column(name = "mot_01")
-    private int mot1;
+    private Integer mot1;
     @Column(name = "mot_02")
-    private int mot2;
+    private Integer mot2;
 
     // Contemplation Ladder Scale        
     @Column(name = "ladder")
-    private int ladder1;
+    private Integer ladder1;
 
     @Column(name = "pnad_a")
     private boolean pnadA;
@@ -603,24 +603,24 @@ public class ProntoParaParar extends BaseController implements Serializable {
         this.ftnd6 = ftnd6;
     }
 
-    public int getMot1() {
+    public Integer getMot1() {
         this.setMot1(5);
         return mot1;
     }
 
-    public void setMot1(int mot1) {
+    public void setMot1(Integer mot1) {
         this.mot1 = mot1;
     }
     
-    public int getLadder1() {
+    public Integer getLadder1() {
         return ladder1;
     }
 
-    public void setLadder1(int ladder1) {
+    public void setLadder1(Integer ladder1) {
         this.ladder1 = ladder1;
     }
 
-    public int getMot2() {
+    public Integer getMot2() {
         this.setMot2(5);
         return mot2;
     }
