@@ -55,6 +55,8 @@ public class Acompanhamento {
 	private String recaidaLidar2;
 	@Column(name = "recaida_lidar_3") 
 	private String recaidaLidar3;
+        @Column(name = "quit_message")
+        private String quitMessage;
 
 	public Acompanhamento() {
 		this.dataInserido = ((GregorianCalendar) GregorianCalendar.getInstance()).getTime();
@@ -255,4 +257,13 @@ public class Acompanhamento {
 	public void setRecaidaLidar3(String recaidaLidar3) {
 		this.recaidaLidar3 = recaidaLidar3;
 	}
+
+        public String getQuitMessage() {
+            return quitMessage;
+        }
+
+        public void setQuitMessage(String quitMessage) {
+            this.quitMessage = quitMessage;
+        }
+        
 }

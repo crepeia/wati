@@ -1,108 +1,146 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<!DOCTYPE html>
+<html lang="pt,en,es,de,ru" xml:lang="pt,en,es,de,ru"
+      xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <f:view locale="#{languageController.locale}">
         <h:head>
             <title>#{messages['acompanhamento.plano.titlepage']} | #{messages['vivasemtabaco']}</title>
             <w:head_comum />
         </h:head>
+
         <h:body>
-            <div id="corpo"> 
-                <!-- header -->    
-                <w:header loginRequired="true" />
-                <w:topmenu />
+            <w:topmenu-i loginRequired="true" />
+            <w:leftmenu_3/>
 
-                <!--mainmenu-->         	
-                <div class="main">
-
-
-                    <w:leftmenu_3 cssClass="leftmenu3" />
-
-                    <div class="pagecontent">
-
-                        <div id="pagecont2">
-
+            <div class="container">
+                <h:form id="form">
+                    <div class="row">
+                        <div class="col l6 m6 s12">  
                             <p:ajaxStatus onstart="statusDialog.show()" onsuccess="statusDialog.hide()" />
-
                             <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
                                 <p:graphicImage library="default" name="images/loading.gif" />
-                            </p:dialog>
-
-                            <h:form id="form">
-
-                                <div class="fotoframeclean">
-                                    <h:graphicImage  library="default" title="#{messages['acompanhamento.plano.img.title']}" name="images/acompanhamento-interno.png" alt="#{messages['acompanhamento.plano.img.title']}" />
-                                </div>                        
-
-                                <h1>#{messages['acompanhamento.plano.h1.1']}</h1>                            
-                                <p>#{messages['acompanhamento.plano.padrao.p.1']}</p>                            
-
-                                <h2>#{messages['acompanhamento.plano.padrao.h2.1']}</h2>
-                                <ul>
-                                    <li>#{messages['acompanhamento.plano.padrao.li.1']}</li>
-                                    <li>#{messages['acompanhamento.plano.padrao.li.2']}</li>
-                                </ul>
-
-                                <h2>#{messages['acompanhamento.plano.padrao.h2.2']}</h2>
-                                <ul>
-                                    <li>#{messages['acompanhamento.plano.padrao.li.3']}</li>
-                                    <li>#{messages['acompanhamento.plano.padrao.li.4']}</li>
-                                    <li>#{messages['acompanhamento.plano.padrao.li.5']}</li>
-                                </ul>
-
-                                <h2>#{messages['acompanhamento.plano.padrao.h2.3']}</h2>
-                                <div class="buscarajuda">
-                                    <div class="imgbuscarajuda">
-                                        <h:outputLink value="./index.xhtml">
-                                            <h:graphicImage library="default" title="#{messages['vivasemtabaco']}" name="images/vst-100.png" alt="#{messages['vivasemtabaco']}"/>
-                                        </h:outputLink>
-                                    </div>
-                                    <div class="pbuscarajuda">
-                                        <h4><h:outputLink value="./index.xhtml">#{messages['acompanhamento.ajuda.h4.1']}</h:outputLink></h4>
-                                        <p>#{messages['acompanhamento.ajuda.p.2a']} <br /><h:outputLink value="./index.xhtml">#{messages['acompanhamento.ajuda.p.2b']}</h:outputLink>.</p>
-                                    </div> 
-                                </div>
-
-                                <br>
-                                    <br></br>
-                                </br>
-                                <div id ="planoimg1">
-                                    <div class="planoimg">                                                            
-                                        <h:outputLink target="_blank" value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print_1.xhtml"><h:graphicImage  library="default" title="#{messages['acompanhamento.plano.imprimir']}" name="images/impressao.png" alt="#{messages['acompanhamento.plano.imprimir']}" /></h:outputLink>                                                            
-                                        <p><h:outputLink target="_blank" value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print_1.xhtml">#{messages['acompanhamento.plano.imprimir']}</h:outputLink></p>
-                                    </div>
-                                </div>
-
-                                <div id ="planoimg2">
-                                    <div class="planoimg">
-                                        <p:commandLink action="#{parouDeFumarController.enviarEmail}" update="@form"><h:graphicImage  library="default" title="#{messages['email']}" name="images/email.png" alt="#{messages['email']}" /></p:commandLink>
-                                        <p><p:commandLink action="#{parouDeFumarController.enviarEmail}" update="@form">#{messages['email']}</p:commandLink></p>
-                                    </div>
-                                </div>
-                                <p><p:messages /></p>
+                            </p:dialog>                      
 
 
+                            <h3 class="headertop orange-text text-lighten-2" >#{messages['acompanhamento.plano.h1.1']}</h3>            
+                            <p>#{messages['acompanhamento.plano.padrao.p.1']}</p>                            
 
-                                <div class="referencias">
-                                    <p>#{messages['update.date']}</p>                            
-                                </div>
+                            <h4 class="headertop orange-text text-lighten-2">#{messages['acompanhamento.plano.padrao.h2.1']}</h4>
+                            <ol>
+                                <li>#{messages['acompanhamento.plano.padrao.li.1']}</li>
+                                <li>#{messages['acompanhamento.plano.padrao.li.2']}</li>
+                            </ol>
 
-                            </h:form>
+                            <h4 class="headertop orange-text text-lighten-2">#{messages['acompanhamento.plano.padrao.h2.2']}</h4>
+                            <ol>
+                                <li>#{messages['acompanhamento.plano.padrao.li.3']}</li>
+                                <li>#{messages['acompanhamento.plano.padrao.li.4']}</li>
+                                <li>#{messages['acompanhamento.plano.padrao.li.5']}</li>
+                            </ol>
 
                         </div>
 
+                        <div class="col l4 m6 s12 hide-on-small-and-down">
+                            <br /><br />
+                            <h:graphicImage  library="default" styleClass="center-align valign-wrapper right" title="#{messages['pronto.plano.img.title']}" name="images/viva-sem-tabaco-2.png" alt="#{messages['pronto.plano.img.title']}" />
+                        </div>
                     </div>
-                </div>
 
-            </div><!-- end.corpo --> 
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+
+
+
+                            <div class="row">
+                                <div class="col s12 m12 l12">
+                                    <h4 class="headertop orange-text text-lighten-2">#{messages['pronto.plano.h2.5']}</h4>
+                                </div>
+                                <div class="col s6 m3 l3">
+                                    <h:outputLink value="parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print_1.xhtml" styleClass="waves-effect waves-light btn" target="_blank" title="#{messages['pronto.plano.print']}"><i class="material-icons left">print</i>#{messages['pronto.plano.print']}</h:outputLink>
+                                </div>
+                                <div class="col s6 m3 l3">
+                                    <p:commandLink styleClass="waves-effect waves-light btn" action="#{parouDeFumarController.enviarEmail}" update="@form" ><i class="material-icons left">email</i>#{messages['pronto.plano.email']}</p:commandLink>
+                                </div>
+                                <p><p:messages /></p>
+                            </div>
+
+
+
+
+                            <div class="section">
+                                <div class="row">
+                                    <div class="col s12 m12 l12">
+                                        <h4 class="headertop orange-text text-lighten-2">#{messages['acompanhamento.plano.padrao.h2.3']}</h4>
+                                        <div class="card-panel grey lighten-5">
+                                            <div class="row valign-wrapper">
+                                                <div class="col s2">
+                                                    <h:outputLink value="cadastrar-nova-conta.xhtml"><h:graphicImage library="default" title="#{messages['vivasemtabaco']}" name="images/viva-sem-tabaco-new.png" class="circle responsive-img" alt="#{messages['vivasemtabaco']}"/></h:outputLink>   
+                                                </div>
+                                                <div class="col s10">
+                                                    <span class="black-text">
+                                                        <h5><h:outputLink value="cadastrar-nova-conta.xhtml">#{messages['preparando.ajuda.h4.1']}</h:outputLink></h5>
+                                                        <p>#{messages['preparando.ajuda.p.1']}</p>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <div class="card-panel grey lighten-5">
+                                            <div class="row valign-wrapper">
+                                                <div class="col s2">
+                                                    <h:graphicImage library="default" name="#{languageController.quitline}" alt="#{messages['preparando.img.vivavoz']}" class="circle responsive-img" id="quitline"/>
+                                                </div>
+                                                <div class="col s10">
+                                                    <span class="black-text">
+                                                        <h5>#{messages['preparando.ajuda.h4.2']}</h5>
+                                                        <p>#{messages['preparando.ajuda.p2']}</p>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col s12 m12 l12">
+                                        <div class="card-panel grey lighten-5">
+                                            <div class="row valign-wrapper">
+                                                <div class="col s2">
+                                                    <h:graphicImage library="default" class="circle responsive-img" name="#{languageController.healthservice}" alt="#{messages['preparando.ajuda.img.sus']}" id="healthservice"/>   
+                                                </div>
+                                                <div class="col s10">
+                                                    <span class="black-text">
+                                                        <h5>#{messages['preparando.ajuda.h4.3']}</h5>
+                                                        <p>#{messages['preparando.ajuda.p.3']} <h:outputLink value="http://www.brasil.gov.br/saude/2013/04/controle-ao-tabagismo-sera-ampliado-na-rede-publica-de-saude"></h:outputLink>.</p>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section">
+                            <div class='row'>
+                                <div class="col s12 m12 l12">
+                                    <p class="grey-text">#{messages['update.date']}</p>
+                                    <p class="grey-text">#{messages['source']}: U.S Department of Health and Human Services (2008). Treating Tobacco Use and Dependence: 2008 Update: Clinical Practice Guideline. DIANE Publishing.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </h:form>
+            </div>
 
             <!--Footer -->
-            <w:footer />
+            <w:footer />      
         </h:body>
     </f:view>
 </html>
-

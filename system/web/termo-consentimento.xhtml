@@ -1,11 +1,12 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<!DOCTYPE html>
+<html 
+      xmlns="http://www.w3.org/1999/xhtml"
+      lang="pt,en,es,de,ru" xml:lang="pt,en,es,de,ru"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
+>
     <f:view locale="#{languageController.locale}">
         <h:head>
             <title> #{messages['login.informed.consent']} | #{messages['vivasemtabaco.title']}</title>
@@ -65,13 +66,13 @@
                   <tr><td height='20'></td></tr>
                   
                   <tr>
-                    <td valign='top' align='center'>
+                    <!--<td valign='top' align='center'>
                       <div class="contentEditableContainer contentImageEditable">
                         <div class="contentEditable">
                             <img src="resources/default/images/viva-sem-tabaco-new.png" width='100'  alt='' data-default="placeholder" data-max-width="560"/>
                         </div>
                       </div>
-                    </td>
+                    </td>-->
                   </tr>
                   
                   <tr><td height='55'></td></tr>
@@ -114,29 +115,45 @@
                             <td align='left'>
                               <div class="contentEditableContainer contentTextEditable">
                                 <div class="contentEditable" align='center'>
-                                    <p style='text-align:left;color:#999999;font-size:16px;font-weight:normal;line-height:25px;'>Você está sendo convidado a participar da pesquisa intitulada - <em>Viva sem Tabaco - Avaliação de uma intervenção mediada por internet para tabagistas</em>.<br /><br />
-                                        Estão sendo selecionados todos os usuários do site "Viva sem Tabaco". Sua participação não é obrigatória. A qualquer momento você pode desistir de participar e retirar seu consentimento. Sua recusa não trará nenhum prejuízo em sua relação com o pesquisador ou com o uso do site. <br /><br /> 
-                                        Os objetivos da pesquisa são:</p> 
-                                       <ol>
-                                          <li style='text-align:left;color:#999999;font-size:16px;font-weight:normal;line-height:25px;'> Avaliar a satisfação dos usuários com o site;</li>
-                                          <li style='text-align:left;color:#999999;font-size:16px;font-weight:normal;line-height:25px;'> Avaliar a eficácia do "Viva sem Tabaco" como método complementar no tratamento do tabagismo..</li>
-                                      </ol>
+                                    <p style='text-align:left;color:#999999;font-size:16px;font-weight:normal;line-height:25px;'>O Sr. (a) está sendo convidado (a) como voluntário (a) a participar da pesquisa - <em>Viva sem Tabaco - Avaliação de uma intervenção mediada por internet para tabagistas</em>. O motivo que nos leva a estudar o tema é saber se informações sobre tabagismo na Internet ajudam fumantes a pararem de fumar.<br /><br />
+                                        
+                                        Para esta pesquisa adotaremos os seguintes procedimentos: após seu consentimento, você usará um site e será convidado a responder algumas questões ao final. <br /><br />
+                                        
+                                        Os riscos envolvidos na pesquisa consistem nos mesmos riscos ao usar um computador conectado à Internet. <br /><br />
+                                        
+                                        A pesquisa contribuirá para futuras melhorias em sites com informações sobre tabagismo como também aumentará o conhecimento científico na área de tabagismo. <br /><br />
+                                        
+                                        Para participar deste estudo o Sr(a) não terá nenhum custo, nem receberá qualquer vantagem financeira. Apesar disso, caso sejam identificados e comprovados danos provenientes desta pesquisa, o Sr.(a) tem asegurado o direito à indenização. O Sr.(a) terá o esclarecimento sobre o estudo em qualquer aspecto que desejar e estará livre para participar ou recusar-se a participar. Poderá retirar seu conentimento ou interromper a participação a qualquer momento. <br /><br />
+                                        
+                                        A sua participação é voluntária e a recusa em participar não acarretará qualquer penalidade ou modificação na forma em que o Sr.(a) é atendido pelo pesquisador, que tratará a sua identididade com padrões profissionais de sigilo. Os resultados da pesquisa estarão à sua disposição quando finalizada na sessão de pesquisa, dentro do site do estudo. Seu nome ou o material que indique sua participação não será liberado sem a sua permissão.<br /><br />
+                                        O (A) Sr(a) <em>não</em> será identificado(a) em nenhuma publicação que possa resultar.<br /><br />
+                                        Este termo de consentimento encontra-se disponível em duas vias eletrônicas. Uma enviada ao seu e-mail e a outra enviada para o e-mail do pesquisador responsável. Os dados e instrumentos utilizados na pesquisa ficarão arquivados com o pesquisador responsável por 5 (cinco) anos, e após este tempo serão destruídos. Os pesquisadores tratarão a sua identidade com padrões profissionais de sigilo, atendendo a legislação brasileira (Resolução N. 466/12 do Conselho Nacional de Saúde), utilizando as informações somente para os fins acadêmicos e científicos.<br /><br />
+                                        
+                                        Eu fui informado(a) dos objetivos da pesquisa <em>Viva sem Tabaco - Avaliação de uma intervenção mediada por internet para tabagistas</em>, de maneira clara e detalhada e esclareci minhas dúvidas. Sei que a qualquer momento poderei solicitar novas informações e modificar minha decisão de participar se assim o desejar. <br /><br />
+                                        Declaro que concordo em participar. Recebi uma via original deste termo de consentimento livre e esclarecido e me foi dada à oportunidade de ler e esclarecer as minhas dúvidas.<br /><br />
+                                    Em caso de dúvidas, com respeita aos aspectos éticos desta pesquisa, você poderá consultar:<br /><br />
+                                    </p>
+                                    
+                                    
+                                    
+				    <p style='text-align:left;color:#999999;font-size:16px;font-weight:normal;line-height:25px;'>                      
+                                        <b>CEP - Comitê de Ética em Pesquisa em Seres Humanos - UFJF</b><br />
+                                        Campus Universitário da UFJF<br /> 
+                                        Pró - Reitoria de Pesquisa.<br />
+                                        CEP: 36-36-900<br />
+                                        Fone: (32) 2102-3788 / E-mail: cep.propesq@ufjf.edu.br
+                                        
+                                        
+                                    <br /><br />
 
-                                      <p style='text-align:left;color:#999999;font-size:16px;font-weight:normal;line-height:25px;'>A sua participação na pesquisa consistirá no preenchimento de questionários e na participação de uma intervenção, dentre duas possíveis. Os benefícios relacionados à sua participação na pesquisa são: </p>
-                                      <ol>
-                                          <li style='text-align:left;color:#999999;font-size:16px;font-weight:normal;line-height:25px;'> Melhorias na intervenção "Viva sem Tabaco" para futuros usuários</li>
-                                          <li style='text-align:left;color:#999999;font-size:16px;font-weight:normal;line-height:25px;'> Desenvolvimento do conhecimento científico e acadêmico.</li>
-                                      </ol>
-<p style='text-align:left;color:#999999;font-size:16px;font-weight:normal;line-height:25px;'>Essa participação também não consta qualquer ressarcimento ou privilégio — seja ele de caráter financeiro ou de qualquer outra natureza — aos voluntários que participarem desta pesquisa. Os riscos relacionados à sua participação na pesquisa são considerados mínimos, entretanto, caso ocorra algum tipo de prejuízo, você poderá entrar em contato com o pesquisador principal e/ou Comitê de Ética para que estes possam minimizar as consequências decorrentes deste risco. <br /><br />
-
-As informações obtidas através dessa pesquisa serão confidenciais e asseguramos o sigilo sobre sua participação. Os dados não serão divulgados de forma a possibilitar sua identificação, uma vez que os questionários são sigilosos, e não são identificados, estando à sua disposição quando finalizada a pesquisa. Os dados utilizados na pesquisa ficarão armazenados em um computador na Universidade Federal de Juiz de Fora. Os dados serão armazenados de forma segura e somente os pesquisadores terão acesso. Os resultados da pesquisa serão divulgados no próprio site, em congressos e artigos científicos da área. Você poderá salvar uma cópia deste termo em seu computador caso julgue necessário. <br /><br />
-Fui informado (a) dos objetivos do estudo - <em>Viva sem Tabaco - Avaliação de uma intervenção mediada por internet para tabagistas</em>, de maneira clara e detalhada e esclareci minhas dúvidas. Sei que a qualquer momento poderei solicitar novas informações e modificar minha decisão de participar se assim o desejar. Declaro que concordo em participar desse estudo e me foi dada à oportunidade de ler e esclarecer as minhas dúvidas.</p>
-
-				    <p style='text-align:left;color:#999999;font-size:16px;font-weight:normal;line-height:25px;'>                                    
+                                    <b>Prof. Dr. Telmo Mota Ronzani</b>
                                     <br />
-                                    Cordialmente,
-                                    <br />
-                                    <span style='color:#222222;'>Equipe de Pesquisa - Viva sem Tabaco</span>
+                                    Instituto de Ciência Humanas - Rua José Lourenço Kelmer, s/n,<br /> Bairro São Pedro; CEP - 36036-900. Juiz de Fora. Minas Gerais.<br />
+                                    Fone:(32) 2102-3165<br />
+                                    E-mail: contato@vivasemtabaco.com.br<br />.
+                                    
+                                    
+        
                                   </p>
                                 </div>
                               </div>
@@ -183,7 +200,7 @@ Fui informado (a) dos objetivos do estudo - <em>Viva sem Tabaco - Avaliação de
                           <td valign='top' width='20'>
                             <div class="contentEditableContainer contentTwitterEditable">
                               <div class="contentEditable">
-                                  <a href="http//www.ufjf.com.br/crepeia"><img src="resources/default/images/ufjf.png" width='70'  alt='crepeia icon' data-default="placeholder" data-max-width="20"/></a>
+                                  <a href="http://www.ufjf.com.br/crepeia"><img src="resources/default/images/ufjf.png" width='70'  alt='crepeia icon' data-default="placeholder" data-max-width="20"/></a>
                               </div>
                             </div>
                           </td>

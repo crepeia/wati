@@ -4,8 +4,7 @@
       xmlns:cc="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <!-- INTERFACE -->
     <cc:interface>
@@ -35,12 +34,13 @@
                     </h:form>
                 </div>
 
+
+
                 <div id="fastsignin">
                     <h:form id="loginForm">
-
                         <div id="signinup">
 
-                            <p:panel id="groupPanel">                                                                                    
+                            <p:panel id="groupPanel">  
 
                                 <p:panel id="loginPanel" rendered="#{!loginController.showName}">
                                     <h:outputLink value="cadastrar-nova-conta.xhtml" >#{messages['register']}</h:outputLink> / 
@@ -54,8 +54,8 @@
                                 </div>
 
                                 <p:panel id="userPanel" rendered="#{loginController.showName}">
-                                     #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  ::  
-                                     <h:outputLink value="logout.xhtml">#{messages['signout']}</h:outputLink>
+                                    #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  ::  
+                                    <h:outputLink value="logout.xhtml">#{messages['signout']}</h:outputLink>
                                 </p:panel>
                             </p:panel>
 
@@ -72,14 +72,11 @@
                                     </p:password>
                                     <p:watermark for="passwordTxt" value="#{messages['password']}" />
                                     <p:commandButton id="entrarBtn" value="#{messages['signin']}" styleClass="btnlogin" update="groupPanel loginDialog" actionListener="#{loginController.loginDialog}" />
-                                   
-                                    
-                                    
                                     <h:outputLink value="enviar-email-senha.xhtml">#{messages['forgot.password']}</h:outputLink>
                                 </p:panel>                                
                             </p:overlayPanel>
                         </div>
-                        
+
                     </h:form>
                 </div>
                 <div id="searchbar">

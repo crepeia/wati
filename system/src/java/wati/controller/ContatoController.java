@@ -46,7 +46,7 @@ public class ContatoController extends BaseController implements Serializable{
 
     public void sendEmail() {
 
-        eMailSSL.send(this.email, "hedersb@gmail.com", "Viva Sem Tabaco -- Contato ("+email+")", message);
+        eMailSSL.send(this.email, "watiufjf@gmail.com", "Viva Sem Tabaco -- Contato ("+email+")", message);
         Contact contact = new Contact();
         contact.setDateSent(new Date());
         contact.setMessage(message);

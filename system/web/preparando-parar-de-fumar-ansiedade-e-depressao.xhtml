@@ -1,144 +1,139 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<!DOCTYPE html>
+<html lang="pt,en,es,de,ru" xml:lang="pt,en,es,de,ru"
+      xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
-      xmlns:c="http://java.sun.com/jsp/jstl/core">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
     <f:view locale="#{languageController.locale}">
         <h:head>
             <title>#{messages['preparando.aed.titlepage']} - #{messages['preparandoparaparar']}| #{messages['vivasemtabaco']}</title>
             <w:head_comum />
         </h:head>
+
         <h:body>
-            <div id="corpo"> 
-                <!-- header -->    
-                <w:header />
-                <w:topmenu />
-                <!--mainmenu-->         	
-                <div class="main">
+            <w:topmenu-i />
+            <w:leftmenu_1 cssClass="leftmenu1" />
 
 
-                    <w:leftmenu_1 cssClass="leftmenu1" />
 
-                    <div class="pagecontent">
-                        <div id="pagecont1">
-                            <div id="pagetop">
-                                <div class="fotoframeclean">                            
-                                    <h:graphicImage library="default" title="#{messages['preparando.aed.img.alt']}" name="images/tristeza-vangogh.png" alt="#{messages['preparando.aed.img.alt']}" />
-                                </div>
+            <div class="container">
+
+                <div class="row">
+                    <div class="col l8 m8 s12">                
+                        <h3 class="headertop orange-text text-lighten-2">#{messages['preparando.aed.h1.1']}</h3>                                              <p>#{messages['preparando.aed.p.1']}</p>                            
+                        <ol>
+                            <li>#{messages['preparando.aed.li.1']}</li>
+                            <li>#{messages['preparando.aed.li.2']}</li> 
+                        </ol>
+                    </div>
+
+                    <div class="col l4 m4 s12 hide-on-small-and-down">
+                        <br />
+                        <h:graphicImage library="default" styleClass="center-align valign-wrapper right"  title="#{messages['preparando.aed.img.alt']}" name="images/tristeza-vangogh.png" alt="#{messages['preparando.aed.img.alt']}" />
+                    </div>
+                </div>  
+
+                <div class="divider"></div>
+                <div class="row">
+
+                    <h:form>
+
+
+                        <h5 class="headertop orange-text text-lighten-2">#{messages['phq2']}</h5>
+                        <p>1 - #{messages['phq2.1']}</p>
+
+                        <h:selectOneRadio id="phq_2_1" value="#{preparandoParaPararController.phq2_1}" required="true" styleClass="radio-inline with-gap">  
+                            <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1" />
+                            <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
+                            <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
+                            <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="4"/>
+                        </h:selectOneRadio> 
+
+                        <div class="divider"></div>
+                        <p>2 - #{messages['phq2.2']}</p>
+
+                        <h:selectOneRadio id="phq_2_2" value="#{preparandoParaPararController.phq2_2}" required="true" requiredMessage="true" styleClass="radio-inline">  
+                            <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1"/>
+                            <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
+                            <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
+                            <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="4"/>
+                        </h:selectOneRadio> 
+
+                        <div class="divider"></div>
+                        <div class="row">
+                            <div class="col l12 m12 s12">
+                                <p>3 - #{messages['preparando.aed.question.2']}</p>
                             </div>
-
-                            <h1>#{messages['preparando.aed.h1.1']}</h1>
-                            <p>#{messages['preparando.aed.p.1']}</p>
-                            <ul>
-                                <li>#{messages['preparando.aed.li.1']}</li>
-                                <li>#{messages['preparando.aed.li.2']}</li>                            
-                            </ul>
-
-                            <div id="avacomorbidades">
-                                <h:form>
-                                    <p:panel id="questoes" styleClass="formpanel" style="margin-top:100px!important;">
-
-                                        <p><strong>#{messages['phq2']}</strong></p>
-
-                                        <h:panelGrid columns="2" styleClass="formmiddleq" cellpadding="10" id="phq2_1">
-                                            <f:facet name="header">  
-                                                1 - #{messages['phq2.1']}
-                                            </f:facet> 
-                                            <p:selectOneRadio id="phq_2_1" value="#{preparandoParaPararController.phq2_1}" required="true" styleClass="radio-inline">  
-                                                <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1" />
-                                                <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
-                                                <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
-                                                <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="4"/>
-                                            </p:selectOneRadio> 
-                                        </h:panelGrid>
-
-                                        <h:panelGrid columns="2" styleClass="formmiddleq" cellpadding="10" id="phq2_2">
-                                            <f:facet name="header">  
-                                                2 - #{messages['phq2.2']}
-                                            </f:facet> 
-                                            <p:selectOneRadio id="phq_2_2" value="#{preparandoParaPararController.phq2_2}" required="true" requiredMessage="true" styleClass="radio-inline">  
-                                                <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1"/>
-                                                <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
-                                                <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
-                                                <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="4"/>
-                                            </p:selectOneRadio> 
-                                        </h:panelGrid>
-
-                                        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="10" id="questao2">
-                                            <f:facet name="header">  
-                                                3 - #{messages['preparando.aed.question.2']}  
-                                            </f:facet> 
-                                            <p:selectOneRadio id="options2" value="#{preparandoParaPararController.question2}" required="true" styleClass="radio-inline">  
-                                                <f:selectItem itemLabel="#{messages['preparando.aed.question.option.1']}" itemValue="1" />
-                                                <f:selectItem itemLabel="#{messages['preparando.aed.question.option.2']}" itemValue="0" />
-                                            </p:selectOneRadio> 
-                                        </h:panelGrid>
-
-
-                                        <div><p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{preparandoParaPararController.evaluateScalePhq2()}" process="@all">
-                                                <p:effect type="blind" event="click" for="basic">
-                                                    <f:param name="mode" value="'show'" />
-                                                </p:effect>
-                                            </p:commandButton>                                        
-
-                                        </div>
-
-
-                                    </p:panel>
-
-                                    <p:panel id="basic" style="display:none; margin-top:20px!important; padding-top: 10px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
-                                        <div id="resultadoaval">
-                                            <h2>#{messages['preparando.aed.result']}</h2>
-                                            <h:outputText id="texto" value="#{preparandoParaPararController.texto}" />  
-                                        </div> 
-                                    </p:panel>
-                                </h:form>
+                            <div class="col l6 m6 s6">
+                                <h:selectOneRadio id="options2" value="#{preparandoParaPararController.question2}" required="true">  
+                                    <f:selectItem itemLabel="#{messages['preparando.aed.question.option.1']}" itemValue="1" />
+                                    <f:selectItem itemLabel="#{messages['preparando.aed.question.option.2']}" itemValue="0" />
+                                </h:selectOneRadio>
                             </div>
+                        </div>
 
-
-
-                            <!--
-                            <h4>#{messages['preparando.aed.h4.1']}</h4>
-                            <p>#{messages['preparando.aed.p.2']}</p>
-                            
-                            <h4>#{messages['preparando.aed.h4.2']}</h4>
-                            <p>#{messages['preparando.aed.p.3']}</p>-->
-
-                            <div class="proximopasso">
-                                <div class="txtproximopasso">
-                                    <h2>#{messages['next.step']}</h2>
-                                    <p>#{messages['preparando.aed.next.p']}</p>
-                                </div>
-                                <div class="btnfloat">
-                                    <div class="btn1">
-                                        <h:button class="btnback" value ="#{messages['back']}" outcome="./preparando-parar-de-fumar-medo-nao-conseguir-ganho-de-peso.xhtml"></h:button>
-                                    </div>
-                                    <div class="btn2">
-                                        <h:button class="btngen1" title="#{messages['preparando.aed.btn.title']}" value ="#{messages['next']}" outcome="./preparando-parar-de-fumar-substituir-prazer-cigarro.xhtml" ></h:button>                                
-                                    </div>
-                                </div>                            
-                            </div>
-
-                            <div class="referencias">
-                                <p>#{messages['preparando.ref']}Breslau, N., Peterson, E. L., Schultz, L. R., Chilcoat, H. D., Andreski, P. (1998). Major Depression and Stages of Smoking: A Longitudinal Investigation. Arch Gen Psychiatry, 55(2), 161–166.</p>
-                                <p>#{messages['update.date']}</p>                                                        
-                            </div>
-
+                        <div class="center">
+                            <a class="modal-trigger" href="#HiddenDiv">
+                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{preparandoParaPararController.evaluateScalePhq2()}" process="@all" onclick="javascript:ShowHide('HiddenDiv');"/></a>                             
                         </div>
 
 
-
-                    </div>        
+                        <div class="modal" style="display: none" id="HiddenDiv">
+                            <div class="modal-content">
+                                <h2>#{messages['preparando.aed.result']}</h2>
+                                <h:outputText id="texto" value="#{preparandoParaPararController.texto}" /> 
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">#{messages['close']}</a>
+                            </div>
+                        </div>
+                    </h:form>
                 </div>
 
 
-            </div><!-- end.corpo --> 
+                <div class="section">
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div class="card grey lighten-5">
+                                <div class="card-content grey-text darken-4">
+                                    <span class="card-title blue-text darken-3">#{messages['next.step']}</span>
+                                    <p>#{messages['preparando.aed.next.p']}</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="tooltipped" data-position="right" data-tooltip="#{messages['preparando.aef.btn.title']}" href="./preparando-parar-de-fumar-medo-nao-conseguir-ganho-de-peso.xhtml" title="#{messages['preparando.aef.btn.title']}">#{messages['back']}</a>
+                                    <a class="tooltipped" data-position="right" data-tooltip="#{messages['preparando.subs.h1.1']}" href="./preparando-parar-de-fumar-substituir-prazer-cigarro.xhtml" title="#{messages['preparando.subs.h1.1']}">#{messages['next']}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class='row'>
+                        <div class="col s12 m12 l12">
+                            <p class="grey-text">#{messages['update.date']}</p>
+                            <p class="grey-text">#{messages['preparando.ref']} - Breslau, N., Peterson, E. L., Schultz, L. R., Chilcoat, H. D., Andreski, P. (1998). Major Depression and Stages of Smoking: A Longitudinal Investigation. Arch Gen Psychiatry, 55(2), 161–166.</p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
 
             <!--Footer -->
             <w:footer />
+            <script language="JavaScript">
+                function ShowHide(divId)
+                {
+                    if (document.getElementById(divId).style.display == 'none')
+                    {
+                        document.getElementById(divId).style.display = 'block';
+                    }
+                }
+            </script>
         </h:body>
     </f:view>
 </html>

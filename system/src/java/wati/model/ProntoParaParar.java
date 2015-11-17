@@ -80,9 +80,8 @@ public class ProntoParaParar extends BaseController implements Serializable {
     private Date emailMensal;
     @Column(name = "email_mensal_cont")
     private Integer emailMensalCont;
-    
+
     // PHQ - Depression Scale
-    
     @Column(name = "phq_1")
     private Integer phq1;
     @Column(name = "phq_2")
@@ -101,9 +100,8 @@ public class ProntoParaParar extends BaseController implements Serializable {
     private Integer phq8;
     @Column(name = "phq_9")
     private Integer phq9;
-    
+
     // FTND - Nicotine Dependence Scale
-    
     @Column(name = "ftnd_1")
     private Integer ftnd1;
     @Column(name = "ftnd_2")
@@ -116,32 +114,33 @@ public class ProntoParaParar extends BaseController implements Serializable {
     private Integer ftnd5;
     @Column(name = "ftnd_6")
     private Integer ftnd6;
-    
+
     // Motivation Slider
-        
-    @Column(name="mot_01")
-    private Integer mot1;
-    @Column(name="mot_02")
-    private Integer mot2;
-    
-    @Column(name="pnad_a")
-    private Boolean pnadA;
-    @Column(name="pnad_b")
-    private Boolean pnadB;
-    @Column(name="pnad_c")
-    private Boolean pnadC;
-    @Column(name="pnad_d")
-    private Boolean pnadD;
-    @Column(name="pnad_e")
-    private Boolean pnadE;
-    @Column(name="pnad_f")
-    private Boolean pnadF;
-    @Column(name="pnad_g")
-    private Boolean pnadG;
-    @Column(name="pnad_h")
-    private Boolean pnadH;
-    
-     
+    @Column(name = "mot_01")
+    private int mot1;
+    @Column(name = "mot_02")
+    private int mot2;
+
+    // Contemplation Ladder Scale        
+    @Column(name = "ladder")
+    private int ladder1;
+
+    @Column(name = "pnad_a")
+    private boolean pnadA;
+    @Column(name = "pnad_b")
+    private boolean pnadB;
+    @Column(name = "pnad_c")
+    private boolean pnadC;
+    @Column(name = "pnad_d")
+    private boolean pnadD;
+    @Column(name = "pnad_e")
+    private boolean pnadE;
+    @Column(name = "pnad_f")
+    private boolean pnadF;
+    @Column(name = "pnad_g")
+    private boolean pnadG;
+    @Column(name = "pnad_h")
+    private boolean pnadH;
 
     public ProntoParaParar() {
         this.dataInserido = ((GregorianCalendar) GregorianCalendar.getInstance()).getTime();
@@ -555,7 +554,7 @@ public class ProntoParaParar extends BaseController implements Serializable {
     public void setPhq9(Integer phq9) {
         this.phq9 = phq9;
     }
-    
+
     public Integer getFtnd1() {
         return ftnd1;
     }
@@ -604,11 +603,101 @@ public class ProntoParaParar extends BaseController implements Serializable {
         this.ftnd6 = ftnd6;
     }
 
+    public int getMot1() {
+        this.setMot1(5);
+        return mot1;
+    }
+
+    public void setMot1(int mot1) {
+        this.mot1 = mot1;
+    }
+    
+    public int getLadder1() {
+        return ladder1;
+    }
+
+    public void setLadder1(int ladder1) {
+        this.ladder1 = ladder1;
+    }
+
+    public int getMot2() {
+        this.setMot2(5);
+        return mot2;
+    }
+
+    public void setMot2(int mot2) {
+        this.mot2 = mot2;
+    }
+
     private void append(String string) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-     public void limparProcPararFumar(){
+
+    public boolean isPnadA() {
+        return pnadA;
+    }
+
+    public void setPnadA(boolean pnadA) {
+        this.pnadA = pnadA;
+    }
+
+    public boolean isPnadB() {
+        return pnadB;
+    }
+
+    public void setPnadB(boolean pnadB) {
+        this.pnadB = pnadB;
+    }
+
+    public boolean isPnadC() {
+        return pnadC;
+    }
+
+    public void setPnadC(boolean pnadC) {
+        this.pnadC = pnadC;
+    }
+
+    public boolean isPnadD() {
+        return pnadD;
+    }
+
+    public void setPnadD(boolean pnadD) {
+        this.pnadD = pnadD;
+    }
+
+    public boolean isPnadE() {
+        return pnadE;
+    }
+
+    public void setPnadE(boolean pnadE) {
+        this.pnadE = pnadE;
+    }
+
+    public boolean isPnadF() {
+        return pnadF;
+    }
+
+    public void setPnadF(boolean pnadF) {
+        this.pnadF = pnadF;
+    }
+
+    public boolean isPnadG() {
+        return pnadG;
+    }
+
+    public void setPnadG(boolean pnadG) {
+        this.pnadG = pnadG;
+    }
+
+    public boolean isPnadH() {
+        return pnadH;
+    }
+
+    public void setPnadH(boolean pnadH) {
+        this.pnadH = pnadH;
+    }
+
+    public void limparProcPararFumar() {
         this.setPnadA(false);
         this.setPnadB(false);
         this.setPnadC(false);
@@ -617,208 +706,6 @@ public class ProntoParaParar extends BaseController implements Serializable {
         this.setPnadF(false);
         this.setPnadG(false);
         this.setPnadH(false);
-    }
-
-    /**
-     * @return the mot1
-     */
-    public Integer getMot1() {
-        if (this.mot1==null) {
-	    this.mot1 = ProntoParaParar.MOTIVATION_STANDARD_VALUE; //standard value?
-	}
-	return mot1;
-    }
-
-    /**
-     * @param mot1 the mot1 to set
-     */
-    public void setMot1(Integer mot1) {
-        this.mot1 = mot1;
-    }
-
-    /**
-     * @return the mot2
-     */
-    public Integer getMot2() {
-	if (this.mot2==null) {
-	    this.mot2 = ProntoParaParar.MOTIVATION_STANDARD_VALUE; //standard value?
-	}
-        return mot2;
-    }
-
-    /**
-     * @param mot2 the mot2 to set
-     */
-    public void setMot2(Integer mot2) {
-        this.mot2 = mot2;
-    }
-
-    /**
-     * @return the pnadA
-     */
-    public Boolean isPnadA() {
-        return getPnadA();
-    }
-
-    /**
-     * @param pnadA the pnadA to set
-     */
-    public void setPnadA(Boolean pnadA) {
-        this.pnadA = pnadA;
-    }
-
-    /**
-     * @return the pnadB
-     */
-    public Boolean isPnadB() {
-        return getPnadB();
-    }
-
-    /**
-     * @param pnadB the pnadB to set
-     */
-    public void setPnadB(Boolean pnadB) {
-        this.pnadB = pnadB;
-    }
-
-    /**
-     * @return the pnadC
-     */
-    public Boolean isPnadC() {
-        return getPnadC();
-    }
-
-    /**
-     * @param pnadC the pnadC to set
-     */
-    public void setPnadC(Boolean pnadC) {
-        this.pnadC = pnadC;
-    }
-
-    /**
-     * @return the pnadD
-     */
-    public Boolean isPnadD() {
-        return getPnadD();
-    }
-
-    /**
-     * @param pnadD the pnadD to set
-     */
-    public void setPnadD(Boolean pnadD) {
-        this.pnadD = pnadD;
-    }
-
-    /**
-     * @return the pnadE
-     */
-    public Boolean isPnadE() {
-        return getPnadE();
-    }
-
-    /**
-     * @param pnadE the pnadE to set
-     */
-    public void setPnadE(Boolean pnadE) {
-        this.pnadE = pnadE;
-    }
-
-    /**
-     * @return the pnadF
-     */
-    public Boolean isPnadF() {
-        return getPnadF();
-    }
-
-    /**
-     * @param pnadF the pnadF to set
-     */
-    public void setPnadF(Boolean pnadF) {
-        this.pnadF = pnadF;
-    }
-
-    /**
-     * @return the pnadG
-     */
-    public Boolean isPnadG() {
-        return getPnadG();
-    }
-
-    /**
-     * @param pnadG the pnadG to set
-     */
-    public void setPnadG(Boolean pnadG) {
-        this.pnadG = pnadG;
-    }
-
-    /**
-     * @return the pnadH
-     */
-    public Boolean isPnadH() {
-        return getPnadH();
-    }
-
-    /**
-     * @param pnadH the pnadH to set
-     */
-    public void setPnadH(Boolean pnadH) {
-        this.pnadH = pnadH;
-    }
-
-    /**
-     * @return the pnadA
-     */
-    public Boolean getPnadA() {
-	return pnadA;
-    }
-
-    /**
-     * @return the pnadB
-     */
-    public Boolean getPnadB() {
-	return pnadB;
-    }
-
-    /**
-     * @return the pnadC
-     */
-    public Boolean getPnadC() {
-	return pnadC;
-    }
-
-    /**
-     * @return the pnadD
-     */
-    public Boolean getPnadD() {
-	return pnadD;
-    }
-
-    /**
-     * @return the pnadE
-     */
-    public Boolean getPnadE() {
-	return pnadE;
-    }
-
-    /**
-     * @return the pnadF
-     */
-    public Boolean getPnadF() {
-	return pnadF;
-    }
-
-    /**
-     * @return the pnadG
-     */
-    public Boolean getPnadG() {
-	return pnadG;
-    }
-
-    /**
-     * @return the pnadH
-     */
-    public Boolean getPnadH() {
-	return pnadH;
     }
 
 }

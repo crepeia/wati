@@ -1,71 +1,103 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<!DOCTYPE html>
+<html lang="pt,en,es,de,ru" xml:lang="pt,en,es,de,ru"
+      xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
     <f:view locale="#{languageController.locale}">
         <h:head>
             <title>#{messages['acompanhamento.fat.titlepage']} | #{messages['vivasemtabaco']}</title>
             <w:head_comum />
         </h:head>
+
         <h:body>
-            <div id="corpo"> 
-                <!-- header -->    
-                <w:header loginRequired="true" />
-                <w:topmenu />
+            <w:topmenu-i loginRequired="true" />
+            <w:leftmenu_3/>
 
-                <!--mainmenu-->         	
-                <div class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 m6 s12">     
+                        <h3 class="headertop orange-text text-lighten-2">#{messages['acompanhamento.lapso.h1.1']}</h3>             
+                        <p>#{messages['acompanhamento.lapso.p.1']}</p>
+                        <ol>
+                            <li><h:outputLink value="preparando-parar-de-fumar-beneficios-de-parar.xhtml">#{messages['menu.firststep.li3']}</h:outputLink></li>
+                            <li><h:outputLink value="preparando-parar-de-fumar-riscos-do-cigarro.xhtml">#{messages['menu.firststep.li2']}</h:outputLink></li>
+                            <li><h:outputLink value="preparando-parar-de-fumar-substituir-prazer-cigarro.xhtml">#{messages['menu.firststep.li8']}</h:outputLink></li>
+                        </ol>
+                    </div>
 
+                    <div class="col l6 m6 s12 hide-on-small-and-down">
+                        <br /><br />                          
+                        <h:graphicImage  library="default" styleClass="right valign-wrapper" title="#{messages['acompanhamento.fat.img.title']}Acompanhamento" name="images/acompanhamento-interno.png" alt="Acompanhamento" />
+                    </div>
+                </div>
 
-                    <w:leftmenu_3 cssClass="leftmenu3" />
-
-                    <div class="pagecontent">
-
-                        <div id="pagecont2">
-                            <div class="fotoframeclean">
-                                <h:graphicImage  library="default" title="#{messages['acompanhamento.fat.img.title']}Acompanhamento" name="images/acompanhamento-interno.png" alt="Acompanhamento" />
-                            </div>                        
-
-                            <h1>#{messages['acompanhamento.lapso.h1.1']}</h1>                       
-
-                            <p>#{messages['acompanhamento.lapso.p.1']}</p>
-
-                            <ul>
-                                <li><h:outputLink value="preparando-parar-de-fumar-beneficios-de-parar.xhtml">#{messages['menu.firststep.li3']}</h:outputLink></li>
-                                <li><h:outputLink value="preparando-parar-de-fumar-riscos-de-fumar.xhtml">#{messages['menu.firststep.li2']}</h:outputLink></li>
-                                <li><h:outputLink value="preparando-parar-de-fumar-substituir-prazer-cigarro.xhtml">#{messages['menu.firststep.li8']}</h:outputLink></li>
-                            </ul>
-                            <br />
-
-                            <div class="buscarajuda">
-                                <div class="imgbuscarajuda">
-                                    <h:outputLink value="./index.xhtml">
-                                        <h:graphicImage library="default" title="#{messages['vivasemtabaco']}" name="images/vst-100.png" alt="#{messages['vivasemtabaco']}"/>
-                                    </h:outputLink>
+                <div class="section">
+                    <div class="row">
+                        <div class="col s12 m12 l12">
+                            <div class="card-panel grey lighten-5">
+                                <div class="row valign-wrapper">
+                                    <div class="col s2">
+                                        <h:outputLink value="cadastrar-nova-conta.xhtml"><h:graphicImage library="default" title="#{messages['vivasemtabaco']}" name="images/viva-sem-tabaco-new.png" class="circle responsive-img" alt="#{messages['vivasemtabaco']}"/></h:outputLink>   
+                                    </div>
+                                    <div class="col s10">
+                                        <span class="black-text">
+                                            <h5><h:outputLink value="cadastrar-nova-conta.xhtml">#{messages['preparando.ajuda.h4.1']}</h:outputLink></h5>
+                                            <p>#{messages['preparando.ajuda.p.1']}</p>
+                                        </span>
+                                    </div>
                                 </div>
-                                <div class="pbuscarajuda">
-                                    <h4><h:outputLink value="./index.xhtml">#{messages['acompanhamento.ajuda.h4.1']}</h:outputLink></h4>
-                                    <p>#{messages['acompanhamento.ajuda.p.2a']} <br /><h:outputLink value="./index.xhtml">#{messages['acompanhamento.ajuda.p.2b']}</h:outputLink>.</p>
-                                </div> 
                             </div>
+                        </div>
 
-                            <div class="referencias">                            
-                                <p>"#{messages['update.date']}"</p>                            
+                        <div class="col s12 m12 l12">
+                            <div class="card-panel grey lighten-5">
+                                <div class="row valign-wrapper">
+                                    <div class="col s2">
+                                        <h:graphicImage library="default" name="#{languageController.quitline}" alt="#{messages['preparando.img.vivavoz']}" class="circle responsive-img" id="quitline"/>
+                                    </div>
+                                    <div class="col s10">
+                                        <span class="black-text">
+                                            <h5>#{messages['preparando.ajuda.h4.2']}</h5>
+                                            <p>#{messages['preparando.ajuda.p2']}</p>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
+                        </div>
 
+                        <div class="col s12 m12 l12">
+                            <div class="card-panel grey lighten-5">
+                                <div class="row valign-wrapper">
+                                    <div class="col s2">
+                                        <h:graphicImage library="default" class="circle responsive-img" name="#{languageController.healthservice}" alt="#{messages['preparando.ajuda.img.sus']}" id="healthservice"/>   
+                                    </div>
+                                    <div class="col s10">
+                                        <span class="black-text">
+                                            <h5>#{messages['preparando.ajuda.h4.3']}</h5>
+                                            <p>#{messages['preparando.ajuda.p.3']} <h:outputLink value="http://www.brasil.gov.br/saude/2013/04/controle-ao-tabagismo-sera-ampliado-na-rede-publica-de-saude"></h:outputLink>.</p>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
                 </div>
 
-            </div><!-- end.corpo --> 
+                <div class="section">
+                    <div class='row'>
+                        <div class="col s12 m12 l12">
+                            <p class="grey-text">#{messages['update.date']}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!--Footer -->
-            <w:footer />
+            <w:footer />      
         </h:body>
     </f:view>
 </html>
-
