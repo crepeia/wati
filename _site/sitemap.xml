@@ -1,90 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>//localhost:4000</loc>
+        <loc>//crepeia.github.com/wati</loc>
     </url>
     
     
     <url>
-        <loc>//localhost:4000/news/</loc>
+        <loc>//crepeia.github.com/wati/news/</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/search.json</loc>
+        <loc>//crepeia.github.com/wati/search.json</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/about/</loc>
+        <loc>//crepeia.github.com/wati/about/</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/feed.xml</loc>
+        <loc>//crepeia.github.com/wati/feed.xml</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/install/</loc>
+        <loc>//crepeia.github.com/wati/install/</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/404.html</loc>
+        <loc>//crepeia.github.com/wati/404.html</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/index.html</loc>
+        <loc>//crepeia.github.com/wati/index.html</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/sitemap.xml</loc>
+        <loc>//crepeia.github.com/wati/sitemap.xml</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/tags/</loc>
+        <loc>//crepeia.github.com/wati/tags/</loc>
     </url>
     
 
     
     <url>
-        <loc>//localhost:4000/news/lwt-poster-presentation/</loc>
+        <loc>//crepeia.github.com/wati/news/lwt-poster-presentation/</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/news/mobile-version-launched/</loc>
+        <loc>//crepeia.github.com/wati/news/mobile-version-launched/</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/news/health-on-the-net-certification/</loc>
+        <loc>//crepeia.github.com/wati/news/health-on-the-net-certification/</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/news/browserstack-is-helping-us-to-test-new-version/</loc>
+        <loc>//crepeia.github.com/wati/news/browserstack-is-helping-us-to-test-new-version/</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/news/mobile-friendly-version/</loc>
+        <loc>//crepeia.github.com/wati/news/mobile-friendly-version/</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/news/3rdrealease/</loc>
+        <loc>//crepeia.github.com/wati/news/3rdrealease/</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/news/russian/</loc>
+        <loc>//crepeia.github.com/wati/news/russian/</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/news/1strelease/</loc>
+        <loc>//crepeia.github.com/wati/news/1strelease/</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/news/german/</loc>
+        <loc>//crepeia.github.com/wati/news/german/</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/news/teste/</loc>
+        <loc>//crepeia.github.com/wati/news/teste/</loc>
     </url>
     
     <url>
-        <loc>//localhost:4000/news/code-new-blog/</loc>
+        <loc>//crepeia.github.com/wati/news/code-new-blog/</loc>
     </url>
     
 </urlset>

@@ -8,29 +8,29 @@
 
 <title type="text">Live without tobacco project.</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
-<link rel="alternate" type="text/html" href="http://localhost:4000/" />
-<updated>2015-11-18T19:44:05-02:00</updated>
-<id>http://localhost:4000/</id>
+<link rel="self" type="application/atom+xml" href="http://crepeia.github.com/wati/feed.xml" />
+<link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/" />
+<updated>2015-11-18T19:55:15-02:00</updated>
+<id>http://crepeia.github.com/wati/</id>
 <author>
   <name>Henrique Pinto Gomide</name>
-  <uri>http://localhost:4000/</uri>
+  <uri>http://crepeia.github.com/wati/</uri>
   <email>henriquepgomide@gmail.com</email>
 </author>
 
 
 <entry>
   <title type="html"><![CDATA[Research poster - who are our users?]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/news/lwt-poster-presentation/"/>
-  <id>http://localhost:4000/news/lwt-poster-presentation</id>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/lwt-poster-presentation/"/>
+  <id>http://crepeia.github.com/wati/news/lwt-poster-presentation</id>
   <published>2015-11-19T00:00:00-02:00</published>
   <updated>2015-11-19T00:00:00-02:00</updated>
   <author>
     <name>Henrique Pinto Gomide</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://crepeia.github.com/wati</uri>
     <email>henriquepgomide@gmail.com</email>
   </author>
-  <category scheme="http://localhost:4000/tags/#research" term="research" /><category scheme="http://localhost:4000/tags/#mhealth" term="mhealth" /><category scheme="http://localhost:4000/tags/#wati" term="wati" /><category scheme="http://localhost:4000/tags/#data" term="data" />
+  <category scheme="http://crepeia.github.com/wati/tags/#research" term="research" /><category scheme="http://crepeia.github.com/wati/tags/#mhealth" term="mhealth" /><category scheme="http://crepeia.github.com/wati/tags/#wati" term="wati" /><category scheme="http://crepeia.github.com/wati/tags/#data" term="data" />
   <content type="html">
   
     &lt;p&gt;Who are our users? It’s been a while since Viva sem Tabaco has been launched, but no data were available on how users interact with the web-based intervention. To address this question, Nathalia Munck presented a poster presentation at the “V Congresso Internacional sobre Drogas”, which happened between November fifth and seventh in Sao Joao del Rey - Brazil.&lt;/p&gt;
@@ -43,22 +43,22 @@
 
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/lwt-poster-presentation/&quot;&gt;Research poster - who are our users?&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on November 19, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/lwt-poster-presentation/&quot;&gt;Research poster - who are our users?&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on November 19, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Viva sem Tabaco is now mobile friendly]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/news/mobile-version-launched/"/>
-  <id>http://localhost:4000/news/mobile-version-launched</id>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/mobile-version-launched/"/>
+  <id>http://crepeia.github.com/wati/news/mobile-version-launched</id>
   <published>2015-11-03T00:00:00-02:00</published>
   <updated>2015-11-03T00:00:00-02:00</updated>
   <author>
     <name>Henrique Pinto Gomide</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://crepeia.github.com/wati</uri>
     <email>henriquepgomide@gmail.com</email>
   </author>
-  <category scheme="http://localhost:4000/tags/#HONcode" term="HONcode" /><category scheme="http://localhost:4000/tags/#Health%20on%20the%20Net%20Foundation" term="Health on the Net Foundation" /><category scheme="http://localhost:4000/tags/#mhealth" term="mhealth" />
+  <category scheme="http://crepeia.github.com/wati/tags/#HONcode" term="HONcode" /><category scheme="http://crepeia.github.com/wati/tags/#Health%20on%20the%20Net%20Foundation" term="Health on the Net Foundation" /><category scheme="http://crepeia.github.com/wati/tags/#mhealth" term="mhealth" />
   <content type="html">
   
     &lt;p&gt;After some time of fine tunning, a new version of Viva sem Tabaco is now available. The main change was its new front-end, now mobile-friendly. Besides, we have corrected bugs and made minor adjustments. &lt;/p&gt;
@@ -72,22 +72,22 @@
 &lt;p&gt;&lt;img src=&quot;../../images/vst-index.png&quot; alt=&quot;Main Page&quot; /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/mobile-version-launched/&quot;&gt;Viva sem Tabaco is now mobile friendly&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on November 03, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/mobile-version-launched/&quot;&gt;Viva sem Tabaco is now mobile friendly&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on November 03, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Viva sem Tabaco has been certified by HONCode]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/news/health-on-the-net-certification/"/>
-  <id>http://localhost:4000/news/health-on-the-net-certification</id>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/health-on-the-net-certification/"/>
+  <id>http://crepeia.github.com/wati/news/health-on-the-net-certification</id>
   <published>2015-10-02T00:00:00-03:00</published>
   <updated>2015-10-02T00:00:00-03:00</updated>
   <author>
     <name>Henrique Pinto Gomide</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://crepeia.github.com/wati</uri>
     <email>henriquepgomide@gmail.com</email>
   </author>
-  <category scheme="http://localhost:4000/tags/#HONcode" term="HONcode" /><category scheme="http://localhost:4000/tags/#Health%20on%20the%20Net%20Foundation" term="Health on the Net Foundation" /><category scheme="http://localhost:4000/tags/#mhealth" term="mhealth" />
+  <category scheme="http://crepeia.github.com/wati/tags/#HONcode" term="HONcode" /><category scheme="http://crepeia.github.com/wati/tags/#Health%20on%20the%20Net%20Foundation" term="Health on the Net Foundation" /><category scheme="http://crepeia.github.com/wati/tags/#mhealth" term="mhealth" />
   <content type="html">
   
     &lt;p&gt;Good news!! We have been certified by the Health on the Net Foundation. What does it mean? It means that our content is compliant with the Code of Ethics of the most used and trustworthy code for medical and health information available on Internet. This is good for intervention users and also good for researchers and developers. As you probably know, Viva sem Tabaco is open-source and you are able build on it. You can check our certificate out &lt;a href=&quot;https://www.healthonnet.org/HONcode/Conduct.html?HONConduct896511&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
@@ -103,22 +103,22 @@
 &lt;p&gt;&lt;img src=&quot;../../images/vst-index.png&quot; alt=&quot;Main Page&quot; /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/health-on-the-net-certification/&quot;&gt;Viva sem Tabaco has been certified by HONCode&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on October 02, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/health-on-the-net-certification/&quot;&gt;Viva sem Tabaco has been certified by HONCode&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on October 02, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[How browserstack is helping us to test our project.]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/news/browserstack-is-helping-us-to-test-new-version/"/>
-  <id>http://localhost:4000/news/browserstack-is-helping-us-to-test-new-version</id>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/browserstack-is-helping-us-to-test-new-version/"/>
+  <id>http://crepeia.github.com/wati/news/browserstack-is-helping-us-to-test-new-version</id>
   <published>2015-08-17T00:00:00-03:00</published>
   <updated>2015-08-17T00:00:00-03:00</updated>
   <author>
     <name>Henrique Pinto Gomide</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://crepeia.github.com/wati</uri>
     <email>henriquepgomide@gmail.com</email>
   </author>
-  <category scheme="http://localhost:4000/tags/#mobile%20version" term="mobile version" /><category scheme="http://localhost:4000/tags/#browserstack" term="browserstack" /><category scheme="http://localhost:4000/tags/#open-source" term="open-source" /><category scheme="http://localhost:4000/tags/#browser%20testing" term="browser testing" />
+  <category scheme="http://crepeia.github.com/wati/tags/#mobile%20version" term="mobile version" /><category scheme="http://crepeia.github.com/wati/tags/#browserstack" term="browserstack" /><category scheme="http://crepeia.github.com/wati/tags/#open-source" term="open-source" /><category scheme="http://crepeia.github.com/wati/tags/#browser%20testing" term="browser testing" />
   <content type="html">
   
     &lt;p&gt;We are pleased to announce that Browserstack is offering us their Live plan for free. Why did they do that? Our project is open-source and they love to support open-source projects.&lt;/p&gt;
@@ -135,22 +135,22 @@
 
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/browserstack-is-helping-us-to-test-new-version/&quot;&gt;How browserstack is helping us to test our project.&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on August 17, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/browserstack-is-helping-us-to-test-new-version/&quot;&gt;How browserstack is helping us to test our project.&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on August 17, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Mobile version is under way!]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/news/mobile-friendly-version/"/>
-  <id>http://localhost:4000/news/mobile-friendly-version</id>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/mobile-friendly-version/"/>
+  <id>http://crepeia.github.com/wati/news/mobile-friendly-version</id>
   <published>2015-08-13T00:00:00-03:00</published>
   <updated>2015-08-13T00:00:00-03:00</updated>
   <author>
     <name>Henrique Pinto Gomide</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://crepeia.github.com/wati</uri>
     <email>henriquepgomide@gmail.com</email>
   </author>
-  <category scheme="http://localhost:4000/tags/#mobile%20version" term="mobile version" />
+  <category scheme="http://crepeia.github.com/wati/tags/#mobile%20version" term="mobile version" />
   <content type="html">
   
     &lt;p&gt;Good news!! We are preparing a mobile friendly version of Live without tobacco. Before jumping into the mobile application world, we decided to make our project mobile-friendly using the front-end framework &lt;a href=&quot;http://materializecss.com/&quot;&gt;Materialize&lt;/a&gt;. Materialize is a modern responsive framework based on Material Design, the Google’s approach to design. &lt;/p&gt;
@@ -179,22 +179,22 @@
 
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/mobile-friendly-version/&quot;&gt;Mobile version is under way!&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on August 13, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/mobile-friendly-version/&quot;&gt;Mobile version is under way!&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on August 13, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Live without tobacco - version 0.3 released]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/news/3rdrealease/"/>
-  <id>http://localhost:4000/news/3rdrealease</id>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/3rdrealease/"/>
+  <id>http://crepeia.github.com/wati/news/3rdrealease</id>
   <published>2015-07-29T00:00:00-03:00</published>
   <updated>2015-07-29T00:00:00-03:00</updated>
   <author>
     <name>Henrique Pinto Gomide</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://crepeia.github.com/wati</uri>
     <email>henriquepgomide@gmail.com</email>
   </author>
-  <category scheme="http://localhost:4000/tags/#release" term="release" /><category scheme="http://localhost:4000/tags/#code" term="code" /><category scheme="http://localhost:4000/tags/#carlos%20chagas" term="carlos chagas" /><category scheme="http://localhost:4000/tags/#ftnd" term="ftnd" /><category scheme="http://localhost:4000/tags/#phq9" term="phq9" />
+  <category scheme="http://crepeia.github.com/wati/tags/#release" term="release" /><category scheme="http://crepeia.github.com/wati/tags/#code" term="code" /><category scheme="http://crepeia.github.com/wati/tags/#carlos%20chagas" term="carlos chagas" /><category scheme="http://crepeia.github.com/wati/tags/#ftnd" term="ftnd" /><category scheme="http://crepeia.github.com/wati/tags/#phq9" term="phq9" />
   <content type="html">
   
     &lt;p&gt;We are really pleased to announce that the 0.3 version of Viva sem Tabaco is released; it is named after &lt;a href=&quot;https://en.wikipedia.org/wiki/Carlos_Chagas&quot;&gt;Carlos Chagas&lt;/a&gt;. &lt;/p&gt;
@@ -215,22 +215,22 @@
 &lt;p&gt;The code is available in our &lt;a href=&quot;http://crepeia.github.io/wati&quot;&gt;github repository&lt;/a&gt;.&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/3rdrealease/&quot;&gt;Live without tobacco - version 0.3 released&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on July 29, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/3rdrealease/&quot;&gt;Live without tobacco - version 0.3 released&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on July 29, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Привет! Russian is now partially supported.]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/news/russian/"/>
-  <id>http://localhost:4000/news/russian</id>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/russian/"/>
+  <id>http://crepeia.github.com/wati/news/russian</id>
   <published>2015-06-22T00:00:00-03:00</published>
   <updated>2015-06-22T00:00:00-03:00</updated>
   <author>
     <name>Henrique Pinto Gomide</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://crepeia.github.com/wati</uri>
     <email>henriquepgomide@gmail.com</email>
   </author>
-  <category scheme="http://localhost:4000/tags/#translation" term="translation" /><category scheme="http://localhost:4000/tags/#russian" term="russian" />
+  <category scheme="http://crepeia.github.com/wati/tags/#translation" term="translation" /><category scheme="http://crepeia.github.com/wati/tags/#russian" term="russian" />
   <content type="html">
   
     &lt;p&gt;Dr. Dmytro Khvotenko, a Postdoctoral Researcher (and also owner of the lovely pug Axel), has translated the Viva sem Tabaco content into Russian. Russian is the official language in Russia, Belarus, Kazakhstan, and Kyrgyzstan and widely spoken language in Ukraine, Moldova, Latvia, Estonia, and to a lesser extent, the other countries that were once constituent republics of the Soviet Union. It is estimated that 260 million people speak russian&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. Besides, approximately half of russian men smoke&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
@@ -249,22 +249,22 @@
 &lt;/div&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/russian/&quot;&gt;Привет! Russian is now partially supported.&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on June 22, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/russian/&quot;&gt;Привет! Russian is now partially supported.&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on June 22, 2015.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Live without tobacco - version 0.2 released]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/news/1strelease/"/>
-  <id>http://localhost:4000/news/1strelease</id>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/1strelease/"/>
+  <id>http://crepeia.github.com/wati/news/1strelease</id>
   <published>2013-07-24T00:00:00-03:00</published>
   <updated>2013-07-24T00:00:00-03:00</updated>
   <author>
     <name>Henrique Pinto Gomide</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://crepeia.github.com/wati</uri>
     <email>henriquepgomide@gmail.com</email>
   </author>
-  <category scheme="http://localhost:4000/tags/#release" term="release" /><category scheme="http://localhost:4000/tags/#code" term="code" /><category scheme="http://localhost:4000/tags/#highlighting" term="highlighting" />
+  <category scheme="http://crepeia.github.com/wati/tags/#release" term="release" /><category scheme="http://crepeia.github.com/wati/tags/#code" term="code" /><category scheme="http://crepeia.github.com/wati/tags/#highlighting" term="highlighting" />
   <content type="html">
   
     &lt;p&gt;We are pleased to announce that the 0.2 version is released called &lt;a href=&quot;http://en.wikipedia.org/wiki/C%C3%A9sar_Lattes&quot;&gt;Cesar Lattes&lt;/a&gt;. We have improved the e-mail feedback and quitplans with standard messages. We also fixed minor bugs.&lt;/p&gt;
@@ -274,22 +274,22 @@
 &lt;p&gt;English and Spanish versions are expected to come out in late August.&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/1strelease/&quot;&gt;Live without tobacco - version 0.2 released&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on July 24, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/1strelease/&quot;&gt;Live without tobacco - version 0.2 released&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on July 24, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Hallo! System is now being translated to german!]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/news/german/"/>
-  <id>http://localhost:4000/news/german</id>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/german/"/>
+  <id>http://crepeia.github.com/wati/news/german</id>
   <published>2013-05-26T00:00:00-03:00</published>
   <updated>2013-05-26T00:00:00-03:00</updated>
   <author>
     <name>Henrique Pinto Gomide</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://crepeia.github.com/wati</uri>
     <email>henriquepgomide@gmail.com</email>
   </author>
-  <category scheme="http://localhost:4000/tags/#translation" term="translation" /><category scheme="http://localhost:4000/tags/#german" term="german" />
+  <category scheme="http://crepeia.github.com/wati/tags/#translation" term="translation" /><category scheme="http://crepeia.github.com/wati/tags/#german" term="german" />
   <content type="html">
   
     &lt;p&gt;Caroline Jansen, an exchange student in Brazil and also a very kind person, is going to translate the intervention to German. She has lived in Brazil for about 9 months studying at Federal University of Juiz de Fora and working at General Consulate of Germany (deutschen Auslandsvertretungen) in Rio de Janeiro.&lt;/p&gt;
@@ -300,22 +300,22 @@
 
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/german/&quot;&gt;Hallo! System is now being translated to german!&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on May 26, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/german/&quot;&gt;Hallo! System is now being translated to german!&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on May 26, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[System is ready to translation]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/news/teste/"/>
-  <id>http://localhost:4000/news/teste</id>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/teste/"/>
+  <id>http://crepeia.github.com/wati/news/teste</id>
   <published>2013-05-18T00:00:00-03:00</published>
   <updated>2013-05-18T00:00:00-03:00</updated>
   <author>
     <name>Henrique Pinto Gomide</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://crepeia.github.com/wati</uri>
     <email>henriquepgomide@gmail.com</email>
   </author>
-  <category scheme="http://localhost:4000/tags/#live%20without%20tobacco" term="live without tobacco" /><category scheme="http://localhost:4000/tags/#translation" term="translation" />
+  <category scheme="http://crepeia.github.com/wati/tags/#live%20without%20tobacco" term="live without tobacco" /><category scheme="http://crepeia.github.com/wati/tags/#translation" term="translation" />
   <content type="html">
   
     &lt;p&gt;After 2 months working on code, the system is ready to translation. If you like to contribute and help spread the support of smoking cessation support, you just need to reach the spreadsheet in Google Docs.&lt;/p&gt;
@@ -326,22 +326,22 @@
 
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/teste/&quot;&gt;System is ready to translation&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on May 18, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/teste/&quot;&gt;System is ready to translation&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on May 18, 2013.&lt;/p&gt;</content>
 </entry>
 
 
 <entry>
   <title type="html"><![CDATA[Live without tobacco - first realease]]></title>
-  <link rel="alternate" type="text/html" href="http://localhost:4000/news/code-new-blog/"/>
-  <id>http://localhost:4000/news/code-new-blog</id>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/code-new-blog/"/>
+  <id>http://crepeia.github.com/wati/news/code-new-blog</id>
   <published>2013-05-01T00:00:00-03:00</published>
   <updated>2013-05-01T00:00:00-03:00</updated>
   <author>
     <name>Henrique Pinto Gomide</name>
-    <uri>http://localhost:4000</uri>
+    <uri>http://crepeia.github.com/wati</uri>
     <email>henriquepgomide@gmail.com</email>
   </author>
-  <category scheme="http://localhost:4000/tags/#sample%20post" term="sample post" /><category scheme="http://localhost:4000/tags/#code" term="code" /><category scheme="http://localhost:4000/tags/#highlighting" term="highlighting" />
+  <category scheme="http://crepeia.github.com/wati/tags/#sample%20post" term="sample post" /><category scheme="http://crepeia.github.com/wati/tags/#code" term="code" /><category scheme="http://crepeia.github.com/wati/tags/#highlighting" term="highlighting" />
   <content type="html">
   
     &lt;p&gt;“Live without tobacco” - the first open source web-assisted tobacco intervention is released. After 1 year of development, the portuguese version of the intervention is finally released. Now, we are seeking parterns for testing and translating in other languages. &lt;/p&gt;
@@ -351,7 +351,7 @@
 &lt;p&gt;In the next weeks, we are going to upload the documentation for install the intervention in your computer.&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/code-new-blog/&quot;&gt;Live without tobacco - first realease&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on May 01, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/code-new-blog/&quot;&gt;Live without tobacco - first realease&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on May 01, 2013.&lt;/p&gt;</content>
 </entry>
 
 </feed>
