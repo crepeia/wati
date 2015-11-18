@@ -10,7 +10,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
 <link rel="alternate" type="text/html" href="http://localhost:4000/" />
-<updated>2015-11-07T21:33:51-02:00</updated>
+<updated>2015-11-18T19:44:05-02:00</updated>
 <id>http://localhost:4000/</id>
 <author>
   <name>Henrique Pinto Gomide</name>
@@ -20,7 +20,35 @@
 
 
 <entry>
-  <title type="html"><![CDATA[Viva sem Tabaco is now mobile frienldy]]></title>
+  <title type="html"><![CDATA[Research poster - who are our users?]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/news/lwt-poster-presentation/"/>
+  <id>http://localhost:4000/news/lwt-poster-presentation</id>
+  <published>2015-11-19T00:00:00-02:00</published>
+  <updated>2015-11-19T00:00:00-02:00</updated>
+  <author>
+    <name>Henrique Pinto Gomide</name>
+    <uri>http://localhost:4000</uri>
+    <email>henriquepgomide@gmail.com</email>
+  </author>
+  <category scheme="http://localhost:4000/tags/#research" term="research" /><category scheme="http://localhost:4000/tags/#mhealth" term="mhealth" /><category scheme="http://localhost:4000/tags/#wati" term="wati" /><category scheme="http://localhost:4000/tags/#data" term="data" />
+  <content type="html">
+  
+    &lt;p&gt;Who are our users? It’s been a while since Viva sem Tabaco has been launched, but no data were available on how users interact with the web-based intervention. To address this question, Nathalia Munck presented a poster presentation at the “V Congresso Internacional sobre Drogas”, which happened between November fifth and seventh in Sao Joao del Rey - Brazil.&lt;/p&gt;
+
+&lt;h2 id=&quot;poster&quot;&gt;Poster&lt;/h2&gt;
+
+&lt;p&gt;You can also download the poster as a &lt;a href=&quot;../../images/poster_english.pdf&quot;&gt;pdf&lt;/a&gt;. The Inkscape file that we used to create the poster is also available &lt;a href=&quot;../../images/poster_english.svg&quot;&gt;here&lt;/a&gt;(inkscape).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;../../images/poster-nathalia-munck.png&quot; alt=&quot;Poster&quot; /&gt;&lt;/p&gt;
+
+
+  
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/lwt-poster-presentation/&quot;&gt;Research poster - who are our users?&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on November 19, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Viva sem Tabaco is now mobile friendly]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/news/mobile-version-launched/"/>
   <id>http://localhost:4000/news/mobile-version-launched</id>
   <published>2015-11-03T00:00:00-02:00</published>
@@ -44,7 +72,7 @@
 &lt;p&gt;&lt;img src=&quot;../../images/vst-index.png&quot; alt=&quot;Main Page&quot; /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/mobile-version-launched/&quot;&gt;Viva sem Tabaco is now mobile frienldy&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on November 03, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/mobile-version-launched/&quot;&gt;Viva sem Tabaco is now mobile friendly&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://localhost:4000&quot;&gt;Live without tobacco project.&lt;/a&gt; on November 03, 2015.&lt;/p&gt;</content>
 </entry>
 
 

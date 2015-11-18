@@ -1,7 +1,15 @@
 [
 	
 		{
-		  "title"      : "Viva sem Tabaco is now mobile frienldy",
+		  "title"      : "Research poster - who are our users?",
+		  "category"   : "news",
+		  "url"        : "//localhost:4000/news/lwt-poster-presentation/",
+		  "date"       : "2015-11-19 00:00:00 -0200",
+		  "shortdate"  : "November 19, 2015"
+		} ,
+	
+		{
+		  "title"      : "Viva sem Tabaco is now mobile friendly",
 		  "category"   : "news",
 		  "url"        : "//localhost:4000/news/mobile-version-launched/",
 		  "date"       : "2015-11-03 00:00:00 -0200",

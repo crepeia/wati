@@ -44,6 +44,10 @@
 
     
     <url>
+        <loc>//localhost:4000/news/lwt-poster-presentation/</loc>
+    </url>
+    
+    <url>
         <loc>//localhost:4000/news/mobile-version-launched/</loc>
     </url>
     
