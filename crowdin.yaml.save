@@ -1,0 +1,9 @@
+project_identifier: livewithouttobacco
+api_key: 33e668a7f4b6317e442e1f8253fb6449                                   #can be found in your project settings page
+base_path: /home/hp-gomide/wati
+
+files:
+  -
+    source: '%original_file_name%'              #source files filter
+    translation: '/systeam/src/java/wati/utility/*.properties'                  #where translations live
+  
