@@ -1,9 +1,0 @@
-project_identifier: livewithouttobacco
-api_key: 33e668a7f4b6317e442e1f8253fb6449                                   #can be found in your project settings page
-base_path: /home/hp-gomide/wati
-
-files:
-  -
-    source:      '/system/src/java/wati/utility/messages_en.properties'                   #source files filter
-    translation: '/additionalMaterial/translation/'                  #where translations live
-  
