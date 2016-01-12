@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Help us translating Live without Tobacco into your language.",
+		  "category"   : "news",
+		  "url"        : "//crepeia.github.com/wati/news/help-us-translating-the-project-crowdin/",
+		  "date"       : "2016-01-12 00:00:00 -0200",
+		  "shortdate"  : "January 12, 2016"
+		} ,
+	
+		{
 		  "title"      : "Research poster - who are our users?",
 		  "category"   : "news",
 		  "url"        : "//crepeia.github.com/wati/news/lwt-poster-presentation/",
@@ -9,7 +17,7 @@
 		} ,
 	
 		{
-		  "title"      : "Viva sem Tabaco is now mobile friendly",
+		  "title"      : "Viva sem Tabaco is now mobile-friendly",
 		  "category"   : "news",
 		  "url"        : "//crepeia.github.com/wati/news/mobile-version-launched/",
 		  "date"       : "2015-11-03 00:00:00 -0200",
@@ -65,7 +73,7 @@
 		} ,
 	
 		{
-		  "title"      : "Hallo! System is now being translated to german!",
+		  "title"      : "Hallo! System is now being translated into German!",
 		  "category"   : "news",
 		  "url"        : "//crepeia.github.com/wati/news/german/",
 		  "date"       : "2013-05-26 00:00:00 -0300",

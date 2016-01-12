@@ -10,13 +10,48 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://crepeia.github.com/wati/feed.xml" />
 <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/" />
-<updated>2015-11-18T19:55:15-02:00</updated>
+<updated>2016-01-12T12:29:10-02:00</updated>
 <id>http://crepeia.github.com/wati/</id>
 <author>
   <name>Henrique Pinto Gomide</name>
   <uri>http://crepeia.github.com/wati/</uri>
   <email>henriquepgomide@gmail.com</email>
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[Help us translating Live without Tobacco into your language.]]></title>
+  <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/help-us-translating-the-project-crowdin/"/>
+  <id>http://crepeia.github.com/wati/news/help-us-translating-the-project-crowdin</id>
+  <published>2016-01-12T00:00:00-02:00</published>
+  <updated>2016-01-12T00:00:00-02:00</updated>
+  <author>
+    <name>Henrique Pinto Gomide</name>
+    <uri>http://crepeia.github.com/wati</uri>
+    <email>henriquepgomide@gmail.com</email>
+  </author>
+  <category scheme="http://crepeia.github.com/wati/tags/#Crowdin" term="Crowdin" /><category scheme="http://crepeia.github.com/wati/tags/#translation" term="translation" /><category scheme="http://crepeia.github.com/wati/tags/#crowdsourcing" term="crowdsourcing" /><category scheme="http://crepeia.github.com/wati/tags/#German" term="German" /><category scheme="http://crepeia.github.com/wati/tags/#Japanese" term="Japanese" /><category scheme="http://crepeia.github.com/wati/tags/#Russian" term="Russian" /><category scheme="http://crepeia.github.com/wati/tags/#Italian" term="Italian" />
+  <content type="html">
+  
+    &lt;p&gt;Happy 2016! We’d love to announce we are using Crowdin, a crowdsourcing translation platform. So helping us delivering free education for smokers was never so easy. By now, we have committed volunteers working on the German, Russian, Italian and Japanese versions. &lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-translate-in-simple-three-steps&quot;&gt;How to translate in simple three steps&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Create an account for free &lt;a href=&quot;https://crowdin.com/join&quot;&gt;here&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Open our &lt;a href=&quot;https://crowdin.com/project/livewithouttobacco&quot;&gt;project’s page&lt;/a&gt; and choose a language.&lt;/li&gt;
+  &lt;li&gt;Begin translating :)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Your work is automatically saved after right after you write your translation. In a matter of days, we validate and update your translation in our website.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-can-you-get-for-translating&quot;&gt;What can you get for translating&lt;/h2&gt;
+
+&lt;p&gt;We’re offering credit for translators who are committed to our project by adding a picture and a brief description of their work at the “About the authors” page. If you are interesting in getting credit, reach us at henriquepgomide@gmail.com.&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/help-us-translating-the-project-crowdin/&quot;&gt;Help us translating Live without Tobacco into your language.&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on January 12, 2016.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -48,7 +83,7 @@
 
 
 <entry>
-  <title type="html"><![CDATA[Viva sem Tabaco is now mobile friendly]]></title>
+  <title type="html"><![CDATA[Viva sem Tabaco is now mobile-friendly]]></title>
   <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/mobile-version-launched/"/>
   <id>http://crepeia.github.com/wati/news/mobile-version-launched</id>
   <published>2015-11-03T00:00:00-02:00</published>
@@ -72,7 +107,7 @@
 &lt;p&gt;&lt;img src=&quot;../../images/vst-index.png&quot; alt=&quot;Main Page&quot; /&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/mobile-version-launched/&quot;&gt;Viva sem Tabaco is now mobile friendly&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on November 03, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/mobile-version-launched/&quot;&gt;Viva sem Tabaco is now mobile-friendly&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on November 03, 2015.&lt;/p&gt;</content>
 </entry>
 
 
@@ -279,7 +314,7 @@
 
 
 <entry>
-  <title type="html"><![CDATA[Hallo! System is now being translated to german!]]></title>
+  <title type="html"><![CDATA[Hallo! System is now being translated into German!]]></title>
   <link rel="alternate" type="text/html" href="http://crepeia.github.com/wati/news/german/"/>
   <id>http://crepeia.github.com/wati/news/german</id>
   <published>2013-05-26T00:00:00-03:00</published>
@@ -300,7 +335,7 @@
 
 
   
-  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/german/&quot;&gt;Hallo! System is now being translated to german!&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on May 26, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://crepeia.github.com/wati/news/german/&quot;&gt;Hallo! System is now being translated into German!&lt;/a&gt; was originally published by Henrique Pinto Gomide at &lt;a href=&quot;http://crepeia.github.com/wati&quot;&gt;Live without tobacco project.&lt;/a&gt; on May 26, 2013.&lt;/p&gt;</content>
 </entry>
 
 

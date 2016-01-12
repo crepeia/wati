@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Viva sem Tabaco is now mobile friendly
+title: Viva sem Tabaco is now mobile-friendly
 description: "Version 0.4 has been released"
 category: news
 tags: [HONcode, Health on the Net Foundation, mhealth]
