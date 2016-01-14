@@ -21,7 +21,7 @@ All content are licensed by GNU License. We are really proud to say you are free
 How to reach us?
 ----------------
 
-Slack: https://livewithouttobacco.slack.com
-Email: henriquepgomide@gmail.com
-Twitter: @hpgomide
+* Slack: https://livewithouttobacco.slack.com
+* Email: henriquepgomide@gmail.com
+* Twitter: @vivasemtabaco
 
