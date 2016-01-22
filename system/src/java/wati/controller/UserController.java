@@ -269,10 +269,11 @@ public class UserController extends BaseFormController<User> {
 
     
     public String checkCode() {
+        
         try {
             String message;
             List<User> userList = this.getDaoBase().list("email", this.email, this.getEntityManager());
-            if (!userList.isEmpty() && userList.get(0).getRecoverCode() != null && userList.get(0).getRecoverCode().intValue() == recoverCode.intValue() && recoverCode.intValue() != 0) {
+            if (!userList.isEmpty() && userList.get(0).getRecoverCode() != null && userList.get(0).getRecoverCode().equals(recoverCode) && recoverCode != 0) {
                 return "esqueceu-sua-senha-concluir.xhtml";
             } else {
                 message = this.getText("email.code.incorretos");

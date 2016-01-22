@@ -42,10 +42,10 @@
 
                             <br />
                             <div class="center">
-                                <p:commandButton id="nexttBtn" styleClass="btn waves-effect waves-light" value="#{messages['next']}" update="@form" actionListener="#{userController.checkCode()}" ajax="false"/>                                 
+                                <p:commandButton id="nexttBtn" styleClass="btn waves-effect waves-light" value="#{messages['next']}" update="@form" action="#{userController.checkCode()}" ajax="false"/> 
                             </div>
                             
-                            <div class="modal" style="display: none" id="HiddenDiv">
+                            <!--<div class="modal" style="display: none" id="HiddenDiv">
                             <div class="modal-content">
                                 <h2>#{messages['preparando.aed.result']}</h2>
                                 <h:outputText id="texto1" value="#{prontoParaPararController.texto1}" />
@@ -53,7 +53,7 @@
                             <div class="modal-footer">
                                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">#{messages['close']}</a>
                             </div>
-                            
+                            </div>-->
                         </h:form>
 
                     </div>
