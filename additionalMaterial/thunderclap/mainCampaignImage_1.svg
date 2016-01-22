@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1200"
+   height="627"
+   id="svg6241"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="mainCampaignImage_1.svg"
+   inkscape:export-filename="/home/hp-gomide/wati/additionalMaterial/thunderclap/mainCampaignImage_1.png"
+   inkscape:export-xdpi="72"
+   inkscape:export-ydpi="72">
+  <defs
+     id="defs6243">
+    <linearGradient
+       id="linearGradient6792">
+      <stop
+         style="stop-color:#00bcd4;stop-opacity:1;"
+         offset="0"
+         id="stop6794" />
+      <stop
+         style="stop-color:#0097a7;stop-opacity:0.9391892;"
+         offset="1"
+         id="stop6796" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6792"
+       id="radialGradient6798"
+       cx="600"
+       cy="738.86218"
+       fx="600"
+       fy="738.86218"
+       r="600"
+       gradientTransform="matrix(1,0,0,0.5225,0,352.80669)"
+       gradientUnits="userSpaceOnUse" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath7182">
+      <rect
+         ry="72.342613"
+         y="149.28581"
+         x="-266.68027"
+         height="652.55853"
+         width="652.55853"
+         id="rect7184"
+         style="fill:#0197fd;fill-opacity:1;stroke:none" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath6970">
+      <rect
+         y="425.36218"
+         x="-5.6843419e-14"
+         height="627"
+         width="1200"
+         id="rect6972"
+         style="fill:url(#radialGradient6974);fill-opacity:1;stroke:none" />
+    </clipPath>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6792"
+       id="radialGradient6974"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,0,0.5225,0,352.80669)"
+       cx="600"
+       cy="738.86218"
+       fx="600"
+       fy="738.86218"
+       r="600" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="496.65618"
+     inkscape:cy="322.34303"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:snap-page="false"
+     inkscape:snap-bbox="true"
+     inkscape:window-width="1680"
+     inkscape:window-height="1021"
+     inkscape:window-x="1366"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata6246">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-425.36218)">
+    <rect
+       style="fill:url(#radialGradient6798);fill-opacity:1;stroke:none"
+       id="rect6282"
+       width="1200"
+       height="627"
+       x="-5.6843419e-14"
+       y="425.36218" />
+    <g
+       id="g6948"
+       clip-path="url(#clipPath6970)"
+       style="opacity:0.34285714">
+      <path
+         style="fill:#eeeeee;fill-opacity:0.25570777000000000;stroke:none"
+         d="m 1118.4673,683.17533 c 32.458,-161.18997 -746.76321,153.43587 -746.76321,153.43587 0,0 -44.88829,-368.68366 -151.19236,-372.9701 -358.47617,51.83957 362.33595,1226.0542 362.33595,1226.0542 0,0 -10.61408,-329.3258 129.61679,-535.3261 C 852.69558,948.36901 1129.3742,874.70552 1118.4673,683.17533 z"
+         id="path7061"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccccc" />
+      <path
+         sodipodi:nodetypes="cccccc"
+         inkscape:connector-curvature="0"
+         id="path7063"
+         d="m -694.72441,677.67231 c -32.45844,-161.1896 746.763145,153.4362 746.763145,153.4362 0,0 44.88816,-368.68398 151.192475,-372.97034 358.47596,51.83987 -362.33644,1226.05443 -362.33644,1226.05443 0,0 10.61422,-329.3263 -129.61674,-535.3263 C -428.953,942.86633 -705.63141,869.20251 -694.72441,677.67231 z"
+         style="fill:#eeeeee;fill-opacity:0.25570777000000000;stroke:none" />
+    </g>
+    <rect
+       style="fill:#ffc107;fill-opacity:1;stroke:none"
+       id="rect6231"
+       width="367.12125"
+       height="151.52289"
+       x="834.89917"
+       y="814.37744" />
+    <g
+       id="g6235"
+       transform="matrix(0.84894581,0,0,0.84894581,849.61295,402.03372)">
+      <text
+         sodipodi:linespacing="125%"
+         id="text5598"
+         y="561.20465"
+         x="45.271683"
+         style="font-size:59.74562454px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           style="font-weight:500;letter-spacing:-2.92711902px;-inkscape-font-specification:Ubuntu Medium"
+           dx="0 0"
+           y="561.20465"
+           x="45.271683"
+           id="tspan5600"
+           sodipodi:role="line">#VIVA SEM</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text6062"
+         y="627.0174"
+         x="45.564125"
+         style="font-size:77.71655273px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+         xml:space="preserve"><tspan
+           style="font-weight:500;letter-spacing:-3.29100299px;fill:#ffffff;fill-opacity:1;-inkscape-font-specification:Ubuntu Medium"
+           y="627.0174"
+           x="45.564125"
+           id="tspan6064"
+           sodipodi:role="line">TABACO</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:94.06649017px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Ubuntu;-inkscape-font-specification:Ubuntu"
+       x="93.700729"
+       y="626.90314"
+       id="text6800-7"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         x="93.700729"
+         y="626.90314"
+         style="font-weight:500;line-height:100%;letter-spacing:-5.10746098px;fill:#ffffff;fill-opacity:1;stroke:none;-inkscape-font-specification:Ubuntu Medium"
+         id="tspan7028-2">Eu sou da geração que</tspan><tspan
+         sodipodi:role="line"
+         x="93.700729"
+         y="720.9696"
+         style="font-weight:500;line-height:100%;letter-spacing:-5.10746098px;fill:#ffffff;fill-opacity:1;stroke:none;-inkscape-font-specification:Ubuntu Medium"
+         id="tspan7056">vai <tspan
+   style="fill:#ffc107;fill-opacity:1"
+   id="tspan7058">vencer</tspan> o cigarro.</tspan></text>
+  </g>
+</svg>
