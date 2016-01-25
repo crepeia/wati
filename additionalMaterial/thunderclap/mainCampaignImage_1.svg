@@ -86,17 +86,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="496.65618"
-     inkscape:cy="322.34303"
+     inkscape:cx="472.66185"
+     inkscape:cy="280.86643"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:snap-page="false"
      inkscape:snap-bbox="true"
-     inkscape:window-width="1680"
-     inkscape:window-height="1021"
-     inkscape:window-x="1366"
-     inkscape:window-y="0"
+     inkscape:window-width="1366"
+     inkscape:window-height="712"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata6246">
@@ -106,7 +106,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -193,6 +193,6 @@
          style="font-weight:500;line-height:100%;letter-spacing:-5.10746098px;fill:#ffffff;fill-opacity:1;stroke:none;-inkscape-font-specification:Ubuntu Medium"
          id="tspan7056">vai <tspan
    style="fill:#ffc107;fill-opacity:1"
-   id="tspan7058">vencer</tspan> o cigarro.</tspan></text>
+   id="tspan3781">VENCER</tspan> o cigarro.</tspan></text>
   </g>
 </svg>
