@@ -13,7 +13,7 @@
         </h:head>
 
         <h:body>
-            <w:topmenu-i loginRequired="false" />
+            <w:topmenu-i loginRequired="true"/>
             <w:leftmenu_2/>
 
             <div class="container">
@@ -32,12 +32,12 @@
                 </div>                          
 
                 <div class="row">
-
+                    
                     <h:form>    
                         <h4 class="headertop orange-text text-lighten-2">Dados básicos</h4>
                         
                         <h5 class="headertop orange-text text-lighten-2">#{messages['baseline.q0.h5']}</h5>
-                        <h:selectManyCheckbox  value="#" layout="pageDirection">  
+                        <h:selectOneRadio  value="#{questionnaireController.questionnaire.knowWebsite}" layout="pageDirection">  
                             <f:selectItem itemLabel="#{messages['baseline.q0.a1']}" itemValue="a" />
                             <f:selectItem itemLabel="#{messages['baseline.q0.a2']}" itemValue="b" />
                             <f:selectItem itemLabel="#{messages['baseline.q0.a3']}" itemValue="c" />
@@ -45,10 +45,10 @@
                             <f:selectItem itemLabel="#{messages['baseline.q0.a5']}" itemValue="e" />
                             <f:selectItem itemLabel="#{messages['baseline.q0.a6']}" itemValue="f" />
                             <f:selectItem itemLabel="#{messages['baseline.q0.a7']}" itemValue="g" />
-                        </h:selectManyCheckbox> 
+                        </h:selectOneRadio > 
                         <h5 class="headertop orange-text text-lighten-2">1 - #{messages['sd.1']}</h5>
                         <div class="col l12 m12 s12 ">
-                            <h:selectOneMenu id="day" styleClass="browser-default"  label="#{messages['naccount.day']}">
+                            <h:selectOneMenu id="day" value="#{questionnaireController.questionnaire.country}" styleClass="browser-default"  label="#{messages['naccount.day']}">
                                 <f:selectItem itemValue="BR" itemLabel="Brasil" />
                                 <f:selectItem itemValue="PT" itemLabel="Portugal" />
                                 <f:selectItem itemValue="RU" itemLabel="Russian Federation" />
@@ -306,7 +306,7 @@
 
                         <h5 class="headertop orange-text text-lighten-2">2 - #{messages['sd.2']}</h5>
 
-                        <h:selectOneRadio id="sd2" value="#" required="true" layout="pageDirection">
+                        <h:selectOneRadio id="sd2" value="#{questionnaireController.questionnaire.education}" required="true" layout="pageDirection">
                             <f:selectItem itemLabel="#{messages['sd.2.a']}" itemValue="1"/>
                             <f:selectItem itemLabel="#{messages['sd.2.b']}" itemValue="2"/>
                             <f:selectItem itemLabel="#{messages['sd.2.c']}" itemValue="3"/>
@@ -315,39 +315,35 @@
 
 
                         <h5 class="headertop orange-text text-lighten-2">3 - #{messages['sd.3']}</h5>                         
-                        <h:selectOneRadio id="sd3" value="#" required="true" layout="pageDirection">
-                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="1"/>
-                            <f:selectItem itemLabel="#{messages['no']}" itemValue="2"/>
+                        <h:selectOneRadio id="sd3" value="#{questionnaireController.questionnaire.employed}" required="true" layout="pageDirection">
+                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
+                            <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
                         </h:selectOneRadio> 
                         <div class="divider"></div>
 
                         <br />
                         <h4 class="headertop orange-text text-lighten-2">Uso de cigarro</h4>
 
-                        <h5 class="headertop orange-text text-lighten-2">4 - #{messages['sd.4']}</h5>   
-                        <h:selectOneMenu id="sd4" value="#{userController.dia}" styleClass="browser-default"  label="4 - #{messages['sd.4.r']}">
-                            <f:selectItem itemLabel="0" itemValue="0" />  
-                            <f:selectItems value="#{userController.dias}" />  
-                        </h:selectOneMenu>
-
+                        <h5 class="headertop orange-text text-lighten-2">4 - #{messages['sd.4']}</h5>  
+                        <!--<p:spinner id="basic" value="#{spinnerView.number1}" style="" styleClass=""  min="0"/>-->
+                        <p:spinner id="sd4" value="#{questionnaireController.questionnaire.triedQuit}" required ="true" />
+                      
                         <br />
                         <h5 class="headertop orange-text text-lighten-2">5 - #{messages['pnad.3']}</h5>
-                        <h:selectManyCheckbox  value="#" layout="pageDirection">  
-                            <f:selectItem itemLabel="#{messages['pnad.3.a']}" itemValue="a" />
-                            <f:selectItem itemLabel="#{messages['pnad.3.b']}" itemValue="b" />
-                            <f:selectItem itemLabel="#{messages['pnad.3.c']}" itemValue="c" />
-                            <f:selectItem itemLabel="#{messages['pnad.3.d']}" itemValue="d" />
-                            <f:selectItem itemLabel="#{messages['pnad.3.e']}" itemValue="e" />
-                            <f:selectItem itemLabel="#{messages['pnad.3.f']}" itemValue="f" />
-                            <f:selectItem itemLabel="#{messages['pnad.3.g']}" itemValue="g" />
-                            <f:selectItem itemLabel="#{messages['pnad.3.h']}" itemValue="h" />
-                        </h:selectManyCheckbox> 
+                        <h:selectBooleanCheckbox label="#{messages['pnad.3.a']}" value="#{questionnaireController.questionnaire.procedure1}" required="true"/>                       
+                        <h:selectBooleanCheckbox label="#{messages['pnad.3.b']}" value="#{questionnaireController.questionnaire.procedure2}" />
+                        <h:selectBooleanCheckbox label="#{messages['pnad.3.c']}" value="#{questionnaireController.questionnaire.procedure3}" />
+                        <h:selectBooleanCheckbox label="#{messages['pnad.3.d']}" value="#{questionnaireController.questionnaire.procedure4}" />
+                        <h:selectBooleanCheckbox label="#{messages['pnad.3.e']}" value="#{questionnaireController.questionnaire.procedure5}" />
+                        <h:selectBooleanCheckbox label="#{messages['pnad.3.f']}" value="#{questionnaireController.questionnaire.procedure6}" />
+                        <h:selectBooleanCheckbox label="#{messages['pnad.3.g']}" value="#{questionnaireController.questionnaire.procedure7}" />
+                        <h:selectBooleanCheckbox label="#{messages['pnad.3.h']}" value="#{questionnaireController.questionnaire.procedure8}" />
 
                         <br />
 
                         <h5 class="headertop orange-text text-lighten-2">6 - #{messages['pronto.meds.h2.3']}</h5>  
                         <p>6.1. #{messages['ftnd.1q']}</p>
-                        <h:selectOneRadio id="ftnd_1" value="#{prontoParaPararController.prontoParaParar.ftnd1}"  requiredMessage="Erro!" styleClass="radio-inline">
+                        <h:selectOneRadio id="ftnd_1" value="#{questionnaireController.questionnaire.dependencyLevel1}"  required="true" styleClass="radio-inline">
                             <f:selectItem itemLabel="#{messages['ftnd.r.1a']}" itemValue="4"/>
                             <f:selectItem itemLabel="#{messages['ftnd.r.1b']}" itemValue="3"/>
                             <f:selectItem itemLabel="#{messages['ftnd.r.1c']}" itemValue="2"/>
@@ -355,15 +351,15 @@
                         </h:selectOneRadio>
 
                         <p>6.2. #{messages['ftnd.2q']}</p>                                        
-                        <h:selectOneRadio id="ftnd_2" value="#{prontoParaPararController.prontoParaParar.ftnd2}"  styleClass="radio-inline">
-                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="2"/>
-                            <f:selectItem itemLabel="#{messages['no']}" itemValue="1"/>
+                        <h:selectOneRadio id="ftnd_2" value="#{questionnaireController.questionnaire.dependencyLevel2}" required="true"  styleClass="radio-inline">
+                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
+                            <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
                         </h:selectOneRadio>
 
                         <p>6.3. #{messages['ftnd.3q']}</p>
                         <div class="row">
                             <div class="col l9 m9 s9">
-                                <h:selectOneRadio id="ftnd_3" value="#{prontoParaPararController.prontoParaParar.ftnd3}"  styleClass="radio-inline">
+                                <h:selectOneRadio id="ftnd_3" value="#{questionnaireController.questionnaire.dependencyLevel3}" required="true" styleClass="radio-inline">
                                     <f:selectItem itemLabel="#{messages['ftnd.r.3a']}" itemValue="2"/>
                                     <f:selectItem itemLabel="#{messages['ftnd.r.3b']}" itemValue="1"/>                          
                                 </h:selectOneRadio>
@@ -373,23 +369,21 @@
 
                         <p>6.4. #{messages['ftnd.4q']}</p>
 
-                        <h:selectOneMenu id="ftnd_4" value="#{prontoParaPararController.prontoParaParar.ftnd4}" styleClass="browser-default"  label="qtde">  
-                            <f:selectItem itemLabel="Quantidade" itemValue="" />  
-                            <f:selectItems value="#{prontoParaPararController.ftnd4Qtde}" />  
-                        </h:selectOneMenu>
+                        <p:spinner id="ftnd_4" value="#{questionnaireController.questionnaire.dependencyLevel4}" required ="true" />
+
 
                         <p>6.5. #{messages['ftnd.5q']}</p>
 
-                        <h:selectOneRadio id="ftnd_5" value="#{prontoParaPararController.prontoParaParar.ftnd5}"  styleClass="radio-inline">
-                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="2"/>
-                            <f:selectItem itemLabel="#{messages['no']}" itemValue="1"/>
+                        <h:selectOneRadio id="ftnd_5" value="#{questionnaireController.questionnaire.dependencyLevel5}" required="true" styleClass="radio-inline">
+                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
+                            <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
                         </h:selectOneRadio>                       
 
                         <p>6.6. #{messages['ftnd.6q']}</p>
 
-                        <h:selectOneRadio id="ftnd_6" value="#{prontoParaPararController.prontoParaParar.ftnd6}" >
-                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="2"/>
-                            <f:selectItem itemLabel="#{messages['no']}" itemValue="1"/>
+                        <h:selectOneRadio id="ftnd_6" value="#{questionnaireController.questionnaire.dependencyLevel6}" required="true">
+                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
+                            <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
                         </h:selectOneRadio>
                         <div class="divider"></div>
                         <br />
@@ -397,7 +391,7 @@
                         <h4 class="headertop orange-text text-lighten-2">Outras perguntas</h4>
                         <h5 class="headertop orange-text text-lighten-2">7 - #{messages['phq2']}</h5>
                         <p>7.1 - #{messages['phq2.1']}</p>
-                        <h:selectOneRadio id="phq_2_1" value="#{preparandoParaPararController.phq2_1}" required="true" styleClass="radio-inline with-gap">  
+                        <h:selectOneRadio id="phq_2_1" value="#{questionnaireController.questionnaire.problems1}" required="true" styleClass="radio-inline with-gap">  
                             <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1" />
                             <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
                             <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
@@ -405,7 +399,7 @@
                         </h:selectOneRadio> 
 
                         <p>7.2 - #{messages['phq2.2']}</p>
-                        <h:selectOneRadio id="phq_2_2" value="#{preparandoParaPararController.phq2_2}" required="true" requiredMessage="true" styleClass="radio-inline">  
+                        <h:selectOneRadio id="phq_2_2" value="#{questionnaireController.questionnaire.problems2}" required="true" styleClass="radio-inline">  
                             <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="1"/>
                             <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="2"/>
                             <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="3"/>
@@ -416,7 +410,7 @@
                         <br /> 
                         <h5 class="headertop orange-text text-lighten-2">8 - Consumo de álcool</h5>  
                         <p>8.1. #{messages['auditc.q.1']}</p>
-                        <h:selectOneRadio id="auditc1" value="#"  requiredMessage="Erro!" styleClass="radio-inline">
+                        <h:selectOneRadio id="auditc1" value="#{questionnaireController.questionnaire.alcolholUse1}" required="true" styleClass="radio-inline">
                             <f:selectItem itemLabel="#{messages['auditc.q1.a1']}" itemValue="1"/>
                             <f:selectItem itemLabel="#{messages['auditc.q1.a2']}" itemValue="2"/>
                             <f:selectItem itemLabel="#{messages['auditc.q1.a3']}" itemValue="3"/>
@@ -426,7 +420,7 @@
 
 
                         <p>8.2. #{messages['auditc.q.2']}</p>
-                        <h:selectOneRadio id="auditc2" value="#"  requiredMessage="Erro!" styleClass="radio-inline">
+                        <h:selectOneRadio id="auditc2" value="#{questionnaireController.questionnaire.alcoholUse2}"  required="true" styleClass="radio-inline">
                             <f:selectItem itemLabel="#{messages['auditc.q2.a1']}" itemValue="1"/>
                             <f:selectItem itemLabel="#{messages['auditc.q2.a2']}" itemValue="2"/>
                             <f:selectItem itemLabel="#{messages['auditc.q2.a3']}" itemValue="3"/>
@@ -436,7 +430,7 @@
 
 
                         <p>8.3. #{messages['auditc.q.3']}</p>
-                        <h:selectOneRadio id="auditc3" value="#"  requiredMessage="Erro!" styleClass="radio-inline">
+                        <h:selectOneRadio id="auditc3" value="#{questionnaireController.questionnaire.alcoholUse3}"  required="true" styleClass="radio-inline">
                             <f:selectItem itemLabel="#{messages['auditc.q3.a1']}" itemValue="1"/>
                             <f:selectItem itemLabel="#{messages['auditc.q3.a2']}" itemValue="2"/>
                             <f:selectItem itemLabel="#{messages['auditc.q3.a3']}" itemValue="3"/>
@@ -444,14 +438,11 @@
                             <f:selectItem itemLabel="#{messages['auditc.q3.a5']}" itemValue="5"/>
                         </h:selectOneRadio>
 
-
+                        <p:messages/>
                         <div class="row">
                             <br /><br />
                             <div class="col s12 m12 l12 center">
-                                <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}" update="@form" actionListener="#{userController.save}">
-                                    <f:attribute name="object" value="#{userController.user}" />
-                                    <f:attribute name="typeName" value="user" />
-                                </p:commandButton>
+                                <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}" update="@form" action="#{questionnaireController.saveQuestionnaire()}"/>
                             </div>
                         </div>
 

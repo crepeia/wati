@@ -49,11 +49,15 @@ public class User {
     private Integer recoverCode;
     @Column(name = "experimental_groups")
     private Integer experimentalGroups;
+    
     @OneToOne(mappedBy = "usuario")
     private ProntoParaParar prontoParaParar;
 
     @OneToMany(fetch = FetchType.LAZY)
     private List<Acompanhamento> acompanhamentos;
+    
+    @OneToOne(mappedBy = "user")
+    private Questionnaire questionnaire;
 
     /**
      * @return the id
@@ -212,8 +216,13 @@ public class User {
         this.experimentalGroups = experimentalGroups;
     }
 
-    
-    
+    public Questionnaire getQuestionnaire() {
+        return questionnaire;
+    }
+
+    public void setQuestionnaire(Questionnaire questionnaire) {
+        this.questionnaire = questionnaire;
+    }
 
 }
 
