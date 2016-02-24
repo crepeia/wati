@@ -41,6 +41,7 @@ public class PageNavigationController extends BaseController<PageNavigation> {
         pageNavigation.setTimeStamp(new Date());
         pageNavigation.setUrl(this.getURL());
         pageNavigation.setUser(this.getUser());
+        pageNavigation.setSource(this.getSource());
         try {
             pageNavigation.setUserAgent(this.getUserAgent());
             //pageNavigation.getUserAgent().getPageNavigation().add(pageNavigation); //TODO: is this necessary?
@@ -71,6 +72,11 @@ public class PageNavigationController extends BaseController<PageNavigation> {
 	url = url.substring( url.lastIndexOf('/') + 1 );
         return url;
         
+    }
+    
+    public String getSource(){
+        return FacesContext.getCurrentInstance().getExternalContext().
+                getRequestParameterMap().get("src");
     }
     /*
         This method verifies if the current user-agent is in database.

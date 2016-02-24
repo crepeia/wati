@@ -31,6 +31,8 @@ public class PageNavigation implements Serializable {
     private Date timeStamp;
     @Column(name = "url")
     private String url;
+    @Column (name = "source")
+    private String source;
     @ManyToOne
     private User user;
     @ManyToOne
@@ -89,6 +91,15 @@ public class PageNavigation implements Serializable {
     public void setUserAgent(UserAgent userAgent) {
         this.userAgent = userAgent;
     }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+      
 
 }
 
