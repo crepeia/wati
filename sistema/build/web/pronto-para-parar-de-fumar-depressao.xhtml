@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <f:view locale="#{languageController.locale}">
+        <h:head>
+            <title>#{messages['ready.depression.titlepage']} - #{messages['vivasemtabaco.title']} </title>
+            <w:head_comum />
+        </h:head>
+        <h:body>
+            <div id="corpo"> 
+                <!-- header -->    
+                <w:header loginRequired="true" />
+                <w:topmenu />
+
+                <!--mainmenu-->         	
+                <div class="main">
+
+
+                    <w:leftmenu_2 cssClass="leftmenu2" />
+
+                    <div class="pagecontent">
+                        <div id="pagecont2">
+
+                            <div id ="pagetop"> 
+                                <div id="progressbar">
+                                    <p:progressBar value="48" labelTemplate="{value}%" displayOnly="true"/>                            
+                                </div>
+                                <div class="fotoframe">
+                                    <h:graphicImage  library="default" title="#{messages['pronto.intro.img']}" name="images/tristeza-vangogh.png" alt="#{messages['pronto.intro.img']}" />
+                                </div>
+                            </div>
+
+
+                            <h1>#{messages['ready.depression.h1.1']}</h1>
+                            <p>#{messages['ready.depression.p.1']}</p>
+                            <p>#{messages['ready.depression.p.2']}</p>
+                            <p>#{messages['ready.depression.p.3']}</p>
+                            <p>#{messages['ready.depression.p.4']}</p>
+                            
+                          
+                            <p:commandButton styleClass="btngen1" type="button" value="Faça o teste">
+                                <p:effect type="blind" event="click" for="basic">
+                                    <f:param name="mode" value="'show'" />
+                                </p:effect>
+                            </p:commandButton>
+                            
+                                <p:panel id="basic" style="display:none; margin-top:10px!important; border-top: 3px solid #e0e0e0; border-bottom: 3px solid #e0e0e0; background-color: #EBF4FC;">
+                                
+                                <p><strong>#{messages['phq9.a']}</strong></p>
+                                
+                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq1">
+                                    <f:facet name="header">
+                                        1 - #{messages['phq9.1']}
+                                    </f:facet>
+                                    <p:selectOneRadio id="phq_1" value="#{prontoParaPararController.prontoParaParar.phq1}" required="true">
+                                        <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="0"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="1"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="2"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="3"/>
+                                    </p:selectOneRadio>
+                                </h:panelGrid>
+
+                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq2">
+                                    <f:facet name="header">
+                                        2 - #{messages['phq9.2']}
+                                    </f:facet>
+                                    <p:selectOneRadio id="phq_2" value="#{prontoParaPararController.prontoParaParar.phq2}" required="true">
+                                        <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="0"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="1"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="2"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="3"/>
+                                    </p:selectOneRadio>
+                                </h:panelGrid>
+
+                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq3">
+                                    <f:facet name="header">
+                                        3 - #{messages['phq9.3']}
+                                    </f:facet>
+                                    <p:selectOneRadio id="phq_3" value="#{prontoParaPararController.prontoParaParar.phq3}" required="true">
+                                        <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="0"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="1"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="2"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="3"/>
+                                    </p:selectOneRadio>
+                                </h:panelGrid>
+
+                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq4">
+                                    <f:facet name="header">
+                                        4 - #{messages['phq9.4']}
+                                    </f:facet>
+                                    <p:selectOneRadio id="phq_4" value="#{prontoParaPararController.prontoParaParar.phq4}" required="true">
+                                        <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="0"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="1"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="2"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="3"/>
+                                    </p:selectOneRadio>
+                                </h:panelGrid>
+
+                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq5">
+                                    <f:facet name="header">
+                                        5 - #{messages['phq9.5']}
+                                    </f:facet>
+                                    <p:selectOneRadio id="phq_5" value="#{prontoParaPararController.prontoParaParar.phq5}" required="true">
+                                        <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="0"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="1"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="2"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="3"/>
+                                    </p:selectOneRadio>
+                                </h:panelGrid>
+
+                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq6">
+                                    <f:facet name="header">
+                                        6 - #{messages['phq9.6']}
+                                    </f:facet>
+                                    <p:selectOneRadio id="phq_6" value="#{prontoParaPararController.prontoParaParar.phq6}" required="true">
+                                        <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="0"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="1"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="2"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="3"/>
+                                    </p:selectOneRadio>
+                                </h:panelGrid>
+
+                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq7">
+                                    <f:facet name="header">
+                                        7 - #{messages['phq9.7']}
+                                    </f:facet>
+                                    <p:selectOneRadio id="phq_7" value="#{prontoParaPararController.prontoParaParar.phq7}" required="true">
+                                        <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="0"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="1"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="2"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="3"/>
+                                    </p:selectOneRadio>
+                                </h:panelGrid>
+
+                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq8">
+                                    <f:facet name="header">
+                                        8 - #{messages['phq9.8']}
+                                    </f:facet>
+                                    <p:selectOneRadio id="phq_8" value="#{prontoParaPararController.prontoParaParar.phq8}" required="true">
+                                        <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="0"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="1"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="2"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="3"/>
+                                    </p:selectOneRadio>
+                                </h:panelGrid>
+
+                                <h:panelGrid columns="2" style="margin-bottom: 10px" cellpadding="10" id="phq9">
+                                    <f:facet name="header">
+                                        9 - #{messages['phq9.9']}
+                                    </f:facet>
+                                    <p:selectOneRadio id="phq_9" value="#{prontoParaPararController.prontoParaParar.phq9}" required="true">
+                                        <f:selectItem itemLabel="#{messages['phq9.r1']}" itemValue="0"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r2']}" itemValue="1"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r3']}" itemValue="2"/>
+                                        <f:selectItem itemLabel="#{messages['phq9.r4']}" itemValue="3"/>
+                                    </p:selectOneRadio>
+                                </h:panelGrid>
+
+                                <div><p:commandButton id="AvaliarBtn" styleClass="btngen1"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto" actionListener="#{prontoParaPararController.evaluateFagerstrom()}" process="@all"/>                                        
+                                    <div id="resultadoaval">
+                                        <h:outputText id="texto" value="#{preparandoParaPararController.texto}" />  
+                                    </div> 
+                                </div>
+
+                            </p:panel>
+                                
+
+                            <div class="proximopasso">
+                                <div class="txtproximopasso">
+                                    <h2>#{messages['next.step']}</h2>                                
+                                    <p>#{messages['pronto.fis.next.p']}</p> 
+                                </div>
+                                <div class="btnfloat">
+                                    <div class="btn1">
+                                        <h:button class="btnback" value ="#{messages['back']}" title="#{messages['back']}" outcome="./pronto-para-parar-de-fumar-vencendo-a-fissura.xhtml"></h:button>
+                                    </div>
+                                    <div class="btn2">                                                                  
+                                        <h:button class="btngen" title="#{messages['pronto.fis.next.t']}" value ="#{messages['next']}" outcome="./pronto-para-parar-de-fumar-medicamentos.xhtml"  />
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <div class="referencias">
+                                <p>#{messages['update.date']}</p>
+                                <p>#{messages['img.ref']} <h:outputLink value="http://www.flickr.com/photos/dasqfamily/">Dasqfamily</h:outputLink></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end.corpo --> 
+
+            <!--Footer -->
+            <w:footer />
+        </h:body>
+    </f:view>
+</html>
+
