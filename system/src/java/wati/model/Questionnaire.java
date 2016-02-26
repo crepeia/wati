@@ -149,9 +149,6 @@ public class Questionnaire implements Serializable {
     }
 
     public Boolean getProcedure1() {
-        if(procedure1 == null){
-            return false;
-        }
         return procedure1;
     }
 
@@ -160,9 +157,6 @@ public class Questionnaire implements Serializable {
     }
 
     public Boolean getProcedure2() {
-        if(procedure2 == null){
-            return false;
-        }
         return procedure2;
     }
 
@@ -171,9 +165,6 @@ public class Questionnaire implements Serializable {
     }
 
     public Boolean getProcedure3() {
-        if(procedure3 == null){
-            return false;
-        }
         return procedure3;
     }
 
@@ -182,9 +173,7 @@ public class Questionnaire implements Serializable {
     }
 
     public Boolean getProcedure4() {
-        if(procedure4 == null){
-            return false;
-        }
+
         return procedure4;
     }
 
@@ -193,9 +182,6 @@ public class Questionnaire implements Serializable {
     }
 
     public Boolean getProcedure5() {
-        if(procedure5 == null){
-            return false;
-        }
         return procedure5;
     }
 
@@ -204,9 +190,6 @@ public class Questionnaire implements Serializable {
     }
 
     public Boolean getProcedure6() {
-        if(procedure6 == null){
-            return false;
-        }
         return procedure6;
     }
 
@@ -215,9 +198,6 @@ public class Questionnaire implements Serializable {
     }
 
     public Boolean getProcedure7() {
-        if(procedure7 == null){
-            return false;
-        }
         return procedure7;
     }
 
@@ -226,9 +206,6 @@ public class Questionnaire implements Serializable {
     }
 
     public Boolean getProcedure8() {
-        if(procedure8 == null){
-            return false;
-        }
         return procedure8;
     }
 

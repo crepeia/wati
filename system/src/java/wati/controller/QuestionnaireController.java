@@ -6,7 +6,9 @@
 package wati.controller;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
@@ -37,18 +39,17 @@ public class QuestionnaireController extends BaseController<Questionnaire> {
        if(questionnaire == null){
            if(loggedUser()){
              questionnaire = getLoggedUser().getQuestionnaire();
-           }
-           if(questionnaire == null){
+             if(questionnaire == null){
                questionnaire = new Questionnaire();
                questionnaire.setDate(new Date()); 
                questionnaire.setUser(getLoggedUser());
+             }
            }
        }
        return questionnaire;
     }
     
     public String saveQuestionnaire(){
-        System.out.println(getQuestionnaire().getDependencyLevel1());
         try {
             daoBase.insertOrUpdate(getQuestionnaire(), getEntityManager());
             return "index.html";
@@ -58,6 +59,20 @@ public class QuestionnaireController extends BaseController<Questionnaire> {
         return "";
     }
     
+    public List getCigarettes(){
+        List<Integer> cigarettes = new ArrayList<>();
+        for(int i=0; i<=150; i++){
+            cigarettes.add(i);
+        }
+        return cigarettes;       
+    }
     
+    public List getTimesQuit(){
+        List<Integer> timesQuit = new ArrayList<>();
+        for(int i=0; i<=10; i++){
+            timesQuit.add(i);
+        }
+        return timesQuit;       
+    }
     
 }
