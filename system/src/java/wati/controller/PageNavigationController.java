@@ -28,7 +28,7 @@ public class PageNavigationController extends BaseController<PageNavigation> {
 
     public PageNavigationController() {
         try {
-            this.daoBase = new GenericDAO<PageNavigation>(PageNavigation.class);
+            this.daoBase = new GenericDAO<>(PageNavigation.class);
             this.userAgentDAO = new GenericDAO<>( UserAgent.class );
         } catch (NamingException ex) {
             Logger.getLogger(PageNavigationController.class.getName()).log(Level.SEVERE, null, ex);
@@ -41,7 +41,8 @@ public class PageNavigationController extends BaseController<PageNavigation> {
         pageNavigation.setTimeStamp(new Date());
         pageNavigation.setUrl(this.getURL());
         pageNavigation.setUser(this.getUser());
-        pageNavigation.setSource(this.getSource());
+        pageNavigation.setCampaign(this.getCampaign());
+        pageNavigation.setReferer(this.getReferer());
         try {
             pageNavigation.setUserAgent(this.getUserAgent());
             //pageNavigation.getUserAgent().getPageNavigation().add(pageNavigation); //TODO: is this necessary?
@@ -74,9 +75,15 @@ public class PageNavigationController extends BaseController<PageNavigation> {
         
     }
     
-    public String getSource(){
+    public String getReferer(){
+        HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+        return request.getHeader("referer");
+    }
+    
+    
+    public String getCampaign(){
         return FacesContext.getCurrentInstance().getExternalContext().
-                getRequestParameterMap().get("src");
+                getRequestParameterMap().get("id");
     }
     /*
         This method verifies if the current user-agent is in database.

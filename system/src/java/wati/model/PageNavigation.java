@@ -1,14 +1,12 @@
 package wati.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -31,8 +29,10 @@ public class PageNavigation implements Serializable {
     private Date timeStamp;
     @Column(name = "url")
     private String url;
-    @Column (name = "source")
-    private String source;
+    @Column(name = "referer")
+    private String referer;
+    @Column (name = "campaign")
+    private String campaign;
     @ManyToOne
     private User user;
     @ManyToOne
@@ -92,14 +92,20 @@ public class PageNavigation implements Serializable {
         this.userAgent = userAgent;
     }
 
-    public String getSource() {
-        return source;
+    public String getCampaign() {
+        return campaign;
     }
 
-    public void setSource(String source) {
-        this.source = source;
+    public void setCampaign(String campaign) {
+        this.campaign = campaign;
     }
-      
 
+    public String getReferer() {
+        return referer;
+    }
+
+    public void setReferer(String referer) {
+        this.referer = referer;
+    }
+    
 }
-
