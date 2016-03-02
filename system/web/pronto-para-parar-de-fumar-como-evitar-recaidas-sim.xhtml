@@ -60,7 +60,9 @@
                                 <f:selectItem itemLabel="#{messages['pnad.3.h']}" itemValue="h" />
                             </h:selectManyCheckbox> 
 
+                            <br />
                             <div class="center">
+                                <h5 class="headertop orange-text text-lighten-2">#{messages['pronto.evitar.sim.label.question']}</h5>
                                 <a class="modal-trigger" href="#HiddenDiv">
                                     <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['preparando.aed.btn.avaliar']}"  actionListener="#{prontoParaPararController.procPararFumar()}" update="hiddenPanel"  process="@all" onclick="javascript:ShowHide('HiddenDiv');"/></a>                             
                             </div>                            

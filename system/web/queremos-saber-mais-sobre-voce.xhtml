@@ -32,7 +32,7 @@
                 <div class="row">
                     
                     <h:form>    
-                        <h4 class="headertop orange-text text-lighten-2">Dados básicos</h4>
+                        <h4 class="headertop orange-text text-lighten-2">#{messages['baseline.info']}</h4>
                         
                         <h5 class="headertop orange-text text-lighten-2">#{messages['baseline.q0.h5']}</h5>
                         <h:selectOneRadio  value="#{questionnaireController.questionnaire.knowWebsite}" layout="pageDirection">  
@@ -320,10 +320,10 @@
                         <div class="divider"></div>
 
                         <br />
-                        <h4 class="headertop orange-text text-lighten-2">Uso de cigarro</h4>
+                        <h4 class="headertop orange-text text-lighten-2">#{messages['use.of.cigarettes']}</h4>
 
                         <h5 class="headertop orange-text text-lighten-2">4 - #{messages['sd.4']}</h5>  
-                        <h:selectOneMenu id="sd4"  value="#{questionnaireController.questionnaire.triedQuit}" required="true">  
+                        <h:selectOneMenu id="sd4"  value="#{questionnaireController.questionnaire.triedQuit}" required="true" styleClass="browser-default">  
                             <f:selectItems value="#{questionnaireController.timesQuit}"/>  
                        </h:selectOneMenu>
                       
@@ -400,7 +400,7 @@
                         </div>
 
                         <p>6.4. #{messages['ftnd.4q']}</p>
-                        <h:selectOneMenu id="ftnd_4" value="#{questionnaireController.questionnaire.dependencyLevel4}" required="true">  
+                        <h:selectOneMenu id="ftnd_4" value="#{questionnaireController.questionnaire.dependencyLevel4}" required="true" styleClass="browser-default">  
                             <f:selectItems value="#{questionnaireController.cigarettes}"/>  
                        </h:selectOneMenu>
 
@@ -421,7 +421,7 @@
                         <div class="divider"></div>
                         <br />
 
-                        <h4 class="headertop orange-text text-lighten-2">Outras perguntas</h4>
+                        <h4 class="headertop orange-text text-lighten-2">#{messages['complementary.questions']}</h4>
                         <h5 class="headertop orange-text text-lighten-2">7 - #{messages['phq2']}</h5>
                         <p>7.1 - #{messages['phq2.1']}</p>
                         <h:selectOneRadio id="phq_2_1" value="#{questionnaireController.questionnaire.problems1}" required="true" styleClass="radio-inline with-gap">  
@@ -441,7 +441,7 @@
                         <div class="divider"></div>   
 
                         <br /> 
-                        <h5 class="headertop orange-text text-lighten-2">8 - Consumo de álcool</h5>  
+                        <h5 class="headertop orange-text text-lighten-2">8 - #{messages['audit.label']}</h5>  
                         <p>8.1. #{messages['auditc.q.1']}</p>
                         <h:selectOneRadio id="auditc1" value="#{questionnaireController.questionnaire.alcolholUse1}" required="true" styleClass="radio-inline">
                             <f:selectItem itemLabel="#{messages['auditc.q1.a1']}" itemValue="1"/>
@@ -475,7 +475,7 @@
                             <div class="col s12 m12 l12 center">
                                 <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}" update="@form" action="#{questionnaireController.saveQuestionnaire()}"/>
                             </div>
-                                                    <h:outputText value="Please fill all the form" style="color: red;" rendered="#{facesContext.validationFailed}" />                        <div class="row">
+                                                    <h:outputText value="#{messages['baseline.error.msg']}" style="color: red;" rendered="#{facesContext.validationFailed}" />                        <div class="row">
 
                         </div>
 
