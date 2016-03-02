@@ -4,24 +4,18 @@
  */
 package wati.utility;
 
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.net.URL;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Date;
 import java.util.Properties;
-import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
-import javax.activation.FileDataSource;
 import javax.faces.context.FacesContext;
-import javax.mail.Address;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -46,22 +40,72 @@ public class EMailSSL {
     private Authenticator authenticator;
 
     public EMailSSL() {
-        props = new Properties();      
+        props = new Properties();
         try {
             props.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("wati/utility/mail.properties"));
             this.authenticator = new Authenticator() {
                 protected PasswordAuthentication getPasswordAuthentication() {
                     return new PasswordAuthentication(
-                        (String)props.get("mail.auth.username"), 
-                        (String)props.get("mail.auth.password"));
+                            (String) props.get("mail.auth.username"),
+                            (String) props.get("mail.auth.password"));
                 }
             };
         } catch (IOException ex) {
             Logger.getLogger(EMailSSL.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         session = Session.getInstance(props, this.authenticator);
 
+    }
+
+    public void send(String from, String to, String subject, String text, String html, ByteArrayOutputStream pdf, String pdfName) {
+        try {
+            //Message
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(to));
+            message.setSubject(subject);
+            message.setSentDate(new Date());
+
+            MimeMultipart mainMultipart = new MimeMultipart("related");
+            MimeMultipart htmlAndTextMultipart = new MimeMultipart("alternative");
+
+            //Text
+            if (text != null) {
+                MimeBodyPart textBodyPart = new MimeBodyPart();
+                textBodyPart.setText(text);
+                htmlAndTextMultipart.addBodyPart(textBodyPart);
+            }
+
+            //HTML
+            if (html != null) {
+                MimeBodyPart htmlBodyPart = new MimeBodyPart();
+                htmlBodyPart.setContent(html, "text/html");
+                htmlAndTextMultipart.addBodyPart(htmlBodyPart);
+            }
+
+            MimeBodyPart htmlAndTextBodyPart = new MimeBodyPart();
+            htmlAndTextBodyPart.setContent(htmlAndTextMultipart, "charset=UTF-8");
+            mainMultipart.addBodyPart(htmlAndTextBodyPart);
+
+            //PDF
+            if (pdf != null) {
+                MimeBodyPart pdfBodyPart = new MimeBodyPart();
+                byte[] bytes = pdf.toByteArray();
+                DataSource dataSource = new ByteArrayDataSource(bytes, "application/pdf");
+                pdfBodyPart.setDataHandler(new DataHandler(dataSource));
+                pdfBodyPart.setFileName(pdfName);
+                mainMultipart.addBodyPart(pdfBodyPart);
+            }
+
+            message.setContent(mainMultipart);
+
+            Transport.send(message);
+
+        } catch (MessagingException ex) {
+            Logger.getLogger(EMailSSL.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void send(String from, String to, String subject, String body) {
@@ -74,7 +118,6 @@ public class EMailSSL {
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
             message.setSubject(subject);
-     
 
             Transport.send(message);
 
