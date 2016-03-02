@@ -39,7 +39,7 @@
 
                 <h:form id="form" class="col s12">
                     <div class="input-field">
-                        <p:inputText id="sendEmail" value="#{contactController.contact.sender}" required="true" label="#{messages['email']}" validatorMessage="#{messages['naccount.invalidemail']}" styleClass="validate" type="email">                        
+                        <p:inputText id="sendEmail" binding="#{sender}}" required="true" label="#{messages['email']}" validatorMessage="#{messages['naccount.invalidemail']}" styleClass="validate" type="email">                        
                             <f:validateLength maximum="50" />
                             <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
                             <label for="sendEmail"  data-error="wrong" data-success="right">#{messages['email']}</label>
@@ -51,7 +51,7 @@
 
                     <div class="input-field col s12">
                         <label for="msg">#{messages['contact.h4.msg']}</label>
-                        <p:inputTextarea id="msg" autoResize="true" value="#{contactController.contact.text}" required="false" label="#{messages['contact.h4.msg']}" styleClass="materialize-textarea" />
+                        <p:inputTextarea id="msg" autoResize="true" binding="#{message}" required="false" label="#{messages['contact.h4.msg']}" styleClass="materialize-textarea" />
                         <p:watermark for="msg" value="#{messages['contact.h4.msg']}" /> 
 
                         <p:message for="msg" />
@@ -59,7 +59,7 @@
                     
                     <p:messages id="messages" redisplay="true" globalOnly="true"/>
 
-                    <p:commandButton styleClass="btn waves-effect waves-light" value ="#{messages['send']}" update="@form" actionListener="#{contactController.contactFormSend()}"/>
+                    <p:commandButton styleClass="btn waves-effect waves-light" value ="#{messages['send']}" update="@form" actionListener="#{contactController.contactFormSend(sender.value, message.value)}"/>
                 </h:form>
 
             </div>	

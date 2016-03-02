@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package wati.controller;
+package wati.utility;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -11,8 +11,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 
@@ -20,16 +18,13 @@ import javax.servlet.ServletContext;
  *
  * @author thiago
  */
-@ManagedBean(name = "templateController")
-@ApplicationScoped
-public class TemplateController extends BaseController {
-
+public class TemplateReader{
+    
     private String contactTemplate;    
     
-    public TemplateController() {
+    public TemplateReader() {
        
     }
-
 
     public String readTemplate(String path) throws IOException {
         FacesContext facesContext = FacesContext.getCurrentInstance();
@@ -40,12 +35,12 @@ public class TemplateController extends BaseController {
         return template;
     }
 
-    public String fillContactTemplate(String title, String subtitle, String content) {
+    public String fillContactTemplate(String title, String subtitle, String content, String footer) {
         try {
             if(contactTemplate == null)
             contactTemplate = readTemplate("/resources/default/templates/contact-template.html");
         } catch (IOException ex) {
-            Logger.getLogger(TemplateController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TemplateReader.class.getName()).log(Level.SEVERE, null, ex);
         }
         String template = contactTemplate;
         if (title != null) {
@@ -57,10 +52,10 @@ public class TemplateController extends BaseController {
         if (content != null) {
             template = template.replace("#content#", content);
         }
+        if (footer != null) {
+            template = template.replace("#footer#", footer);
+        }
         return template;
 
     }
-
-
 }
-
