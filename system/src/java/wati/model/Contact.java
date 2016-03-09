@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.Transient;
@@ -37,14 +38,17 @@ public class Contact implements Serializable {
     private String recipient;
     @Column (name = "subject")
     private String subject;
-    @Column(name = "text")
+    @Transient
     private String text;  
     @Transient
     private String html;
     @Transient
     ByteArrayOutputStream pdf;
-    @Column (name="pdf_name")
+    @Transient
     private String pdfName; 
+    
+    @ManyToOne
+    private User user;
 
     public long getId() {
         return id;
@@ -118,7 +122,12 @@ public class Contact implements Serializable {
         this.pdfName = pdfName;
     }
 
-    
-    
-      
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+         
 }

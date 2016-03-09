@@ -1084,11 +1084,15 @@ audit.label=Consumo de \u00e1lcool
 complementary.questions=Perguntas adicionais
 use.of.cigarettes=Uso de cigarros
 baseline.info=Informa\u00e7\u00f5es b\u00e1sicas
+<<<<<<< HEAD
 baseline.error.message=Por favor, preencha todo o formul\u00e1rio
 plano.receber.emails=Com que frequ\u00eancia voc\u00ea gostaria de receber nossas mensagens de acompanhamento?
 plano.receber.emails.op1=Nunca
 plano.receber.emails.op2=Uma vez por semana
 plano.receber.emails.op3=Tr\u00eas vezes por semana
 plano.receber.emails.op4=Semanalmente
+
+=======
 baseline.error.message=Por favor, preencha todas as informa\u00e7\u00f5es
 subject.email.followup=
+>>>>>>> a01bb55a2a4ab0af4cb64794c3f61624e90f3153

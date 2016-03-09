@@ -1085,9 +1085,13 @@ complementary.questions=Complementary questions
 use.of.cigarettes=Use of cigarettes
 baseline.info=Basic information
 baseline.error.message=Please fill all the form
+<<<<<<< HEAD
 plano.receber.emails=How often would you like to get our follow up emails?
 plano.receber.emails.op1=Never
 plano.receber.emails.op2=Once a week
 plano.receber.emails.op3=Three times a week
 plano.receber.emails.op4=Weekly
+
+=======
 subject.email.followup=
+>>>>>>> a01bb55a2a4ab0af4cb64794c3f61624e90f3153

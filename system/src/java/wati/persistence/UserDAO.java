@@ -21,39 +21,58 @@ import wati.model.User;
  */
 public class UserDAO extends GenericDAO {
     
-    public UserDAO(Class classe) throws NamingException {
-        super(classe);
+    public UserDAO() throws NamingException{
+        super(User.class);
     }
     
     public List acompanhamentoDataDiferente(EntityManager entityManager){
-        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataParar != u.prontoParaParar.dataInserido and u.prontoParaParar.dataInserido <= :data and u.prontoParaParar.receiveEmails is null and u.receiveEmails == true");
-        Date data = Calendar.getInstance().getTime();
-        query.setParameter("data",data );
+        Query query = entityManager.createQuery("from User as u where "
+                + "u.receiveEmails == true and "
+                + "u.followUpCount == 0"
+                + "u.prontoParaParar.dataParar != u.prontoParaParar.dataInserido and "
+                + "u.prontoParaParar.dataInserido <= :date and "
+                );
+        Date date = Calendar.getInstance().getTime();
+        query.setParameter("date",date);
         query.setHint("toplink.refresh", "true");
         return query.getResultList();
     }
     
     
      public List acompanhamentoSemanal(EntityManager entityManager, int semana){
-        Query query = entityManager.createQuery("from User as u where u.prontoParaParar.dataInserido <= :data and u.receiveEmails == true");
+        Query query = entityManager.createQuery("from User as u where "
+                + "u.receiveEmails == true and"
+                + "u.prontoParaParar.dataInserido <= :date and"
+                + "u.prontoParaParar.followUpCount < :count");
         Calendar c = Calendar.getInstance();
-        c.add(Calendar.DAY_OF_MONTH, -7*(semana+1));
-        Date data = c.getTime();
-        query.setParameter("data",data );
+        c.add(Calendar.DAY_OF_MONTH, -7*(semana));
+        Date date = c.getTime();
+        int count = semana + 1;
+        query.setParameter("count", count);
+        query.setParameter("date",date );
         return query.getResultList();
         
     }
     
     public List acompanhamentoMensal(EntityManager entityManager){
-        Query query = entityManager.createQuery("from User as u where u.receiveEmails == true and u.prontoParaParar.emailTerceiraSemana is not null and ((u.prontoParaParar.emailMensal is null and u.prontoParaParar.emailTerceiraSemana <= :data) or (u.prontoParaParar.emailMensal is not null and u.prontoParaParar.emailMensal <= :data and u.prontoParaparar.emailMensalCont < 12))");
-        Calendar c = Calendar.getInstance();
-        c.add(Calendar.DAY_OF_MONTH, -30);
-        Date data = c.getTime();
-        query.setParameter("data",data );
-        return query.getResultList();
+        Query query = entityManager.createQuery("from User as u where "
+                + "u.receiveEmails == true and "
+                + "u.prontoParaParar.followUpCount >= 4 and"
+                + "u.prontoParaParar.followUpCount < 16 and");
+        List<User> users = query.getResultList();
+        for(User user : users){
+            int count = user.getProntoParaParar().getFollowUpCount() - 4;
+            Calendar c = Calendar.getInstance();
+            c.add(Calendar.MONTH, (count+1));
+            Date date = c.getTime();          
+            if(user.getProntoParaParar().getDataInserido().compareTo(date) > 0){
+                users.remove(user);
+            }
+        }
+        return users;
         
     }
-    
+      
     public void updateWithoutTransaction(User objeto, EntityManager entityManager) throws SQLException {
 		try {
 
