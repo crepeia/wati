@@ -80,7 +80,7 @@ public class EmailScheduler {
                 + this.getText("cordialmente") + "<br><br>"
                 + this.getText("equipe.vst");
         try {
-            dao = new UserDAO(User.class);
+            dao = new UserDAO();
             emailSSL = new EMailSSL();
         } catch (NamingException ex) {
             Logger.getLogger(EmailScheduler.class.getName()).log(Level.SEVERE, null, ex);

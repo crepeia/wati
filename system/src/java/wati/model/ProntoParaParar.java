@@ -1,4 +1,4 @@
- /*
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -7,6 +7,9 @@ package wati.model;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
 import javax.faces.context.FacesContext;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,10 +27,10 @@ import wati.controller.BaseController;
  */
 @Entity
 @Table(name = "tb_pronto_para_parar")
-public class ProntoParaParar extends BaseController implements Serializable {
+public class ProntoParaParar implements Serializable {
 
     private static final int MOTIVATION_STANDARD_VALUE = 5;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
@@ -141,6 +144,9 @@ public class ProntoParaParar extends BaseController implements Serializable {
     private boolean pnadG;
     @Column(name = "pnad_h")
     private boolean pnadH;
+
+    @Column(name = "follow_up_count")
+    private int followUpCount;
 
     public ProntoParaParar() {
         this.dataInserido = ((GregorianCalendar) GregorianCalendar.getInstance()).getTime();
@@ -611,7 +617,7 @@ public class ProntoParaParar extends BaseController implements Serializable {
     public void setMot1(Integer mot1) {
         this.mot1 = mot1;
     }
-    
+
     public Integer getLadder1() {
         return ladder1;
     }
@@ -706,6 +712,19 @@ public class ProntoParaParar extends BaseController implements Serializable {
         this.setPnadF(false);
         this.setPnadG(false);
         this.setPnadH(false);
+    }
+
+    public int getFollowUpCount() {
+        return followUpCount;
+    }
+
+    public void setFollowUpCount(int followUpCount) {
+        this.followUpCount = followUpCount;
+    }
+
+    public String getText(String key) {
+        ResourceBundle bundle = PropertyResourceBundle.getBundle("wati.utility.messages", new Locale(usuario.getPreferedLanguage()));
+        return bundle.getString(key);
     }
 
 }

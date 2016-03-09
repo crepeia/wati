@@ -58,6 +58,9 @@ public class User {
     
     @OneToOne(mappedBy = "user")
     private Questionnaire questionnaire;
+    
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Contact> contacts;
 
     /**
      * @return the id
@@ -223,6 +226,15 @@ public class User {
     public void setQuestionnaire(Questionnaire questionnaire) {
         this.questionnaire = questionnaire;
     }
+
+    public List<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(List<Contact> contacts) {
+        this.contacts = contacts;
+    }
+    
 
 }
 
