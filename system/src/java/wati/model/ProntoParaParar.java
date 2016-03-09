@@ -146,7 +146,7 @@ public class ProntoParaParar implements Serializable {
     private boolean pnadH;
 
     @Column(name = "follow_up_count")
-    private int followUpCount;
+    private Integer followUpCount;
 
     public ProntoParaParar() {
         this.dataInserido = ((GregorianCalendar) GregorianCalendar.getInstance()).getTime();
@@ -714,14 +714,15 @@ public class ProntoParaParar implements Serializable {
         this.setPnadH(false);
     }
 
-    public int getFollowUpCount() {
+    public Integer getFollowUpCount() {
         return followUpCount;
     }
 
-    public void setFollowUpCount(int followUpCount) {
+    public void setFollowUpCount(Integer followUpCount) {
         this.followUpCount = followUpCount;
     }
 
+    
     public String getText(String key) {
         ResourceBundle bundle = PropertyResourceBundle.getBundle("wati.utility.messages", new Locale(usuario.getPreferedLanguage()));
         return bundle.getString(key);

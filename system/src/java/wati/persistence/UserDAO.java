@@ -27,13 +27,9 @@ public class UserDAO extends GenericDAO {
     
     public List acompanhamentoDataDiferente(EntityManager entityManager){
         Query query = entityManager.createQuery("from User as u where "
-                + "u.receiveEmails == true and "
-                + "u.followUpCount == 0"
-                + "u.prontoParaParar.dataParar != u.prontoParaParar.dataInserido and "
-                + "u.prontoParaParar.dataInserido <= :date and "
-                );
-        Date date = Calendar.getInstance().getTime();
-        query.setParameter("date",date);
+                + "u.receiveEmails = true");
+        //Date date = Calendar.getInstance().getTime();
+        //query.setParameter("date",date);
         query.setHint("toplink.refresh", "true");
         return query.getResultList();
     }
