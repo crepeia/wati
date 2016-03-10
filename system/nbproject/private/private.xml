@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/henrique-gomide/wati/system/web/pronto-para-parar-de-fumar-riscos-do-cigarro.xhtml</file>
-            <file>file:/home/henrique-gomide/wati/system/src/java/wati/utility/messages_es.properties</file>
-            <file>file:/home/henrique-gomide/wati/system/web/resources/default/email-templates/contact-template.html</file>
-            <file>file:/home/henrique-gomide/wati/system/web/resources/default/email-templates/1semana.html</file>
-            <file>file:/home/henrique-gomide/wati/system/web/preparando-parar-de-fumar-riscos-do-cigarro.xhtml</file>
+            <file>file:/home/thiago/wati/system/src/java/wati/persistence/UserDAO.java</file>
+            <file>file:/home/thiago/wati/system/src/java/wati/utility/Scheduler.java</file>
+            <file>file:/home/thiago/wati/system/src/java/wati/controller/ContactController.java</file>
+            <file>file:/home/thiago/wati/system/src/java/wati/utility/messages_de.properties</file>
         </group>
     </open-files>
 </project-private>

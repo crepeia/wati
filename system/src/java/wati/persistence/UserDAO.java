@@ -25,36 +25,42 @@ public class UserDAO extends GenericDAO {
         super(User.class);
     }
     
-    public List acompanhamentoDataDiferente(EntityManager entityManager){
+    public List followUpDifferentDate(EntityManager entityManager){
         Query query = entityManager.createQuery("from User as u where "
-                + "u.receiveEmails = true");
-        //Date date = Calendar.getInstance().getTime();
-        //query.setParameter("date",date);
-        query.setHint("toplink.refresh", "true");
+                + "u.receiveEmails = true and "
+                + "u.prontoParaParar is not null and "
+                + "u.prontoParaParar.followUpCount is null and "
+                + "u.prontoParaParar.dataInserido != u.prontoParaParar.dataParar and "
+                + "u.prontoParaParar.dataInserido <= :date");
+        Date date = new Date();
+        query.setParameter("date",date );
         return query.getResultList();
     }
     
     
-     public List acompanhamentoSemanal(EntityManager entityManager, int semana){
+     public List followUpWeekly(EntityManager entityManager, int week){
         Query query = entityManager.createQuery("from User as u where "
-                + "u.receiveEmails == true and"
-                + "u.prontoParaParar.dataInserido <= :date and"
+                + "u.receiveEmails = true and "
+                + "u.prontoParaParar is not null and "
+                + "u.prontoParaParar.followUpCount < :count and "
+                + "u.prontoParaParar.dataInserido <= :date and "
                 + "u.prontoParaParar.followUpCount < :count");
         Calendar c = Calendar.getInstance();
-        c.add(Calendar.DAY_OF_MONTH, -7*(semana));
+        c.add(Calendar.DAY_OF_MONTH, -7*(week));
         Date date = c.getTime();
-        int count = semana + 1;
+        int count = week + 1;
         query.setParameter("count", count);
         query.setParameter("date",date );
         return query.getResultList();
         
     }
     
-    public List acompanhamentoMensal(EntityManager entityManager){
+    public List followUpMonthly(EntityManager entityManager){
         Query query = entityManager.createQuery("from User as u where "
                 + "u.receiveEmails == true and "
-                + "u.prontoParaParar.followUpCount >= 4 and"
-                + "u.prontoParaParar.followUpCount < 16 and");
+                + "u.prontoParaParar is not null and "
+                + "u.prontoParaParar.followUpCount >= 4 and "
+                + "u.prontoParaParar.followUpCount < 16");
         List<User> users = query.getResultList();
         for(User user : users){
             int count = user.getProntoParaParar().getFollowUpCount() - 4;

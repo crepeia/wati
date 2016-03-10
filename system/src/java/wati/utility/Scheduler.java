@@ -31,8 +31,10 @@ public class Scheduler {
 
     @Schedule(second = "*/10", minute = "*", hour = "*", dayOfWeek = "*")
     public void testTask() {
+        System.out.println("Started scheduler");
         contactController.sendDifferentDateEmail();
     }
+    
 
    
 
