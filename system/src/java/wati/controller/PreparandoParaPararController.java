@@ -4,9 +4,13 @@
  */
 package wati.controller;
 
+import java.util.Date;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import wati.model.Contact;
 import wati.model.User;
 
 /**
@@ -17,17 +21,25 @@ import wati.model.User;
 @SessionScoped
 public class PreparandoParaPararController extends BaseController {
 
+    @Inject
+    private ContactController contactController;
+    
     private int question1;
     private int question2;
     private String texto;
 
     private int phq2_1;
     private int phq2_2;
+    
+    private String message;
+    private String email;
 
     public PreparandoParaPararController() {
         this.question1 = 3;
         this.question2 = 3;
         this.texto = "";
+        this.message = "";
+        this.email = "";
     }
 
     public String prontoParaPararDeFumar() {
@@ -73,6 +85,24 @@ public class PreparandoParaPararController extends BaseController {
             texto = this.getText("feedback.phq9.no");
         }
     }
+    
+    public void contactFormSend() {
+        Contact contact = new Contact();
+        contact.setSender(email);
+        contact.setRecipient("watiufjf@gmail.com");
+        contact.setSubject("Contato via formulário - " + contact.getSender());
+        contact.setText(message);
+        contact.setDateSent(new Date());
+        if(loggedUser()){
+            contact.setUser(getLoggedUser());
+        }
+        contactController.sendEmail(contact);
+        email = "";
+        message = "";
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, getText("mensagem.enviada"), null));
+    }
+    
+
 
     /**
      * Returns texto feedback from the class evaluateScalePhq2
@@ -118,5 +148,34 @@ public class PreparandoParaPararController extends BaseController {
     public void setPhq2_2(int phq_2) {
         this.phq2_2 = phq_2;
     }
+
+    public ContactController getContactController() {
+        return contactController;
+    }
+
+    public void setContactController(ContactController contactController) {
+        this.contactController = contactController;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getEmail() {
+        if(loggedUser()){
+            email =  getLoggedUser().getEmail();
+        }
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    
 
 }

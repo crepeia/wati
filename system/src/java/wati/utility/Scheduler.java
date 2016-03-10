@@ -5,6 +5,8 @@
  */
 package wati.utility;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Schedule;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
@@ -28,11 +30,26 @@ public class Scheduler {
     public Scheduler() {
         
     }
-
-    @Schedule(second = "*/10", minute = "*", hour = "*", dayOfWeek = "*")
+    
+    @Schedule(second = "0", minute = "0", hour = "*", dayOfWeek = "*")
     public void testTask() {
-        System.out.println("Started scheduler");
+       Logger.getLogger(Scheduler.class.getName()).log(Level.INFO, "Scheduled task running");
+
+    }
+    
+   @Schedule(second = "0", minute = "0", hour = "15", dayOfWeek = "*")
+    public void testTask2() {
+        contactController.sendTestEmail();
+    }
+
+    //@Schedule(second = "*", minute = "*", hour = "*", dayOfWeek = "*")
+    public void followUpMails() {
         contactController.sendDifferentDateEmail();
+        contactController.sendFirstWeekEmail();
+        contactController.sendSecondWeekEmail();
+        contactController.sendThirdWeekEmail();
+        contactController.sendMonthlyEmail();
+  
     }
     
 
