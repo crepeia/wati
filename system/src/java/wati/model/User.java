@@ -49,6 +49,8 @@ public class User {
     private Integer recoverCode;
     @Column(name = "experimental_groups")
     private Integer experimentalGroups;
+    @Column(name = "phone")
+    private String phone;
     
     @OneToOne(mappedBy = "usuario")
     private ProntoParaParar prontoParaParar;
@@ -225,6 +227,14 @@ public class User {
 
     public void setQuestionnaire(Questionnaire questionnaire) {
         this.questionnaire = questionnaire;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public List<Contact> getContacts() {
