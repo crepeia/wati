@@ -147,6 +147,9 @@ public class ProntoParaParar implements Serializable {
 
     @Column(name = "follow_up_count")
     private Integer followUpCount;
+    @Column(name = "follow_up_day_count")
+    private Integer followUpDayCount;
+    
     
     @Column(name = "notification")
     private Integer notification;
@@ -725,6 +728,14 @@ public class ProntoParaParar implements Serializable {
         this.followUpCount = followUpCount;
     }
 
+    public Integer getFollowUpDayCount() {
+        return followUpDayCount;
+    }
+
+    public void setFollowUpDayCount(Integer followUpDayCount) {
+        this.followUpDayCount = followUpDayCount;
+    }
+
     public Integer getNotification() {
         return notification;
     }
@@ -737,5 +748,4 @@ public class ProntoParaParar implements Serializable {
         ResourceBundle bundle = PropertyResourceBundle.getBundle("wati.utility.messages", new Locale(usuario.getPreferedLanguage()));
         return bundle.getString(key);
     }
-
 }

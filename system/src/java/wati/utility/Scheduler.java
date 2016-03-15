@@ -49,6 +49,8 @@ public class Scheduler {
         contactController.sendSecondWeekEmail();
         contactController.sendThirdWeekEmail();
         contactController.sendMonthlyEmail();
+        contactController.sendTwiceWeekEmail();
+        
   
     }
     

@@ -239,6 +239,40 @@ public class ContactController extends BaseController implements Serializable {
             }
         }
     }
+    
+    public void sendTwiceWeekEmail(){
+        List<User> users = userDAO.followUpTwiceWeek(getEntityManager());
+        Contact contact;
+        if (!users.isEmpty()) {
+            for (User user : users) {
+                try {
+                    if(user.getProntoParaParar().getFollowUpDayCount() == null){
+                        user.getProntoParaParar().setFollowUpDayCount(1);
+                    }
+                    contact = new Contact();
+                    contact.setSender("watiufjf@gmail.com");
+                    contact.setRecipient(user.getEmail());
+                    contact.setSubject(getText("subject.email.followup", user.getPreferedLanguage()));
+                    contact.setHtml(fillTemplate(
+                            getText("vivasemtabaco.title", user.getPreferedLanguage()),
+                            getText("msg.email.diario." + user.getProntoParaParar().getFollowUpDayCount(), user.getPreferedLanguage()),
+                            getText("subject.email.followup", user.getPreferedLanguage()),
+                            getFooter(user.getPreferedLanguage())));
+                    contact.setDateSent(new Date());
+                    contact.setUser(user);
+                    sendEmail(contact);
+                    user.getProntoParaParar().setFollowUpDayCount(user.getProntoParaParar().getFollowUpDayCount() + 1);
+                    prontoDAO.insertOrUpdate(user.getProntoParaParar(), getEntityManager());
+                    daoBase.insertOrUpdate(contact, getEntityManager());
+                    Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Daily follow up email sent to:" + user.getEmail());
+                } catch (SQLException ex) {
+                    Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+        }
+    }
+    
 
     public String getFooter(String language) {
         return this.getText("vivasemtabaco", language) + "<br>"
