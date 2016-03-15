@@ -147,6 +147,9 @@ public class ProntoParaParar implements Serializable {
 
     @Column(name = "follow_up_count")
     private Integer followUpCount;
+    
+    @Column(name = "notification")
+    private Integer notification;
 
     public ProntoParaParar() {
         this.dataInserido = ((GregorianCalendar) GregorianCalendar.getInstance()).getTime();
@@ -722,6 +725,13 @@ public class ProntoParaParar implements Serializable {
         this.followUpCount = followUpCount;
     }
 
+    public Integer getNotification() {
+        return notification;
+    }
+
+    public void setNotification(Integer notification) {
+        this.notification = notification;
+    }
     
     public String getText(String key) {
         ResourceBundle bundle = PropertyResourceBundle.getBundle("wati.utility.messages", new Locale(usuario.getPreferedLanguage()));
