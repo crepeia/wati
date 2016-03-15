@@ -209,6 +209,36 @@ public class ContactController extends BaseController implements Serializable {
             }
         }
     }
+    
+     public void sendPesquisaSatisfacao() {
+        List<User> users = userDAO.followUpDifferentDate(getEntityManager());
+        Contact contact;
+        if (!users.isEmpty()) {
+            for (User user : users) {
+                try {
+                    user.setPesquisaEnviada(true);
+                    contact = new Contact();
+                    contact.setSender("watiufjf@gmail.com");
+                    contact.setRecipient(user.getEmail());
+                    contact.setSubject(getText("subject.email.followup", user.getPreferedLanguage()));
+                    contact.setHtml(fillTemplate(
+                            getText("vivasemtabaco", user.getPreferedLanguage()),
+                            "Participe da pesquisa de satisfação ",
+                            user.getPesquisaSatisfacao().getUrlPesquisaSatisfacao(),
+                            getFooter(user.getPreferedLanguage())));
+                    contact.setDateSent(new Date());
+                    contact.setUser(user);
+                    sendEmail(contact);
+                    daoBase.insertOrUpdate(contact, getEntityManager());
+                    userDAO.insertOrUpdate(user, getEntityManager());
+                    Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Different date follow up email  sent to:" + user.getEmail());
+                } catch (SQLException ex) {
+                    Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+        }
+    }
 
     public void sendMonthlyEmail() {
         List<User> users = userDAO.followUpMonthly(getEntityManager());
@@ -240,29 +270,36 @@ public class ContactController extends BaseController implements Serializable {
         }
     }
     
-    
-    public void sendPesquisaSatisfacao() {
-        List<User> users = userDAO.followUpDifferentDate(getEntityManager());
+
+    public void sendTwiceWeekEmail(){
+        List<User> users = userDAO.followUpTwiceWeek(getEntityManager());
+
         Contact contact;
         if (!users.isEmpty()) {
             for (User user : users) {
                 try {
-                    user.setPesquisaEnviada(true);
+
+                    if(user.getProntoParaParar().getFollowUpDayCount() == null){
+                        user.getProntoParaParar().setFollowUpDayCount(1);
+                    }
+
                     contact = new Contact();
                     contact.setSender("watiufjf@gmail.com");
                     contact.setRecipient(user.getEmail());
                     contact.setSubject(getText("subject.email.followup", user.getPreferedLanguage()));
                     contact.setHtml(fillTemplate(
-                            getText("vivasemtabaco", user.getPreferedLanguage()),
-                            "Participe da pesquisa de satisfação ",
-                            user.getPesquisaSatisfacao().getUrlPesquisaSatisfacao(),
+                            getText("vivasemtabaco.title", user.getPreferedLanguage()),
+                            getText("msg.email.diario." + user.getProntoParaParar().getFollowUpDayCount(), user.getPreferedLanguage()),
+                            getText("subject.email.followup", user.getPreferedLanguage()),
+
                             getFooter(user.getPreferedLanguage())));
                     contact.setDateSent(new Date());
                     contact.setUser(user);
                     sendEmail(contact);
+                    user.getProntoParaParar().setFollowUpDayCount(user.getProntoParaParar().getFollowUpDayCount() + 1);
+                    prontoDAO.insertOrUpdate(user.getProntoParaParar(), getEntityManager());
                     daoBase.insertOrUpdate(contact, getEntityManager());
-                    userDAO.insertOrUpdate(user, getEntityManager());
-                    Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Different date follow up email  sent to:" + user.getEmail());
+                    Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Daily follow up email sent to:" + user.getEmail());
                 } catch (SQLException ex) {
                     Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -270,7 +307,7 @@ public class ContactController extends BaseController implements Serializable {
             }
         }
     }
-
+    
     public String getFooter(String language) {
         return this.getText("vivasemtabaco", language) + "<br>"
                 + this.getText("crepeia", language) + "<br>"

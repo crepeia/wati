@@ -70,7 +70,7 @@ public class UserDAO extends GenericDAO {
     
     public List followUpMonthly(EntityManager entityManager){
         Query query = entityManager.createQuery("from User as u where "
-                + "u.receiveEmails == true and "
+                + "u.receiveEmails = true and "
                 + "u.prontoParaParar is not null and "
                 + "u.prontoParaParar.followUpCount >= 4 and "
                 + "u.prontoParaParar.followUpCount < 16");
@@ -84,8 +84,19 @@ public class UserDAO extends GenericDAO {
                 users.remove(user);
             }
         }
-        return users;
-        
+        return users;   
+    }
+    
+    public List followUpTwiceWeek(EntityManager entityManager){
+        Query query = entityManager.createQuery("from User as u where "
+            + "u.receiveEmails = true and "
+            + "u.prontoParaParar is not null and "
+            + "u.prontoParaParar.notification = 1 and "
+            + "u.prontoParaParar.experimentalGroups != null and "    
+            + "u.prontoParaParar.dataInserido <= :date");
+        Date date = new Date();
+        query.setParameter("date",date );
+        return query.getResultList();
     }
       
     public void updateWithoutTransaction(User objeto, EntityManager entityManager) throws SQLException {

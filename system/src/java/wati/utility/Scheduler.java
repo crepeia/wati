@@ -37,10 +37,10 @@ public class Scheduler {
 
     }
     
-   @Schedule(second = "0", minute = "0", hour = "15", dayOfWeek = "*")
-    public void testTask2() {
-        contactController.sendTestEmail();
-    }
+   //@Schedule(second = "0", minute = "0", hour = "15", dayOfWeek = "*")
+    //public void testTask2() {
+      //  contactController.sendTestEmail();
+    //}
 
     //@Schedule(second = "*", minute = "*", hour = "*", dayOfWeek = "*")
     public void followUpMails() {
@@ -50,7 +50,7 @@ public class Scheduler {
         contactController.sendThirdWeekEmail();
         contactController.sendMonthlyEmail();
         //contactController.sendPesquisaSatisfacao();
-  
+        contactController.sendTwiceWeekEmail();
     }
     
 

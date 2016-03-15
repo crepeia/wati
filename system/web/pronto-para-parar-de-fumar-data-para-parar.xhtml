@@ -89,6 +89,17 @@
                                     </h:selectOneMenu>
                                 </div>
                             </div>
+                         
+                                <div>
+                                    <h:outputText value="#{messages['plano.receber.emails']}"/>
+                                
+                                    <h:selectOneRadio id="notificacion" value="#{prontoParaPararController.prontoParaParar.notification}" required="true">  
+                                        <f:selectItem itemLabel="#{messages['plano.receber.emails.op1']}" itemValue="0" />
+                                        <f:selectItem itemLabel="#{messages['plano.receber.emails.op2']}" itemValue="1" />
+                                        <f:selectItem itemLabel="#{messages['plano.receber.emails.op4']}" itemValue="2" />
+                                    </h:selectOneRadio>
+                                </div>
+                            
 
 
 <!--                            <h3>#{messages['acompanhamento.rl.intro.h2.1']}</h3>
