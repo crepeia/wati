@@ -37,6 +37,19 @@ public class UserDAO extends GenericDAO {
         return query.getResultList();
     }
     
+      public List followUpPesquisa(EntityManager entityManager){
+        Query query = entityManager.createQuery("from User as u where "
+                + "u.receiveEmails = true and "
+                + "u.pesquisaSatisfacao is not null "
+                + "u.pesquisa_enviada = false "
+                + "u.dt_cadastro <= :date");
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.MONTH, -1);
+        Date date = c.getTime();
+        query.setParameter("date",date );
+        return query.getResultList();
+    }
+    
     
      public List followUpWeekly(EntityManager entityManager, int week){
         Query query = entityManager.createQuery("from User as u where "

@@ -12,6 +12,7 @@ import static java.lang.Math.random;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -345,6 +346,7 @@ public class UserController extends BaseFormController<User> {
 
         this.showErrorMessage = true;
         this.user.setBirth(new GregorianCalendar(ano, mes, dia).getTime());
+        this.user.setDtCadastro(new Date());
 
         try {
             if (!(dao.list("email", user.getEmail(), entityManager).isEmpty())) {

@@ -52,6 +52,10 @@ public class User {
     @Column(name = "phone")
     private String phone;
     
+    @Column(name = "dt_cadastro")
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date dt_cadastro;
+    
     @OneToOne(mappedBy = "usuario")
     private ProntoParaParar prontoParaParar;
 
@@ -63,6 +67,13 @@ public class User {
     
     @OneToMany(fetch = FetchType.LAZY)
     private List<Contact> contacts;
+    
+    @OneToOne(mappedBy = "user")
+    private PesquisaSatisfacao pesquisaSatisfacao;
+    
+    @Column(name = "pesquisa_enviada")
+    private Boolean pesquisa_enviada;
+
 
     /**
      * @return the id
@@ -244,6 +255,38 @@ public class User {
     public void setContacts(List<Contact> contacts) {
         this.contacts = contacts;
     }
+    
+    public Date getDtCadastro() {
+        return dt_cadastro;
+    }
+
+    /**
+     */
+    public void setDtCadastro(Date dt) {
+        this.dt_cadastro = dt;
+    }
+    
+    
+    public PesquisaSatisfacao getPesquisaSatisfacao() {
+        return pesquisaSatisfacao;
+    }
+
+    public void setPesquisaSatisfacao(PesquisaSatisfacao pesquisaSatisfacao) {
+        this.pesquisaSatisfacao = pesquisaSatisfacao;
+    }
+    
+    /**
+     *
+     * @return pesquisa_enviada
+     */
+    public boolean getPesquisaEnviada() {
+        return pesquisa_enviada;
+    }
+
+    public void setPesquisaEnviada(Boolean num) {
+        this.pesquisa_enviada = num;
+    }
+
     
 
 }

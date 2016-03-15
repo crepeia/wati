@@ -239,6 +239,37 @@ public class ContactController extends BaseController implements Serializable {
             }
         }
     }
+    
+    
+    public void sendPesquisaSatisfacao() {
+        List<User> users = userDAO.followUpDifferentDate(getEntityManager());
+        Contact contact;
+        if (!users.isEmpty()) {
+            for (User user : users) {
+                try {
+                    user.setPesquisaEnviada(true);
+                    contact = new Contact();
+                    contact.setSender("watiufjf@gmail.com");
+                    contact.setRecipient(user.getEmail());
+                    contact.setSubject(getText("subject.email.followup", user.getPreferedLanguage()));
+                    contact.setHtml(fillTemplate(
+                            getText("vivasemtabaco", user.getPreferedLanguage()),
+                            "Participe da pesquisa de satisfação ",
+                            user.getPesquisaSatisfacao().getUrlPesquisaSatisfacao(),
+                            getFooter(user.getPreferedLanguage())));
+                    contact.setDateSent(new Date());
+                    contact.setUser(user);
+                    sendEmail(contact);
+                    daoBase.insertOrUpdate(contact, getEntityManager());
+                    userDAO.insertOrUpdate(user, getEntityManager());
+                    Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Different date follow up email  sent to:" + user.getEmail());
+                } catch (SQLException ex) {
+                    Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+        }
+    }
 
     public String getFooter(String language) {
         return this.getText("vivasemtabaco", language) + "<br>"
@@ -300,5 +331,7 @@ public class ContactController extends BaseController implements Serializable {
     public void seteMailSSL(EMailSSL eMailSSL) {
         this.eMailSSL = eMailSSL;
     }
+    
+    
 
 }
