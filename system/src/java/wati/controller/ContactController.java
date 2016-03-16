@@ -289,7 +289,7 @@ public class ContactController extends BaseController implements Serializable {
                     contact.setSubject(getText("subject.email.followup", user.getPreferedLanguage()));
                     contact.setHtml(fillTemplate(
                             getText("vivasemtabaco.title", user.getPreferedLanguage()),
-                            getText("msg.email.diario." + user.getProntoParaParar().getFollowUpDayCount(), user.getPreferedLanguage()),
+                            getText("msg.email.twice." + user.getProntoParaParar().getFollowUpDayCount(), user.getPreferedLanguage()),
                             getText("subject.email.followup", user.getPreferedLanguage()),
 
                             getFooter(user.getPreferedLanguage())));
