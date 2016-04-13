@@ -31,26 +31,15 @@ public class Scheduler {
         
     }
     
-    @Schedule(second = "0", minute = "0", hour = "*", dayOfWeek = "*")
+    @Schedule(second = "0", minute = "0", hour = "15", dayOfWeek = "*")
     public void testTask() {
        Logger.getLogger(Scheduler.class.getName()).log(Level.INFO, "Scheduled task running");
 
     }
-    
-   //@Schedule(second = "0", minute = "0", hour = "15", dayOfWeek = "*")
-    //public void testTask2() {
-      //  contactController.sendTestEmail();
-    //}
-
-    //@Schedule(second = "*", minute = "*", hour = "*", dayOfWeek = "*")
-    public void followUpMails() {
-        contactController.sendDifferentDateEmail();
-        contactController.sendFirstWeekEmail();
-        contactController.sendSecondWeekEmail();
-        contactController.sendThirdWeekEmail();
-        contactController.sendMonthlyEmail();
-        //contactController.sendPesquisaSatisfacao();
-        contactController.sendTwiceWeekEmail();
+ 
+    @Schedule(second = "0", minute = "0", hour = "0", dayOfWeek = "*")
+    public void dailyTask() {
+        contactController.sendScheduledEmails();
     }
     
 
