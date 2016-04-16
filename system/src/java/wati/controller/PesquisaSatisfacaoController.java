@@ -54,8 +54,8 @@ public class PesquisaSatisfacaoController extends BaseController<PesquisaSatisfa
     }
     
     public String savePesquisaSatisfacao(){
-        String id = this.getUserPesquisa();
-        PesquisaSatisfacao.setId((Integer.valueOf(id)));
+        //String id = this.getUserPesquisa();
+        //PesquisaSatisfacao.setId((Integer.valueOf(id)));
         try {
             daoBase.insertOrUpdate(getPesquisaSatisfacao(), getEntityManager());
             return "index.xhtml";
