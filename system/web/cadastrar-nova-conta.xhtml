@@ -149,9 +149,10 @@
                             <br />
                             <div class="row">
                                 <div class="col s12 m12 l12">
-                                    <h:selectBooleanCheckbox styleClass="checkbox" value="#{userController.user.receiveEmails}"/>
-                                    <input type="checkbox" name="chk" id="chk1" value="#{userController.user.receiveEmails}"/>
                                     <label for="chk1">#{messages['gostaria.receber.email']}</label>
+                                    <p:selectBooleanCheckbox value="#{userController.user.receiveEmails}" label="#{messages['gostaria.receber.email']}" id="chk1" rendered="true" />
+<!--                                    <input type="checkbox" name="chk" id="chk1" value="#{userController.user.receiveEmails}"/>
+                                    <label for="chk1">#{messages['gostaria.receber.email']}</label>-->
                                 </div>
                             </div>
 
