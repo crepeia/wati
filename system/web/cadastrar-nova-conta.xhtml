@@ -150,17 +150,20 @@
                             <div class="row">
                                 <div class="col s12 m12 l12">
                                     <label for="chk1">#{messages['gostaria.receber.email']}</label>
-                                    <p:selectBooleanCheckbox value="#{userController.user.receiveEmails}" label="#{messages['gostaria.receber.email']}" id="chk1" rendered="true" />
-<!--                                    <input type="checkbox" name="chk" id="chk1" value="#{userController.user.receiveEmails}"/>
-                                    <label for="chk1">#{messages['gostaria.receber.email']}</label>-->
+                                    <h:selectOneRadio id="chk1"  value="#{userController.user.receiveEmails}">
+                                        <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
+                                        <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
+                                    </h:selectOneRadio>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col s12 m12 l12">
-                                    <h:selectBooleanCheckbox styleClass="checkbox" value="#{userController.user.authorizeData}"/>
-                                    <input type="checkbox" name="chk" id="chk2" value="#{userController.user.authorizeData}"/>
                                     <label for="chk2">#{messages['autorizo.para.pesquisa.p1']} <a href="./termo-consentimento.xhtml" target="_blank" >#{messages['login.informed.consent']}</a>.</label>
+                                    <h:selectOneRadio id="chk2"  value="#{userController.user.authorizeData}">
+                                        <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
+                                        <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
+                                    </h:selectOneRadio>
                                 </div>
                             </div>
 
