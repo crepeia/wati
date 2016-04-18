@@ -280,6 +280,9 @@ public class User {
      * @return pesquisa_enviada
      */
     public boolean getPesquisaEnviada() {
+        if(pesquisa_enviada == null){
+            return false;
+        }
         return pesquisa_enviada;
     }
 

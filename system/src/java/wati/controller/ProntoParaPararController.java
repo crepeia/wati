@@ -151,26 +151,28 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 //			this.dia = String.valueOf( new GregorianCalendar().get( GregorianCalendar.DAY_OF_MONTH ) );
 //		}
         this.prontoParaParar.setDataParar(this.gregorianCalendar.getTime());
-        
+
         if (getProntoParaParar().getUsuario().isReceiveEmails()) {
             contactController.clearFollowUpEmails(getProntoParaParar().getUsuario());
             contactController.scheduleMonthlyEmail(getProntoParaParar().getUsuario());
             contactController.scheduleWeeklyEmail(getProntoParaParar().getUsuario());
-            if (getProntoParaParar().getNotification() == 1) {
-                int days[] = new int[]{7, 15, 21};
-                for (int day : days) {
-                    contactController.scheduleDaillyEmail(getProntoParaParar().getUsuario(), day);
+            if (getProntoParaParar().getUsuario().getExperimentalGroups() != null) {
+                if (getProntoParaParar().getNotification() == 1) {
+                    int days[] = new int[]{7, 15, 21};
+                    for (int day : days) {
+                        contactController.scheduleDaillyEmail(getProntoParaParar().getUsuario(), day);
+                    }
                 }
-            }
-            if (getProntoParaParar().getNotification() == 2) {
-                int days[] = new int[]{1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21};
-                for (int day : days) {
-                    contactController.scheduleDaillyEmail(getProntoParaParar().getUsuario(), day);
+                if (getProntoParaParar().getNotification() == 2) {
+                    int days[] = new int[]{1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21};
+                    for (int day : days) {
+                        contactController.scheduleDaillyEmail(getProntoParaParar().getUsuario(), day);
+                    }
                 }
-            }
-            if(getProntoParaParar().getDataInserido() != getProntoParaParar().getDataParar()){
-                contactController.scheduleDifferentDateEmail(getProntoParaParar().getUsuario(),
-                        getProntoParaParar().getDataInserido());
+                if (getProntoParaParar().getDataInserido() != getProntoParaParar().getDataParar()) {
+                    contactController.scheduleDifferentDateEmail(getProntoParaParar().getUsuario(),
+                            getProntoParaParar().getDataInserido());
+                }
             }
         }
 
@@ -922,6 +924,13 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }
 
         return procPararFumarMarcados;
+    }
+    
+    public String pesquisa(){
+        if(!getProntoParaParar().getUsuario().getPesquisaEnviada()){
+            contactController.sendPesquisaSatisfacaoEmail(getProntoParaParar().getUsuario());
+        }
+        return "";
     }
 
     public void setProcPararFumarMarcados(String[] procPararFumarMarcados) {
