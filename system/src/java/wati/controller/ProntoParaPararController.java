@@ -62,6 +62,8 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     private String texto1;
     private String texto2;
     private String textoladder;
+    
+    private GenericDAO userDAO;
 
     private Map<String, String> ftnd4Qtde = new LinkedHashMap<String, String>();
 
@@ -82,6 +84,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         //super(ProntoParaParar.class);
         try {
             this.daoBase = new GenericDAO<ProntoParaParar>(ProntoParaParar.class);
+            userDAO = new GenericDAO<User>(User.class);
         } catch (NamingException ex) {
             String message = this.getText("mensagem.erro");
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
@@ -927,8 +930,14 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     }
     
     public String pesquisa(){
-        if(!getProntoParaParar().getUsuario().getPesquisaEnviada()){
+        if(!getProntoParaParar().getUsuario().getPesquisaEnviada() && getProntoParaParar().getUsuario().isReceiveEmails()){
             contactController.sendPesquisaSatisfacaoEmail(getProntoParaParar().getUsuario());
+            getProntoParaParar().getUsuario().setPesquisaEnviada(true);
+            try {
+                userDAO.insertOrUpdate(getProntoParaParar().getUsuario(), getEntityManager());
+            } catch (SQLException ex) {
+                Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return "";
     }

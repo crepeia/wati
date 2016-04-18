@@ -141,7 +141,7 @@ public class ContactController extends BaseController implements Serializable {
         contact.setSender("watiufjf@gmail.com");
         contact.setRecipient(user.getEmail());
         contact.setSubject("Participe da pesquisa de satisfação");
-        contact.setContent("http://www.vivasemtabaco.com.br/pesquisa-satisfacacao.xhtml?uid="+user.getId());
+        contact.setContent("http://www.vivasemtabaco.com.br/pesquisa-satisfacao.xhtml?uid="+user.getId());
         sendPlainTextEmail(contact);
     }
 
