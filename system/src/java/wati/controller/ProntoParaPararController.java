@@ -174,7 +174,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                 }
                 if (getProntoParaParar().getDataInserido() != getProntoParaParar().getDataParar()) {
                     contactController.scheduleDifferentDateEmail(getProntoParaParar().getUsuario(),
-                            getProntoParaParar().getDataInserido());
+                            getProntoParaParar().getDataParar());
                 }
             }
         }

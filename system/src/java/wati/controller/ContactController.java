@@ -97,7 +97,7 @@ public class ContactController extends BaseController implements Serializable {
                 contact.setContent("msg.terceira.semana1");
             }
             Calendar cal = Calendar.getInstance();
-            cal.setTime(user.getProntoParaParar().getDataInserido());
+            cal.setTime(user.getProntoParaParar().getDataParar());
             cal.add(Calendar.DATE, 7 * i);
             contact.setDateScheduled(cal.getTime());
             save(contact);
@@ -114,7 +114,7 @@ public class ContactController extends BaseController implements Serializable {
             contact.setSubject("subject.email.followup");
             contact.setContent("msg.mensal1");
             Calendar cal = Calendar.getInstance();
-            cal.setTime(user.getProntoParaParar().getDataInserido());
+            cal.setTime(user.getProntoParaParar().getDataParar());
             cal.add(Calendar.MONTH, i);
             contact.setDateScheduled(cal.getTime());
             save(contact);
@@ -129,7 +129,7 @@ public class ContactController extends BaseController implements Serializable {
         contact.setSubject("subject.email.followup");
         contact.setContent("msg.email.twice." + ((day + 1) / 2));
         Calendar cal = Calendar.getInstance();
-        cal.setTime(user.getProntoParaParar().getDataInserido());
+        cal.setTime(user.getProntoParaParar().getDataParar());
         cal.add(Calendar.DATE, day);
         contact.setDateScheduled(cal.getTime());
         save(contact);
