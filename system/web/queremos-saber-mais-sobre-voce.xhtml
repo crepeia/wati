@@ -30,10 +30,10 @@
                 </div>                          
 
                 <div class="row">
-                    
+
                     <h:form>    
                         <h4 class="headertop orange-text text-lighten-2">#{messages['baseline.info']}</h4>
-                        
+
                         <h5 class="headertop orange-text text-lighten-2">#{messages['baseline.q0.h5']}</h5>
                         <h:selectOneRadio  value="#{questionnaireController.questionnaire.knowWebsite}" layout="pageDirection">  
                             <f:selectItem itemLabel="#{messages['baseline.q0.a1']}" itemValue="a" />
@@ -325,8 +325,8 @@
                         <h5 class="headertop orange-text text-lighten-2">4 - #{messages['sd.4']}</h5>  
                         <h:selectOneMenu id="sd4"  value="#{questionnaireController.questionnaire.triedQuit}" required="true" styleClass="browser-default">  
                             <f:selectItems value="#{questionnaireController.timesQuit}"/>  
-                       </h:selectOneMenu>
-                      
+                        </h:selectOneMenu>
+
                         <br />
                         <h5 class="headertop orange-text text-lighten-2">5 - #{messages['pnad.3']}</h5>
                         <p>#{messages['pnad.3.a']} </p>
@@ -369,7 +369,7 @@
                             <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
                             <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
                         </h:selectOneRadio>
-                        
+
 
                         <br />
 
@@ -402,7 +402,7 @@
                         <p>6.4. #{messages['ftnd.4q']}</p>
                         <h:selectOneMenu id="ftnd_4" value="#{questionnaireController.questionnaire.dependencyLevel4}" required="true" styleClass="browser-default">  
                             <f:selectItems value="#{questionnaireController.cigarettes}"/>  
-                       </h:selectOneMenu>
+                        </h:selectOneMenu>
 
 
                         <p>6.5. #{messages['ftnd.5q']}</p>
@@ -471,17 +471,32 @@
                             <f:selectItem itemLabel="#{messages['auditc.q3.a5']}" itemValue="5"/>
                         </h:selectOneRadio>
 
-                            <br /><br />
-                            <div class="col s12 m12 l12 center">
-                                <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}" update="@form" action="#{questionnaireController.saveQuestionnaire()}"/>
-                            </div>
-                                                    <h:outputText value="#{messages['baseline.error.msg']}" style="color: red;" rendered="#{facesContext.validationFailed}" />                        <div class="row">
+                        <br /><br />
 
+                        <div class="center">
+                            <a class="modal-trigger" href="#HiddenDiv">
+                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto1" process="@form" onclick="javascript:ShowHide('HiddenDiv');"/></a>                             
                         </div>
 
-
+                        <div class="modal" style="display: none" id="HiddenDiv">
+                            <div class="modal-content">
+                                <h2><h:outputText value="#{messages['baseline.feedback.h']}"/></h2>
+                                <h:outputText id="texto1" value="#{messages['baseline.feedback.p']}" />
+                            </div>
+                            <div class="modal-footer">
+                                <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}" update="@form" action="#{questionnaireController.saveQuestionnaire()}"/>
+                            </div>
+                            <h:outputText value="#{messages['baseline.error.msg']}" style="color: red;" rendered="#{facesContext.validationFailed}" />    
+                        </div>
+                                      
                     </h:form>
-                </div>    
+                </div>
+
+
+
+
+
+  
 
                 <div class="section">
                     <div class='row'>
@@ -493,6 +508,15 @@
 
             </div>
             <w:footer />
+            <script language="JavaScript">
+                function ShowHide(divId)
+                {
+                    if (document.getElementById(divId).style.display == 'none')
+                    {
+                        document.getElementById(divId).style.display = 'block';
+                    }
+                }
+            </script>
         </h:body>
     </f:view>
 </html>
