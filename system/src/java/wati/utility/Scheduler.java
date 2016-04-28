@@ -38,6 +38,11 @@ public class Scheduler {
     }
  
     @Schedule(second = "0", minute = "0", hour = "0", dayOfWeek = "*")
+    public void midnigthTask() {
+        contactController.sendScheduledEmails();
+    }
+    
+     @Schedule(second = "0", minute = "0", hour = "12", dayOfWeek = "*")
     public void dailyTask() {
         contactController.sendScheduledEmails();
     }
