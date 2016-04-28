@@ -164,7 +164,7 @@ public class GenericDAO<T> implements Serializable {
 		try {
 
 			Query query = entityManager.createQuery("select obj from " + classe.getSimpleName() + " obj");
-			query.setHint("toplink.refresh", "true");
+			//query.setHint("toplink.refresh", "true");
 			return query.getResultList();
 		} catch (Exception erro) {
 			throw new SQLException(erro);
@@ -186,7 +186,7 @@ public class GenericDAO<T> implements Serializable {
 				query = entityManager.createQuery("select obj from " + classe.getSimpleName()
 						+ " obj where obj." + campoStr + " is Null");
 			}
-			query.setHint("toplink.refresh", "true");
+			//query.setHint("toplink.refresh", "true");
 			return query.getResultList();
 		} catch (Exception erro) {
 			throw new SQLException(erro);
@@ -206,7 +206,7 @@ public class GenericDAO<T> implements Serializable {
 				query = entityManager.createQuery("select obj from " + classe.getSimpleName()
 						+ " obj where obj." + campoStr + " is Null");
 			}
-			query.setHint("toplink.refresh", "true");
+			//query.setHint("toplink.refresh", "true");
                         //to fix: java.sql.SQLException: javax.persistence.NoResultException: No entity found for query
 			//Object obj = query.getSingleResult();
 			//return obj == null ? null : (T) obj;
@@ -245,7 +245,7 @@ public class GenericDAO<T> implements Serializable {
 						+ "(SELECT COUNT(field) FROM obj." + campoStr + " field WHERE field=:objeto)=" + inStr);
 				query.setParameter("objeto", objeto);
 			}
-			query.setHint("toplink.refresh", "true");
+			//query.setHint("toplink.refresh", "true");
 			return query.getResultList();
 		} catch (Exception erro) {
 			throw new SQLException(erro);
