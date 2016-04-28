@@ -281,6 +281,9 @@ public class User implements Serializable {
      * @return pesquisa_enviada
      */
     public boolean getPesquisaEnviada() {
+        if(pesquisa_enviada == null){
+            return false;
+        }
         return pesquisa_enviada;
     }
 

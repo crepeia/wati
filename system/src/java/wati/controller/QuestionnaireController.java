@@ -52,7 +52,7 @@ public class QuestionnaireController extends BaseController<Questionnaire> {
     public String saveQuestionnaire(){
         try {
             daoBase.insertOrUpdate(getQuestionnaire(), getEntityManager());
-            return "index.html";
+            return "index.xhtml";
         } catch (SQLException ex) {
             Logger.getLogger(QuestionnaireController.class.getName()).log(Level.SEVERE, null, ex);
         }

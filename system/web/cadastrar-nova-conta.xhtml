@@ -149,17 +149,22 @@
                             <br />
                             <div class="row">
                                 <div class="col s12 m12 l12">
-                                    <h:selectBooleanCheckbox styleClass="checkbox" value="#{userController.user.receiveEmails}"/>
-                                    <input type="checkbox" name="chk" id="chk1" value="#{userController.user.receiveEmails}"/>
-                                    <label for="chk1">#{messages['gostaria.receber.email']}</label>
+                                    <h:outputText value="#{messages['gostaria.receber.email']}" styleClass="grey-text valign" />
+                                    <h:selectOneRadio value="#{userController.user.receiveEmails}" required="true" >
+                                        <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
+                                        <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
+                                    </h:selectOneRadio>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col s12 m12 l12">
-                                    <h:selectBooleanCheckbox styleClass="checkbox" value="#{userController.user.authorizeData}"/>
-                                    <input type="checkbox" name="chk" id="chk2" value="#{userController.user.authorizeData}"/>
-                                    <label for="chk2">#{messages['autorizo.para.pesquisa.p1']} <a href="./termo-consentimento.xhtml" target="_blank" >#{messages['login.informed.consent']}</a>.</label>
+                                    <h:outputText value="#{messages['autorizo.para.pesquisa.p1']}" styleClass="grey-text valign"/> 
+                                    <h:outputLink value="./termo-consentimento.xhtml" target="_blank">#{messages['login.informed.consent']}</h:outputLink>
+                                    <h:selectOneRadio  value="#{userController.user.authorizeData}" required="true">
+                                        <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
+                                        <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
+                                    </h:selectOneRadio>
                                 </div>
                             </div>
 
@@ -177,8 +182,6 @@
                                     <p>#{messages['naccount.p.botton']} <h:outputLink value="./termos-de-uso.xhtml">#{messages['naccount.already.userterms']}</h:outputLink></p>
                                 </div>
                             </div>
-
-
                         </h:form>	    		
                     </div>
                 </div>                

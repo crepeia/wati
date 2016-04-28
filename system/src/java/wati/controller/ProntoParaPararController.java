@@ -29,6 +29,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -61,6 +62,8 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     private String texto1;
     private String texto2;
     private String textoladder;
+    
+    private GenericDAO userDAO;
 
     private Map<String, String> ftnd4Qtde = new LinkedHashMap<String, String>();
 
@@ -74,10 +77,14 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     private static final char PNAD_G = 'g';
     private static final char PNAD_H = 'h';
 
+    @ManagedProperty(value = "#{contactController}")
+    private ContactController contactController;
+
     public ProntoParaPararController() {
         //super(ProntoParaParar.class);
         try {
             this.daoBase = new GenericDAO<ProntoParaParar>(ProntoParaParar.class);
+            userDAO = new GenericDAO<User>(User.class);
         } catch (NamingException ex) {
             String message = this.getText("mensagem.erro");
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
@@ -147,12 +154,30 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 //			this.dia = String.valueOf( new GregorianCalendar().get( GregorianCalendar.DAY_OF_MONTH ) );
 //		}
         this.prontoParaParar.setDataParar(this.gregorianCalendar.getTime());
-        this.prontoParaParar.setEmailDataDiferente(null);
-        this.prontoParaParar.setEmailPrimeiraSemana(null);
-        this.prontoParaParar.setEmailSegundaSemana(null);
-        this.prontoParaParar.setEmailTerceiraSemana(null);
-        this.prontoParaParar.setEmailMensal(null);
-        this.prontoParaParar.setEmailMensalCont(null);
+
+        if (getProntoParaParar().getUsuario().isReceiveEmails()) {
+            contactController.clearFollowUpEmails(getProntoParaParar().getUsuario());
+            contactController.scheduleMonthlyEmail(getProntoParaParar().getUsuario());
+            contactController.scheduleWeeklyEmail(getProntoParaParar().getUsuario());
+            if (getProntoParaParar().getUsuario().getExperimentalGroups() != null) {
+                if (getProntoParaParar().getNotification() == 1) {
+                    int days[] = new int[]{7, 15, 21};
+                    for (int day : days) {
+                        contactController.scheduleDaillyEmail(getProntoParaParar().getUsuario(), day);
+                    }
+                }
+                if (getProntoParaParar().getNotification() == 2) {
+                    int days[] = new int[]{1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21};
+                    for (int day : days) {
+                        contactController.scheduleDaillyEmail(getProntoParaParar().getUsuario(), day);
+                    }
+                }
+                if (getProntoParaParar().getDataInserido() != getProntoParaParar().getDataParar()) {
+                    contactController.scheduleDifferentDateEmail(getProntoParaParar().getUsuario(),
+                            getProntoParaParar().getDataParar());
+                }
+            }
+        }
 
         try {
             this.getDaoBase().insertOrUpdate(prontoParaParar, this.getEntityManager());
@@ -670,14 +695,15 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }
 
     }
+
     /*
      public void testarMetodo(){
      System.out.println("***TESTE***TESTE***TESTE***");
      }*/
-
     // Contemplation Ladder Scale
     /**
-     * Method that provides feedback to users based on their feedback on Ladder Contemplation Scale.
+     * Method that provides feedback to users based on their feedback on Ladder
+     * Contemplation Scale.
      */
     public void evaluateLadder() {
         int score = prontoParaParar.getLadder1();
@@ -705,7 +731,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         int sum9 = prontoParaParar.getPhq9() == null ? 0 : prontoParaParar.getPhq9();
 
         int sumTotal = sum1 + sum2 + sum3 + sum4 + sum5 + sum6 + sum7 + sum8 + sum9;
-        
+
         if (sumTotal >= 9 && sumTotal <= 13) {
             texto1 = this.getText("feedback.phq9.1");
         } else if (sumTotal >= 14 && sumTotal <= 23) {
@@ -777,7 +803,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     public void setTexto2(String texto2) {
         this.texto2 = texto2;
     }
-    
+
     public Map<String, String> getFtnd4Qtde() {
         return ftnd4Qtde;
     }
@@ -826,12 +852,12 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }
 
     }
-    
-    public boolean isProcPararFumarMarcado(){
-        return getProntoParaParar().isPnadA() || getProntoParaParar().isPnadB()||
-               getProntoParaParar().isPnadC() || getProntoParaParar().isPnadD()||
-               getProntoParaParar().isPnadE() || getProntoParaParar().isPnadF()||
-               getProntoParaParar().isPnadG() || getProntoParaParar().isPnadH();
+
+    public boolean isProcPararFumarMarcado() {
+        return getProntoParaParar().isPnadA() || getProntoParaParar().isPnadB()
+                || getProntoParaParar().isPnadC() || getProntoParaParar().isPnadD()
+                || getProntoParaParar().isPnadE() || getProntoParaParar().isPnadF()
+                || getProntoParaParar().isPnadG() || getProntoParaParar().isPnadH();
     }
 
     public String[] getProcPararFumarMarcados() {
@@ -902,6 +928,19 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 
         return procPararFumarMarcados;
     }
+    
+    public String pesquisa(){
+        if(!getProntoParaParar().getUsuario().getPesquisaEnviada() && getProntoParaParar().getUsuario().isReceiveEmails()){
+            contactController.sendPesquisaSatisfacaoEmail(getProntoParaParar().getUsuario());
+            getProntoParaParar().getUsuario().setPesquisaEnviada(true);
+            try {
+                userDAO.insertOrUpdate(getProntoParaParar().getUsuario(), getEntityManager());
+            } catch (SQLException ex) {
+                Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return "";
+    }
 
     public void setProcPararFumarMarcados(String[] procPararFumarMarcados) {
         this.procPararFumarMarcados = procPararFumarMarcados;
@@ -912,6 +951,14 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             System.out.println(s);
         }
 
+    }
+
+    public ContactController getContactController() {
+        return contactController;
+    }
+
+    public void setContactController(ContactController contactController) {
+        this.contactController = contactController;
     }
 
 }
