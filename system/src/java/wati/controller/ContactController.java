@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.mail.MessagingException;
@@ -43,7 +44,7 @@ public class ContactController extends BaseController implements Serializable {
     private String htmlTemplate;
     private UserDAO userDAO;
     private GenericDAO prontoDAO;
-
+    
     public ContactController() {
         eMailSSL = new EMailSSL();
         htmlTemplate = readHTMLTemplate("wati/utility/contact-template.html");
@@ -135,14 +136,17 @@ public class ContactController extends BaseController implements Serializable {
         save(contact);
     }
     
-    public void sendPesquisaSatisfacaoEmail(User user) {
+    public void schedulePesquisaSatisfacaoEmail(User user) {
         Contact contact = new Contact();
         contact.setUser(user);
         contact.setSender("watiufjf@gmail.com");
         contact.setRecipient(user.getEmail());
         contact.setSubject("Participe da pesquisa de satisfação");
         contact.setContent("http://www.vivasemtabaco.com.br/pesquisa-satisfacao.xhtml?uid="+user.getId());
-        sendPlainTextEmail(contact);
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.HOUR, 12);
+        contact.setDateScheduled(cal.getTime());
+        save(contact);
     }
 
     private void sendHTMLEmail(Contact contact) {

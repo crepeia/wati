@@ -929,18 +929,6 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         return procPararFumarMarcados;
     }
     
-    public String pesquisa(){
-        if(!getProntoParaParar().getUsuario().getPesquisaEnviada() && getProntoParaParar().getUsuario().isReceiveEmails()){
-            contactController.sendPesquisaSatisfacaoEmail(getProntoParaParar().getUsuario());
-            getProntoParaParar().getUsuario().setPesquisaEnviada(true);
-            try {
-                userDAO.insertOrUpdate(getProntoParaParar().getUsuario(), getEntityManager());
-            } catch (SQLException ex) {
-                Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        return "";
-    }
 
     public void setProcPararFumarMarcados(String[] procPararFumarMarcados) {
         this.procPararFumarMarcados = procPararFumarMarcados;
