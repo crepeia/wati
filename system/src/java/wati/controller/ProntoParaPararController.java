@@ -62,7 +62,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     private String texto1;
     private String texto2;
     private String textoladder;
-    
+
     private GenericDAO userDAO;
 
     private Map<String, String> ftnd4Qtde = new LinkedHashMap<String, String>();
@@ -153,34 +153,33 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 //		if ( this.dia.equals("Atual") ) {
 //			this.dia = String.valueOf( new GregorianCalendar().get( GregorianCalendar.DAY_OF_MONTH ) );
 //		}
-        this.prontoParaParar.setDataParar(this.gregorianCalendar.getTime());
+        this.getProntoParaParar().setDataParar(this.gregorianCalendar.getTime());
 
         if (getProntoParaParar().getUsuario().isReceiveEmails()) {
             contactController.clearFollowUpEmails(getProntoParaParar().getUsuario());
             contactController.scheduleMonthlyEmail(getProntoParaParar().getUsuario());
             contactController.scheduleWeeklyEmail(getProntoParaParar().getUsuario());
-            if (getProntoParaParar().getUsuario().getExperimentalGroups() != null) {
-                if (getProntoParaParar().getNotification() == 1) {
-                    int days[] = new int[]{7, 15, 21};
-                    for (int day : days) {
-                        contactController.scheduleDaillyEmail(getProntoParaParar().getUsuario(), day);
-                    }
-                }
-                if (getProntoParaParar().getNotification() == 2) {
-                    int days[] = new int[]{1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21};
-                    for (int day : days) {
-                        contactController.scheduleDaillyEmail(getProntoParaParar().getUsuario(), day);
-                    }
-                }
-                if (getProntoParaParar().getDataInserido() != getProntoParaParar().getDataParar()) {
-                    contactController.scheduleDifferentDateEmail(getProntoParaParar().getUsuario(),
-                            getProntoParaParar().getDataParar());
+            if (getProntoParaParar().getDataInserido() != getProntoParaParar().getDataParar()) {
+                contactController.scheduleDifferentDateEmail(getProntoParaParar().getUsuario(),
+                        getProntoParaParar().getDataParar());
+            }
+            if (getProntoParaParar().getNotification() == 1) {
+                int days[] = new int[]{7, 15, 21};
+                for (int day : days) {
+                    contactController.scheduleDaillyEmail(getProntoParaParar().getUsuario(), day);
                 }
             }
+            if (getProntoParaParar().getNotification() == 2) {
+                int days[] = new int[]{1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21};
+                for (int day : days) {
+                    contactController.scheduleDaillyEmail(getProntoParaParar().getUsuario(), day);
+                }
+            }
+            
         }
 
         try {
-            this.getDaoBase().insertOrUpdate(prontoParaParar, this.getEntityManager());
+            this.getDaoBase().insertOrUpdate(getProntoParaParar() , this.getEntityManager());
             return "pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml";
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
@@ -928,7 +927,6 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 
         return procPararFumarMarcados;
     }
-    
 
     public void setProcPararFumarMarcados(String[] procPararFumarMarcados) {
         this.procPararFumarMarcados = procPararFumarMarcados;
