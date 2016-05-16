@@ -23,13 +23,14 @@
                 <div class="row">
                     <div class="col l12 m12 s12">
                 
-                 <p:ajaxStatus onstart="statusDialog.show()" onsuccess="statusDialog.hide()" />
-                 <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
-                    <p:graphicImage library="default" name="images/loading.gif" />
-                 </p:dialog>
                         <h2 class="orange-text">#{messages['naccount.register']}</h2>
 
                         <h:form id="form">
+                            <p:ajaxStatus onstart="statusDialog.show()" onsuccess="statusDialog.hide()" />
+                            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                               <p:graphicImage library="default" name="images/loading.gif" />
+                            </p:dialog>
+                            
                             <!-- Validation Messages -->
                             <p:message for="nameTxt" display="text"/>
                             <p:message for="emailTxt" display="text" />
