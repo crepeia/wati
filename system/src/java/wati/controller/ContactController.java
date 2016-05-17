@@ -199,7 +199,7 @@ public class ContactController extends BaseController implements Serializable {
                 if (contact.getDateScheduled() != null && contact.getDateSent() == null){
                     scheduledDate.setTime(contact.getDateScheduled());
                     if(today.compareTo(scheduledDate) >= 0){
-                        if(contact.getSubject().contains("http://www.vivasemtabaco.com.br/pesquisa-satisfacao.xhtml?uid=")){
+                        if(contact.getContent().contains("http://www.vivasemtabaco.com.br/pesquisa-satisfacao.xhtml?uid=")){
                             sendPlainTextEmail(contact);
                         }else{
                             sendHTMLEmail(contact);
