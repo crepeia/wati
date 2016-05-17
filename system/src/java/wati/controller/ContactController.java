@@ -178,7 +178,7 @@ public class ContactController extends BaseController implements Serializable {
             List<Contact> contacts = daoBase.list("user", user, getEntityManager());
             for (Contact contact : contacts) {
                 if (contact.getDateScheduled() != null && contact.getDateSent() == null) {
-                    if(!contact.getSubject().contains("Participe da pesquisa de satisfação")){
+                    if(!contact.getContent().contains("http://www.vivasemtabaco.com.br/pesquisa-satisfacao.xhtml?uid=")){
                         daoBase.delete(contact, getEntityManager());
                     }
                 }
@@ -195,10 +195,12 @@ public class ContactController extends BaseController implements Serializable {
             Calendar today = Calendar.getInstance();
             Calendar scheduledDate = Calendar.getInstance();
             for (Contact contact : contacts) {
-             
                 if (contact.getDateScheduled() != null && contact.getDateSent() == null){
                     scheduledDate.setTime(contact.getDateScheduled());
                     if(today.compareTo(scheduledDate) >= 0){
+                        if(contact.getSubject().contains("http://www.vivasemtabaco.com.br/pesquisa-satisfacao.xhtml?uid=")){
+                            sendPlainTextEmail(contact);
+                        }
                         sendHTMLEmail(contact);
                     }
                 }
