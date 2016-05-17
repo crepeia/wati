@@ -33,17 +33,19 @@ public class Scheduler {
     
     @Schedule(second = "0", minute = "0", hour = "15", dayOfWeek = "*")
     public void testTask() {
-       Logger.getLogger(Scheduler.class.getName()).log(Level.INFO, "Scheduled task running");
+       Logger.getLogger(Scheduler.class.getName()).log(Level.INFO, "Test task running");
 
     }
  
     @Schedule(second = "0", minute = "0", hour = "0", dayOfWeek = "*")
     public void midnigthTask() {
+        Logger.getLogger(Scheduler.class.getName()).log(Level.INFO, "Email task running");
         contactController.sendScheduledEmails();
     }
     
      @Schedule(second = "0", minute = "0", hour = "12", dayOfWeek = "*")
     public void dailyTask() {
+        Logger.getLogger(Scheduler.class.getName()).log(Level.INFO, "Email task running");
         contactController.sendScheduledEmails();
     }
     
