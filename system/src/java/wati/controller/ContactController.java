@@ -251,7 +251,7 @@ public class ContactController extends BaseController implements Serializable {
     }
 
     private String getSubject(Contact contact) {
-        ResourceBundle bundle = PropertyResourceBundle.getBundle("aes.utility.messages", new Locale(contact.getUser().getPreferedLanguage()));
+        ResourceBundle bundle = PropertyResourceBundle.getBundle("wati.utility.messages", new Locale(contact.getUser().getPreferedLanguage()));
         return bundle.getString(contact.getSubject());
     }
 
