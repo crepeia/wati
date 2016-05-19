@@ -175,6 +175,9 @@
                             </div>
 
                             <div class="row">
+                                <div>
+                                    <p:messages id="errorMessage" redisplay="true" globalOnly="true" />
+                                </div>
                                 <div class="col s12 m3 l3 center-on-small-only">
                                     <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['register']}" update="@form" actionListener="#{userController.save}">
                                         <f:attribute name="object" value="#{userController.user}" />
