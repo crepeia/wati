@@ -71,6 +71,9 @@ public class User {
     @OneToOne(mappedBy = "user")
     private PesquisaSatisfacao pesquisaSatisfacao;
     
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Rating> ratings;
+    
     @Column(name = "pesquisa_enviada")
     private Boolean pesquisa_enviada;
 

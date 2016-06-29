@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+       
+         <h:form>
+             <p:commandButton actionListener="#{ratingController.rate()}" id="upvote" update="growl"  icon="images/like.png" />
+             <p:commandButton actionListener="#{ratingController.rate()}" id="downvote" update="growl" icon="images/unlike.png" />
+         </h:form>
+
+    </cc:implementation>
+</html>
