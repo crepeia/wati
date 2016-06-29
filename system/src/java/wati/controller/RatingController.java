@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import wati.model.Page;
@@ -38,7 +39,8 @@ public class RatingController extends BaseController<Rating> {
         }         
     }
     
-    public void rate(){
+    public void rate(ActionEvent event){
+        String action = (String)event.getComponent().getAttributes().get("action");
         Page page;
         Rating rating = new Rating();
         List<Page> pages;

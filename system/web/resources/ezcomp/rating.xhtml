@@ -4,7 +4,8 @@
       xmlns:cc="http://java.sun.com/jsf/composite"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 
     <!-- INTERFACE -->
     <cc:interface>
@@ -13,9 +14,17 @@
     <!-- IMPLEMENTATION -->
     <cc:implementation>
        
-         <h:form>
-             <p:commandButton actionListener="#{ratingController.rate()}" id="upvote" update="growl"  icon="images/like.png" />
-             <p:commandButton actionListener="#{ratingController.rate()}" id="downvote" update="growl" icon="images/unlike.png" />
+         <h:form> 
+             <p:outputLabel  style="display: block; font-size: 15px " value="#{messages['ratings.question']}"/>
+             <p:commandLink actionListener="#{ratingController.rate()}" id="upvote" >
+                 <h:graphicImage  style="width: 40px" library="default"  name="images/like.png" alt="Yes"/>
+                 <f:attribute name="button" value="like" />
+             </p:commandLink>
+             <p:spacer width="40px"/>
+             <p:commandLink actionListener="#{ratingController.rate()}" id="downvote" >
+                 <h:graphicImage  style="width: 40px" library="default" name="images/unlike.png" alt="No" />
+                 <f:attribute name="button" value="unlike" />
+             </p:commandLink>
          </h:form>
 
     </cc:implementation>
