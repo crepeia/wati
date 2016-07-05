@@ -1,5 +1,7 @@
 Introduction
 ----------------
+
+[![Join the chat at https://gitter.im/crepeia/wati](https://badges.gitter.im/crepeia/wati.svg)](https://gitter.im/crepeia/wati?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 This repository hosts the Live without tobacco ("Viva sem Tabaco") project, the first open-source web-assisted intervention for smoking cessation. The intervention content is based on the widely accepted guideline *Treating Tobacco Use and Dependence* (U.S Departament of Health and Human Services).
 
 * Live Intervention: http://www.livewithouttobacco.org
