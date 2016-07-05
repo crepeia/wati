@@ -18,7 +18,7 @@ import javax.persistence.Table;
  * @author thiago
  */
 @Entity
-@Table(name = "tb_page")
+@Table(name = "tb_rating")
 public class Rating {
    
     @Id

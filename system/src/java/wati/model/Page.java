@@ -26,7 +26,7 @@ public class Page {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name = "ur")
+    @Column(name = "url")
     private String url;
     
     @OneToMany(fetch = FetchType.LAZY)
