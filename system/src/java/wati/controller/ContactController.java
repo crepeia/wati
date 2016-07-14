@@ -141,8 +141,8 @@ public class ContactController extends BaseController implements Serializable {
         contact.setUser(user);
         contact.setSender("watiufjf@gmail.com");
         contact.setRecipient(user.getEmail());
-        contact.setSubject("Participe da pesquisa de satisfação");
-        contact.setContent("http://www.vivasemtabaco.com.br/pesquisa-satisfacao.xhtml?uid="+user.getId());
+        contact.setSubject("msg.satisfaction.header");
+        contact.setContent("msg.satisfaction.body");
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.HOUR, 12);
         contact.setDateScheduled(cal.getTime());
@@ -247,6 +247,7 @@ public class ContactController extends BaseController implements Serializable {
         htmlMessage = htmlMessage.replace("#user#", contact.getUser().getName());
         htmlMessage = htmlMessage.replace("#email#", contact.getUser().getEmail());
         htmlMessage = htmlMessage.replace("#code#", String.valueOf(contact.getUser().getRecoverCode()));
+        htmlMessage = htmlMessage.replace("#link#", "http://www.vivasemtabaco.com.br/pesquisa-satisfacao.xhtml?uid="+contact.getUser().getId());
         return htmlMessage;
     }
 
