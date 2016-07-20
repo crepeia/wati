@@ -84,7 +84,7 @@
 
                         <br /><br />
                         <div class="col s12 m12 l12 center">
-                            <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['send']}" update="@form" action="#{pesquisaSatisfacao.savePesquisaSatisfacao()}"/>
+                            <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['send']}" update="@form" actionListener="#{pesquisaSatisfacao.savePesquisaSatisfacao()}"/>
                         </div>
                         <h:outputText value="Please fill all the form" style="color: red;" rendered="#{facesContext.validationFailed}" />
 

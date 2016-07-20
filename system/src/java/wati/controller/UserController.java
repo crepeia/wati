@@ -390,7 +390,7 @@ public class UserController extends BaseFormController<User> {
                 this.sendEmailTerm();
 
                 if (user.isReceiveEmails()) {
-                    contactController.schedulePesquisaSatisfacaoEmail(user);
+                    contactController.sendPesquisaSatisfacaoEmail(user);
                     user.setPesquisaEnviada(true);
                 }
                 //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));

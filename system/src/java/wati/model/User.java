@@ -84,7 +84,10 @@ public class User {
     public long getId() {
         return id;
     }
-
+    
+    public String getHashedId(){
+        return String.valueOf(id*1357);
+    }
     /**
      * @param id the id to set
      */

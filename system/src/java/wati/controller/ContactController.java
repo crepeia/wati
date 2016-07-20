@@ -44,7 +44,7 @@ public class ContactController extends BaseController implements Serializable {
     private String htmlTemplate;
     private UserDAO userDAO;
     private GenericDAO prontoDAO;
-    
+
     public ContactController() {
         eMailSSL = new EMailSSL();
         htmlTemplate = readHTMLTemplate("wati/utility/contact-template.html");
@@ -135,18 +135,15 @@ public class ContactController extends BaseController implements Serializable {
         contact.setDateScheduled(cal.getTime());
         save(contact);
     }
-    
-    public void schedulePesquisaSatisfacaoEmail(User user) {
+
+    public void sendPesquisaSatisfacaoEmail(User user) {
         Contact contact = new Contact();
         contact.setUser(user);
         contact.setSender("watiufjf@gmail.com");
         contact.setRecipient(user.getEmail());
-        contact.setSubject("msg.satisfaction.header");
+        contact.setSubject("msg.email.satisf.header");
         contact.setContent("msg.satisfaction.body");
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.HOUR, 12);
-        contact.setDateScheduled(cal.getTime());
-        save(contact);
+        sendHTMLEmail(contact);
     }
 
     private void sendHTMLEmail(Contact contact) {
@@ -172,13 +169,13 @@ public class ContactController extends BaseController implements Serializable {
             Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void clearFollowUpEmails(User user) {
         try {
             List<Contact> contacts = daoBase.list("user", user, getEntityManager());
             for (Contact contact : contacts) {
                 if (contact.getDateScheduled() != null && contact.getDateSent() == null) {
-                    if(!contact.getContent().contains("http://www.vivasemtabaco.com.br/pesquisa-satisfacao.xhtml?uid=")){
+                    if (!contact.getContent().contains("http://www.vivasemtabaco.com.br/pesquisa-satisfacao.xhtml?uid=")) {
                         daoBase.delete(contact, getEntityManager());
                     }
                 }
@@ -196,14 +193,10 @@ public class ContactController extends BaseController implements Serializable {
             Calendar today = Calendar.getInstance();
             Calendar scheduledDate = Calendar.getInstance();
             for (Contact contact : contacts) {
-                if (contact.getDateScheduled() != null && contact.getDateSent() == null){
+                if (contact.getDateScheduled() != null && contact.getDateSent() == null) {
                     scheduledDate.setTime(contact.getDateScheduled());
-                    if(today.compareTo(scheduledDate) >= 0){
-                        if(contact.getContent().contains("http://www.vivasemtabaco.com.br/pesquisa-satisfacao.xhtml?uid=")){
-                            sendPlainTextEmail(contact);
-                        }else{
-                            sendHTMLEmail(contact);
-                        }
+                    if (today.compareTo(scheduledDate) >= 0) {
+                        sendHTMLEmail(contact);
                     }
                 }
             }
@@ -247,7 +240,7 @@ public class ContactController extends BaseController implements Serializable {
         htmlMessage = htmlMessage.replace("#user#", contact.getUser().getName());
         htmlMessage = htmlMessage.replace("#email#", contact.getUser().getEmail());
         htmlMessage = htmlMessage.replace("#code#", String.valueOf(contact.getUser().getRecoverCode()));
-        htmlMessage = htmlMessage.replace("#link#", "http://www.vivasemtabaco.com.br/pesquisa-satisfacao.xhtml?uid="+contact.getUser().getId());
+        htmlMessage = htmlMessage.replace("#link#", "http://www.vivasemtabaco.com.br/pesquisa-satisfacao.xhtml?uid=" + contact.getUser().getHashedId());
         return htmlMessage;
     }
 
