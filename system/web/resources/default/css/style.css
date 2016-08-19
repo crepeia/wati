@@ -19,9 +19,10 @@ p {
 }
 
 .icon {
-    position:absolute;
-    padding-top: 13px;
+    position:relative;
+    padding-top: 13px;    
 }
+
 .parallax-container {
     min-height: 380px;
     line-height: 0;
