@@ -198,7 +198,7 @@
                             <div class="row">
                                 <div class="col s12 m12 l12">
                                     <h:outputText value="#{messages['autorizo.para.pesquisa.p1']}" styleClass="grey-text valign"/> 
-                                    <h:outputLink value="./termo-consentimento.xhtml" target="_blank">#{messages['login.informed.consent']}</h:outputLink>
+                                    <h:outputLink value="./termo-consentimento.xhtml" target="_blank"> #{messages['login.informed.consent']}</h:outputLink>
                                     <h:selectOneRadio  value="#{userController.user.authorizeData}" required="true">
                                         <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
                                         <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
