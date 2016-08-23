@@ -1,17 +1,17 @@
 [
 	
 		{
-		  "title"      : "Help us translating Live without Tobacco into your language.",
+		  "title"      : "Arabic alpha version is launched!",
 		  "category"   : "news",
-		  "url"        : "//crepeia.github.com/wati/news/help-us-translating-the-project-crowdin/",
-		  "date"       : "2016-01-12 00:00:00 -0200",
-		  "shortdate"  : "January 12, 2016"
+		  "url"        : "//localhost:4000/news/arabic-translation-is-ready-for-testing/",
+		  "date"       : "2016-08-23 00:00:00 -0300",
+		  "shortdate"  : "August 23, 2016"
 		} ,
 	
 		{
 		  "title"      : "Research poster - who are our users?",
 		  "category"   : "news",
-		  "url"        : "//crepeia.github.com/wati/news/lwt-poster-presentation/",
+		  "url"        : "//localhost:4000/news/lwt-poster-presentation/",
 		  "date"       : "2015-11-19 00:00:00 -0200",
 		  "shortdate"  : "November 19, 2015"
 		} ,
@@ -19,7 +19,7 @@
 		{
 		  "title"      : "Viva sem Tabaco is now mobile-friendly",
 		  "category"   : "news",
-		  "url"        : "//crepeia.github.com/wati/news/mobile-version-launched/",
+		  "url"        : "//localhost:4000/news/mobile-version-launched/",
 		  "date"       : "2015-11-03 00:00:00 -0200",
 		  "shortdate"  : "November 03, 2015"
 		} ,
@@ -27,7 +27,7 @@
 		{
 		  "title"      : "Viva sem Tabaco has been certified by HONCode",
 		  "category"   : "news",
-		  "url"        : "//crepeia.github.com/wati/news/health-on-the-net-certification/",
+		  "url"        : "//localhost:4000/news/health-on-the-net-certification/",
 		  "date"       : "2015-10-02 00:00:00 -0300",
 		  "shortdate"  : "October 02, 2015"
 		} ,
@@ -35,7 +35,7 @@
 		{
 		  "title"      : "How browserstack is helping us to test our project.",
 		  "category"   : "news",
-		  "url"        : "//crepeia.github.com/wati/news/browserstack-is-helping-us-to-test-new-version/",
+		  "url"        : "//localhost:4000/news/browserstack-is-helping-us-to-test-new-version/",
 		  "date"       : "2015-08-17 00:00:00 -0300",
 		  "shortdate"  : "August 17, 2015"
 		} ,
@@ -43,7 +43,7 @@
 		{
 		  "title"      : "Mobile version is under way!",
 		  "category"   : "news",
-		  "url"        : "//crepeia.github.com/wati/news/mobile-friendly-version/",
+		  "url"        : "//localhost:4000/news/mobile-friendly-version/",
 		  "date"       : "2015-08-13 00:00:00 -0300",
 		  "shortdate"  : "August 13, 2015"
 		} ,
@@ -51,7 +51,7 @@
 		{
 		  "title"      : "Live without tobacco - version 0.3 released",
 		  "category"   : "news",
-		  "url"        : "//crepeia.github.com/wati/news/3rdrealease/",
+		  "url"        : "//localhost:4000/news/3rdrealease/",
 		  "date"       : "2015-07-29 00:00:00 -0300",
 		  "shortdate"  : "July 29, 2015"
 		} ,
@@ -59,7 +59,7 @@
 		{
 		  "title"      : "Привет! Russian is now partially supported.",
 		  "category"   : "news",
-		  "url"        : "//crepeia.github.com/wati/news/russian/",
+		  "url"        : "//localhost:4000/news/russian/",
 		  "date"       : "2015-06-22 00:00:00 -0300",
 		  "shortdate"  : "June 22, 2015"
 		} ,
@@ -67,7 +67,7 @@
 		{
 		  "title"      : "Live without tobacco - version 0.2 released",
 		  "category"   : "news",
-		  "url"        : "//crepeia.github.com/wati/news/1strelease/",
+		  "url"        : "//localhost:4000/news/1strelease/",
 		  "date"       : "2013-07-24 00:00:00 -0300",
 		  "shortdate"  : "July 24, 2013"
 		} ,
@@ -75,7 +75,7 @@
 		{
 		  "title"      : "Hallo! System is now being translated into German!",
 		  "category"   : "news",
-		  "url"        : "//crepeia.github.com/wati/news/german/",
+		  "url"        : "//localhost:4000/news/german/",
 		  "date"       : "2013-05-26 00:00:00 -0300",
 		  "shortdate"  : "May 26, 2013"
 		} ,
@@ -83,7 +83,7 @@
 		{
 		  "title"      : "System is ready to translation",
 		  "category"   : "news",
-		  "url"        : "//crepeia.github.com/wati/news/teste/",
+		  "url"        : "//localhost:4000/news/teste/",
 		  "date"       : "2013-05-18 00:00:00 -0300",
 		  "shortdate"  : "May 18, 2013"
 		} ,
@@ -91,7 +91,7 @@
 		{
 		  "title"      : "Live without tobacco - first realease",
 		  "category"   : "news",
-		  "url"        : "//crepeia.github.com/wati/news/code-new-blog/",
+		  "url"        : "//localhost:4000/news/code-new-blog/",
 		  "date"       : "2013-05-01 00:00:00 -0300",
 		  "shortdate"  : "May 01, 2013"
 		} 
