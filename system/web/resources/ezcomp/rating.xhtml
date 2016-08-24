@@ -16,22 +16,23 @@
 
         <div class="row">
             <div class="col s12 m12 l12">
-                <h:form>                                         
-                    <h6 class="grey-text darken-4">#{messages['ratings.question']}</h6>
-                    <br />
-                    <p:commandLink actionListener="#{ratingController.rate}" id="upvote" update="@form">
-                        <h:graphicImage  style="width: 30px" library="default"  name="#{ratingController.imageLike}" alt="#{messages['yes']}"/>
-                        <f:attribute name="button" value="like" />
-                    </p:commandLink>
-                    <p:spacer width="25px"/>
-                    <p:commandLink actionListener="#{ratingController.rate}" id="downvote" update="@form">
-                        <h:graphicImage  style="width: 30px" library="default" name="#{ratingController.imageUnlike}" alt="#{messages['no']}" />
-                        <f:attribute name="button" value="unlike" />
-                    </p:commandLink>
+                <h:form>                   
+                    <div class="chip-custom">
+                        #{messages['ratings.question']}                                        
+                        <p:commandLink actionListener="#{ratingController.rate}" id="upvote" update="@form">
+                            <i class="material-icons" name="#{ratingController.imageLike}" alt="#{messages['yes']}">thumb_up</i>
+                            <!--<h:graphicImage  style="width: 15px" library="default"  name="#{ratingController.imageLike}" alt="#{messages['yes']}"/>-->
+                            <f:attribute name="button" value="like" />
+                        </p:commandLink>                    
+                        <p:commandLink actionListener="#{ratingController.rate}" id="downvote" update="@form">
+                            <i class="material-icons orange-text" name="#{ratingController.imageUnlike}" alt="#{messages['no']}">thumb_down</i>
+                            <!--<h:graphicImage  style="width: 15px" library="default" name="#{ratingController.imageUnlike}" alt="#{messages['no']}" />-->
+                            <f:attribute name="button" value="unlike" />
+                        </p:commandLink>
+                    </div>    
                 </h:form>
 
             </div>
         </div>
-
     </cc:implementation>
 </html>
