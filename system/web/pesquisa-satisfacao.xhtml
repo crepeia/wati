@@ -26,7 +26,6 @@
 
                 <div class="row">                    
                     <h:form>                            
-
                         <h5 class="headertop orange-text text-lighten-2">1. #{messages['satisfaction.scale.q1']}</h5>
                         <h:selectOneRadio  value="#{pesquisaSatisfacao.getPesquisaSatisfacao().q1}" layout="pageDirection">  
                             <f:selectItem itemLabel="#{messages['satisfaction.scale.q1a']}" itemValue="a" />
@@ -87,8 +86,6 @@
                             <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['send']}" update="@form" actionListener="#{pesquisaSatisfacao.savePesquisaSatisfacao()}"/>
                         </div>
                         <h:outputText value="Please fill all the form" style="color: red;" rendered="#{facesContext.validationFailed}" />
-
-
                     </h:form>
                 </div>    
 
