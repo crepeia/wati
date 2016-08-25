@@ -19,16 +19,23 @@
                 <h:form>                   
                     <div class="chip-custom">
                         #{messages['ratings.question']}                                        
-                        <p:commandLink actionListener="#{ratingController.rate}" id="upvote" update="@form">
-                            <i class="material-icons" name="#{ratingController.imageLike}" alt="#{messages['yes']}">thumb_up</i>
+                        <p:commandLink actionListener="#{ratingController.rate}" id="upvote" update="@form" rendered="#{!ratingController.liked}">
+                            <i id="thumb_up" class="material-icons" name="#{ratingController.imageLike}" alt="#{messages['yes']}" >thumb_up</i>
                             <!--<h:graphicImage  style="width: 15px" library="default"  name="#{ratingController.imageLike}" alt="#{messages['yes']}"/>-->
                             <f:attribute name="button" value="like" />
-                        </p:commandLink>                    
-                        <p:commandLink actionListener="#{ratingController.rate}" id="downvote" update="@form">
-                            <i class="material-icons orange-text" name="#{ratingController.imageUnlike}" alt="#{messages['no']}">thumb_down</i>
+                        </p:commandLink> 
+                        <p:outputPanel rendered="#{ratingController.liked}">
+                                <i id="thumb_up" class="material-icons grey-text" name="#{ratingController.imageLike}" alt="#{messages['yes']}" >thumb_up</i>
+                         </p:outputPanel>
+                        <p:commandLink actionListener="#{ratingController.rate}" id="downvote" update="@form" rendered="#{!ratingController.unliked}">
+                            <i id="thumb_down" class="material-icons orange-text" name="#{ratingController.imageUnlike}" alt="#{messages['no']}" onclick="colorDates" >thumb_down</i>
                             <!--<h:graphicImage  style="width: 15px" library="default" name="#{ratingController.imageUnlike}" alt="#{messages['no']}" />-->
                             <f:attribute name="button" value="unlike" />
                         </p:commandLink>
+                        <p:outputPanel rendered="#{ratingController.unliked}">
+                                <i id="thumb_down" class="material-icons orange-text grey-text" name="#{ratingController.imageUnlike}" alt="#{messages['no']}" onclick="colorDates" >thumb_down</i>
+                        </p:outputPanel>
+     
                     </div>    
                 </h:form>
 
