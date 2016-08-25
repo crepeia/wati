@@ -124,4 +124,13 @@ blockquote {
     font-size: 16px;
     line-height: 32px;
     padding-left: 8px;
+    
+}
+
+.chip-custom a {
+    color: darkgrey;
+}
+
+.chip-custom a:hover {
+    color: #2196F3;
 }
