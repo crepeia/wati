@@ -8,7 +8,7 @@
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
     <f:view locale="#{languageController.locale}">
         <h:head>
-            <title>#{messages['ready.depression.titlepage']} - #{messages['vivasemtabaco.title']} </title>
+            <title>#{messages['baseline.h3.1']} - #{messages['vivasemtabaco.title']} </title>
             <w:head_comum />
         </h:head>
 
@@ -475,7 +475,7 @@
 
                         <div class="center">
                             <a class="modal-trigger" href="#HiddenDiv">
-                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['preparando.aed.btn.avaliar']}" update="texto1" process="@form" onclick="javascript:ShowHide('HiddenDiv');"/></a>                             
+                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['send']}" update="texto1" process="@form" onclick="javascript:ShowHide('HiddenDiv');"/></a>                             
                         </div>
 
                         <div class="modal" style="display: none" id="HiddenDiv">
