@@ -131,5 +131,25 @@ public class RatingController extends BaseController<Rating> {
             return "images/unlike-pressed.png";
         }
     }
+    
+    public boolean isLiked() {
+        if (getRating().getRelevant() == null) {
+            return false;
+        } else if (!getRating().getRelevant()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean isUnliked() {
+        if (getRating().getRelevant() == null) {
+            return false;
+        } else if (getRating().getRelevant()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
 }
