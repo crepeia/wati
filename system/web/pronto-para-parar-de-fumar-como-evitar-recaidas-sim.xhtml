@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                             <br />
-
+                            <h4 class="headertop orange-text text-lighten-2">#{messages['pronto.evitar.sim.label.question']}</h4>
                             <h5 class="headertop orange-text text-lighten-2">#{messages['pnad.3']}</h5>
                             <h:selectManyCheckbox  value="#{prontoParaPararController.procPararFumarMarcados}" layout="pageDirection">  
                                 <f:selectItem itemLabel="#{messages['pnad.3.a']}" itemValue="a" />
@@ -61,8 +61,7 @@
                             </h:selectManyCheckbox> 
 
                             <br />
-                            <div class="center">
-                                <h5 class="headertop orange-text text-lighten-2">#{messages['pronto.evitar.sim.label.question']}</h5>
+                            <div class="center">                                
                                 <a class="modal-trigger" href="#HiddenDiv">
                                     <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['preparando.aed.btn.avaliar']}"  actionListener="#{prontoParaPararController.procPararFumar()}" update="hiddenPanel"  process="@all" onclick="javascript:ShowHide('HiddenDiv');"/></a>                             
                             </div>                            

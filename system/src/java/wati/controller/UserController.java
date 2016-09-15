@@ -12,6 +12,7 @@ import static java.lang.Math.random;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.LinkedHashMap;
@@ -52,6 +53,11 @@ public class UserController extends BaseFormController<User> {
     private User user;
 
     private String password;
+    
+    private String editPassword;
+    private int editDia;
+    private int editMes;
+    private int editAno;
 
     private int dia;
     private int mes;
@@ -433,6 +439,70 @@ public class UserController extends BaseFormController<User> {
         }
 
     }
+    
+    public void editProfile() {
+        User user = getLoggedUser();
+        this.showErrorMessage = true;
+       
+        try {
+            user.setBirth(new GregorianCalendar(editAno, editMes, editDia).getTime());
+            user.setDtCadastro(new Date());
+            
+            
+            boolean emailAvailable = true;
+            List<User>  list = dao.list("email", user.getEmail(), getEntityManager());
+            if (!list.isEmpty()) {
+                for(User usr : list){
+                    if(usr.getId() != user.getId()){
+                         emailAvailable = false;
+                         String message = this.getText("email.cadastrado");
+                         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+                    }
+                }
+            } 
+            if(emailAvailable == true) {
+                
+              if(editPassword != null && !editPassword.trim().isEmpty()){
+                        user.setPassword(Encrypter.encrypt(editPassword));
+                }
+              
+              try {
+                        FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+                    } catch (IOException ex) {
+                        Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+            
+                
+              dao.update(user, getEntityManager());
+              editPassword = null;
+              editAno = 0;
+              editMes = 0;
+              editDia = 0;
+            }
+
+        } catch (InvalidKeyException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalBlockSizeException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (BadPaddingException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchAlgorithmException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchPaddingException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        
+        
+    }
 
     public void sendEmailTerm() throws SQLException {
         try {
@@ -495,6 +565,11 @@ public class UserController extends BaseFormController<User> {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
 
         }
+    }
+    
+    @Override
+    public User getLoggedUser(){
+        return super.getLoggedUser();
     }
 
     /**
@@ -629,5 +704,50 @@ public class UserController extends BaseFormController<User> {
     public void setContactController(ContactController contactController) {
         this.contactController = contactController;
     }
+
+    public String getEditPassword() {
+        return editPassword;
+    }
+
+    public void setEditPassword(String editPassword) {
+        this.editPassword = editPassword;
+    }
+
+    public int getEditDia() {
+        Calendar birth = Calendar.getInstance();
+        birth.setTime(getLoggedUser().getBirth());
+        editDia = birth.get(Calendar.DAY_OF_MONTH);
+        return editDia;
+    }
+
+    public void setEditDia(int editDia) {
+        this.editDia = editDia;
+    }
+    
+    public int getEditMes() {
+        Calendar birth = Calendar.getInstance();
+        birth.setTime(getLoggedUser().getBirth());
+        editMes = birth.get(Calendar.MONTH);
+        return editMes;
+    }
+
+    public void setEditMes(int editMes) {
+        this.editMes = editMes;
+    }
+
+    public int getEditAno() {
+        Calendar birth = Calendar.getInstance();
+        birth.setTime(getLoggedUser().getBirth());
+        editAno = birth.get(Calendar.YEAR);
+        return editAno;
+    }
+
+    public void setEditAno(int editAno) {
+        this.editAno = editAno;
+    }
+
+    
+
+   
     
 }

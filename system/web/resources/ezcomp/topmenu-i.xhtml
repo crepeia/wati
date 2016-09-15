@@ -32,8 +32,10 @@
                     <p:messages id="loginMessages" globalOnly="true" />
                 </p:panel>
                 <p:panel  styleClass="left" rendered="#{loginController.showName}">
-                    #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  ::  
+                    #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  :: 
+                    <h:outputLink value="editar-perfil.xhtml">#{messages['edit.profile']}</h:outputLink>::
                     <h:outputLink value="logout.xhtml">#{messages['signout']}</h:outputLink>
+                    
                 </p:panel>
             </div>
         </h:form>
@@ -49,6 +51,7 @@
                     <div class="hide-on-med-and-down" id="userPanel">
                         <p:panel  styleClass="right" rendered="#{loginController.showName}">
                             #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  ::  
+                            <h:outputLink value="editar-perfil.xhtml">#{messages['edit.profile']}</h:outputLink>::
                             <h:outputLink value="logout.xhtml">#{messages['signout']}</h:outputLink>
                         </p:panel>
                     </div>

@@ -61,7 +61,7 @@ public class QuestionnaireController extends BaseController<Questionnaire> {
     
     public List getCigarettes(){
         List<Integer> cigarettes = new ArrayList<>();
-        for(int i=0; i<=150; i++){
+        for(int i=0; i<=130; i++){
             cigarettes.add(i);
         }
         return cigarettes;       
@@ -69,7 +69,7 @@ public class QuestionnaireController extends BaseController<Questionnaire> {
     
     public List getTimesQuit(){
         List<Integer> timesQuit = new ArrayList<>();
-        for(int i=0; i<=10; i++){
+        for(int i=0; i<=30; i++){
             timesQuit.add(i);
         }
         return timesQuit;       
