@@ -159,7 +159,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
             Acompanhamento a = this.getAcompanhamento();
 
             try {
-                String from = "watiufjf@gmail.com";
+                String from = "contato@vivasemtabaco.com.br";
                 String to = user.getEmail();
                 String subject = this.getText("plano.wati");
                 

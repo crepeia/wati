@@ -460,7 +460,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             User user = (User) object;
 
             try {
-                String from = "watiufjf@gmail.com";
+                String from = "contato@vivasemtabaco.com.br";
                 String to = user.getEmail();
                 String subject = this.getText("plano.wati2");
 

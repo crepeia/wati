@@ -61,11 +61,11 @@ public class EMailSSL {
     public void send(String from, String to, String subject, String text, String html, ByteArrayOutputStream pdf, String pdfName) {
         try {
             //Message
-            Message message = new MimeMessage(session);
+            MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
-            message.setSubject(subject);
+            message.setSubject(subject,"utf-8");
             message.setSentDate(new Date());
 
             MimeMultipart mainMultipart = new MimeMultipart("related");
@@ -112,12 +112,12 @@ public class EMailSSL {
 
         try {
 
-            Message message = new MimeMessage(session);
+            MimeMessage message = new MimeMessage(session);
             message.setContent(body, "text/plain; charset=UTF-8");
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
-            message.setSubject(subject);
+            message.setSubject(subject,"utf-8");
 
             Transport.send(message);
 
@@ -149,7 +149,7 @@ public class EMailSSL {
             message.setSender(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
-            message.setSubject(subject);
+            message.setSubject(subject,"utf-8");
             message.setContent(mimeMultipart);
 
             Transport.send(message);
@@ -173,11 +173,11 @@ public class EMailSSL {
     public void send(String from, String to, String subject, String text, String html, ByteArrayOutputStream pdfAttachment) {
         try {
             //Message
-            Message message = new MimeMessage(session);
+            MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
-            message.setSubject(subject);
+            message.setSubject(subject,"utf-8");
             message.setSentDate(new Date());
 
             MimeMultipart mainMultipart = new MimeMultipart("related");
@@ -222,11 +222,11 @@ public class EMailSSL {
 
     public void send(String from, String to, String subject, String content, ByteArrayOutputStream pdf, String pdfName) throws MessagingException {
             //Message
-            Message message = new MimeMessage(session);
+            MimeMessage message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(to));
-            message.setSubject(subject);
+            message.setSubject(subject,"utf-8");
             message.setSentDate(new Date());
 
             MimeMultipart mainMultipart = new MimeMultipart("related");
@@ -272,7 +272,6 @@ public class EMailSSL {
         for (int i = 0; i < tag.length; i++) {
             filledTemplate = filledTemplate.replace(tag[i], content[i]);
         }
-        System.out.println("TEMPLATE:/n" + filledTemplate);
         return filledTemplate;
     }
 

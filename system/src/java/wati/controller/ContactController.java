@@ -44,6 +44,8 @@ public class ContactController extends BaseController implements Serializable {
     private String htmlTemplate;
     private UserDAO userDAO;
     private GenericDAO prontoDAO;
+    
+    private final String SENDER = "contato@vivasemtabaco.com.br"; 
 
     public ContactController() {
         eMailSSL = new EMailSSL();
@@ -62,7 +64,7 @@ public class ContactController extends BaseController implements Serializable {
         String message = (String) event.getComponent().getAttributes().get("msg");
         Contact contact = new Contact();
         contact.setSender(email);
-        contact.setRecipient("watiufjf@gmail.com");
+        contact.setRecipient(SENDER);
         contact.setSubject("Contato via formulario - " + email);
         contact.setContent(message);
         sendPlainTextEmail(contact);
@@ -72,7 +74,7 @@ public class ContactController extends BaseController implements Serializable {
     public void scheduleDifferentDateEmail(User user, Date date) {
         Contact contact = new Contact();
         contact.setUser(user);
-        contact.setSender("watiufjf@gmail.com");
+        contact.setSender(SENDER);
         contact.setRecipient(user.getEmail());
         contact.setSubject("subject.email.followup");
         contact.setContent("msg.data.diferente1");
@@ -85,7 +87,7 @@ public class ContactController extends BaseController implements Serializable {
         for (int i = 1; i <= 3; i++) {
             contact = new Contact();
             contact.setUser(user);
-            contact.setSender("watiufjf@gmail.com");
+            contact.setSender(SENDER);
             contact.setRecipient(user.getEmail());
             contact.setSubject("subject.email.followup");
             if (i == 1) {
@@ -110,7 +112,7 @@ public class ContactController extends BaseController implements Serializable {
         for (int i = 1; i <= 12; i++) {
             contact = new Contact();
             contact.setUser(user);
-            contact.setSender("watiufjf@gmail.com");
+            contact.setSender(SENDER);
             contact.setRecipient(user.getEmail());
             contact.setSubject("subject.email.followup");
             contact.setContent("msg.mensal1");
@@ -125,7 +127,7 @@ public class ContactController extends BaseController implements Serializable {
     public void scheduleDaillyEmail(User user, int day) {
         Contact contact = new Contact();
         contact.setUser(user);
-        contact.setSender("watiufjf@gmail.com");
+        contact.setSender(SENDER);
         contact.setRecipient(user.getEmail());
         contact.setSubject("subject.email.followup");
         contact.setContent("msg.email.twice." + ((day + 1) / 2));
@@ -139,7 +141,7 @@ public class ContactController extends BaseController implements Serializable {
     public void sendPesquisaSatisfacaoEmail(User user) {
         Contact contact = new Contact();
         contact.setUser(user);
-        contact.setSender("watiufjf@gmail.com");
+        contact.setSender(SENDER);
         contact.setRecipient(user.getEmail());
         contact.setSubject("msg.email.satisf.header");
         contact.setContent("msg.satisfaction.body");
@@ -153,7 +155,7 @@ public class ContactController extends BaseController implements Serializable {
             eMailSSL.send(contact.getSender(), contact.getRecipient(), subject, content, contact.getPdf(), contact.getAttachment());
             contact.setDateSent(new Date());
             save(contact);
-            Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Email enviado para:" + contact.getRecipient());
+            Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Email sent to: " + contact.getRecipient());
         } catch (MessagingException ex) {
             Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -164,7 +166,7 @@ public class ContactController extends BaseController implements Serializable {
             eMailSSL.send(contact.getSender(), contact.getRecipient(), contact.getSubject(), contact.getContent(), contact.getPdf(), contact.getAttachment());
             contact.setDateSent(new Date());
             save(contact);
-            Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Email enviado para:" + contact.getRecipient());
+            Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Email sent to: " + contact.getRecipient());
         } catch (MessagingException ex) {
             Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -192,12 +194,17 @@ public class ContactController extends BaseController implements Serializable {
             List<Contact> contacts = daoBase.list(getEntityManager());
             Calendar today = Calendar.getInstance();
             Calendar scheduledDate = Calendar.getInstance();
+            int count = 0;
             for (Contact contact : contacts) {
                 if (contact.getDateScheduled() != null && contact.getDateSent() == null) {
                     scheduledDate.setTime(contact.getDateScheduled());
                     if (today.compareTo(scheduledDate) >= 0) {
                         sendHTMLEmail(contact);
+                        count++;
                     }
+                }
+                if(count >= 99){
+                    break;
                 }
             }
         } catch (SQLException ex) {

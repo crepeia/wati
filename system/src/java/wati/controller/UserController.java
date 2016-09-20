@@ -221,7 +221,7 @@ public class UserController extends BaseFormController<User> {
             } else {
                 String name_user = userList.get(0).getName();
                 String email_user = userList.get(0).getEmail();
-                String from = "watiufjf@gmail.com";
+                String from = "contato@vivasemtabaco.com.br";
 
                 Logger.getLogger(UserController.class.getName()).log(Level.INFO, null, "User name: " + name_user + "\te-mail: " + email_user);
 
@@ -515,7 +515,7 @@ public class UserController extends BaseFormController<User> {
             } else {
                 String email_user = userList.get(0).getEmail();
                 String name_user = userList.get(0).getName();
-                String from = "watiufjf@gmail.com";
+                String from = "contato@vivasemtabaco.com.br";
 
                 //Logger.getLogger(UserController.class.getName()).log(Level.INFO, null, "User name: " + name_user + "\te-mail: " + email_user);
                 String to = this.user.getEmail();
