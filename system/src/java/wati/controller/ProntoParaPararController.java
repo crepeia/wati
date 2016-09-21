@@ -366,8 +366,6 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                     Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 this.prontoParaParar.setUsuario((User) object);
-            } else {
-                Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, this.getText("usuario.preenchendo.ficha"));
             }
         }
 

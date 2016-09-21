@@ -13,6 +13,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.MissingResourceException;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -149,16 +150,18 @@ public class ContactController extends BaseController implements Serializable {
     }
 
     private void sendHTMLEmail(Contact contact) {
-        try {
+        
+        try{    
             String content = getContent(contact);
             String subject = getSubject(contact);
             eMailSSL.send(contact.getSender(), contact.getRecipient(), subject, content, contact.getPdf(), contact.getAttachment());
             contact.setDateSent(new Date());
             save(contact);
             Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Email sent to: " + contact.getRecipient());
-        } catch (MessagingException ex) {
+        } catch (MessagingException | MissingResourceException ex ) {
             Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
     private void sendPlainTextEmail(Contact contact) {
@@ -251,7 +254,7 @@ public class ContactController extends BaseController implements Serializable {
         return htmlMessage;
     }
 
-    private String getSubject(Contact contact) {
+    private String getSubject(Contact contact) throws MissingResourceException {
         ResourceBundle bundle = PropertyResourceBundle.getBundle("wati.utility.messages", new Locale(contact.getUser().getPreferedLanguage()));
         return bundle.getString(contact.getSubject());
     }

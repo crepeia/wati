@@ -273,10 +273,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
                     Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
-            } else {
-                Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, this.getText("usuario.acompanhado"));
-                this.acompanhamento = new Acompanhamento();
-            }
+            } 
 
         }
 
