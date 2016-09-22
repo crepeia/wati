@@ -134,23 +134,27 @@
                                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">#{messages['close']}</a>
                                 </div>
                             </div>
+                            
+                            
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <div class="card grey lighten-5">
+                                    <div class="card-content grey-text darken-4">
+                                        <span class="card-title blue-text darken-3">#{messages['next.step']}</span>
+                                    </div>
+                                    <div class="card-action">
+                                        <a class="tooltipped" data-position="right" data-tooltip="#{messages['ready.depression.titlepage']}" href="./pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml" title="#{messages['ready.depression.titlepage']}">#{messages['back']}</a>
+                                        <h:commandLink id="saveBtn" styleClass="tooltipped" value="#{messages['next']}" title="#{messages['pronto.met.btn.title']}" action="#{prontoParaPararController.evitarRecaidasSim()}"/> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </h:form>
+
                     </div>  
                 </div>             
 
-                <div class="row">
-                    <div class="col s12 m12 l12">
-                        <div class="card grey lighten-5">
-                            <div class="card-content grey-text darken-4">
-                                <span class="card-title blue-text darken-3">#{messages['next.step']}</span>
-                            </div>
-                            <div class="card-action">
-                                <a class="tooltipped" data-position="right" data-tooltip="#{messages['ready.depression.titlepage']}" href="./pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml" title="#{messages['ready.depression.titlepage']}">#{messages['back']}</a>
-                                <a class="tooltipped" data-position="right" data-tooltip="#{messages['pronto.met.btn.title']}" href="pronto-para-parar-de-fumar-como-evitar-recaidas-sim-aprendendo-com-erros.xhtml" title="#{messages['pronto.met.btn.title']}">#{messages['next']}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
                 <div class="section">
                     <div class='row'>

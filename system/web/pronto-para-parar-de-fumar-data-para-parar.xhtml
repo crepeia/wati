@@ -93,11 +93,12 @@
                             <div>
                                 <h5 class="headertop orange-text text-lighten-2">#{messages['plano.receber.emails']}</h5>
 
-                                <h:selectOneRadio id="notificacion" value="#{prontoParaPararController.prontoParaParar.notification}" required="true">  
+                                <h:selectOneRadio label="#{messages['plano.receber.emails']}" id="notificacion" value="#{prontoParaPararController.notification}" required="true">  
                                     <f:selectItem itemLabel="#{messages['plano.receber.emails.op1']}" itemValue="0" />
                                     <f:selectItem itemLabel="#{messages['plano.receber.emails.op2']}" itemValue="1" />
                                     <f:selectItem itemLabel="#{messages['plano.receber.emails.op3']}" itemValue="2" />
                                 </h:selectOneRadio>
+                                <p:message for="notificacion"/>
                             </div>
 
 
@@ -120,7 +121,6 @@
                         </div>
                     </div>
 
-
                     <div class="row">
                         <div class="col s12 m12 l12">
                             <div class="card grey lighten-5">
@@ -129,7 +129,7 @@
                                     <p>#{messages['pronto.evitar.estrat.h1.1']}</p>
                                 </div>
                                 <div class="card-action">
-                                    <a class="tooltipped" data-position="right" data-tooltip="#{messages['pronto.meds.h1.1']}" href="./pronto-para-parar-de-fumar-metodos-de-parar.xhtml" title="#{messages['pronto.meds.h1.1']}">#{messages['back']}</a>
+                                    <a class="tooltipped" data-position="right" data-tooltip="#{messages['pronto.meds.h1.1']}" href="./pronto-para-parar-de-fumar-medicamentos.xhtml" title="#{messages['pronto.meds.h1.1']}">#{messages['back']}</a>
                                     <h:commandLink class="tooltipped" action="#{prontoParaPararController.dataParaParar}" title="#{messages['pronto.evitar.full.h1.1']}">#{messages['next']}</h:commandLink>
                                 </div>
                             </div>

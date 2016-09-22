@@ -83,7 +83,7 @@ public class ContactController extends BaseController implements Serializable {
         save(contact);
     }
 
-    public void scheduleWeeklyEmail(User user) {
+    public void scheduleWeeklyEmail(User user, Date date) {
         Contact contact;
         for (int i = 1; i <= 3; i++) {
             contact = new Contact();
@@ -101,14 +101,14 @@ public class ContactController extends BaseController implements Serializable {
                 contact.setContent("msg.terceira.semana1");
             }
             Calendar cal = Calendar.getInstance();
-            cal.setTime(user.getProntoParaParar().getDataParar());
+            cal.setTime(date);
             cal.add(Calendar.DATE, 7 * i);
             contact.setDateScheduled(cal.getTime());
             save(contact);
         }
     }
 
-    public void scheduleMonthlyEmail(User user) {
+    public void scheduleMonthlyEmail(User user, Date date) {
         Contact contact;
         for (int i = 1; i <= 12; i++) {
             contact = new Contact();
@@ -118,14 +118,14 @@ public class ContactController extends BaseController implements Serializable {
             contact.setSubject("subject.email.followup");
             contact.setContent("msg.mensal1");
             Calendar cal = Calendar.getInstance();
-            cal.setTime(user.getProntoParaParar().getDataParar());
+            cal.setTime(date);
             cal.add(Calendar.MONTH, i);
             contact.setDateScheduled(cal.getTime());
             save(contact);
         }
     }
 
-    public void scheduleDaillyEmail(User user, int day) {
+    public void scheduleDaillyEmail(User user, Date date,int day) {
         Contact contact = new Contact();
         contact.setUser(user);
         contact.setSender(SENDER);
@@ -133,7 +133,7 @@ public class ContactController extends BaseController implements Serializable {
         contact.setSubject("subject.email.followup");
         contact.setContent("msg.email.twice." + ((day + 1) / 2));
         Calendar cal = Calendar.getInstance();
-        cal.setTime(user.getProntoParaParar().getDataParar());
+        cal.setTime(date);
         cal.add(Calendar.DATE, day);
         contact.setDateScheduled(cal.getTime());
         save(contact);
