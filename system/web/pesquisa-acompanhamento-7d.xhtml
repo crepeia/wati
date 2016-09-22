@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html lang="pt,en,es,de,ru" xml:lang="pt,en,es,de,ru"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
+    <f:view locale="#{languageController.locale}">
+        <h:head>
+            <title>7-day follow-up </title>
+            <w:head_comum />
+        </h:head>
+
+        <h:body>
+            <w:topmenu-i loginRequired="true"/>
+            <w:leftmenu_2/>
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col l12 m12 s12">                
+                        <h3 class="headertop orange-text text-lighten-2">7-day-follow-up</h3>
+                        <p>We'd like to know a bit more about your progress in quit smoking.</p>
+                    </div>
+                </div>                         
+
+                <div class="row">
+
+                    <h:form>    
+                        <h5 class="headertop orange-text text-lighten-2">Have you smoked, even a puff, in the last 7 days?</h5>
+                        <h:selectOneRadio value="" required="true" layout="lineDirection">
+                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
+                            <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
+                        </h:selectOneRadio>
+
+                        <h5 class="headertop orange-text text-lighten-2">During the past 7 days, on those days that you smoked, what was the average number of cigarettes smoked per day?</h5>
+                        <h:selectOneMenu   value="#{questionnaireController.questionnaire.triedQuit}" required="true" styleClass="browser-default">  
+                            <f:selectItems value="#{questionnaireController.timesQuit}"/>  
+                        </h:selectOneMenu>
+
+                        <h5 class="headertop orange-text text-lighten-2">How many times have you seriously tried to quit for at least 24 hours?</h5>
+                        <h:selectOneMenu   value="#{questionnaireController.questionnaire.triedQuit}" required="true" styleClass="browser-default">  
+                            <f:selectItems value="#{questionnaireController.timesQuit}"/>  
+                        </h:selectOneMenu>
+
+                        <h5 class="headertop orange-text text-lighten-2">Have you used any other tobacco products in the last seven days</h5>
+                        <h:selectOneRadio value="" required="true" layout="lineDirection">
+                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
+                            <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
+                        </h:selectOneRadio>
+
+
+                        <h5 class="headertop orange-text text-lighten-2">What was the longest time in days you went without smoking even one puff?</h5>
+                        <h:selectOneMenu value="#{questionnaireController.questionnaire.triedQuit}" required="true" styleClass="browser-default">  
+                            <f:selectItems value="#{questionnaireController.timesQuit}"/>  
+                        </h:selectOneMenu>
+
+                        <h5 class="headertop orange-text text-lighten-2">If you still smoke, on average, how many cigarettes do you smoke per day?</h5>
+                        <h:selectOneMenu value="#{questionnaireController.questionnaire.triedQuit}" required="true" styleClass="browser-default">  
+                            <f:selectItems value="#{questionnaireController.timesQuit}"/>  
+                        </h:selectOneMenu>
+
+                        <h5 class="headertop orange-text text-lighten-2">Since you had visited "Live without Tobacco", what you used, if anything, to try to quit smoking?</h5>
+                        <h:selectManyCheckbox styleClass="filled-in" value="" layout="pageDirection" >            
+                            <f:selectItem itemLabel="Counseling by health professionals including clinical smoking cessation" itemValue="1" />  
+                            <f:selectItem itemLabel="Nicotine replacement with: patch, gum, nasal spray, inhaler or lozenge" itemValue="2" />  
+                            <f:selectItem itemLabel="Other medications with prescription" itemValue="3" />         
+                            <f:selectItem itemLabel="Homeopathy, acupuncture" itemValue="4" />         
+                            <f:selectItem itemLabel="Teas, herbs or medicinal plants" itemValue="5" />         
+                            <f:selectItem itemLabel="Telephone helpline to quit smoking" itemValue="6" />         
+                            <f:selectItem itemLabel="Websites that help smokers quitting" itemValue="7" />         
+                            <f:selectItem itemLabel="Replaced it with other tobacco product that does not produce smoke" itemValue="8" />         
+                        </h:selectManyCheckbox>                         
+
+                        <div class="center">
+                            <a class="modal-trigger" href="#HiddenDiv">
+                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['send']}" update="texto1" process="@form" onclick="javascript:ShowHide('HiddenDiv');"/></a>                             
+                        </div>
+
+                        <div class="modal" style="display: none" id="HiddenDiv">
+                            <div class="modal-content">
+                                <h2><h:outputText value="#{messages['baseline.feedback.h']}"/></h2>
+                                <h:outputText id="texto1" value="#{messages['baseline.feedback.p']}" />
+                            </div>
+                            <div class="modal-footer">
+                                <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}" update="@form" action="#{questionnaireController.saveQuestionnaire()}"/>
+                            </div>
+                            <h:outputText value="#{messages['baseline.error.msg']}" style="color: red;" rendered="#{facesContext.validationFailed}" />    
+                        </div>                                      
+                    </h:form>
+                </div>
+                <div class="section">
+                    <div class='row'>
+                        <div class="col s12 m12 l12">
+                            <p class="grey-text">#{messages['update.date']}</p>                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <w:footer />
+            <script language="JavaScript">
+                function ShowHide(divId)
+                {
+                    if (document.getElementById(divId).style.display == 'none')
+                    {
+                        document.getElementById(divId).style.display = 'block';
+                    }
+                }
+            </script>
+        </h:body>
+    </f:view>
+</html>

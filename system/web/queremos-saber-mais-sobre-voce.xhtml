@@ -46,7 +46,7 @@
                         </h:selectOneRadio > 
                         <h5 class="headertop orange-text text-lighten-2">1 - #{messages['sd.1']}</h5>
                         <div class="col l12 m12 s12 ">
-                            <h:selectOneMenu id="day" value="#{questionnaireController.questionnaire.country}" styleClass="browser-default"  label="#{messages['naccount.day']}">
+                            <h:selectOneMenu id="baseline_country" value="#{questionnaireController.questionnaire.country}" styleClass="browser-default"  label="#{messages['naccount.day']}">
                                 <f:selectItem itemValue="BR" itemLabel="Brasil" />
                                 <f:selectItem itemValue="PT" itemLabel="Portugal" />
                                 <f:selectItem itemValue="RU" itemLabel="Russian Federation" />
@@ -304,7 +304,7 @@
 
                         <h5 class="headertop orange-text text-lighten-2">2 - #{messages['sd.2']}</h5>
 
-                        <h:selectOneRadio id="sd2" value="#{questionnaireController.questionnaire.education}" required="true" layout="pageDirection">
+                        <h:selectOneRadio id="baseline_education" value="#{questionnaireController.questionnaire.education}" required="true" layout="pageDirection">
                             <f:selectItem itemLabel="#{messages['sd.2.a']}" itemValue="1"/>
                             <f:selectItem itemLabel="#{messages['sd.2.b']}" itemValue="2"/>
                             <f:selectItem itemLabel="#{messages['sd.2.c']}" itemValue="3"/>
@@ -328,7 +328,7 @@
                         </h:selectOneMenu>
 
                         <br />
-                        <h5 class="headertop orange-text text-lighten-2">5 - #{messages['pnad.3']}</h5>
+                        <h5 class="headertop orange-text text-lighten-2">5 - #{messages['bas.quitmethods']}</h5>
                         <p>#{messages['pnad.3.a']} </p>
                         <h:selectOneRadio id="p1"  value="#{questionnaireController.questionnaire.procedure1}" required="true" layout="lineDirection">
                             <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
