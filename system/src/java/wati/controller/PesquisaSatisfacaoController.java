@@ -66,7 +66,6 @@ public class PesquisaSatisfacaoController extends BaseController<PesquisaSatisfa
     }
 
     public void savePesquisaSatisfacao() {
-        System.out.println("ok");
         try {
             daoBase.insertOrUpdate(getPesquisaSatisfacao(), getEntityManager());
             FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
