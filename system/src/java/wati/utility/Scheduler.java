@@ -48,7 +48,7 @@ public class Scheduler {
         contactController.sendScheduledEmails();
     }
     
-    @Schedule(second = "0", minute = "0", hour = "12", dayOfWeek = "*")
+    @Schedule(second = "0", minute = "30", hour = "12", dayOfWeek = "*")
     public void noonTask() {
         Logger.getLogger(Scheduler.class.getName()).log(Level.INFO, "Noon task running");
         contactController.sendScheduledEmails();

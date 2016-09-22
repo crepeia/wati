@@ -4,9 +4,7 @@
  */
 package wati.controller;
 
-import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Chapter;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -17,19 +15,12 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Color;
-import java.io.ByteArrayOutputStream;
-import java.net.URL;
-import org.primefaces.model.StreamedContent;
-import java.awt.Color;
-import java.io.ByteArrayInputStream;
 import java.net.URL;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
-import org.primefaces.model.DefaultStreamedContent;
 
 import java.sql.SQLException;
 import java.util.GregorianCalendar;
@@ -41,11 +32,9 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.naming.NamingException;
-import org.primefaces.context.RequestContext;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
 import wati.model.Acompanhamento;
-import wati.model.ProntoParaParar;
 import wati.model.User;
 import wati.persistence.GenericDAO;
 import wati.utility.EMailSSL;
@@ -70,7 +59,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
     public ParouDeFumarController() {
         //super(Acompanhamento.class);
         try {
-            this.daoBase = new GenericDAO<Acompanhamento>(Acompanhamento.class);
+            this.daoBase = new GenericDAO<>(Acompanhamento.class);
         } catch (NamingException ex) {
             String message = this.getText("message.error");
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
@@ -88,12 +77,12 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
             this.getDaoBase().insertOrUpdate(a, this.getEntityManager());
 
             if (a.getRecaida() == 1) {
-                return "parou-de-fumar-acompanhamento-recaidas-identificar-motivos.xhtml";
+                return "parou-de-fumar-acompanhamento-recaidas-identificar-motivos.xhtml?faces-redirect=true";
             } else if (a.getRecaida() == 0) {
-                return "parou-de-fumar-acompanhamento-lapso.xhtml";
-                //"parou-de-fumar-acompanhamento-lapso-identificar-fatores-recaida.xhtml";
+                return "parou-de-fumar-acompanhamento-lapso.xhtml?faces-redirect=true";
+                //"parou-de-fumar-acompanhamento-lapso-identificar-fatores-recaida.xhtml?faces-redirect=true";
             } else if (a.getRecaida() == 2) {
-                return "parou-de-fumar-acompanhamento-estou-sem-fumar.xhtml";
+                return "parou-de-fumar-acompanhamento-estou-sem-fumar.xhtml?faces-redirect=true";
             } else {
                 return null;
             }
@@ -112,7 +101,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
         try {
 
             this.getDaoBase().insertOrUpdate(a, this.getEntityManager());
-            return "parou-de-fumar-acompanhamento-lapso-identificar-fatores-recaida.xhtml";
+            return "parou-de-fumar-acompanhamento-lapso-identificar-fatores-recaida.xhtml?faces-redirect=true";
 
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
@@ -130,9 +119,9 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
 
             this.getDaoBase().insertOrUpdate(a, this.getEntityManager());
             if (isRelapseDeal11() || isRelapseDeal22() || isRelapseDeal33() || isRelapseSituation11() || isRelapseSituation22() || isRelapseSituation33()) {
-                return "parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida.xhtml";
+                return "parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida.xhtml?faces-redirect=true";
             } else {
-                return "parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-padrao.xhtml";
+                return "parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-padrao.xhtml?faces-redirect=true";
             }
 
         } catch (SQLException ex) {
@@ -179,15 +168,15 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
                 EMailSSL eMailSSL = new EMailSSL();
                 
                 eMailSSL.send(from, to, subject, text, html, pdf);
-
-                Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.INFO, this.getText("plano.enviado") + user.getEmail() + ".");
+                
+                String message = "Relapse plan sent to " + user.getEmail();
+                Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.INFO, message);
                 //message to the user
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, this.getText("email.enviado"), null));
 
             } catch (Exception ex) {
 
-                Logger.getLogger(ParouDeFumarController.class.getName()).log(Level.SEVERE, this.getText("problemas.enviar.email") + user.getEmail() + ".");
-                //message to the user
+
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.enviar.email2"), null));
 
             }
@@ -195,9 +184,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
         }
     }
 
-    /**
-     * @param recaida the recaida to set
-     */
+  
     public void setRelapse(String relapse) {
         this.relapse = relapse;
     }
