@@ -41,21 +41,21 @@ public class Questionnaire implements Serializable {
     @Column(name = "tried_quit")
     private Integer triedQuit;
     @Column(name = "procedure_1")
-    private Boolean procedure1;
+    private boolean procedure1;
     @Column(name = "procedure_2")
-    private Boolean procedure2;
+    private boolean procedure2;
     @Column(name = "procedure_3")
-    private Boolean procedure3;
+    private boolean procedure3;
     @Column(name = "procedure_4")
-    private Boolean procedure4;
+    private boolean procedure4;
     @Column(name = "procedure_5")
-    private Boolean procedure5;
+    private boolean procedure5;
     @Column(name = "procedure_6")
-    private Boolean procedure6;
+    private boolean procedure6;
     @Column(name = "procedure_7")
-    private Boolean procedure7;
+    private boolean procedure7;
     @Column(name = "procedure_8")
-    private Boolean procedure8;
+    private boolean procedure8;
     @Column(name = "dependency_level_1")
     private Integer dependencyLevel1;
     @Column(name = "dependency_level_2")
@@ -160,72 +160,7 @@ public class Questionnaire implements Serializable {
     public void setTriedQuit(Integer triedQuit) {
         this.triedQuit = triedQuit;
     }
-
-    public Boolean getProcedure1() {
-        return procedure1;
-    }
-
-    public void setProcedure1(Boolean procedure1) {
-        this.procedure1 = procedure1;
-    }
-
-    public Boolean getProcedure2() {
-        return procedure2;
-    }
-
-    public void setProcedure2(Boolean procedure2) {
-        this.procedure2 = procedure2;
-    }
-
-    public Boolean getProcedure3() {
-        return procedure3;
-    }
-
-    public void setProcedure3(Boolean procedure3) {
-        this.procedure3 = procedure3;
-    }
-
-    public Boolean getProcedure4() {
-
-        return procedure4;
-    }
-
-    public void setProcedure4(Boolean procedure4) {
-        this.procedure4 = procedure4;
-    }
-
-    public Boolean getProcedure5() {
-        return procedure5;
-    }
-
-    public void setProcedure5(Boolean procedure5) {
-        this.procedure5 = procedure5;
-    }
-
-    public Boolean getProcedure6() {
-        return procedure6;
-    }
-
-    public void setProcedure6(Boolean procedure6) {
-        this.procedure6 = procedure6;
-    }
-
-    public Boolean getProcedure7() {
-        return procedure7;
-    }
-
-    public void setProcedure7(Boolean procedure7) {
-        this.procedure7 = procedure7;
-    }
-
-    public Boolean getProcedure8() {
-        return procedure8;
-    }
-
-    public void setProcedure8(Boolean procedure8) {
-        this.procedure8 = procedure8;
-    }
-
+    
     public Integer getDependencyLevel1() {
         return dependencyLevel1;
     }
@@ -369,6 +304,72 @@ public class Questionnaire implements Serializable {
     public void setBaseline7(boolean baseline7) {
         this.baseline7 = baseline7;
     }
+
+    public boolean isProcedure1() {
+        return procedure1;
+    }
+
+    public void setProcedure1(boolean procedure1) {
+        this.procedure1 = procedure1;
+    }
+
+    public boolean isProcedure2() {
+        return procedure2;
+    }
+
+    public void setProcedure2(boolean procedure2) {
+        this.procedure2 = procedure2;
+    }
+
+    public boolean isProcedure3() {
+        return procedure3;
+    }
+
+    public void setProcedure3(boolean procedure3) {
+        this.procedure3 = procedure3;
+    }
+
+    public boolean isProcedure4() {
+        return procedure4;
+    }
+
+    public void setProcedure4(boolean procedure4) {
+        this.procedure4 = procedure4;
+    }
+
+    public boolean isProcedure5() {
+        return procedure5;
+    }
+
+    public void setProcedure5(boolean procedure5) {
+        this.procedure5 = procedure5;
+    }
+
+    public boolean isProcedure6() {
+        return procedure6;
+    }
+
+    public void setProcedure6(boolean procedure6) {
+        this.procedure6 = procedure6;
+    }
+
+    public boolean isProcedure7() {
+        return procedure7;
+    }
+
+    public void setProcedure7(boolean procedure7) {
+        this.procedure7 = procedure7;
+    }
+
+    public boolean isProcedure8() {
+        return procedure8;
+    }
+
+    public void setProcedure8(boolean procedure8) {
+        this.procedure8 = procedure8;
+    }
+    
+    
     
     
 
