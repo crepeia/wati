@@ -484,7 +484,7 @@
                                 <h:outputText id="texto1" value="#{messages['baseline.feedback.p']}" />
                             </div>
                             <div class="modal-footer">
-                                <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}" update="@form" action="#{questionnaireController.saveQuestionnaire()}"/>
+                                <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}" update="@form" actionListener="#{questionnaireController.saveQuestionnaire()}" action="research-baseline.xhtml?faces-redirect=true"/>
                             </div>
                             <h:outputText value="#{messages['baseline.error.msg']}" style="color: red;" rendered="#{facesContext.validationFailed}" />    
                         </div>

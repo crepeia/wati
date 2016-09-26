@@ -4,11 +4,8 @@
  */
 package wati.controller;
 
-import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.io.IOException;
-import static java.lang.Math.pow;
 import java.util.Random;
-import static java.lang.Math.random;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
@@ -19,8 +16,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.PropertyResourceBundle;
-import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.crypto.BadPaddingException;
@@ -30,7 +25,6 @@ import javax.el.ELContext;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -53,7 +47,7 @@ public class UserController extends BaseFormController<User> {
     private User user;
 
     private String password;
-    
+
     private String editPassword;
     private int editDia;
     private int editMes;
@@ -78,7 +72,7 @@ public class UserController extends BaseFormController<User> {
     private EntityManager entityManager = null;
 
     private GenericDAO dao = null;
-    
+
     @ManagedProperty(value = "#{contactController}")
     private ContactController contactController;
 
@@ -363,7 +357,7 @@ public class UserController extends BaseFormController<User> {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
             } else {
 
-                if (user.getId() == 0) {
+                /*if (user.getId() == 0) {
 
                     //incluir criptografia da senha
                     this.user.setPassword(Encrypter.encrypt(this.password));
@@ -382,7 +376,8 @@ public class UserController extends BaseFormController<User> {
                         Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
-                }
+                }*/
+                this.user.setPassword(Encrypter.encrypt(this.password));
 
                 Locale locale = (Locale) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("locale");
                 if (locale == null) {
@@ -393,27 +388,31 @@ public class UserController extends BaseFormController<User> {
 
                 super.save(actionEvent, entityManager);
 
-                this.sendEmailTerm();
+                try {
+                    this.sendEmailTerm();
+                } catch (Exception ex) {
+                    Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, "Erro sending term emai to: " + user.getEmail());
 
-                if (user.isReceiveEmails()) {
-                    contactController.sendPesquisaSatisfacaoEmail(user);
-                    user.setPesquisaEnviada(true);
                 }
-                //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage( FacesMessage.SEVERITY_INFO, "Usuário criado com sucesso.", null ));
+
+                try {
+                    if (user.isReceiveEmails()) {
+                        contactController.sendPesquisaSatisfacaoEmail(user);
+                        user.setPesquisaEnviada(true);
+                    }
+                } catch (Exception ex) {
+                    Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, "Erro sending satisfaction email to: " + user.getEmail());
+
+                }
+
                 ELContext elContext = FacesContext.getCurrentInstance().getELContext();
                 LoginController login = (LoginController) FacesContext.getCurrentInstance().getApplication().getELResolver().getValue(elContext, null, "loginController");
                 login.setShowName(true);
                 login.setUser(user);
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
-                //login.loginDialog();
-                String url;
-                url = this.GrupoPaginaDestino();
-                try {
-                    FacesContext.getCurrentInstance().getExternalContext().redirect(url);
-                } catch (IOException ex) {
-                    //
-                }
-                ////////
+                
+                FacesContext.getCurrentInstance().getExternalContext().redirect("queremos-saber-mais-sobre-voce.xhtml");
+            
                 this.clear();
             }
 
@@ -435,49 +434,48 @@ public class UserController extends BaseFormController<User> {
         } catch (SQLException ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-
+        } catch (IOException ex) {
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
-    
+
     public void editProfile() {
         User user = getLoggedUser();
         this.showErrorMessage = true;
-       
+
         try {
             user.setBirth(new GregorianCalendar(editAno, editMes, editDia).getTime());
             user.setDtCadastro(new Date());
-            
-            
+
             boolean emailAvailable = true;
-            List<User>  list = dao.list("email", user.getEmail(), getEntityManager());
+            List<User> list = dao.list("email", user.getEmail(), getEntityManager());
             if (!list.isEmpty()) {
-                for(User usr : list){
-                    if(usr.getId() != user.getId()){
-                         emailAvailable = false;
-                         String message = this.getText("email.cadastrado");
-                         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+                for (User usr : list) {
+                    if (usr.getId() != user.getId()) {
+                        emailAvailable = false;
+                        String message = this.getText("email.cadastrado");
+                        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
                     }
                 }
-            } 
-            if(emailAvailable == true) {
-                
-              if(editPassword != null && !editPassword.trim().isEmpty()){
-                        user.setPassword(Encrypter.encrypt(editPassword));
+            }
+            if (emailAvailable == true) {
+
+                if (editPassword != null && !editPassword.trim().isEmpty()) {
+                    user.setPassword(Encrypter.encrypt(editPassword));
                 }
-              
-              try {
-                        FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
-                    } catch (IOException ex) {
-                        Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-            
-                
-              dao.update(user, getEntityManager());
-              editPassword = null;
-              editAno = 0;
-              editMes = 0;
-              editDia = 0;
+
+                try {
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+                } catch (IOException ex) {
+                    Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                dao.update(user, getEntityManager());
+                editPassword = null;
+                editAno = 0;
+                editMes = 0;
+                editDia = 0;
             }
 
         } catch (InvalidKeyException ex) {
@@ -500,8 +498,7 @@ public class UserController extends BaseFormController<User> {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
 
         }
-        
-        
+
     }
 
     public void sendEmailTerm() throws SQLException {
@@ -566,9 +563,9 @@ public class UserController extends BaseFormController<User> {
 
         }
     }
-    
+
     @Override
-    public User getLoggedUser(){
+    public User getLoggedUser() {
         return super.getLoggedUser();
     }
 
@@ -723,7 +720,7 @@ public class UserController extends BaseFormController<User> {
     public void setEditDia(int editDia) {
         this.editDia = editDia;
     }
-    
+
     public int getEditMes() {
         Calendar birth = Calendar.getInstance();
         birth.setTime(getLoggedUser().getBirth());
@@ -746,8 +743,4 @@ public class UserController extends BaseFormController<User> {
         this.editAno = editAno;
     }
 
-    
-
-   
-    
 }
