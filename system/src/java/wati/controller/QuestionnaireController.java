@@ -40,6 +40,16 @@ public class QuestionnaireController extends BaseController<Questionnaire> {
     private static final char baseline6 = 'f';
     private static final char baseline7 = 'g';
     
+    private String[] procMetodosMarcados = null;
+    private static final char procedure1 = 'a';
+    private static final char procedure2 = 'b';
+    private static final char procedure3 = 'c';
+    private static final char procedure4 = 'd';
+    private static final char procedure5 = 'e';
+    private static final char procedure6 = 'f';
+    private static final char procedure7 = 'g';
+    private static final char procedure8 = 'h';
+    
     public QuestionnaireController(){
         try {
             daoBase = new GenericDAO<>(Questionnaire.class);
@@ -180,6 +190,77 @@ public class QuestionnaireController extends BaseController<Questionnaire> {
             System.out.println(s);
         }
 
+    }
+    
+    public String[] getProcMetodosMarcados() {
+        if (this.procMetodosMarcados == null) {
+            Questionnaire q= this.getQuestionnaire();
+            int count = 0;
+            if (q.isProcedure1()) {
+                count++;
+            }
+            if (q.isProcedure2()) {
+                count++;
+            }
+            if (q.isProcedure3()) {
+                count++;
+            }
+            if (q.isProcedure4()) {
+                count++;
+            }
+            if (q.isProcedure5()) {
+                count++;
+            }
+            if (q.isProcedure6()) {
+                count++;
+            }
+            if (q.isProcedure7()) {
+                count++;
+            }
+            if(q.isProcedure8()) {
+                count++;
+            }
+
+            this.procMetodosMarcados = new String[count];
+            count = 0;
+            if (q.isProcedure1()){
+                this.procMetodosMarcados[count] = String.valueOf(QuestionnaireController.procedure1);
+                count++;
+            }
+            if (q.isProcedure2()){
+                this.procMetodosMarcados[count] = String.valueOf(QuestionnaireController.procedure2);
+                count++;
+            }
+            if (q.isProcedure3()){
+                this.procMetodosMarcados[count] = String.valueOf(QuestionnaireController.procedure3);
+                count++;
+            }
+            if (q.isProcedure4()){
+                this.procMetodosMarcados[count] = String.valueOf(QuestionnaireController.procedure4);
+                count++;
+            }
+            if (q.isProcedure5()){
+                this.procMetodosMarcados[count] = String.valueOf(QuestionnaireController.procedure5);
+                count++;
+            }
+            if (q.isProcedure6()){
+                this.procMetodosMarcados[count] = String.valueOf(QuestionnaireController.procedure6);
+                count++;
+            }
+            if (q.isProcedure7()){
+                this.procMetodosMarcados[count] = String.valueOf(QuestionnaireController.procedure7);
+                count++;
+            }
+            if (q.isProcedure8()){
+                this.procMetodosMarcados[count] = String.valueOf(QuestionnaireController.procedure8);
+                count++;
+            }
+        }
+        return procMetodosMarcados;
+    }
+    
+    public void setProcMetodosMarcados(String[] procMetodosMarcados){
+        this.procMetodosMarcados = procMetodosMarcados;
     }
     
 }
