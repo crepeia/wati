@@ -79,8 +79,21 @@ public class Questionnaire implements Serializable {
     @Column(name ="alcohol_use_3")
     private Integer alcoholUse3;
     
+    @Column(name ="baseline_1")
+    private boolean baseline1;
+    @Column(name ="baseline_2")
+    private boolean baseline2;
+    @Column(name ="baseline_3")
+    private boolean baseline3;
+    @Column(name ="baseline_4")
+    private boolean baseline4;
+    @Column(name ="baseline_5")
+    private boolean baseline5;
+    @Column(name ="baseline_6")
+    private boolean baseline6;
+    @Column(name ="baseline_7")
+    private boolean baseline7;
     
-
     @OneToOne
     private User user;
 
@@ -299,6 +312,62 @@ public class Questionnaire implements Serializable {
 
     public void setAlcoholUse3(Integer alcoholUse3) {
         this.alcoholUse3 = alcoholUse3;
+    }
+
+    public boolean isBaseline1() {
+        return baseline1;
+    }
+
+    public void setBaseline1(boolean baseline1) {
+        this.baseline1 = baseline1;
+    }
+
+    public boolean isBaseline2() {
+        return baseline2;
+    }
+
+    public void setBaseline2(boolean baseline2) {
+        this.baseline2 = baseline2;
+    }
+
+    public boolean isBaseline3() {
+        return baseline3;
+    }
+
+    public void setBaseline3(boolean baseline3) {
+        this.baseline3 = baseline3;
+    }
+
+    public boolean isBaseline4() {
+        return baseline4;
+    }
+
+    public void setBaseline4(boolean baseline4) {
+        this.baseline4 = baseline4;
+    }
+
+    public boolean isBaseline5() {
+        return baseline5;
+    }
+
+    public void setBaseline5(boolean baseline5) {
+        this.baseline5 = baseline5;
+    }
+
+    public boolean isBaseline6() {
+        return baseline6;
+    }
+
+    public void setBaseline6(boolean baseline6) {
+        this.baseline6 = baseline6;
+    }
+
+    public boolean isBaseline7() {
+        return baseline7;
+    }
+
+    public void setBaseline7(boolean baseline7) {
+        this.baseline7 = baseline7;
     }
     
     

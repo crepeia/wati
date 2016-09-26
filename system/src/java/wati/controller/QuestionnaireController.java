@@ -30,7 +30,17 @@ public class QuestionnaireController extends BaseController<Questionnaire> {
     private Questionnaire questionnaire;
     private GenericDAO daoUser;
 
-    public QuestionnaireController() {
+    
+    private String[] procKnowWebSiteMarcados = null;
+    private static final char baseline1 = 'a';
+    private static final char baseline2 = 'b';
+    private static final char baseline3 = 'c';
+    private static final char baseline4 = 'd';
+    private static final char baseline5 = 'e';
+    private static final char baseline6 = 'f';
+    private static final char baseline7 = 'g';
+    
+    public QuestionnaireController(){
         try {
             daoBase = new GenericDAO<>(Questionnaire.class);
             daoUser = new GenericDAO<>(User.class);
@@ -98,4 +108,78 @@ public class QuestionnaireController extends BaseController<Questionnaire> {
         return timesQuit;
     }
 
+    
+     public String[] getProcKnowWebSiteMarcados() {
+        if (this.procKnowWebSiteMarcados == null) {
+            Questionnaire q= this.getQuestionnaire();
+            int count = 0;
+            if (q.isBaseline1()) {
+                count++;
+            }
+            if (q.isBaseline2()) {
+                count++;
+            }
+            if (q.isBaseline3()) {
+                count++;
+            }
+            if (q.isBaseline4()) {
+                count++;
+            }
+            if (q.isBaseline5()) {
+                count++;
+            }
+            if (q.isBaseline6()) {
+                count++;
+            }
+            if (q.isBaseline7()) {
+                count++;
+            }
+
+            this.procKnowWebSiteMarcados = new String[count];
+            count = 0;
+            if (q.isBaseline1()){
+                this.procKnowWebSiteMarcados[count] = String.valueOf(QuestionnaireController.baseline1);
+                count++;
+            }
+            if (q.isBaseline2()){
+                this.procKnowWebSiteMarcados[count] = String.valueOf(QuestionnaireController.baseline2);
+                count++;
+            }
+            if (q.isBaseline3()){
+                this.procKnowWebSiteMarcados[count] = String.valueOf(QuestionnaireController.baseline3);
+                count++;
+            }
+            if (q.isBaseline4()){
+                this.procKnowWebSiteMarcados[count] = String.valueOf(QuestionnaireController.baseline4);
+                count++;
+            }
+            if (q.isBaseline5()){
+                this.procKnowWebSiteMarcados[count] = String.valueOf(QuestionnaireController.baseline5);
+                count++;
+            }
+            if (q.isBaseline6()){
+                this.procKnowWebSiteMarcados[count] = String.valueOf(QuestionnaireController.baseline6);
+                count++;
+            }
+            if (q.isBaseline7()){
+                this.procKnowWebSiteMarcados[count] = String.valueOf(QuestionnaireController.baseline7);
+                count++;
+            }
+
+        }
+
+        return procKnowWebSiteMarcados;
+    }
+
+    public void setprocKnowWebSiteMarcados(String[] procKnowWebSiteMarcados) {
+        this.procKnowWebSiteMarcados = procKnowWebSiteMarcados;
+    }
+
+    public void teste() {
+        for (String s : this.procKnowWebSiteMarcados) {
+            System.out.println(s);
+        }
+
+    }
+    
 }

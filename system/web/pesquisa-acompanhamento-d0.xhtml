@@ -8,7 +8,7 @@
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
     <f:view locale="#{languageController.locale}">
         <h:head>
-            <title>Baseline</title>
+            <title>#{messages['baseline.h3.2']}</title>
             <w:head_comum />
         </h:head>
 
@@ -20,47 +20,24 @@
 
                 <div class="row">
                     <div class="col l12 m12 s12">                
-                        <h3 class="headertop orange-text text-lighten-2">Research Baseline <!--#{messages['baseline.h3.1']}--></h3>
+                        <h3 class="headertop orange-text text-lighten-2">#{messages['baseline.h3.2']}</h3>
                         <p>#{messages['baseline.p.1']}</p>
                     </div>
                 </div>                                           
 
                 <div class="row">
                     <h:form>                            
-                        <h5 class="headertop orange-text text-lighten-2">Have you smoked, even a puff, in the last 7 days?</h5>
+                        <h5 class="headertop orange-text text-lighten-2">#{messages['bas_cigpuff']}</h5>
                         <h:selectOneRadio id="bas_cigpuff" value="" required="true" layout="lineDirection">
                             <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
                             <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
-                        </h:selectOneRadio>
+                        </h:selectOneRadio>                       
                         
-                        
-                        <h5 class="headertop orange-text text-lighten-2">During the past 7 days, on those days that you smoked, what was the average number of cigarettes smoked per day?</h5>
+                        <h5 class="headertop orange-text text-lighten-2">#{messages['bas_cigarppd']}</h5>
                         <h:selectOneMenu id="bas_cigarppd"  value="#{questionnaireController.questionnaire.triedQuit}" required="true" styleClass="browser-default">  
                             <f:selectItems value="#{questionnaireController.timesQuit}"/>  
                         </h:selectOneMenu>
-
-                        <h5 class="headertop orange-text text-lighten-2">How many times have you seriously tried to quit for at least 24 hours?</h5>
-                        <h:selectOneMenu id="bas_cigarlast30d"  value="#{questionnaireController.questionnaire.triedQuit}" required="true" styleClass="browser-default">  
-                            <f:selectItems value="#{questionnaireController.timesQuit}"/>  
-                        </h:selectOneMenu>
-                        
-                        <h5 class="headertop orange-text text-lighten-2">Have you used any other tobacco products, in the last seven days?</h5>
-                        <h:selectOneRadio id="bas_aids" value="#{questionnaireController.questionnaire.employed}" required="true" layout="lineDirection">
-                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
-                            <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
-                        </h:selectOneRadio> 
-                        
-                        <h5 class="headertop orange-text text-lighten-2">What was the longest time in days you went without smoking even one puff?</h5>
-                        <h:selectOneRadio id="bas_treatments" value="#{questionnaireController.questionnaire.employed}" required="true" layout="lineDirection">
-                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
-                            <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
-                        </h:selectOneRadio> 
-                        
-                        <h5 class="headertop orange-text text-lighten-2">If you still smoke, on average, how many cigarettes do you smoke per day?</h5>
-                        <h:selectOneRadio id="bas_programs" value="#{questionnaireController.questionnaire.employed}" required="true" layout="lineDirection">
-                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
-                            <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
-                        </h:selectOneRadio>                                                      
+                        <br /><br />
                                               
                         <div class="center">
                             <a class="modal-trigger" href="#HiddenDiv">
@@ -70,7 +47,7 @@
                         <div class="modal" style="display: none" id="HiddenDiv">
                             <div class="modal-content">
                                 <h2><h:outputText value="#{messages['baseline.feedback.h']}"/></h2>
-                                <h:outputText id="texto1" value="#{messages['baseline.feedback.p']}" />
+                                <h:outputText id="texto1" value="#{messages['baseline.feedback.p.2']}" />
                             </div>
                             <div class="modal-footer">
                                 <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}" update="@form" action="#{questionnaireController.saveQuestionnaire()}"/>

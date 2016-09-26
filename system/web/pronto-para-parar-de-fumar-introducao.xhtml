@@ -60,6 +60,8 @@
                                     <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['preparando.aed.btn.avaliar']}" update="ladder" actionListener="#{prontoParaPararController.evaluateLadder()}" process="@form" onclick="javascript:ShowHide('HiddenDiv');"/>
                                 </a>                             
                             </div>
+                            
+                            <br /><br />
 
                             <div class="modal" style="display: none" id="HiddenDiv">
                                 <div class="modal-content">
@@ -67,8 +69,11 @@
                                     <h:outputText id="ladder" value="#{prontoParaPararController.textoladder}" />  
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">#{messages['close']}</a>
+                                   
+                                    <h:commandLink styleClass="modal-action modal-close waves-effect waves-green btn-flat" value="#{messages['next']}"  title="#{messages['preparando.btn.title']}" action="#{prontoParaPararController.introducao()}"/> 
+                                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">#{messages['close']}</a>
                                 </div>
+
                             </div>
 
                             <div class="row">
