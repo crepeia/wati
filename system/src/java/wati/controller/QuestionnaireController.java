@@ -9,12 +9,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.naming.NamingException;
 import wati.model.Questionnaire;
+import wati.model.User;
 import wati.persistence.GenericDAO;
 
 /**
@@ -24,8 +26,10 @@ import wati.persistence.GenericDAO;
 @ManagedBean(name = "questionnaireController")
 @SessionScoped
 public class QuestionnaireController extends BaseController<Questionnaire> {
-    
+
     private Questionnaire questionnaire;
+    private GenericDAO daoUser;
+
     
     private String[] procKnowWebSiteMarcados = null;
     private static final char baseline1 = 'a';
@@ -39,50 +43,71 @@ public class QuestionnaireController extends BaseController<Questionnaire> {
     public QuestionnaireController(){
         try {
             daoBase = new GenericDAO<>(Questionnaire.class);
+            daoUser = new GenericDAO<>(User.class);
         } catch (NamingException ex) {
             Logger.getLogger(QuestionnaireController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public Questionnaire getQuestionnaire(){
-       if(questionnaire == null){
-           if(loggedUser()){
-             questionnaire = getLoggedUser().getQuestionnaire();
-             if(questionnaire == null){
-               questionnaire = new Questionnaire();
-               questionnaire.setDate(new Date()); 
-               questionnaire.setUser(getLoggedUser());
-             }
-           }
-       }
-       return questionnaire;
+
+    public Questionnaire getQuestionnaire() {
+        if (questionnaire == null) {
+            if (loggedUser()) {
+                questionnaire = getLoggedUser().getQuestionnaire();
+                if (questionnaire == null) {
+                    questionnaire = new Questionnaire();
+                    questionnaire.setDate(new Date());
+                    questionnaire.setUser(getLoggedUser());
+                }
+            }
+        }
+        return questionnaire;
     }
-    
-    public String saveQuestionnaire(){
+
+    public String saveQuestionnaire() {
         try {
             daoBase.insertOrUpdate(getQuestionnaire(), getEntityManager());
-            return "index.xhtml";
         } catch (SQLException ex) {
             Logger.getLogger(QuestionnaireController.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "";
     }
-    
-    public List getCigarettes(){
+
+    public String randomizeUsers() {
+        saveQuestionnaire();
+        getLoggedUser().setExperimentalGroups(generateGroup());
+        try {
+            daoUser.update(getLoggedUser(), getEntityManager());
+        } catch (SQLException ex) {
+            Logger.getLogger(QuestionnaireController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (getLoggedUser().getExperimentalGroups() == 0){
+            return  " ";
+        } else {
+            return " ";
+        }
+    }
+
+    private int generateGroup() {
+        Random r = new Random();
+        return r.nextInt(2);
+    }
+
+    public List getCigarettes() {
         List<Integer> cigarettes = new ArrayList<>();
-        for(int i=0; i<=130; i++){
+        for (int i = 0; i <= 130; i++) {
             cigarettes.add(i);
         }
-        return cigarettes;       
+        return cigarettes;
     }
-    
-    public List getTimesQuit(){
+
+    public List getTimesQuit() {
         List<Integer> timesQuit = new ArrayList<>();
-        for(int i=0; i<=30; i++){
+        for (int i = 0; i <= 30; i++) {
             timesQuit.add(i);
         }
-        return timesQuit;       
+        return timesQuit;
     }
+
     
      public String[] getProcKnowWebSiteMarcados() {
         if (this.procKnowWebSiteMarcados == null) {
