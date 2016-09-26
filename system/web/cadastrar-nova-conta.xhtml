@@ -10,37 +10,35 @@
         <h:head>
             <title>#{messages['naccount.titlepage']}</title>
             <w:head_comum />
-             <!-- Facebook Pixel Code to track our adverts -->
-             <h:outputScript>
+            <!-- Facebook Pixel Code to track our adverts -->
+            <h:outputScript>
                 !function (f, b, e, v, n, t, s) {
-                    if (f.fbq)
-                        return;
-                    n = f.fbq = function () {
-                        n.callMethod ?
-                                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-                    };
-                    if (!f._fbq)
-                        f._fbq = n;
-                    n.push = n;
-                    n.loaded = !0;
-                    n.version = '2.0';
-                    n.queue = [];
-                    t = b.createElement(e);
-                    t.async = !0;
-                    t.src = v;
-                    s = b.getElementsByTagName(e)[0];
-                    s.parentNode.insertBefore(t, s)
+                if (f.fbq)
+                return;
+                n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq)
+                f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
                 }(window,
-                        document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+                document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
                 fbq('init', '597384437104437');
                 fbq('track', "CompleteRegistration");</h:outputScript>            
             <noscript><![CDATA[<img height="1" width="1" style="display:none"
-                           src="https://www.facebook.com/tr?id=597384437104437&ev=PageView&noscript=1"
-                           />
-            ]]></noscript>
-            
-            
+                                    src="https://www.facebook.com/tr?id=597384437104437&ev=PageView&noscript=1"
+                                    />
+                ]]></noscript>           
             <!-- End Facebook Pixel Code -->
         </h:head>
 
@@ -51,29 +49,42 @@
 
             <!--mainmenu-->         	
             <div class="container">
-                
+
                 <div class="row">
                     <div class="col l12 m12 s12">
-                
+
                         <h2 class="orange-text">#{messages['naccount.register']}</h2>
 
                         <h:form id="form">
                             <p:ajaxStatus onstart="statusDialog.show()" onsuccess="statusDialog.hide()" />
                             <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
-                               <p:graphicImage library="default" name="images/loading.gif" />
+                                <div class="preloader-wrapper big active">
+                                    <div class="spinner-layer spinner-blue-only">
+                                        <div class="circle-clipper left">
+                                            <div class="circle"></div>
+                                        </div><div class="gap-patch">
+                                            <div class="circle"></div>
+                                        </div><div class="circle-clipper right">
+                                            <div class="circle"></div>
+                                        </div>
+                                    </div>
+                                </div>                                
                             </p:dialog>
-                            
-                            <!-- Validation Messages -->
-                            <p:message for="nameTxt" display="text"/>
-                            <p:message for="emailTxt" display="text" />
-                            <p:message for="passwordTxt" display="text" />
-                            <p:message for="day" display="text"/>
-                            <p:message for="month" display="text" />
-                            <p:message for="year" display="text" />
-                            <p:message for="options" display="text"/>
+
+                            <!-- Validation Messages for Desktop-->
+                            <div class="hide-on-small-and-down">
+                                <p:message for="nameTxt" display="text"/>
+                                <p:message for="emailTxt" display="text" />
+                                <p:message for="passwordTxt" display="text" />
+                                <p:message for="day" display="text"/>
+                                <p:message for="month" display="text" />
+                                <p:message for="year" display="text" />
+                                <p:message for="options" display="text"/>
+                            </div>
 
                             <!-- End of validation msgs -->
                             <div class="row">
+
                                 <div class="col l6 m6 s12">
                                     <div class="input-field">
                                         <p:inputText id="nameTxt" value="#{userController.user.name}" required="true" label="#{messages['naccount.name']}" validatorMessage="#{messages['email.senha']}" >
@@ -207,7 +218,18 @@
                             </div>
 
                             <div class="row">
-                                <div>
+                                <!-- Validation Messages for Desktop-->
+                                <div class="hide-on-med-and-up">
+                                    <p:message for="nameTxt" display="text"/>
+                                    <p:message for="emailTxt" display="text" />
+                                    <p:message for="passwordTxt" display="text" />
+                                    <p:message for="day" display="text"/>
+                                    <p:message for="month" display="text" />
+                                    <p:message for="year" display="text" />
+                                    <p:message for="options" display="text"/>
+                                </div>
+                                <br />
+                                <div>                                    
                                     <p:messages id="errorMessage" redisplay="true" globalOnly="true" />
                                 </div>
                                 <div class="col s12 m3 l3 center-on-small-only">
