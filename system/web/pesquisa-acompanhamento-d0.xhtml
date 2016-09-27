@@ -8,7 +8,7 @@
       xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
     <f:view locale="#{languageController.locale}">
         <h:head>
-            <title>#{messages['baseline.h3.2']}</title>
+            <title>#{messages['baseline.h3.1']}</title>
             <w:head_comum />
         </h:head>
 
@@ -20,7 +20,7 @@
 
                 <div class="row">
                     <div class="col l12 m12 s12">                
-                        <h3 class="headertop orange-text text-lighten-2">#{messages['baseline.h3.2']}</h3>
+                        <h3 class="headertop orange-text text-lighten-2">#{messages['baseline.h3.1']}</h3>
                         <p>#{messages['baseline.p.1']}</p>
                     </div>
                 </div>                                           
@@ -42,7 +42,7 @@
                                                                          
                         <div class="center">
                             <a >
-                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['send']}" update="@form" actionListener="#{followUpController.save}" action="escolha-uma-etapa.xhtml?faces-redirect=true">                         
+                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['next']}" update="@form" actionListener="#{followUpController.save}" action="escolha-uma-etapa.xhtml?faces-redirect=true">                         
                                     <f:attribute name="count" value="0" />
                                 </p:commandButton>
                                 </a>    

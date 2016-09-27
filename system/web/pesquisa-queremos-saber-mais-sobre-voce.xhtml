@@ -457,28 +457,22 @@
 
                         <div class="center">
                             <a class="modal-trigger" href="#HiddenDiv">
-                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['send']}" update="texto1" process="@form" onclick="javascript:ShowHide('HiddenDiv');"/></a>                             
+                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['next']}" update="texto1" process="@form" onclick="javascript:ShowHide('HiddenDiv');"/></a>                             
                         </div>
 
                         <div class="modal" style="display: none" id="HiddenDiv">
                             <div class="modal-content">
                                 <h2><h:outputText value="#{messages['baseline.feedback.h']}"/></h2>
-                                <h:outputText id="texto1" value="#{messages['baseline.feedback.p']}" />
+                                <h:outputText id="texto1" value="#{messages['baseline.p.1']}" />
                             </div>
                             <div class="modal-footer">
-                                <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}" update="@form" actionListener="#{questionnaireController.saveQuestionnaire()}" action="research-baseline.xhtml?faces-redirect=true"/>
+                                <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}" update="@form" actionListener="#{questionnaireController.saveQuestionnaire()}" action="pesquisa-acompanhamento-d0.xhtml?faces-redirect=true"/>
                             </div>
                             <h:outputText value="#{messages['baseline.error.msg']}" style="color: red;" rendered="#{facesContext.validationFailed}" />    
                         </div>
 
                     </h:form>
                 </div>
-
-
-
-
-
-
 
                 <div class="section">
                     <div class='row'>
