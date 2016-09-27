@@ -87,7 +87,6 @@ public class FollowUpController extends BaseController<FollowUp>{
         try {
             String count = (String) event.getComponent().getAttributes().get("count");
             getFollowUp().setDateAnswered(new Date());
-            System.out.println(count);
             getFollowUp().setUser(getUser());
             getFollowUp().setCount(Integer.valueOf(count));
             daoBase.insert(getFollowUp(), getEntityManager());

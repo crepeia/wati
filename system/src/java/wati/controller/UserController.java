@@ -63,7 +63,7 @@ public class UserController extends BaseFormController<User> {
     private String passwordd;
 
     private boolean showErrorMessage;
-    
+
     private Map<String, String> dias = new LinkedHashMap<String, String>();
     private Map<String, String> meses = new LinkedHashMap<String, String>();
     private Map<String, String> anos = new LinkedHashMap<String, String>();
@@ -385,18 +385,18 @@ public class UserController extends BaseFormController<User> {
                 }
                 this.user.setPreferedLanguage(locale.getLanguage());
                 this.user.setExperimentalGroups(this.GeraGrupoUsuario());
-                
+
                 Logger.getLogger(UserController.class.getName()).log(Level.INFO, "User " + user.getEmail() + " signed up.");
                 super.save(actionEvent, entityManager);
-                
+
                 ELContext elContext = FacesContext.getCurrentInstance().getELContext();
                 LoginController login = (LoginController) FacesContext.getCurrentInstance().getApplication().getELResolver().getValue(elContext, null, "loginController");
                 login.setShowName(true);
                 login.setUser(user);
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
-                
+
                 FacesContext.getCurrentInstance().getExternalContext().redirect("pesquisa-queremos-saber-mais-sobre-voce.xhtml");
-                
+
                 try {
                     this.sendEmailTerm();
                 } catch (Exception ex) {
@@ -404,16 +404,22 @@ public class UserController extends BaseFormController<User> {
 
                 }
 
-                try {
-                    if (user.isReceiveEmails()) {
+                if (user.isReceiveEmails()) {
+
+                    try {
                         contactController.sendPesquisaSatisfacaoEmail(user);
                         user.setPesquisaEnviada(true);
+                    } catch (Exception ex) {
+                        Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, "Erro sending research email to: " + user.getEmail());
+
                     }
-                } catch (Exception ex) {
-                    Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, "Erro sending satisfaction email to: " + user.getEmail());
+                    contactController.scheduleReaserach7DaysEmail(user, new Date());
+                    contactController.scheduleReaserachXMonthsEmail(user, new Date(), 1);
+                    contactController.scheduleReaserachXMonthsEmail(user, new Date(), 3);
+                    contactController.scheduleReaserachXMonthsEmail(user, new Date(), 6);
 
                 }
-    
+
                 this.clear();
             }
 
@@ -564,7 +570,7 @@ public class UserController extends BaseFormController<User> {
 
         }
     }
-    
+
     @Override
     public User getLoggedUser() {
         return super.getLoggedUser();
