@@ -13,7 +13,7 @@
         </h:head>
 
         <h:body>
-            <w:topmenu-i loginRequired="true"/>
+            <w:topmenu-i />
             <w:leftmenu_2/>
 
             <div class="container">
@@ -26,78 +26,107 @@
 
                 <div class="row">
 
-                    <h:form>    
+                   <h:form>    
                         <h5 class="headertop orange-text text-lighten-2">#{messages['bas_cigpuff']}</h5>
-                        <h:selectOneRadio value="" required="true" layout="lineDirection">
+                        <h:selectOneRadio id="bas_cigpuff" value="#{followUpController.followUp.smokedLast7days}" required="true" layout="lineDirection">
                             <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
                             <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
-                        </h:selectOneRadio>
+                        </h:selectOneRadio>  
 
                         <h5 class="headertop orange-text text-lighten-2">#{messages['1m_30_cigpuff']}</h5>
-                        <h:selectOneRadio value="" required="true" layout="lineDirection">
+                        <h:selectOneRadio  value="#{followUpController.followUp.smokedLast30days}" required="true" layout="lineDirection">
                             <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
                             <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
-                        </h:selectOneRadio>
-
+                        </h:selectOneRadio> 
+                        
                         <h5 class="headertop orange-text text-lighten-2">#{messages['1m_cigarlast30d']}</h5>
-                        <h:selectOneMenu   value="#{questionnaireController.questionnaire.triedQuit}" required="true" styleClass="browser-default">  
+                        <h:selectOneMenu   value="#{followUpController.followUp.daysSmokingPast30days}" required="true" styleClass="browser-default">  
                             <f:selectItems value="#{questionnaireController.timesQuit}"/>  
                         </h:selectOneMenu>
 
                         <h5 class="headertop orange-text text-lighten-2">#{messages['bas_cigarppd']}</h5>
-                        <h:selectOneMenu   value="#{questionnaireController.questionnaire.triedQuit}" required="true" styleClass="browser-default">  
+                        <h:selectOneMenu id="bas_cigarppd"  value="#{followUpController.followUp.averagePerDayPast7days}" required="true" styleClass="browser-default">  
                             <f:selectItems value="#{questionnaireController.timesQuit}"/>  
                         </h:selectOneMenu>
 
                         <h5 class="headertop orange-text text-lighten-2">#{messages['bas_quitattempts']}</h5>
-                        <h:selectOneMenu   value="#{questionnaireController.questionnaire.triedQuit}" required="true" styleClass="browser-default">  
+                         <h:selectOneMenu   value="#{followUpController.followUp.timesTriedQuit24Hours}" required="true" styleClass="browser-default">  
                             <f:selectItems value="#{questionnaireController.timesQuit}"/>  
                         </h:selectOneMenu>
 
                         <h5 class="headertop orange-text text-lighten-2">#{messages['7d_abst_01']}</h5>
-                        <h:selectOneRadio value="" required="true" layout="lineDirection">
+                       <h:selectOneRadio value="#{followUpController.followUp.usedOtherProducts}" required="true" layout="lineDirection">
                             <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
                             <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
                         </h:selectOneRadio>
 
                         <h5 class="headertop orange-text text-lighten-2">#{messages['7d_abst_01_a']}</h5>
-                        <h:selectOneMenu value="#{questionnaireController.questionnaire.triedQuit}" required="true" styleClass="browser-default">  
+                        <h:selectOneMenu value="#{followUpController.followUp.longestTimeWithoutSmoking}" required="true" styleClass="browser-default">  
                             <f:selectItems value="#{questionnaireController.timesQuit}"/>  
                         </h:selectOneMenu>
 
                         <h5 class="headertop orange-text text-lighten-2">#{messages['7d_abst_02']}</h5>
-                        <h:selectOneMenu value="#{questionnaireController.questionnaire.triedQuit}" required="true" styleClass="browser-default">  
+                        <h:selectOneMenu value="#{followUpController.followUp.averagePerDay}" required="true" styleClass="browser-default">  
                             <f:selectItems value="#{questionnaireController.timesQuit}"/>  
                         </h:selectOneMenu>
 
                         <h5 class="headertop orange-text text-lighten-2">#{messages['7d_methods']}</h5>
-                        <h:selectManyCheckbox styleClass="filled-in" value="" layout="pageDirection" >            
-                            <f:selectItem itemLabel="#{messages['pnad.3.a']}" itemValue="1" />  
-                            <f:selectItem itemLabel="#{messages['pnad.3.b']}" itemValue="2" />  
-                            <f:selectItem itemLabel="#{messages['pnad.3.c']}" itemValue="3" />         
-                            <f:selectItem itemLabel="#{messages['pnad.3.d']}" itemValue="4" />         
-                            <f:selectItem itemLabel="#{messages['pnad.3.e']}" itemValue="5" />         
-                            <f:selectItem itemLabel="#{messages['pnad.3.f']}" itemValue="6" />         
-                            <f:selectItem itemLabel="#{messages['pnad.3.g']}" itemValue="7" />         
-                            <f:selectItem itemLabel="#{messages['pnad.3.h']}" itemValue="8" />         
-                        </h:selectManyCheckbox>                          
+                        <p>
+                            <h:selectBooleanCheckbox id="bool1" value="#{followUpController.followUp.usedTryQuit1}" styleClass="browser-default"/>
+                            <h:outputLabel value="#{messages['pnad.3.a']}" for="bool1"/>
+                        </p>
+                        <p>
+                            <h:selectBooleanCheckbox id="bool2" value="#{followUpController.followUp.usedTryQuit2}" styleClass="browser-default"/>
+                            <h:outputLabel value="#{messages['pnad.3.b']}" for="bool2"/>
+                        </p>
+                        <p>
+                            <h:selectBooleanCheckbox id="bool3" value="#{followUpController.followUp.usedTryQuit3}" />
+                            <h:outputLabel value="#{messages['pnad.3.c']}" for="bool3"/>
+                        </p>
+                        <p>
+                            <h:selectBooleanCheckbox id="bool4" value="#{followUpController.followUp.usedTryQuit4}" />
+                            <h:outputLabel value="#{messages['pnad.3.d']}" for="bool4"/>
+                        </p>
+                        <p>
+                            <h:selectBooleanCheckbox id="bool5" value="#{followUpController.followUp.usedTryQuit5}" />
+                            <h:outputLabel value="#{messages['pnad.3.e']}" for="bool5"/>
+                        </p>
+                        <p>
+                            <h:selectBooleanCheckbox id="bool6" value="#{followUpController.followUp.usedTryQuit6}" />
+                            <h:outputLabel value="#{messages['pnad.3.f']}" for="bool6"/>
+                        </p>
+                        <p>
+                            <h:selectBooleanCheckbox id="bool7" value="#{followUpController.followUp.usedTryQuit7}" />
+                            <h:outputLabel value="#{messages['pnad.3.g']}" for="bool7"/>
+                        </p>
+                        <p>
+                            <h:selectBooleanCheckbox id="bool8" value="#{followUpController.followUp.usedTryQuit8}" />
+                            <h:outputLabel value="#{messages['pnad.3.h']}" for="bool8"/>
+                        </p>                       
 
-                        <div class="center">
-                            <a class="modal-trigger" href="#HiddenDiv">
-                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['send']}" update="texto1" process="@form" onclick="javascript:ShowHide('HiddenDiv');"/></a>                             
+                         <div class="center">
+                            <a >
+                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['send']}" update="@form" actionListener="#{followUpController.save}" action="escolha-uma-etapa.xhtml?faces-redirect=true">                         
+                                    <f:attribute name="count" value="12" />
+                                </p:commandButton>
+                            </a>    
                         </div>
+
+                        <h:outputText value="#{messages['baseline.error.message']}" style="color: red;" rendered="#{facesContext.validationFailed}" />    
+
 
                         <div class="modal" style="display: none" id="HiddenDiv">
                             <div class="modal-content">
                                 <h2><h:outputText value="#{messages['baseline.feedback.h']}"/></h2>
-                                <h:outputText id="texto1" value="#{messages['baseline.feedback.p']}" />
+                                <h:outputText id="texto1" value="#{messages['baseline.feedback.p.2']}" />
                             </div>
                             <div class="modal-footer">
-                                <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}" update="@form" action="#{questionnaireController.saveQuestionnaire()}"/>
+                                <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}"  update="@form" >
+                                    <f:attribute name="count" value="1" />
+                                </p:commandButton>
                             </div>
-                            <h:outputText value="#{messages['baseline.error.msg']}" style="color: red;" rendered="#{facesContext.validationFailed}" />    
-                        </div>                                      
-                    </h:form>
+                        </div>                                        
+                    </h:form>>
                 </div>
                 <div class="section">
                     <div class='row'>

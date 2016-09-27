@@ -385,9 +385,18 @@ public class UserController extends BaseFormController<User> {
                 }
                 this.user.setPreferedLanguage(locale.getLanguage());
                 this.user.setExperimentalGroups(this.GeraGrupoUsuario());
-
+                
+                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, "User " + user.getEmail() + " signed up.");
                 super.save(actionEvent, entityManager);
-
+                
+                ELContext elContext = FacesContext.getCurrentInstance().getELContext();
+                LoginController login = (LoginController) FacesContext.getCurrentInstance().getApplication().getELResolver().getValue(elContext, null, "loginController");
+                login.setShowName(true);
+                login.setUser(user);
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
+                
+                FacesContext.getCurrentInstance().getExternalContext().redirect("pesquisa-queremos-saber-mais-sobre-voce.xhtml");
+                
                 try {
                     this.sendEmailTerm();
                 } catch (Exception ex) {
@@ -404,14 +413,7 @@ public class UserController extends BaseFormController<User> {
                     Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, "Erro sending satisfaction email to: " + user.getEmail());
 
                 }
-
-                ELContext elContext = FacesContext.getCurrentInstance().getELContext();
-                LoginController login = (LoginController) FacesContext.getCurrentInstance().getApplication().getELResolver().getValue(elContext, null, "loginController");
-                login.setShowName(true);
-                login.setUser(user);
-                FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("loggedUser", user);
-                
-                FacesContext.getCurrentInstance().getExternalContext().redirect("queremos-saber-mais-sobre-voce.xhtml");
+    
             
                 this.clear();
             }
