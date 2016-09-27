@@ -31,6 +31,7 @@ import javax.faces.event.ActionEvent;
 import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import org.primefaces.component.commandbutton.CommandButton;
 import wati.model.User;
 import wati.persistence.GenericDAO;
 import wati.utility.EMailSSL;
@@ -62,7 +63,7 @@ public class UserController extends BaseFormController<User> {
     private String passwordd;
 
     private boolean showErrorMessage;
-
+    
     private Map<String, String> dias = new LinkedHashMap<String, String>();
     private Map<String, String> meses = new LinkedHashMap<String, String>();
     private Map<String, String> anos = new LinkedHashMap<String, String>();
@@ -346,7 +347,6 @@ public class UserController extends BaseFormController<User> {
     }
 
     public void save(ActionEvent actionEvent) throws SQLException {
-
         this.showErrorMessage = true;
         this.user.setBirth(new GregorianCalendar(ano, mes, dia).getTime());
         this.user.setDtCadastro(new Date());
@@ -386,7 +386,7 @@ public class UserController extends BaseFormController<User> {
                 this.user.setPreferedLanguage(locale.getLanguage());
                 this.user.setExperimentalGroups(this.GeraGrupoUsuario());
                 
-                Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, "User " + user.getEmail() + " signed up.");
+                Logger.getLogger(UserController.class.getName()).log(Level.INFO, "User " + user.getEmail() + " signed up.");
                 super.save(actionEvent, entityManager);
                 
                 ELContext elContext = FacesContext.getCurrentInstance().getELContext();
@@ -414,7 +414,6 @@ public class UserController extends BaseFormController<User> {
 
                 }
     
-            
                 this.clear();
             }
 
@@ -565,7 +564,7 @@ public class UserController extends BaseFormController<User> {
 
         }
     }
-
+    
     @Override
     public User getLoggedUser() {
         return super.getLoggedUser();
