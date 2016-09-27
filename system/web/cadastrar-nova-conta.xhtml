@@ -56,7 +56,12 @@
                         <h2 class="orange-text">#{messages['naccount.register']}</h2>
 
                         <h:form id="form">
-                           
+
+                            <p:ajaxStatus onstart="statusDialog.show()" onsuccess="statusDialog.hide()" />
+                            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                                <h:graphicImage url="resources/default/images/ajax-loader.gif" library="default" />  
+                            </p:dialog>
+
 
                             <!-- Validation Messages for Desktop-->
                             <div class="hide-on-small-and-down">
@@ -220,19 +225,19 @@
                                     <p:messages id="errorMessage" globalOnly="true" />
                                 </div>
                                 <div id="btn" class="col s12 m3 l3 center-on-small-only">
-                                    <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['register']}" update="@form" actionListener="#{userController.save}" onclick="javascript:ShowHide('HiddenDiv','btn');">
+                                    <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['register']}" update="@form" actionListener="#{userController.save}" onclick="javascript:ShowHide('HiddenDiv', 'btn');">
                                         <f:attribute name="object" value="#{userController.user}" />
                                         <f:attribute name="typeName" value="user" />
                                     </p:commandButton>
                                 </div>                               
                             </div>
-                            
-                              <div  style="display: none" id="HiddenDiv">
-                               
-                                    <h6>please wait</h6>
-                                    <h:graphicImage url="resources/default/images/ajax-loader.gif" library="default" />  
-                               
-                              
+
+                            <div  style="display: none" id="HiddenDiv">
+
+                                <h6>#{messages['pleasewait']}</h6>
+                                <h:graphicImage url="resources/default/images/ajax-loader.gif" library="default" />  
+
+
                             </div>
 
                             <div class="row">
@@ -255,6 +260,7 @@
                     if (document.getElementById(divId).style.display == 'none')
                     {
                         document.getElementById(divId).style.display = 'block';
+                        document.getElementById(btnId).style.display = 'none';
                     }
                 }
             </script>
