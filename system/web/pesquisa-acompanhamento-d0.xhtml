@@ -41,8 +41,8 @@
                       
                                                                          
                         <div class="center">
-                            <a >
-                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['next']}" update="@form" actionListener="#{followUpController.save}" action="escolha-uma-etapa.xhtml?faces-redirect=true">                         
+                            <a class="modal-trigger" href="#HiddenDiv">
+                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['next']}" update="texto1" process="@form" onclick="javascript:ShowHide('HiddenDiv');">                                       
                                     <f:attribute name="count" value="0" />
                                 </p:commandButton>
                                 </a>    
@@ -57,7 +57,7 @@
                                 <h:outputText id="texto1" value="#{messages['baseline.feedback.p.2']}" />
                             </div>
                             <div class="modal-footer">
-                                <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}"  update="@form" >
+                                <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}"  update="@form" actionListener="#{followUpController.save}" action="escolha-uma-etapa.xhtml?faces-redirect=true">
                                     <f:attribute name="count" value="1" />
                                 </p:commandButton>
                             </div>
