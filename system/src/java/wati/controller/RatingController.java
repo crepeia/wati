@@ -6,6 +6,7 @@
 package wati.controller;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -60,6 +61,7 @@ public class RatingController extends BaseController<Rating> {
                     rating = new Rating();
                     rating.setUser(getUser());
                     rating.setPage(getPage());
+                    rating.setDateRated(new Date());
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(RatingController.class.getName()).log(Level.SEVERE, null, ex);
@@ -91,9 +93,11 @@ public class RatingController extends BaseController<Rating> {
             String action = (String) event.getComponent().getAttributes().get("button");
             if (action.contains("like")) {
                 getRating().setRelevant(true);
-            } if(action.contains("unlike")) {
+            }
+            if (action.contains("unlike")) {
                 getRating().setRelevant(false);
             }
+            rating.setDateRated(new Date());
             daoBase.insertOrUpdate(getRating(), getEntityManager());
         } catch (SQLException ex) {
             Logger.getLogger(RatingController.class.getName()).log(Level.SEVERE, null, ex);
@@ -131,7 +135,7 @@ public class RatingController extends BaseController<Rating> {
             return "images/unlike-pressed.png";
         }
     }
-    
+
     public boolean isLiked() {
         if (getRating().getRelevant() == null) {
             return false;

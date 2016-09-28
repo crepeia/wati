@@ -5,6 +5,8 @@
  */
 package wati.model;
 
+import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -19,13 +22,16 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tb_rating")
-public class Rating {
+public class Rating implements Serializable {
    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column(name = "relevant")
     private Boolean relevant;
+    @Column(name = "date_rated")
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date dateRated;
     
     @ManyToOne
     private User user;
@@ -63,6 +69,14 @@ public class Rating {
     public void setPage(Page page) {
         this.page = page;
     }
+
+    public Date getDateRated() {
+        return dateRated;
+    }
+
+    public void setDateRated(Date dateRated) {
+        this.dateRated = dateRated;
+    } 
     
     
 }
