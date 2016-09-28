@@ -56,20 +56,12 @@
                         <h2 class="orange-text">#{messages['naccount.register']}</h2>
 
                         <h:form id="form">
+
                             <p:ajaxStatus onstart="statusDialog.show()" onsuccess="statusDialog.hide()" />
                             <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
-                                <div class="preloader-wrapper big active">
-                                    <div class="spinner-layer spinner-blue-only">
-                                        <div class="circle-clipper left">
-                                            <div class="circle"></div>
-                                        </div><div class="gap-patch">
-                                            <div class="circle"></div>
-                                        </div><div class="circle-clipper right">
-                                            <div class="circle"></div>
-                                        </div>
-                                    </div>
-                                </div>                                
+                                <h:graphicImage url="resources/default/images/ajax-loader.gif" library="default" />  
                             </p:dialog>
+
 
                             <!-- Validation Messages for Desktop-->
                             <div class="hide-on-small-and-down">
@@ -230,14 +222,22 @@
                                 </div>
                                 <br />
                                 <div>                                    
-                                    <p:messages id="errorMessage" redisplay="true" globalOnly="true" />
+                                    <p:messages id="errorMessage" globalOnly="true" />
                                 </div>
-                                <div class="col s12 m3 l3 center-on-small-only">
-                                    <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['register']}" update="@form" actionListener="#{userController.save}">
+                                <div id="btn" class="col s12 m3 l3 center-on-small-only">
+                                    <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['register']}" update="@form" actionListener="#{userController.save}" onclick="javascript:ShowHide('HiddenDiv', 'btn');">
                                         <f:attribute name="object" value="#{userController.user}" />
                                         <f:attribute name="typeName" value="user" />
                                     </p:commandButton>
                                 </div>                               
+                            </div>
+
+                            <div  style="display: none" id="HiddenDiv">
+
+                                <h6>#{messages['pleasewait']}</h6>
+                                <h:graphicImage url="resources/default/images/ajax-loader.gif" library="default" />  
+
+
                             </div>
 
                             <div class="row">
@@ -254,6 +254,16 @@
 
 
             <w:footer />
+            <script language="JavaScript">
+                function ShowHide(divId, btnId)
+                {
+                    if (document.getElementById(divId).style.display == 'none')
+                    {
+                        document.getElementById(divId).style.display = 'block';
+                        document.getElementById(btnId).style.display = 'none';
+                    }
+                }
+            </script>
         </h:body>
     </f:view>
 </html>
