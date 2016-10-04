@@ -417,6 +417,7 @@ public class UserController extends BaseFormController<User> {
                     contactController.scheduleReaserachXMonthsEmail(user, new Date(), 1);
                     contactController.scheduleReaserachXMonthsEmail(user, new Date(), 3);
                     contactController.scheduleReaserachXMonthsEmail(user, new Date(), 6);
+                    contactController.scheduleReaserachXMonthsEmail(user, new Date(), 12);
 
                 }
 

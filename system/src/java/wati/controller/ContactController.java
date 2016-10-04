@@ -166,6 +166,29 @@ public class ContactController extends BaseController implements Serializable {
         contact.setDateScheduled(cal.getTime());
         save(contact);
     }
+    
+    public void scheduleReaserach12MonthsEmailFix() {
+        try {
+            List<Contact> contacts = daoBase.list("subject","msg.6mes.r.subject" , getEntityManager());
+            for (Contact c : contacts) {
+                Contact contact = new Contact();
+                contact.setUser(c.getUser());
+                contact.setSender(SENDER);
+                contact.setRecipient(c.getRecipient());
+                contact.setSubject("msg.12mes.r.subject");
+                contact.setContent("msg.12mes.r.body");
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(c.getDateScheduled());
+                cal.add(Calendar.MONTH, 6);
+                contact.setDateScheduled(cal.getTime());
+                save(contact);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ContactController.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 
     public void sendPesquisaSatisfacaoEmail(User user) {
         Contact contact = new Contact();
