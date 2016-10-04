@@ -144,8 +144,8 @@ public class ContactController extends BaseController implements Serializable {
         contact.setUser(user);
         contact.setSender(SENDER);
         contact.setRecipient(user.getEmail());
-        contact.setSubject("msg.1semana.r.body");
-        contact.setContent("msg.1semana.r.subject");
+        contact.setSubject("msg.1semana.r.subject");
+        contact.setContent("msg.1semana.r.body");
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         cal.add(Calendar.DATE, 7);
@@ -158,8 +158,8 @@ public class ContactController extends BaseController implements Serializable {
         contact.setUser(user);
         contact.setSender(SENDER);
         contact.setRecipient(user.getEmail());
-        contact.setSubject("msg."+months+"mes.r.body");
-        contact.setContent("msg."+months+"mes.r.subject");
+        contact.setSubject("msg."+months+"mes.r.subject");
+        contact.setContent("msg."+months+"mes.r.body");
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         cal.add(Calendar.MONTH, months);
