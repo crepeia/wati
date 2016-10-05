@@ -30,17 +30,11 @@ public class Scheduler {
     public Scheduler() {
         
     }
-    
-    @Schedule(second = "0", minute = "0", hour = "*", dayOfWeek = "*")
-    public void testTask() {
-       Logger.getLogger(Scheduler.class.getName()).log(Level.INFO, "Test task running");
-    }
  
     @Schedule(second = "0", minute = "0", hour = "0", dayOfWeek = "*")
     public void midnigthTask() {
         Logger.getLogger(Scheduler.class.getName()).log(Level.INFO, "Midnight task running");
         contactController.sendScheduledEmails();
-        contactController.scheduleReaserach12MonthsEmailFix();
     }
     
     @Schedule(second = "0", minute = "0", hour = "8", dayOfWeek = "*")
