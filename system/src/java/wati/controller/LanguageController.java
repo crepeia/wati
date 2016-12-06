@@ -108,4 +108,14 @@ public class LanguageController extends BaseController<Object> {
         }
     }
     
+    public String getHon() {
+        if (locale.getLanguage().contains("pt")) {
+            return "images/banner-hon-pt.jpg";       
+        } else if (locale.getLanguage().contains("es")) {
+            return "images/banner-hon-es.jpg";       
+        } else {
+            return "images/banner-hon.jpg";
+        }
+    }
+    
 }
