@@ -69,8 +69,8 @@ public class AppWebService {
     /**
      * Web service to validate e-mail and password.
      */
-    @WebMethod(operationName = "validade")
-    public boolean validade(@WebParam(name = "email") String email, @WebParam(name = "password") String password) {
+    @WebMethod(operationName = "validate")
+    public boolean validate(@WebParam(name = "email") String email, @WebParam(name = "password") String password) {
         try {
             List<User> userList = this.userDAO.list("email", email, this.entityManager);
             
