@@ -75,7 +75,8 @@ public class LoginController extends BaseFormController<User> {
 
             List<User> userList = this.getDaoBase().list("email", this.user.getEmail(), this.getEntityManager());
 
-            if (userList.isEmpty() || !Encrypter.compare(this.password, userList.get(0).getPassword())) {
+            Encrypter encrypter = new Encrypter();
+            if (userList.isEmpty() || !encrypter.compare(this.password, userList.get(0).getPassword())) {
                 //log message
                 String message = this.getUser().getEmail() + " could not sign in.";
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, message);

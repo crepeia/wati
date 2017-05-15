@@ -26,47 +26,56 @@ import javax.faces.context.FacesContext;
  */
 public class Encrypter {
 
-	private static final byte[] key = FacesContext.getCurrentInstance().getExternalContext().getInitParameter("key").getBytes();
-	private static final SecretKey aesKey = new SecretKeySpec(key, "AES");
-	
-	private static Cipher aesCipher;
+    private byte[] key;
+    private SecretKey aesKey;;
+    //private byte[] key = FacesContext.getCurrentInstance().getExternalContext().getInitParameter("key").getBytes();
+    //private SecretKey aesKey = new SecretKeySpec(key, "AES");
 
-	public Encrypter() {
-	}
+    private Cipher aesCipher;
 
-	/**
-	 * @return the aesCipher
-	 */
-	public static Cipher getAesCipher() throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
-		if (Encrypter.aesCipher == null) {
-			Encrypter.aesCipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-			Encrypter.aesCipher.init(Cipher.ENCRYPT_MODE, aesKey);
-		}
-		return Encrypter.aesCipher;
-	}
+    public Encrypter() {
+        this.key = FacesContext.getCurrentInstance().getExternalContext().getInitParameter("key").getBytes();
+        this.aesKey = new SecretKeySpec(key, "AES");
+    }
+    
+    public Encrypter(String keyParam) {
+        this.key = keyParam.getBytes();
+        this.aesKey = new SecretKeySpec(key, "AES");
+    }
 
-	public static byte[] encrypt(String text) throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException {
+    /**
+     * @return the aesCipher
+     */
+    public Cipher getAesCipher() throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
+        if (this.aesCipher == null) {
+            this.aesCipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            this.aesCipher.init(Cipher.ENCRYPT_MODE, aesKey);
+        }
+        return this.aesCipher;
+    }
 
-		return Encrypter.getAesCipher().doFinal( text.getBytes() );
-		
-	}
-	
-	public static boolean compare(String text, byte[] bytes) throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException {
+    public byte[] encrypt(String text) throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException {
 
-		byte[] password = Encrypter.encrypt( text );
-		
-		if ( password.length == bytes.length ) {
-			boolean equals = true;
-			int i = 0;
-			while (i < password.length && equals) {
-				equals &= password[ i ] == bytes[ i ];
-				i++;
-			}
-			return equals;
-		} else {
-			return false;
-		}
-		
-	}
-	
+        return this.getAesCipher().doFinal(text.getBytes());
+
+    }
+
+    public boolean compare(String text, byte[] bytes) throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException {
+
+        byte[] password = this.encrypt(text);
+
+        if (password.length == bytes.length) {
+            boolean equals = true;
+            int i = 0;
+            while (i < password.length && equals) {
+                equals &= password[i] == bytes[i];
+                i++;
+            }
+            return equals;
+        } else {
+            return false;
+        }
+
+    }
+
 }

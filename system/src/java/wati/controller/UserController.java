@@ -303,7 +303,8 @@ public class UserController extends BaseFormController<User> {
         try {
             if (!userList.isEmpty() && userList.get(0).getId() != 0) {
                 user = userList.get(0);
-                this.user.setPassword(Encrypter.encrypt(this.passwordd));
+                Encrypter encrypter = new Encrypter();
+                this.user.setPassword(encrypter.encrypt(this.passwordd));
                 /*if (!Encrypter.compare(this.passwordd, this.user.getPassword())) {
                         //incluir criptografia da senha
                         this.user.setPassword(Encrypter.encrypt(this.passwordd));
@@ -377,7 +378,8 @@ public class UserController extends BaseFormController<User> {
                     }
 
                 }*/
-                this.user.setPassword(Encrypter.encrypt(this.password));
+                Encrypter encrypter = new Encrypter();
+                this.user.setPassword(encrypter.encrypt(this.password));
 
                 Locale locale = (Locale) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("locale");
                 if (locale == null) {
@@ -470,7 +472,8 @@ public class UserController extends BaseFormController<User> {
             if (emailAvailable == true) {
 
                 if (editPassword != null && !editPassword.trim().isEmpty()) {
-                    user.setPassword(Encrypter.encrypt(editPassword));
+                    Encrypter encrypter = new Encrypter();
+                    user.setPassword(encrypter.encrypt(editPassword));
                 }
 
                 try {
