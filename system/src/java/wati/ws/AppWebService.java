@@ -46,7 +46,7 @@ public class AppWebService {
     WebServiceContext context;
 
     @PersistenceContext
-    private EntityManager entityManager = null;
+    private EntityManager entityManager;
 
     private UserDAO userDAO;
 
