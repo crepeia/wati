@@ -5,6 +5,9 @@
         <group>
             <file>file:/home/daniela/wati/system/src/java/wati/model/CigarrosWS.java</file>
             <file>file:/home/daniela/wati/system/src/java/wati/ws/AppWebService.java</file>
+            <file>file:/home/daniela/wati/system/src/java/wati/model/PontosWS.java</file>
+            <file>file:/home/daniela/wati/system/src/java/wati/controller/ProntoParaPararController.java</file>
+            <file>file:/home/daniela/wati/system/nbproject/build-impl.xml</file>
         </group>
     </open-files>
 </project-private>

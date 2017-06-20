@@ -163,8 +163,8 @@ public class GenericDAO<T> implements Serializable {
 	public List<T> list(EntityManager entityManager) throws SQLException {
 		try {
 
-			Query query = entityManager.createQuery("select obj from " + classe.getSimpleName() + " obj");
-			query.setHint("toplink.refresh", "true");
+                    Query query = entityManager.createQuery("select obj from " + classe.getSimpleName() + " obj");
+                    query.setHint("toplink.refresh", "true");
 			return query.getResultList();
 		} catch (Exception erro) {
 			throw new SQLException(erro);

@@ -39,17 +39,21 @@ public class CigarrosWS implements Serializable {
 
     @Column(name = "cigarros_diario")
     private int cigarrosDiario;
+    
+    @Column(name = "nao_fumou")
+    private boolean naoFumou;
 
     @OneToOne
     private UserWS userWS;
   
     public CigarrosWS(){}
 
-    public CigarrosWS(long id, Date data, boolean salvo, int cigarrosDiario, UserWS user){
+    public CigarrosWS(long id, Date data, boolean salvo, int cigarrosDiario, boolean NaoFumou, UserWS user){
         this.id = id;
         this.data = data;
         this.salvo = salvo;
         this.cigarrosDiario = cigarrosDiario;
+        this.naoFumou = NaoFumou;
         this.userWS = user;
     }
 
@@ -83,6 +87,14 @@ public class CigarrosWS implements Serializable {
 
     public void setCigarrosDiario(int cigarrosDiario) {
         this.cigarrosDiario = cigarrosDiario;
+    }
+
+    public boolean isNaoFumou() {
+        return naoFumou;
+    }
+
+    public void setNaoFumou(boolean naoFumou) {
+        this.naoFumou = naoFumou;
     }
 
     public UserWS getUserWS() {
