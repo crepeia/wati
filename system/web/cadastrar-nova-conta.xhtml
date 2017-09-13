@@ -10,6 +10,7 @@
         <h:head>
             <title>#{messages['naccount.titlepage']}</title>
             <w:head_comum />
+                   
             <!-- Facebook Pixel Code to track our adverts -->
             <h:outputScript>
                 !function (f, b, e, v, n, t, s) {
@@ -179,12 +180,11 @@
                                         <h:outputText value="#{messages['telephone.number']}" styleClass="grey-text valign" style="position:relative;top:16px;"/>
                                     </div>
 
-                                    <div class="col l7 m7 s7">                            
-                                        <p:inputText id="telTxt" value="#{userController.user.phone}" required="false">
-                                        </p:inputText>                                        
+                                    <div class="col l7 m7 s7">  
+                                        <h:inputText id="telTxt" value="#{userController.user.phone}" required="false">
+                                        </h:inputText> 
                                     </div>
                                 </div>
-
                             </div>
 
                             <br />
@@ -250,11 +250,11 @@
                 </div>                
             </div>
 
-
-
-
             <w:footer />
+            
+            <script src="resources/default/js/inputmask/dist/jquery.inputmask.bundle.js"></script>
             <script language="JavaScript">
+                
                 function ShowHide(divId, btnId)
                 {
                     if (document.getElementById(divId).style.display == 'none')
@@ -263,6 +263,30 @@
                         document.getElementById(btnId).style.display = 'none';
                     }
                 }
+                
+                
+                function setupPhoneMaskOnField(selector){
+                    var inputElement = jQuery("[id$='"+selector+"']");
+                    setCorrectPhoneMask(inputElement);
+                    inputElement.on('input, keyup', function(){
+                        setCorrectPhoneMask(inputElement);
+                    });
+                }
+
+                function setCorrectPhoneMask(element){
+                    if (element.inputmask('unmaskedvalue').length > 12 ){
+                        element.inputmask('remove');
+                        element.inputmask('+99 (99) 9 9999-9999');
+                    } else {
+                        element.inputmask('remove');
+                        element.inputmask({mask: '+99 (99) 9999-9999[9]', greedy: false});
+                    }
+                }
+                
+                $(document).ready(function(){
+                    setupPhoneMaskOnField('telTxt');
+                });
+    
             </script>
         </h:body>
     </f:view>

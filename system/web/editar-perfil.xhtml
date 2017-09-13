@@ -145,13 +145,28 @@
                                     </div>
 
                                     <div class="col l7 m7 s7">                            
-                                        <p:inputText id="telTxt" value="#{userController.loggedUser.phone}" required="false">
-                                        </p:inputText>                                        
+                                        <h:inputText id="telTxt" value="#{userController.loggedUser.phone}" required="false">
+                                        </h:inputText> 
                                     </div>
                                 </div>
-
                             </div>
 
+                            <div class="row">
+                                <div class="col s12 m6 l6">
+                                    <div class="col l5 m5 s5">
+                                        <h:outputLink value="./pronto-para-parar-de-fumar-introducao.xhtml"><i class="material-icons left">update</i>Alterar Plano</h:outputLink> 
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col s12 m6 l6">
+                                    <div class="col l5 m5 s5">
+                                        <h:outputLink value="pronto-para-parar-de-fumar-plano-personalizado-print.xhtml" target="_blank" title="#{messages['pronto.plano.print']}" ><i class="material-icons left">print</i> Exportar Plano</h:outputLink>                                    
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <br />
                             <div class="row">
                                 <div class="col s12 m12 l12">
@@ -180,8 +195,6 @@
                                 </div>
                                 <div class="col s12 m3 l3 center-on-small-only">
                                     <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.plano.h2.5']}" update="@form" actionListener="#{userController.editProfile}"/>
-                                   
-                                    
                                 </div>                               
                             </div>
 
@@ -194,11 +207,44 @@
                     </div>
                 </div>                
             </div>
+        <w:footer />        
+            <script src="resources/default/js/inputmask/dist/jquery.inputmask.bundle.js"></script>
+            <script language="JavaScript">
+                
+                function ShowHide(divId, btnId)
+                {
+                    if (document.getElementById(divId).style.display == 'none')
+                    {
+                        document.getElementById(divId).style.display = 'block';
+                        document.getElementById(btnId).style.display = 'none';
+                    }
+                }
+                
+                
+                function setupPhoneMaskOnField(selector){
+                    var inputElement = jQuery("[id$='"+selector+"']");
+                    setCorrectPhoneMask(inputElement);
+                    inputElement.on('input, keyup', function(){
+                        setCorrectPhoneMask(inputElement);
+                    });
+                }
 
-
-
-
-            <w:footer />
+                function setCorrectPhoneMask(element){
+                    console.log(element);
+                    if (element.inputmask('unmaskedvalue').length > 12 ){
+                        element.inputmask('remove');
+                        element.inputmask('+99 (99) 9 9999-9999');
+                    } else {
+                        element.inputmask('remove');
+                        element.inputmask({mask: '+99 (99) 9999-9999[9]', greedy: false});
+                    }
+                }
+                
+                $(document).ready(function(){
+                    setupPhoneMaskOnField('telTxt');
+                });
+    
+            </script>
         </h:body>
     </f:view>
 </html>

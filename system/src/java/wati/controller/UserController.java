@@ -413,6 +413,7 @@ public class UserController extends BaseFormController<User> {
                         Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, "Erro sending research email to: " + user.getEmail());
 
                     }
+                    
                     contactController.scheduleReaserach7DaysEmail(user, new Date());
                     contactController.scheduleReaserachXMonthsEmail(user, new Date(), 1);
                     contactController.scheduleReaserachXMonthsEmail(user, new Date(), 3);
