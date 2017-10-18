@@ -57,7 +57,7 @@ public class UserController extends BaseFormController<User> {
     private int ano;
 
     private String email;
-    private Integer recoverCode;
+    private String recoverCode;
     private String passwordd;
 
     private boolean showErrorMessage;
@@ -167,11 +167,11 @@ public class UserController extends BaseFormController<User> {
         this.user = user;
     }
 
-    public Integer getRecoverCode() {
+    public String getRecoverCode() {
         return recoverCode;
     }
 
-    public void setRecoverCode(Integer recoverCode) {
+    public void setRecoverCode(String recoverCode) {
         this.recoverCode = recoverCode;
     }
 
@@ -214,7 +214,10 @@ public class UserController extends BaseFormController<User> {
 		
 		Logger.getLogger(UserController.class.getName()).log(Level.INFO, null, "User name: " + name_user + "\te-mail: " + email_user);
 
-                int code = this.generateCode();
+                //cript recoverycode
+                Integer code = this.generateCode();
+                this.setRecoverCode(Encrypter.encrypt(code));
+               
 
                 String to = this.email;
                 String subject = this.getText("subject.email.password");
@@ -269,12 +272,12 @@ public class UserController extends BaseFormController<User> {
     }
 
     
-    public String checkCode() {
+    public String checkCode() throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException {
         
         try {
             String message;
             List<User> userList = this.getDaoBase().list("email", this.email, this.getEntityManager());
-            if (!userList.isEmpty() && userList.get(0).getRecoverCode() != null && userList.get(0).getRecoverCode().equals(recoverCode) && recoverCode != 0) {
+            if (!userList.isEmpty() && userList.get(0).getRecoverCode() != null && userList.get(0).getRecoverCode().equals(Encrypter.encrypt(recoverCode)) ) {
                 return "esqueceu-sua-senha-concluir.xhtml";
             } else {
                 message = this.getText("email.code.incorretos");

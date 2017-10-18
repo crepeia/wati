@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/felipe/Documents/Viva%20sem%20tabaco/wati/system/web/pesquisa-satisfacao.xhtml</file>
+            <file>file:/home/felipe/Documents/Viva%20sem%20tabaco/wati/system/src/java/wati/controller/PesquisaSatisfacaoController.java</file>
+            <file>file:/home/felipe/Documents/Viva%20sem%20tabaco/wati/system/src/java/wati/model/PesquisaSatisfacao.java</file>
+            <file>file:/home/felipe/Documents/Viva%20sem%20tabaco/wati/system/web/esqueceu-sua-senha-concluir.xhtml</file>
+            <file>file:/home/felipe/Documents/Viva%20sem%20tabaco/wati/system/src/java/wati/utility/Scheduler.java</file>
+            <file>file:/home/felipe/Documents/Viva%20sem%20tabaco/wati/system/src/java/wati/model/ProntoParaParar.java</file>
+            <file>file:/home/felipe/Documents/Viva%20sem%20tabaco/wati/system/web/cadastrar-nova-conta.xhtml</file>
+            <file>file:/home/felipe/Documents/Viva%20sem%20tabaco/wati/system/src/java/wati/controller/UserController.java</file>
+            <file>file:/home/felipe/Documents/Viva%20sem%20tabaco/wati/system/src/java/wati/model/Questionnaire.java</file>
+            <file>file:/home/felipe/Documents/Viva%20sem%20tabaco/wati/system/src/java/wati/controller/PageNavigationController.java</file>
+            <file>file:/home/felipe/Documents/Viva%20sem%20tabaco/wati/system/src/java/wati/controller/ProntoParaPararController.java</file>
+            <file>file:/home/felipe/Documents/Viva%20sem%20tabaco/wati/system/web/politica-do-site.xhtml</file>
+        </group>
     </open-files>
 </project-private>

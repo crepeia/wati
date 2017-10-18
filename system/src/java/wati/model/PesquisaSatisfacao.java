@@ -48,7 +48,7 @@ public class PesquisaSatisfacao implements Serializable {
     private String q5;
      
      
-     @Column(name ="Q6")
+    @Column(name ="Q6")
     private String q6;
      
       

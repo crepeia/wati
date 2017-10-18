@@ -62,7 +62,7 @@ public class PesquisaSatisfacaoController extends BaseController<PesquisaSatisfa
         } catch (SQLException ex) {
             Logger.getLogger(PesquisaSatisfacaoController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "";
+        return "index.xhtml"; 
     }
     /*
         retorna o id do usuario contido na url de acesso vivasemtabaco.com.br/pagina...xhtml?uid=XXXX
