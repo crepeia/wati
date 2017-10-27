@@ -31,7 +31,6 @@ public class CalculadoraController implements Serializable {
         int numeroCigarrosDiaInt = Integer.valueOf( numberCigaretteDay );
         double custoMassoDbl = Double.valueOf( costMasso);
         double numeroMassosDia = numeroCigarrosDiaInt / 20.0;
-		      System.out.println("");
         double custoDia = numeroMassosDia * custoMassoDbl;
         costWeek = String.format("%.2f", 7.0*custoDia);
         costMonth = String.format("%.2f", 30.0*custoDia);

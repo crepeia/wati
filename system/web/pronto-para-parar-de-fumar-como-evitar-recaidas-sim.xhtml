@@ -47,7 +47,7 @@
                                 </div>
                             </div>
                             <br />
-
+                            <h4 class="headertop orange-text text-lighten-2">#{messages['pronto.evitar.sim.label.question']}</h4>
                             <h5 class="headertop orange-text text-lighten-2">#{messages['pnad.3']}</h5>
                             <h:selectManyCheckbox  value="#{prontoParaPararController.procPararFumarMarcados}" layout="pageDirection">  
                                 <f:selectItem itemLabel="#{messages['pnad.3.a']}" itemValue="a" />
@@ -61,8 +61,7 @@
                             </h:selectManyCheckbox> 
 
                             <br />
-                            <div class="center">
-                                <h5 class="headertop orange-text text-lighten-2">#{messages['pronto.evitar.sim.label.question']}</h5>
+                            <div class="center">                                
                                 <a class="modal-trigger" href="#HiddenDiv">
                                     <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['preparando.aed.btn.avaliar']}"  actionListener="#{prontoParaPararController.procPararFumar()}" update="hiddenPanel"  process="@all" onclick="javascript:ShowHide('HiddenDiv');"/></a>                             
                             </div>                            
@@ -135,23 +134,27 @@
                                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">#{messages['close']}</a>
                                 </div>
                             </div>
+                            
+                            
+                        <div class="row">
+                            <div class="col s12 m12 l12">
+                                <div class="card grey lighten-5">
+                                    <div class="card-content grey-text darken-4">
+                                        <span class="card-title blue-text darken-3">#{messages['next.step']}</span>
+                                    </div>
+                                    <div class="card-action">
+                                        <a class="tooltipped" data-position="right" data-tooltip="#{messages['ready.depression.titlepage']}" href="./pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml" title="#{messages['ready.depression.titlepage']}">#{messages['back']}</a>
+                                        <h:commandLink id="saveBtn" styleClass="tooltipped" value="#{messages['next']}" title="#{messages['pronto.met.btn.title']}" action="#{prontoParaPararController.evitarRecaidasSim()}"/> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </h:form>
+
                     </div>  
                 </div>             
 
-                <div class="row">
-                    <div class="col s12 m12 l12">
-                        <div class="card grey lighten-5">
-                            <div class="card-content grey-text darken-4">
-                                <span class="card-title blue-text darken-3">#{messages['next.step']}</span>
-                            </div>
-                            <div class="card-action">
-                                <a class="tooltipped" data-position="right" data-tooltip="#{messages['ready.depression.titlepage']}" href="./pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml" title="#{messages['ready.depression.titlepage']}">#{messages['back']}</a>
-                                <a class="tooltipped" data-position="right" data-tooltip="#{messages['pronto.met.btn.title']}" href="pronto-para-parar-de-fumar-como-evitar-recaidas-sim-aprendendo-com-erros.xhtml" title="#{messages['pronto.met.btn.title']}">#{messages['next']}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
                 <div class="section">
                     <div class='row'>

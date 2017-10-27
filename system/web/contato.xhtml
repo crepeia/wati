@@ -32,34 +32,37 @@
                 <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
                     <p:graphicImage library="default" name="images/loading.gif" />
                 </p:dialog>
-                
+
                 <h5>#{messages['contact.h5.description']}</h5> 
                 <p>#{messages['contact.p.1']}</p>
                 <br />
 
                 <h:form id="form" class="col s12">
                     <div class="input-field">
-                        <p:inputText id="sendEmail" value="#{preparandoParaPararController.email}" required="true" label="#{messages['email']}" validatorMessage="#{messages['naccount.invalidemail']}" styleClass="validate" type="email">                        
+                        <p:inputText id="email" binding="#{email}" required="true" label="#{messages['email']}" validatorMessage="#{messages['naccount.invalidemail']}" styleClass="validate" type="email">                        
                             <f:validateLength maximum="50" />
                             <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
-                            <label for="sendEmail"  data-error="wrong" data-success="right">#{messages['email']}</label>
+                            <label for="email"  data-error="wrong" data-success="right">#{messages['email']}</label>
                         </p:inputText>
                     </div>
-                    <p:watermark for="sendEmail" value="#{messages['email']}" />
-                    <p:message for="sendEmail" />
+                    <p:watermark for="email" value="#{messages['email']}" />
+                    <p:message for="email" />
 
 
                     <div class="input-field col s12">
                         <label for="msg">#{messages['contact.h4.msg']}</label>
-                        <p:inputTextarea id="msg" autoResize="true" value="#{preparandoParaPararController.message}" required="false" label="#{messages['contact.h4.msg']}" styleClass="materialize-textarea" />
+                        <p:inputTextarea id="msg" autoResize="true" binding="#{msg}" required="false" label="#{messages['contact.h4.msg']}" styleClass="materialize-textarea" />
                         <p:watermark for="msg" value="#{messages['contact.h4.msg']}" /> 
 
                         <p:message for="msg" />
                     </div>
-                    
+
                     <p:messages id="messages" redisplay="true" globalOnly="true"/>
 
-                    <p:commandButton styleClass="btn waves-effect waves-light" value ="#{messages['send']}" update="@form" actionListener="#{preparandoParaPararController.contactFormSend()}"/>
+                    <p:commandButton styleClass="btn waves-effect waves-light" value ="#{messages['send']}" update="@form" actionListener="#{contactController.sendContactFormEmail}">
+                        <f:attribute name="email" value="#{email.value}" />
+                        <f:attribute name="msg" value="#{msg.value}" />
+                    </p:commandButton>
                 </h:form>
 
             </div>	

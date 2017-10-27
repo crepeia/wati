@@ -25,10 +25,12 @@ import java.util.GregorianCalendar;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -62,6 +64,11 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     private String texto2;
     private String textoladder;
 
+    private GenericDAO userDAO;
+
+    private Integer notification;
+    private GregorianCalendar currentQuitDate;
+
     private Map<String, String> ftnd4Qtde = new LinkedHashMap<String, String>();
 
     private String[] procPararFumarMarcados = null;
@@ -74,10 +81,14 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     private static final char PNAD_G = 'g';
     private static final char PNAD_H = 'h';
 
+    @ManagedProperty(value = "#{contactController}")
+    private ContactController contactController;
+
     public ProntoParaPararController() {
         //super(ProntoParaParar.class);
         try {
             this.daoBase = new GenericDAO<ProntoParaParar>(ProntoParaParar.class);
+            userDAO = new GenericDAO<User>(User.class);
         } catch (NamingException ex) {
             String message = this.getText("mensagem.erro");
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
@@ -95,6 +106,8 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         this.texto1 = "";
         this.texto2 = "";
         this.textoladder = getText("feedback.mot.4");
+
+        currentQuitDate = (GregorianCalendar) GregorianCalendar.getInstance();
     }
 
     public String vencendoAFissura() {
@@ -120,7 +133,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }
         try {
             this.getDaoBase().insertOrUpdate(prontoParaParar, this.getEntityManager());
-            return "pronto-para-parar-de-fumar-depressao.xhtml";
+            return "pronto-para-parar-de-fumar-depressao.xhtml?faces-redirect=true";
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -129,34 +142,46 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 
     public String fumarMetodosDeParar() {
 
-        return "pronto-para-parar-de-fumar-metodos-de-parar.xhtml";
+        return "pronto-para-parar-de-fumar-metodos-de-parar.xhtml?faces-redirect=true";
 
     }
 
     public String dataParaParar() {
 
-//		if ( this.ano.equals("Atual") ) {
-//			this.ano = String.valueOf( new GregorianCalendar().get( GregorianCalendar.YEAR ) );
-//		}
-//		
-//		if ( this.mes.equals("Atual") ) {
-//			this.mes = String.valueOf( new GregorianCalendar().get( GregorianCalendar.MONTH ) );
-//		}
-//		
-//		if ( this.dia.equals("Atual") ) {
-//			this.dia = String.valueOf( new GregorianCalendar().get( GregorianCalendar.DAY_OF_MONTH ) );
-//		}
-        this.prontoParaParar.setDataParar(this.gregorianCalendar.getTime());
-        this.prontoParaParar.setEmailDataDiferente(null);
-        this.prontoParaParar.setEmailPrimeiraSemana(null);
-        this.prontoParaParar.setEmailSegundaSemana(null);
-        this.prontoParaParar.setEmailTerceiraSemana(null);
-        this.prontoParaParar.setEmailMensal(null);
-        this.prontoParaParar.setEmailMensalCont(null);
-
         try {
-            this.getDaoBase().insertOrUpdate(prontoParaParar, this.getEntityManager());
-            return "pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml";
+            if (changedQuitDate() || getProntoParaParar().getNotification() == null) {
+                this.getProntoParaParar().setNotification(notification);
+                this.getProntoParaParar().setDataParar(this.gregorianCalendar.getTime());
+                this.getProntoParaParar().setDataInserido(((GregorianCalendar) GregorianCalendar.getInstance()).getTime());
+
+                this.getDaoBase().insertOrUpdate(getProntoParaParar(), this.getEntityManager());
+                if (getProntoParaParar().getUsuario().isReceiveEmails()) {
+                    contactController.clearFollowUpEmails(getProntoParaParar().getUsuario());
+
+                    contactController.scheduleMonthlyEmail(getProntoParaParar().getUsuario(), gregorianCalendar.getTime());
+                    contactController.scheduleWeeklyEmail(getProntoParaParar().getUsuario(), gregorianCalendar.getTime());
+                    if (gregorianCalendar.getTime() != ((GregorianCalendar) GregorianCalendar.getInstance()).getTime()) {
+                        contactController.scheduleDifferentDateEmail(getProntoParaParar().getUsuario(),
+                                gregorianCalendar.getTime());
+                    }
+
+                    if (getProntoParaParar().getNotification() == 1) {
+                        int days[] = new int[]{7, 15, 21};
+                        for (int day : days) {
+                            contactController.scheduleDaillyEmail(getProntoParaParar().getUsuario(), gregorianCalendar.getTime(), day);
+                        }
+                    }
+                    if (getProntoParaParar().getNotification() == 2) {
+                        int days[] = new int[]{1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21};
+                        for (int day : days) {
+                            contactController.scheduleDaillyEmail(getProntoParaParar().getUsuario(), gregorianCalendar.getTime(), day);
+                        }
+                    }
+                }
+
+            }
+
+            return "pronto-para-parar-de-fumar-como-evitar-recaidas.xhtml?faces-redirect=true";
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.data"), null));
@@ -164,14 +189,27 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         return null;
     }
 
+    public boolean changedQuitDate() {
+        GregorianCalendar dataParar = (GregorianCalendar) GregorianCalendar.getInstance();
+        dataParar.setTime(getProntoParaParar().getDataParar());
+
+        return this.gregorianCalendar.get(GregorianCalendar.DAY_OF_MONTH) != currentQuitDate.get(GregorianCalendar.DAY_OF_MONTH)
+                || this.gregorianCalendar.get(GregorianCalendar.MONTH) != currentQuitDate.get(GregorianCalendar.MONTH)
+                || this.gregorianCalendar.get(GregorianCalendar.YEAR) != currentQuitDate.get(GregorianCalendar.YEAR);
+    }
+
+    public boolean changedNotification() {
+        return !Objects.equals(getProntoParaParar().getNotification(), notification);
+    }
+
     public String recaidaTentouParar() {
 
         try {
             this.getDaoBase().insertOrUpdate(this.prontoParaParar, this.getEntityManager());
             if (this.prontoParaParar.isTentouParar()) {
-                return "pronto-para-parar-de-fumar-como-evitar-recaidas-sim.xhtml";
+                return "pronto-para-parar-de-fumar-como-evitar-recaidas-sim.xhtml?faces-redirect=true";
             } else {
-                return "pronto-para-parar-de-fumar-como-evitar-recaidas-completo.xhtml";
+                return "pronto-para-parar-de-fumar-como-evitar-recaidas-completo.xhtml?faces-redirect=true";
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
@@ -184,7 +222,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 
         try {
             this.getDaoBase().insertOrUpdate(this.prontoParaParar, this.getEntityManager());
-            return "pronto-para-parar-de-fumar-como-evitar-recaidas-completo.xhtml";
+            return "pronto-para-parar-de-fumar-como-evitar-recaidas-completo.xhtml?faces-redirect=true";
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.data"), null));
@@ -196,7 +234,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
 
         try {
             this.getDaoBase().insertOrUpdate(this.prontoParaParar, this.getEntityManager());
-            return "pronto-para-parar-de-fumar-ganho-de-peso.xhtml";
+            return "pronto-para-parar-de-fumar-ganho-de-peso.xhtml?faces-redirect=true";
         } catch (SQLException ex) {
             Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.data"), null));
@@ -342,9 +380,9 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
                     Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 this.prontoParaParar.setUsuario((User) object);
-            } else {
-                Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, this.getText("usuario.preenchendo.ficha"));
             }
+        } else {
+            currentQuitDate.setTime(prontoParaParar.getDataParar());
         }
 
         return prontoParaParar;
@@ -436,7 +474,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             User user = (User) object;
 
             try {
-                String from = "watiufjf@gmail.com";
+                String from = "contato@vivasemtabaco.com.br";
                 String to = user.getEmail();
                 String subject = this.getText("plano.wati2");
 
@@ -670,14 +708,15 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }
 
     }
+
     /*
      public void testarMetodo(){
      System.out.println("***TESTE***TESTE***TESTE***");
      }*/
-
     // Contemplation Ladder Scale
     /**
-     * Method that provides feedback to users based on their feedback on Ladder Contemplation Scale.
+     * Method that provides feedback to users based on their feedback on Ladder
+     * Contemplation Scale.
      */
     public void evaluateLadder() {
         int score = prontoParaParar.getLadder1();
@@ -705,7 +744,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         int sum9 = prontoParaParar.getPhq9() == null ? 0 : prontoParaParar.getPhq9();
 
         int sumTotal = sum1 + sum2 + sum3 + sum4 + sum5 + sum6 + sum7 + sum8 + sum9;
-        
+
         if (sumTotal >= 9 && sumTotal <= 13) {
             texto1 = this.getText("feedback.phq9.1");
         } else if (sumTotal >= 14 && sumTotal <= 23) {
@@ -777,7 +816,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     public void setTexto2(String texto2) {
         this.texto2 = texto2;
     }
-    
+
     public Map<String, String> getFtnd4Qtde() {
         return ftnd4Qtde;
     }
@@ -826,12 +865,12 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         }
 
     }
-    
-    public boolean isProcPararFumarMarcado(){
-        return getProntoParaParar().isPnadA() || getProntoParaParar().isPnadB()||
-               getProntoParaParar().isPnadC() || getProntoParaParar().isPnadD()||
-               getProntoParaParar().isPnadE() || getProntoParaParar().isPnadF()||
-               getProntoParaParar().isPnadG() || getProntoParaParar().isPnadH();
+
+    public boolean isProcPararFumarMarcado() {
+        return getProntoParaParar().isPnadA() || getProntoParaParar().isPnadB()
+                || getProntoParaParar().isPnadC() || getProntoParaParar().isPnadD()
+                || getProntoParaParar().isPnadE() || getProntoParaParar().isPnadF()
+                || getProntoParaParar().isPnadG() || getProntoParaParar().isPnadH();
     }
 
     public String[] getProcPararFumarMarcados() {
@@ -903,6 +942,46 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         return procPararFumarMarcados;
     }
 
+    public String introducao() {
+        try {
+            this.getDaoBase().insertOrUpdate(prontoParaParar, this.getEntityManager());
+            return "pronto-para-parar-de-fumar-beneficios-de-parar.xhtml?faces-redirect=true";
+        } catch (SQLException ex) {
+            Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public String depressao() {
+        try {
+            this.getDaoBase().insertOrUpdate(prontoParaParar, this.getEntityManager());
+            return "pronto-para-parar-de-fumar-medicamentos.xhtml?faces-redirect=true";
+        } catch (SQLException ex) {
+            Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public String medicamentos() {
+        try {
+            this.getDaoBase().insertOrUpdate(prontoParaParar, this.getEntityManager());
+            return "pronto-para-parar-de-fumar-data-para-parar.xhtml?faces-redirect=true";
+        } catch (SQLException ex) {
+            Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public String evitarRecaidasSim() {
+        try {
+            this.getDaoBase().insertOrUpdate(prontoParaParar, this.getEntityManager());
+            return "pronto-para-parar-de-fumar-como-evitar-recaidas-sim-aprendendo-com-erros.xhtml?faces-redirect=true";
+        } catch (SQLException ex) {
+            Logger.getLogger(ProntoParaPararController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
     public void setProcPararFumarMarcados(String[] procPararFumarMarcados) {
         this.procPararFumarMarcados = procPararFumarMarcados;
     }
@@ -912,6 +991,33 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             System.out.println(s);
         }
 
+    }
+
+    public ContactController getContactController() {
+        return contactController;
+    }
+
+    public void setContactController(ContactController contactController) {
+        this.contactController = contactController;
+    }
+
+    public Integer getNotification() {
+        if (getProntoParaParar().getNotification() != null) {
+            notification = getProntoParaParar().getNotification();
+        }
+        return notification;
+    }
+
+    public void setNotification(Integer notification) {
+        this.notification = notification;
+    }
+
+    public GregorianCalendar getCurrentQuitDate() {
+        return currentQuitDate;
+    }
+
+    public void setCurrentQuitDate(GregorianCalendar currentQuitDate) {
+        this.currentQuitDate = currentQuitDate;
     }
 
 }

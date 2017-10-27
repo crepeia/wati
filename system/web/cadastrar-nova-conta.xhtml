@@ -10,6 +10,37 @@
         <h:head>
             <title>#{messages['naccount.titlepage']}</title>
             <w:head_comum />
+                   
+            <!-- Facebook Pixel Code to track our adverts -->
+            <h:outputScript>
+                !function (f, b, e, v, n, t, s) {
+                if (f.fbq)
+                return;
+                n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq)
+                f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+                }(window,
+                document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+                fbq('init', '597384437104437');
+                fbq('track', "CompleteRegistration");</h:outputScript>            
+            <noscript><![CDATA[<img height="1" width="1" style="display:none"
+                                    src="https://www.facebook.com/tr?id=597384437104437&ev=PageView&noscript=1"
+                                    />
+                ]]></noscript>           
+            <!-- End Facebook Pixel Code -->
         </h:head>
 
         <h:body>
@@ -19,23 +50,34 @@
 
             <!--mainmenu-->         	
             <div class="container">
+
                 <div class="row">
                     <div class="col l12 m12 s12">
 
                         <h2 class="orange-text">#{messages['naccount.register']}</h2>
 
                         <h:form id="form">
-                            <!-- Validation Messages -->
-                            <p:message for="nameTxt" display="text"/>
-                            <p:message for="emailTxt" display="text" />
-                            <p:message for="passwordTxt" display="text" />
-                            <p:message for="day" display="text"/>
-                            <p:message for="month" display="text" />
-                            <p:message for="year" display="text" />
-                            <p:message for="options" display="text"/>
+
+                            <p:ajaxStatus onstart="statusDialog.show()" onsuccess="statusDialog.hide()" />
+                            <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                                <h:graphicImage url="resources/default/images/ajax-loader.gif" library="default" />  
+                            </p:dialog>
+
+
+                            <!-- Validation Messages for Desktop-->
+                            <div class="hide-on-small-and-down">
+                                <p:message for="nameTxt" display="text"/>
+                                <p:message for="emailTxt" display="text" />
+                                <p:message for="passwordTxt" display="text" />
+                                <p:message for="day" display="text"/>
+                                <p:message for="month" display="text" />
+                                <p:message for="year" display="text" />
+                                <p:message for="options" display="text"/>
+                            </div>
 
                             <!-- End of validation msgs -->
                             <div class="row">
+
                                 <div class="col l6 m6 s12">
                                     <div class="input-field">
                                         <p:inputText id="nameTxt" value="#{userController.user.name}" required="true" label="#{messages['naccount.name']}" validatorMessage="#{messages['email.senha']}" >
@@ -138,38 +180,64 @@
                                         <h:outputText value="#{messages['telephone.number']}" styleClass="grey-text valign" style="position:relative;top:16px;"/>
                                     </div>
 
-                                    <div class="col l7 m7 s7">                            
-                                        <p:inputText id="telTxt" value="#{userController.user.phone}" required="false">
-                                        </p:inputText>                                        
+                                    <div class="col l7 m7 s7">  
+                                        <h:inputText id="telTxt" value="#{userController.user.phone}" required="false">
+                                        </h:inputText> 
                                     </div>
                                 </div>
-
                             </div>
 
                             <br />
                             <div class="row">
                                 <div class="col s12 m12 l12">
-                                    <h:selectBooleanCheckbox styleClass="checkbox" value="#{userController.user.receiveEmails}"/>
-                                    <input type="checkbox" name="chk" id="chk1" value="#{userController.user.receiveEmails}"/>
-                                    <label for="chk1">#{messages['gostaria.receber.email']}</label>
+                                    <h:outputText value="#{messages['gostaria.receber.email']}" styleClass="grey-text valign" />
+                                    <h:selectOneRadio value="#{userController.user.receiveEmails}" required="true" >
+                                        <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
+                                        <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
+                                    </h:selectOneRadio>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col s12 m12 l12">
-                                    <h:selectBooleanCheckbox styleClass="checkbox" value="#{userController.user.authorizeData}"/>
-                                    <input type="checkbox" name="chk" id="chk2" value="#{userController.user.authorizeData}"/>
-                                    <label for="chk2">#{messages['autorizo.para.pesquisa.p1']} <a href="./termo-consentimento.xhtml" target="_blank" >#{messages['login.informed.consent']}</a>.</label>
+                                    <h:outputText value="#{messages['autorizo.para.pesquisa.p1']}" styleClass="grey-text valign"/> 
+                                    <h:outputLink value="./termo-consentimento.xhtml" target="_blank"> #{messages['login.informed.consent']}</h:outputLink>
+                                    <h:selectOneRadio  value="#{userController.user.authorizeData}" required="true">
+                                        <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
+                                        <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
+                                    </h:selectOneRadio>
                                 </div>
                             </div>
 
                             <div class="row">
-                                <div class="col s12 m3 l3 center-on-small-only">
-                                    <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['register']}" update="@form" actionListener="#{userController.save}">
+                                <!-- Validation Messages for Desktop-->
+                                <div class="hide-on-med-and-up">
+                                    <p:message for="nameTxt" display="text"/>
+                                    <p:message for="emailTxt" display="text" />
+                                    <p:message for="passwordTxt" display="text" />
+                                    <p:message for="day" display="text"/>
+                                    <p:message for="month" display="text" />
+                                    <p:message for="year" display="text" />
+                                    <p:message for="options" display="text"/>
+                                </div>
+                                <br />
+                                <div>                                    
+                                    <p:messages id="errorMessage" globalOnly="true" />
+                                </div>
+                                <div id="btn" class="col s12 m3 l3 center-on-small-only">
+                                    <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['register']}" update="@form" actionListener="#{userController.save}" onclick="javascript:ShowHide('HiddenDiv', 'btn');">
                                         <f:attribute name="object" value="#{userController.user}" />
                                         <f:attribute name="typeName" value="user" />
                                     </p:commandButton>
                                 </div>                               
+                            </div>
+
+                            <div  style="display: none" id="HiddenDiv">
+
+                                <h6>#{messages['pleasewait']}</h6>
+                                <h:graphicImage url="resources/default/images/ajax-loader.gif" library="default" />  
+
+
                             </div>
 
                             <div class="row">
@@ -177,17 +245,49 @@
                                     <p>#{messages['naccount.p.botton']} <h:outputLink value="./termos-de-uso.xhtml">#{messages['naccount.already.userterms']}</h:outputLink></p>
                                 </div>
                             </div>
-
-
                         </h:form>	    		
                     </div>
                 </div>                
             </div>
 
-
-
-
             <w:footer />
+            
+            <script src="resources/default/js/inputmask/dist/jquery.inputmask.bundle.js"></script>
+            <script language="JavaScript">
+                
+                function ShowHide(divId, btnId)
+                {
+                    if (document.getElementById(divId).style.display == 'none')
+                    {
+                        document.getElementById(divId).style.display = 'block';
+                        document.getElementById(btnId).style.display = 'none';
+                    }
+                }
+                
+                
+                function setupPhoneMaskOnField(selector){
+                    var inputElement = jQuery("[id$='"+selector+"']");
+                    setCorrectPhoneMask(inputElement);
+                    inputElement.on('input, keyup', function(){
+                        setCorrectPhoneMask(inputElement);
+                    });
+                }
+
+                function setCorrectPhoneMask(element){
+                    if (element.inputmask('unmaskedvalue').length > 12 ){
+                        element.inputmask('remove');
+                        element.inputmask('+99 (99) 9 9999-9999');
+                    } else {
+                        element.inputmask('remove');
+                        element.inputmask({mask: '+99 (99) 9999-9999[9]', greedy: false});
+                    }
+                }
+                
+                $(document).ready(function(){
+                    setupPhoneMaskOnField('telTxt');
+                });
+    
+            </script>
         </h:body>
     </f:view>
 </html>

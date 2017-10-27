@@ -32,8 +32,10 @@
                     <p:messages id="loginMessages" globalOnly="true" />
                 </p:panel>
                 <p:panel  styleClass="left" rendered="#{loginController.showName}">
-                    #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  ::  
+                    #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  :: 
+                    <h:outputLink value="editar-perfil.xhtml">#{messages['edit.profile']}</h:outputLink>::
                     <h:outputLink value="logout.xhtml">#{messages['signout']}</h:outputLink>
+                    
                 </p:panel>
             </div>
         </h:form>
@@ -49,12 +51,14 @@
                     <div class="hide-on-med-and-down" id="userPanel">
                         <p:panel  styleClass="right" rendered="#{loginController.showName}">
                             #{messages['hello']} <h:outputText value="#{loginController.user.name}" />  ::  
+                            <h:outputLink value="editar-perfil.xhtml">#{messages['edit.profile']}</h:outputLink>::
                             <h:outputLink value="logout.xhtml">#{messages['signout']}</h:outputLink>
                         </p:panel>
                     </div>
 
                 </div> 
                 <ul class="right hide-on-med-and-down">
+                    <li><a href="./index.xhtml">#{messages['menu.top.li1']}</a></li>
                     <li><a href="./programa.xhtml">#{messages['menu.top.li2']}</a></li>                                        
                     <li><a href="./quem-somos-os-autores.xhtml">#{messages['menu.top.li3']}</a></li>                    
                     <p:outputPanel rendered="#{!loginController.showName}">

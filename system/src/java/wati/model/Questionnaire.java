@@ -41,21 +41,21 @@ public class Questionnaire implements Serializable {
     @Column(name = "tried_quit")
     private Integer triedQuit;
     @Column(name = "procedure_1")
-    private Boolean procedure1;
+    private boolean procedure1;
     @Column(name = "procedure_2")
-    private Boolean procedure2;
+    private boolean procedure2;
     @Column(name = "procedure_3")
-    private Boolean procedure3;
+    private boolean procedure3;
     @Column(name = "procedure_4")
-    private Boolean procedure4;
+    private boolean procedure4;
     @Column(name = "procedure_5")
-    private Boolean procedure5;
+    private boolean procedure5;
     @Column(name = "procedure_6")
-    private Boolean procedure6;
+    private boolean procedure6;
     @Column(name = "procedure_7")
-    private Boolean procedure7;
+    private boolean procedure7;
     @Column(name = "procedure_8")
-    private Boolean procedure8;
+    private boolean procedure8;
     @Column(name = "dependency_level_1")
     private Integer dependencyLevel1;
     @Column(name = "dependency_level_2")
@@ -79,8 +79,21 @@ public class Questionnaire implements Serializable {
     @Column(name ="alcohol_use_3")
     private Integer alcoholUse3;
     
+    @Column(name ="baseline_1")
+    private boolean baseline1;
+    @Column(name ="baseline_2")
+    private boolean baseline2;
+    @Column(name ="baseline_3")
+    private boolean baseline3;
+    @Column(name ="baseline_4")
+    private boolean baseline4;
+    @Column(name ="baseline_5")
+    private boolean baseline5;
+    @Column(name ="baseline_6")
+    private boolean baseline6;
+    @Column(name ="baseline_7")
+    private boolean baseline7;
     
-
     @OneToOne
     private User user;
 
@@ -147,72 +160,7 @@ public class Questionnaire implements Serializable {
     public void setTriedQuit(Integer triedQuit) {
         this.triedQuit = triedQuit;
     }
-
-    public Boolean getProcedure1() {
-        return procedure1;
-    }
-
-    public void setProcedure1(Boolean procedure1) {
-        this.procedure1 = procedure1;
-    }
-
-    public Boolean getProcedure2() {
-        return procedure2;
-    }
-
-    public void setProcedure2(Boolean procedure2) {
-        this.procedure2 = procedure2;
-    }
-
-    public Boolean getProcedure3() {
-        return procedure3;
-    }
-
-    public void setProcedure3(Boolean procedure3) {
-        this.procedure3 = procedure3;
-    }
-
-    public Boolean getProcedure4() {
-
-        return procedure4;
-    }
-
-    public void setProcedure4(Boolean procedure4) {
-        this.procedure4 = procedure4;
-    }
-
-    public Boolean getProcedure5() {
-        return procedure5;
-    }
-
-    public void setProcedure5(Boolean procedure5) {
-        this.procedure5 = procedure5;
-    }
-
-    public Boolean getProcedure6() {
-        return procedure6;
-    }
-
-    public void setProcedure6(Boolean procedure6) {
-        this.procedure6 = procedure6;
-    }
-
-    public Boolean getProcedure7() {
-        return procedure7;
-    }
-
-    public void setProcedure7(Boolean procedure7) {
-        this.procedure7 = procedure7;
-    }
-
-    public Boolean getProcedure8() {
-        return procedure8;
-    }
-
-    public void setProcedure8(Boolean procedure8) {
-        this.procedure8 = procedure8;
-    }
-
+    
     public Integer getDependencyLevel1() {
         return dependencyLevel1;
     }
@@ -300,6 +248,128 @@ public class Questionnaire implements Serializable {
     public void setAlcoholUse3(Integer alcoholUse3) {
         this.alcoholUse3 = alcoholUse3;
     }
+
+    public boolean isBaseline1() {
+        return baseline1;
+    }
+
+    public void setBaseline1(boolean baseline1) {
+        this.baseline1 = baseline1;
+    }
+
+    public boolean isBaseline2() {
+        return baseline2;
+    }
+
+    public void setBaseline2(boolean baseline2) {
+        this.baseline2 = baseline2;
+    }
+
+    public boolean isBaseline3() {
+        return baseline3;
+    }
+
+    public void setBaseline3(boolean baseline3) {
+        this.baseline3 = baseline3;
+    }
+
+    public boolean isBaseline4() {
+        return baseline4;
+    }
+
+    public void setBaseline4(boolean baseline4) {
+        this.baseline4 = baseline4;
+    }
+
+    public boolean isBaseline5() {
+        return baseline5;
+    }
+
+    public void setBaseline5(boolean baseline5) {
+        this.baseline5 = baseline5;
+    }
+
+    public boolean isBaseline6() {
+        return baseline6;
+    }
+
+    public void setBaseline6(boolean baseline6) {
+        this.baseline6 = baseline6;
+    }
+
+    public boolean isBaseline7() {
+        return baseline7;
+    }
+
+    public void setBaseline7(boolean baseline7) {
+        this.baseline7 = baseline7;
+    }
+
+    public boolean isProcedure1() {
+        return procedure1;
+    }
+
+    public void setProcedure1(boolean procedure1) {
+        this.procedure1 = procedure1;
+    }
+
+    public boolean isProcedure2() {
+        return procedure2;
+    }
+
+    public void setProcedure2(boolean procedure2) {
+        this.procedure2 = procedure2;
+    }
+
+    public boolean isProcedure3() {
+        return procedure3;
+    }
+
+    public void setProcedure3(boolean procedure3) {
+        this.procedure3 = procedure3;
+    }
+
+    public boolean isProcedure4() {
+        return procedure4;
+    }
+
+    public void setProcedure4(boolean procedure4) {
+        this.procedure4 = procedure4;
+    }
+
+    public boolean isProcedure5() {
+        return procedure5;
+    }
+
+    public void setProcedure5(boolean procedure5) {
+        this.procedure5 = procedure5;
+    }
+
+    public boolean isProcedure6() {
+        return procedure6;
+    }
+
+    public void setProcedure6(boolean procedure6) {
+        this.procedure6 = procedure6;
+    }
+
+    public boolean isProcedure7() {
+        return procedure7;
+    }
+
+    public void setProcedure7(boolean procedure7) {
+        this.procedure7 = procedure7;
+    }
+
+    public boolean isProcedure8() {
+        return procedure8;
+    }
+
+    public void setProcedure8(boolean procedure8) {
+        this.procedure8 = procedure8;
+    }
+    
+    
     
     
 

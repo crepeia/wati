@@ -1,9 +1,11 @@
 Introduction
 ----------------
-This repository hosts the Live without tobacco ("Viva sem Tabaco") project, the first open-source web-assisted tobacco intervention. The intervention content is adapted from the widely accepted guidelines *Treating Tobacco Use and Dependence* (U.S Departament of Health and Human Services).
 
-Live Intervention: http://www.livewithouttobacco.org
-Project's website: http://crepeia.github.io/wati
+[![Join the chat at https://gitter.im/crepeia/wati](https://badges.gitter.im/crepeia/wati.svg)](https://gitter.im/crepeia/wati?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+This repository hosts the Live without tobacco ("Viva sem Tabaco") project, the first open-source web-assisted intervention for smoking cessation. The intervention content is based on the widely accepted guideline *Treating Tobacco Use and Dependence* (U.S Departament of Health and Human Services).
+
+* Live Intervention: http://www.livewithouttobacco.org
+* Project's website: http://crepeia.github.io/wati
 
 Feel free to contact us if you would like to translate or extend it to other languages or platforms. We love science, therefore we love to collaborate.
 
@@ -12,7 +14,7 @@ Live without Tobacco is developed and maintained by the Center for Research, Int
 
 Translation
 ----------------
-If you're interested in helping smokers in your language, you can start translating Live without tobacco now. It is quite easy! You only need to access our page at crowdin https://crowdin.com/project/livewithouttobacco.
+If you're interested in helping smokers in your language, you can start translating Live without tobacco now. It is quite easy! You only need to access our project at crowdin https://crowdin.com/project/livewithouttobacco.
 
 License
 ----------------
@@ -21,6 +23,7 @@ All content are licensed by GNU License. We are really proud to say you are free
 How to reach us?
 ----------------
 
-Email: henriquepgomide@gmail.com
-Twitter: @hpgomide
-Slack: 
+* Slack: https://livewithouttobacco.slack.com
+* Email: henriquepgomide@gmail.com
+* Twitter: @vivasemtabaco
+

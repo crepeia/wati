@@ -135,7 +135,7 @@ public class PesquisaSatisfacao implements Serializable {
     }
     
     public String getUrlPesquisaSatisfacao(){
-        return "http://www.vivasemtabaco.com.br/pesquisa-satisfacacao.xhtml?uid="+user.getId();
+        return "http://www.vivasemtabaco.com.br/pesquisa-satisfacao.xhtml?uid="+user.getId();
     }
     
     

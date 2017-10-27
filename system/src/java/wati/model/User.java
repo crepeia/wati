@@ -71,6 +71,12 @@ public class User {
     @OneToOne(mappedBy = "user")
     private PesquisaSatisfacao pesquisaSatisfacao;
     
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Rating> ratings;
+    
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<FollowUp> followUps;
+    
     @Column(name = "pesquisa_enviada")
     private Boolean pesquisa_enviada;
 
@@ -81,7 +87,10 @@ public class User {
     public long getId() {
         return id;
     }
-
+    
+    public String getHashedId(){
+        return String.valueOf(id*1357);
+    }
     /**
      * @param id the id to set
      */
@@ -244,7 +253,7 @@ public class User {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(String phone) {        
         this.phone = phone;
     }
 
@@ -280,6 +289,9 @@ public class User {
      * @return pesquisa_enviada
      */
     public boolean getPesquisaEnviada() {
+        if(pesquisa_enviada == null){
+            return false;
+        }
         return pesquisa_enviada;
     }
 
@@ -287,7 +299,39 @@ public class User {
         this.pesquisa_enviada = num;
     }
 
-    
+    public Date getDt_cadastro() {
+        return dt_cadastro;
+    }
 
+    public void setDt_cadastro(Date dt_cadastro) {
+        this.dt_cadastro = dt_cadastro;
+    }
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
+    }
+
+    public List<FollowUp> getFollowUps() {
+        return followUps;
+    }
+
+    public void setFollowUps(List<FollowUp> followUps) {
+        this.followUps = followUps;
+    }
+
+    public Boolean getPesquisa_enviada() {
+        return pesquisa_enviada;
+    }
+
+    public void setPesquisa_enviada(Boolean pesquisa_enviada) {
+        this.pesquisa_enviada = pesquisa_enviada;
+    }
+
+    
+    
 }
 

@@ -13,9 +13,23 @@
     <cc:implementation>
         <footer class="page-footer white">
             <div class="container">
+
+                <!-- Health on the Foundation Banner -->
+                <div class="row">
+                    <div class="container">
+                        <div class="col l12 m12 s12">
+                            <h:outputLink value="http://www.hon.ch/cgi-bin/HONtools/share.pl" target="_blank">
+                                <h:graphicImage styleClass="responsive-img" library="default" name="#{languageController.hon}"/>
+                            </h:outputLink>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col l3 m3 s12">
-                        <h5 class="grey-text">#{messages['vivasemtabaco']}</h5>
+
+                        <h:graphicImage styleClass="icon" value="resources/default/images/vst-grey.png"/>
+<!--                        <h5 class="grey-text">#{messages['vivasemtabaco']}</h5>-->
                         <div class="divider"></div>
                         <ul>
                             <li><h:outputLink styleClass="grey-text" value="./index.xhtml">#{messages['footer.li1']}</h:outputLink></li>
@@ -101,11 +115,23 @@
         </footer>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"/>
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+                                            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+                                            (function () {
+                                                var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+                                                s1.async = true;
+                                                s1.src = 'https://embed.tawk.to/57d84ebe11028a70b198b020/default';
+                                                s1.charset = 'UTF-8';
+                                                s1.setAttribute('crossorigin', '*');
+                                                s0.parentNode.insertBefore(s1, s0);
+                                            })();
+        </script>
+        <!--End of Tawk.to Script-->
         <h:outputScript library="default" name="js/materialize.min.js"/>
-        <h:outputScript library="default" name="js/init.min.js"/>        
+        <h:outputScript library="default" name="js/init.min.js"/>          
         <h:outputScript library="default" name="js/primefaces.deferred.js" target="head" />
         <o:deferredScript library="primefaces" name="jquery/jquery-plugins.js" onbegin="DeferredPrimeFaces.begin()"/>
         <o:deferredScript library="primefaces" name="primefaces.js" onbegin="DeferredPrimeFaces.begin()" />
-
     </cc:implementation>
 </html>

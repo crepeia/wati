@@ -12,6 +12,7 @@ cp translations/messages_de-DE.properties ../../system/src/java/wati/utility/mes
 cp translations/messages_ru-RU.properties ../../system/src/java/wati/utility/messages_ru.properties
 cp translations/messages_it-IT.properties ../../system/src/java/wati/utility/messages_it.properties
 cp translations/messages_es-ES.properties ../../system/src/java/wati/utility/messages_es.properties
+cp translations/messages_ar-SA.properties ../../system/src/java/wati/utility/messages_ar.properties
 rm -rf translations
 rm translations.zip
 

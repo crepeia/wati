@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html lang="pt,en,es,de,ru" xml:lang="pt,en,es,de,ru"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:w="http://java.sun.com/jsf/composite/ezcomp">
+    <f:view locale="#{languageController.locale}">
+        <h:head>
+            <title>#{messages['baseline.h3.4']}</title>
+            <w:head_comum />
+        </h:head>
+
+        <h:body>
+            <w:topmenu-i />
+            <w:leftmenu_2/>
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col l12 m12 s12">                
+                        <h3 class="headertop orange-text text-lighten-2">#{messages['baseline.h3.4']}</h3>
+                    </div>
+                </div>                         
+
+                <div class="row">
+
+                    <h:form>    
+                        <h5 class="headertop orange-text text-lighten-2">#{messages['bas_cigpuff']}</h5>
+                        <h:selectOneRadio id="bas_cigpuff" value="#{followUpController.followUp.smokedLast7days}" required="true" layout="lineDirection">
+                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
+                            <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
+                        </h:selectOneRadio>  
+
+                        <h5 class="headertop orange-text text-lighten-2">#{messages['1m_30_cigpuff']}</h5>
+                        <h:selectOneRadio  value="#{followUpController.followUp.smokedLast30days}" required="true" layout="lineDirection">
+                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
+                            <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
+                        </h:selectOneRadio> 
+                        
+                        <h5 class="headertop orange-text text-lighten-2">#{messages['1m_cigarlast30d']}</h5>
+                        <h:selectOneMenu   value="#{followUpController.followUp.daysSmokingPast30days}" required="true" styleClass="browser-default">  
+                            <f:selectItems value="#{questionnaireController.timesQuit}"/>  
+                        </h:selectOneMenu>
+
+                        <h5 class="headertop orange-text text-lighten-2">#{messages['bas_cigarppd']}</h5>
+                        <h:selectOneMenu id="bas_cigarppd"  value="#{followUpController.followUp.averagePerDayPast7days}" required="true" styleClass="browser-default">  
+                            <f:selectItems value="#{questionnaireController.timesQuit}"/>  
+                        </h:selectOneMenu>
+
+                        <h5 class="headertop orange-text text-lighten-2">#{messages['bas_quitattempts']}</h5>
+                         <h:selectOneMenu   value="#{followUpController.followUp.timesTriedQuit24Hours}" required="true" styleClass="browser-default">  
+                            <f:selectItems value="#{questionnaireController.timesQuit}"/>  
+                        </h:selectOneMenu>
+
+                        <h5 class="headertop orange-text text-lighten-2">#{messages['7d_abst_01']}</h5>
+                       <h:selectOneRadio value="#{followUpController.followUp.usedOtherProducts}" required="true" layout="lineDirection">
+                            <f:selectItem itemLabel="#{messages['yes']}" itemValue="#{true}"/>
+                            <f:selectItem itemLabel="#{messages['no']}" itemValue="#{false}"/>
+                        </h:selectOneRadio>
+
+                        <h5 class="headertop orange-text text-lighten-2">#{messages['7d_abst_01_a']}</h5>
+                        <h:selectOneMenu value="#{followUpController.followUp.longestTimeWithoutSmoking}" required="true" styleClass="browser-default">  
+                            <f:selectItems value="#{questionnaireController.timesQuit}"/>  
+                        </h:selectOneMenu>
+
+                        <h5 class="headertop orange-text text-lighten-2">#{messages['7d_abst_02']}</h5>
+                        <h:selectOneMenu value="#{followUpController.followUp.averagePerDay}" required="true" styleClass="browser-default">  
+                            <f:selectItems value="#{questionnaireController.timesQuit}"/>  
+                        </h:selectOneMenu>
+
+                        <h5 class="headertop orange-text text-lighten-2">#{messages['7d_methods']}</h5>
+                        <p>
+                            <h:selectBooleanCheckbox id="bool1" value="#{followUpController.followUp.usedTryQuit1}" styleClass="browser-default"/>
+                            <h:outputLabel value="#{messages['pnad.3.a']}" for="bool1"/>
+                        </p>
+                        <p>
+                            <h:selectBooleanCheckbox id="bool2" value="#{followUpController.followUp.usedTryQuit2}" styleClass="browser-default"/>
+                            <h:outputLabel value="#{messages['pnad.3.b']}" for="bool2"/>
+                        </p>
+                        <p>
+                            <h:selectBooleanCheckbox id="bool3" value="#{followUpController.followUp.usedTryQuit3}" />
+                            <h:outputLabel value="#{messages['pnad.3.c']}" for="bool3"/>
+                        </p>
+                        <p>
+                            <h:selectBooleanCheckbox id="bool4" value="#{followUpController.followUp.usedTryQuit4}" />
+                            <h:outputLabel value="#{messages['pnad.3.d']}" for="bool4"/>
+                        </p>
+                        <p>
+                            <h:selectBooleanCheckbox id="bool5" value="#{followUpController.followUp.usedTryQuit5}" />
+                            <h:outputLabel value="#{messages['pnad.3.e']}" for="bool5"/>
+                        </p>
+                        <p>
+                            <h:selectBooleanCheckbox id="bool6" value="#{followUpController.followUp.usedTryQuit6}" />
+                            <h:outputLabel value="#{messages['pnad.3.f']}" for="bool6"/>
+                        </p>
+                        <p>
+                            <h:selectBooleanCheckbox id="bool7" value="#{followUpController.followUp.usedTryQuit7}" />
+                            <h:outputLabel value="#{messages['pnad.3.g']}" for="bool7"/>
+                        </p>
+                        <p>
+                            <h:selectBooleanCheckbox id="bool8" value="#{followUpController.followUp.usedTryQuit8}" />
+                            <h:outputLabel value="#{messages['pnad.3.h']}" for="bool8"/>
+                        </p>                       
+
+                         <div class="center">
+                            <a >
+                                <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['send']}" update="@form" actionListener="#{followUpController.save}" action="escolha-uma-etapa.xhtml?faces-redirect=true">                         
+                                    <f:attribute name="count" value="3" />
+                                </p:commandButton>
+                            </a>    
+                        </div>
+
+                        <h:outputText value="#{messages['baseline.error.message']}" style="color: red;" rendered="#{facesContext.validationFailed}" />    
+
+
+                        <div class="modal" style="display: none" id="HiddenDiv">
+                            <div class="modal-content">
+                                <h2><h:outputText value="#{messages['baseline.feedback.h']}"/></h2>
+                                <h:outputText id="texto1" value="#{messages['baseline.feedback.p.2']}" />
+                            </div>
+                            <div class="modal-footer">
+                                <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['pronto.intro.titlepage']}"  update="@form" >
+                                    <f:attribute name="count" value="1" />
+                                </p:commandButton>
+                            </div>
+                        </div>                                        
+                    </h:form>
+                </div>
+                <div class="section">
+                    <div class='row'>
+                        <div class="col s12 m12 l12">
+                            <p class="grey-text">#{messages['update.date']}</p>                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <w:footer />
+            <script language="JavaScript">
+                function ShowHide(divId)
+                {
+                    if (document.getElementById(divId).style.display == 'none')
+                    {
+                        document.getElementById(divId).style.display = 'block';
+                    }
+                }
+            </script>
+        </h:body>
+    </f:view>
+</html>

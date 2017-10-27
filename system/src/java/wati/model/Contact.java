@@ -38,6 +38,13 @@ public class Contact implements Serializable {
     private String recipient;
     @Column (name = "subject")
     private String subject;
+    @Column(name = "content")
+    private String content;
+    @Column(name = "attachment")
+    private String attachment;
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    @Column(name = "date_scheduled")
+    private Date dateScheduled;
     @Transient
     private String text;  
     @Transient
@@ -128,6 +135,30 @@ public class Contact implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getAttachment() {
+        return attachment;
+    }
+
+    public void setAttachment(String attachment) {
+        this.attachment = attachment;
+    }
+
+    public Date getDateScheduled() {
+        return dateScheduled;
+    }
+
+    public void setDateScheduled(Date dateScheduled) {
+        this.dateScheduled = dateScheduled;
     }
          
 }

@@ -60,6 +60,8 @@
                                     <p:commandButton id="AvaliarBtn" styleClass="waves-effect waves-light btn"  value="#{messages['preparando.aed.btn.avaliar']}" update="ladder" actionListener="#{prontoParaPararController.evaluateLadder()}" process="@form" onclick="javascript:ShowHide('HiddenDiv');"/>
                                 </a>                             
                             </div>
+                            
+                            <br /><br />
 
                             <div class="modal" style="display: none" id="HiddenDiv">
                                 <div class="modal-content">
@@ -67,7 +69,24 @@
                                     <h:outputText id="ladder" value="#{prontoParaPararController.textoladder}" />  
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">#{messages['close']}</a>
+                                   
+                                    <h:commandLink styleClass="modal-action modal-close waves-effect waves-green btn-flat" value="#{messages['next']}"  title="#{messages['preparando.btn.title']}" action="#{prontoParaPararController.introducao()}"/> 
+                                     <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">#{messages['close']}</a>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12 m12 l12">
+                                    <div class="card grey lighten-5">
+                                        <div class="card-content grey-text darken-4">
+                                            <span class="card-title blue-text darken-3">#{messages['next.step']}</span>
+                                            <p>#{messages['preparando.intro.next.p']}</p>
+                                        </div>
+                                        <div class="card-action">
+                                            <h:commandLink id="saveBtn" styleClass="tooltipped" value="#{messages['next']}"  title="#{messages['preparando.btn.title']}" action="#{prontoParaPararController.introducao()}"/> 
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -75,20 +94,7 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col s12 m12 l12">
-                        <div class="card grey lighten-5">
-                            <div class="card-content grey-text darken-4">
-                                <span class="card-title blue-text darken-3">#{messages['next.step']}</span>
-                                <p>#{messages['preparando.intro.next.p']}</p>
-                            </div>
-                            <div class="card-action">
-                                <a class="tooltipped" data-position="right" data-tooltip="#{messages['preparando.btn.title']}" href="./pronto-para-parar-de-fumar-beneficios-de-parar.xhtml" title="#{messages['preparando.btn.title']}">#{messages['next']}</a>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
 
                 <div class="section">

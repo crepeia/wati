@@ -12,7 +12,7 @@
             <title>#{messages['index.titlepage']}</title>
             <w:head_comum />
         </h:head>
-        <body>
+        <h:body>
 
             <w:topmenu/>            
 
@@ -68,7 +68,7 @@
                         <br /><br />
                         <h1 class="header center orange-text text-lighten-2">#{messages['program.h1.program']}</h1>                       
                         <div class="row center">
-                            <h5 class="header col s12 light orange-text">#{messages['program.h2.objective']} - #{messages['program.p.objective']}</h5>
+                            <h5 class="header col s12 light orange-text">#{messages['program.h2.objective']} #{messages['program.p.objective']}</h5>
                         </div>
                     </div>
                 </div>
@@ -81,6 +81,7 @@
                             <div class="col center s12 m12">
                                 <h3>#{messages['index.bottom.h']}</h3>
                                 <hr/>
+                                <h4>#{messages['choose.option']}</h4>
                             </div>
                         </div>
                     </div>
@@ -157,6 +158,6 @@
             </div>
 
             <w:footer />
-        </body>
+        </h:body>
     </f:view>
 </html>

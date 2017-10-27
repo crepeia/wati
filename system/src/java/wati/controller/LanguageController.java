@@ -46,6 +46,7 @@ public class LanguageController extends BaseController<Object> {
         languages.put("Deutsch", "de");
         languages.put("Pусский", "ru");
         languages.put("Italiano", "it");
+        languages.put("العربية", "ar");
     }
 
     public Locale getLocale() {
@@ -104,6 +105,16 @@ public class LanguageController extends BaseController<Object> {
             return "images/sus.png";       
         } else {
             return "images/info2.png";
+        }
+    }
+    
+    public String getHon() {
+        if (locale.getLanguage().contains("pt")) {
+            return "images/banner-hon-pt.jpg";       
+        } else if (locale.getLanguage().contains("es")) {
+            return "images/banner-hon-es.jpg";       
+        } else {
+            return "images/banner-hon.jpg";
         }
     }
     

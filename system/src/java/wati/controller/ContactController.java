@@ -6,12 +6,14 @@ package wati.controller;
 
 import java.io.IOException;
 import java.io.InputStream;
-import wati.utility.Scheduler;
 import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.MissingResourceException;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -19,7 +21,10 @@ import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+import javax.mail.MessagingException;
 import javax.naming.NamingException;
 import wati.model.Contact;
 import wati.model.ProntoParaParar;
@@ -37,13 +42,15 @@ import wati.utility.EMailSSL;
 public class ContactController extends BaseController implements Serializable {
 
     private EMailSSL eMailSSL;
-    private String template;
+    private String htmlTemplate;
     private UserDAO userDAO;
     private GenericDAO prontoDAO;
+    
+    private final String SENDER = "contato@vivasemtabaco.com.br"; 
 
     public ContactController() {
         eMailSSL = new EMailSSL();
-        template = readTemplate();
+        htmlTemplate = readHTMLTemplate("wati/utility/contact-template.html");
         try {
             daoBase = new GenericDAO<>(Contact.class);
             userDAO = new UserDAO();
@@ -53,322 +60,255 @@ public class ContactController extends BaseController implements Serializable {
         }
     }
 
+    public void sendContactFormEmail(ActionEvent event) {
+        String email = (String) event.getComponent().getAttributes().get("email");
+        String message = (String) event.getComponent().getAttributes().get("msg");
+        Contact contact = new Contact();
+        contact.setSender(email);
+        contact.setRecipient(SENDER);
+        contact.setSubject("Contato via formulario - " + email);
+        contact.setContent(message);
+        sendPlainTextEmail(contact);
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, getText("mensagem.enviada"), null));
+    }
 
-    public void sendEmail(Contact contact) {
+    public void scheduleDifferentDateEmail(User user, Date date) {
+        Contact contact = new Contact();
+        contact.setUser(user);
+        contact.setSender(SENDER);
+        contact.setRecipient(user.getEmail());
+        contact.setSubject("subject.email.followup");
+        contact.setContent("msg.data.diferente1");
+        contact.setDateScheduled(date);
+        save(contact);
+    }
+
+    public void scheduleWeeklyEmail(User user, Date date) {
+        Contact contact;
+        for (int i = 1; i <= 3; i++) {
+            contact = new Contact();
+            contact.setUser(user);
+            contact.setSender(SENDER);
+            contact.setRecipient(user.getEmail());
+            contact.setSubject("subject.email.followup");
+            if (i == 1) {
+                contact.setContent("msg.primeira.semana1");
+            }
+            if (i == 2) {
+                contact.setContent("msg.segunda.semana1");
+            }
+            if (i == 3) {
+                contact.setContent("msg.terceira.semana1");
+            }
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+            cal.add(Calendar.DATE, 7 * i);
+            contact.setDateScheduled(cal.getTime());
+            save(contact);
+        }
+    }
+
+    public void scheduleMonthlyEmail(User user, Date date) {
+        Contact contact;
+        for (int i = 1; i <= 12; i++) {
+            contact = new Contact();
+            contact.setUser(user);
+            contact.setSender(SENDER);
+            contact.setRecipient(user.getEmail());
+            contact.setSubject("subject.email.followup");
+            contact.setContent("msg.mensal1");
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(date);
+            cal.add(Calendar.MONTH, i);
+            contact.setDateScheduled(cal.getTime());
+            save(contact);
+        }
+    }
+
+    public void scheduleDaillyEmail(User user, Date date,int day) {
+        Contact contact = new Contact();
+        contact.setUser(user);
+        contact.setSender(SENDER);
+        contact.setRecipient(user.getEmail());
+        contact.setSubject("subject.email.followup");
+        contact.setContent("msg.email.twice." + ((day + 1) / 2));
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, day);
+        contact.setDateScheduled(cal.getTime());
+        save(contact);
+    }
+    
+    public void scheduleReaserach7DaysEmail(User user, Date date) {
+        Contact contact = new Contact();
+        contact.setUser(user);
+        contact.setSender(SENDER);
+        contact.setRecipient(user.getEmail());
+        contact.setSubject("msg.1semana.r.subject");
+        contact.setContent("msg.1semana.r.body");
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, 7);
+        contact.setDateScheduled(cal.getTime());
+        save(contact);
+    }
+    
+    public void scheduleReaserachXMonthsEmail(User user, Date date, int months) {
+        Contact contact = new Contact();
+        contact.setUser(user);
+        contact.setSender(SENDER);
+        contact.setRecipient(user.getEmail());
+        contact.setSubject("msg."+months+"mes.r.subject");
+        contact.setContent("msg."+months+"mes.r.body");
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.MONTH, months);
+        contact.setDateScheduled(cal.getTime());
+        save(contact);
+    }
+    
+    public void scheduleReaserach12MonthsEmailFix() {
         try {
-            eMailSSL.send(contact.getSender(), contact.getRecipient(), contact.getSubject(), contact.getText(),
-                    contact.getHtml(), contact.getPdf(), contact.getPdfName());
-            daoBase.insertOrUpdate(contact, getEntityManager());
+            List<Contact> contacts = daoBase.list("subject","msg.6mes.r.subject" , getEntityManager());
+            for (Contact c : contacts) {
+                Contact contact = new Contact();
+                contact.setUser(c.getUser());
+                contact.setSender(SENDER);
+                contact.setRecipient(c.getRecipient());
+                contact.setSubject("msg.12mes.r.subject");
+                contact.setContent("msg.12mes.r.body");
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(c.getDateScheduled());
+                cal.add(Calendar.MONTH, 6);
+                contact.setDateScheduled(cal.getTime());
+                save(contact);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ContactController.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
+    public void sendPesquisaSatisfacaoEmail(User user) {
+        Contact contact = new Contact();
+        contact.setUser(user);
+        contact.setSender(SENDER);
+        contact.setRecipient(user.getEmail());
+        contact.setSubject("msg.satisfaction.header");
+        contact.setContent("msg.pesquisa.satisfacao.body");
+        sendHTMLEmail(contact);
+    }
+
+    private void sendHTMLEmail(Contact contact) {
+        
+        try{    
+            String content = getContent(contact);
+            String subject = getSubject(contact);
+            eMailSSL.send(contact.getSender(), contact.getRecipient(), subject, content, contact.getPdf(), contact.getAttachment());
+            contact.setDateSent(new Date());
+            save(contact);
+            Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Email sent to: " + contact.getRecipient());
+        } catch (MessagingException | MissingResourceException ex ) {
+            Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
+    private void sendPlainTextEmail(Contact contact) {
+        try {
+            eMailSSL.send(contact.getSender(), contact.getRecipient(), contact.getSubject(), contact.getContent(), contact.getPdf(), contact.getAttachment());
+            contact.setDateSent(new Date());
+            save(contact);
+            Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Email sent to: " + contact.getRecipient());
+        } catch (MessagingException ex) {
+            Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void clearFollowUpEmails(User user) {
+        try {
+            List<Contact> contacts = daoBase.list("user", user, getEntityManager());
+            for (Contact contact : contacts) {
+                if (contact.getDateScheduled() != null && contact.getDateSent() == null) {
+                    if (!contact.getSubject().contains("r.subject")) {
+                        daoBase.delete(contact, getEntityManager());
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ContactController.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void sendScheduledEmails() {
+        try {
+            Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Sending scheduled emails");
+            List<Contact> contacts = daoBase.list(getEntityManager());
+            Calendar today = Calendar.getInstance();
+            Calendar scheduledDate = Calendar.getInstance();
+            int count = 0;
+            for (Contact contact : contacts) {
+                if (contact.getDateScheduled() != null && contact.getDateSent() == null) {
+                    scheduledDate.setTime(contact.getDateScheduled());
+                    if (today.compareTo(scheduledDate) >= 0) {
+                        sendHTMLEmail(contact);
+                        count++;
+                    }
+                }
+                if(count >= 99){
+                    break;
+                }
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public void sendTestEmail() {
-        String[] emails = {"t.rizuti@gmail.com", "henriquepgomide@gmail.com", "cwsdanipereira@gmail.com",
-            "feliperafael_95@yahoo.com.br", "leomartinsjf@gmail.com", "muncknathalia@gmail.com", "raizacampos2@gmail.com", "heder@ice.ufjf.br"};
-        Contact contact;
-        for (String email : emails) {
-            try {
-                contact = new Contact();
-                contact.setSender("watiufjf@gmail.com");
-                contact.setRecipient(email);
-                contact.setSubject("TEST");
-                contact.setHtml(fillTemplate(
-                        getText("vivasemtabaco", "pt"),
-                        getText("subject.email.followup", "pt"),
-                        getText("subject.email.followup", "pt"),
-                        getFooter("pt")));
-                contact.setDateSent(new Date());
-                sendEmail(contact);
-                daoBase.insertOrUpdate(contact, getEntityManager());
-                Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Test email  sent to:" + email);
-            } catch (SQLException ex) {
-                Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        }
-    }
-
-    public void sendDifferentDateEmail() {
-        List<User> users = userDAO.followUpDifferentDate(getEntityManager());
-        Contact contact;
-        if (!users.isEmpty()) {
-            for (User user : users) {
-                try {
-                    contact = new Contact();
-                    contact.setSender("watiufjf@gmail.com");
-                    contact.setRecipient(user.getEmail());
-                    contact.setSubject(getText("subject.email.followup", user.getPreferedLanguage()));
-                    contact.setHtml(fillTemplate(
-                            getText("vivasemtabaco", user.getPreferedLanguage()),
-                            getText("subject.email.followup", user.getPreferedLanguage()),
-                            getText("subject.email.followup", user.getPreferedLanguage()),
-                            getFooter(user.getPreferedLanguage())));
-                    contact.setDateSent(new Date());
-                    contact.setUser(user);
-                    sendEmail(contact);
-                    user.getProntoParaParar().setFollowUpCount(1);
-                    prontoDAO.insertOrUpdate(user.getProntoParaParar(), getEntityManager());
-                    daoBase.insertOrUpdate(contact, getEntityManager());
-                    Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Different date follow up email  sent to:" + user.getEmail());
-                } catch (SQLException ex) {
-                    Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            }
-        }
-    }
-
-    public void sendFirstWeekEmail() {
-        List<User> users = userDAO.followUpWeekly(getEntityManager(), 1);
-        Contact contact;
-        if (!users.isEmpty()) {
-            for (User user : users) {
-                try {
-                    contact = new Contact();
-                    contact.setSender("watiufjf@gmail.com");
-                    contact.setRecipient(user.getEmail());
-                    contact.setSubject(getText("subject.email.followup", user.getPreferedLanguage()));
-                    contact.setHtml(fillTemplate(
-                            getText("vivasemtabaco.title", user.getPreferedLanguage()),
-                            getText("subject.email.followup", user.getPreferedLanguage()),
-                            getText("subject.email.followup", user.getPreferedLanguage()),
-                            getFooter(user.getPreferedLanguage())));
-                    contact.setDateSent(new Date());
-                    contact.setUser(user);
-                    sendEmail(contact);
-                    user.getProntoParaParar().setFollowUpCount(2);
-                    prontoDAO.insertOrUpdate(user.getProntoParaParar(), getEntityManager());
-                    daoBase.insertOrUpdate(contact, getEntityManager());
-                    Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Weekly follow up email sent to:" + user.getEmail());
-                } catch (SQLException ex) {
-                    Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            }
-        }
-    }
-
-    public void sendSecondWeekEmail() {
-        List<User> users = userDAO.followUpWeekly(getEntityManager(), 2);
-        Contact contact;
-        if (!users.isEmpty()) {
-            for (User user : users) {
-                try {
-                    contact = new Contact();
-                    contact.setSender("watiufjf@gmail.com");
-                    contact.setRecipient(user.getEmail());
-                    contact.setSubject(getText("subject.email.followup", user.getPreferedLanguage()));
-                    contact.setHtml(fillTemplate(
-                            getText("vivasemtabaco.title", user.getPreferedLanguage()),
-                            getText("subject.email.followup", user.getPreferedLanguage()),
-                            getText("subject.email.followup", user.getPreferedLanguage()),
-                            getFooter(user.getPreferedLanguage())));
-                    contact.setDateSent(new Date());
-                    contact.setUser(user);
-                    sendEmail(contact);
-                    user.getProntoParaParar().setFollowUpCount(3);
-                    prontoDAO.insertOrUpdate(user.getProntoParaParar(), getEntityManager());
-                    daoBase.insertOrUpdate(contact, getEntityManager());
-                    Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Weekly follow up email sent to:" + user.getEmail());
-                } catch (SQLException ex) {
-                    Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            }
-        }
-    }
-
-    public void sendThirdWeekEmail() {
-        List<User> users = userDAO.followUpWeekly(getEntityManager(), 3);
-        Contact contact;
-        if (!users.isEmpty()) {
-            for (User user : users) {
-                try {
-                    contact = new Contact();
-                    contact.setSender("watiufjf@gmail.com");
-                    contact.setRecipient(user.getEmail());
-                    contact.setSubject(getText("subject.email.followup", user.getPreferedLanguage()));
-                    contact.setHtml(fillTemplate(
-                            getText("vivasemtabaco.title", user.getPreferedLanguage()),
-                            getText("subject.email.followup", user.getPreferedLanguage()),
-                            getText("subject.email.followup", user.getPreferedLanguage()),
-                            getFooter(user.getPreferedLanguage())));
-                    contact.setDateSent(new Date());
-                    contact.setUser(user);
-                    sendEmail(contact);
-                    user.getProntoParaParar().setFollowUpCount(4);
-                    prontoDAO.insertOrUpdate(user.getProntoParaParar(), getEntityManager());
-                    daoBase.insertOrUpdate(contact, getEntityManager());
-                    Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Weekly follow up email sent to:" + user.getEmail());
-                } catch (SQLException ex) {
-                    Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            }
-        }
-    }
-    
-     public void sendPesquisaSatisfacao() {
-        List<User> users = userDAO.followUpDifferentDate(getEntityManager());
-        Contact contact;
-        if (!users.isEmpty()) {
-            for (User user : users) {
-                try {
-                    user.setPesquisaEnviada(true);
-                    contact = new Contact();
-                    contact.setSender("watiufjf@gmail.com");
-                    contact.setRecipient(user.getEmail());
-                    contact.setSubject(getText("subject.email.followup", user.getPreferedLanguage()));
-                    contact.setHtml(fillTemplate(
-                            getText("vivasemtabaco", user.getPreferedLanguage()),
-                            "Participe da pesquisa de satisfação ",
-                            user.getPesquisaSatisfacao().getUrlPesquisaSatisfacao(),
-                            getFooter(user.getPreferedLanguage())));
-                    contact.setDateSent(new Date());
-                    contact.setUser(user);
-                    sendEmail(contact);
-                    daoBase.insertOrUpdate(contact, getEntityManager());
-                    userDAO.insertOrUpdate(user, getEntityManager());
-                    Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Different date follow up email  sent to:" + user.getEmail());
-                } catch (SQLException ex) {
-                    Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            }
-        }
-    }
-
-    public void sendMonthlyEmail() {
-        List<User> users = userDAO.followUpMonthly(getEntityManager());
-        Contact contact;
-        if (!users.isEmpty()) {
-            for (User user : users) {
-                try {
-                    contact = new Contact();
-                    contact.setSender("watiufjf@gmail.com");
-                    contact.setRecipient(user.getEmail());
-                    contact.setSubject(getText("subject.email.followup", user.getPreferedLanguage()));
-                    contact.setHtml(fillTemplate(
-                            getText("vivasemtabaco.title", user.getPreferedLanguage()),
-                            getText("subject.email.followup", user.getPreferedLanguage()),
-                            getText("subject.email.followup", user.getPreferedLanguage()),
-                            getFooter(user.getPreferedLanguage())));
-                    contact.setDateSent(new Date());
-                    contact.setUser(user);
-                    sendEmail(contact);
-                    user.getProntoParaParar().setFollowUpCount(user.getProntoParaParar().getFollowUpCount() + 1);
-                    prontoDAO.insertOrUpdate(user.getProntoParaParar(), getEntityManager());
-                    daoBase.insertOrUpdate(contact, getEntityManager());
-                    Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Monthly follow up email sent to:" + user.getEmail());
-                } catch (SQLException ex) {
-                    Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            }
-        }
-    }
-    
-
-    public void sendTwiceWeekEmail(){
-        List<User> users = userDAO.followUpTwiceWeek(getEntityManager());
-
-        Contact contact;
-        if (!users.isEmpty()) {
-            for (User user : users) {
-                try {
-
-                    if(user.getProntoParaParar().getFollowUpDayCount() == null){
-                        user.getProntoParaParar().setFollowUpDayCount(1);
-                    }
-
-                    contact = new Contact();
-                    contact.setSender("watiufjf@gmail.com");
-                    contact.setRecipient(user.getEmail());
-                    contact.setSubject(getText("subject.email.followup", user.getPreferedLanguage()));
-                    contact.setHtml(fillTemplate(
-                            getText("vivasemtabaco.title", user.getPreferedLanguage()),
-                            getText("msg.email.twice." + user.getProntoParaParar().getFollowUpDayCount(), user.getPreferedLanguage()),
-                            getText("subject.email.followup", user.getPreferedLanguage()),
-
-                            getFooter(user.getPreferedLanguage())));
-                    contact.setDateSent(new Date());
-                    contact.setUser(user);
-                    sendEmail(contact);
-                    user.getProntoParaParar().setFollowUpDayCount(user.getProntoParaParar().getFollowUpDayCount() + 1);
-                    prontoDAO.insertOrUpdate(user.getProntoParaParar(), getEntityManager());
-                    daoBase.insertOrUpdate(contact, getEntityManager());
-                    Logger.getLogger(ContactController.class.getName()).log(Level.INFO, "Daily follow up email sent to:" + user.getEmail());
-                } catch (SQLException ex) {
-                    Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            }
-        }
-    }
-    
-    public String getFooter(String language) {
-        return this.getText("vivasemtabaco", language) + "<br>"
-                + this.getText("crepeia", language) + "<br>"
-                + this.getText("ufjf", language);
-    }
-
-    public String readTemplate() {
+    private void save(Contact contact) {
         try {
-            InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream("wati/utility/contact-template.html");
-            byte[] buffer = new byte[10240];
-            return new String(buffer, 0, input.read(buffer));
+            daoBase.insertOrUpdate(contact, getEntityManager());
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ContactController.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private String readHTMLTemplate(String path) {
+        try {
+            InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream(path);
+            byte[] buffer = new byte[102400];
+            return new String(buffer, 0, input.read(buffer), StandardCharsets.UTF_8);
+
         } catch (IOException ex) {
-            Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ContactController.class
+                    .getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-    /*public String readTemplate() {
-     try {
-     FacesContext facesContext = FacesContext.getCurrentInstance();
-     ServletContext servletContext = (ServletContext) facesContext.getExternalContext().getContext();
-     String absolutePath = servletContext.getRealPath("/resources/default/templates/contact-template.html");
-     byte[] encoded = Files.readAllBytes(Paths.get(absolutePath));
-     String template = new String(encoded, StandardCharsets.UTF_8);
-     return template;
-     } catch (IOException ex) {
-     Logger.getLogger(ContactController.class.getName()).log(Level.SEVERE, null, ex);
-     }
-     return null;
-     }*/
 
-    public String fillTemplate(String title, String subtitle, String content, String footer) {
-        String newTemplate = template;
-        if (title != null) {
-            newTemplate = newTemplate.replace("#title#", title);
-        }
-        if (subtitle != null) {
-            newTemplate = newTemplate.replace("#subtitle#", subtitle);
-        }
-        if (content != null) {
-            newTemplate = newTemplate.replace("#content#", content);
-        }
-        if (footer != null) {
-            newTemplate = newTemplate.replace("#footer#", footer);
-        }
-
-        return newTemplate;
+    private String getContent(Contact contact) {
+        String htmlMessage = htmlTemplate;
+        ResourceBundle bundle = PropertyResourceBundle.getBundle("wati.utility.messages", new Locale(contact.getUser().getPreferedLanguage()));
+        htmlMessage = htmlMessage.replace("#title#", bundle.getString("vivasemtabaco"));
+        htmlMessage = htmlMessage.replace("#content#", bundle.getString(contact.getContent()));
+        htmlMessage = htmlMessage.replace("#footer#",
+                bundle.getString("vivasemtabaco") + "<br>"
+                + bundle.getString("crepeia") + "<br>"
+                + bundle.getString("ufjf"));
+        htmlMessage = htmlMessage.replace("#user#", contact.getUser().getName());
+        htmlMessage = htmlMessage.replace("#email#", contact.getUser().getEmail());
+        htmlMessage = htmlMessage.replace("#code#", String.valueOf(contact.getUser().getRecoverCode()));
+        htmlMessage = htmlMessage.replace("#link#", "http://www.vivasemtabaco.com.br/pesquisa-satisfacao.xhtml?uid=" + contact.getUser().getHashedId());
+        htmlMessage = htmlMessage.replace("#HID#", contact.getUser().getHashedId());
+        return htmlMessage;
     }
 
-    public String getText(String key, String language) {
-        ResourceBundle bundle = PropertyResourceBundle.getBundle("wati.utility.messages", new Locale(language));
-        return bundle.getString(key);
+    private String getSubject(Contact contact) throws MissingResourceException {
+        ResourceBundle bundle = PropertyResourceBundle.getBundle("wati.utility.messages", new Locale(contact.getUser().getPreferedLanguage()));
+        return bundle.getString(contact.getSubject());
     }
-
-    public EMailSSL geteMailSSL() {
-        return eMailSSL;
-    }
-
-    public void seteMailSSL(EMailSSL eMailSSL) {
-        this.eMailSSL = eMailSSL;
-    }
-    
-    
 
 }
