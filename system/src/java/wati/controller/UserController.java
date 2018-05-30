@@ -277,14 +277,9 @@ public class UserController extends BaseFormController<User> {
         return (int) codigo;
     }
 
-<<<<<<< HEAD
     
     public String checkCode() throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException {
         
-=======
-    public String checkCode() {
-
->>>>>>> b0f3a3914f02ddf72cd8c0076aff2e275cb12c3b
         try {
             String message;
             List<User> userList = this.getDaoBase().list("email", this.email, this.getEntityManager());

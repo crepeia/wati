@@ -39,9 +39,9 @@
 
                         <h:form id="form">
                             <h:outputText value="#{messages['preparando.gastos.value.1']}" />
-                            <p:inputText id="numeroCigarrosDiaTxt" value="#{calculadoraController.numberCigaretteDay}" onkeyup="$(this).val($(this).val().replace(/[^0-9]/g, ''));" />
+                                <p:inputText id="numeroCigarrosDiaTxt" value="#{calculadoraController.numberCigaretteDay}" onkeyup="$(this).val($(this).val().replace(/[^0-9]/g, ''));" />
                             <h:outputText value="#{messages['preparando.gastos.value.2']}" />
-                            <p:inputText id="custoMassoTxt" value="#{calculadoraController.costMasso}" styleClass="custoFormat" />
+                            <p:inputText id="custoMassoTxt" value="#{calculadoraController.costMasso}" styleClass="custoFormat" onkeyup="$(this).val($(this).val().replace(/,/g, '\.'));" />
                             <script type="text/javascript">
                                 $('.custoFormat').priceFormat({
                                     prefix: '',

@@ -76,7 +76,6 @@ public class PesquisaSatisfacaoController extends BaseController<PesquisaSatisfa
             Logger.getLogger(PesquisaSatisfacaoController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return "index.xhtml"; 
     }
 
     /*
