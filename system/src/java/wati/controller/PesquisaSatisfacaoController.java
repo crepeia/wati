@@ -75,6 +75,7 @@ public class PesquisaSatisfacaoController extends BaseController<PesquisaSatisfa
         } catch (IOException ex) {
             Logger.getLogger(PesquisaSatisfacaoController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
     /*
