@@ -8,7 +8,7 @@ package wati.utility;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Schedule;
-import javax.ejb.Singleton;
+import javax.inject.Singleton;
 import javax.ejb.Startup;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
