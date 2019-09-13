@@ -38,7 +38,7 @@ public class LanguageController extends BaseController<Object> {
         if (loggedUser() && getLoggedUser().getPreferedLanguage()!= null) {
             locale = new Locale(getLoggedUser().getPreferedLanguage());
         } else {
-            locale = FacesContext.getCurrentInstance().getExternalContext().getRequestLocale();
+            locale = new Locale("pt");//FacesContext.getCurrentInstance().getExternalContext().getRequestLocale();
         }
         languages.put("English", "en");
         languages.put("Español", "es");
