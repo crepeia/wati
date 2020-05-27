@@ -27,7 +27,7 @@ import wati.model.User;
 public class FollowUp implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;   
     @Column(name = "smoked_last_7_days")
     private Boolean smokedLast7days;

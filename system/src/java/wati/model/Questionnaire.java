@@ -24,7 +24,7 @@ import javax.persistence.Temporal;
 @Table(name = "tb_questionnaire")
 public class Questionnaire implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
     @Column(name = "date")

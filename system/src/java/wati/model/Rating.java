@@ -25,7 +25,7 @@ import javax.persistence.Temporal;
 public class Rating implements Serializable {
    
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "relevant")
     private Boolean relevant;

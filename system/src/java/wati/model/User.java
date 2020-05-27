@@ -26,7 +26,7 @@ import javax.persistence.Temporal;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "name", length = 100)
     private String name;

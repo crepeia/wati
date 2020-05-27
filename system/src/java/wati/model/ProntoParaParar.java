@@ -32,7 +32,7 @@ public class ProntoParaParar implements Serializable {
     private static final int MOTIVATION_STANDARD_VALUE = 5;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "enfrentar_fissura_beber_agua")
     private boolean enfrentarFissuraBeberAgua;

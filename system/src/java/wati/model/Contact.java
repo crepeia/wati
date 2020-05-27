@@ -27,7 +27,7 @@ import javax.persistence.Transient;
 public class Contact implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "sender")
     private String sender;
