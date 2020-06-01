@@ -3,14 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/WEB-INF/faces-config.xml</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-padrao.xhtml</file>
             <file>file:/C:/Users/bruno/Documents/Github/wati/system/src/java/wati/persistence/GenericDAO.java</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/index.xhtml</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/WEB-INF/glassfish-web.xml</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/src/conf/persistence.xml</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/setup/glassfish-resources.xml</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/resources/ezcomp/footer.xhtml</file>
+            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/programa.xhtml</file>
+            <file>file:/C:/Users/bruno/Documents/Github/wati/system/src/java/wati/controller/ConfigurationBean.java</file>
+            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/login.xhtml</file>
+            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/resources/ezcomp/topmenu.xhtml</file>
+            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml</file>
+            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/pronto-para-parar-de-fumar-plano-personalizado-print.xhtml</file>
+            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/cadastrar-nova-conta.xhtml</file>
+            <file>file:/C:/Users/bruno/Documents/Github/wati/system/src/java/wati/utility/EMailSSL.java</file>
+            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print_1.xhtml</file>
         </group>
     </open-files>
 </project-private>

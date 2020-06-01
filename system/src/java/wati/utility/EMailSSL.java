@@ -55,6 +55,7 @@ public class EMailSSL {
         }
 
         session = Session.getInstance(props, this.authenticator);
+        //session.setDebug(true);
 
     }
 
