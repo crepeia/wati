@@ -3,17 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-padrao.xhtml</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/src/java/wati/persistence/GenericDAO.java</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/programa.xhtml</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/src/java/wati/controller/ConfigurationBean.java</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/login.xhtml</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/resources/ezcomp/topmenu.xhtml</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print.xhtml</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/pronto-para-parar-de-fumar-plano-personalizado-print.xhtml</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/cadastrar-nova-conta.xhtml</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/src/java/wati/utility/EMailSSL.java</file>
-            <file>file:/C:/Users/bruno/Documents/Github/wati/system/web/parou-de-fumar-acompanhamento-lapso-plano-evitar-recaida-print_1.xhtml</file>
+            <file>file:/D:/Github/wati/system/src/java/wati/controller/UserController.java</file>
         </group>
     </open-files>
 </project-private>

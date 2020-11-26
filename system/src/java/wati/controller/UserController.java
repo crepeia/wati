@@ -222,7 +222,7 @@ public class UserController extends BaseFormController<User> {
 
                 //cript recoverycode
                 Integer code = this.generateCode();
-                this.setRecoverCode(Encrypter.encrypt(code));
+                //this.setRecoverCode(Encrypter.encrypt(code));
                
 
                 String to = this.email;
@@ -254,7 +254,7 @@ public class UserController extends BaseFormController<User> {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
 
-        }
+        } 
     }
 
     public String getLinkPassword() {
@@ -283,10 +283,11 @@ public class UserController extends BaseFormController<User> {
         try {
             String message;
             List<User> userList = this.getDaoBase().list("email", this.email, this.getEntityManager());
-            if (!userList.isEmpty() && userList.get(0).getRecoverCode() != null && userList.get(0).getRecoverCode().equals(Encrypter.encrypt(recoverCode)) ) {
+            //if (!userList.isEmpty() && userList.get(0).getRecoverCode() != null && userList.get(0).getRecoverCode().toString().equals(Encrypter.encrypt(Integer.parseInt(recoverCode))) ) {
+            if (!userList.isEmpty() && userList.get(0).getRecoverCode() != null && userList.get(0).getRecoverCode().toString().equals(recoverCode) ) {
                 return "esqueceu-sua-senha-concluir.xhtml";
             } else {
-                message = this.getText("email.code.incorretos");
+                message = this.getText("email.code.incorrect");
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
                 return "";
             }

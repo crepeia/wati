@@ -21,7 +21,7 @@
                     <div class="col s12 m12 l12">
                         <h3 class="headertop orange-text text-lighten-2">#{messages['i.forgot.password']}</h3>
                         <p>#{messages['p.send.email']}</p>
-
+                        
                         <h:form>
 
                             <div class="input-field">
@@ -44,7 +44,7 @@
                             <div class="center">
                                 <p:commandButton id="nexttBtn" styleClass="btn waves-effect waves-light" value="#{messages['next']}" update="@form" action="#{userController.checkCode()}" ajax="false"/> 
                             </div>
-                            
+                            <p:messages />
                             <!--<div class="modal" style="display: none" id="HiddenDiv">
                             <div class="modal-content">
                                 <h2>#{messages['preparando.aed.result']}</h2>

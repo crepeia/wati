@@ -4,6 +4,7 @@
  */
 package wati.utility;
 
+import java.math.BigInteger;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -31,8 +32,9 @@ public class Encrypter {
 	
 	private static Cipher aesCipher;
 
-    public static String encrypt(Integer code) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static String encrypt(Integer code) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+        return Encrypter.getAesCipher().doFinal( BigInteger.valueOf(code).toByteArray()).toString();
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 	public Encrypter() {
