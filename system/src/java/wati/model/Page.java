@@ -14,6 +14,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -21,6 +24,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tb_page")
+@XmlRootElement
 public class Page {
     
     @Id
@@ -48,6 +52,8 @@ public class Page {
         this.url = url;
     }
 
+    @XmlTransient
+    @JsonIgnore
     public List<Rating> getRatings() {
         return ratings;
     }

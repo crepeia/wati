@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -24,6 +25,7 @@ import javax.persistence.Transient;
  */
 @Entity
 @Table(name = "tb_contact")
+@XmlRootElement
 public class Contact implements Serializable {
     
     @Id

@@ -4,9 +4,12 @@
  */
 package wati.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -17,6 +20,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -24,6 +29,7 @@ import javax.persistence.Temporal;
  */
 @Entity
 @Table(name = "tb_user")
+@XmlRootElement
 public class User implements Serializable {
 
     @Id
@@ -72,15 +78,32 @@ public class User implements Serializable {
     @OneToOne(mappedBy = "user")
     private PesquisaSatisfacao pesquisaSatisfacao;
     
+    @JsonManagedReference
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
+    private Record record;
+    
     @OneToMany(fetch = FetchType.LAZY)
     private List<Rating> ratings;
     
     @OneToMany(fetch = FetchType.LAZY)
     private List<FollowUp> followUps;
     
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<TipUser> tips;
+    
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<ChallengeUser> challenges;
+    
     @Column(name = "pesquisa_enviada")
     private Boolean pesquisa_enviada;
 
+    @Column(name = "app_signup", nullable = false )
+    private boolean app_signup;
+    
+    
+    
 
     /**
      * @return the id
@@ -150,6 +173,7 @@ public class User implements Serializable {
     public void setRecoverCode(Integer recoverCode) {
         this.recoverCode = recoverCode;
     }
+    
 
     @Override
     public String toString() {
@@ -215,6 +239,8 @@ public class User implements Serializable {
     /**
      * @return the acompanhamentos
      */
+    @XmlTransient
+    @org.codehaus.jackson.annotate.JsonIgnore
     public List<Acompanhamento> getAcompanhamentos() {
         return acompanhamentos;
     }
@@ -258,6 +284,8 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
+    @XmlTransient
+    @org.codehaus.jackson.annotate.JsonIgnore
     public List<Contact> getContacts() {
         return contacts;
     }
@@ -308,6 +336,8 @@ public class User implements Serializable {
         this.dt_cadastro = dt_cadastro;
     }
 
+    @XmlTransient
+    @org.codehaus.jackson.annotate.JsonIgnore
     public List<Rating> getRatings() {
         return ratings;
     }
@@ -316,6 +346,8 @@ public class User implements Serializable {
         this.ratings = ratings;
     }
 
+    @XmlTransient
+    @org.codehaus.jackson.annotate.JsonIgnore
     public List<FollowUp> getFollowUps() {
         return followUps;
     }
@@ -330,6 +362,42 @@ public class User implements Serializable {
 
     public void setPesquisa_enviada(Boolean pesquisa_enviada) {
         this.pesquisa_enviada = pesquisa_enviada;
+    }
+
+    @XmlTransient
+    @org.codehaus.jackson.annotate.JsonIgnore
+    public List<TipUser> getTips() {
+        return tips;
+    }
+
+    public void setTips(List<TipUser> tips) {
+        this.tips = tips;
+    }
+
+    @XmlTransient
+    @org.codehaus.jackson.annotate.JsonIgnore
+    public List<ChallengeUser> getChallenges() {
+        return challenges;
+    }
+
+    public void setChallenges(List<ChallengeUser> challenges) {
+        this.challenges = challenges;
+    }
+
+    public boolean isApp_signup() {
+        return app_signup;
+    }
+
+    public void setApp_signup(boolean app_signup) {
+        this.app_signup = app_signup;
+    }
+
+    public Record getRecord() {
+        return record;
+    }
+
+    public void setRecord(Record record) {
+        this.record = record;
     }
 
     

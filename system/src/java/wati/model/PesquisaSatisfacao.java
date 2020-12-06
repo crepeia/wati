@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -22,6 +23,7 @@ import javax.persistence.Temporal;
  */
 @Entity
 @Table(name = "tb_pesquisaSatisfacao")
+@XmlRootElement
 public class PesquisaSatisfacao implements Serializable {
     
     @Id

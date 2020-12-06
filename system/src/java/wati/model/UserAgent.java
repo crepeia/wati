@@ -15,6 +15,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  *
@@ -22,6 +25,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "tb_user_agent")
+@XmlRootElement
 public class UserAgent implements Serializable {
     
     @Id
@@ -69,6 +73,8 @@ public class UserAgent implements Serializable {
     /**
      * @return the pageNavigation
      */
+    @XmlTransient
+    @JsonIgnore
     public List<PageNavigation> getPageNavigation() {
         return pageNavigation;
     }

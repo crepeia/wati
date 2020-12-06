@@ -19,41 +19,35 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author thiago
+ * @author bruno
  */
 @Entity
-@Table(name = "tb_rating")
+@Table(name = "tb_authentication_token")
 @XmlRootElement
-public class Rating implements Serializable {
-   
+public class AuthenticationToken implements Serializable {
+
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column(name = "relevant")
-    private Boolean relevant;
-    @Column(name = "date_rated")
-    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    private Date dateRated;
+    private Long id;
+    
+    @Column(name = "token")
+    private String token;
     
     @ManyToOne
     private User user;
-    @ManyToOne
-    private Page page;
+    
+    @Column(name = "date_created")
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date dateCreated;
 
-    public long getId() {
-        return id;
+
+    public String getToken() {
+        return token;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Boolean getRelevant() {
-        return relevant;
-    }
-
-    public void setRelevant(Boolean relevant) {
-        this.relevant = relevant;
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public User getUser() {
@@ -63,22 +57,22 @@ public class Rating implements Serializable {
     public void setUser(User user) {
         this.user = user;
     }
-
-    public Page getPage() {
-        return page;
-    }
-
-    public void setPage(Page page) {
-        this.page = page;
-    }
-
-    public Date getDateRated() {
-        return dateRated;
-    }
-
-    public void setDateRated(Date dateRated) {
-        this.dateRated = dateRated;
-    } 
     
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated) {
+        this.dateCreated = dateCreated;
+    }
+
     
 }

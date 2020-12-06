@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 import wati.model.User;
 
 /**
@@ -24,6 +25,7 @@ import wati.model.User;
  */
 @Entity
 @Table(name = "tb_follow_up")
+@XmlRootElement
 public class FollowUp implements Serializable {
     
     @Id

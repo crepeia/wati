@@ -19,6 +19,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.xml.bind.annotation.XmlRootElement;
 import wati.controller.BaseController;
 
 /**
@@ -27,6 +28,7 @@ import wati.controller.BaseController;
  */
 @Entity
 @Table(name = "tb_pronto_para_parar")
+@XmlRootElement
 public class ProntoParaParar implements Serializable {
 
     private static final int MOTIVATION_STANDARD_VALUE = 5;
