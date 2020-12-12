@@ -5,6 +5,7 @@
  */
 package wati.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -96,6 +97,7 @@ public class Questionnaire implements Serializable {
     @Column(name ="baseline_7")
     private boolean baseline7;
     
+    @JsonBackReference
     @OneToOne
     private User user;
 

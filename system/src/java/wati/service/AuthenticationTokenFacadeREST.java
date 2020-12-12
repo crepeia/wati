@@ -57,6 +57,7 @@ public class AuthenticationTokenFacadeREST extends AbstractFacade<Authentication
             
             return Response.ok(token).build();
         } catch(Exception exp) {
+            System.out.println(exp.getMessage());
             return Response.status(Response.Status.FORBIDDEN).build();
         }
     }

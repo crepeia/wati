@@ -16,6 +16,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -30,6 +32,11 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "tb_user")
 @XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "User.login", query = "SELECT u FROM User u WHERE u.email = :email AND u.password = :password"),
+    @NamedQuery(name = "User.password", query = "SELECT u.password FROM User u WHERE u.email = :email AND u.password IS NOT NULL")
+
+})
 public class User implements Serializable {
 
     @Id
@@ -69,6 +76,7 @@ public class User implements Serializable {
     @OneToMany(fetch = FetchType.LAZY)
     private List<Acompanhamento> acompanhamentos;
     
+    @JsonManagedReference
     @OneToOne(mappedBy = "user")
     private Questionnaire questionnaire;
     
