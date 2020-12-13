@@ -110,6 +110,11 @@ public class User implements Serializable {
     @Column(name = "app_signup", nullable = false )
     private boolean app_signup;
     
+    @Column(name = "in_ranking", nullable = false )
+    private boolean inRanking;
+    
+    @Column(name = "nickname")
+    private String nickname;
     
     
 
@@ -406,6 +411,22 @@ public class User implements Serializable {
 
     public void setRecord(Record record) {
         this.record = record;
+    }
+
+    public boolean isInRanking() {
+        return inRanking;
+    }
+
+    public void setInRanking(boolean inRanking) {
+        this.inRanking = inRanking;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     

@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 import javax.naming.NamingException;
 import wati.model.Questionnaire;
 import wati.model.User;
@@ -23,7 +23,7 @@ import wati.persistence.GenericDAO;
  *
  * @author thiago
  */
-@ManagedBean(name = "questionnaireController")
+@Named("questionnaireController")
 @SessionScoped
 public class QuestionnaireController extends BaseController<Questionnaire> {
 

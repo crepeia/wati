@@ -15,14 +15,14 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.el.ELContext;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import wati.model.User;
 import wati.utility.Encrypter;
 
-@ManagedBean(name = "loginController")
+@Named("loginController")
 @SessionScoped
 public class LoginController extends BaseFormController<User> {
 

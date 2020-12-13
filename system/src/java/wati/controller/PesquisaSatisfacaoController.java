@@ -13,10 +13,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import wati.model.PesquisaSatisfacao;
@@ -27,7 +26,7 @@ import wati.persistence.GenericDAO;
  *
  * @author felipe
  */
-@ManagedBean(name = "pesquisaSatisfacao")
+@Named("pesquisaSatisfacao")
 @ViewScoped
 public class PesquisaSatisfacaoController extends BaseController<PesquisaSatisfacao> {
 

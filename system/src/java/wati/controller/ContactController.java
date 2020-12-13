@@ -18,12 +18,11 @@ import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.inject.Named;
 import javax.mail.MessagingException;
 import javax.naming.NamingException;
 import wati.model.Contact;
@@ -37,7 +36,7 @@ import wati.utility.EMailSSL;
  *
  * @author hedersb
  */
-@ManagedBean(name = "contactController")
+@Named( "contactController")
 @ApplicationScoped
 public class ContactController extends BaseController implements Serializable {
 

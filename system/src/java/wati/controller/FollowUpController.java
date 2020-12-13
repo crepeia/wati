@@ -13,12 +13,10 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 import javax.naming.NamingException;
 import wati.model.User;
 import wati.persistence.GenericDAO;
@@ -27,7 +25,7 @@ import wati.persistence.GenericDAO;
  *
  * @author thiago
  */
-@ManagedBean(name = "followUpController")
+@Named("followUpController")
 @ViewScoped
 public class FollowUpController extends BaseController<FollowUp>{
     

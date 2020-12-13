@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author hedersb
  */
-@Named(value = "redirectController")
+@Named("redirectController")
 @RequestScoped
 public class RedirectController {
 

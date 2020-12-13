@@ -13,10 +13,10 @@ import java.util.PropertyResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,7 +27,7 @@ import wati.persistence.GenericDAO;
  *
  * @author hedersb
  */
-@ManagedBean(name = "userListController")
+@Named("userListController")
 @ViewScoped
 public class UserListController extends BaseController implements Serializable {
 

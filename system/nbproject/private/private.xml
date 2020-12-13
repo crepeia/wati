@@ -3,26 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/Questionnaire.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/DailyLog.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/AuthenticationToken.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/Rating.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/MobileOptions.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/service/AbstractFacade.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/Contact.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/TipUserKey.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/Challenge.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/ChallengeUser.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/User.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/TipUser.java</file>
             <file>file:/D:/Github/wati/system/src/java/wati/model/Tip.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/FollowUp.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/ProntoParaParar.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/PesquisaSatisfacao.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/Acompanhamento.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/UserAgent.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/Page.java</file>
-            <file>file:/D:/Github/wati/system/src/java/wati/model/Record.java</file>
+            <file>file:/D:/Github/wati/system/src/java/wati/model/User.java</file>
         </group>
     </open-files>
 </project-private>

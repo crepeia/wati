@@ -5,15 +5,15 @@
 package wati.controller;
 
 import java.io.Serializable;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.event.ActionEvent;
+import javax.inject.Named;
 
 /**
  *
  * @author hedersb
  */
-@ManagedBean(name = "calculadoraController")
+@Named("calculadoraController")
 @SessionScoped
 public class CalculadoraController implements Serializable {
     

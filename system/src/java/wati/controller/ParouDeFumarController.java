@@ -29,8 +29,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import javax.naming.NamingException;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
@@ -43,7 +43,7 @@ import wati.utility.EMailSSL;
  *
  * @author hedersb
  */
-@ManagedBean(name = "parouDeFumarController")
+@Named("parouDeFumarController")
 @SessionScoped
 public class ParouDeFumarController extends BaseController<Acompanhamento> {
 

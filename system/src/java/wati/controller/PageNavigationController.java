@@ -4,9 +4,9 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import wati.model.PageNavigation;
@@ -18,7 +18,7 @@ import wati.persistence.GenericDAO;
  *
  * @author thiagorizuti
  */
-@ManagedBean(name = "pageNavigationController")
+@Named("pageNavigationController")
 @SessionScoped
 public class PageNavigationController extends BaseController<PageNavigation> {
 

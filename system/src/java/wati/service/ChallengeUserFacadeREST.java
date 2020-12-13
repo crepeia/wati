@@ -5,6 +5,7 @@
  */
 package wati.service;
 
+import com.google.gson.Gson;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -29,6 +30,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
+import wati.controller.ChallengeUserController;
 import wati.utility.Secured;
 import wati.model.ChallengeUser;
 import wati.model.Challenge;
@@ -189,6 +191,84 @@ public class ChallengeUserFacadeREST extends AbstractFacade<ChallengeUser> {
         }catch(Exception e){
             e.printStackTrace();
             return null;
+        }
+    }
+    
+    
+    @GET
+    @Path("rankFromDate")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public List<ChallengeUserController.NicknameScore> rankFromDate(@PathParam("startDate") String sd) {
+        try {
+            List<ChallengeUserController.NicknameScore> resultList = new LinkedList<>();
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            LocalDate dateStart = sdf.parse(sd).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();   
+
+            List<User> users = getEntityManager()
+                                .createQuery("SELECT u FROM User u WHERE u.inRanking = 1")
+                                .getResultList();
+
+            users.forEach(u -> {
+                long points = getPointsFromDate(u, dateStart);
+                resultList.add(new ChallengeUserController.NicknameScore(u.getNickname(), points));
+            });
+
+            return resultList;
+
+        } catch (ParseException ex) {
+            return null;
+        }
+    }
+    
+    public static class RankLists {
+        List<ChallengeUserController.NicknameScore> weeklyResult;
+        List<ChallengeUserController.NicknameScore> monthlyResult;
+        List<ChallengeUserController.NicknameScore> yearlyResult;
+        public RankLists(){
+            weeklyResult = new LinkedList<>();
+            monthlyResult = new LinkedList<>();
+            yearlyResult = new LinkedList<>();
+        }
+    }
+    
+    
+    @GET
+    @Path("rank/{today}")
+    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    public Response rank(@PathParam("today") String today) {
+        
+        try {
+            RankLists rank = new RankLists();
+
+            
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            LocalDate dateStart = sdf.parse(today).toInstant().atZone(ZoneId.systemDefault()).toLocalDate();   
+
+            List<User> users = getEntityManager()
+                                .createQuery("SELECT u FROM User u WHERE u.inRanking = 1")
+                                .getResultList();
+
+            users.forEach(u -> {
+                long points = getPointsFromDate(u, dateStart.with(ChronoField.DAY_OF_WEEK, 1));
+                rank.weeklyResult.add(new ChallengeUserController.NicknameScore(u.getNickname(), points));
+            });
+            users.forEach(u -> {
+                long points = getPointsFromDate(u, dateStart.with(ChronoField.DAY_OF_MONTH, 1));
+                rank.monthlyResult.add(new ChallengeUserController.NicknameScore(u.getNickname(), points));
+            });
+            users.forEach(u -> {
+                long points = getPointsFromDate(u, dateStart.with(ChronoField.DAY_OF_YEAR, 1));
+                rank.yearlyResult.add(new ChallengeUserController.NicknameScore(u.getNickname(), points));
+            });
+            
+            Gson g = new Gson();
+            String json = g.toJson(rank);
+
+            return Response.ok(json).build();
+
+        } catch (ParseException ex) {
+            return Response.serverError().build();
         }
     }
     

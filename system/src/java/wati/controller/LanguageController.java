@@ -11,9 +11,9 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import javax.naming.NamingException;
 import wati.model.User;
 import wati.persistence.GenericDAO;
@@ -22,7 +22,7 @@ import wati.persistence.GenericDAO;
  *
  * @author thiagorizuti
  */
-@ManagedBean(name = "languageController")
+@Named("languageController")
 @SessionScoped
 public class LanguageController extends BaseController<Object> {
 

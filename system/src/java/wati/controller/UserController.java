@@ -22,12 +22,12 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.el.ELContext;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.annotation.ManagedProperty;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.inject.Named;
 import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -41,7 +41,7 @@ import wati.utility.Encrypter;
  *
  * @author hedersb
  */
-@ManagedBean(name = "userController")
+@Named("userController")
 @SessionScoped
 public class UserController extends BaseFormController<User> {
 
@@ -82,7 +82,7 @@ public class UserController extends BaseFormController<User> {
     *   0 para o grupo 1
     *   1 para o grupo 2
      */
-    private int GeraGrupoUsuario() {
+    public int GeraGrupoUsuario() {
         Random r = new Random();
         if (r.nextBoolean()) {
             return 0;
@@ -530,6 +530,69 @@ public class UserController extends BaseFormController<User> {
 
                 //Logger.getLogger(UserController.class.getName()).log(Level.INFO, null, "User name: " + name_user + "\te-mail: " + email_user);
                 String to = this.user.getEmail();
+                String subject = "Termo de Compromisso";
+                String body;
+                body = this.getText("hello") + name_user + "\n"
+                        + "\n"
+                        + "Termo de consentimento livre e esclarecido"
+                        + "\n\n\n"
+                        + "Você está sendo convidado a participar da pesquisa intitulada - Viva sem Tabaco - Avaliação de uma intervenção mediada por internet para tabagistas."
+                        + "\n\n"
+                        + "Estão sendo selecionados todos os usuários do site 'Viva sem Tabaco'. Sua participação não é obrigatória. A qualquer momento você pode desistir de participar e retirar seu consentimento. Sua recusa não trará nenhum prejuízo em sua relação com o pesquisador ou com o uso do site."
+                        + "\n\n"
+                        + "Os objetivos da pesquisa são:"
+                        + "\n"
+                        + "1. Avaliar a satisfação dos usuários com o site;"
+                        + "\n"
+                        + "2. Avaliar a eficácia do 'Viva sem Tabaco' como método complementar no tratamento do tabagismo."
+                        + "\n\n"
+                        + "A sua participação na pesquisa consistirá no preenchimento de questionários e na participação de uma intervenção, dentre duas possíveis. Os benefícios relacionados à sua participação na pesquisa são:"
+                        + "\n"
+                        + "1. Melhorias na intervenção 'Viva sem Tabaco' para futuros usuários"
+                        + "\n"
+                        + "2. Desenvolvimento do conhecimento científico e acadêmico."
+                        + "\n\n"
+                        + "Essa participação também não consta qualquer ressarcimento ou privilégio — seja ele de caráter financeiro ou de qualquer outra natureza — aos voluntários que participarem desta pesquisa. Os riscos relacionados à sua participação na pesquisa são considerados mínimos, entretanto, caso ocorra algum tipo de prejuízo, você poderá entrar em contato com o pesquisador principal e/ou Comitê de Ética para que estes possam minimizar as consequências decorrentes deste risco. "
+                        + "\n\n"
+                        + "As informações obtidas através dessa pesquisa serão confidenciais e asseguramos o sigilo sobre sua participação. Os dados não serão divulgados de forma a possibilitar sua identificação, uma vez que os questionários são sigilosos, e não são identificados, estando à sua disposição quando finalizada a pesquisa. Os dados utilizados na pesquisa ficarão armazenados em um computador na Universidade Federal de Juiz de Fora. Os dados serão armazenados de forma segura e somente os pesquisadores terão acesso. Os resultados da pesquisa serão divulgados no próprio site, em congressos e artigos científicos da área. Você poderá salvar uma cópia deste termo em seu computador caso julgue necessário."
+                        + "\n\n"
+                        + "Fui informado (a) dos objetivos do estudo - Viva sem Tabaco - Avaliação de uma intervenção mediada por internet para tabagistas, de maneira clara e detalhada e esclareci minhas dúvidas. Sei que a qualquer momento poderei solicitar novas informações e modificar minha decisão de participar se assim o desejar. Declaro que concordo em participar desse estudo e me foi dada à oportunidade de ler e esclarecer as minhas dúvidas."
+                        + "\n\n"
+                        + "Cordialmente,"
+                        + "\n"
+                        + "Equipe de Pesquisa - Viva sem Tabaco";
+
+                EMailSSL eMailSSL = new EMailSSL();
+
+                eMailSSL.send(from, to, subject, body);
+
+                //user = userList.get(0);
+                //this.getDaoBase().insertOrUpdate(user, this.getEntityManager());
+                //String message = this.getText("email.sent.password");
+                //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
+            }
+        } catch (SQLException ex) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
+            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+    }
+    
+    public void sendEmailTerm(User u) throws SQLException {
+        try {
+            //System.out.println( this.user.getEmail());
+            List<User> userList = this.getDaoBase().list("email", u.getEmail(), this.getEntityManager());
+            //List<User> userList = this.getDaoBase().list("email", this.email, this.getEntityManager());
+            if (userList.isEmpty()) {
+                String message = this.getText("user.not.registered");
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
+            } else {
+                String email_user = userList.get(0).getEmail();
+                String name_user = userList.get(0).getName();
+                String from = "contato@vivasemtabaco.com.br";
+
+                //Logger.getLogger(UserController.class.getName()).log(Level.INFO, null, "User name: " + name_user + "\te-mail: " + email_user);
+                String to = u.getEmail();
                 String subject = "Termo de Compromisso";
                 String body;
                 body = this.getText("hello") + name_user + "\n"
