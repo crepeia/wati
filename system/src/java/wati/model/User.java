@@ -70,6 +70,7 @@ public class User implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dt_cadastro;
     
+    @JsonManagedReference
     @OneToOne(mappedBy = "usuario")
     private ProntoParaParar prontoParaParar;
 
@@ -83,6 +84,7 @@ public class User implements Serializable {
     @OneToMany(fetch = FetchType.LAZY)
     private List<Contact> contacts;
     
+    @JsonManagedReference
     @OneToOne(mappedBy = "user")
     private PesquisaSatisfacao pesquisaSatisfacao;
     

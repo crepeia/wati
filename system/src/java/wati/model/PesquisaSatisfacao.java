@@ -5,6 +5,7 @@
  */
 package wati.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -55,8 +56,8 @@ public class PesquisaSatisfacao implements Serializable {
      
       
       
-     
-     @OneToOne
+    @JsonBackReference
+    @OneToOne
     private User user;
      
        public long getId() {

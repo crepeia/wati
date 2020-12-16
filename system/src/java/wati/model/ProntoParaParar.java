@@ -4,6 +4,7 @@
  */
 package wati.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -62,6 +63,7 @@ public class ProntoParaParar implements Serializable {
     @Column(name = "evitar_recaida_fara_3")
     private String evitarRecaidaFara3;
     //@Column(name="usuario")
+    @JsonBackReference
     @OneToOne
     private User usuario;
     @Column(name = "data_inserido")

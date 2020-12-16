@@ -137,7 +137,7 @@ public class UserFacadeREST extends AbstractFacade<User> {
     @Produces(MediaType.APPLICATION_JSON)
     public User setInRanking(User entity) {
         String userEmail = securityContext.getUserPrincipal().getName();
-        System.out.println("aes.service.UserFacadeREST.setInRanking()");
+        System.out.println("wati.service.UserFacadeREST.setInRanking()");
         try{
             
             User u = (User) em.createQuery("SELECT u from User u WHERE u.email = :email")
