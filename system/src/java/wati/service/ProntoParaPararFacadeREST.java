@@ -23,6 +23,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
 import wati.model.ProntoParaParar;
 import wati.model.User;
+import wati.utility.Secured;
 
 /**
  *
@@ -30,6 +31,7 @@ import wati.model.User;
  */
 @Stateless
 @Path("prontoparaparar")
+@Secured
 public class ProntoParaPararFacadeREST extends AbstractFacade<ProntoParaParar> {
 
     @PersistenceContext(unitName = "watiPU")
