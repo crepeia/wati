@@ -23,6 +23,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
 import wati.model.ProntoParaParar;
 import wati.model.User;
+import wati.utility.Secured;
 
 /**
  *
@@ -30,6 +31,7 @@ import wati.model.User;
  */
 @Stateless
 @Path("prontoparaparar")
+@Secured
 public class ProntoParaPararFacadeREST extends AbstractFacade<ProntoParaParar> {
 
     @PersistenceContext(unitName = "watiPU")
@@ -53,9 +55,10 @@ public class ProntoParaPararFacadeREST extends AbstractFacade<ProntoParaParar> {
         }
         
         try {
-            return (ProntoParaParar) getEntityManager().createQuery("SELECT r FROM ProntoParaParar r WHERE r.usuario.id=:userId")
+            ProntoParaParar p = (ProntoParaParar) getEntityManager().createQuery("SELECT r FROM ProntoParaParar r WHERE r.usuario.id =:userId")
                     .setParameter("userId",userId)
                     .getSingleResult();
+            return p;
             
         } catch(NoResultException e) {
             return null;

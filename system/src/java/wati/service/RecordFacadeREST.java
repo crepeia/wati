@@ -74,7 +74,7 @@ public class RecordFacadeREST extends AbstractFacade<Record> {
         try {
             Record entity = new Record();
             entity.setUser(u);
-            entity.setDailyGoal(0);
+            entity.setCigarsDaily(0);
             entity.setFilled(false);
             entity.setPackAmount(0);
             entity.setPackPrice(0);

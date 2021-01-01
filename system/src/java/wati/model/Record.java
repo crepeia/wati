@@ -24,8 +24,8 @@ public class Record implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "daily_goal")
-    private int dailyGoal;
+    @Column(name = "cigars_daily")
+    private int cigarsDaily;
     
     @Column(name = "pack_price")
     private float packPrice;
@@ -70,12 +70,12 @@ public class Record implements Serializable{
         this.dailyLogs = dailyLogs;
     }
 
-    public int getDailyGoal() {
-        return dailyGoal;
+    public int getCigarsDaily() {
+        return cigarsDaily;
     }
 
-    public void setDailyGoal(int dailyGoal) {
-        this.dailyGoal = dailyGoal;
+    public void setCigarsDaily(int cigarsDaily) {
+        this.cigarsDaily = cigarsDaily;
     }
 
     public float getPackPrice() {
