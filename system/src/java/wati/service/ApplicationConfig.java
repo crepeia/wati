@@ -58,6 +58,7 @@ public class ApplicationConfig extends Application {
         resources.add(wati.service.TipUserFacadeREST.class);
         resources.add(wati.service.UserAgentFacadeREST.class);
         resources.add(wati.service.UserFacadeREST.class);
+        resources.add(wati.utility.ObjectMapperContextResolver.class);
     }
     
 }

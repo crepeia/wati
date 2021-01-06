@@ -255,7 +255,7 @@ public class User implements Serializable {
      * @return the acompanhamentos
      */
     @XmlTransient
-    @org.codehaus.jackson.annotate.JsonIgnore
+    @JsonIgnore
     public List<Acompanhamento> getAcompanhamentos() {
         return acompanhamentos;
     }
@@ -300,7 +300,7 @@ public class User implements Serializable {
     }
 
     @XmlTransient
-    @org.codehaus.jackson.annotate.JsonIgnore
+    @JsonIgnore
     public List<Contact> getContacts() {
         return contacts;
     }
@@ -352,7 +352,7 @@ public class User implements Serializable {
     }
 
     @XmlTransient
-    @org.codehaus.jackson.annotate.JsonIgnore
+    @JsonIgnore
     public List<Rating> getRatings() {
         return ratings;
     }
@@ -362,7 +362,7 @@ public class User implements Serializable {
     }
 
     @XmlTransient
-    @org.codehaus.jackson.annotate.JsonIgnore
+    @JsonIgnore
     public List<FollowUp> getFollowUps() {
         return followUps;
     }
@@ -380,7 +380,7 @@ public class User implements Serializable {
     }
 
     @XmlTransient
-    @org.codehaus.jackson.annotate.JsonIgnore
+    @JsonIgnore
     public List<TipUser> getTips() {
         return tips;
     }
@@ -390,7 +390,7 @@ public class User implements Serializable {
     }
 
     @XmlTransient
-    @org.codehaus.jackson.annotate.JsonIgnore
+    @JsonIgnore
     public List<ChallengeUser> getChallenges() {
         return challenges;
     }

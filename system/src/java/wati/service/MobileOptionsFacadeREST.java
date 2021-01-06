@@ -26,6 +26,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import wati.model.MobileOptions;
 import wati.model.User;
+import wati.utility.Secured;
 
 
 /**
@@ -34,6 +35,7 @@ import wati.model.User;
  */
 @Stateless
 @Path("mobileoptions")
+@Secured
 public class MobileOptionsFacadeREST extends AbstractFacade<MobileOptions> {
 
     @PersistenceContext(unitName = "watiPU")
