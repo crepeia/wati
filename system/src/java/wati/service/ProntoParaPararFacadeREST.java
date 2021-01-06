@@ -55,9 +55,10 @@ public class ProntoParaPararFacadeREST extends AbstractFacade<ProntoParaParar> {
         }
         
         try {
-            return (ProntoParaParar) getEntityManager().createQuery("SELECT r FROM ProntoParaParar r WHERE r.usuario.id=:userId")
+            ProntoParaParar p = (ProntoParaParar) getEntityManager().createQuery("SELECT r FROM ProntoParaParar r WHERE r.usuario.id =:userId")
                     .setParameter("userId",userId)
                     .getSingleResult();
+            return p;
             
         } catch(NoResultException e) {
             return null;

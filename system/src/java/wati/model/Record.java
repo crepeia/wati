@@ -24,7 +24,8 @@ public class Record implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "cigars_Daily")
+
+    @Column(name = "cigars_daily")
     private int cigarsDaily;
     
     @Column(name = "pack_price")
@@ -74,7 +75,8 @@ public class Record implements Serializable{
         return cigarsDaily;
     }
 
-    public void setCigarsDaily (int cigarsDaily) {
+
+    public void setCigarsDaily(int cigarsDaily) {
         this.cigarsDaily = cigarsDaily;
     }
 
