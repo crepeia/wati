@@ -24,6 +24,7 @@ public class Record implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column(name = "cigars_daily")
     private int cigarsDaily;
     
@@ -73,6 +74,7 @@ public class Record implements Serializable{
     public int getCigarsDaily() {
         return cigarsDaily;
     }
+
 
     public void setCigarsDaily(int cigarsDaily) {
         this.cigarsDaily = cigarsDaily;
