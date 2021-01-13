@@ -106,6 +106,9 @@ public class User implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<ChallengeUser> challenges;
     
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<Achievement> achievements;
+    
     @Column(name = "pesquisa_enviada")
     private Boolean pesquisa_enviada;
 
@@ -429,6 +432,14 @@ public class User implements Serializable {
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+
+    public List<Achievement> getAchievements() {
+        return achievements;
+    }
+
+    public void setAchievements(List<Achievement> achievements) {
+        this.achievements = achievements;
     }
 
     

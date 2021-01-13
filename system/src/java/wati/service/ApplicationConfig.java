@@ -39,6 +39,7 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(wati.service.AchievementFacadeREST.class);
         resources.add(wati.service.AcompanhamentoFacadeREST.class);
         resources.add(wati.service.AuthenticationFilter.class);
         resources.add(wati.service.AuthenticationTokenFacadeREST.class);
