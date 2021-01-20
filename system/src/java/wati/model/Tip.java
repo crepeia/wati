@@ -40,6 +40,12 @@ public class Tip implements Serializable {
     @Column(name = "description", length = 300)
     private String description;
     
+    @Column(name = "week")
+    private Integer week;
+    
+    @Column(name = "day")
+    private Integer day;
+    
     @OneToMany(mappedBy = "tip", fetch = FetchType.LAZY)
     private List<TipUser> tips;
 
@@ -76,6 +82,22 @@ public class Tip implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getWeek() {
+        return week;
+    }
+
+    public void setWeek(Integer week) {
+        this.week = week;
+    }
+
+    public Integer getDay() {
+        return day;
+    }
+
+    public void setDay(Integer day) {
+        this.day = day;
     }
     
 }

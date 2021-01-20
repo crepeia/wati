@@ -5,9 +5,12 @@
         <group>
             <file>file:/D:/Github/wati/system/src/java/wati/utility/ObjectMapperContextResolver.java</file>
             <file>file:/D:/Github/wati/system/src/java/wati/model/DailyLog.java</file>
+            <file>file:/D:/Github/wati/system/src/java/wati/service/UserFacadeREST.java</file>
             <file>file:/D:/Github/wati/system/src/java/wati/service/AuthenticationFilter.java</file>
             <file>file:/D:/Github/wati/system/src/java/wati/service/ChallengeUserFacadeREST.java</file>
+            <file>file:/D:/Github/wati/system/src/java/wati/service/AbstractFacade.java</file>
             <file>file:/D:/Github/wati/system/src/java/wati/service/ApplicationConfig.java</file>
+            <file>file:/D:/Github/wati/system/src/java/wati/model/Challenge.java</file>
             <file>file:/D:/Github/wati/system/src/java/wati/service/AcompanhamentoFacadeREST.java</file>
             <file>file:/D:/Github/wati/system/src/java/wati/service/AuthenticationTokenFacadeREST.java</file>
             <file>file:/D:/Github/wati/system/src/java/wati/controller/LoginController.java</file>
@@ -17,6 +20,8 @@
             <file>file:/D:/Github/wati/system/src/java/wati/model/UserAgent.java</file>
             <file>file:/D:/Github/wati/system/src/java/wati/service/DailyLogFacadeREST.java</file>
             <file>file:/D:/Github/wati/system/src/java/wati/model/Page.java</file>
+            <file>file:/D:/Github/wati/system/src/java/wati/model/Record.java</file>
+            <file>file:/D:/Github/wati/system/src/java/wati/service/AchievementFacadeREST.java</file>
         </group>
     </open-files>
 </project-private>

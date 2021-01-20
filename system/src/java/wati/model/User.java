@@ -106,6 +106,7 @@ public class User implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private List<ChallengeUser> challenges;
     
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY)
     private List<Achievement> achievements;
     
