@@ -14,6 +14,7 @@ import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.inject.Inject;
 import wati.controller.ContactController;
+import wati.controller.MobileOptionsController;
 
 /**
  *
@@ -27,6 +28,10 @@ public class Scheduler {
     @Inject
     private ContactController contactController;
     
+    @Inject
+    private MobileOptionsController mobileOptionsController;
+    
+       
     public Scheduler() {
         
     }
@@ -61,7 +66,10 @@ public class Scheduler {
         contactController.sendScheduledEmails();
     }
     
-
-   
+    @Schedule(second = "0", minute = "5", hour = "1", dayOfWeek = "*")
+    public void sendTips() {
+        Logger.getLogger(Scheduler.class.getName()).log(Level.INFO, "WATI - Send Mobile Tips task running");
+        mobileOptionsController.sendMobileTips();
+    }
 
 }
