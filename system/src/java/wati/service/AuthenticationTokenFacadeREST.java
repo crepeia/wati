@@ -7,6 +7,8 @@ package wati.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -57,8 +59,8 @@ public class AuthenticationTokenFacadeREST extends AbstractFacade<Authentication
             
             return Response.ok(token).build();
         } catch(Exception exp) {
-            System.out.println(exp.getMessage());
-            return Response.status(Response.Status.FORBIDDEN).build();
+            Logger.getLogger(AuthenticationTokenFacadeREST.class.getName()).log(Level.SEVERE, null, exp);
+            return Response.status(Response.Status.FORBIDDEN).entity(exp.getMessage()).build();
         }
     }
     
@@ -69,7 +71,6 @@ public class AuthenticationTokenFacadeREST extends AbstractFacade<Authentication
         try {
         String userEmail = securityContext.getUserPrincipal().getName();//httpRequest.getAttribute("userEmail").toString();
         
-            
         AuthenticationToken at = (AuthenticationToken) getEntityManager().createQuery("SELECT at FROM AuthenticationToken at WHERE at.token=:token AND at.user.email=:uEmail")
                 .setParameter("token", token)
                 .setParameter("uEmail", userEmail)
@@ -80,6 +81,7 @@ public class AuthenticationTokenFacadeREST extends AbstractFacade<Authentication
         } catch( NoResultException e ) {
             return Response.ok().build(); //se o token não existe ou já foi deletado ignoro o erro
         }catch(Exception e){
+            Logger.getLogger(AuthenticationTokenFacadeREST.class.getName()).log(Level.SEVERE, null, e);
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }

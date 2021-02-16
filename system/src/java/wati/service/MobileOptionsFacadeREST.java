@@ -8,6 +8,8 @@ package wati.service;
 import java.time.OffsetDateTime;
 import java.time.OffsetTime;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -80,19 +82,20 @@ public class MobileOptionsFacadeREST extends AbstractFacade<MobileOptions> {
                 return Response.status(Response.Status.UNAUTHORIZED).build(); 
             }
         } catch (Exception e) {
-            e.printStackTrace();
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+            Logger.getLogger(MobileOptionsFacadeREST.class.getName()).log(Level.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
     }
 
     @GET
     @Path("find/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public MobileOptions find(@PathParam("userId") Long userId) {
+    public Response find(@PathParam("userId") Long userId) {
         try {
-           return (MobileOptions) getEntityManager().createQuery("SELECT mo FROM MobileOptions mo WHERE mo.user.id=:userId")
+           MobileOptions op = (MobileOptions) getEntityManager().createQuery("SELECT mo FROM MobileOptions mo WHERE mo.user.id=:userId")
                     .setParameter("userId", userId)
                     .getSingleResult();
+           return Response.ok().entity(op).build();
         } catch(NoResultException e) {
             MobileOptions entity = new MobileOptions();
             entity.setUser(em.find(User.class, userId));
@@ -109,10 +112,11 @@ public class MobileOptionsFacadeREST extends AbstractFacade<MobileOptions> {
             entity.setNotificationToken("");
 
             super.create(entity);
-            return entity;
+            return Response.ok().entity(entity).build();
             
         } catch(Exception e) {
-            return null;
+           Logger.getLogger(MobileOptionsFacadeREST.class.getName()).log(Level.SEVERE, null, e);
+           return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
     }
 

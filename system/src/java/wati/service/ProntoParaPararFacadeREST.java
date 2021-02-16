@@ -20,6 +20,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import wati.model.ProntoParaParar;
 import wati.model.User;
@@ -47,23 +48,23 @@ public class ProntoParaPararFacadeREST extends AbstractFacade<ProntoParaParar> {
     @GET
     @Path("find/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ProntoParaParar find(@PathParam("userId") Long userId) {
+    public Response find(@PathParam("userId") Long userId) {
         String userEmail = securityContext.getUserPrincipal().getName();
         User u = em.find(User.class, userId);
         if(!u.getEmail().equals(userEmail)){
-            return null;
+            return Response.status(Response.Status.FORBIDDEN).build();
         }
         
         try {
             ProntoParaParar p = (ProntoParaParar) getEntityManager().createQuery("SELECT r FROM ProntoParaParar r WHERE r.usuario.id =:userId")
                     .setParameter("userId",userId)
                     .getSingleResult();
-            return p;
+            return Response.ok(p).build();
             
         } catch(NoResultException e) {
-            return null;
+            return Response.status(Response.Status.NO_CONTENT).build();
         } catch(Exception e) {
-            return null;
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
 

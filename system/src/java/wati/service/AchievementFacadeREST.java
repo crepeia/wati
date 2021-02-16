@@ -55,7 +55,7 @@ public class AchievementFacadeREST extends AbstractFacade<Achievement> {
     @GET
     @Path("find/{userId}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<Achievement> findByUser(@PathParam("userId") String uId) {
+    public Response findByUser(@PathParam("userId") String uId) {
         try {
             String userEmail = securityContext.getUserPrincipal().getName();
             
@@ -64,13 +64,13 @@ public class AchievementFacadeREST extends AbstractFacade<Achievement> {
                 .setParameter("userEmail", userEmail)
                 .getResultList();
             if(l.isEmpty()) {
-                return Collections.emptyList();
+                return Response.ok(Collections.emptyList()).build();
             } else {
-                return l;
+                return Response.ok(l).build();
             }
         }catch(Exception e){
-            e.printStackTrace();
-            return null;
+            Logger.getLogger(AchievementFacadeREST.class.getName()).log(Level.SEVERE, null, e);
+            return Response.serverError().entity(e.getMessage()).build();
         }
     }
 
@@ -97,15 +97,15 @@ public class AchievementFacadeREST extends AbstractFacade<Achievement> {
             action = "create";
             //return Response.status(Response.Status.OK).entity(new JSONObject().put("action", action).toString()).build();
         } catch (Exception e) {
-            e.printStackTrace();
-            return Response.serverError().build();
+            Logger.getLogger(AchievementFacadeREST.class.getName()).log(Level.SEVERE, null, e);
+            return Response.serverError().entity(e.getMessage()).build();
         }
         
         try {
             return Response.status(Response.Status.OK).entity(new JSONObject().put("action", action).toString()).type(MediaType.APPLICATION_JSON).build();
         } catch (JSONException ex) {
-            Logger.getLogger(DailyLogFacadeREST.class.getName()).log(Level.SEVERE, null, ex);
-            return Response.serverError().build();
+            Logger.getLogger(AchievementFacadeREST.class.getName()).log(Level.SEVERE, null, ex);
+            return Response.serverError().entity(ex.getMessage()).build();
         }
     }
     @Override

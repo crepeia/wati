@@ -98,7 +98,7 @@ public class UserFacadeREST extends AbstractFacade<User> {
                 try {
                     userController.sendEmailTerm(entity);
                 } catch (Exception ex) {
-                    Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, "Erro sending term emai to: " + entity.getEmail());
+                    Logger.getLogger(UserFacadeREST.class.getName()).log(Level.SEVERE, "Erro sending term emai to: " + entity.getEmail());
 
                 }
 
@@ -108,7 +108,7 @@ public class UserFacadeREST extends AbstractFacade<User> {
                         contactController.sendPesquisaSatisfacaoEmail(entity);
                         entity.setPesquisaEnviada(true);
                     } catch (Exception ex) {
-                        Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, "Erro sending research email to: " + entity.getEmail());
+                        Logger.getLogger(UserFacadeREST.class.getName()).log(Level.SEVERE, "Erro sending research email to: " + entity.getEmail());
 
                     }
                     
@@ -122,7 +122,7 @@ public class UserFacadeREST extends AbstractFacade<User> {
                 
                 
               
-            Logger.getLogger(UserFacadeREST.class.getName()).log(Level.INFO, "Usuário '" + entity.getEmail() + "'cadastrou no sistema.");
+            Logger.getLogger(UserFacadeREST.class.getName()).log(Level.INFO, "Usuário '" + entity.getEmail() + "'cadastrou no sistema via app.");
              } catch (NotSupportedException | SystemException | RollbackException | HeuristicMixedException | HeuristicRollbackException | SecurityException | IllegalStateException ex) {
                 Logger.getLogger(UserFacadeREST.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -135,7 +135,7 @@ public class UserFacadeREST extends AbstractFacade<User> {
     @Secured
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public User setInRanking(User entity) {
+    public Response setInRanking(User entity) {
         String userEmail = securityContext.getUserPrincipal().getName();
         System.out.println("wati.service.UserFacadeREST.setInRanking()");
         try{
@@ -153,10 +153,10 @@ public class UserFacadeREST extends AbstractFacade<User> {
             userTransaction.begin();
             super.edit(u);
             userTransaction.commit();
-            return u;
+            return Response.ok().entity(u).build();
         }catch(Exception e) {
-            Logger.getLogger(UserFacadeREST.class.getName()).log(Level.SEVERE, null, e);
-            return null;
+            Logger.getLogger(UserFacadeREST.class.getName()).log(Level.ALL.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
     }
 
@@ -172,9 +172,16 @@ public class UserFacadeREST extends AbstractFacade<User> {
     @Secured
     @Path("login/{token}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    @Override
-    public User login(@PathParam("token") String tkn) {
-        return super.login(tkn);
+    public Response loginController(@PathParam("token") String tkn) {
+        System.out.print("Logging in via token...");
+        try{
+            User u = super.login(tkn);
+            System.out.println(u.getEmail());
+            return Response.ok().entity(u).build();
+        } catch(Exception e) {
+            Logger.getLogger(UserFacadeREST.class.getName()).log(Level.ALL.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+        }
     }
 
     @Override

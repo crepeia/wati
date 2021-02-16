@@ -6,6 +6,8 @@
 package wati.service;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -20,6 +22,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
 import wati.model.Record;
 import wati.model.User;
@@ -46,29 +49,30 @@ public class RecordFacadeREST extends AbstractFacade<Record> {
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Override
-    public Record create(Record entity) {
+    public Response createRecord(Record entity) {
         String userEmail = securityContext.getUserPrincipal().getName();
         User u = em.find(User.class, entity.getUser().getId());
         if(!u.getEmail().equals(userEmail)){
-            return null;
+            return Response.status(Response.Status.UNAUTHORIZED).build();
         }
         try {
-            return super.create(entity);
+            Record created = super.create(entity);
+            return Response.ok().entity(created).build();
         } catch (Exception e) {
-            return null;
+            Logger.getLogger(RecordFacadeREST.class.getName()).log(Level.ALL.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
     }
 
     @POST
     @Path("create/{userId}")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Record create(@PathParam("userId") Long userId) {
+    public Response create(@PathParam("userId") Long userId) {
         //String userEmail = securityContext.getUserPrincipal().getName();
         String userEmail = securityContext.getUserPrincipal().getName();
         User u = em.find(User.class, userId);
         if(!u.getEmail().equals(userEmail)){
-            return null;
+            return Response.status(Response.Status.UNAUTHORIZED).build();
         }
         
         try {
@@ -80,9 +84,10 @@ public class RecordFacadeREST extends AbstractFacade<Record> {
             entity.setPackPrice(0);
             
             super.create(entity);
-            return entity;
+            return Response.ok().entity(entity).build();
         } catch (Exception e) {
-            return null;
+            Logger.getLogger(RecordFacadeREST.class.getName()).log(Level.ALL.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
 
     }
@@ -103,22 +108,23 @@ public class RecordFacadeREST extends AbstractFacade<Record> {
     @GET
     @Path("find/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Record find(@PathParam("userId") Long userId) {
+    public Response find(@PathParam("userId") Long userId) {
         String userEmail = securityContext.getUserPrincipal().getName();
         User u = em.find(User.class, userId);
         if(!u.getEmail().equals(userEmail)){
-            return null;
+            return Response.status(Response.Status.UNAUTHORIZED).build();
         }
         
         try {
-            return (Record) getEntityManager().createQuery("SELECT r FROM Record r WHERE r.user.id=:userId")
+            Record rec = (Record) getEntityManager().createQuery("SELECT r FROM Record r WHERE r.user.id=:userId")
                     .setParameter("userId",userId)
                     .getSingleResult();
-            
+            return Response.ok().entity(rec).build();
         } catch(NoResultException e) {
-            return null;
+            return Response.status(Response.Status.NOT_FOUND).entity(e.getMessage()).build();
         } catch(Exception e) {
-            return null;
+            Logger.getLogger(RecordFacadeREST.class.getName()).log(Level.ALL.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
     }
 

@@ -8,6 +8,8 @@ package wati.service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -75,15 +77,16 @@ public class TipUserFacadeREST extends AbstractFacade<TipUser> {
         try {
             entity.setUser(em.find(User.class, entity.getId().getUserId()));
             entity.setTip(em.find(Tip.class, entity.getId().getTipId()));
-            
-            if(entity.getDateCreated()== null){
+
+            if (entity.getDateCreated() == null) {
                 entity.setDateCreated(new Date());
             }
-            
+
             super.create(entity);
             return Response.status(Response.Status.OK).build();
         } catch (Exception e) {
-            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+            Logger.getLogger(TipUserFacadeREST.class.getName()).log(Level.ALL.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
 
         }
     }
@@ -99,7 +102,7 @@ public class TipUserFacadeREST extends AbstractFacade<TipUser> {
         super.edit(newEntity);
         return newEntity;
     }
-    
+
     @PUT
     @Path("dislike")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -111,66 +114,67 @@ public class TipUserFacadeREST extends AbstractFacade<TipUser> {
         super.edit(newEntity);
         return newEntity;
     }
-    
+
     @PUT
     @Path("unlike")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces( MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public TipUser unlike(TipUser entity) {
         TipUser newEntity = super.find(entity.getId());
         newEntity.setLiked(null);
         super.edit(newEntity);
         return newEntity;
     }
-    
+
     @PUT
     @Path("read")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces( MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public TipUser read(TipUser entity) {
         TipUser newEntity = super.find(entity.getId());
         newEntity.setReadByUser(true);
         super.edit(newEntity);
         return newEntity;
     }
-    
+
     @GET
     @Path("find/{userId}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<TipUser> findByUser(@PathParam("userId") String uId) {
+    public Response findByUser(@PathParam("userId") String uId) {
         try {
-            
-        return getEntityManager().createQuery("SELECT tu FROM TipUser tu WHERE tu.user.id=:userId")
-                .setParameter("userId", Long.parseLong(uId))
-                .getResultList();
-        }catch(Exception e){
-            e.printStackTrace();
-            return null;
+
+            List<TipUser> list = getEntityManager().createQuery("SELECT tu FROM TipUser tu WHERE tu.user.id=:userId")
+                    .setParameter("userId", Long.parseLong(uId))
+                    .getResultList();
+            return Response.ok().entity(list).build();
+        } catch (Exception e) {
+            Logger.getLogger(TipUserFacadeREST.class.getName()).log(Level.ALL.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
     }
 
     @GET
     @Path("secured/{startDate}/{endDate}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<TipUser> findByDate(@PathParam("startDate") String sd, @PathParam("endDate") String ed) {
+    public Response findByDate(@PathParam("startDate") String sd, @PathParam("endDate") String ed) {
         try {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date startDate = sdf.parse(sd);   
-        Date endDate = sdf.parse(ed);
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date startDate = sdf.parse(sd);
+            Date endDate = sdf.parse(ed);
 
-        String userEmail = securityContext.getUserPrincipal().getName();//httpRequest.getAttribute("userEmail").toString();
-        
-        return getEntityManager().createQuery("SELECT tu FROM TipUser tu WHERE tu.user.email=:email AND (tu.dateCreated BETWEEN :start AND :end)")
-                .setParameter("email", userEmail)
-                .setParameter("start", startDate)
-                .setParameter("end", endDate)
-                .getResultList();
-        }catch(Exception e){
-            e.printStackTrace();
-            return null;
+            String userEmail = securityContext.getUserPrincipal().getName();//httpRequest.getAttribute("userEmail").toString();
+
+            List<TipUser> list = getEntityManager().createQuery("SELECT tu FROM TipUser tu WHERE tu.user.email=:email AND (tu.dateCreated BETWEEN :start AND :end)")
+                    .setParameter("email", userEmail)
+                    .setParameter("start", startDate)
+                    .setParameter("end", endDate)
+                    .getResultList();
+            return Response.ok().entity(list).build();
+        } catch (Exception e) {
+            Logger.getLogger(TipUserFacadeREST.class.getName()).log(Level.ALL.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
     }
-    
 
     @GET
     @Path("count")
@@ -184,5 +188,4 @@ public class TipUserFacadeREST extends AbstractFacade<TipUser> {
         return em;
     }
 
-    
 }

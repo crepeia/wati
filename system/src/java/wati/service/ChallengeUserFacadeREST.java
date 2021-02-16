@@ -15,6 +15,8 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -86,9 +88,8 @@ public class ChallengeUserFacadeREST extends AbstractFacade<ChallengeUser> {
             }
             return Response.status(Response.Status.NOT_MODIFIED).build();
         }catch(Exception e){
-            e.printStackTrace();
-            return null;
-
+            Logger.getLogger(ChallengeUserFacadeREST.class.getName()).log(Level.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
     }
     
@@ -108,8 +109,8 @@ public class ChallengeUserFacadeREST extends AbstractFacade<ChallengeUser> {
             
         
         }catch(Exception e){
-            e.printStackTrace();
-            return null;
+            Logger.getLogger(ChallengeUserFacadeREST.class.getName()).log(Level.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
 
         }
     }
@@ -117,7 +118,7 @@ public class ChallengeUserFacadeREST extends AbstractFacade<ChallengeUser> {
     @GET
     @Path("find/{userId}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<ChallengeUser> findByUser(@PathParam("userId") String uId) {
+    public Response findByUser(@PathParam("userId") String uId) {
         try {
             String userEmail = securityContext.getUserPrincipal().getName();
             
@@ -126,13 +127,13 @@ public class ChallengeUserFacadeREST extends AbstractFacade<ChallengeUser> {
                 .setParameter("userEmail", userEmail)
                 .getResultList();
             if(l.isEmpty()) {
-                return Collections.emptyList();
+                return Response.ok().entity(Collections.emptyList()).build();
             } else {
-                return l;
+                return Response.ok().entity(l).build();
             }
         }catch(Exception e){
-            e.printStackTrace();
-            return null;
+            Logger.getLogger(ChallengeUserFacadeREST.class.getName()).log(Level.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
     }
 
@@ -153,7 +154,7 @@ public class ChallengeUserFacadeREST extends AbstractFacade<ChallengeUser> {
     @GET
     @Path("sent/{startDate}/{endDate}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<ChallengeUser> findBySentDate(@PathParam("startDate") String sd, @PathParam("endDate") String ed) {
+    public Response findBySentDate(@PathParam("startDate") String sd, @PathParam("endDate") String ed) {
         try {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate = sdf.parse(sd);   
@@ -161,21 +162,22 @@ public class ChallengeUserFacadeREST extends AbstractFacade<ChallengeUser> {
 
         String userEmail = securityContext.getUserPrincipal().getName();//httpRequest.getAttribute("userEmail").toString();
         
-        return getEntityManager().createQuery("SELECT c FROM ChallengeUser c WHERE c.user.email=:email AND (c.dateCreated BETWEEN :start AND :end)")
-                .setParameter("email", userEmail)
-                .setParameter("start", startDate)
-                .setParameter("end", endDate)
-                .getResultList();
+        List<ChallengeUser> list =  getEntityManager().createQuery("SELECT c FROM ChallengeUser c WHERE c.user.email=:email AND (c.dateCreated BETWEEN :start AND :end)")
+                                        .setParameter("email", userEmail)
+                                        .setParameter("start", startDate)
+                                        .setParameter("end", endDate)
+                                        .getResultList();
+        return Response.ok().entity(list).build();
         }catch(Exception e){
-            e.printStackTrace();
-            return null;
+            Logger.getLogger(ChallengeUserFacadeREST.class.getName()).log(Level.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
     }
     
     @GET
     @Path("completed/{startDate}/{endDate}")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<ChallengeUser> findByCompletedDate(@PathParam("startDate") String sd, @PathParam("endDate") String ed) {
+    public Response findByCompletedDate(@PathParam("startDate") String sd, @PathParam("endDate") String ed) {
         try {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date startDate = sdf.parse(sd);   
@@ -183,14 +185,15 @@ public class ChallengeUserFacadeREST extends AbstractFacade<ChallengeUser> {
 
         String userEmail = securityContext.getUserPrincipal().getName();//httpRequest.getAttribute("userEmail").toString();
         
-        return getEntityManager().createQuery("SELECT c FROM ChallengeUser c WHERE c.user.email=:email AND (c.dateCompleted BETWEEN :start AND :end)")
+        List<ChallengeUser> list =  getEntityManager().createQuery("SELECT c FROM ChallengeUser c WHERE c.user.email=:email AND (c.dateCompleted BETWEEN :start AND :end)")
                 .setParameter("email", userEmail)
                 .setParameter("start", startDate)
                 .setParameter("end", endDate)
                 .getResultList();
+        return Response.ok().entity(list).build();
         }catch(Exception e){
-            e.printStackTrace();
-            return null;
+            Logger.getLogger(ChallengeUserFacadeREST.class.getName()).log(Level.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
     }
     
@@ -198,7 +201,7 @@ public class ChallengeUserFacadeREST extends AbstractFacade<ChallengeUser> {
     @GET
     @Path("rankFromDate")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public List<ChallengeUserController.NicknameScore> rankFromDate(@PathParam("startDate") String sd) {
+    public Response rankFromDate(@PathParam("startDate") String sd) {
         try {
             List<ChallengeUserController.NicknameScore> resultList = new LinkedList<>();
             
@@ -213,11 +216,11 @@ public class ChallengeUserFacadeREST extends AbstractFacade<ChallengeUser> {
                 long points = getPointsFromDate(u, dateStart);
                 resultList.add(new ChallengeUserController.NicknameScore(u.getNickname(), points));
             });
-
-            return resultList;
+            return Response.ok().entity(resultList).build();
 
         } catch (ParseException ex) {
-            return null;
+            Logger.getLogger(ChallengeUserFacadeREST.class.getName()).log(Level.SEVERE, null, ex);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(ex.getMessage()).build();
         }
     }
     
@@ -268,7 +271,8 @@ public class ChallengeUserFacadeREST extends AbstractFacade<ChallengeUser> {
             return Response.ok(json).build();
 
         } catch (ParseException ex) {
-            return Response.serverError().build();
+            Logger.getLogger(ChallengeUserFacadeREST.class.getName()).log(Level.SEVERE, null, ex);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(ex.getMessage()).build();
         }
     }
     

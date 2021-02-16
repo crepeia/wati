@@ -64,15 +64,15 @@ public class DailyLogFacadeREST extends AbstractFacade<DailyLog> {
             action = "create";
             //return Response.status(Response.Status.OK).entity(new JSONObject().put("action", action).toString()).build();
         } catch (Exception e) {
-            e.printStackTrace();
-            return Response.serverError().build();
+            Logger.getLogger(DailyLogFacadeREST.class.getName()).log(Level.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
         
         try {
             return Response.status(Response.Status.OK).entity(new JSONObject().put("action", action).toString()).type(MediaType.APPLICATION_JSON).build();
         } catch (JSONException ex) {
             Logger.getLogger(DailyLogFacadeREST.class.getName()).log(Level.SEVERE, null, ex);
-            return Response.serverError().build();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(ex.getMessage()).build();
         }
     }
      

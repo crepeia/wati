@@ -113,10 +113,10 @@ public class User implements Serializable {
     @Column(name = "pesquisa_enviada")
     private Boolean pesquisa_enviada;
 
-    @Column(name = "app_signup", nullable = false )
+    @Column(name = "app_signup")
     private boolean app_signup;
     
-    @Column(name = "in_ranking", nullable = false )
+    @Column(name = "in_ranking")
     private boolean inRanking;
     
     @Column(name = "nickname")
