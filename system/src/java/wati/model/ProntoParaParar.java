@@ -5,6 +5,7 @@
 package wati.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -403,7 +404,8 @@ public class ProntoParaParar implements Serializable {
             return null;
         }
     }
-
+    
+    @JsonIgnore
     public String getLink() {
         if (isEnfrentarFissuraRelaxamento()) {
             return FacesContext.getCurrentInstance().getExternalContext().getRequestContextPath() + "/download/surfandoafissura.mp3";
