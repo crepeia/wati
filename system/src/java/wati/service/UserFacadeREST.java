@@ -40,6 +40,7 @@ import org.apache.commons.codec.binary.Hex;
 import wati.controller.ContactController;
 import wati.controller.UserController;
 import wati.model.User;
+import wati.utility.GenerateCode;
 import wati.utility.Secured;
 
 /**
@@ -160,6 +161,35 @@ public class UserFacadeREST extends AbstractFacade<User> {
         }
     }
 
+    @GET
+    @Path("recover-password")
+    @Secured
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response recoverPassword() {
+        String userEmail = securityContext.getUserPrincipal().getName();
+        System.out.println("wati.service.UserFacadeREST.forgetPassword()");
+        try {
+
+            User u = (User) em.createQuery("SELECT u from User u WHERE u.email = :email")
+                    .setParameter("email", userEmail)
+                    .getSingleResult();
+            System.out.println(u.getEmail());
+            u.setRecoverCode(GenerateCode.generate());
+
+            userTransaction.begin();
+            super.edit(u);
+            userTransaction.commit();
+            contactController.sendPasswordRecoveryEmail(u);
+            
+            Logger.getLogger(UserFacadeREST.class.getName()).log(Level.INFO, null, "Recover password service " + userEmail);
+
+            return Response.ok().build();
+        } catch (Exception e) {
+            Logger.getLogger(UserFacadeREST.class.getName()).log(Level.SEVERE, null, e);
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
+        }
+    }
+  
     @GET
     @Path("count")
     @Secured

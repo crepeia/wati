@@ -59,7 +59,7 @@ public class RecordFacadeREST extends AbstractFacade<Record> {
             Record created = super.create(entity);
             return Response.ok().entity(created).build();
         } catch (Exception e) {
-            Logger.getLogger(RecordFacadeREST.class.getName()).log(Level.ALL.SEVERE, null, e);
+            Logger.getLogger(RecordFacadeREST.class.getName()).log(Level.SEVERE, null, e);
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
     }
@@ -86,7 +86,7 @@ public class RecordFacadeREST extends AbstractFacade<Record> {
             super.create(entity);
             return Response.ok().entity(entity).build();
         } catch (Exception e) {
-            Logger.getLogger(RecordFacadeREST.class.getName()).log(Level.ALL.SEVERE, null, e);
+            Logger.getLogger(RecordFacadeREST.class.getName()).log(Level.SEVERE, null, e);
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
 

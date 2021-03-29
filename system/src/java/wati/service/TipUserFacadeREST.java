@@ -85,7 +85,7 @@ public class TipUserFacadeREST extends AbstractFacade<TipUser> {
             super.create(entity);
             return Response.status(Response.Status.OK).build();
         } catch (Exception e) {
-            Logger.getLogger(TipUserFacadeREST.class.getName()).log(Level.ALL.SEVERE, null, e);
+            Logger.getLogger(TipUserFacadeREST.class.getName()).log(Level.SEVERE, null, e);
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
 
         }
@@ -148,7 +148,7 @@ public class TipUserFacadeREST extends AbstractFacade<TipUser> {
                     .getResultList();
             return Response.ok().entity(list).build();
         } catch (Exception e) {
-            Logger.getLogger(TipUserFacadeREST.class.getName()).log(Level.ALL.SEVERE, null, e);
+            Logger.getLogger(TipUserFacadeREST.class.getName()).log(Level.SEVERE, null, e);
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
         }
     }

@@ -107,11 +107,9 @@ public class ChallengeUserFacadeREST extends AbstractFacade<ChallengeUser> {
                 return Response.notModified().build();
             }
             
-        
         }catch(Exception e){
             Logger.getLogger(ChallengeUserFacadeREST.class.getName()).log(Level.SEVERE, null, e);
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity(e.getMessage()).build();
-
         }
     }
     

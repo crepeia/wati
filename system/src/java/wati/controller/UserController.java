@@ -27,6 +27,7 @@ import javax.faces.annotation.ManagedProperty;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.naming.NamingException;
 import javax.persistence.EntityManager;
@@ -36,6 +37,7 @@ import wati.model.User;
 import wati.persistence.GenericDAO;
 import wati.utility.EMailSSL;
 import wati.utility.Encrypter;
+import wati.utility.GenerateCode;
 
 /**
  *
@@ -74,7 +76,7 @@ public class UserController extends BaseFormController<User> {
 
     private GenericDAO dao = null;
 
-    @ManagedProperty(value = "#{contactController}")
+    @Inject
     private ContactController contactController;
 
     /*
@@ -221,32 +223,12 @@ public class UserController extends BaseFormController<User> {
                 Logger.getLogger(UserController.class.getName()).log(Level.INFO, null, "User name: " + name_user + "\te-mail: " + email_user);
 
                 //cript recoverycode
-                Integer code = this.generateCode();
-                //this.setRecoverCode(Encrypter.encrypt(code));
-               
-
-                String to = this.email;
-                String subject = this.getText("subject.email.password");
-                String body;
-                body = this.getText("hello") + " " + name_user + "," + "\n"
-                        + "\n"
-                        + this.getText("email.password.send") + email_user + this.getText("email.password.send.2") + " \n"
-                        + "\n"
-                        + this.getText("email.password.send.3") + "\n"
-                        + this.getText("email.password.send.4") + code + "\n"
-                        + this.getText("email.password.send.5") + this.getLinkPassword() + "\n\n"
-                        + this.getText("cordialmente")
-                        + "\n"
-                        + this.getText("equipe.vst")
-                        + "\n";
-
-                EMailSSL eMailSSL = new EMailSSL();
-
-                eMailSSL.send(from, to, subject, body);
-
+                Integer code = GenerateCode.generate();
                 user = userList.get(0);
                 user.setRecoverCode(code);
                 this.getDaoBase().insertOrUpdate(user, this.getEntityManager());
+                
+                contactController.sendPasswordRecoveryEmail(user);
                 String message = this.getText("email.sent.password");
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, message, null));
             }
@@ -261,23 +243,6 @@ public class UserController extends BaseFormController<User> {
         return "http://www.vivasemtabaco.com.br/esqueceu-sua-senha.xhtml";
     }
 
-    public int generateCode() {
-        long codigo = 0;
-        int base = 1;
-        float valor = 0;
-
-        Random generate = new Random();
-        valor = (float) generate.nextInt(100000) / 10;
-        while (valor > 999 && valor < 10000) {
-            valor = (float) generate.nextInt(10000) / 10;
-        }
-        valor *= 10;
-
-        codigo = (int) valor;
-        return (int) codigo;
-    }
-
-    
     public String checkCode() throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException {
         
         try {
