@@ -5,6 +5,8 @@
  */
 package wati.service;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.JsonNode;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.List;
@@ -161,14 +163,15 @@ public class UserFacadeREST extends AbstractFacade<User> {
         }
     }
 
-    @GET
+   @PUT
     @Path("recover-password")
-    @Secured
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
-    public Response recoverPassword() {
-        String userEmail = securityContext.getUserPrincipal().getName();
-        System.out.println("wati.service.UserFacadeREST.forgetPassword()");
+    public Response recoverPassword(JsonParser jp) {
         try {
+            JsonNode node = jp.getCodec().readTree(jp);
+            String userEmail = node.get("email").asText();
+            System.out.println("aes.service.UserFacadeREST.forgetPassword()");
 
             User u = (User) em.createQuery("SELECT u from User u WHERE u.email = :email")
                     .setParameter("email", userEmail)
