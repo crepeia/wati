@@ -163,10 +163,9 @@ public class UserFacadeREST extends AbstractFacade<User> {
         }
     }
 
-   @PUT
+    @PUT
     @Path("recover-password")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
     public Response recoverPassword(JsonParser jp) {
         try {
             JsonNode node = jp.getCodec().readTree(jp);
