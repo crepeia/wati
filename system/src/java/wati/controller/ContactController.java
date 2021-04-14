@@ -200,24 +200,25 @@ public class ContactController extends BaseController implements Serializable {
     }
     
     public void sendPasswordRecoveryEmail(User user) {
+        ResourceBundle bundle = PropertyResourceBundle.getBundle("wati.utility.messages", new Locale(user.getPreferedLanguage()));
+        
         String to = user.getEmail();
         String from = "contato@vivasemtabaco.com.br";
-        String subject = this.getText("subject.email.password");
+        String subject = bundle.getString("subject.email.password");
         String body;
-        body = this.getText("hello") + " " + user.getName() + "," + "\n"
+        body = bundle.getString("hello") + " " + user.getName() + "," + "\n"
                 + "\n"
-                + this.getText("email.password.send") + user.getEmail()+ this.getText("email.password.send.2") + " \n"
+                + bundle.getString("email.password.send") + user.getEmail()+ bundle.getString("email.password.send.2") + " \n"
                 + "\n"
-                + this.getText("email.password.send.3") + "\n"
-                + this.getText("email.password.send.4") + user.getRecoverCode() + "\n"
-                + this.getText("email.password.send.5") + "http://www.vivasemtabaco.com.br/esqueceu-sua-senha.xhtml" + "\n\n"
-                + this.getText("cordialmente")
+                + bundle.getString("email.password.send.3") + "\n"
+                + bundle.getString("email.password.send.4") + user.getRecoverCode() + "\n"
+                + bundle.getString("email.password.send.5") + "http://www.vivasemtabaco.com.br/esqueceu-sua-senha.xhtml" + "\n\n"
+                + bundle.getString("cordialmente")
                 + "\n"
-                + this.getText("equipe.vst")
+                + bundle.getString("equipe.vst")
                 + "\n";
         
         eMailSSL.send(from, to, subject, body);
-
     }
 
     
