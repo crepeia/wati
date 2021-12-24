@@ -42,6 +42,7 @@ import org.apache.commons.codec.binary.Hex;
 import wati.controller.ContactController;
 import wati.controller.UserController;
 import wati.model.User;
+import wati.utility.Encrypter;
 import wati.utility.GenerateCode;
 import wati.utility.Secured;
 
@@ -85,36 +86,32 @@ public class UserFacadeREST extends AbstractFacade<User> {
             return Response.status(Response.Status.CONFLICT).build();
         } else {
             try {
-                //String p = Hex.encodeHexString( entity.getPassword() );
-                byte[] b =  Hex.decodeHex(p.toCharArray());
-                entity.setPassword(b);
-                //byte[] b =  Hex.decodeHex(Arrays.toString(entity.getPassword()).toCharArray());
-                
+ 
+                String clientEncriptedHexPassword = p;
+                String decriptedPassword = Encrypter.decrypt(clientEncriptedHexPassword);
+                byte[] salt =  Encrypter.generateRandomSecureSalt(16);
+                entity.setSalt(salt);
+                entity.setPassword(Encrypter.hashPassword(decriptedPassword, salt));                      
                 entity.setExperimentalGroups(userController.GeraGrupoUsuario());
                 
                 userTransaction.begin();
                 super.create(entity);
                 userTransaction.commit();
-                
-                
-
+                             
                 try {
                     userController.sendEmailTerm(entity);
                 } catch (Exception ex) {
-                    Logger.getLogger(UserFacadeREST.class.getName()).log(Level.SEVERE, "Erro sending term emai to: " + entity.getEmail());
-
+                    Logger.getLogger(UserFacadeREST.class.getName()).log(Level.SEVERE, "Error sending term emai to: " + entity.getEmail());
+                    
                 }
 
                 if (entity.isReceiveEmails()) {
-
                     try {
                         contactController.sendPesquisaSatisfacaoEmail(entity);
                         entity.setPesquisaEnviada(true);
                     } catch (Exception ex) {
                         Logger.getLogger(UserFacadeREST.class.getName()).log(Level.SEVERE, "Erro sending research email to: " + entity.getEmail());
-
-                    }
-                    
+                    }          
                     contactController.scheduleReaserach7DaysEmail(entity, new Date());
                     contactController.scheduleReaserachXMonthsEmail(entity, new Date(), 1);
                     contactController.scheduleReaserachXMonthsEmail(entity, new Date(), 3);
@@ -126,8 +123,10 @@ public class UserFacadeREST extends AbstractFacade<User> {
                 
               
             Logger.getLogger(UserFacadeREST.class.getName()).log(Level.INFO, "Usuário '" + entity.getEmail() + "'cadastrou no sistema via app.");
-             } catch (NotSupportedException | SystemException | RollbackException | HeuristicMixedException | HeuristicRollbackException | SecurityException | IllegalStateException ex) {
+             } catch (Exception ex) {
                 Logger.getLogger(UserFacadeREST.class.getName()).log(Level.SEVERE, null, ex);
+                return Response.serverError().build();
+
             }
         }
         return Response.ok(entity).build();

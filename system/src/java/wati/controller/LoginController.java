@@ -7,6 +7,7 @@ package wati.controller;
 import java.io.IOException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -21,6 +22,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import wati.model.User;
 import wati.utility.Encrypter;
+import wati.utility.EncrypterException;
 
 @Named("loginController")
 @SessionScoped
@@ -69,13 +71,13 @@ public class LoginController extends BaseFormController<User> {
         this.password = password;
     }
 
-    public void login() {
+    public void login(){
 
         try {
 
             List<User> userList = this.getDaoBase().list("email", this.user.getEmail(), this.getEntityManager());
 
-            if (userList.isEmpty() || !Encrypter.compare(this.password, userList.get(0).getPassword())) {
+            if (userList.isEmpty() || !Encrypter.compareHash(password, userList.get(0).getPassword(), userList.get(0).getSalt())) {
                 //log message
                 String message = this.getUser().getEmail() + " could not sign in.";
                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, message);
@@ -108,10 +110,11 @@ public class LoginController extends BaseFormController<User> {
 
             }
 
-        } catch (InvalidKeyException | IllegalBlockSizeException | BadPaddingException | NoSuchAlgorithmException | NoSuchPaddingException | IOException ex) {
-            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, this.getText("mensagem.delete2"), null));
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+        }catch(EncrypterException | IOException ex){
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, this.getText("mensagem.erro"), null));
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
         }
 

@@ -83,7 +83,7 @@ public class TipUserController  extends BaseController<TipUser> {
 
 
             if (possibleTipsList.isEmpty()) {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Não há dicas a serem enviadas para o usuário " + user.getEmail() + ".", null));
+                //FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Não há dicas a serem enviadas para o usuário " + user.getEmail() + ".", null));
             } else {
                 Random rand = new Random();
                 Tip newtip = possibleTipsList.get(rand.nextInt(possibleTipsList.size()));

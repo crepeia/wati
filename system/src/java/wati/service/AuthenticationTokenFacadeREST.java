@@ -25,10 +25,12 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.SecurityContext;
+import org.apache.commons.codec.binary.Hex;
 import wati.model.AuthenticationToken;
 import wati.utility.SecureRandomString;
 import wati.utility.Secured;
 import wati.model.User;
+import wati.utility.Encrypter;
 
 /**
  *
@@ -54,10 +56,30 @@ public class AuthenticationTokenFacadeREST extends AbstractFacade<Authentication
     public Response authUser(@PathParam("email") String e, @PathParam("password") String p) {
         try {
             
-            User usr = super.login(e, p);
-            String token = issueToken(usr);
+            //User usr = super.login(e, p);
+           // String token = issueToken(usr);
+ 
+           String clientEncriptedHexPassword = p;
+           String decriptedPassword = Encrypter.decrypt(clientEncriptedHexPassword);
+           
+           byte[] b =  Hex.decodeHex(p.toCharArray());
+           User user = (User) getEntityManager().createNamedQuery("User.email").setParameter("email", e).getSingleResult();
+           
+           boolean hashMatches = Encrypter.compareHash(decriptedPassword, user.getPassword(), user.getSalt());
+           
+           if(hashMatches){
+               String token  = issueToken(user);
+               Logger.getLogger(AuthenticationTokenFacadeREST.class.getName()).log(Level.INFO, "Usuário '" + e + "' logou no sistema.");
+               return Response.ok(token).build();
+
+           }
+           else{
+                Logger.getLogger(AuthenticationTokenFacadeREST.class.getName()).log(Level.INFO, "Usuário '" + e + "' não conseguiu logar.");
+                return Response.status(Response.Status.FORBIDDEN).build();
+           }
             
-            return Response.ok(token).build();
+
+            //return Response.ok(token).build();
         } catch(Exception exp) {
             Logger.getLogger(AuthenticationTokenFacadeREST.class.getName()).log(Level.SEVERE, null, exp);
             return Response.status(Response.Status.FORBIDDEN).entity(exp.getMessage()).build();

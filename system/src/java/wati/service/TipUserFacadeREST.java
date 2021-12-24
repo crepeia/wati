@@ -132,6 +132,14 @@ public class TipUserFacadeREST extends AbstractFacade<TipUser> {
     @Produces(MediaType.APPLICATION_JSON)
     public TipUser read(TipUser entity) {
         TipUser newEntity = super.find(entity.getId());
+        
+        if(newEntity==null){
+            newEntity = new TipUser();     
+            newEntity.setUser(em.find(User.class, entity.getId().getUserId()));
+            newEntity.setTip(em.find(Tip.class, entity.getId().getTipId()));
+            newEntity.setDateCreated(new Date());
+            super.create(newEntity);
+        }
         newEntity.setReadByUser(true);
         super.edit(newEntity);
         return newEntity;

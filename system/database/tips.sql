@@ -29,7 +29,7 @@ VALUES
 ('Dica 25', 'Tente mudar sua rotina para evitar situações associadas ao hábito de fumar.', '3', '0'),
 ('Dica 26', 'Faça uma lista de razões pelas quais é importante você parar de fumar.', '2', '0'),
 ('Dica 27', 'Procure o apoio de grupos de pessoas que também estão tentando parar de fumar. Há grupos de ajuda na internet, inclusive Facebook', '4', '0'),
-('Dica 28', 'Evite comportamentos ou situações que reforcem o desejo de acender um cigarro.', '3', '0')
+('Dica 28', 'Evite comportamentos ou situações que reforcem o desejo de acender um cigarro.', '3', '0'),
 
 
 

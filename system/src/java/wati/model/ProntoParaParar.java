@@ -38,18 +38,18 @@ public class ProntoParaParar implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "enfrentar_fissura_beber_agua")
-    private boolean enfrentarFissuraBeberAgua;
+    private Boolean enfrentarFissuraBeberAgua;
     @Column(name = "enfrentar_fissura_comer")
-    private boolean enfrentarFissuraComer;
+    private Boolean enfrentarFissuraComer;
     @Column(name = "enfrentar_fissura_relaxamento")
-    private boolean enfrentarFissuraRelaxamento;
+    private Boolean enfrentarFissuraRelaxamento;
     @Column(name = "enfrentar_fissura_ler_razoes")
-    private boolean enfrentarFissuraLerRazoes;
+    private Boolean enfrentarFissuraLerRazoes;
     @Column(name = "data_parar")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataParar;
     @Column(name = "tentou_parar")
-    private boolean tentouParar;
+    private Boolean tentouParar;
     @Column(name = "evitar_recaida_1")
     private String evitarRecaida1;
     @Column(name = "evitar_recaida_2")
@@ -133,21 +133,21 @@ public class ProntoParaParar implements Serializable {
     private Integer ladder1;
 
     @Column(name = "pnad_a")
-    private boolean pnadA;
+    private Boolean pnadA;
     @Column(name = "pnad_b")
-    private boolean pnadB;
+    private Boolean pnadB;
     @Column(name = "pnad_c")
-    private boolean pnadC;
+    private Boolean pnadC;
     @Column(name = "pnad_d")
-    private boolean pnadD;
+    private Boolean pnadD;
     @Column(name = "pnad_e")
-    private boolean pnadE;
+    private Boolean pnadE;
     @Column(name = "pnad_f")
-    private boolean pnadF;
+    private Boolean pnadF;
     @Column(name = "pnad_g")
-    private boolean pnadG;
+    private Boolean pnadG;
     @Column(name = "pnad_h")
-    private boolean pnadH;
+    private Boolean pnadH;
 
     @Column(name = "follow_up_count")
     private Integer followUpCount;
@@ -179,56 +179,56 @@ public class ProntoParaParar implements Serializable {
     /**
      * @return the enfrentarFissuraBeberAgua
      */
-    public boolean isEnfrentarFissuraBeberAgua() {
+    public Boolean isEnfrentarFissuraBeberAgua() {
         return enfrentarFissuraBeberAgua;
     }
 
     /**
      * @param enfrentarFissuraBeberAgua the enfrentarFissuraBeberAgua to set
      */
-    public void setEnfrentarFissuraBeberAgua(boolean enfrentarFissuraBeberAgua) {
+    public void setEnfrentarFissuraBeberAgua(Boolean enfrentarFissuraBeberAgua) {
         this.enfrentarFissuraBeberAgua = enfrentarFissuraBeberAgua;
     }
 
     /**
      * @return the enfrentarFissuraComer
      */
-    public boolean isEnfrentarFissuraComer() {
+    public Boolean isEnfrentarFissuraComer() {
         return enfrentarFissuraComer;
     }
 
     /**
      * @param enfrentarFissuraComer the enfrentarFissuraComer to set
      */
-    public void setEnfrentarFissuraComer(boolean enfrentarFissuraComer) {
+    public void setEnfrentarFissuraComer(Boolean enfrentarFissuraComer) {
         this.enfrentarFissuraComer = enfrentarFissuraComer;
     }
 
     /**
      * @return the enfrentarFissuraRelaxamento
      */
-    public boolean isEnfrentarFissuraRelaxamento() {
+    public Boolean isEnfrentarFissuraRelaxamento() {
         return enfrentarFissuraRelaxamento;
     }
 
     /**
      * @param enfrentarFissuraRelaxamento the enfrentarFissuraRelaxamento to set
      */
-    public void setEnfrentarFissuraRelaxamento(boolean enfrentarFissuraRelaxamento) {
+    public void setEnfrentarFissuraRelaxamento(Boolean enfrentarFissuraRelaxamento) {
         this.enfrentarFissuraRelaxamento = enfrentarFissuraRelaxamento;
     }
 
     /**
      * @return the enfrentarFissuraLerRazoes
      */
-    public boolean isEnfrentarFissuraLerRazoes() {
+    public Boolean isEnfrentarFissuraLerRazoes() {
         return enfrentarFissuraLerRazoes;
     }
 
     /**
      * @param enfrentarFissuraLerRazoes the enfrentarFissuraLerRazoes to set
      */
-    public void setEnfrentarFissuraLerRazoes(boolean enfrentarFissuraLerRazoes) {
+    public void setEnfrentarFissuraLerRazoes(Boolean enfrentarFissuraLerRazoes) {
         this.enfrentarFissuraLerRazoes = enfrentarFissuraLerRazoes;
     }
 
@@ -270,14 +270,14 @@ public class ProntoParaParar implements Serializable {
     /**
      * @return the tentouParar
      */
-    public boolean isTentouParar() {
+    public Boolean isTentouParar() {
         return tentouParar;
     }
 
     /**
      * @param tentouParar the tentouParar to set
      */
-    public void setTentouParar(boolean tentouParar) {
+    public void setTentouParar(Boolean tentouParar) {
         this.tentouParar = tentouParar;
     }
 
@@ -650,67 +650,67 @@ public class ProntoParaParar implements Serializable {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public boolean isPnadA() {
+    public Boolean isPnadA() {
         return pnadA;
     }
 
-    public void setPnadA(boolean pnadA) {
+    public void setPnadA(Boolean pnadA) {
         this.pnadA = pnadA;
     }
 
-    public boolean isPnadB() {
+    public Boolean isPnadB() {
         return pnadB;
     }
 
-    public void setPnadB(boolean pnadB) {
+    public void setPnadB(Boolean pnadB) {
         this.pnadB = pnadB;
     }
 
-    public boolean isPnadC() {
+    public Boolean isPnadC() {
         return pnadC;
     }
 
-    public void setPnadC(boolean pnadC) {
+    public void setPnadC(Boolean pnadC) {
         this.pnadC = pnadC;
     }
 
-    public boolean isPnadD() {
+    public Boolean isPnadD() {
         return pnadD;
     }
 
-    public void setPnadD(boolean pnadD) {
+    public void setPnadD(Boolean pnadD) {
         this.pnadD = pnadD;
     }
 
-    public boolean isPnadE() {
+    public Boolean isPnadE() {
         return pnadE;
     }
 
-    public void setPnadE(boolean pnadE) {
+    public void setPnadE(Boolean pnadE) {
         this.pnadE = pnadE;
     }
 
-    public boolean isPnadF() {
+    public Boolean isPnadF() {
         return pnadF;
     }
 
-    public void setPnadF(boolean pnadF) {
+    public void setPnadF(Boolean pnadF) {
         this.pnadF = pnadF;
     }
 
-    public boolean isPnadG() {
+    public Boolean isPnadG() {
         return pnadG;
     }
 
-    public void setPnadG(boolean pnadG) {
+    public void setPnadG(Boolean pnadG) {
         this.pnadG = pnadG;
     }
 
-    public boolean isPnadH() {
+    public Boolean isPnadH() {
         return pnadH;
     }
 
-    public void setPnadH(boolean pnadH) {
+    public void setPnadH(Boolean pnadH) {
         this.pnadH = pnadH;
     }
 

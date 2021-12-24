@@ -37,6 +37,7 @@ import wati.model.User;
 import wati.persistence.GenericDAO;
 import wati.utility.EMailSSL;
 import wati.utility.Encrypter;
+import wati.utility.EncrypterException;
 import wati.utility.GenerateCode;
 
 /**
@@ -273,7 +274,13 @@ public class UserController extends BaseFormController<User> {
         try {
             if (!userList.isEmpty() && userList.get(0).getId() != 0) {
                 user = userList.get(0);
-                this.user.setPassword(Encrypter.encrypt(this.passwordd));
+                //this.user.setPassword(Encrypter.encrypt(this.passwordd));
+                
+                byte[] salt =  Encrypter.generateRandomSecureSalt(16);
+                this.user.setSalt(salt);
+                this.user.setPassword(Encrypter.hashPassword(this.passwordd, salt));
+                
+                
                 /*if (!Encrypter.compare(this.passwordd, this.user.getPassword())) {
                         //incluir criptografia da senha
                         this.user.setPassword(Encrypter.encrypt(this.passwordd));
@@ -288,25 +295,10 @@ public class UserController extends BaseFormController<User> {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
             }
 
-        } catch (InvalidKeyException ex) {
+        } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalBlockSizeException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (BadPaddingException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchAlgorithmException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchPaddingException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
         this.setPasswordAlter(user);
         this.getDaoBase().insertOrUpdate(user, this.getEntityManager());
     }
@@ -347,7 +339,14 @@ public class UserController extends BaseFormController<User> {
                     }
 
                 }*/
-                this.user.setPassword(Encrypter.encrypt(this.password));
+                
+                /*alteração para nova criptografia*/
+                byte[] salt =  Encrypter.generateRandomSecureSalt(16);
+                this.user.setSalt(salt);
+                this.user.setPassword(Encrypter.hashPassword(this.password, salt));
+                /*******/
+                
+                //this.user.setPassword(Encrypter.encrypt(this.password));
 
                 Locale locale = (Locale) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("locale");
                 if (locale == null) {
@@ -395,27 +394,10 @@ public class UserController extends BaseFormController<User> {
                 this.clear();
             }
 
-        } catch (InvalidKeyException ex) {
+        } catch (Exception ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalBlockSizeException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (BadPaddingException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchAlgorithmException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchPaddingException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } 
 
     }
 
@@ -457,22 +439,10 @@ public class UserController extends BaseFormController<User> {
                 editDia = 0;
             }
 
-        } catch (InvalidKeyException ex) {
+        } catch (EncrypterException ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalBlockSizeException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (BadPaddingException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchAlgorithmException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchPaddingException ex) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        }  catch (SQLException ex) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, this.getText("problemas.gravar.usuario"), null));
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
 

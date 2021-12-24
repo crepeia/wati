@@ -36,7 +36,7 @@ public class Scheduler {
         
     }
  
-    @Schedule(second = "0", minute = "0", hour = "0", dayOfWeek = "*")
+   /* @Schedule(second = "0", minute = "0", hour = "0", dayOfWeek = "*")
     public void midnigthTask() {
         Logger.getLogger(Scheduler.class.getName()).log(Level.INFO, "Midnight task running");
         contactController.sendScheduledEmails();
@@ -64,12 +64,18 @@ public class Scheduler {
     public void eveningTask() {
         Logger.getLogger(Scheduler.class.getName()).log(Level.INFO, "Evening task running");
         contactController.sendScheduledEmails();
-    }
+    }*/
     
     @Schedule(second = "0", minute = "5", hour = "1", dayOfWeek = "*")
     public void sendTips() {
         Logger.getLogger(Scheduler.class.getName()).log(Level.INFO, "WATI - Send Mobile Tips task running");
         mobileOptionsController.sendMobileTips();
     }
+    
+   /*@Schedule(second = "00", minute = "20", hour = "10", dayOfWeek = "*", persistent=false)
+    public void securityUpdate() {
+        Logger.getLogger(Scheduler.class.getName()).log(Level.INFO, "DB SECURITY UPDATE STARTING");
+        DBSecurityUpdate.run();     
+    }*/
 
 }

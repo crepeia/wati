@@ -33,6 +33,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Table(name = "tb_user")
 @XmlRootElement
 @NamedQueries({
+    @NamedQuery(name = "User.email", query = "SELECT u FROM User u WHERE u.email = :email"),
     @NamedQuery(name = "User.login", query = "SELECT u FROM User u WHERE u.email = :email AND u.password = :password"),
     @NamedQuery(name = "User.password", query = "SELECT u.password FROM User u WHERE u.email = :email AND u.password IS NOT NULL")
 
@@ -65,6 +66,8 @@ public class User implements Serializable {
     private Integer experimentalGroups;
     @Column(name = "phone")
     private String phone;
+     @Column(name = "salt")
+    private byte[] salt;
     
     @Column(name = "dt_cadastro")
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -114,10 +117,10 @@ public class User implements Serializable {
     private Boolean pesquisa_enviada;
 
     @Column(name = "app_signup")
-    private boolean app_signup;
+    private Boolean app_signup=false;
     
     @Column(name = "in_ranking")
-    private boolean inRanking;
+    private Boolean inRanking=false;
     
     @Column(name = "nickname")
     private String nickname;
@@ -191,6 +194,14 @@ public class User implements Serializable {
 
     public void setRecoverCode(Integer recoverCode) {
         this.recoverCode = recoverCode;
+    }
+    
+    public void setSalt(byte[] salt) {
+        this.salt = salt;
+    }
+    
+    public byte[] getSalt() {
+        return this.salt;
     }
     
 
