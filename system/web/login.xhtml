@@ -9,6 +9,7 @@
     <f:view locale="#{languageController.locale}">
         <h:head>
             <title>#{messages['login.pagetitle']}</title>
+            <script src="https://www.google.com/recaptcha/api.js" async="true" defer="true"></script>
             <w:head_comum />
         </h:head>
 
@@ -41,10 +42,13 @@
                                 </p:password>
                                 <p:watermark for="passwordTxt" value="#{messages['password']}" />
                             </div>	
+                            
+                            <div class="g-recaptcha" style="margin-top: 20px" data-sitekey="#{userController.getRecaptchaKey()}" data-callback="onRecaptchaSuccess"></div>
+                            <div id="recaptcha-error-container-4"></div>
 
                             <div class="row">
                                 <div class="col s12 m5 l5">
-                                    <p:commandButton styleClass="btn waves-effect waves-light"  id="entrarBtn" value="#{messages['signin']}" update="@form" actionListener="#{loginController.login}" ajax="false"/>
+                                    <p:commandButton styleClass="btn waves-effect waves-light"  id="entrarBtn" value="#{messages['signin']}" update="@form" actionListener="#{loginController.login}" ajax="false" onclick="return validateRecaptcha(4);"/>
                                 </div>
                                 <div class="col s12 m7 l7">                                    
                                     <h:outputLink value="enviar-email-senha.xhtml" style="position:relative; top: 12px;">#{messages['forgot.password']}</h:outputLink>
@@ -75,6 +79,7 @@
                             <h5>#{messages['program.h2.important']}</h5>
                             <p>#{messages['program.p.important']}</p>
                         </blockquote>
+                        
 
                         <div class="center"><br />
                             <p:button styleClass="btn waves-effect waves-light" value ="#{messages['register']}" outcome="cadastrar-nova-conta.xhtml"  />
@@ -88,6 +93,7 @@
 
             <!--Footer -->
             <w:footer />
+            <script src="resources/default/js/recaptcha.js"></script>
         </h:body>
     </f:view>
 </html>

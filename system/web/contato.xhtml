@@ -9,6 +9,7 @@
     <f:view locale="#{languageController.locale}">
         <h:head>
             <title>#{messages['program.titlepage']}</title>
+            <script src="https://www.google.com/recaptcha/api.js" async = "defer"></script>
             <w:head_comum />
         </h:head>
 
@@ -58,8 +59,11 @@
                     </div>
 
                     <p:messages id="messages" redisplay="true" globalOnly="true"/>
+                    
+                    <div class="g-recaptcha" style="margin-top: 20px" data-sitekey="#{userController.getRecaptchaKey()}" data-callback="onRecaptchaSuccess"></div>
+                    <div id="recaptcha-error-container-2"></div>
 
-                    <p:commandButton styleClass="btn waves-effect waves-light" value ="#{messages['send']}" update="@form" actionListener="#{contactController.sendContactFormEmail}">
+                    <p:commandButton styleClass="btn waves-effect waves-light" value ="#{messages['send']}" update="@form" actionListener="#{contactController.sendContactFormEmail}" onclick="return validateRecaptcha(2);">
                         <f:attribute name="email" value="#{email.value}" />
                         <f:attribute name="msg" value="#{msg.value}" />
                     </p:commandButton>
@@ -68,6 +72,7 @@
             </div>	
 
             <w:footer />
+            <script src="resources/default/js/recaptcha.js"></script>
         </h:body>
     </f:view>
 </html>

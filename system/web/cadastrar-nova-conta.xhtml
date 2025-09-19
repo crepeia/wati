@@ -9,6 +9,7 @@
     <f:view locale="#{languageController.locale}">
         <h:head>
             <title>#{messages['naccount.titlepage']}</title>
+            <script src="https://www.google.com/recaptcha/api.js" async = "defer"></script>
             <w:head_comum />
                    
             <!-- Facebook Pixel Code to track our adverts -->
@@ -208,6 +209,11 @@
                                     </h:selectOneRadio>
                                 </div>
                             </div>
+                            
+                            <div class="row">
+                                <div class="g-recaptcha" style="margin-top: 20px" data-sitekey="#{userController.getRecaptchaKey()}" data-callback="onRecaptchaSuccess"></div>
+                                <div id="recaptcha-error-container-1"></div>
+                            </div>
 
                             <div class="row">
                                 <!-- Validation Messages for Desktop-->
@@ -225,20 +231,21 @@
                                     <p:messages id="errorMessage" globalOnly="true" />
                                 </div>
                                 <div id="btn" class="col s12 m3 l3 center-on-small-only">
-                                    <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['register']}" update="@form" actionListener="#{userController.save}" onclick="javascript:ShowHide('HiddenDiv', 'btn');">
+                                    <!--<p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['register']}" update="@form" actionListener="#{userController.save}" onclick="javascript:ShowHide('HiddenDiv', 'btn');">-->
+                                    <p:commandButton  styleClass="waves-effect waves-light btn" id="saveBtn" value="#{messages['register']}" update="@form" actionListener="#{userController.save}" onclick="return validateRecaptcha(1);">
                                         <f:attribute name="object" value="#{userController.user}" />
                                         <f:attribute name="typeName" value="user" />
                                     </p:commandButton>
                                 </div>                               
                             </div>
 
-                            <div  style="display: none" id="HiddenDiv">
+<!--                            <div  style="display: none" id="HiddenDiv">
 
                                 <h6>#{messages['pleasewait']}</h6>
                                 <h:graphicImage url="resources/default/images/ajax-loader.gif" library="default" />  
 
 
-                            </div>
+                            </div>-->
 
                             <div class="row">
                                 <div class="col s12 m12 l12">
@@ -252,6 +259,7 @@
 
             <w:footer />
             
+            <script src="resources/default/js/recaptcha.js"></script>
             <script src="resources/default/js/inputmask/dist/jquery.inputmask.bundle.js"></script>
             <script language="JavaScript">
                 
