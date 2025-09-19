@@ -65,6 +65,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
     private String textoladder;
 
     private GenericDAO userDAO;
+    private EMailSSL eMailSSL;
 
     private Integer notification;
     private GregorianCalendar currentQuitDate;
@@ -89,6 +90,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
         try {
             this.daoBase = new GenericDAO<ProntoParaParar>(ProntoParaParar.class);
             userDAO = new GenericDAO<User>(User.class);
+            eMailSSL = new EMailSSL();
         } catch (NamingException ex) {
             String message = this.getText("mensagem.erro");
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
@@ -474,7 +476,7 @@ public class ProntoParaPararController extends BaseController<ProntoParaParar> {
             User user = (User) object;
 
             try {
-                String from = "contato@vivasemtabaco.com.br";
+                String from = eMailSSL.replaceEmail("contato@vivasemtabaco.com.br"); 
                 String to = user.getEmail();
                 String subject = this.getText("plano.wati2");
 

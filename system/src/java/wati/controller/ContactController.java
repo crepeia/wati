@@ -44,8 +44,6 @@ public class ContactController extends BaseController implements Serializable {
     private String htmlTemplate;
     private UserDAO userDAO;
     private GenericDAO prontoDAO;
-    
-    private final String SENDER = "contato@vivasemtabaco.com.br"; 
 
     public ContactController() {
         eMailSSL = new EMailSSL();
@@ -64,7 +62,7 @@ public class ContactController extends BaseController implements Serializable {
         String message = (String) event.getComponent().getAttributes().get("msg");
         Contact contact = new Contact();
         contact.setSender(email);
-        contact.setRecipient(SENDER);
+        contact.setRecipient(eMailSSL.replaceEmail("contato@vivasemtabaco.com.br"));
         contact.setSubject("Contato via formulario - " + email);
         contact.setContent(message);
         sendPlainTextEmail(contact);
@@ -74,7 +72,7 @@ public class ContactController extends BaseController implements Serializable {
     public void scheduleDifferentDateEmail(User user, Date date) {
         Contact contact = new Contact();
         contact.setUser(user);
-        contact.setSender(SENDER);
+        contact.setSender(eMailSSL.replaceEmail("contato@vivasemtabaco.com.br"));
         contact.setRecipient(user.getEmail());
         contact.setSubject("subject.email.followup");
         contact.setContent("msg.data.diferente1");
@@ -87,7 +85,7 @@ public class ContactController extends BaseController implements Serializable {
         for (int i = 1; i <= 3; i++) {
             contact = new Contact();
             contact.setUser(user);
-            contact.setSender(SENDER);
+            contact.setSender(eMailSSL.replaceEmail("contato@vivasemtabaco.com.br"));
             contact.setRecipient(user.getEmail());
             contact.setSubject("subject.email.followup");
             if (i == 1) {
@@ -112,7 +110,7 @@ public class ContactController extends BaseController implements Serializable {
         for (int i = 1; i <= 12; i++) {
             contact = new Contact();
             contact.setUser(user);
-            contact.setSender(SENDER);
+            contact.setSender(eMailSSL.replaceEmail("contato@vivasemtabaco.com.br"));
             contact.setRecipient(user.getEmail());
             contact.setSubject("subject.email.followup");
             contact.setContent("msg.mensal1");
@@ -127,7 +125,7 @@ public class ContactController extends BaseController implements Serializable {
     public void scheduleDaillyEmail(User user, Date date,int day) {
         Contact contact = new Contact();
         contact.setUser(user);
-        contact.setSender(SENDER);
+        contact.setSender(eMailSSL.replaceEmail("contato@vivasemtabaco.com.br"));
         contact.setRecipient(user.getEmail());
         contact.setSubject("subject.email.followup");
         contact.setContent("msg.email.twice." + ((day + 1) / 2));
@@ -141,7 +139,7 @@ public class ContactController extends BaseController implements Serializable {
     public void scheduleReaserach7DaysEmail(User user, Date date) {
         Contact contact = new Contact();
         contact.setUser(user);
-        contact.setSender(SENDER);
+        contact.setSender(eMailSSL.replaceEmail("contato@vivasemtabaco.com.br"));
         contact.setRecipient(user.getEmail());
         contact.setSubject("msg.1semana.r.subject");
         contact.setContent("msg.1semana.r.body");
@@ -155,7 +153,7 @@ public class ContactController extends BaseController implements Serializable {
     public void scheduleReaserachXMonthsEmail(User user, Date date, int months) {
         Contact contact = new Contact();
         contact.setUser(user);
-        contact.setSender(SENDER);
+        contact.setSender(eMailSSL.replaceEmail("contato@vivasemtabaco.com.br"));
         contact.setRecipient(user.getEmail());
         contact.setSubject("msg."+months+"mes.r.subject");
         contact.setContent("msg."+months+"mes.r.body");
@@ -172,7 +170,7 @@ public class ContactController extends BaseController implements Serializable {
             for (Contact c : contacts) {
                 Contact contact = new Contact();
                 contact.setUser(c.getUser());
-                contact.setSender(SENDER);
+                contact.setSender(eMailSSL.replaceEmail("contato@vivasemtabaco.com.br"));
                 contact.setRecipient(c.getRecipient());
                 contact.setSubject("msg.12mes.r.subject");
                 contact.setContent("msg.12mes.r.body");
@@ -192,7 +190,7 @@ public class ContactController extends BaseController implements Serializable {
     public void sendPesquisaSatisfacaoEmail(User user) {
         Contact contact = new Contact();
         contact.setUser(user);
-        contact.setSender(SENDER);
+        contact.setSender(eMailSSL.replaceEmail("contato@vivasemtabaco.com.br"));
         contact.setRecipient(user.getEmail());
         contact.setSubject("msg.satisfaction.header");
         contact.setContent("msg.pesquisa.satisfacao.body");
@@ -203,7 +201,7 @@ public class ContactController extends BaseController implements Serializable {
         ResourceBundle bundle = PropertyResourceBundle.getBundle("wati.utility.messages", new Locale(user.getPreferedLanguage()));
         
         String to = user.getEmail();
-        String from = "contato@vivasemtabaco.com.br";
+        String from = eMailSSL.replaceEmail("contato@vivasemtabaco.com.br"); 
         String subject = bundle.getString("subject.email.password");
         String body;
         body = bundle.getString("hello") + " " + user.getName() + "," + "\n"

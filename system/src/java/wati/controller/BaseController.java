@@ -21,6 +21,7 @@ import javax.naming.NamingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import wati.model.User;
+import wati.utility.AppServletContextListener;
 import wati.utility.EMailSSL;
 
 /**
@@ -151,4 +152,7 @@ public abstract class BaseController<T> implements Serializable {
         return null;
     }
 
+    public String getRecaptchaKey() {
+        return AppServletContextListener.getServletContext().getInitParameter("recaptchaKey");
+    }
 }

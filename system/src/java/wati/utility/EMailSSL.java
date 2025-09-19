@@ -10,6 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Date;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,6 +39,7 @@ public class EMailSSL {
     private Properties props;
     private Session session;
     private Authenticator authenticator;
+    private Object senderOrRecipient;
 
     public EMailSSL() {
         props = new Properties();
@@ -50,6 +52,7 @@ public class EMailSSL {
                             (String) props.get("mail.auth.password"));
                 }
             };
+            this.senderOrRecipient = props.getProperty("mail.smtp.mailer");
         } catch (IOException ex) {
             Logger.getLogger(EMailSSL.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -280,5 +283,12 @@ public class EMailSSL {
         String[] tags = {"#title", "#subtitle#", "#text#", "#footer#"};
         return tags;
     }
+    
+    public String replaceEmail(String senderOrRecipient) {
+        if(Objects.equals(this.senderOrRecipient, "")) {
+            return senderOrRecipient;
+        }
+        return (String)this.senderOrRecipient;
+    }  
 
 }

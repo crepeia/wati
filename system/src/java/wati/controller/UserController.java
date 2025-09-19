@@ -76,6 +76,7 @@ public class UserController extends BaseFormController<User> {
     private EntityManager entityManager = null;
 
     private GenericDAO dao = null;
+    private EMailSSL eMailSSL;
 
     @Inject
     private ContactController contactController;
@@ -137,6 +138,7 @@ public class UserController extends BaseFormController<User> {
 
         try {
             dao = new GenericDAO(User.class);
+            eMailSSL = new EMailSSL();
         } catch (NamingException ex) {
             Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -219,7 +221,7 @@ public class UserController extends BaseFormController<User> {
             } else {
                 String name_user = userList.get(0).getName();
                 String email_user = userList.get(0).getEmail();
-                String from = "contato@vivasemtabaco.com.br";
+                String from = eMailSSL.replaceEmail("contato@vivasemtabaco.com.br"); 
 
                 Logger.getLogger(UserController.class.getName()).log(Level.INFO, null, "User name: " + name_user + "\te-mail: " + email_user);
 
@@ -461,7 +463,7 @@ public class UserController extends BaseFormController<User> {
             } else {
                 String email_user = userList.get(0).getEmail();
                 String name_user = userList.get(0).getName();
-                String from = "contato@vivasemtabaco.com.br";
+                String from = eMailSSL.replaceEmail("contato@vivasemtabaco.com.br"); 
 
                 //Logger.getLogger(UserController.class.getName()).log(Level.INFO, null, "User name: " + name_user + "\te-mail: " + email_user);
                 String to = this.user.getEmail();
@@ -524,7 +526,7 @@ public class UserController extends BaseFormController<User> {
             } else {
                 String email_user = userList.get(0).getEmail();
                 String name_user = userList.get(0).getName();
-                String from = "contato@vivasemtabaco.com.br";
+                String from = eMailSSL.replaceEmail("contato@vivasemtabaco.com.br"); 
 
                 //Logger.getLogger(UserController.class.getName()).log(Level.INFO, null, "User name: " + name_user + "\te-mail: " + email_user);
                 String to = u.getEmail();

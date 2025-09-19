@@ -50,6 +50,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
     private static final int LIMITE_IGUALDADE_HORAS = 24;
     private String relapse;
     private Acompanhamento acompanhamento;
+    private EMailSSL eMailSSL;
 
     private StreamedContent lapsoRecaida;
 
@@ -60,6 +61,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
         //super(Acompanhamento.class);
         try {
             this.daoBase = new GenericDAO<>(Acompanhamento.class);
+            this.eMailSSL = new EMailSSL();
         } catch (NamingException ex) {
             String message = this.getText("message.error");
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, message, null));
@@ -148,7 +150,7 @@ public class ParouDeFumarController extends BaseController<Acompanhamento> {
             Acompanhamento a = this.getAcompanhamento();
 
             try {
-                String from = "contato@vivasemtabaco.com.br";
+                String from = eMailSSL.replaceEmail("contato@vivasemtabaco.com.br"); 
                 String to = user.getEmail();
                 String subject = this.getText("plano.wati");
                 
